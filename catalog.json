@@ -1,0 +1,3815 @@
+{
+  "metadata": {
+    "catalogVersion": "0.1-prototype",
+    "reviewDate": "2026-10-13",
+    "recordCount": 124,
+    "applicabilityDisclaimer": "Consulta assistida e protótipo visual. Não emite certificado, diagnóstico jurídico nem decisão automática de aplicabilidade. Confirmar categoria, massa, combustível/propulsão, fabricação/importação, novo projeto, volume, datas, exceções, anexos e atos modificadores.",
+    "components": [
+      {
+        "id": "vidros",
+        "label": "Vidros e limpadores"
+      },
+      {
+        "id": "pneus-rodas",
+        "label": "Pneus e rodas"
+      },
+      {
+        "id": "freios",
+        "label": "Freios e estabilidade"
+      },
+      {
+        "id": "iluminacao",
+        "label": "Iluminação e sinalização"
+      },
+      {
+        "id": "ocupantes",
+        "label": "Proteção dos ocupantes"
+      },
+      {
+        "id": "carroceria",
+        "label": "Carroceria e proteção externa"
+      },
+      {
+        "id": "retrovisores",
+        "label": "Retrovisores e visão traseira"
+      },
+      {
+        "id": "propulsao",
+        "label": "Propulsão e emissões"
+      },
+      {
+        "id": "eletronica",
+        "label": "Eletrônica, OBD e comandos"
+      },
+      {
+        "id": "identificacao",
+        "label": "Identificação e etiquetas"
+      },
+      {
+        "id": "veiculo-completo",
+        "label": "Veículo completo e processo"
+      }
+    ],
+    "stages": [
+      {
+        "id": "enquadramento",
+        "label": "Enquadramento do projeto"
+      },
+      {
+        "id": "componentes",
+        "label": "Componentes e conformidade"
+      },
+      {
+        "id": "emissoes",
+        "label": "Emissões e LCVM"
+      },
+      {
+        "id": "seguranca",
+        "label": "Segurança veicular"
+      },
+      {
+        "id": "mover",
+        "label": "Requisitos MOVER"
+      },
+      {
+        "id": "homologacao-cat",
+        "label": "Homologação e CAT"
+      },
+      {
+        "id": "registro",
+        "label": "Identificação e registro"
+      },
+      {
+        "id": "conformidade-producao",
+        "label": "Conformidade de produção"
+      }
+    ],
+    "stageCaveat": "Etapas são grupos de consulta. O desenho do fluxo não estabelece uma sequência universal nem implica que toda etapa se aplique a todo projeto.",
+    "source": "Catálogo temático de legislação automotiva brasileira com referências oficiais",
+    "countCaveat": "124 entradas documentais, incluindo retificações e referências relacionadas. Não são 124 normas com vigência ou aplicabilidade certificadas.",
+    "pendingReviews": [
+      {
+        "title": "Portaria GM/MDIC 277/2026",
+        "officialUrl": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-277-de-25-de-setembro-de-2026-735356486",
+        "note": "A referência indica alteração da Portaria 19/2026. O inteiro teor oficial e seus efeitos ainda precisam ser conferidos."
+      },
+      {
+        "title": "Retificação da Portaria Inmetro 845/2025 em 06/02/2026",
+        "note": "O inteiro teor da retificação de 06/02/2026 ainda precisa ser conferido."
+      },
+      {
+        "title": "Retificações da Portaria Inmetro 145/2022 em 2024",
+        "officialUrl": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=11%2F12%2F2024&jornal=515&pagina=68",
+        "note": "Retificações de 2024 requerem conferência do inteiro teor. Não tratar o texto-base de 2022 como consolidação atual."
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "mover-001",
+      "title": "Lei 14.902-2024 - Programa MOVER",
+      "agency": "MOVER",
+      "officialUrl": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2024/lei/l14902.htm",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "enquadramento",
+        "mover"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Programa, requisitos e incentivos. Texto-base do acervo. Consultar texto atualizado do Planalto, inclusive partes promulgadas após vetos.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "mover-002",
+      "title": "Decreto 12.435-2025 - Requisitos do MOVER",
+      "agency": "MOVER",
+      "officialUrl": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/decreto/d12435.htm",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "enquadramento",
+        "mover"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Comercialização de veículos novos e importação. Requisitos desde 01/06/2025. Compromissos de inventário e pegada até 31/12/2026; ciclo do berço ao túmulo a partir de 2027.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "mover-003",
+      "title": "Decreto 12.549-2025 - IPI Verde",
+      "agency": "MOVER",
+      "officialUrl": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/decreto/d12549.htm",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "enquadramento",
+        "mover"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Tributação diferenciada e veículo sustentável. Aplicação condicionada ao enquadramento do veículo; usar texto vigente e anexos.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "mover-004",
+      "title": "Portaria GM-MDIC 183-2025 - Veículo sustentável",
+      "agency": "MOVER",
+      "officialUrl": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-183-de-11-de-julho-de-2025-641538097",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "enquadramento",
+        "mover"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Registro do veículo sustentável. Aplicável a fabricantes e importadores elegíveis.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "mover-005",
+      "title": "Portaria GM-MDIC 213-2025 - Reciclabilidade",
+      "agency": "MOVER",
+      "officialUrl": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/programa-mover-1/legislacao-programa-mover",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "enquadramento",
+        "mover"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Reciclabilidade veicular. Observar fases, categorias e método dos anexos.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "mover-006",
+      "title": "Portaria GM-MDIC 215-2025 - Segurança",
+      "agency": "MOVER",
+      "officialUrl": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/programa-mover-1/legislacao-programa-mover",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "enquadramento",
+        "mover"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Desempenho estrutural e tecnologias assistivas. Observar cronograma e critérios dos anexos; não equivale a exigir todas as tecnologias de toda a frota.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "mover-007",
+      "title": "Portaria GM-MDIC 19-2026 - Eficiência energética - texto-base",
+      "agency": "MOVER",
+      "officialUrl": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2026",
+      "reviewDate": "2026-10-13",
+      "status": "Atenção: alteração ou retificação pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "propulsao"
+      ],
+      "componentLabels": [
+        "Propulsão e emissões"
+      ],
+      "topic": "Propulsão e emissões",
+      "stages": [
+        "enquadramento",
+        "mover"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "Portaria 277/2026"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Consumo energético e CO2 do poço à roda. Ler com Portaria 277/2026; esta cópia de janeiro não incorpora a alteração de setembro.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "mover-008",
+      "title": "Resolução CNPE 14-2025 - ICE e participação energética",
+      "agency": "MOVER",
+      "officialUrl": "https://www.gov.br/mme/pt-br/assuntos/conselhos-e-comites/cnpe/resolucoes-do-cnpe/2025",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "propulsao"
+      ],
+      "componentLabels": [
+        "Propulsão e emissões"
+      ],
+      "topic": "Propulsão e emissões",
+      "stages": [
+        "enquadramento",
+        "mover"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Valores para cálculo de emissões de CO2. O nome original dizia ICC; o ato fixa ICE. Usar como parâmetro do MOVER.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "mover-009",
+      "title": "Portaria GM-MDIC 43-2024 - Habilitação e compromissos",
+      "agency": "MOVER",
+      "officialUrl": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/programa-mover-1/legislacao-programa-mover",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "enquadramento",
+        "mover"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "Portaria 192/2025"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Empresas habilitadas aos incentivos. Ler em conjunto com atos posteriores, incluindo Portaria 192/2025.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "mover-010",
+      "title": "Portaria GM-MDIC 86-2024 - Autopeças não produzidas",
+      "agency": "MOVER",
+      "officialUrl": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/programa-mover-1/legislacao-programa-mover",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "enquadramento",
+        "mover"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Regime de autopeças não produzidas. Aplicação condicionada à habilitação e aos compromissos do regime.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "mover-011",
+      "title": "Decreto 12.214/2024",
+      "agency": "MOVER",
+      "officialUrl": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2024/decreto/d12214.htm",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "enquadramento",
+        "mover"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Incentivos e FNDIT. Regulamenta a Lei 14.902/2024 nos aspectos do regime de incentivos; consultar o texto oficial atualizado.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "mover-012",
+      "title": "Portaria GM/MDIC 176/2025",
+      "agency": "MOVER",
+      "officialUrl": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2025",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "enquadramento",
+        "mover"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Eficiência energética de pesados. Cronograma específico de implementação e divulgação de resultados.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "mover-013",
+      "title": "Portaria GM/MDIC 192/2025",
+      "agency": "MOVER",
+      "officialUrl": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2025",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "enquadramento",
+        "mover"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Dispêndios em pesquisa e desenvolvimento. Elegibilidade, prestação de informações e análise dos dispêndios das empresas habilitadas.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-014",
+      "title": "Resolução CONAMA nº 492.18 - Estabelece as fases PROCONVE L7 e L8",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/legislacao-emissoes",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "propulsao"
+      ],
+      "componentLabels": [
+        "Propulsão e emissões"
+      ],
+      "topic": "Propulsão e emissões",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Emissões e conformidade de produção. Integra o conjunto PROCONVE vigente; aplicar conforme fase, combustível e categoria. Ler com as alterações indicadas no índice.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-015",
+      "title": "INSTRUÇÃO NORMATIVA IBAMA Nº 20.25 - IUMPR DELAY",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.ibama.gov.br/component/legislacao/?legislacao=138749&view=legislacao",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "eletronica"
+      ],
+      "componentLabels": [
+        "Eletrônica, OBD e comandos"
+      ],
+      "topic": "Eletrônica, OBD e comandos",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "IN 23/2020",
+        "IN 20/2025"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Emissões e conformidade de produção. Conjunto OBDBr-3: IN 23/2020 e retificação, 7/2021, 20/2021, 25/2023, 16/2025 e 20/2025. A IN 20/2025 ajusta prazos IUMPR; relatório anual a partir de 2027.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-016",
+      "title": "INSTRUÇÃO NORMATIVA IBAMA Nº 16.25 - IUMPR",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.ibama.gov.br/component/legislacao/?legislacao=138749&view=legislacao",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "eletronica"
+      ],
+      "componentLabels": [
+        "Eletrônica, OBD e comandos"
+      ],
+      "topic": "Eletrônica, OBD e comandos",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "IN 23/2020",
+        "IN 20/2025"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Emissões e conformidade de produção. Conjunto OBDBr-3: IN 23/2020 e retificação, 7/2021, 20/2021, 25/2023, 16/2025 e 20/2025. A IN 20/2025 ajusta prazos IUMPR; relatório anual a partir de 2027.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-017",
+      "title": "IN Nº 5.24 - Procedimento para ACP",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.ibama.gov.br/component/legislacao/?legislacao=139386&view=legislacao",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "IN 19/2021"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Emissões e conformidade de produção. Vigente desde 01/07/2024; capítulo I exigível desde 01/01/2025. Revoga IN 19/2021 e 22/2022.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-018",
+      "title": "IN IBAMA Nº 28.23 - Emissões corporativas e gestão de créditos PL8",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.gov.br/ibama/pt-br/assuntos/notas/2026/ibama-divulga-balanco-geral-de-emissoes-corporativas-2013-proconve-l8-ano-base-2025",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "IN 23/2022",
+        "IN 28/2023"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Emissões e conformidade de produção. IN 23/2022 e retificação, com IN 28/2023: controle corporativo e créditos PROCONVE L8; aplicação atual confirmada pelo balanço Ibama de 2026.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-019",
+      "title": "IN IBAMA nº 25.23 - OBD Br 3 (altera IN 23.20)",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.ibama.gov.br/component/legislacao/?legislacao=138749&view=legislacao",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "eletronica"
+      ],
+      "componentLabels": [
+        "Eletrônica, OBD e comandos"
+      ],
+      "topic": "Eletrônica, OBD e comandos",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "IN 23/2020",
+        "IN 20/2025"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Emissões e conformidade de produção. Conjunto OBDBr-3: IN 23/2020 e retificação, 7/2021, 20/2021, 25/2023, 16/2025 e 20/2025. A IN 20/2025 ajusta prazos IUMPR; relatório anual a partir de 2027.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-020",
+      "title": "IN IBAMA nº 03.23 - Atualiza referências CONAMA 492.18",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/legislacao-emissoes",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "IN 3/2023",
+        "IN 11/2014"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Emissões e conformidade de produção. Ler com IN 3/2023, que atualiza referências e disposições das IN 11/2014, 26/2020, 29/2020 e 3/2021.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-021",
+      "title": "IN IBAMA nº 15.22 - Revisão NMOG",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/legislacao-emissoes",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "propulsao"
+      ],
+      "componentLabels": [
+        "Propulsão e emissões"
+      ],
+      "topic": "Propulsão e emissões",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "IN 22/2020"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Emissões e conformidade de produção. Conjunto NMOG: IN 22/2020 e retificação, 21/2021 e 15/2022.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-022",
+      "title": "IN IBAMA nº 23.22 - Controle das Emissões Corporativas L8 - Retificação 2023",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.gov.br/ibama/pt-br/assuntos/notas/2026/ibama-divulga-balanco-geral-de-emissoes-corporativas-2013-proconve-l8-ano-base-2025",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "IN 23/2022",
+        "IN 28/2023"
+      ],
+      "documentType": "retificacao",
+      "summary": "Emissões e conformidade de produção. IN 23/2022 e retificação, com IN 28/2023: controle corporativo e créditos PROCONVE L8; aplicação atual confirmada pelo balanço Ibama de 2026.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-023",
+      "title": "IN IBAMA nº 23.22 - Controle das Emissões Corporativas L8",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.gov.br/ibama/pt-br/assuntos/notas/2026/ibama-divulga-balanco-geral-de-emissoes-corporativas-2013-proconve-l8-ano-base-2025",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "IN 23/2022",
+        "IN 28/2023"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Emissões e conformidade de produção. IN 23/2022 e retificação, com IN 28/2023: controle corporativo e créditos PROCONVE L8; aplicação atual confirmada pelo balanço Ibama de 2026.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-024",
+      "title": "IN IBAMA nº 29.20 - Fator Ki",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/legislacao-emissoes",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "propulsao"
+      ],
+      "componentLabels": [
+        "Propulsão e emissões"
+      ],
+      "topic": "Propulsão e emissões",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "IN 3/2023",
+        "IN 11/2014"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Emissões e conformidade de produção. Ler com IN 3/2023, que atualiza referências e disposições das IN 11/2014, 26/2020, 29/2020 e 3/2021.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-025",
+      "title": "IN IBAMA nº 20.21 - OBDBr3 Diesel L8",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.ibama.gov.br/component/legislacao/?legislacao=138749&view=legislacao",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "eletronica"
+      ],
+      "componentLabels": [
+        "Eletrônica, OBD e comandos"
+      ],
+      "topic": "Eletrônica, OBD e comandos",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "IN 23/2020",
+        "IN 20/2025"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Emissões e conformidade de produção. Conjunto OBDBr-3: IN 23/2020 e retificação, 7/2021, 20/2021, 25/2023, 16/2025 e 20/2025. A IN 20/2025 ajusta prazos IUMPR; relatório anual a partir de 2027.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-026",
+      "title": "IN IBAMA nº 21.21 - NMOG (valores Etanol - L8)",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/legislacao-emissoes",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "propulsao"
+      ],
+      "componentLabels": [
+        "Propulsão e emissões"
+      ],
+      "topic": "Propulsão e emissões",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "IN 22/2020"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Emissões e conformidade de produção. Conjunto NMOG: IN 22/2020 e retificação, 21/2021 e 15/2022.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-027",
+      "title": "IN IBAMA nº 03.21 - RDE (Retificação)",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/legislacao-emissoes",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [],
+      "componentLabels": [],
+      "topic": "Consulta geral",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "IN 3/2023",
+        "IN 11/2014"
+      ],
+      "documentType": "retificacao",
+      "summary": "Emissões e conformidade de produção. Ler com IN 3/2023, que atualiza referências e disposições das IN 11/2014, 26/2020, 29/2020 e 3/2021.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-028",
+      "title": "IN IBAMA nº 07.21 - OBDBr3 (atualização para L8)",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.ibama.gov.br/component/legislacao/?legislacao=138749&view=legislacao",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "eletronica"
+      ],
+      "componentLabels": [
+        "Eletrônica, OBD e comandos"
+      ],
+      "topic": "Eletrônica, OBD e comandos",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "IN 23/2020",
+        "IN 20/2025"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Emissões e conformidade de produção. Conjunto OBDBr-3: IN 23/2020 e retificação, 7/2021, 20/2021, 25/2023, 16/2025 e 20/2025. A IN 20/2025 ajusta prazos IUMPR; relatório anual a partir de 2027.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-029",
+      "title": "IN IBAMA nº 23.20 - OBDBr3",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.ibama.gov.br/component/legislacao/?legislacao=138749&view=legislacao",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "eletronica"
+      ],
+      "componentLabels": [
+        "Eletrônica, OBD e comandos"
+      ],
+      "topic": "Eletrônica, OBD e comandos",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "IN 23/2020",
+        "IN 20/2025"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Emissões e conformidade de produção. Conjunto OBDBr-3: IN 23/2020 e retificação, 7/2021, 20/2021, 25/2023, 16/2025 e 20/2025. A IN 20/2025 ajusta prazos IUMPR; relatório anual a partir de 2027.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-030",
+      "title": "IN IBAMA nº 03.21 - RDE",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/legislacao-emissoes",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "propulsao"
+      ],
+      "componentLabels": [
+        "Propulsão e emissões"
+      ],
+      "topic": "Propulsão e emissões",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "IN 3/2023",
+        "IN 11/2014"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Emissões e conformidade de produção. Ler com IN 3/2023, que atualiza referências e disposições das IN 11/2014, 26/2020, 29/2020 e 3/2021.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-031",
+      "title": "IN IBAMA nº 26.20 - Procedimento de Emissões, Evaporativas e RVEP",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/legislacao-emissoes",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "propulsao"
+      ],
+      "componentLabels": [
+        "Propulsão e emissões"
+      ],
+      "topic": "Propulsão e emissões",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "IN 3/2023",
+        "IN 11/2014"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Emissões e conformidade de produção. Ler com IN 3/2023, que atualiza referências e disposições das IN 11/2014, 26/2020, 29/2020 e 3/2021.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-032",
+      "title": "IN IBAMA nº 23.20 - OBDBr3 (retificação)",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.ibama.gov.br/component/legislacao/?legislacao=138749&view=legislacao",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "eletronica"
+      ],
+      "componentLabels": [
+        "Eletrônica, OBD e comandos"
+      ],
+      "topic": "Eletrônica, OBD e comandos",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "IN 23/2020",
+        "IN 20/2025"
+      ],
+      "documentType": "retificacao",
+      "summary": "Emissões e conformidade de produção. Conjunto OBDBr-3: IN 23/2020 e retificação, 7/2021, 20/2021, 25/2023, 16/2025 e 20/2025. A IN 20/2025 ajusta prazos IUMPR; relatório anual a partir de 2027.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-033",
+      "title": "IN IBAMA nº 22.20 - NMOG (retificação)",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/legislacao-emissoes",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "propulsao"
+      ],
+      "componentLabels": [
+        "Propulsão e emissões"
+      ],
+      "topic": "Propulsão e emissões",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "IN 22/2020"
+      ],
+      "documentType": "retificacao",
+      "summary": "Emissões e conformidade de produção. Conjunto NMOG: IN 22/2020 e retificação, 21/2021 e 15/2022.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-034",
+      "title": "IN IBAMA nº 22.20 - NMOG",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/legislacao-emissoes",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "propulsao"
+      ],
+      "componentLabels": [
+        "Propulsão e emissões"
+      ],
+      "topic": "Propulsão e emissões",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "IN 22/2020"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Emissões e conformidade de produção. Conjunto NMOG: IN 22/2020 e retificação, 21/2021 e 15/2022.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-035",
+      "title": "IN IBAMA nº 11.14 - Ciclo Estrada (retificação)",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/legislacao-emissoes",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "propulsao"
+      ],
+      "componentLabels": [
+        "Propulsão e emissões"
+      ],
+      "topic": "Propulsão e emissões",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "IN 3/2023",
+        "IN 11/2014"
+      ],
+      "documentType": "retificacao",
+      "summary": "Emissões e conformidade de produção. Ler com IN 3/2023, que atualiza referências e disposições das IN 11/2014, 26/2020, 29/2020 e 3/2021.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-036",
+      "title": "IN IBAMA nº 11.14 - Ciclo Estrada",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/legislacao-emissoes",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "propulsao"
+      ],
+      "componentLabels": [
+        "Propulsão e emissões"
+      ],
+      "topic": "Propulsão e emissões",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "IN 3/2023",
+        "IN 11/2014"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Emissões e conformidade de produção. Ler com IN 3/2023, que atualiza referências e disposições das IN 11/2014, 26/2020, 29/2020 e 3/2021.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-037",
+      "title": "Resolução Conama 490/2018",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/programa-de-controle-de-emissoes-veiculares-proconve?trk=article-ssr-frontend-pulse_little-text-block",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "propulsao"
+      ],
+      "componentLabels": [
+        "Propulsão e emissões"
+      ],
+      "topic": "Propulsão e emissões",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "IN 20/2020"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "PROCONVE P8 - veículos pesados. Limites de gases e ruído; usar com IN 20/2020 e 18/2021.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-038",
+      "title": "Resolução Conama 493/2019",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/programa-de-controle-de-emissoes-veiculares-proconve?trk=article-ssr-frontend-pulse_little-text-block",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "propulsao"
+      ],
+      "componentLabels": [
+        "Propulsão e emissões"
+      ],
+      "topic": "Propulsão e emissões",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "IN 5/2024"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "PROMOT M5 - motociclos e similares. Aplicar às categorias do ato e respectivos procedimentos; ACP tratado também na IN 5/2024.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-039",
+      "title": "IN Ibama 20/2020",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/legislacao-emissoes",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "propulsao"
+      ],
+      "componentLabels": [
+        "Propulsão e emissões"
+      ],
+      "topic": "Propulsão e emissões",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "IN 18/2021"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Procedimentos PROCONVE P8. Ler com alteração pela IN 18/2021.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-040",
+      "title": "IN Ibama 18/2021",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.ibama.gov.br/component/legislacao/?legislacao=138780&view=legislacao",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "propulsao"
+      ],
+      "componentLabels": [
+        "Propulsão e emissões"
+      ],
+      "topic": "Propulsão e emissões",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "IN 20/2020"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Alteração dos procedimentos P8. Complementa IN 20/2020.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-041",
+      "title": "IN Ibama 21/2022",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/legislacao-emissoes",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "eletronica"
+      ],
+      "componentLabels": [
+        "Eletrônica, OBD e comandos"
+      ],
+      "topic": "Eletrônica, OBD e comandos",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Diagnose a bordo de motociclos. Procedimentos de certificação para o sistema OBDBr-M2. Não aplicar como regra de veículos leves de quatro rodas.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "ibama-042",
+      "title": "Lei 8.723/1993",
+      "agency": "IBAMA",
+      "officialUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8723.htm",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "propulsao"
+      ],
+      "componentLabels": [
+        "Propulsão e emissões"
+      ],
+      "topic": "Propulsão e emissões",
+      "stages": [
+        "emissoes",
+        "conformidade-producao"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Redução de emissões por veículos automotores. Base legal federal; consultar alterações e dispositivos vigentes no Planalto.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "inmetro-043",
+      "title": "Portaria Inmetro 34-2021 - Vidros de segurança",
+      "agency": "INMETRO",
+      "officialUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-342021",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "vidros"
+      ],
+      "componentLabels": [
+        "Vidros e limpadores"
+      ],
+      "topic": "Vidros e limpadores",
+      "stages": [
+        "componentes"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Vidros de segurança. Certificação compulsória dos produtos abrangidos; consultar retificações.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "inmetro-044",
+      "title": "Portaria Inmetro 169-2023 - PBE Veicular",
+      "agency": "INMETRO",
+      "officialUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1692023",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "componentes"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "PBE Veicular. Programa de avaliação de eficiência energética. Adesão do PBEV deve ser lida com a obrigação do MOVER; não confundir os regimes.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "inmetro-045",
+      "title": "Portaria Inmetro 145-2022 - Componentes automotivos",
+      "agency": "INMETRO",
+      "officialUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022",
+      "reviewDate": "2026-10-13",
+      "status": "Atenção: alteração ou retificação pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "freios",
+        "iluminacao",
+        "eletronica",
+        "propulsao",
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Freios e estabilidade",
+        "Iluminação e sinalização",
+        "Eletrônica, OBD e comandos",
+        "Propulsão e emissões",
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "componentes"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Componentes automotivos. Texto-base de 2022. Consultar retificações posteriores de 2024 indicadas na fonte; não é compilação atualizada.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "inmetro-046",
+      "title": "Portaria Inmetro 110-2022 - Componentes de baixo volume",
+      "agency": "INMETRO",
+      "officialUrl": "https://www.in.gov.br/en/web/dou/-/portaria-n-110-de-23-de-marco-de-2022-388635608",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "componentes"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Componentes de baixo volume. Regime específico para os componentes e limites definidos no ato.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "inmetro-047",
+      "title": "Portaria Inmetro 501-2021 - Rodas automotivas",
+      "agency": "INMETRO",
+      "officialUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-5012021",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "pneus-rodas"
+      ],
+      "componentLabels": [
+        "Pneus e rodas"
+      ],
+      "topic": "Pneus e rodas",
+      "stages": [
+        "componentes"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Rodas automotivas. Escopo e exclusões conforme regulamento e anexos.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "inmetro-048",
+      "title": "Portaria Inmetro 456-2021 - Fluido de freio",
+      "agency": "INMETRO",
+      "officialUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-4562021",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "freios"
+      ],
+      "componentLabels": [
+        "Freios e estabilidade"
+      ],
+      "topic": "Freios e estabilidade",
+      "stages": [
+        "componentes"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Fluido de freio. Aplicável aos produtos abrangidos pelo regulamento.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "inmetro-049",
+      "title": "Portaria Inmetro 379-2021 - Pneus novos - texto-base",
+      "agency": "INMETRO",
+      "officialUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-3792021",
+      "reviewDate": "2026-10-13",
+      "status": "Atenção: alteração ou retificação pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "pneus-rodas"
+      ],
+      "componentLabels": [
+        "Pneus e rodas"
+      ],
+      "topic": "Pneus e rodas",
+      "stages": [
+        "componentes"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "Portaria 845/2025"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Pneus novos - texto-base. Ler com retificação de 20/05/2022 e Portaria 845/2025; há retificação da 845 em 06/02/2026 cuja conferência direta ficou pendente.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "inmetro-050",
+      "title": "Portaria Inmetro 200-2021 - RGCP",
+      "agency": "INMETRO",
+      "officialUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/registro-de-objetos/qual-a-legislacao-relacionada-ao-registro-1",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "componentes"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "RGCP. Requisitos gerais utilizados com cada regulamento específico; não certificam isoladamente qualquer peça.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "inmetro-051",
+      "title": "Portaria Inmetro 845/2025",
+      "agency": "INMETRO",
+      "officialUrl": "https://www2.aladi.org/nsfaladi/normasTecnicas.nsf/ccc11adff39a6a9403257cf600683dc4/4c712108f849b94903258cc8006cab18/$FILE/INMETRO_ORD_845.pdf",
+      "reviewDate": "2026-10-13",
+      "status": "Atenção: alteração ou retificação pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "pneus-rodas"
+      ],
+      "componentLabels": [
+        "Pneus e rodas"
+      ],
+      "topic": "Pneus e rodas",
+      "stages": [
+        "componentes"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "Portaria 379/2021"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Alteração do regulamento de pneus novos. Complementa a Portaria 379/2021. Confirmada por comunicação oficial brasileira à ALADI. Consulta direta ao DOU e retificação de 06/02/2026 permaneceram pendentes.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais.",
+        "Cópia institucional hospedada pela ALADI. Confirmar também a publicação original, a redação atual e a retificação de 06/02/2026 no Diário Oficial ou Inmetro."
+      ]
+    },
+    {
+      "id": "inmetro-052",
+      "title": "Portaria Inmetro 33/2021",
+      "agency": "INMETRO",
+      "officialUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-332021",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "propulsao"
+      ],
+      "componentLabels": [
+        "Propulsão e emissões"
+      ],
+      "topic": "Propulsão e emissões",
+      "stages": [
+        "componentes"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Conversores catalíticos de reposição. Declaração do fornecedor compulsória. Propostas de revisão não equivalem a norma aprovada.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "inmetro-053",
+      "title": "Portaria Inmetro 258/2020",
+      "agency": "INMETRO",
+      "officialUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/registro-de-objetos/qual-a-legislacao-relacionada-ao-registro-1",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "componentes"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Registro de objetos. Regras de registro, quando exigido pelo regulamento do produto.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "inmetro-054",
+      "title": "Lei 9.933/1999",
+      "agency": "INMETRO",
+      "officialUrl": "https://www.planalto.gov.br/ccivil_03/leis/l9933.htm",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "componentes"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Competências e fiscalização de conformidade. Base legal do Inmetro; aplicar em conjunto com o regulamento específico do objeto.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-055",
+      "title": "Contran 1030.26 - Altera CONTRAN 242.07 Equipamentos Geradores de Imagem",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "eletronica"
+      ],
+      "componentLabels": [
+        "Eletrônica, OBD e comandos"
+      ],
+      "topic": "Eletrônica, OBD e comandos",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "Resolução 242/2007"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Alteração da Resolução 242/2007 vigente desde 18/08/2026.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-056",
+      "title": "Contran 1023.26 - Certificação uso exclusivo Fora de Estrada",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Certificação de veículos de uso exclusivo fora de estrada; não constitui autorização de circulação viária. PDF do acervo contém páginas do DOU com outros atos.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-057",
+      "title": "Contran 215.06 - Quebra-Mato",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "carroceria"
+      ],
+      "componentLabels": [
+        "Carroceria e proteção externa"
+      ],
+      "topic": "Carroceria e proteção externa",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-058",
+      "title": "Contran 997.23 - Altera 951-2022 Cintos de segurança, Ancoragem e Encosto de cabeça",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "ocupantes"
+      ],
+      "componentLabels": [
+        "Proteção dos ocupantes"
+      ],
+      "topic": "Proteção dos ocupantes",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "Resolução 951/2022"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Alteração da Resolução 951/2022; manter leitura conjunta.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-059",
+      "title": "Contran 993.23 - Equipamentos obrigatórios para a frota de veículos",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-060",
+      "title": "Contran 994.23 - Limites de pesos e dimensões para veículos",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "Resolução 882/2021"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Alteração da Resolução 882/2021; não substitui o regulamento completo de pesos e dimensões.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-061",
+      "title": "Contran 951.22 - Cintos de Segurança, Ancoragem e Apoio de Cabeça",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "ocupantes"
+      ],
+      "componentLabels": [
+        "Proteção dos ocupantes"
+      ],
+      "topic": "Proteção dos ocupantes",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "Resolução 997/2023"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Ler com Resolução 997/2023 e anexos.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-062",
+      "title": "Contran 970.22 - Iluminação e Sinalização",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao9702022.pdf",
+      "reviewDate": "2026-10-13",
+      "status": "Texto oficial localizado; aplicabilidade depende do projeto",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "iluminacao"
+      ],
+      "componentLabels": [
+        "Iluminação e sinalização"
+      ],
+      "topic": "Iluminação e sinalização",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "Resolução 1.024/2026"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Ler com Resolução 1.024/2026 e anexos oficiais.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-063",
+      "title": "Contran 969.22 - Placas de Identificação (PIV)",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "identificacao"
+      ],
+      "componentLabels": [
+        "Identificação e etiquetas"
+      ],
+      "topic": "Identificação e etiquetas",
+      "stages": [
+        "homologacao-cat",
+        "registro"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-064",
+      "title": "Contran 968.22 - Identificação de Veículos",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "identificacao"
+      ],
+      "componentLabels": [
+        "Identificação e etiquetas"
+      ],
+      "topic": "Identificação e etiquetas",
+      "stages": [
+        "homologacao-cat",
+        "registro"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Substituições das regras anteriores de identificação efetivas desde 01/01/2025.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-065",
+      "title": "Resolução CONTRAN n°967.22 - Critérios para a baixa do registro de veículos, bem como os prazos para efetivação.",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "homologacao-cat",
+        "registro"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-066",
+      "title": "Resolução CONTRAN n°966.22 - Requisitos técnicos dos espelhos retrovisores",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "retrovisores"
+      ],
+      "componentLabels": [
+        "Retrovisores e visão traseira"
+      ],
+      "topic": "Retrovisores e visão traseira",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-067",
+      "title": "Resolução CONTRAN n°963.22 - Requisitos mínimos de segurança para rodas especias",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "pneus-rodas"
+      ],
+      "componentLabels": [
+        "Pneus e rodas"
+      ],
+      "topic": "Pneus e rodas",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-068",
+      "title": "Resolução CONTRAN n°960.22 - Vidros",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "vidros"
+      ],
+      "componentLabels": [
+        "Vidros e limpadores"
+      ],
+      "topic": "Vidros e limpadores",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "Resolução 989/2022"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Ler com Resolução 989/2022; texto-base não incorpora automaticamente a alteração.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-069",
+      "title": "Resolução CONTRAN n°958.22 Os limites de emissões de gases e particulas,controle de gases do cárter",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "propulsao"
+      ],
+      "componentLabels": [
+        "Propulsão e emissões"
+      ],
+      "topic": "Propulsão e emissões",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-070",
+      "title": "Resolução CONTRAN n°964.22 - Air bag",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "ocupantes"
+      ],
+      "componentLabels": [
+        "Proteção dos ocupantes"
+      ],
+      "topic": "Proteção dos ocupantes",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-071",
+      "title": "Contran 954.22 - Controle de Estabilidade ESC",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "freios"
+      ],
+      "componentLabels": [
+        "Freios e estabilidade"
+      ],
+      "topic": "Freios e estabilidade",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "Deliberação 264/2022"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Ler com Deliberação 264/2022; cronograma por categoria/projeto.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-072",
+      "title": "Contran 949.22 - Impacto Lateral em Barreira e Poste",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "carroceria"
+      ],
+      "componentLabels": [
+        "Carroceria e proteção externa"
+      ],
+      "topic": "Carroceria e proteção externa",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Usar anexos e retificação disponíveis na fonte; cronograma conforme categoria e projeto.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-073",
+      "title": "Contran 937.22 - Engate para reboque",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "carroceria"
+      ],
+      "componentLabels": [
+        "Carroceria e proteção externa"
+      ],
+      "topic": "Carroceria e proteção externa",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-074",
+      "title": "Contran 936.22 - Aviso de não afivelamento do cinto",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "ocupantes"
+      ],
+      "componentLabels": [
+        "Proteção dos ocupantes"
+      ],
+      "topic": "Proteção dos ocupantes",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Usar também retificação disponível na fonte oficial.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-075",
+      "title": "Contran 924.22 - Espelhos retrovisores em Transportes Escolares",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "retrovisores"
+      ],
+      "componentLabels": [
+        "Retrovisores e visão traseira"
+      ],
+      "topic": "Retrovisores e visão traseira",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Usar também anexos e retificação disponíveis na fonte oficial.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-076",
+      "title": "Contran 916.22 - Modificações em veículos permitidas",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Ler com Resoluções 958/2022 e 1.021/2026 e sua retificação.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-077",
+      "title": "Contran 919.22 - Extintor de Incêndio",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-078",
+      "title": "Contran 915.22 - Sistemas de Freio e ABS",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9152022.pdf",
+      "reviewDate": "2026-10-13",
+      "status": "Texto oficial localizado; aplicabilidade depende do projeto",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "freios"
+      ],
+      "componentLabels": [
+        "Freios e estabilidade"
+      ],
+      "topic": "Freios e estabilidade",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-079",
+      "title": "Contran 913.22 - Uso de pneus e estepe",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "pneus-rodas"
+      ],
+      "componentLabels": [
+        "Pneus e rodas"
+      ],
+      "topic": "Pneus e rodas",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Usar anexos e retificação disponíveis na fonte oficial.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-080",
+      "title": "Contran 910.22 - Testes de Impacto 2024.2026",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "carroceria"
+      ],
+      "componentLabels": [
+        "Carroceria e proteção externa"
+      ],
+      "topic": "Carroceria e proteção externa",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "ATENÇÃO: arts. 2º e 3º tiveram vigência somente até 31/12/2025. Usar dispositivos aplicáveis desde 2026, anexos e retificação.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-081",
+      "title": "Contran 908.22 - Acionadores Janelas Energizadas",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "vidros"
+      ],
+      "componentLabels": [
+        "Vidros e limpadores"
+      ],
+      "topic": "Vidros e limpadores",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-082",
+      "title": "Contran 885.21 - Dobradiças e Fechaduras (2022.2024)",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "carroceria"
+      ],
+      "componentLabels": [
+        "Carroceria e proteção externa"
+      ],
+      "topic": "Carroceria e proteção externa",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-083",
+      "title": "Contran 888.21 - Sistema Antispray",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "carroceria"
+      ],
+      "componentLabels": [
+        "Carroceria e proteção externa"
+      ],
+      "topic": "Carroceria e proteção externa",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Consultar republicação do Anexo IV de 29/09/2022.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-084",
+      "title": "Contran 819.21 - Regras no uso de cadeirinha de criança",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "ocupantes"
+      ],
+      "componentLabels": [
+        "Proteção dos ocupantes"
+      ],
+      "topic": "Proteção dos ocupantes",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-085",
+      "title": "Contran 626.16 - Requisitos de segurança para veículos de transporte de Presos",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-086",
+      "title": "Contran 749.18 - Veículos movidos à propulsão híbrida, híbrida plug-in e elétrica (2023)",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7492018.pdf",
+      "reviewDate": "2026-10-13",
+      "status": "Texto oficial localizado; aplicabilidade depende do projeto",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "propulsao"
+      ],
+      "componentLabels": [
+        "Propulsão e emissões"
+      ],
+      "topic": "Propulsão e emissões",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-087",
+      "title": "Contran 752.18 - Proteção aos pedestres (2025.2030)",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "carroceria"
+      ],
+      "componentLabels": [
+        "Carroceria e proteção externa"
+      ],
+      "topic": "Carroceria e proteção externa",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Novos projetos: 01/01/2025. Demais veículos: 01/01/2030. Aplicação condicionada ao escopo e às dispensas.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-088",
+      "title": "Contran 758.18 - Localização, identificação e iluminação (2021)",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "eletronica"
+      ],
+      "componentLabels": [
+        "Eletrônica, OBD e comandos"
+      ],
+      "topic": "Eletrônica, OBD e comandos",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-089",
+      "title": "Contran 759.18 - Sistemas de alerta e monitoramento traseiro (2025.2027)",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "retrovisores"
+      ],
+      "componentLabels": [
+        "Retrovisores e visão traseira"
+      ],
+      "topic": "Retrovisores e visão traseira",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Novos projetos: 01/01/2025. Todos em produção: 01/01/2027, conforme escopo e dispensas.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-090",
+      "title": "Contran 764.18 - Buzina (2022)",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "eletronica"
+      ],
+      "componentLabels": [
+        "Eletrônica, OBD e comandos"
+      ],
+      "topic": "Eletrônica, OBD e comandos",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-091",
+      "title": "Contran 711.17 - Estabelece conteúdo mínimo do Manual Básico de Segurança no Trânsito",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-092",
+      "title": "Contran 498.14 - Flamabilidade de Materias",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "ocupantes"
+      ],
+      "componentLabels": [
+        "Proteção dos ocupantes"
+      ],
+      "topic": "Proteção dos ocupantes",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-093",
+      "title": "Contran 242.07 - Equipamentos geradores de imagens",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "eletronica"
+      ],
+      "componentLabels": [
+        "Eletrônica, OBD e comandos"
+      ],
+      "topic": "Eletrônica, OBD e comandos",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "Resolução 1.030/2026"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Ler com Resolução 1.030/2026.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-094",
+      "title": "Contran 224.07 - Limpador e Lavador Para-brisa",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "vidros"
+      ],
+      "componentLabels": [
+        "Vidros e limpadores"
+      ],
+      "topic": "Vidros e limpadores",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-095",
+      "title": "Portaria Senatran 990-2022 - Homologação CAT",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/portarias-2022",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "identificacao"
+      ],
+      "componentLabels": [
+        "Identificação e etiquetas"
+      ],
+      "topic": "Identificação e etiquetas",
+      "stages": [
+        "homologacao-cat",
+        "registro"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Homologação e código de marca-modelo-versão. Aplicável a fabricantes, importadores e equipamentos no escopo.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-096",
+      "title": "Portaria Senatran 1554-2022 - Rotulagem de segurança",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/portarias-2022",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "identificacao"
+      ],
+      "componentLabels": [
+        "Identificação e etiquetas"
+      ],
+      "topic": "Identificação e etiquetas",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Etiqueta Nacional de Segurança Veicular. Ler com requisitos MOVER e seus atos de desempenho e rotulagem.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-097",
+      "title": "Deliberação Contran 264-2022 - Cronograma ESC",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "freios"
+      ],
+      "componentLabels": [
+        "Freios e estabilidade"
+      ],
+      "topic": "Freios e estabilidade",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "Resolução 954/2022"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Alteração da Resolução 954/2022. Complemento necessário ao texto-base; consultar cronograma vigente.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-098",
+      "title": "Resolução Contran 1021/2026",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10212026.pdf",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "propulsao"
+      ],
+      "componentLabels": [
+        "Propulsão e emissões"
+      ],
+      "topic": "Propulsão e emissões",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "Resolução 916/2022"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Motor auxiliar em caminhões. Altera a Resolução 916/2022. Consultar também sua retificação.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-099",
+      "title": "Resolução Contran 1022/2026",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao10222026c.pdf",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "Resolução 573/2015"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Quadriciclos. Vigente desde publicação em 01/07/2026; revoga a Resolução 573/2015.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-100",
+      "title": "Resolução Contran 1024/2026",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao10242026c.pdf",
+      "reviewDate": "2026-10-13",
+      "status": "Texto oficial localizado; aplicabilidade depende do projeto",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "iluminacao"
+      ],
+      "componentLabels": [
+        "Iluminação e sinalização"
+      ],
+      "topic": "Iluminação e sinalização",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "Resolução 970/2022"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Iluminação e sinalização. Altera a Resolução 970/2022; vigência desde 01/07/2026.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-101",
+      "title": "Resolução Contran 1026/2026",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao10262026n.pdf",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "homologacao-cat",
+        "registro"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "RENAVE. Revoga 797/2020 e 818/2021. Vigente desde publicação; observar retificação, transições e cronograma operacional.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-102",
+      "title": "Resolução Contran 1027/2026",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao10272026.pdf",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "homologacao-cat",
+        "registro"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Registro, licenciamento e transferência. Vigente desde publicação; revoga 809/2020, 817/2021 e 999/2023. Preserva documentos anteriores nos termos do art. 59.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-103",
+      "title": "Resolução Contran 1015/2024",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "Resolução 882/2021"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Pesos e dimensões - propulsões alternativas. Altera a Resolução 882/2021 para os veículos e eixos definidos no ato.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-104",
+      "title": "Resolução Contran 882/2021",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Pesos e dimensões. Consultar texto e alterações pelas Resoluções 899/2022, 994/2023 e 1.015/2024; ver também Deliberação 270.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-105",
+      "title": "Resolução Contran 989/2022",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "vidros"
+      ],
+      "componentLabels": [
+        "Vidros e limpadores"
+      ],
+      "topic": "Vidros e limpadores",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "Resolução 960/2022"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Vidros e visibilidade. Complemento da Resolução 960/2022.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-106",
+      "title": "Resolução Contran 37/1998",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "eletronica"
+      ],
+      "componentLabels": [
+        "Eletrônica, OBD e comandos"
+      ],
+      "topic": "Eletrônica, OBD e comandos",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "Resolução 988/2022"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Alarmes veiculares. Ler com Resolução 988/2022.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-107",
+      "title": "Resolução Contran 988/2022",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "eletronica"
+      ],
+      "componentLabels": [
+        "Eletrônica, OBD e comandos"
+      ],
+      "topic": "Eletrônica, OBD e comandos",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "Resolução 37/1998"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Alteração de alarmes veiculares. Complemento da Resolução 37/1998.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-108",
+      "title": "Resolução Contran 953/2022",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "carroceria"
+      ],
+      "componentLabels": [
+        "Carroceria e proteção externa"
+      ],
+      "topic": "Carroceria e proteção externa",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "Resolução 987/2022"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Proteção lateral. Ler com Resolução 987/2022 e anexos.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-109",
+      "title": "Resolução Contran 987/2022",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "carroceria"
+      ],
+      "componentLabels": [
+        "Carroceria e proteção externa"
+      ],
+      "topic": "Carroceria e proteção externa",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "Resolução 953/2022"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Alteração da proteção lateral. Complemento da Resolução 953/2022.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-110",
+      "title": "Resolução Contran 952/2022",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "carroceria"
+      ],
+      "componentLabels": [
+        "Carroceria e proteção externa"
+      ],
+      "topic": "Carroceria e proteção externa",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Proteção traseira. Requisitos conforme tipo de veículo e anexos.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-111",
+      "title": "Resolução Contran 948/2022",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "iluminacao"
+      ],
+      "componentLabels": [
+        "Iluminação e sinalização"
+      ],
+      "topic": "Iluminação e sinalização",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "Resolução 981/2022"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Dispositivos retrorrefletivos. Ler com Resolução 981/2022.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-112",
+      "title": "Resolução Contran 981/2022",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "iluminacao"
+      ],
+      "componentLabels": [
+        "Iluminação e sinalização"
+      ],
+      "topic": "Iluminação e sinalização",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [
+        "Resolução 948/2022"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Alteração de retrorrefletivos. Complemento da Resolução 948/2022.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-113",
+      "title": "Resolução Contran 955/2022",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "carroceria"
+      ],
+      "componentLabels": [
+        "Carroceria e proteção externa"
+      ],
+      "topic": "Carroceria e proteção externa",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Bicicletas e cargas externas. Automóveis, caminhonetes, camionetas e utilitários abrangidos.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-114",
+      "title": "Resolução Contran 956/2022",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "propulsao"
+      ],
+      "componentLabels": [
+        "Propulsão e emissões"
+      ],
+      "topic": "Propulsão e emissões",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Eixo elétrico em semirreboque. Aplicação específica aos sistemas e condições autorizados.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-115",
+      "title": "Resolução Contran 959/2022",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Ônibus e micro-ônibus M3. Requisitos de segurança e anexos.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-116",
+      "title": "Resolução Contran 939/2022",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Micro-ônibus M2. Requisitos de segurança; consultar anexos e retificação.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-117",
+      "title": "Resolução Contran 938/2022",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "eletronica"
+      ],
+      "componentLabels": [
+        "Eletrônica, OBD e comandos"
+      ],
+      "topic": "Eletrônica, OBD e comandos",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Cronotacógrafo. Requisitos técnicos, conforme enquadramento do veículo.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-118",
+      "title": "Resolução Contran 921/2022",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "propulsao"
+      ],
+      "componentLabels": [
+        "Propulsão e emissões"
+      ],
+      "topic": "Propulsão e emissões",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Tanques de combustível. Múltiplos tanques, tanque suplementar e alteração da capacidade original.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-119",
+      "title": "Resolução Contran 922/2022",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "homologacao-cat",
+        "registro"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Certificado de Segurança Veicular. Procedimentos de ITL e ETP para emissão de CSV.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-120",
+      "title": "Resolução Contran 996/2023",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Ciclomotores, bicicletas elétricas e autopropelidos. Classificação e requisitos; distinguir veículos automotores das demais categorias.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-121",
+      "title": "Resolução Contran 911/2022",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "homologacao-cat",
+        "registro"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Trânsito antes do registro. Veículos novos e hipóteses específicas de deslocamento e remonta.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-122",
+      "title": "Portaria Senatran 1053/2022",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/portarias-2022",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "identificacao"
+      ],
+      "componentLabels": [
+        "Identificação e etiquetas"
+      ],
+      "topic": "Identificação e etiquetas",
+      "stages": [
+        "homologacao-cat",
+        "registro"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Identificação veicular e ano-modelo. Substitui Portarias 17/2000 e 23/2001 a partir de 01/01/2025; consultar anexos.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-123",
+      "title": "Portaria Senatran 989/2022",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/portarias-2022",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "identificacao"
+      ],
+      "componentLabels": [
+        "Identificação e etiquetas"
+      ],
+      "topic": "Identificação e etiquetas",
+      "stages": [
+        "homologacao-cat",
+        "registro"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Equipamentos rodoviários. Concessão de CAT para equipamentos rodoviários e respectivo CCT.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    },
+    {
+      "id": "senatran-124",
+      "title": "Lei 9.503/1997 - CTB",
+      "agency": "SENATRAN",
+      "officialUrl": "https://www.planalto.gov.br/ccivil_03/leis/l9503compilado.htm",
+      "reviewDate": "2026-10-13",
+      "status": "Indexado; conferência normativa pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "seguranca",
+        "homologacao-cat"
+      ],
+      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "amendingRefs": [],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Código de Trânsito Brasileiro. Texto compilado; base de segurança, identificação, registro, modificações e homologação.",
+      "availability": "Referência oficial para consulta",
+      "uncertaintyNotes": [
+        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ]
+    }
+  ]
+}
