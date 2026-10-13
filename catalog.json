@@ -7,7 +7,7 @@
     "components": [
       {
         "id": "vidros",
-        "label": "Vidros e limpadores"
+        "label": "Vidros e visibilidade"
       },
       {
         "id": "pneus-rodas",
@@ -39,15 +39,31 @@
       },
       {
         "id": "eletronica",
-        "label": "Eletrônica, OBD e comandos"
+        "label": "Eletrônica e comandos"
       },
       {
         "id": "identificacao",
-        "label": "Identificação e etiquetas"
+        "label": "Identificação do veículo"
       },
       {
-        "id": "veiculo-completo",
-        "label": "Veículo completo e processo"
+        "id": "chassi",
+        "label": "Suspensão e direção"
+      },
+      {
+        "id": "processos",
+        "label": "Homologação e conformidade"
+      },
+      {
+        "id": "corporativo",
+        "label": "Programas e obrigações corporativas"
+      },
+      {
+        "id": "regras-gerais",
+        "label": "Regras gerais e categorias"
+      },
+      {
+        "id": "classificar",
+        "label": "Classificação pendente"
       }
     ],
     "stages": [
@@ -102,7 +118,283 @@
         "officialUrl": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=11%2F12%2F2024&jornal=515&pagina=68",
         "note": "Retificações de 2024 requerem conferência do inteiro teor. Não tratar o texto-base de 2022 como consolidação atual."
       }
-    ]
+    ],
+    "hierarchy": [
+      {
+        "id": "vidros",
+        "label": "Vidros e visibilidade",
+        "physical": true,
+        "children": [
+          {
+            "id": "vidros/vidros",
+            "label": "Vidros e transparência"
+          },
+          {
+            "id": "vidros/limpadores",
+            "label": "Limpadores e lavadores"
+          },
+          {
+            "id": "vidros/janelas",
+            "label": "Acionamento de janelas"
+          }
+        ]
+      },
+      {
+        "id": "pneus-rodas",
+        "label": "Pneus e rodas",
+        "physical": true,
+        "children": [
+          {
+            "id": "pneus-rodas/pneus",
+            "label": "Pneus e estepe"
+          },
+          {
+            "id": "pneus-rodas/rodas",
+            "label": "Rodas e requisitos"
+          }
+        ]
+      },
+      {
+        "id": "freios",
+        "label": "Freios e estabilidade",
+        "physical": true,
+        "children": [
+          {
+            "id": "freios/frenagem",
+            "label": "Frenagem, ABS e componentes"
+          },
+          {
+            "id": "freios/estabilidade",
+            "label": "Controle de estabilidade"
+          },
+          {
+            "id": "freios/fluido",
+            "label": "Fluido de freio"
+          }
+        ]
+      },
+      {
+        "id": "iluminacao",
+        "label": "Iluminação e sinalização",
+        "physical": true,
+        "children": [
+          {
+            "id": "iluminacao/dispositivos",
+            "label": "Dispositivos e instalação"
+          },
+          {
+            "id": "iluminacao/componentes",
+            "label": "Componentes de iluminação"
+          }
+        ]
+      },
+      {
+        "id": "ocupantes",
+        "label": "Proteção dos ocupantes",
+        "physical": true,
+        "children": [
+          {
+            "id": "ocupantes/cintos",
+            "label": "Cintos, ancoragem e apoios"
+          },
+          {
+            "id": "ocupantes/airbag",
+            "label": "Airbags"
+          },
+          {
+            "id": "ocupantes/criancas",
+            "label": "Retenção infantil"
+          },
+          {
+            "id": "ocupantes/materiais",
+            "label": "Materiais do habitáculo"
+          }
+        ]
+      },
+      {
+        "id": "carroceria",
+        "label": "Carroceria e proteção externa",
+        "physical": true,
+        "children": [
+          {
+            "id": "carroceria/impactos",
+            "label": "Impactos e pedestres"
+          },
+          {
+            "id": "carroceria/fechaduras",
+            "label": "Portas, dobradiças e fechaduras"
+          },
+          {
+            "id": "carroceria/acessorios",
+            "label": "Acessórios e proteção externa"
+          }
+        ]
+      },
+      {
+        "id": "retrovisores",
+        "label": "Retrovisores e visão traseira",
+        "physical": true,
+        "children": [
+          {
+            "id": "retrovisores/espelhos",
+            "label": "Espelhos e visão indireta"
+          },
+          {
+            "id": "retrovisores/monitoramento",
+            "label": "Monitoramento traseiro"
+          }
+        ]
+      },
+      {
+        "id": "propulsao",
+        "label": "Propulsão e emissões",
+        "physical": true,
+        "children": [
+          {
+            "id": "propulsao/emissoes",
+            "label": "Emissões e ensaios"
+          },
+          {
+            "id": "propulsao/eletrica",
+            "label": "Propulsão elétrica e bateria"
+          },
+          {
+            "id": "propulsao/combustiveis",
+            "label": "Combustíveis e eficiência"
+          },
+          {
+            "id": "propulsao/componentes",
+            "label": "Componentes do motor"
+          }
+        ]
+      },
+      {
+        "id": "eletronica",
+        "label": "Eletrônica e comandos",
+        "physical": true,
+        "children": [
+          {
+            "id": "eletronica/obd",
+            "label": "Diagnóstico e OBD"
+          },
+          {
+            "id": "eletronica/imagens",
+            "label": "Telas e imagens"
+          },
+          {
+            "id": "eletronica/comandos",
+            "label": "Comandos, sinal sonoro e outros"
+          }
+        ]
+      },
+      {
+        "id": "identificacao",
+        "label": "Identificação do veículo",
+        "physical": true,
+        "children": [
+          {
+            "id": "identificacao/placas",
+            "label": "Placas de identificação"
+          },
+          {
+            "id": "identificacao/vin",
+            "label": "Identificação e marcações"
+          },
+          {
+            "id": "identificacao/rotulagem",
+            "label": "Rotulagem e informação"
+          }
+        ]
+      },
+      {
+        "id": "chassi",
+        "label": "Suspensão e direção",
+        "physical": true,
+        "children": [
+          {
+            "id": "chassi/componentes",
+            "label": "Componentes de suspensão e direção"
+          }
+        ]
+      },
+      {
+        "id": "processos",
+        "label": "Homologação e conformidade",
+        "physical": false,
+        "children": [
+          {
+            "id": "processos/homologacao",
+            "label": "CAT, CSV e certificação"
+          },
+          {
+            "id": "processos/conformidade",
+            "label": "Conformidade e registro de produtos"
+          },
+          {
+            "id": "processos/producao",
+            "label": "Conformidade de produção"
+          }
+        ]
+      },
+      {
+        "id": "corporativo",
+        "label": "Programas e obrigações corporativas",
+        "physical": false,
+        "children": [
+          {
+            "id": "corporativo/mover",
+            "label": "MOVER, habilitação e incentivos"
+          },
+          {
+            "id": "corporativo/ambiental",
+            "label": "Emissões corporativas e créditos"
+          },
+          {
+            "id": "corporativo/eficiencia",
+            "label": "Eficiência, reciclagem e sustentabilidade"
+          }
+        ]
+      },
+      {
+        "id": "regras-gerais",
+        "label": "Regras gerais e categorias",
+        "physical": false,
+        "children": [
+          {
+            "id": "regras-gerais/registro",
+            "label": "Registro, licenciamento e trânsito"
+          },
+          {
+            "id": "regras-gerais/categorias",
+            "label": "Categorias e usos específicos"
+          },
+          {
+            "id": "regras-gerais/dimensoes",
+            "label": "Pesos e dimensões"
+          },
+          {
+            "id": "regras-gerais/equipamentos",
+            "label": "Equipamentos e informação geral"
+          },
+          {
+            "id": "regras-gerais/base",
+            "label": "Base legal e regras transversais"
+          }
+        ]
+      },
+      {
+        "id": "classificar",
+        "label": "Classificação pendente",
+        "physical": false,
+        "children": [
+          {
+            "id": "classificar/revisar",
+            "label": "Assunto a revisar"
+          }
+        ]
+      }
+    ],
+    "taxonomyNote": "Os 124 registros têm pelo menos uma associação temática. Um documento pode aparecer em vários sistemas. Regras corporativas, fiscais e de processo ficam fora do desenho. A geometria é ilustrativa, não uma identificação técnica de peça ou modelo."
   },
   "records": [
     {
@@ -125,13 +417,16 @@
         "enquadramento",
         "mover"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Programa, requisitos e incentivos. Texto-base do acervo. Consultar texto atualizado do Planalto, inclusive partes promulgadas após vetos.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "corporativo/mover"
       ]
     },
     {
@@ -154,13 +449,16 @@
         "enquadramento",
         "mover"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Comercialização de veículos novos e importação. Requisitos desde 01/06/2025. Compromissos de inventário e pegada até 31/12/2026; ciclo do berço ao túmulo a partir de 2027.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "corporativo/mover"
       ]
     },
     {
@@ -183,13 +481,16 @@
         "enquadramento",
         "mover"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Tributação diferenciada e veículo sustentável. Aplicação condicionada ao enquadramento do veículo; usar texto vigente e anexos.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "corporativo/eficiencia"
       ]
     },
     {
@@ -212,13 +513,16 @@
         "enquadramento",
         "mover"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Registro do veículo sustentável. Aplicável a fabricantes e importadores elegíveis.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "corporativo/eficiencia"
       ]
     },
     {
@@ -241,13 +545,16 @@
         "enquadramento",
         "mover"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Reciclabilidade veicular. Observar fases, categorias e método dos anexos.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "corporativo/eficiencia"
       ]
     },
     {
@@ -270,13 +577,16 @@
         "enquadramento",
         "mover"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Desempenho estrutural e tecnologias assistivas. Observar cronograma e critérios dos anexos; não equivale a exigir todas as tecnologias de toda a frota.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "corporativo/mover"
       ]
     },
     {
@@ -299,7 +609,7 @@
         "enquadramento",
         "mover"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "Portaria 277/2026"
       ],
@@ -308,6 +618,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "propulsao/combustiveis"
       ]
     },
     {
@@ -330,13 +643,16 @@
         "enquadramento",
         "mover"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Valores para cálculo de emissões de CO2. O nome original dizia ICC; o ato fixa ICE. Usar como parâmetro do MOVER.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "propulsao/combustiveis"
       ]
     },
     {
@@ -359,7 +675,7 @@
         "enquadramento",
         "mover"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "Portaria 192/2025"
       ],
@@ -368,6 +684,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "corporativo/mover"
       ]
     },
     {
@@ -390,13 +709,16 @@
         "enquadramento",
         "mover"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Regime de autopeças não produzidas. Aplicação condicionada à habilitação e aos compromissos do regime.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "corporativo/mover"
       ]
     },
     {
@@ -419,13 +741,16 @@
         "enquadramento",
         "mover"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Incentivos e FNDIT. Regulamenta a Lei 14.902/2024 nos aspectos do regime de incentivos; consultar o texto oficial atualizado.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "corporativo/mover"
       ]
     },
     {
@@ -448,13 +773,16 @@
         "enquadramento",
         "mover"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Eficiência energética de pesados. Cronograma específico de implementação e divulgação de resultados.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "corporativo/eficiencia"
       ]
     },
     {
@@ -477,13 +805,16 @@
         "enquadramento",
         "mover"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Dispêndios em pesquisa e desenvolvimento. Elegibilidade, prestação de informações e análise dos dispêndios das empresas habilitadas.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "corporativo/mover"
       ]
     },
     {
@@ -506,13 +837,16 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Emissões e conformidade de produção. Integra o conjunto PROCONVE vigente; aplicar conforme fase, combustível e categoria. Ler com as alterações indicadas no índice.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "propulsao/combustiveis"
       ]
     },
     {
@@ -535,7 +869,7 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "IN 23/2020",
         "IN 20/2025"
@@ -545,6 +879,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "eletronica/obd"
       ]
     },
     {
@@ -567,7 +904,7 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "IN 23/2020",
         "IN 20/2025"
@@ -577,6 +914,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "eletronica/obd"
       ]
     },
     {
@@ -599,7 +939,7 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "IN 19/2021"
       ],
@@ -608,6 +948,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "processos/producao"
       ]
     },
     {
@@ -630,7 +973,7 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "IN 23/2022",
         "IN 28/2023"
@@ -640,6 +983,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "corporativo/ambiental"
       ]
     },
     {
@@ -662,7 +1008,7 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "IN 23/2020",
         "IN 20/2025"
@@ -672,6 +1018,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "eletronica/obd"
       ]
     },
     {
@@ -694,7 +1043,7 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "IN 3/2023",
         "IN 11/2014"
@@ -704,6 +1053,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "processos/producao"
       ]
     },
     {
@@ -726,7 +1078,7 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "IN 22/2020"
       ],
@@ -735,6 +1087,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "propulsao/emissoes"
       ]
     },
     {
@@ -757,7 +1112,7 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "IN 23/2022",
         "IN 28/2023"
@@ -767,6 +1122,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "corporativo/ambiental"
       ]
     },
     {
@@ -789,7 +1147,7 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "IN 23/2022",
         "IN 28/2023"
@@ -799,6 +1157,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "corporativo/ambiental"
       ]
     },
     {
@@ -821,7 +1182,7 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "IN 3/2023",
         "IN 11/2014"
@@ -831,6 +1192,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "propulsao/emissoes"
       ]
     },
     {
@@ -853,7 +1217,7 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "IN 23/2020",
         "IN 20/2025"
@@ -863,6 +1227,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "eletronica/obd"
       ]
     },
     {
@@ -885,7 +1252,7 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "IN 22/2020"
       ],
@@ -894,6 +1261,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "propulsao/emissoes"
       ]
     },
     {
@@ -905,14 +1275,18 @@
       "status": "Indexado; conferência normativa pendente",
       "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
       "verifiedCurrent": false,
-      "components": [],
-      "componentLabels": [],
+      "components": [
+        "propulsao"
+      ],
+      "componentLabels": [
+        "Propulsão e emissões"
+      ],
       "topic": "Consulta geral",
       "stages": [
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "IN 3/2023",
         "IN 11/2014"
@@ -922,6 +1296,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "propulsao/emissoes"
       ]
     },
     {
@@ -944,7 +1321,7 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "IN 23/2020",
         "IN 20/2025"
@@ -954,6 +1331,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "eletronica/obd"
       ]
     },
     {
@@ -976,7 +1356,7 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "IN 23/2020",
         "IN 20/2025"
@@ -986,6 +1366,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "eletronica/obd"
       ]
     },
     {
@@ -1008,7 +1391,7 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "IN 3/2023",
         "IN 11/2014"
@@ -1018,6 +1401,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "propulsao/emissoes"
       ]
     },
     {
@@ -1040,7 +1426,7 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "IN 3/2023",
         "IN 11/2014"
@@ -1050,6 +1436,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "propulsao/emissoes"
       ]
     },
     {
@@ -1072,7 +1461,7 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "IN 23/2020",
         "IN 20/2025"
@@ -1082,6 +1471,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "eletronica/obd"
       ]
     },
     {
@@ -1104,7 +1496,7 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "IN 22/2020"
       ],
@@ -1113,6 +1505,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "propulsao/emissoes"
       ]
     },
     {
@@ -1135,7 +1530,7 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "IN 22/2020"
       ],
@@ -1144,6 +1539,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "propulsao/emissoes"
       ]
     },
     {
@@ -1166,7 +1564,7 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "IN 3/2023",
         "IN 11/2014"
@@ -1176,6 +1574,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "propulsao/emissoes"
       ]
     },
     {
@@ -1198,7 +1599,7 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "IN 3/2023",
         "IN 11/2014"
@@ -1208,6 +1609,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "propulsao/emissoes"
       ]
     },
     {
@@ -1230,7 +1634,7 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "IN 20/2020"
       ],
@@ -1239,6 +1643,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "propulsao/emissoes"
       ]
     },
     {
@@ -1261,7 +1668,7 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "IN 5/2024"
       ],
@@ -1270,6 +1677,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "propulsao/emissoes"
       ]
     },
     {
@@ -1292,7 +1702,7 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "IN 18/2021"
       ],
@@ -1301,6 +1711,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "propulsao/emissoes"
       ]
     },
     {
@@ -1323,7 +1736,7 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "IN 20/2020"
       ],
@@ -1332,6 +1745,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "propulsao/emissoes"
       ]
     },
     {
@@ -1354,13 +1770,16 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Diagnose a bordo de motociclos. Procedimentos de certificação para o sistema OBDBr-M2. Não aplicar como regra de veículos leves de quatro rodas.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "eletronica/obd"
       ]
     },
     {
@@ -1383,13 +1802,16 @@
         "emissoes",
         "conformidade-producao"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Redução de emissões por veículos automotores. Base legal federal; consultar alterações e dispositivos vigentes no Planalto.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "propulsao/emissoes"
       ]
     },
     {
@@ -1411,13 +1833,16 @@
       "stages": [
         "componentes"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Vidros de segurança. Certificação compulsória dos produtos abrangidos; consultar retificações.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "vidros/vidros"
       ]
     },
     {
@@ -1439,13 +1864,16 @@
       "stages": [
         "componentes"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "PBE Veicular. Programa de avaliação de eficiência energética. Adesão do PBEV deve ser lida com a obrigação do MOVER; não confundir os regimes.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "corporativo/eficiencia"
       ]
     },
     {
@@ -1475,13 +1903,22 @@
       "stages": [
         "componentes"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Componentes automotivos. Texto-base de 2022. Consultar retificações posteriores de 2024 indicadas na fonte; não é compilação atualizada.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "chassi/componentes",
+        "eletronica/comandos",
+        "freios/frenagem",
+        "iluminacao/componentes",
+        "processos/conformidade",
+        "propulsao/componentes",
+        "propulsao/eletrica"
       ]
     },
     {
@@ -1503,13 +1940,16 @@
       "stages": [
         "componentes"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Componentes de baixo volume. Regime específico para os componentes e limites definidos no ato.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "processos/conformidade"
       ]
     },
     {
@@ -1531,13 +1971,16 @@
       "stages": [
         "componentes"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Rodas automotivas. Escopo e exclusões conforme regulamento e anexos.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "pneus-rodas/rodas"
       ]
     },
     {
@@ -1559,13 +2002,16 @@
       "stages": [
         "componentes"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Fluido de freio. Aplicável aos produtos abrangidos pelo regulamento.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "freios/fluido"
       ]
     },
     {
@@ -1587,7 +2033,7 @@
       "stages": [
         "componentes"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "Portaria 845/2025"
       ],
@@ -1596,6 +2042,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "pneus-rodas/pneus"
       ]
     },
     {
@@ -1617,13 +2066,16 @@
       "stages": [
         "componentes"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "RGCP. Requisitos gerais utilizados com cada regulamento específico; não certificam isoladamente qualquer peça.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "processos/conformidade"
       ]
     },
     {
@@ -1645,7 +2097,7 @@
       "stages": [
         "componentes"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "Portaria 379/2021"
       ],
@@ -1655,6 +2107,9 @@
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais.",
         "Cópia institucional hospedada pela ALADI. Confirmar também a publicação original, a redação atual e a retificação de 06/02/2026 no Diário Oficial ou Inmetro."
+      ],
+      "taxonomy": [
+        "pneus-rodas/pneus"
       ]
     },
     {
@@ -1676,13 +2131,16 @@
       "stages": [
         "componentes"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Conversores catalíticos de reposição. Declaração do fornecedor compulsória. Propostas de revisão não equivalem a norma aprovada.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "propulsao/emissoes"
       ]
     },
     {
@@ -1704,13 +2162,16 @@
       "stages": [
         "componentes"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Registro de objetos. Regras de registro, quando exigido pelo regulamento do produto.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "processos/conformidade"
       ]
     },
     {
@@ -1732,13 +2193,16 @@
       "stages": [
         "componentes"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Competências e fiscalização de conformidade. Base legal do Inmetro; aplicar em conjunto com o regulamento específico do objeto.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "processos/conformidade"
       ]
     },
     {
@@ -1761,7 +2225,7 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "Resolução 242/2007"
       ],
@@ -1770,6 +2234,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "eletronica/imagens"
       ]
     },
     {
@@ -1792,13 +2259,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Certificação de veículos de uso exclusivo fora de estrada; não constitui autorização de circulação viária. PDF do acervo contém páginas do DOU com outros atos.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "processos/homologacao"
       ]
     },
     {
@@ -1821,13 +2291,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "carroceria/acessorios"
       ]
     },
     {
@@ -1850,7 +2323,7 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "Resolução 951/2022"
       ],
@@ -1859,6 +2332,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "ocupantes/cintos"
       ]
     },
     {
@@ -1881,13 +2357,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "regras-gerais/equipamentos"
       ]
     },
     {
@@ -1910,7 +2389,7 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "Resolução 882/2021"
       ],
@@ -1919,6 +2398,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "regras-gerais/dimensoes"
       ]
     },
     {
@@ -1941,7 +2423,7 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "Resolução 997/2023"
       ],
@@ -1950,6 +2432,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "ocupantes/cintos"
       ]
     },
     {
@@ -1972,7 +2457,7 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "Resolução 1.024/2026"
       ],
@@ -1981,6 +2466,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "iluminacao/dispositivos"
       ]
     },
     {
@@ -2003,13 +2491,16 @@
         "homologacao-cat",
         "registro"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "identificacao/placas"
       ]
     },
     {
@@ -2032,13 +2523,16 @@
         "homologacao-cat",
         "registro"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Substituições das regras anteriores de identificação efetivas desde 01/01/2025.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "identificacao/vin"
       ]
     },
     {
@@ -2061,13 +2555,16 @@
         "homologacao-cat",
         "registro"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "regras-gerais/registro"
       ]
     },
     {
@@ -2090,13 +2587,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "retrovisores/espelhos"
       ]
     },
     {
@@ -2119,13 +2619,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "pneus-rodas/rodas"
       ]
     },
     {
@@ -2148,7 +2651,7 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "Resolução 989/2022"
       ],
@@ -2157,6 +2660,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "vidros/vidros"
       ]
     },
     {
@@ -2179,13 +2685,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "propulsao/emissoes"
       ]
     },
     {
@@ -2208,13 +2717,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "ocupantes/airbag"
       ]
     },
     {
@@ -2237,7 +2749,7 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "Deliberação 264/2022"
       ],
@@ -2246,6 +2758,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "freios/estabilidade"
       ]
     },
     {
@@ -2268,13 +2783,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Usar anexos e retificação disponíveis na fonte; cronograma conforme categoria e projeto.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "carroceria/impactos"
       ]
     },
     {
@@ -2297,13 +2815,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "carroceria/acessorios"
       ]
     },
     {
@@ -2326,13 +2847,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Usar também retificação disponível na fonte oficial.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "ocupantes/cintos"
       ]
     },
     {
@@ -2355,13 +2879,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Usar também anexos e retificação disponíveis na fonte oficial.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "retrovisores/espelhos"
       ]
     },
     {
@@ -2384,13 +2911,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Ler com Resoluções 958/2022 e 1.021/2026 e sua retificação.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "regras-gerais/base"
       ]
     },
     {
@@ -2413,13 +2943,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "regras-gerais/equipamentos"
       ]
     },
     {
@@ -2442,13 +2975,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "freios/frenagem"
       ]
     },
     {
@@ -2471,13 +3007,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Usar anexos e retificação disponíveis na fonte oficial.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "pneus-rodas/pneus"
       ]
     },
     {
@@ -2500,13 +3039,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "ATENÇÃO: arts. 2º e 3º tiveram vigência somente até 31/12/2025. Usar dispositivos aplicáveis desde 2026, anexos e retificação.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "carroceria/impactos"
       ]
     },
     {
@@ -2529,13 +3071,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "vidros/janelas"
       ]
     },
     {
@@ -2558,13 +3103,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "carroceria/fechaduras"
       ]
     },
     {
@@ -2587,13 +3135,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Consultar republicação do Anexo IV de 29/09/2022.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "carroceria/acessorios"
       ]
     },
     {
@@ -2616,13 +3167,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "ocupantes/criancas"
       ]
     },
     {
@@ -2645,13 +3199,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "regras-gerais/categorias"
       ]
     },
     {
@@ -2674,13 +3231,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "propulsao/eletrica"
       ]
     },
     {
@@ -2703,13 +3263,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Novos projetos: 01/01/2025. Demais veículos: 01/01/2030. Aplicação condicionada ao escopo e às dispensas.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "carroceria/impactos"
       ]
     },
     {
@@ -2732,13 +3295,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "eletronica/comandos"
       ]
     },
     {
@@ -2761,13 +3327,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Novos projetos: 01/01/2025. Todos em produção: 01/01/2027, conforme escopo e dispensas.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "retrovisores/monitoramento"
       ]
     },
     {
@@ -2790,13 +3359,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "eletronica/comandos"
       ]
     },
     {
@@ -2819,13 +3391,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "regras-gerais/equipamentos"
       ]
     },
     {
@@ -2848,13 +3423,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "ocupantes/materiais"
       ]
     },
     {
@@ -2877,7 +3455,7 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "Resolução 1.030/2026"
       ],
@@ -2886,6 +3464,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "eletronica/imagens"
       ]
     },
     {
@@ -2908,13 +3489,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Consultar categorias, exceções, anexos e datas no texto oficial.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "vidros/limpadores"
       ]
     },
     {
@@ -2937,13 +3521,16 @@
         "homologacao-cat",
         "registro"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Homologação e código de marca-modelo-versão. Aplicável a fabricantes, importadores e equipamentos no escopo.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "processos/homologacao"
       ]
     },
     {
@@ -2966,13 +3553,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Etiqueta Nacional de Segurança Veicular. Ler com requisitos MOVER e seus atos de desempenho e rotulagem.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "identificacao/rotulagem"
       ]
     },
     {
@@ -2995,7 +3585,7 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "Resolução 954/2022"
       ],
@@ -3004,6 +3594,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "freios/estabilidade"
       ]
     },
     {
@@ -3026,7 +3619,7 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "Resolução 916/2022"
       ],
@@ -3035,6 +3628,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "propulsao/componentes"
       ]
     },
     {
@@ -3057,7 +3653,7 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "Resolução 573/2015"
       ],
@@ -3066,6 +3662,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "regras-gerais/categorias"
       ]
     },
     {
@@ -3088,7 +3687,7 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "Resolução 970/2022"
       ],
@@ -3097,6 +3696,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "iluminacao/dispositivos"
       ]
     },
     {
@@ -3119,13 +3721,16 @@
         "homologacao-cat",
         "registro"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "RENAVE. Revoga 797/2020 e 818/2021. Vigente desde publicação; observar retificação, transições e cronograma operacional.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "regras-gerais/registro"
       ]
     },
     {
@@ -3148,13 +3753,16 @@
         "homologacao-cat",
         "registro"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Registro, licenciamento e transferência. Vigente desde publicação; revoga 809/2020, 817/2021 e 999/2023. Preserva documentos anteriores nos termos do art. 59.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "regras-gerais/registro"
       ]
     },
     {
@@ -3177,7 +3785,7 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "Resolução 882/2021"
       ],
@@ -3186,6 +3794,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "regras-gerais/dimensoes"
       ]
     },
     {
@@ -3208,13 +3819,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Pesos e dimensões. Consultar texto e alterações pelas Resoluções 899/2022, 994/2023 e 1.015/2024; ver também Deliberação 270.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "regras-gerais/dimensoes"
       ]
     },
     {
@@ -3237,7 +3851,7 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "Resolução 960/2022"
       ],
@@ -3246,6 +3860,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "vidros/vidros"
       ]
     },
     {
@@ -3268,7 +3885,7 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "Resolução 988/2022"
       ],
@@ -3277,6 +3894,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "eletronica/comandos"
       ]
     },
     {
@@ -3299,7 +3919,7 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "Resolução 37/1998"
       ],
@@ -3308,6 +3928,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "eletronica/comandos"
       ]
     },
     {
@@ -3330,7 +3953,7 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "Resolução 987/2022"
       ],
@@ -3339,6 +3962,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "carroceria/acessorios"
       ]
     },
     {
@@ -3361,7 +3987,7 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "Resolução 953/2022"
       ],
@@ -3370,6 +3996,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "carroceria/acessorios"
       ]
     },
     {
@@ -3392,13 +4021,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Proteção traseira. Requisitos conforme tipo de veículo e anexos.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "carroceria/acessorios"
       ]
     },
     {
@@ -3421,7 +4053,7 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "Resolução 981/2022"
       ],
@@ -3430,6 +4062,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "iluminacao/dispositivos"
       ]
     },
     {
@@ -3452,7 +4087,7 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [
         "Resolução 948/2022"
       ],
@@ -3461,6 +4096,9 @@
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "iluminacao/dispositivos"
       ]
     },
     {
@@ -3483,13 +4121,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Bicicletas e cargas externas. Automóveis, caminhonetes, camionetas e utilitários abrangidos.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "carroceria/acessorios"
       ]
     },
     {
@@ -3512,13 +4153,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Eixo elétrico em semirreboque. Aplicação específica aos sistemas e condições autorizados.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "propulsao/eletrica"
       ]
     },
     {
@@ -3541,13 +4185,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Ônibus e micro-ônibus M3. Requisitos de segurança e anexos.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "regras-gerais/categorias"
       ]
     },
     {
@@ -3570,13 +4217,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Micro-ônibus M2. Requisitos de segurança; consultar anexos e retificação.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "regras-gerais/categorias"
       ]
     },
     {
@@ -3599,13 +4249,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Cronotacógrafo. Requisitos técnicos, conforme enquadramento do veículo.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "eletronica/comandos"
       ]
     },
     {
@@ -3628,13 +4281,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Tanques de combustível. Múltiplos tanques, tanque suplementar e alteração da capacidade original.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "propulsao/combustiveis"
       ]
     },
     {
@@ -3657,13 +4313,16 @@
         "homologacao-cat",
         "registro"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Certificado de Segurança Veicular. Procedimentos de ITL e ETP para emissão de CSV.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "processos/homologacao"
       ]
     },
     {
@@ -3686,13 +4345,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Ciclomotores, bicicletas elétricas e autopropelidos. Classificação e requisitos; distinguir veículos automotores das demais categorias.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "regras-gerais/categorias"
       ]
     },
     {
@@ -3715,13 +4377,16 @@
         "homologacao-cat",
         "registro"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Trânsito antes do registro. Veículos novos e hipóteses específicas de deslocamento e remonta.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "regras-gerais/registro"
       ]
     },
     {
@@ -3744,13 +4409,16 @@
         "homologacao-cat",
         "registro"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Identificação veicular e ano-modelo. Substitui Portarias 17/2000 e 23/2001 a partir de 01/01/2025; consultar anexos.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "identificacao/vin"
       ]
     },
     {
@@ -3773,13 +4441,16 @@
         "homologacao-cat",
         "registro"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Equipamentos rodoviários. Concessão de CAT para equipamentos rodoviários e respectivo CCT.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "identificacao/vin"
       ]
     },
     {
@@ -3802,13 +4473,16 @@
         "seguranca",
         "homologacao-cat"
       ],
-      "classificationBasis": "Organização temática do índice para navegação; não determina obrigação legal.",
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
       "summary": "Código de Trânsito Brasileiro. Texto compilado; base de segurança, identificação, registro, modificações e homologação.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+      ],
+      "taxonomy": [
+        "processos/homologacao"
       ]
     }
   ]
