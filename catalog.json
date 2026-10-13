@@ -394,7 +394,122 @@
         ]
       }
     ],
-    "taxonomyNote": "Os 124 registros têm pelo menos uma associação temática. Um documento pode aparecer em vários sistemas. Regras corporativas, fiscais e de processo ficam fora do desenho. A geometria é ilustrativa, não uma identificação técnica de peça ou modelo."
+    "taxonomyNote": "Os 124 registros têm pelo menos uma associação temática. Um documento pode aparecer em vários sistemas. Regras corporativas, fiscais e de processo ficam fora do desenho. A geometria é ilustrativa, não uma identificação técnica de peça ou modelo.",
+    "moverTree": {
+      "groups": [
+        {
+          "id": "mover/base",
+          "label": "Programa e enquadramento",
+          "kind": "Base legal e requisitos",
+          "description": "Base do programa e regras gerais de comercialização/importação. A lei abrange requisitos e incentivos; o decreto de requisitos também trata de inventário e pegada. Não é uma decisão automática de enquadramento.",
+          "recordIds": [
+            "mover-001",
+            "mover-002"
+          ]
+        },
+        {
+          "id": "mover/requisitos",
+          "label": "Requisitos e parâmetros veiculares",
+          "kind": "Requisitos e parâmetros",
+          "description": "Explore os temas e consulte os instrumentos e condições nas fontes relacionadas.",
+          "recordIds": [
+            "mover-007",
+            "mover-008",
+            "mover-012",
+            "mover-005",
+            "mover-006"
+          ],
+          "children": [
+            {
+              "id": "mover/eficiencia-carbono",
+              "label": "Eficiência energética e carbono",
+              "kind": "Requisitos e parâmetros",
+              "description": "Consumo energético, CO₂ do poço à roda, parâmetros ICE/participação energética e eficiência de pesados. A Resolução CNPE é parâmetro relacionado. Portaria 19/2026 não é texto consolidado; alteração 277/2026 pendente.",
+              "recordIds": [
+                "mover-007",
+                "mover-008",
+                "mover-012"
+              ]
+            },
+            {
+              "id": "mover/reciclabilidade",
+              "label": "Reciclabilidade",
+              "kind": "Requisitos veiculares",
+              "description": "Consultar fases, categorias, método e anexos. Nenhum percentual, limiar ou obrigação universal é inferido.",
+              "recordIds": [
+                "mover-005"
+              ]
+            },
+            {
+              "id": "mover/seguranca",
+              "label": "Segurança veicular",
+              "kind": "Requisitos veiculares",
+              "description": "Desempenho estrutural e tecnologias assistivas. Cronograma e critérios dependem dos anexos; não significa exigir todas as tecnologias de toda a frota.",
+              "recordIds": [
+                "mover-006"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mover/incentivos-processos",
+          "label": "Incentivos e processos empresariais",
+          "kind": "Incentivos e processos",
+          "description": "Explore os temas e consulte os instrumentos e condições nas fontes relacionadas.",
+          "recordIds": [
+            "mover-009",
+            "mover-011",
+            "mover-003",
+            "mover-004",
+            "mover-010",
+            "mover-013"
+          ],
+          "children": [
+            {
+              "id": "mover/habilitacao",
+              "label": "Incentivos e habilitação",
+              "kind": "Incentivos e processos",
+              "description": "Habilitação e compromissos das empresas, regime de incentivos e FNDIT. Não classificar como requisito técnico universal de todo veículo.",
+              "recordIds": [
+                "mover-009",
+                "mover-011"
+              ]
+            },
+            {
+              "id": "mover/ipi-verde",
+              "label": "IPI Verde e veículo sustentável",
+              "kind": "Tratamento tributário e processo",
+              "description": "Tributação diferenciada, enquadramento e registro de veículo sustentável. Não inferir benefício concedido, alíquota nem elegibilidade individual.",
+              "recordIds": [
+                "mover-003",
+                "mover-004"
+              ]
+            },
+            {
+              "id": "mover/autopecas",
+              "label": "Autopeças não produzidas",
+              "kind": "Regime e procedimento",
+              "description": "Regime específico condicionado à habilitação e aos compromissos. Não confundir com certificação técnica dos componentes.",
+              "recordIds": [
+                "mover-010"
+              ]
+            },
+            {
+              "id": "mover/pesquisa-desenvolvimento",
+              "label": "Pesquisa e desenvolvimento",
+              "kind": "P&D e prestação de informações",
+              "description": "Dispêndios de empresas habilitadas: elegibilidade, prestação de informações e análise. Relação documental com a Portaria 43/2024 indicada no catálogo.",
+              "recordIds": [
+                "mover-013"
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "MOVER é um programa e um agrupamento temático neste catálogo, não o órgão emissor de todos os atos. Há referências de outros órgãos relacionadas ao programa.",
+      "basis": "Títulos, resumos, referências modificadoras e pendências do catálogo fornecido. Os textos oficiais não foram revalidados nesta classificação.",
+      "uniqueRecordCount": 13
+    }
   },
   "records": [
     {
@@ -427,7 +542,8 @@
       ],
       "taxonomy": [
         "corporativo/mover"
-      ]
+      ],
+      "issuer": "Lei federal"
     },
     {
       "id": "mover-002",
@@ -459,7 +575,8 @@
       ],
       "taxonomy": [
         "corporativo/mover"
-      ]
+      ],
+      "issuer": "Decreto federal"
     },
     {
       "id": "mover-003",
@@ -491,7 +608,8 @@
       ],
       "taxonomy": [
         "corporativo/eficiencia"
-      ]
+      ],
+      "issuer": "Decreto federal"
     },
     {
       "id": "mover-004",
@@ -523,7 +641,8 @@
       ],
       "taxonomy": [
         "corporativo/eficiencia"
-      ]
+      ],
+      "issuer": "GM/MDIC"
     },
     {
       "id": "mover-005",
@@ -555,7 +674,8 @@
       ],
       "taxonomy": [
         "corporativo/eficiencia"
-      ]
+      ],
+      "issuer": "GM/MDIC"
     },
     {
       "id": "mover-006",
@@ -587,7 +707,8 @@
       ],
       "taxonomy": [
         "corporativo/mover"
-      ]
+      ],
+      "issuer": "GM/MDIC"
     },
     {
       "id": "mover-007",
@@ -621,7 +742,8 @@
       ],
       "taxonomy": [
         "propulsao/combustiveis"
-      ]
+      ],
+      "issuer": "GM/MDIC"
     },
     {
       "id": "mover-008",
@@ -653,7 +775,8 @@
       ],
       "taxonomy": [
         "propulsao/combustiveis"
-      ]
+      ],
+      "issuer": "CNPE"
     },
     {
       "id": "mover-009",
@@ -687,7 +810,8 @@
       ],
       "taxonomy": [
         "corporativo/mover"
-      ]
+      ],
+      "issuer": "GM/MDIC"
     },
     {
       "id": "mover-010",
@@ -719,7 +843,8 @@
       ],
       "taxonomy": [
         "corporativo/mover"
-      ]
+      ],
+      "issuer": "GM/MDIC"
     },
     {
       "id": "mover-011",
@@ -751,7 +876,8 @@
       ],
       "taxonomy": [
         "corporativo/mover"
-      ]
+      ],
+      "issuer": "Decreto federal"
     },
     {
       "id": "mover-012",
@@ -783,7 +909,8 @@
       ],
       "taxonomy": [
         "corporativo/eficiencia"
-      ]
+      ],
+      "issuer": "GM/MDIC"
     },
     {
       "id": "mover-013",
@@ -815,7 +942,8 @@
       ],
       "taxonomy": [
         "corporativo/mover"
-      ]
+      ],
+      "issuer": "GM/MDIC"
     },
     {
       "id": "ibama-014",
