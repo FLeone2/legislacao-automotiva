@@ -1,0 +1,5 @@
+-r scripts/requirements-contran.txt
+playwright==1.62.0
+jsonschema==4.26.0
+Pillow==12.3.0
+ruff==0.14.5

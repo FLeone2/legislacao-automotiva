@@ -15,7 +15,8 @@
           "evidence": "Art. 3º Para os efeitos desta Resolução, aplicam-se os seguintes termos e deﬁnições: I - VIN - Número de Identiﬁcação do Veículo: combinação de 17 caracteres, estruturada em três seções (WMI/VDS/VIS), designada a um veículo por seu fabricante para ﬁns de identiﬁcação; II - WMI - Identiﬁcador Internacional do Fabricante: primeira seção do VIN, composta por 3 caracteres, que identiﬁca o fabricante do veículo; III - VDS - Seção Descritiva do Veículo: segunda seção do VIN, composta por 6 caracteres, que fornece informações descritivas das características gerais do veículo; IV - VIS - Seção Indicadora do Veículo: terceira e última seção do VIN, composta por 8 caracteres, que apresenta a combinação de caracteres para distinção dos veículos em produção; V - ETA - Etiqueta Autocolante: etiqueta em material de segurança, destrutível quando da tentativa de sua remoção; VI - Divisor - símbolo, caractere ou delimitação física, utilizado para separar as seções do VIN ou indicar seus limites (início e ﬁm); VII - NIEV - Número de Identiﬁcação do Equipamento Veicular: combinação de 17 caracteres designada a um equipamento veicular (carroceria) por seu fabricante para ﬁns de identiﬁcação; VIII - NICV - Número de Identiﬁcação de Carroceria de Veículo: combinação de 21 caracteres designada a uma carroceria de ônibus pelo seu encarroçador, conforme regulamentação especíﬁca do CONTRAN; IX - SSP - Seção Sequencial de Produção: terceira seção do NICV, composta por 6 dígitos, que indica a numeração sequencial de produção da carroceria de veículos encarroçados, conforme regulamentação especíﬁca do CONTRAN; 24/06/2022 07:38 RESOLUÇÃO CONTRAN Nº 968, DE 20 DE JUNHO DE 2022 - RESOLUÇÃO CONTRAN Nº 968, DE 20 DE JUNHO DE 2022 - DOU - Imprensa Nacional https://www.in.gov.br/web/dou/-/resolucao-contran-n-968-de-20-de-junho-de-2022-410048371 2/16 X - fornecedor: pessoa física ou jurídica responsável pela fabricação, montagem, importação, encarroçamento ou modiﬁcação de um veículo; e XI - agregado: motor, caixa de câmbio, cabine, carroceria, eixo, ou qualquer outro componente de um veículo que pode ser utilizado como elemento de identiﬁcação. CAPÍTULO II DOS ITENS DE IDENTIFICAÇÃO VEICULAR",
           "topics": [
             "vin"
-          ]
+          ],
+          "id": "contran-968-2022:req:01"
         },
         {
           "title": "Gravação principal",
@@ -25,7 +26,8 @@
           "evidence": "Art. 5º O VIN deve ser gravado no lado direito do chassi ou monobloco, de acordo com as especiﬁcações e formatos estabelecidos pela norma da Associação Brasileira de Normas Técnicas (ABNT) NBR 6066:2022, em profundidade mínima de 0,2 mm. § 1º No caso de chassi ou monobloco não metálico, o VIN deve ser gravado em plaqueta metálica, destrutível quando da sua remoção, incorporada ou moldada na estrutura do chassi ou monobloco, durante a fabricação. § 2º É vedado o processo de gravação do VIN por meio de punção manual, excetuando-se os fabricantes de veículos cuja produção não exceda a 500 unidades de veículos por ano. § 3º Para os ﬁns previstos no caput, o décimo caractere do VIN, estabelecido pela ABNT NBR 6066:2022, pode ser alfanumérico e deve corresponder obrigatoriamente à identiﬁcação do ano-modelo do veículo. § 4º O ano-modelo somente pode ser imediatamente anterior, igual ou imediatamente posterior ao ano de fabricação do veículo. § 5º Para os veículos tipo ciclomotor, motoneta, motocicleta, triciclo e quadriciclo, os caracteres do VIN devem ter altura mínima de 4 mm e devem ser gravados em ponto na coluna de suporte de direção ou no chassi monobloco. § 6º Nos veículos reboques, semirreboques e nos veículos de transporte coletivo de passageiros M3, o VIN deverá ser gravado: I - na face lateral externa da longarina direita, ou estrutura equivalente; II - na parte dianteira do chassi, próximo ao eixo dianteiro, no caso dos veículos M3; e III - numa porção delimitada a no máximo 10% do tamanho total da longarina e em local de fácil acesso e visualização, no caso de reboques e semirreboques, considerando a posição ﬁnal da gravação após a montagem do veículo. § 7º É vedada a sobreposição de qualquer película sobre a gravação do VIN, com exceção daquelas originalmente aplicadas pelo fabricante para ﬁns de proteção da gravação, desde que não impeça sua visualização ou inspeção.",
           "topics": [
             "vin"
-          ]
+          ],
+          "id": "contran-968-2022:req:02"
         },
         {
           "title": "Segunda identificação",
@@ -35,7 +37,8 @@
           "evidence": "Art. 6º Uma segunda gravação do VIN deve ser feita conforme uma das seguintes alternativas: I - em alto relevo, com altura mínima de 0,2 mm; II - em plaqueta metálica colada, soldada ou rebitada, destrutível quando de sua remoção; III - em baixo relevo, com profundidade mínima de 0,2 mm; ou IV - em ETA, com exceção de reboques e semirreboques. § 1º Para reboques e semirreboques, a segunda gravação do VIN deve ser feita na longarina esquerda, com as mesmas especiﬁcações da primeira gravação. § 2º Para cabine ou monobloco, a segunda gravação do VIN deve ser feita no quadrante distinto ao da primeira marcação. § 3º Alternativamente, a gravação na cabine prevista no § 2º pode ser aceita como número de identiﬁcação da cabine de que trata o inciso VI do caput do art. 4º. § 4º Os ciclomotores, motonetas, motocicletas, triciclos, quadriciclos, os chassis plataforma e os ônibus M3 encarroçados destinados ao transporte coletivo de passageiros estão isentos da segunda gravação do VIN. § 5º Aplicam-se as disposições dos §§ 1º, 2º, 3º e 4º do art. 5º também à segunda gravação.",
           "topics": [
             "vin"
-          ]
+          ],
+          "id": "contran-968-2022:req:03"
         },
         {
           "title": "Etiqueta autocolante de identificação (ETA)",
@@ -46,7 +49,8 @@
           "topics": [
             "vin",
             "etiquetas"
-          ]
+          ],
+          "id": "contran-968-2022:req:04"
         },
         {
           "title": "VIS nos vidros",
@@ -56,7 +60,8 @@
           "evidence": "Art. 9º A marcação do VIS nos vidros do veículo deve ser feita da seguinte forma: I - em um dos para-brisas e em um dos vidros traseiros, quando existentes; e II - em pelo menos dois vidros de cada lado do veículo, quando existentes, excetuados os quebra-ventos.",
           "topics": [
             "vin"
-          ]
+          ],
+          "id": "contran-968-2022:req:05"
         },
         {
           "title": "Identificação do motor",
@@ -66,7 +71,8 @@
           "evidence": "Art. 7º O número de identiﬁcação do motor deve ser gravado: I - no bloco do motor; 24/06/2022 07:38 RESOLUÇÃO CONTRAN Nº 968, DE 20 DE JUNHO DE 2022 - RESOLUÇÃO CONTRAN Nº 968, DE 20 DE JUNHO DE 2022 - DOU - Imprensa Nacional https://www.in.gov.br/web/dou/-/resolucao-contran-n-968-de-20-de-junho-de-2022-410048371 4/16 II - em local de fácil acesso e visualização que possibilite sua identiﬁcação, considerando a posição do motor e demais componentes após a montagem do veículo; III - em alto ou baixo relevo; e IV - admite-se a utilização de caracteres alfanuméricos. § 1º Em caso da impossibilidade de atendimento ao disposto no inciso II do caput, o número de identiﬁcação do motor deve ser aﬁxado no compartimento do motor, replicando a gravação do bloco em etiqueta ou plaqueta destrutível quando da tentativa de remoção, resistente a intempéries e em um componente que não seja facilmente removido ou substituído. § 2º Para os ciclomotores, motonetas, motocicletas, triciclos e quadriciclos uma segunda gravação contendo o número de identiﬁcação do motor deve ser aplicada em etiqueta ou plaqueta destrutível quando da tentativa de sua remoção, resistente a intempéries e em um componente que não seja facilmente removido ou substituído. § 3º No caso de motor(es) elétrico(s), a identiﬁcação do motor deve ser gravada no seu bloco, carcaça ou componente responsável pela tração do veículo, admitindo-se o uso de plaqueta destrutível que não seja facilmente removida ou substituída, de modo a evitar o risco de descargas elétricas indesejadas.",
           "topics": [
             "vin"
-          ]
+          ],
+          "id": "contran-968-2022:req:06"
         },
         {
           "title": "Ano de fabricação",
@@ -77,7 +83,8 @@
           "topics": [
             "vin",
             "etiquetas"
-          ]
+          ],
+          "id": "contran-968-2022:req:07"
         }
       ],
       "extraVehicleLinks": [
@@ -115,7 +122,8 @@
           "evidence": "Art. 2º Após o registro no respectivo órgão ou entidade executivo de trânsito do Estado ou do Distrito Federal, cada veículo será identiﬁcado por PIV dianteira e traseira, de acordo com os requisitos estabelecidos nesta Resolução. § 1º Os reboques, semirreboques, motocicletas, motonetas, ciclomotores, cicloelétricos, triciclos, quadriciclos e guindastes serão identiﬁcados apenas pela PIV traseira. § 2º As especiﬁcações técnicas das PIV estão contidas no Anexo I. § 3º Excetuadas as situações descritas no art. 56, não será obrigatória a substituição da Placa Nacional Única (PNU), modelo de placa anteriormente estabelecido identiﬁcada por uma sequência de três caracteres alfabéticos e quatro caracteres numéricos no padrão \"AAA-1111\", pelo modelo de PIV previsto nesta Resolução. § 4º Caso os proprietários de veículos que estejam em circulação identiﬁcados pela PNU desejem adotar voluntariamente o modelo de PIV previsto nesta Resolução, haverá a substituição automática do segundo caractere numérico da PNU, conforme padrão previsto no Anexo II. § 5º Os veículos de coleção classiﬁcados como originais, conforme regulamentação especíﬁca do CONTRAN, podem ser identiﬁcados com placa especíﬁca para uso restrito ao território nacional, conforme disposições apresentadas no Anexo I.",
           "topics": [
             "placas"
-          ]
+          ],
+          "id": "contran-969-2022:req:01"
         }
       ]
     },
@@ -132,7 +140,8 @@
           "evidence": "3.1.1 As indicações referentes ao item 2 serão inscritas em plaqueta ou em etiqueta adesiva resistente à ação do tempo; 3.1.2 As indicações serão inscritas em fundo claro ou escuro, adotados caracteres alfanuméricos contrastantes, com altura não inferior a 3 mm. 3.1.3 Poderão ser usados letras ou números inscritos em alto ou baixo relevo, sem necessidade de contraste de cor. 3.2 Normas gerais. 24/12/2021 10:06 RESOLUÇÃO CONTRAN Nº 882, DE 13 DE DEZEMBRO DE 2021 - RESOLUÇÃO CONTRAN Nº 882, DE 13 DE DEZEMBRO DE 2021 - DOU - Imprensa Nacional https://www.in.gov.br/en/web/dou/-/resolucao-contran-n-882-de-13-de-dezembro-de-2021-370017699 27/27 3.2.1 A indicação nos veículos automotores de tração, de carga e especiais será inscrita ou aﬁxada em um dos seguintes locais, assegurada a facilidade de visualização. 3.2.1.1 Na coluna de qualquer porta, junto às dobradiças, ou no lado da fechadura. 3.2.1.2 Na borda de qualquer porta. 3.2.1.3 Na parte inferior do assento, voltada para porta. 3.2.1.4 Na superfície interna de qualquer porta. 3.2.1.5 No painel de instrumentos. 3.2.2 Nos veículos destinados ao transporte coletivo de passageiros, a indicação deverá ser aﬁxada na parte frontal interna ",
           "topics": [
             "etiquetas"
-          ]
+          ],
+          "id": "contran-882-2021:req:01"
         }
       ],
       "extraVehicleLinks": [

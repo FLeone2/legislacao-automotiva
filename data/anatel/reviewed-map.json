@@ -41,7 +41,8 @@
             "multimidia",
             "radio"
           ],
-          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2019/1350-resolucao-715"
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2019/1350-resolucao-715",
+          "id": "anatel-res715:req:01"
         },
         {
           "title": "Identificação da homologação",
@@ -52,7 +53,8 @@
           "topics": [
             "etiquetas"
           ],
-          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2019/1350-resolucao-715"
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2019/1350-resolucao-715",
+          "id": "anatel-res715:req:02"
         }
       ],
       "topics": [
@@ -153,7 +155,8 @@
             "multimidia",
             "radio"
           ],
-          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2025/2054-resolucao-anatel-780"
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2025/2054-resolucao-anatel-780",
+          "id": "anatel-res780:req:01"
         }
       ],
       "topics": [
@@ -209,7 +212,8 @@
             "multimidia",
             "radio"
           ],
-          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2017/936-resolucao-680"
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2017/936-resolucao-680",
+          "id": "anatel-res680:req:01"
         }
       ],
       "topics": [
@@ -258,7 +262,8 @@
             "multimidia",
             "radio"
           ],
-          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1493-ato-7280"
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1493-ato-7280",
+          "id": "anatel-ato7280-2020:req:01"
         }
       ],
       "topics": [
@@ -311,7 +316,8 @@
           "topics": [
             "etiquetas"
           ],
-          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1451-ato-4088"
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1451-ato-4088",
+          "id": "anatel-ato4088-2020:req:01"
         },
         {
           "title": "Formatos de identificação",
@@ -322,7 +328,8 @@
           "topics": [
             "etiquetas"
           ],
-          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1451-ato-4088"
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1451-ato-4088",
+          "id": "anatel-ato4088-2020:req:02"
         },
         {
           "title": "E-label acessível",
@@ -333,7 +340,8 @@
           "topics": [
             "etiquetas"
           ],
-          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1451-ato-4088"
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1451-ato-4088",
+          "id": "anatel-ato4088-2020:req:03"
         },
         {
           "title": "Embalagem e instruções",
@@ -344,7 +352,8 @@
           "topics": [
             "etiquetas"
           ],
-          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1451-ato-4088"
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1451-ato-4088",
+          "id": "anatel-ato4088-2020:req:04"
         }
       ],
       "topics": [
@@ -449,7 +458,8 @@
             "multimidia",
             "radio"
           ],
-          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2017/1139-ato-14448"
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2017/1139-ato-14448",
+          "id": "anatel-ato14448-2017:req:01"
         }
       ],
       "topics": [
@@ -666,7 +676,8 @@
             "multimidia",
             "radio"
           ],
-          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2025/2070-ato-14158"
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2025/2070-ato-14158",
+          "id": "anatel-ato14158-2025:req:01"
         }
       ],
       "topics": [
@@ -815,7 +826,8 @@
             "multimidia",
             "radio"
           ],
-          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2024/1980-ato-14430"
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2024/1980-ato-14430",
+          "id": "anatel-ato14430-2024:req:01"
         }
       ],
       "topics": [
@@ -915,7 +927,8 @@
             "multimidia",
             "radio"
           ],
-          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2024/1947-ato-5155"
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2024/1947-ato-5155",
+          "id": "anatel-ato5155-2024:req:01"
         }
       ],
       "topics": [
@@ -1028,7 +1041,8 @@
             "multimidia",
             "radio"
           ],
-          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2018/1181-ato-1120"
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2018/1181-ato-1120",
+          "id": "anatel-ato1120-2018:req:01"
         }
       ],
       "topics": [
@@ -1076,7 +1090,8 @@
             "multimidia",
             "radio"
           ],
-          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2022/1823-ato-17087"
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2022/1823-ato-17087",
+          "id": "anatel-ato17087-2022:req:01"
         }
       ],
       "topics": [

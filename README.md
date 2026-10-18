@@ -381,3 +381,73 @@ Essa suíte percorre os 30 subsistemas, confere cada ilustração e o conjunto e
 de registros esperado, testa cliques reais nas regiões do desenho de subsistemas,
 retorno, recarregamento, teclado e layout móvel. As capturas incluem freios em
 vista completa e airbags na tela de subsistema.
+
+## Organização e verificações de qualidade
+
+O menu agrupa Explorar, Acervo normativo e Programas e acompanhamento. No celular,
+o botão de navegação abre o menu; Escape fecha e devolve o foco. Há link para
+pular ao conteúdo e indicação da página atual.
+
+A aplicação continua estática, sem framework. O código de navegação e utilidades
+fica em `src/core`, o armazenamento/adaptação dos atos em `src/regulations` e as
+telas em `src/views`. Os módulos de modelo do veículo e homologação mantêm seus
+caminhos originais. `index.html` declara a ordem de dependências.
+
+Os registros normativos separam quatro dimensões: indicação de vigência,
+profundidade da revisão, aplicabilidade ao projeto e decisão de publicação. Em
+particular, os 18 registros Inmetro continuam referências oficiais com íntegra
+pendente; publicá-los não confirma sua vigência integral. Os cinco atos CONTRAN
+com revogação parcial mantêm a ressalva. A política dos 55 excluídos e o inventário
+histórico são preservados.
+
+Há 60 requisitos com IDs estáveis, dispositivo/orientação, fonte e contexto
+compartilhados entre veículo e atividade de homologação. A relação de contexto
+significa que a atividade consulta o ato; não comprova a incidência de cada
+requisito. Métodos e evidências de ensaio ainda não revisados aparecem como
+pendência, sem procedimento inventado.
+
+`data/site/index.json` contém o índice inicial de aproximadamente **416 kB**, ante
+1,55 MB dos cinco JSONs anteriores (redução de cerca de **73%**, bytes sem
+compressão). Cada ato completo carrega sob demanda e fica em cache na sessão. A
+tela de marcações busca somente os atos necessários. Falhas exibem tentativa de
+recuperação; registros excluídos não são recuperados por URL.
+
+### Desenvolvimento e CI
+
+```sh
+npm ci
+python -m pip install -r requirements-dev.txt
+python -m playwright install --with-deps chromium
+npm run build:data
+npm run check
+npm test
+npm run format:check
+npm run test:browser
+npm run test:a11y
+npm run test:visual
+npm run build
+```
+
+Os testes de navegador iniciam e encerram seu próprio servidor. Para um servidor
+existente, configure `VEHICLE_TEST_URL`. `BROWSER_EXECUTABLE` permite uma substituição
+local explícita; CI e baselines usam o Chromium da versão fixada do Playwright.
+
+A suíte visual compara imagens de referência de veículo/contorno da roda, fluxo
+e celular, gera diferenças e aceita até 1% de pixels alterados acima da tolerância
+de antialiasing. Há uma mutação sintética para verificar que o comparador rejeita
+mudanças visíveis. Atualize imagens somente após revisão visual deliberada com
+`UPDATE_VISUAL_BASELINES=1 npm run test:visual`; CI nunca atualiza baselines.
+A suíte axe verifica WCAG A/AA nas principais telas e testa navegação por teclado.
+Essas verificações automáticas não substituem uma auditoria completa de acesso.
+
+`.github/workflows/ci.yml` executa geração reproduzível, contratos, sintaxe,
+modelos, formatação, navegador, acessibilidade, comparação visual e build, com
+permissão somente de leitura e ações fixadas por SHA. Artefatos de falha ficam
+retidos por sete dias. A proteção obrigatória de branch depende das permissões e
+configurações do GitHub; o workflow não a configura.
+
+`AGENTS.md` registra arquitetura, comandos e invariantes. A skill local
+`.agents/skills/revisao-normativa/SKILL.md` padroniza revisão com fontes e cenários
+de avaliação, sem transformar referências ou lacunas em confirmação jurídica.
+O build usa uma lista explícita de arquivos; inventários históricos, snapshots,
+políticas editoriais e pesquisas brutas ficam fora de `dist`.

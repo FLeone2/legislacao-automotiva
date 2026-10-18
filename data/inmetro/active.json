@@ -88,7 +88,8 @@
           "sourceUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/selo-de-avaliacao-da-conformidade-inmpam-portaria-no-314-2025/quais-modelos-de-selos-serao-confeccionados-pela-casa-da-moeda-do-brasil",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-314-2025:req:01"
         },
         {
           "title": "Elementos de segurança",
@@ -100,7 +101,8 @@
           "sourceUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/selo-de-avaliacao-da-conformidade-inmpam-portaria-no-314-2025/como-o-inmetro-realizara-o-controle-de-rastreabilidade-dos-selos-emitidos-pela-cmb",
           "topics": [
             "etiquetas"
-          ]
+          ],
+          "id": "inmetro-314-2025:req:02"
         },
         {
           "title": "Transição",
@@ -112,7 +114,8 @@
           "sourceUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/selo-de-avaliacao-da-conformidade-inmpam-portaria-no-314-2025/como-diferenciar-selos-antigos-e-novos-durante-a-transicao",
           "topics": [
             "etiquetas"
-          ]
+          ],
+          "id": "inmetro-314-2025:req:03"
         }
       ],
       "notes": [
@@ -124,8 +127,8 @@
       "fullTextReviewed": false,
       "statusLabel": "Referência atual · íntegra pendente",
       "active": true,
-      "currentIndication": true,
-      "status": "vigente_no_recorte_revisado",
+      "currentIndication": false,
+      "status": "referencia_oficial_atual",
       "documentCheck": {
         "state": "extraido",
         "sha256": "49ce990f755b166f426ea596fc96ab4e3a52b8849c2a78c1f59e212482dd455c",
@@ -142,7 +145,41 @@
       "regulatoryDomain": "conformity",
       "classificationBasis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
       "actNature": "normativa-ou-procedimental",
-      "phases": []
+      "phases": [],
+      "schemaVersion": 2,
+      "legalStatus": {
+        "state": "official_current_reference",
+        "asOf": "2026-10-18",
+        "basis": "Referência mantida em orientação oficial; vigência integral não confirmada.",
+        "evidence": [
+          "Extintor de Incêndio Manutenção; Extintor de Incêndio Fabricação; Cilindro GNV Requalificação; Cilindro GNV Fabricação; Capacete."
+        ]
+      },
+      "reviewStatus": {
+        "state": "reference_only",
+        "fullTextReviewed": false,
+        "amendmentChainReviewed": false,
+        "reviewedAt": "2026-10-18",
+        "gaps": [
+          "Capacete refere-se ao escopo próprio de motociclistas; não é subsistema de carro. Extintor exige análise separada de obrigatoriedade de equipamento e certificação do produto.",
+          "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento."
+        ]
+      },
+      "applicability": {
+        "state": "requires_assessment",
+        "vehicleSpecific": false,
+        "basis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
+        "conditions": [
+          "Categoria, configuração, datas, combustível, exceções e transições precisam de enquadramento."
+        ],
+        "phases": []
+      },
+      "publication": {
+        "included": true,
+        "reason": "included_as_current_official_reference",
+        "reviewedAt": "2026-10-18",
+        "policySource": "data/inmetro/reviewed-map.json"
+      }
     },
     {
       "id": "inmetro-169-2023",
@@ -187,7 +224,8 @@
           "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1692023",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-169-2023:req:01"
         },
         {
           "title": "Etiqueta de eficiência do veículo",
@@ -199,7 +237,8 @@
           "sourceUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/etiquetagem-para-veiculos-leves/como-obter-informacoes-sobre-metodologia-para-calculo-de-consumo-de-combustivel-pbe-veicular",
           "topics": [
             "etiquetas"
-          ]
+          ],
+          "id": "inmetro-169-2023:req:02"
         }
       ],
       "notes": [
@@ -211,8 +250,8 @@
       "fullTextReviewed": false,
       "statusLabel": "Referência atual · íntegra pendente",
       "active": true,
-      "currentIndication": true,
-      "status": "vigente_no_recorte_revisado",
+      "currentIndication": false,
+      "status": "referencia_oficial_atual",
       "documentCheck": {
         "state": "extraido",
         "sha256": "aa794b2067969eb8fa92e95f3a5acf3bdc6d4f904cac42c933f283eee9d8c4c4",
@@ -229,7 +268,41 @@
       "regulatoryDomain": "conformity",
       "classificationBasis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
       "actNature": "normativa-ou-procedimental",
-      "phases": []
+      "phases": [],
+      "schemaVersion": 2,
+      "legalStatus": {
+        "state": "official_current_reference",
+        "asOf": "2026-10-18",
+        "basis": "Referência mantida em orientação oficial; vigência integral não confirmada.",
+        "evidence": [
+          "Natureza do Regulamento: Voluntário Tipo de documento: Regulamento técnico Tipo de objeto: Produto Escopo: Veículos Leves de Passageiros e Comerciais Leves Objeto: Veículos leves de passageiros;Veículos comerciais leves;Veículos leves com caracterísiticas especiais para uso fora de estrada Normas técnicas e outros documentos referenciados: Resoluçã"
+        ]
+      },
+      "reviewStatus": {
+        "state": "reference_only",
+        "fullTextReviewed": false,
+        "amendmentChainReviewed": false,
+        "reviewedAt": "2026-10-18",
+        "gaps": [
+          "169/2023 consta como voluntária no Portal IQ; isso não dispensa obrigações de etiquetagem/informação derivadas de outros regimes. PDFRTAC003000 indisponível.",
+          "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento."
+        ]
+      },
+      "applicability": {
+        "state": "requires_assessment",
+        "vehicleSpecific": false,
+        "basis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
+        "conditions": [
+          "Categoria, configuração, datas, combustível, exceções e transições precisam de enquadramento."
+        ],
+        "phases": []
+      },
+      "publication": {
+        "included": true,
+        "reason": "included_as_current_official_reference",
+        "reviewedAt": "2026-10-18",
+        "policySource": "data/inmetro/reviewed-map.json"
+      }
     },
     {
       "id": "inmetro-145-2022",
@@ -301,7 +374,8 @@
           "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-145-2022:req:01"
         },
         {
           "title": "Anel de pistão; pino e anel de trava; pistão de liga leve de alumínio; bronzina",
@@ -313,7 +387,8 @@
           "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-145-2022:req:02"
         },
         {
           "title": "Bomba elétrica de combustível para motores do ciclo Otto",
@@ -325,7 +400,8 @@
           "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-145-2022:req:03"
         },
         {
           "title": "Buzina ou equipamento similar",
@@ -337,7 +413,8 @@
           "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-145-2022:req:04"
         },
         {
           "title": "Lâmpada para veículos automotivos",
@@ -349,7 +426,8 @@
           "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-145-2022:req:05"
         },
         {
           "title": "Baterias chumbo-ácido para veículos automotivos",
@@ -361,7 +439,8 @@
           "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-145-2022:req:06"
         },
         {
           "title": "Terminal de direção; barra de direção; barra de ligação; terminal axial",
@@ -373,7 +452,8 @@
           "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-145-2022:req:07"
         },
         {
           "title": "Lonas e pastilhas para freios de veículos M, N e O em vias públicas",
@@ -385,7 +465,8 @@
           "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-145-2022:req:08"
         },
         {
           "title": "Memorial técnico e controle da conformidade da produção",
@@ -397,7 +478,8 @@
           "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-145-2022:req:09"
         },
         {
           "title": "Normas técnicas referenciadas no regulamento",
@@ -409,7 +491,8 @@
           "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-145-2022:req:10"
         }
       ],
       "notes": [
@@ -424,8 +507,8 @@
       "fullTextReviewed": false,
       "statusLabel": "Referência atual · íntegra pendente",
       "active": true,
-      "currentIndication": true,
-      "status": "vigente_no_recorte_revisado",
+      "currentIndication": false,
+      "status": "referencia_oficial_atual",
       "documentCheck": {
         "state": "extraido",
         "sha256": "04fe80e8c6c63d08b84981f0bcc878d805d25e9e5833845cf2a86e6fd72d27b6",
@@ -446,7 +529,44 @@
       "regulatoryDomain": "conformity",
       "classificationBasis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
       "actNature": "normativa-ou-procedimental",
-      "phases": []
+      "phases": [],
+      "schemaVersion": 2,
+      "legalStatus": {
+        "state": "official_current_reference",
+        "asOf": "2026-10-18",
+        "basis": "Referência mantida em orientação oficial; vigência integral não confirmada.",
+        "evidence": [
+          "Natureza do Regulamento: Compulsório Tipo de documento: Regulamento técnico Tipo de objeto: Produto Escopo: Componentes Automotivos Objeto: Amortecedor da suspensão;\r\n\r\nAnel de pistão;\r\n\r\nBomba elétrica de combustível para motores do Ciclo Otto;\r\n\r\nBronzina;\r\n\r\nBuzina ou equipamento similar;\r\n\r\nLâmpada para veículos automotivos;\r\n\r\nPino e anel de t"
+        ]
+      },
+      "reviewStatus": {
+        "state": "reference_only",
+        "fullTextReviewed": false,
+        "amendmentChainReviewed": false,
+        "reviewedAt": "2026-10-18",
+        "gaps": [
+          "O PDF oficial RTAC002960 retornou HTTP503; retificações de2024 e exceções/dispensas OEM não foram conferidas integralmente. Não aplicar exigência de certificação a toda peça instalada em veículo novo por generalização.",
+          "Baterias chumbo-ácido abrangidas não equivalem a todas as baterias de tração de veículos elétricos.",
+          "Normas ABNT/ISO listadas no índice são referências incorporadas; não se afirma vigência independente ou conteúdo integral das normas privadas.",
+          "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento.",
+          "As baterias do escopo são chumbo-ácido; esta referência não confirma certificação de baterias de tração de íons de lítio."
+        ]
+      },
+      "applicability": {
+        "state": "requires_assessment",
+        "vehicleSpecific": false,
+        "basis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
+        "conditions": [
+          "Categoria, configuração, datas, combustível, exceções e transições precisam de enquadramento."
+        ],
+        "phases": []
+      },
+      "publication": {
+        "included": true,
+        "reason": "included_as_current_official_reference",
+        "reviewedAt": "2026-10-18",
+        "policySource": "data/inmetro/reviewed-map.json"
+      }
     },
     {
       "id": "inmetro-111-2022",
@@ -489,7 +609,8 @@
           "sourceUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/componentes-para-gnv/quais-sao-os-componentes-do-sistema-kit-de-gnv-cuja-certificacao-e-obrigatoria",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-111-2022:req:01"
         },
         {
           "title": "Marcação de suporte",
@@ -501,7 +622,8 @@
           "sourceUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/cilindros-de-alta-pressao-para-gnv/qual-a-obrigatoriedade-da-marca-da-identificacao-da-conformidade-selo-do-inmetro-em-suporte-para-cilindro-de-gnv",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-111-2022:req:02"
         }
       ],
       "notes": [
@@ -513,8 +635,8 @@
       "fullTextReviewed": false,
       "statusLabel": "Referência atual · íntegra pendente",
       "active": true,
-      "currentIndication": true,
-      "status": "vigente_no_recorte_revisado",
+      "currentIndication": false,
+      "status": "referencia_oficial_atual",
       "documentCheck": {
         "state": "extraido",
         "sha256": "97ef6195e0f00ea7f54254e17938e191d37c422fb19699cf8e8bcf73bd3813fe",
@@ -531,7 +653,41 @@
       "regulatoryDomain": "conformity",
       "classificationBasis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
       "actNature": "normativa-ou-procedimental",
-      "phases": []
+      "phases": [],
+      "schemaVersion": 2,
+      "legalStatus": {
+        "state": "official_current_reference",
+        "asOf": "2026-10-18",
+        "basis": "Referência mantida em orientação oficial; vigência integral não confirmada.",
+        "evidence": [
+          "Atualmente, os requisitos técnicos dos componentes do sistema ( kit ) de GNV são os estabelecidos na Portaria Inmetro n° 111, de 2022 , que devem ser atendidos pelos fabricantes/importadores desse produto. Essa Portaria também contém os requisitos de avaliação da conformidade obrigatória, que os organismos de certificação devem seguir para certific"
+        ]
+      },
+      "reviewStatus": {
+        "state": "reference_only",
+        "fullTextReviewed": false,
+        "amendmentChainReviewed": false,
+        "reviewedAt": "2026-10-18",
+        "gaps": [
+          "GNV é escopo/configuração específica; ilustração do tanque de combustível líquido não comprova que veículo possuiGNV.",
+          "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento."
+        ]
+      },
+      "applicability": {
+        "state": "requires_assessment",
+        "vehicleSpecific": false,
+        "basis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
+        "conditions": [
+          "Categoria, configuração, datas, combustível, exceções e transições precisam de enquadramento."
+        ],
+        "phases": []
+      },
+      "publication": {
+        "included": true,
+        "reason": "included_as_current_official_reference",
+        "reviewedAt": "2026-10-18",
+        "policySource": "data/inmetro/reviewed-map.json"
+      }
     },
     {
       "id": "inmetro-501-2021",
@@ -575,7 +731,8 @@
           "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-5012021",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-501-2021:req:01"
         }
       ],
       "notes": [
@@ -587,8 +744,8 @@
       "fullTextReviewed": false,
       "statusLabel": "Referência atual · íntegra pendente",
       "active": true,
-      "currentIndication": true,
-      "status": "vigente_no_recorte_revisado",
+      "currentIndication": false,
+      "status": "referencia_oficial_atual",
       "documentCheck": {
         "state": "extraido",
         "sha256": "70f0bcde8057e818de4c60fd279922d90b6a00409ec4eb0bb7eced55615df4ae",
@@ -605,7 +762,41 @@
       "regulatoryDomain": "conformity",
       "classificationBasis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
       "actNature": "normativa-ou-procedimental",
-      "phases": []
+      "phases": [],
+      "schemaVersion": 2,
+      "legalStatus": {
+        "state": "official_current_reference",
+        "asOf": "2026-10-18",
+        "basis": "Referência mantida em orientação oficial; vigência integral não confirmada.",
+        "evidence": [
+          "Natureza do Regulamento: Compulsório Tipo de documento: Regulamento técnico Tipo de objeto: Produto Escopo: Rodas Automotivas Objeto: Roda automotiva Normas técnicas e outros documentos referenciados: Portaria Inmetro nº 200, de 2021;ABNT NBR 6608:2013;ABNT NBR 6750:2020;ABNT NBR 6751:2020;ABNT NBR 6752:2020;IATF 16949:2016 Requisitos para Empresa:"
+        ]
+      },
+      "reviewStatus": {
+        "state": "reference_only",
+        "fullTextReviewed": false,
+        "amendmentChainReviewed": false,
+        "reviewedAt": "2026-10-18",
+        "gaps": [
+          "PDF oficial indisponível na consulta (HTTP503). Não foi comprovada a ausência de alterações posteriores; conferir versão integral, exclusões e anexos antes de homologar produto.",
+          "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento."
+        ]
+      },
+      "applicability": {
+        "state": "requires_assessment",
+        "vehicleSpecific": false,
+        "basis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
+        "conditions": [
+          "Categoria, configuração, datas, combustível, exceções e transições precisam de enquadramento."
+        ],
+        "phases": []
+      },
+      "publication": {
+        "included": true,
+        "reason": "included_as_current_official_reference",
+        "reviewedAt": "2026-10-18",
+        "policySource": "data/inmetro/reviewed-map.json"
+      }
     },
     {
       "id": "inmetro-456-2021",
@@ -649,7 +840,8 @@
           "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-4562021",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-456-2021:req:01"
         }
       ],
       "notes": [
@@ -661,8 +853,8 @@
       "fullTextReviewed": false,
       "statusLabel": "Referência atual · íntegra pendente",
       "active": true,
-      "currentIndication": true,
-      "status": "vigente_no_recorte_revisado",
+      "currentIndication": false,
+      "status": "referencia_oficial_atual",
       "documentCheck": {
         "state": "extraido",
         "sha256": "0a50226cafc96630f250a5ae18b99980f267756cc6136180314de01ebd160f53",
@@ -679,7 +871,41 @@
       "regulatoryDomain": "conformity",
       "classificationBasis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
       "actNature": "normativa-ou-procedimental",
-      "phases": []
+      "phases": [],
+      "schemaVersion": 2,
+      "legalStatus": {
+        "state": "official_current_reference",
+        "asOf": "2026-10-18",
+        "basis": "Referência mantida em orientação oficial; vigência integral não confirmada.",
+        "evidence": [
+          "Natureza do Regulamento: Compulsório Tipo de documento: Regulamento técnico Tipo de objeto: Produto Escopo: Líquidos para Freios Hidráulicos para Veículos Automotores Objeto: Liquido para freios hidráulico para veiculos automotores Normas técnicas e outros documentos referenciados: Portaria Inmetro n° 200, de 2021;Portaria Inmetro n° 249, de 2021;N"
+        ]
+      },
+      "reviewStatus": {
+        "state": "reference_only",
+        "fullTextReviewed": false,
+        "amendmentChainReviewed": false,
+        "reviewedAt": "2026-10-18",
+        "gaps": [
+          "PDF oficial indisponível na consulta (HTTP503). Não foi comprovada a ausência de alterações posteriores; conferir versão integral, exclusões e anexos antes de homologar produto.",
+          "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento."
+        ]
+      },
+      "applicability": {
+        "state": "requires_assessment",
+        "vehicleSpecific": false,
+        "basis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
+        "conditions": [
+          "Categoria, configuração, datas, combustível, exceções e transições precisam de enquadramento."
+        ],
+        "phases": []
+      },
+      "publication": {
+        "included": true,
+        "reason": "included_as_current_official_reference",
+        "reviewedAt": "2026-10-18",
+        "policySource": "data/inmetro/reviewed-map.json"
+      }
     },
     {
       "id": "inmetro-436-2021",
@@ -722,7 +948,8 @@
           "sourceUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/cilindros-de-alta-pressao-para-gnv/como-obter-informacoes-sobre-o-selo-para-cilindro-de-gnv",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-436-2021:req:01"
         },
         {
           "title": "Cor do cilindro",
@@ -734,7 +961,8 @@
           "sourceUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/cilindros-de-alta-pressao-para-gnv/qual-a-cor-do-cilindro-de-gnv",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-436-2021:req:02"
         }
       ],
       "notes": [
@@ -746,8 +974,8 @@
       "fullTextReviewed": false,
       "statusLabel": "Referência atual · íntegra pendente",
       "active": true,
-      "currentIndication": true,
-      "status": "vigente_no_recorte_revisado",
+      "currentIndication": false,
+      "status": "referencia_oficial_atual",
       "documentCheck": {
         "state": "extraido",
         "sha256": "2d705f239d8dc9ec040da8637b387f022db613cbfd353642dbb89fc35f0e85cd",
@@ -764,7 +992,41 @@
       "regulatoryDomain": "conformity",
       "classificationBasis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
       "actNature": "normativa-ou-procedimental",
-      "phases": []
+      "phases": [],
+      "schemaVersion": 2,
+      "legalStatus": {
+        "state": "official_current_reference",
+        "asOf": "2026-10-18",
+        "basis": "Referência mantida em orientação oficial; vigência integral não confirmada.",
+        "evidence": [
+          "A Portaria Inmetro nº 436, de 19 de outubro de 2021 , que aprova o Regulamento Técnico Mercosul e os Requisitos de Avaliação da Conformidade para Cilindros para Armazenamento de Gás Natural Veicular (GNV), está disponibilizada na página do Inmetro http://www.inmetro.gov.br/legislacao/"
+        ]
+      },
+      "reviewStatus": {
+        "state": "reference_only",
+        "fullTextReviewed": false,
+        "amendmentChainReviewed": false,
+        "reviewedAt": "2026-10-18",
+        "gaps": [
+          "Certificação do cilindro, instalação, inspeção veicular e requalificação são procedimentos distintos.",
+          "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento."
+        ]
+      },
+      "applicability": {
+        "state": "requires_assessment",
+        "vehicleSpecific": false,
+        "basis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
+        "conditions": [
+          "Categoria, configuração, datas, combustível, exceções e transições precisam de enquadramento."
+        ],
+        "phases": []
+      },
+      "publication": {
+        "included": true,
+        "reason": "included_as_current_official_reference",
+        "reviewedAt": "2026-10-18",
+        "policySource": "data/inmetro/reviewed-map.json"
+      }
     },
     {
       "id": "inmetro-433-2021",
@@ -807,7 +1069,8 @@
           "sourceUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/reforma-de-pneus/como-identificar-um-pneu-reformado-de-um-novo",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-433-2021:req:01"
         },
         {
           "title": "Registro da unidade reformadora",
@@ -819,7 +1082,8 @@
           "sourceUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/reforma-de-pneus/como-obter-registro-e-renovacao-de-registro-para-unidade-reformadora-de-pneu",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-433-2021:req:02"
         }
       ],
       "notes": [
@@ -831,8 +1095,8 @@
       "fullTextReviewed": false,
       "statusLabel": "Referência atual · íntegra pendente",
       "active": true,
-      "currentIndication": true,
-      "status": "vigente_no_recorte_revisado",
+      "currentIndication": false,
+      "status": "referencia_oficial_atual",
       "documentCheck": {
         "state": "extraido",
         "sha256": "1575bffaff484b480341871e9728f396a259fe20e35e06111ac33fb474320e70",
@@ -849,7 +1113,41 @@
       "regulatoryDomain": "conformity",
       "classificationBasis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
       "actNature": "normativa-ou-procedimental",
-      "phases": []
+      "phases": [],
+      "schemaVersion": 2,
+      "legalStatus": {
+        "state": "official_current_reference",
+        "asOf": "2026-10-18",
+        "basis": "Referência mantida em orientação oficial; vigência integral não confirmada.",
+        "evidence": [
+          "A diferença está na marcação. O pneu reformado possui marcado a expressão: \"RECAUCHUTADO, RECAPADO ou REMOLDADO\", com altura mínima de 4,0 mm, segundo a Portaria nº 433/2021 , item 6.1.1."
+        ]
+      },
+      "reviewStatus": {
+        "state": "reference_only",
+        "fullTextReviewed": false,
+        "amendmentChainReviewed": false,
+        "reviewedAt": "2026-10-18",
+        "gaps": [
+          "Pneu reformado não deve ser apresentado como pneu novo nem compartilhar indiscriminadamente suas regras ENCE.",
+          "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento."
+        ]
+      },
+      "applicability": {
+        "state": "requires_assessment",
+        "vehicleSpecific": false,
+        "basis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
+        "conditions": [
+          "Categoria, configuração, datas, combustível, exceções e transições precisam de enquadramento."
+        ],
+        "phases": []
+      },
+      "publication": {
+        "included": true,
+        "reason": "included_as_current_official_reference",
+        "reviewedAt": "2026-10-18",
+        "policySource": "data/inmetro/reviewed-map.json"
+      }
     },
     {
       "id": "inmetro-379-2021",
@@ -896,7 +1194,8 @@
           "topics": [
             "etiquetas",
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-379-2021:req:01"
         },
         {
           "title": "Exceções específicas",
@@ -909,7 +1208,8 @@
           "topics": [
             "etiquetas",
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-379-2021:req:02"
         },
         {
           "title": "Transições de famílias e laboratórios",
@@ -922,7 +1222,8 @@
           "topics": [
             "etiquetas",
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-379-2021:req:03"
         }
       ],
       "notes": [
@@ -943,8 +1244,8 @@
       "fullTextReviewed": false,
       "statusLabel": "Referência atual · íntegra pendente",
       "active": true,
-      "currentIndication": true,
-      "status": "vigente_no_recorte_revisado",
+      "currentIndication": false,
+      "status": "referencia_oficial_atual",
       "documentCheck": {
         "state": "extraido",
         "sha256": "418a56eb4fb610f04ae2e1cad204ae1d7e29f17d40a909559be395d7dc4c858a",
@@ -961,7 +1262,41 @@
       "regulatoryDomain": "conformity",
       "classificationBasis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
       "actNature": "normativa-ou-procedimental",
-      "phases": []
+      "phases": [],
+      "schemaVersion": 2,
+      "legalStatus": {
+        "state": "official_current_reference",
+        "asOf": "2026-10-18",
+        "basis": "Referência mantida em orientação oficial; vigência integral não confirmada.",
+        "evidence": [
+          "A medida regulatória de pneus novos destinados a motocicletas, motonetas, ciclomotores, automóveis de passageiros, inclusive os de uso misto e rebocados, veículos comerciais, comerciais leves e rebocados é composta pela Portaria Inmetro nº 379/2021 e seus anexos."
+        ]
+      },
+      "reviewStatus": {
+        "state": "reference_only",
+        "fullTextReviewed": false,
+        "amendmentChainReviewed": false,
+        "reviewedAt": "2026-10-18",
+        "gaps": [
+          "Ler379/2021 com845/2025 e retificações; FAQ atual reproduz prazos da retificação2026, mas acesso direto ao DOU retornou403.",
+          "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento."
+        ]
+      },
+      "applicability": {
+        "state": "requires_assessment",
+        "vehicleSpecific": false,
+        "basis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
+        "conditions": [
+          "Categoria, configuração, datas, combustível, exceções e transições precisam de enquadramento."
+        ],
+        "phases": []
+      },
+      "publication": {
+        "included": true,
+        "reason": "included_as_current_official_reference",
+        "reviewedAt": "2026-10-18",
+        "policySource": "data/inmetro/reviewed-map.json"
+      }
     },
     {
       "id": "inmetro-309-2021",
@@ -1003,7 +1338,8 @@
           "sourceUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/engate/como-obter-a-declaracao-do-fornecedor-de-dispositivo-de-acoplamento-mecanico-engate-para-reboque",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-309-2021:req:01"
         }
       ],
       "notes": [
@@ -1015,8 +1351,8 @@
       "fullTextReviewed": false,
       "statusLabel": "Referência atual · íntegra pendente",
       "active": true,
-      "currentIndication": true,
-      "status": "vigente_no_recorte_revisado",
+      "currentIndication": false,
+      "status": "referencia_oficial_atual",
       "documentCheck": {
         "state": "extraido",
         "sha256": "f7b2dafb493ea13a7fa2ac617d88f239f488f9ce4bf864f4e187b5492c91dc53",
@@ -1033,7 +1369,41 @@
       "regulatoryDomain": "conformity",
       "classificationBasis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
       "actNature": "normativa-ou-procedimental",
-      "phases": []
+      "phases": [],
+      "schemaVersion": 2,
+      "legalStatus": {
+        "state": "official_current_reference",
+        "asOf": "2026-10-18",
+        "basis": "Referência mantida em orientação oficial; vigência integral não confirmada.",
+        "evidence": [
+          "Favor consultar a Portaria Inmetro nº 309/2021 , que trata sobre o Regulamento Técnico da Qualidade e os Requisitos de Avaliação da Conformidade para Registro do Fabricante de Dispositivo de Acoplamento Mecânico (Engate)."
+        ]
+      },
+      "reviewStatus": {
+        "state": "reference_only",
+        "fullTextReviewed": false,
+        "amendmentChainReviewed": false,
+        "reviewedAt": "2026-10-18",
+        "gaps": [
+          "Não foi extraído checklist integral de marcação dimensional do engate; conferir texto integral.",
+          "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento."
+        ]
+      },
+      "applicability": {
+        "state": "requires_assessment",
+        "vehicleSpecific": false,
+        "basis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
+        "conditions": [
+          "Categoria, configuração, datas, combustível, exceções e transições precisam de enquadramento."
+        ],
+        "phases": []
+      },
+      "publication": {
+        "included": true,
+        "reason": "included_as_current_official_reference",
+        "reviewedAt": "2026-10-18",
+        "policySource": "data/inmetro/reviewed-map.json"
+      }
     },
     {
       "id": "inmetro-278-2021",
@@ -1069,7 +1439,8 @@
           "sourceUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/registro-de-objetos/qual-a-legislacao-relacionada-ao-registro-1",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-278-2021:req:01"
         }
       ],
       "notes": [
@@ -1081,8 +1452,8 @@
       "fullTextReviewed": false,
       "statusLabel": "Referência atual · íntegra pendente",
       "active": true,
-      "currentIndication": true,
-      "status": "vigente_no_recorte_revisado",
+      "currentIndication": false,
+      "status": "referencia_oficial_atual",
       "documentCheck": {
         "state": "extraido",
         "sha256": "6c357f67a9c312146ab4bf109275ac3de6034ad04e4256d0fda776bd3b9f908d",
@@ -1097,7 +1468,41 @@
       "regulatoryDomain": "conformity",
       "classificationBasis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
       "actNature": "normativa-ou-procedimental",
-      "phases": []
+      "phases": [],
+      "schemaVersion": 2,
+      "legalStatus": {
+        "state": "official_current_reference",
+        "asOf": "2026-10-18",
+        "basis": "Referência mantida em orientação oficial; vigência integral não confirmada.",
+        "evidence": [
+          "As principais bases normativas são as Portarias Inmetro que abordam: Concessão de registro ( Portaria Inmetro n° 258, de 6 de agosto de 2020 ); Publicidade aos Requisitos de Avaliação da Conformidade (RAC) específicos do objeto; Classificação de risco de atividades econômicas associadas aos atos de liberação sob responsabilidade do Inmetro no âmbit"
+        ]
+      },
+      "reviewStatus": {
+        "state": "reference_only",
+        "fullTextReviewed": false,
+        "amendmentChainReviewed": false,
+        "reviewedAt": "2026-10-18",
+        "gaps": [
+          "FAQ oficial adverte que portarias estão sujeitas a alterações e revogações; cadeia integral não revisada.",
+          "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento."
+        ]
+      },
+      "applicability": {
+        "state": "requires_assessment",
+        "vehicleSpecific": false,
+        "basis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
+        "conditions": [
+          "Categoria, configuração, datas, combustível, exceções e transições precisam de enquadramento."
+        ],
+        "phases": []
+      },
+      "publication": {
+        "included": true,
+        "reason": "included_as_current_official_reference",
+        "reviewedAt": "2026-10-18",
+        "policySource": "data/inmetro/reviewed-map.json"
+      }
     },
     {
       "id": "inmetro-246-2021",
@@ -1140,7 +1545,8 @@
           "sourceUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/dispositivos-de-retencao-para-criancas/onde-deve-ser-aposto-nos-dispositivos-de-retencao-para-criancas-o-selo-de-identificacao-da-conformidade-do-inmetro",
           "topics": [
             "etiquetas"
-          ]
+          ],
+          "id": "inmetro-246-2021:req:01"
         },
         {
           "title": "Instruções e marcações",
@@ -1152,7 +1558,8 @@
           "sourceUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/dispositivos-de-retencao-para-criancas/quais-sao-as-marcacoes-e-instrucoes-obrigatorias-nos-dispositivos-de-retencao-para-criancas-e-na-embalagem",
           "topics": [
             "etiquetas"
-          ]
+          ],
+          "id": "inmetro-246-2021:req:02"
         }
       ],
       "notes": [
@@ -1164,8 +1571,8 @@
       "fullTextReviewed": false,
       "statusLabel": "Referência atual · íntegra pendente",
       "active": true,
-      "currentIndication": true,
-      "status": "vigente_no_recorte_revisado",
+      "currentIndication": false,
+      "status": "referencia_oficial_atual",
       "documentCheck": {
         "state": "extraido",
         "sha256": "e46ae65b00baa3bfe9f6ed6b6167bcd4b6b0952de53eff51661c50759204526e",
@@ -1182,7 +1589,41 @@
       "regulatoryDomain": "conformity",
       "classificationBasis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
       "actNature": "normativa-ou-procedimental",
-      "phases": []
+      "phases": [],
+      "schemaVersion": 2,
+      "legalStatus": {
+        "state": "official_current_reference",
+        "asOf": "2026-10-18",
+        "basis": "Referência mantida em orientação oficial; vigência integral não confirmada.",
+        "evidence": [
+          "O Selo de Identificação da Conformidade deve ser aposto diretamente nos dispositivos de retenção para crianças certificados, de forma clara, indelével e não violável, em local visível, impresso (em forma de adesivo ou não)."
+        ]
+      },
+      "reviewStatus": {
+        "state": "reference_only",
+        "fullTextReviewed": false,
+        "amendmentChainReviewed": false,
+        "reviewedAt": "2026-10-18",
+        "gaps": [
+          "Certificação do dispositivo não substitui regras Contran de uso por idade/altura/peso. Não declarar todo banco/espuma automotiva sujeito a esta certificação.",
+          "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento."
+        ]
+      },
+      "applicability": {
+        "state": "requires_assessment",
+        "vehicleSpecific": false,
+        "basis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
+        "conditions": [
+          "Categoria, configuração, datas, combustível, exceções e transições precisam de enquadramento."
+        ],
+        "phases": []
+      },
+      "publication": {
+        "included": true,
+        "reason": "included_as_current_official_reference",
+        "reviewedAt": "2026-10-18",
+        "policySource": "data/inmetro/reviewed-map.json"
+      }
     },
     {
       "id": "inmetro-230-2021",
@@ -1219,7 +1660,8 @@
           "sourceUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/selos/a-solicitacao-dos-selos-pode-ser-feita-em-qualquer-grafica-que-atenda-os-padroes-estabelecidos-na-portaria-inmetro-no-230-de-18-de-maio-de-2021",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-230-2021:req:01"
         }
       ],
       "notes": [
@@ -1231,8 +1673,8 @@
       "fullTextReviewed": false,
       "statusLabel": "Referência atual · íntegra pendente",
       "active": true,
-      "currentIndication": true,
-      "status": "vigente_no_recorte_revisado",
+      "currentIndication": false,
+      "status": "referencia_oficial_atual",
       "documentCheck": {
         "state": "extraido",
         "sha256": "75d33cbe3684cade29bd86d4a0d496f76d25eca820529d6d04660570dac23e7b",
@@ -1247,7 +1689,41 @@
       "regulatoryDomain": "conformity",
       "classificationBasis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
       "actNature": "normativa-ou-procedimental",
-      "phases": []
+      "phases": [],
+      "schemaVersion": 2,
+      "legalStatus": {
+        "state": "official_current_reference",
+        "asOf": "2026-10-18",
+        "basis": "Referência mantida em orientação oficial; vigência integral não confirmada.",
+        "evidence": [
+          "Sim, desde que a gráfica possua capacidade técnica para fabricar os selos em conformidade com os padrões estabelecidos na Portaria Inmetro nº 230, de 18 de maio de 2021. O arquivo com as especificações preconizadas na Portaria deve ser solicitado ao Inmetro através do canal selos.dconf@inmetro.gov.br . Nota: Não existe avaliação, homologação, liber"
+        ]
+      },
+      "reviewStatus": {
+        "state": "reference_only",
+        "fullTextReviewed": false,
+        "amendmentChainReviewed": false,
+        "reviewedAt": "2026-10-18",
+        "gaps": [
+          "Aplicar apenas aos modelos de selos sujeitos à portaria e ao regime específico do objeto. Para modelos transferidos ao INMPAM/CMB, verificar314/2025.",
+          "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento."
+        ]
+      },
+      "applicability": {
+        "state": "requires_assessment",
+        "vehicleSpecific": false,
+        "basis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
+        "conditions": [
+          "Categoria, configuração, datas, combustível, exceções e transições precisam de enquadramento."
+        ],
+        "phases": []
+      },
+      "publication": {
+        "included": true,
+        "reason": "included_as_current_official_reference",
+        "reviewedAt": "2026-10-18",
+        "policySource": "data/inmetro/reviewed-map.json"
+      }
     },
     {
       "id": "inmetro-200-2021",
@@ -1285,7 +1761,8 @@
           "sourceUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/registro-de-objetos/qual-a-legislacao-relacionada-ao-registro-1",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-200-2021:req:01"
         }
       ],
       "notes": [
@@ -1297,8 +1774,8 @@
       "fullTextReviewed": false,
       "statusLabel": "Referência atual · íntegra pendente",
       "active": true,
-      "currentIndication": true,
-      "status": "vigente_no_recorte_revisado",
+      "currentIndication": false,
+      "status": "referencia_oficial_atual",
       "documentCheck": {
         "state": "extraido",
         "sha256": "6c357f67a9c312146ab4bf109275ac3de6034ad04e4256d0fda776bd3b9f908d",
@@ -1313,7 +1790,41 @@
       "regulatoryDomain": "conformity",
       "classificationBasis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
       "actNature": "normativa-ou-procedimental",
-      "phases": []
+      "phases": [],
+      "schemaVersion": 2,
+      "legalStatus": {
+        "state": "official_current_reference",
+        "asOf": "2026-10-18",
+        "basis": "Referência mantida em orientação oficial; vigência integral não confirmada.",
+        "evidence": [
+          "As principais bases normativas são as Portarias Inmetro que abordam: Concessão de registro ( Portaria Inmetro n° 258, de 6 de agosto de 2020 ); Publicidade aos Requisitos de Avaliação da Conformidade (RAC) específicos do objeto; Classificação de risco de atividades econômicas associadas aos atos de liberação sob responsabilidade do Inmetro no âmbit"
+        ]
+      },
+      "reviewStatus": {
+        "state": "reference_only",
+        "fullTextReviewed": false,
+        "amendmentChainReviewed": false,
+        "reviewedAt": "2026-10-18",
+        "gaps": [
+          "FAQ oficial adverte que portarias estão sujeitas a alterações e revogações; cadeia integral não revisada.",
+          "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento."
+        ]
+      },
+      "applicability": {
+        "state": "requires_assessment",
+        "vehicleSpecific": false,
+        "basis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
+        "conditions": [
+          "Categoria, configuração, datas, combustível, exceções e transições precisam de enquadramento."
+        ],
+        "phases": []
+      },
+      "publication": {
+        "included": true,
+        "reason": "included_as_current_official_reference",
+        "reviewedAt": "2026-10-18",
+        "policySource": "data/inmetro/reviewed-map.json"
+      }
     },
     {
       "id": "inmetro-140-2021",
@@ -1349,7 +1860,8 @@
           "sourceUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/registro-de-objetos/qual-a-legislacao-relacionada-ao-registro-1",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-140-2021:req:01"
         }
       ],
       "notes": [
@@ -1361,8 +1873,8 @@
       "fullTextReviewed": false,
       "statusLabel": "Referência atual · íntegra pendente",
       "active": true,
-      "currentIndication": true,
-      "status": "vigente_no_recorte_revisado",
+      "currentIndication": false,
+      "status": "referencia_oficial_atual",
       "documentCheck": {
         "state": "extraido",
         "sha256": "6c357f67a9c312146ab4bf109275ac3de6034ad04e4256d0fda776bd3b9f908d",
@@ -1377,7 +1889,41 @@
       "regulatoryDomain": "conformity",
       "classificationBasis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
       "actNature": "normativa-ou-procedimental",
-      "phases": []
+      "phases": [],
+      "schemaVersion": 2,
+      "legalStatus": {
+        "state": "official_current_reference",
+        "asOf": "2026-10-18",
+        "basis": "Referência mantida em orientação oficial; vigência integral não confirmada.",
+        "evidence": [
+          "As principais bases normativas são as Portarias Inmetro que abordam: Concessão de registro ( Portaria Inmetro n° 258, de 6 de agosto de 2020 ); Publicidade aos Requisitos de Avaliação da Conformidade (RAC) específicos do objeto; Classificação de risco de atividades econômicas associadas aos atos de liberação sob responsabilidade do Inmetro no âmbit"
+        ]
+      },
+      "reviewStatus": {
+        "state": "reference_only",
+        "fullTextReviewed": false,
+        "amendmentChainReviewed": false,
+        "reviewedAt": "2026-10-18",
+        "gaps": [
+          "FAQ oficial adverte que portarias estão sujeitas a alterações e revogações; cadeia integral não revisada.",
+          "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento."
+        ]
+      },
+      "applicability": {
+        "state": "requires_assessment",
+        "vehicleSpecific": false,
+        "basis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
+        "conditions": [
+          "Categoria, configuração, datas, combustível, exceções e transições precisam de enquadramento."
+        ],
+        "phases": []
+      },
+      "publication": {
+        "included": true,
+        "reason": "included_as_current_official_reference",
+        "reviewedAt": "2026-10-18",
+        "policySource": "data/inmetro/reviewed-map.json"
+      }
     },
     {
       "id": "inmetro-34-2021",
@@ -1421,7 +1967,8 @@
           "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-342021",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-34-2021:req:01"
         }
       ],
       "notes": [
@@ -1433,8 +1980,8 @@
       "fullTextReviewed": false,
       "statusLabel": "Referência atual · íntegra pendente",
       "active": true,
-      "currentIndication": true,
-      "status": "vigente_no_recorte_revisado",
+      "currentIndication": false,
+      "status": "referencia_oficial_atual",
       "documentCheck": {
         "state": "extraido",
         "sha256": "51f965ba8339637fa583f7e5f078742c552564398fd207843e2570b91e49d454",
@@ -1451,7 +1998,41 @@
       "regulatoryDomain": "conformity",
       "classificationBasis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
       "actNature": "normativa-ou-procedimental",
-      "phases": []
+      "phases": [],
+      "schemaVersion": 2,
+      "legalStatus": {
+        "state": "official_current_reference",
+        "asOf": "2026-10-18",
+        "basis": "Referência mantida em orientação oficial; vigência integral não confirmada.",
+        "evidence": [
+          "Natureza do Regulamento: Compulsório Tipo de documento: Regulamento técnico Tipo de objeto: Produto Escopo: Vidros de Segurança Automotivos Objeto: Vidro de segurança laminado para veículo rodoviário automotor;\r\nVidro de segurança temperado de veículo rodoviário automotor; Normas técnicas e outros documentos referenciados: Resolução Contran nº 254,"
+        ]
+      },
+      "reviewStatus": {
+        "state": "reference_only",
+        "fullTextReviewed": false,
+        "amendmentChainReviewed": false,
+        "reviewedAt": "2026-10-18",
+        "gaps": [
+          "PDF oficial indisponível na consulta (HTTP503). Não foi comprovada a ausência de alterações posteriores; conferir versão integral, exclusões e anexos antes de homologar produto.",
+          "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento."
+        ]
+      },
+      "applicability": {
+        "state": "requires_assessment",
+        "vehicleSpecific": false,
+        "basis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
+        "conditions": [
+          "Categoria, configuração, datas, combustível, exceções e transições precisam de enquadramento."
+        ],
+        "phases": []
+      },
+      "publication": {
+        "included": true,
+        "reason": "included_as_current_official_reference",
+        "reviewedAt": "2026-10-18",
+        "policySource": "data/inmetro/reviewed-map.json"
+      }
     },
     {
       "id": "inmetro-33-2021",
@@ -1495,7 +2076,8 @@
           "sourceUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/conversores-cataliticos/como-obter-declaracao-do-fornecedor-compulsoria-para-conversor-catalitico-destinado-a-reposicao",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-33-2021:req:01"
         }
       ],
       "notes": [
@@ -1507,8 +2089,8 @@
       "fullTextReviewed": false,
       "statusLabel": "Referência atual · íntegra pendente",
       "active": true,
-      "currentIndication": true,
-      "status": "vigente_no_recorte_revisado",
+      "currentIndication": false,
+      "status": "referencia_oficial_atual",
       "documentCheck": {
         "state": "extraido",
         "sha256": "2d6334f364c9a8323552c6435dff3c4a20d8952a95140529e55024b2be6bd867",
@@ -1525,7 +2107,41 @@
       "regulatoryDomain": "conformity",
       "classificationBasis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
       "actNature": "normativa-ou-procedimental",
-      "phases": []
+      "phases": [],
+      "schemaVersion": 2,
+      "legalStatus": {
+        "state": "official_current_reference",
+        "asOf": "2026-10-18",
+        "basis": "Referência mantida em orientação oficial; vigência integral não confirmada.",
+        "evidence": [
+          "Os requisitos para obtenção da declaração do fornecedor para Conversor Catalítico destinado à Reposição estão disponíveis na Portaria n.º 33 de 15/01/2021 ."
+        ]
+      },
+      "reviewStatus": {
+        "state": "reference_only",
+        "fullTextReviewed": false,
+        "amendmentChainReviewed": false,
+        "reviewedAt": "2026-10-18",
+        "gaps": [
+          "Fonte oficial atual vincula expressamente33/2021; íntegra dos anexos indisponível.",
+          "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento."
+        ]
+      },
+      "applicability": {
+        "state": "requires_assessment",
+        "vehicleSpecific": false,
+        "basis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
+        "conditions": [
+          "Categoria, configuração, datas, combustível, exceções e transições precisam de enquadramento."
+        ],
+        "phases": []
+      },
+      "publication": {
+        "included": true,
+        "reason": "included_as_current_official_reference",
+        "reviewedAt": "2026-10-18",
+        "policySource": "data/inmetro/reviewed-map.json"
+      }
     },
     {
       "id": "inmetro-258-2020",
@@ -1563,7 +2179,8 @@
           "sourceUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/registro-de-objetos/qual-a-legislacao-relacionada-ao-registro-1",
           "topics": [
             "certificacao"
-          ]
+          ],
+          "id": "inmetro-258-2020:req:01"
         }
       ],
       "notes": [
@@ -1575,8 +2192,8 @@
       "fullTextReviewed": false,
       "statusLabel": "Referência atual · íntegra pendente",
       "active": true,
-      "currentIndication": true,
-      "status": "vigente_no_recorte_revisado",
+      "currentIndication": false,
+      "status": "referencia_oficial_atual",
       "documentCheck": {
         "state": "extraido",
         "sha256": "6c357f67a9c312146ab4bf109275ac3de6034ad04e4256d0fda776bd3b9f908d",
@@ -1591,7 +2208,41 @@
       "regulatoryDomain": "conformity",
       "classificationBasis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
       "actNature": "normativa-ou-procedimental",
-      "phases": []
+      "phases": [],
+      "schemaVersion": 2,
+      "legalStatus": {
+        "state": "official_current_reference",
+        "asOf": "2026-10-18",
+        "basis": "Referência mantida em orientação oficial; vigência integral não confirmada.",
+        "evidence": [
+          "As principais bases normativas são as Portarias Inmetro que abordam: Concessão de registro ( Portaria Inmetro n° 258, de 6 de agosto de 2020 ); Publicidade aos Requisitos de Avaliação da Conformidade (RAC) específicos do objeto; Classificação de risco de atividades econômicas associadas aos atos de liberação sob responsabilidade do Inmetro no âmbit"
+        ]
+      },
+      "reviewStatus": {
+        "state": "reference_only",
+        "fullTextReviewed": false,
+        "amendmentChainReviewed": false,
+        "reviewedAt": "2026-10-18",
+        "gaps": [
+          "FAQ oficial adverte que portarias estão sujeitas a alterações e revogações; cadeia integral não revisada.",
+          "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento."
+        ]
+      },
+      "applicability": {
+        "state": "requires_assessment",
+        "vehicleSpecific": false,
+        "basis": "Vínculo baseado no produto, campo de aplicação e requisitos da fonte oficial. Não estabelece obrigação universal para o veículo ilustrado.",
+        "conditions": [
+          "Categoria, configuração, datas, combustível, exceções e transições precisam de enquadramento."
+        ],
+        "phases": []
+      },
+      "publication": {
+        "included": true,
+        "reason": "included_as_current_official_reference",
+        "reviewedAt": "2026-10-18",
+        "policySource": "data/inmetro/reviewed-map.json"
+      }
     }
   ]
 }

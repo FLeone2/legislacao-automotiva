@@ -1,36 +1,221 @@
 'use strict';
-let catalog={metadata:{components:[],pendingReviews:[],stages:[]},records:[]};
-const state={component:'freios',query:'',agency:'',filterComponent:'',stage:'',view:'tree'};
-const labels={freios:'Freios',vidros:'Vidros',iluminacao:'Iluminação',emissoes:'Emissões',bateria:'Bateria'};
-const descriptions={freios:'Frenagem, estabilidade e componentes de reposição.',vidros:'Vidros de segurança, transparência e visibilidade.',iluminacao:'Dispositivos de iluminação e sinalização.',emissoes:'Emissões, ruído, fases do PROCONVE e processo ambiental.',bateria:'Propulsão elétrica e componentes de armazenamento de energia.'};
-const $=s=>document.querySelector(s);const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const norm=s=>String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
-function safeLink(url,label,cls=''){try{const u=new URL(url);if(!['https:','http:'].includes(u.protocol))return '';return `<a class="${cls}" href="${esc(u.href)}" target="_blank" rel="noopener noreferrer">${label} ↗</a>`;}catch{return '';}}
-function componentMatches(r,id){if(!id)return true;if(id==='bateria')id='propulsao/eletrica';if(id==='emissoes')id='propulsao/emissoes';return (r.taxonomy||[]).some(t=>t===id||t.startsWith(id+'/'));}
-function related(){return catalog.records.filter(r=>componentMatches(r,state.component)).sort((a,b)=>Number(Boolean(b.officialAudit))-Number(Boolean(a.officialAudit)));}
-function renderRelated(){if(!$('#relatedNorms'))return;const a=related();$('#relatedNorms').innerHTML=a.slice(0,3).map(r=>`<button class="related-card" data-open="${r.id}"><span class="tag">${esc(r.issuer||r.agency)}</span><strong>${esc(r.title)}</strong><small>${esc(r.status)}</small></button>`).join('')||'<p class="scope-note">Nenhum documento associado a este componente.</p>';}
-function flowStrip(){return `<section class="flow-strip"><div class="section-heading"><h2>Fluxo de homologação</h2><span class="pill">Mapa de consulta</span></div><div class="steps">${[
-['Perfil do veículo','Categoria, motorização, configuração e uso pretendido.','PERFIL','enquadramento'],['Requisitos e ensaios','Consulte segurança, emissões e conformidade de componentes.','IBAMA · INMETRO','componentes'],['Homologação','Procedimentos e documentos do processo de homologação.','SENATRAN','homologacao-cat'],['Eficiência e incentivos','Enquadramento nos requisitos e instrumentos do programa.','MOVER / MDIC','mover']].map((s,i)=>`<button class="step" data-flow="${s[3]}"><b><span class="number">${i+1}</span>${s[0]}</b><p>${s[1]}</p><span class="tag ${i===3?'purple':''}">${s[2]}</span></button>`).join('')}</div></section>`;}
-function groupFor(id){return catalog.metadata.hierarchy.find(g=>g.id===id.split('/')[0]);}
-function systemLabel(id){const g=groupFor(id);return g?.children.find(c=>c.id===id)?.label||g?.label||id;}
-function systemCount(id){return catalog.records.filter(r=>componentMatches(r,id)).length;}
+let catalog = { metadata: { components: [], pendingReviews: [], stages: [] }, records: [] };
+const state = {
+  component: 'freios',
+  query: '',
+  agency: '',
+  filterComponent: '',
+  stage: '',
+  view: 'tree',
+};
+const labels = {
+  freios: 'Freios',
+  vidros: 'Vidros',
+  iluminacao: 'Iluminação',
+  emissoes: 'Emissões',
+  bateria: 'Bateria',
+};
+const descriptions = {
+  freios: 'Frenagem, estabilidade e componentes de reposição.',
+  vidros: 'Vidros de segurança, transparência e visibilidade.',
+  iluminacao: 'Dispositivos de iluminação e sinalização.',
+  emissoes: 'Emissões, ruído, fases do PROCONVE e processo ambiental.',
+  bateria: 'Propulsão elétrica e componentes de armazenamento de energia.',
+};
+function componentMatches(r, id) {
+  if (!id) return true;
+  if (id === 'bateria') id = 'propulsao/eletrica';
+  if (id === 'emissoes') id = 'propulsao/emissoes';
+  return (r.taxonomy || []).some((t) => t === id || t.startsWith(id + '/'));
+}
+function related() {
+  return catalog.records
+    .filter((r) => componentMatches(r, state.component))
+    .sort((a, b) => Number(Boolean(b.officialAudit)) - Number(Boolean(a.officialAudit)));
+}
+function renderRelated() {
+  if (!$('#relatedNorms')) return;
+  const a = related();
+  $('#relatedNorms').innerHTML =
+    a
+      .slice(0, 3)
+      .map(
+        (r) =>
+          `<button class="related-card" data-open="${r.id}"><span class="tag">${esc(r.issuer || r.agency)}</span><strong>${esc(r.title)}</strong><small>${esc(r.status)}</small></button>`,
+      )
+      .join('') || '<p class="scope-note">Nenhum documento associado a este componente.</p>';
+}
+function flowStrip() {
+  return `<section class="flow-strip"><div class="section-heading"><h2>Fluxo de homologação</h2><span class="pill">Mapa de consulta</span></div><div class="steps">${[
+    [
+      'Perfil do veículo',
+      'Categoria, motorização, configuração e uso pretendido.',
+      'PERFIL',
+      'enquadramento',
+    ],
+    [
+      'Requisitos e ensaios',
+      'Consulte segurança, emissões e conformidade de componentes.',
+      'IBAMA · INMETRO',
+      'componentes',
+    ],
+    [
+      'Homologação',
+      'Procedimentos e documentos do processo de homologação.',
+      'SENATRAN',
+      'homologacao-cat',
+    ],
+    [
+      'Eficiência e incentivos',
+      'Enquadramento nos requisitos e instrumentos do programa.',
+      'MOVER / MDIC',
+      'mover',
+    ],
+  ]
+    .map(
+      (s, i) =>
+        `<button class="step" data-flow="${s[3]}"><b><span class="number">${i + 1}</span>${s[0]}</b><p>${s[1]}</p><span class="tag ${i === 3 ? 'purple' : ''}">${s[2]}</span></button>`,
+    )
+    .join('')}</div></section>`;
+}
+function groupFor(id) {
+  return catalog.metadata.hierarchy.find((g) => g.id === id.split('/')[0]);
+}
+function systemLabel(id) {
+  const g = groupFor(id);
+  return g?.children.find((c) => c.id === id)?.label || g?.label || id;
+}
+function systemCount(id) {
+  return catalog.records.filter((r) => componentMatches(r, id)).length;
+}
 
-function filters(){return catalog.records.filter(r=>(!state.agency||r.agency===state.agency)&&componentMatches(r,state.filterComponent)&&(!state.stage||(r.stages||[]).includes(state.stage))&&norm([r.title,r.summary,r.agency,...(r.componentLabels||[]),...(r.taxonomy||[]).map(systemLabel),...(r.amendingRefs||[]),...(r.topics||[]),...(r.requirements||[]).map(x=>x.title+' '+x.rule)].join(' ')).includes(norm(state.query)));}
-function documentCard(r){return `<article class="document"><div class="row"><span class="tag">${esc(r.issuer||r.agency)}</span><span class="status">${esc(r.status)}</span></div><h3>${esc(r.title)}</h3><p>${esc(r.summary)}</p><div class="links"><button data-open="${r.id}">Detalhes e rastreabilidade →</button>${safeLink(r.officialUrl,'Fonte oficial')}</div></article>`;}
-function updateList(){const rows=filters();$('#resultCount').textContent=`${rows.length} de ${catalog.records.length} entradas documentais · referências oficiais para consulta`;$('#documents').innerHTML=rows.map(documentCard).join('')||'<div class="empty"><h3>Nenhum resultado com estes filtros</h3><p>Tente outro termo ou limpe os filtros.</p><button class="btn" id="clearEmpty">Limpar filtros</button></div>';}
-function renderLibrary(){const selected=s=>s?' selected':'';$('#main').innerHTML=`<div class="eyebrow">Acervo de referência</div><h1>Biblioteca de legislação</h1><p class="subtitle">Referências de legislação automotiva organizadas por assunto. Vigência e aplicabilidade precisam ser confirmadas no texto oficial atualizado.</p><div class="library-toolbar"><input id="librarySearch" aria-label="Pesquisar na biblioteca" placeholder="Nome, número da norma ou assunto…" value="${esc(state.query)}"><select id="agencyFilter" aria-label="Filtrar órgão ou programa"><option value="">Órgãos e programas</option>${['SENATRAN','IBAMA','INMETRO','ANATEL','MOVER'].map(a=>`<option${selected(state.agency===a)}>${a}</option>`).join('')}</select><select id="componentFilter" aria-label="Filtrar componente"><option value="">Todos os componentes</option>${catalog.metadata.hierarchy.map(g=>`<optgroup label="${esc(g.label)}"><option value="${g.id}"${selected(state.filterComponent===g.id)}>Todo o sistema / tema</option>${g.children.map(c=>`<option value="${c.id}"${selected(state.filterComponent===c.id)}>${esc(c.label)}</option>`).join('')}</optgroup>`).join('')}</select><select id="stageFilter" aria-label="Filtrar etapa"><option value="">Todas as etapas</option>${catalog.metadata.stages.map(c=>`<option value="${c.id}"${selected(state.stage===c.id)}>${esc(c.label)}</option>`).join('')}</select><button class="btn" id="clearFilters">Limpar</button></div><div class="count-line" id="resultCount"></div><div class="document-list" id="documents"></div><p class="scope-note">CONTRAN, PROCONVE, Inmetro e Anatel: revisão dirigida em 18/10/2026. A aplicação ao veículo depende de enquadramento. Links levam somente a fontes oficiais.</p>`;updateList();$('#librarySearch').addEventListener('input',e=>{state.query=e.target.value;updateList();});$('#agencyFilter').addEventListener('change',e=>{state.agency=e.target.value;updateList();});$('#componentFilter').addEventListener('change',e=>{state.filterComponent=e.target.value;updateList();});$('#stageFilter').addEventListener('change',e=>{state.stage=e.target.value;updateList();});}
-function renderUpdates(){$('#main').innerHTML=`<div class="eyebrow">Rastreabilidade e controle</div><h1>Atualizações e ressalvas</h1><p><a class="btn" href="#contran">Consultar levantamento oficial CONTRAN →</a></p><p class="subtitle">Pendências conhecidas no catálogo e referências a alterações. Esta página não é um monitor automático do Diário Oficial.</p><div class="notice">Consulta CONTRAN, PROCONVE, Inmetro e Anatel revisada em 18/10/2026. O acervo reúne ${catalog.records.length} entradas documentais. A vigência e a aplicação a um projeto exigem leitura das fontes e dos atos modificadores.</div>${catalog.metadata.pendingReviews.map(r=>`<article class="update-card"><span class="tag">CONFERÊNCIA PENDENTE</span><h3>${esc(r.title)}</h3><p>${esc(r.note)}</p><div class="actions">${safeLink(r.officialUrl,'Consultar referência oficial','btn')}</div></article>`).join('')}<article class="update-card"><span class="tag">CADEIA DOCUMENTAL</span><h3>Consulte também os atos modificadores</h3><p>As referências a alterações, revogações, anexos e transições estão registradas nos detalhes de cada entrada. Uma cópia arquivada pode não conter a redação consolidada.</p><button class="btn" data-route="library">Abrir biblioteca</button></article>`;}
-function renderAI(){$('#main').innerHTML=`<div class="eyebrow">Visão de produto</div><h1>Consulta com fontes, em uma conversa</h1><p class="subtitle">Uma prévia visual do assistente que poderá apoiar a consulta normativa.</p><div class="wide-ai"><span class="pill">Somente demonstração visual</span><div class="bubble question">O que preciso verificar para homologar este veículo?</div><div class="bubble answer"><strong>O fluxo ideal do assistente</strong><p>1. Entender o perfil técnico e as datas do projeto.</p><p>2. Localizar documentos e atos modificadores no acervo.</p><p>3. Apresentar os trechos de referência e as incertezas.</p><p>4. Encaminhar decisões de aplicabilidade à revisão técnica.</p></div><div class="notice">Não há modelo de IA conectado. Nenhuma mensagem é enviada, nenhuma resposta jurídica é gerada e não há cobrança por consultas.</div><button class="btn primary" data-route="library">Explorar as fontes disponíveis →</button></div>`;}
-function navigate(view){if(location.hash==='#'+view)render();else location.hash=view;}
-function render(){$('#app').classList.remove('homologation-flow-mode');state.view=location.hash.slice(1).split('?')[0]||'tree';if(!['tree','mover','vehicle','library','flow','updates','ai','contran','proconve','inmetro','anatel','markings'].includes(state.view))state.view='tree';$('#app').classList.toggle('contran-mode',['contran','proconve','inmetro','anatel','markings'].includes(state.view));document.querySelectorAll('[data-nav]').forEach(a=>a.classList.toggle('active',a.dataset.nav===state.view));$('#app').classList.toggle('tree-mode',['tree','mover','flow'].includes(state.view));if(state.view!=='vehicle'){$('#app').classList.remove('vehicle-flow-mode','vehicle-overview-mode');}if(['tree','mover'].includes(state.view)){renderTree(state.view);return;}if(state.view==='vehicle'){renderVehicle();return;}if(state.view==='flow'){renderFlow();return;}restoreAssistantPanel();({vehicle:renderVehicle,library:renderLibrary,flow:renderFlow,updates:renderUpdates,ai:renderAI,contran:renderContran,proconve:renderProconve,inmetro:renderInmetro,anatel:renderAnatel,markings:renderMarkings})[state.view]();renderRelated();}
-function clearFilters(){state.query='';state.agency='';state.filterComponent='';state.stage='';$('#globalSearch').value='';renderLibrary();}
-function openNorm(id){const r=catalog.records.find(x=>x.id===id);if(!r)return;$('#dialogContent').innerHTML=`<span class="tag">${esc(r.issuer||r.agency)}</span><h2>${esc(r.title)}</h2><div class="notice">${esc(r.status)}<br>${esc(r.legalApplicability)}</div><p>${esc(r.summary)}</p>${regulatoryRequirements(r)}<dl><dt>Disponibilidade</dt><dd>${esc(r.availability)}</dd><dt>Origem e conferência do registro</dt><dd>Registro organizado em ${esc(r.reviewDate)} · referência oficial abaixo</dd><dt>Associação temática</dt><dd>${esc((r.taxonomy||[]).map(systemLabel).join(' · '))}<br>${esc(r.classificationBasis)}</dd><dt>Alterações referenciadas</dt><dd>${esc((r.amendingRefs||[]).join(' · ')||'Nenhuma referência extraída deste registro. Isso não comprova ausência de alterações.')}</dd><dt>Limites de verificação</dt><dd>${esc((r.uncertaintyNotes||[]).join(' '))}</dd></dl><div class="actions">${safeLink(r.officialUrl,'Fonte oficial','btn primary')}${contranRecordLink(r)}</div><p class="scope-note">Abertura da fonte oficial em nova aba. Alguns portais podem exigir navegação ou verificação adicional.</p>`;$('#normDialog').showModal();}
-document.addEventListener('click',e=>{const part=e.target.closest('[data-part]');if(part){selectSystem(part.dataset.part);return;}const b=e.target.closest('button');if(!b)return;if(b.dataset.selectSystem){selectSystem(b.dataset.selectSystem);return;}if(b.dataset.component){state.component=b.dataset.component;renderVehicle();renderRelated();}if(b.dataset.open)openNorm(b.dataset.open);if(b.dataset.route)navigate(b.dataset.route);if(b.dataset.componentLibrary){state.filterComponent=b.dataset.componentLibrary;state.query='';state.agency='';state.stage='';navigate('library');}if(b.dataset.flow){state.stage=b.dataset.flow;navigate('flow');}if(b.dataset.stageLibrary){clearState();state.stage=b.dataset.stageLibrary;navigate('library');}if(['clearFilters','clearEmpty'].includes(b.id))clearFilters();});
-function clearState(){state.query='';state.agency='';state.filterComponent='';state.stage='';$('#globalSearch').value='';}
-const originalAssistantMarkup=$('#aiPanel').innerHTML;
-function restoreAssistantPanel(){$('#aiPanel').setAttribute('aria-label','Conceito visual do assistente');$('#aiPanel').innerHTML=originalAssistantMarkup;$('#relatedLibrary').onclick=()=>{clearState();state.filterComponent=state.component;navigate('library');};}
-$('#relatedLibrary').onclick=()=>{clearState();state.filterComponent=state.component;navigate('library');};$('#closeDialog').onclick=()=>$('#normDialog').close();$('#normDialog').addEventListener('click',e=>{if(e.target===$('#normDialog')){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)e.target.close();}});
-$('#globalSearch').addEventListener('input',e=>{state.query=e.target.value;state.agency='';state.filterComponent='';state.stage='';navigate('library');});document.addEventListener('keydown',e=>{const part=e.target.closest('[data-part]');if(part&&['Enter',' '].includes(e.key)){e.preventDefault();selectSystem(part.dataset.part,true);return;}if(e.key==='/'&&!['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName)){e.preventDefault();$('#globalSearch').focus();}});
-for(const id of ['vehicleType','powertrain'])$('#'+id).onchange=()=>{if(state.view==='vehicle'){saveVehicleRoute();renderVehicle();}const t=$('#toast');t.textContent='Perfil visual atualizado. O catálogo não foi filtrado por aplicabilidade.';t.style.display='block';clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.style.display='none',4500);};
-window.addEventListener('hashchange',()=>{render();window.scrollTo({top:0,behavior:'instant'});});
-Promise.all([fetch('catalog.json').then(r=>{if(!r.ok)throw Error('Catálogo indisponível');return r.json();}),Promise.allSettled(Object.keys(regulatoryConfig).map(loadRegulations))]).then(([data])=>{regulatoryBaseCatalog=data;catalog=installActiveRegulations(data);render();}).catch(()=>{$('#main').innerHTML='<h1>Não foi possível carregar o acervo</h1><p>Recarregue a página. Se estiver abrindo o arquivo localmente, utilize um servidor HTTP.</p><button class="btn" onclick="location.reload()">Tentar novamente</button>';});
+function renderUpdates() {
+  $('#main').innerHTML =
+    `<div class="eyebrow">Rastreabilidade e controle</div><h1>Atualizações e ressalvas</h1><p><a class="btn" href="#contran">Consultar levantamento oficial CONTRAN →</a></p><p class="subtitle">Pendências conhecidas no catálogo e referências a alterações. Esta página não é um monitor automático do Diário Oficial.</p><div class="notice">Consulta CONTRAN, PROCONVE, Inmetro e Anatel revisada em 18/10/2026. O acervo reúne ${catalog.records.length} entradas documentais. A vigência e a aplicação a um projeto exigem leitura das fontes e dos atos modificadores.</div>${catalog.metadata.pendingReviews.map((r) => `<article class="update-card"><span class="tag">CONFERÊNCIA PENDENTE</span><h3>${esc(r.title)}</h3><p>${esc(r.note)}</p><div class="actions">${safeLink(r.officialUrl, 'Consultar referência oficial', 'btn')}</div></article>`).join('')}<article class="update-card"><span class="tag">CADEIA DOCUMENTAL</span><h3>Consulte também os atos modificadores</h3><p>As referências a alterações, revogações, anexos e transições estão registradas nos detalhes de cada entrada. Uma cópia arquivada pode não conter a redação consolidada.</p><button class="btn" data-route="library">Abrir biblioteca</button></article>`;
+}
+function renderAI() {
+  $('#main').innerHTML =
+    `<div class="eyebrow">Visão de produto</div><h1>Consulta com fontes, em uma conversa</h1><p class="subtitle">Uma prévia visual do assistente que poderá apoiar a consulta normativa.</p><div class="wide-ai"><span class="pill">Somente demonstração visual</span><div class="bubble question">O que preciso verificar para homologar este veículo?</div><div class="bubble answer"><strong>O fluxo ideal do assistente</strong><p>1. Entender o perfil técnico e as datas do projeto.</p><p>2. Localizar documentos e atos modificadores no acervo.</p><p>3. Apresentar os trechos de referência e as incertezas.</p><p>4. Encaminhar decisões de aplicabilidade à revisão técnica.</p></div><div class="notice">Não há modelo de IA conectado. Nenhuma mensagem é enviada, nenhuma resposta jurídica é gerada e não há cobrança por consultas.</div><button class="btn primary" data-route="library">Explorar as fontes disponíveis →</button></div>`;
+}
+
+function clearFilters() {
+  state.query = '';
+  state.agency = '';
+  state.filterComponent = '';
+  state.stage = '';
+  $('#globalSearch').value = '';
+  renderLibrary();
+}
+
+document.addEventListener('click', (e) => {
+  const part = e.target.closest('[data-part]');
+  if (part) {
+    selectSystem(part.dataset.part);
+    return;
+  }
+  const b = e.target.closest('button');
+  if (!b) return;
+  if (b.dataset.selectSystem) {
+    selectSystem(b.dataset.selectSystem);
+    return;
+  }
+  if (b.dataset.component) {
+    state.component = b.dataset.component;
+    renderVehicle();
+    renderRelated();
+  }
+  if (b.dataset.open) openNorm(b.dataset.open, b.dataset.requirement || null);
+  if (b.dataset.route) navigate(b.dataset.route);
+  if (b.dataset.componentLibrary) {
+    state.filterComponent = b.dataset.componentLibrary;
+    state.query = '';
+    state.agency = '';
+    state.stage = '';
+    navigate('library');
+  }
+  if (b.dataset.flow) {
+    state.stage = b.dataset.flow;
+    navigate('flow');
+  }
+  if (b.dataset.stageLibrary) {
+    clearState();
+    state.stage = b.dataset.stageLibrary;
+    navigate('library');
+  }
+  if (['clearFilters', 'clearEmpty'].includes(b.id)) clearFilters();
+});
+function clearState() {
+  state.query = '';
+  state.agency = '';
+  state.filterComponent = '';
+  state.stage = '';
+  $('#globalSearch').value = '';
+}
+const originalAssistantMarkup = $('#aiPanel').innerHTML;
+function restoreAssistantPanel() {
+  $('#aiPanel').setAttribute('aria-label', 'Conceito visual do assistente');
+  $('#aiPanel').innerHTML = originalAssistantMarkup;
+  $('#relatedLibrary').onclick = () => {
+    clearState();
+    state.filterComponent = state.component;
+    navigate('library');
+  };
+}
+$('#relatedLibrary').onclick = () => {
+  clearState();
+  state.filterComponent = state.component;
+  navigate('library');
+};
+$('#closeDialog').onclick = () => $('#normDialog').close();
+$('#normDialog').addEventListener('click', (e) => {
+  if (e.target === $('#normDialog')) {
+    const r = e.target.getBoundingClientRect();
+    if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom)
+      e.target.close();
+  }
+});
+$('#globalSearch').addEventListener('input', (e) => {
+  state.query = e.target.value;
+  state.agency = '';
+  state.filterComponent = '';
+  state.stage = '';
+  navigate('library');
+});
+document.addEventListener('keydown', (e) => {
+  const part = e.target.closest('[data-part]');
+  if (part && ['Enter', ' '].includes(e.key)) {
+    e.preventDefault();
+    selectSystem(part.dataset.part, true);
+    return;
+  }
+  if (e.key === '/' && !['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) {
+    e.preventDefault();
+    $('#globalSearch').focus();
+  }
+});
+for (const id of ['vehicleType', 'powertrain'])
+  $('#' + id).onchange = () => {
+    if (state.view === 'vehicle') {
+      saveVehicleRoute();
+      renderVehicle();
+    }
+    const t = $('#toast');
+    t.textContent = 'Perfil visual atualizado. O catálogo não foi filtrado por aplicabilidade.';
+    t.style.display = 'block';
+    clearTimeout(window.toastTimer);
+    window.toastTimer = setTimeout(() => (t.style.display = 'none'), 4500);
+  };
+window.addEventListener('hashchange', () => {
+  render();
+  window.scrollTo({ top: 0, behavior: 'instant' });
+});
+initializeRegulatoryStore()
+  .then((index) => {
+    regulatoryBaseCatalog = index.base;
+    catalog = installActiveRegulations(index.base);
+    render();
+  })
+  .catch(() => {
+    $('#main').innerHTML =
+      '<h1>Não foi possível carregar o acervo</h1><p role="alert">O índice de consulta não está disponível. Recarregue a página para tentar novamente.</p><button class="btn" onclick="location.reload()">Tentar novamente</button>';
+  });
