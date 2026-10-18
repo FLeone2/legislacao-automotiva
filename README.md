@@ -49,14 +49,13 @@ reduzido. O fluxograma tem controles próprios de zoom e enquadramento.
 - `tree.js`: motor de fluxogramas já existente, reaproveitado para a nova consulta.
 - `app.js`, `index.html`, `styles.css`: integração e interface responsiva.
 - `assets/vehicle-exploded.webp`: ilustração original de um SUV genérico em vista
-  explodida, gerada por IA para esta experiência. As miniaturas de outros sistemas
-  usam recortes de exibição SVG dessa mesma imagem.
+  explodida, gerada por IA para esta experiência. Os demais sistemas usam suas pranchas próprias, descritas na seção de cobertura.
 - `assets/bancos.webp`, `motor.webp`, `tanque.webp`: três ilustrações detalhadas
   originais, geradas por IA, sem marcas ou dados de catálogo de fabricantes.
-- `assets/image-provenance.json`: prompts, método e origem dos quatro recursos.
+- `assets/image-provenance.json`: prompts, método e origem dos 16 recursos.
   PNGs originais foram preservados no ambiente de geração; os recursos da aplicação
-  foram somente convertidos para WebP com ImageMagick, qualidade 88. O conjunto
-  carregado tem aproximadamente 785 KiB, contra cerca de 8 MiB dos originais.
+  foram somente convertidos para WebP com ImageMagick, qualidade 88. As quatro imagens iniciais somavam aproximadamente 785 KiB; a ampliação
+  completa e a estratégia de carregamento estão detalhadas na seção de cobertura.
 - `vehicle.png`: imagem da versão anterior, mantida para histórico do projeto,
   sem uso na nova visão do veículo. Autoria/licença não documentadas no acervo.
 
@@ -99,3 +98,60 @@ A ativação automática do Pages foi recusada pelo GitHub com HTTP 403
 Para ativar pelo GitHub: Settings → Pages → Deploy from a branch →
 `feat/navegacao-visual-sistemas` → `/ (root)` → Save. Depois abra a URL
 fornecida pelo GitHub com `/#vehicle` ao final.
+
+## Cobertura integral dos sistemas cadastrados
+
+A navegação cobre **11 sistemas físicos e os 30 subsistemas definidos na taxonomia
+atual do projeto**, sem subsistema ausente. Essa contagem descreve o acervo atual;
+não afirma que uma taxonomia de 30 itens esgote todas as configurações possíveis
+de veículos.
+
+| Sistema do acervo | Subsistemas com entrada visual e fluxograma |
+| --- | --- |
+| Vidros e visibilidade | Vidros e transparência; limpadores e lavadores; acionamento de janelas |
+| Pneus e rodas | Pneus e estepe; rodas e requisitos |
+| Freios e estabilidade | Frenagem/ABS/componentes; controle de estabilidade; fluido de freio |
+| Iluminação e sinalização | Dispositivos e instalação; componentes de iluminação |
+| Proteção dos ocupantes | Cintos/ancoragem/apoios; airbags; retenção infantil; materiais do habitáculo |
+| Carroceria e proteção externa | Impactos e pedestres; portas/dobradiças/fechaduras; acessórios e proteção externa |
+| Retrovisores e visão traseira | Espelhos e visão indireta; monitoramento traseiro |
+| Propulsão e emissões | Emissões e ensaios; propulsão elétrica/bateria; combustíveis e eficiência; componentes do motor |
+| Eletrônica e comandos | Diagnóstico/OBD; telas e imagens; comandos/sinal sonoro |
+| Identificação do veículo | Placas; identificação e marcações; rotulagem e informação |
+| Suspensão e direção | Componentes de suspensão e direção |
+
+A visão geral oferece 14 acessos físicos/temáticos (alguns pertencem ao mesmo
+sistema do acervo). Todos agora usam arte detalhada própria. Ao abrir um sistema,
+a área **Subsistemas** apresenta o desenho com regiões clicáveis e cards textuais.
+Selecionar um deles abre seu fluxograma específico, e o endereço guarda
+`component`, `subsystem`, `lane`, `node` e o perfil. Voltar ao fluxograma completo
+mantém o sistema.
+
+Foram adicionadas **12 pranchas geradas por IA**, totalizando **16 arquivos de
+imagem**. As ilustrações dos 30 subsistemas são recortes de exibição SVG das
+pranchas correspondentes, com coordenadas explícitas em `subsystemBoards` e
+`specialSubsystemArt` de `vehicle-data.js`. Os originais não são recortados nem
+alterados: os SVGs recortam somente a exibição. Isso mantém a coerência entre a
+vista do sistema e as miniaturas/detalhes dos seus subsistemas. Os prompts e os
+caminhos dos PNGs originais estão em `assets/image-provenance.json`.
+
+Os 16 WebPs somam aproximadamente 2,9 MiB; imagens dos cards usam carregamento
+sob demanda. A imagem geral permanece uma ilustração genérica de referência, com
+entrada auxiliar identificada para a bateria elétrica.
+
+O teste `ComponentFlow.coverage()` exige zero lacunas de navegação. Ele não conta
+uma norma não cadastrada como cobertura legal: uma referência ausente permanece
+uma lacuna explícita no fluxograma, incluindo NBRs de espuma e o ramo ambiental
+de bateria. Não há associação automática de normas de outros temas para preencher
+um ramo vazio.
+
+Além das verificações anteriores, execute:
+
+```sh
+python tests/subsystem-browser.py
+```
+
+Essa suíte percorre os 30 subsistemas, confere cada ilustração e o conjunto exato
+de registros esperado, testa cliques reais nas regiões do desenho de subsistemas,
+retorno, recarregamento, teclado e layout móvel. As capturas incluem freios em
+vista completa e airbags na tela de subsistema.

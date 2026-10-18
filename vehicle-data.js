@@ -44,3 +44,71 @@ const ComponentFlow={
   unique(records){return [...new Map(records.map(r=>[r.id,r])).values()];}
 };
 if(typeof module!=='undefined')module.exports={vehicleComponents,ComponentFlow};
+
+// Graphic layout is deterministic and stored independently of regulatory records.
+// SVG viewports expose each cluster without modifying the generated originals.
+const subsystemBoards={
+ 'vidros':{asset:'assets/vidros.webp',columns:3,rows:1},
+ 'pneus-rodas':{asset:'assets/pneus-rodas.webp',columns:2,rows:1},
+ 'freios':{asset:'assets/freios.webp',columns:3,rows:1},
+ 'iluminacao':{asset:'assets/iluminacao.webp',columns:2,rows:1},
+ 'ocupantes':{asset:'assets/ocupantes.webp',columns:2,rows:2},
+ 'carroceria':{asset:'assets/carroceria.webp',columns:3,rows:1},
+ 'retrovisores':{asset:'assets/retrovisores.webp',columns:2,rows:1},
+ 'eletronica':{asset:'assets/eletrica.webp',columns:3,rows:1},
+ 'identificacao':{asset:'assets/identificacao.webp',columns:3,rows:1},
+ 'chassi':{asset:'assets/chassi.webp',columns:1,rows:1}
+};
+const specialSubsystemArt={
+ 'propulsao/emissoes':{asset:'assets/escapamento.webp',columns:1,rows:1,index:0},
+ 'propulsao/eletrica':{asset:'assets/bateria.webp',columns:1,rows:1,index:0},
+ 'propulsao/combustiveis':{asset:'assets/tanque.webp',columns:1,rows:1,index:0},
+ 'propulsao/componentes':{asset:'assets/motor.webp',columns:1,rows:1,index:0}
+};
+const componentIllustrations={freios:'freios',chassi:'chassi',vidros:'vidros',iluminacao:'iluminacao',carroceria:'carroceria',retrovisores:'retrovisores','pneus-rodas':'pneus-rodas',eletrica:'eletrica',escapamento:'escapamento',bateria:'bateria',identificacao:'identificacao'};
+vehicleComponents.push(
+ {id:'bateria',label:'Bateria e propulsão elétrica',short:'Bateria',taxonomy:'propulsao/eletrica',asset:'assets/bateria.webp',path:'M106 530H280V575H106Z',external:true},
+ {id:'identificacao',label:'Identificação e marcações',short:'Identificação',taxonomy:'identificacao',asset:'assets/identificacao.webp',path:'M165 697L236 715L233 740L163 719Z'}
+);
+for(const c of vehicleComponents){if(componentIllustrations[c.id])c.asset=`assets/${componentIllustrations[c.id]}.webp`;}
+ComponentFlow.subsystems=function(c,hierarchy){
+ const group=hierarchy.find(g=>g.physical&&(g.id===c.taxonomy||g.children.some(s=>s.id===c.taxonomy)));
+ return group?group.children.filter(s=>c.taxonomy===group.id||s.id===c.taxonomy).map(s=>({id:s.id,label:s.label,system:group.id})):[];
+};
+ComponentFlow.art=function(subsystem,hierarchy){
+ const group=hierarchy.find(g=>g.id===subsystem.system);const board=specialSubsystemArt[subsystem.id]||subsystemBoards[subsystem.system];
+ if(!board)return null;
+ const index=board.index??group.children.findIndex(s=>s.id===subsystem.id),w=1536/board.columns,h=1024/board.rows;
+ return {...board,index,x:(index%board.columns)*w,y:Math.floor(index/board.columns)*h,width:w,height:h};
+};
+ComponentFlow.subsystemLanes=function(c,subsystem){
+ const id=subsystem.id,topic={id:id.split('/')[1],label:subsystem.label,taxonomy:[id]};
+ const gap='Referências deste ramo ainda não estão associadas ao subsistema no acervo. Pesquisa e validação pendentes.';
+ if(id==='ocupantes/materiais'){topic.text='Associação temática de materiais do habitáculo. O acervo não confirma requisitos específicos de espuma.';topic.gaps=['Normas ABNT NBR específicas de espuma e bancos ainda não cadastradas nem verificadas.'];}
+ if(id==='propulsao/combustiveis')return [
+  {id:'seguranca',label:'Segurança',topics:[{...topic,recordIds:['senatran-118'],text:'Tanques, alteração de capacidade e condições específicas do ato. Conferir fonte e enquadramento.'}]},
+  {id:'ambiental',label:'Ambiental e eficiência',topics:[{...topic,recordIds:['mover-007','mover-008','ibama-014'],text:'Combustíveis, eficiência e emissões já classificados neste assunto. Não são requisitos exclusivos do tanque.'}]}
+ ];
+ if(id==='propulsao/eletrica')return [
+  {id:'seguranca',label:'Segurança e conformidade',topics:[topic]},
+  {id:'ambiental',label:'Ambiental',topics:[{id:'ambiental',label:'Bateria: ciclo de vida e destinação',recordIds:[],gaps:[gap]}]}
+ ];
+ const environmental=['propulsao/emissoes','eletronica/obd'].includes(id);
+ return [{id:environmental?'ambiental':'seguranca',label:environmental?'Ambiental':'Segurança e conformidade',topics:[topic]}];
+};
+const originalTopics=ComponentFlow.topics;
+ComponentFlow.topics=function(c,hierarchy){
+ if(c.lanes)return originalTopics.call(this,c,hierarchy);
+ const lanes=new Map();
+ for(const sub of this.subsystems(c,hierarchy))for(const lane of this.subsystemLanes(c,sub)){
+  if(!lanes.has(lane.id))lanes.set(lane.id,{...lane,topics:[]});
+  lanes.get(lane.id).topics.push(...lane.topics);
+ }
+ return [...lanes.values()];
+};
+ComponentFlow.coverage=function(hierarchy){
+ const expected=hierarchy.filter(g=>g.physical).flatMap(g=>g.children.map(s=>s.id));
+ const covered=new Set(vehicleComponents.flatMap(c=>this.subsystems(c,hierarchy).map(s=>s.id)));
+ return {systems:hierarchy.filter(g=>g.physical).length,total:expected.length,covered:expected.filter(id=>covered.has(id)).length,missing:expected.filter(id=>!covered.has(id))};
+};
+if(typeof module!=='undefined')Object.assign(module.exports,{subsystemBoards,specialSubsystemArt});

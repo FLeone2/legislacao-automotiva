@@ -15,7 +15,7 @@ async def main():
   browser=await p.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);page=await browser.new_page(viewport={'width':1440,'height':1100},reduced_motion='reduce')
   errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
   await overview(page)
-  assert await page.locator('.component-card').count()==12
+  assert await page.locator('.component-card').count()==14
   # Hit-testing actual transformed SVG geometry: each physical point must land on its own region.
   for name,xy in POINTS.items():
    pos=await point(page,xy);actual=await page.evaluate('(p)=>document.elementFromPoint(p.x,p.y)?.closest("[data-component-link]")?.dataset.componentLink',pos);assert actual==name,(name,actual)
@@ -62,7 +62,7 @@ async def main():
   await page.locator('.component-lanes a',has_text='Ambiental').focus();await page.keyboard.press('Enter');await flow(page);assert vehicle_url_has(page,'lane=ambiental')
   await page.goto(BASE+'#vehicle?component=missing');await page.locator('#vehicleDrawing').wait_for();assert 'Componente não encontrado' in await page.locator('#main [role=status]').inner_text()
   await page.goto(BASE+'#vehicle?component=motor');await flow(page);await page.evaluate('catalog.records=[];renderVehicle()');assert await page.locator('#aiPanel .tree-doc').count()==0;assert 'pendente' in (await page.locator('.graph-node strong').all_inner_texts())[-1].lower()
-  await page.route('**/assets/motor.webp',lambda route:route.abort());await page.reload();await flow(page);await page.locator('.image-unavailable').wait_for();await page.unroute('**/assets/motor.webp')
+  await page.route('**/assets/motor.webp',lambda route:route.abort());await page.reload();await flow(page);await page.locator('.image-unavailable').first.wait_for();await page.unroute('**/assets/motor.webp')
   # Existing application views remain intact.
   for view in ['tree','mover','library','flow','updates','ai']:
    await page.goto(BASE+'#'+view);await page.locator('#main h1').wait_for();assert await page.locator('#main h1').inner_text()
@@ -78,7 +78,7 @@ async def main():
   await page.wait_for_function('!document.documentElement.classList.contains("transitioning")')
   assert 'Motor' in await page.locator('#main h1').inner_text()
   assert not errors,errors
-  print('PASS: 12 real SVG hit targets, image zoom/reset, bank/engine/tank flows, reference/gap provenance, source dialog, graph controls, URL/reload/back, keyboard, mobile clicks/layout, missing image/data and 6 existing views. No JavaScript errors.')
+  print('PASS: 12 original SVG hit targets plus 14 component entries, image zoom/reset, bank/engine/tank flows, reference/gap provenance, source dialog, graph controls, URL/reload/back, keyboard, mobile clicks/layout, missing image/data and 6 existing views. No JavaScript errors.')
   await browser.close()
 def vehicle_url_has(page,value):return value in page.url
 asyncio.run(main())
