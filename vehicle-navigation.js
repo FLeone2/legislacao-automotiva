@@ -1,85 +1,54 @@
 'use strict';
-// Taxonomy IDs, rather than ASA PNCs, link graphics, controls and legal records.
-const VehicleModel={
-  available(hierarchy,systems){const ids=new Set(systems);return hierarchy.flatMap(g=>g.children.filter(c=>ids.has(g.id)||ids.has(c.id)));},
-  toggle(values,id){return values.includes(id)?values.filter(x=>x!==id):[...values,id];},
-  prune(groups,available){const ids=new Set(available.map(x=>x.id));return groups.filter(id=>ids.has(id));},
-  records(records,id){return records.filter(r=>(r.taxonomy||[]).some(t=>t===id||t.startsWith(id+'/')));},
-  zoom(value){return Math.max(1,Math.min(3,Math.round(value*10)/10));}
-};
-if(typeof module!=='undefined')module.exports=VehicleModel;
-const vehicleUI={systems:[],groups:[],illustration:null,selected:[],zoom:1};
-const brakePoints=[{id:'freios/frenagem',x:260,y:285},{id:'freios/estabilidade',x:585,y:280},{id:'freios/fluido',x:695,y:135}];
+const vehicleUI={component:null,lane:null,zoom:1};
 function vehicleContext(){return `${$('#vehicleType').value} · ${$('#powertrain').value}`;}
-function vehicleAvailable(){return VehicleModel.available(catalog.metadata.hierarchy,vehicleUI.systems);}
-function readVehicleRoute(){
- const q=new URLSearchParams(location.hash.split('?')[1]||'');
- const h=catalog.metadata.hierarchy,systems=new Set(h.flatMap(g=>[g.id,...g.children.map(c=>c.id)]));
- vehicleUI.systems=[...new Set((q.get('systems')||'').split(',').filter(x=>systems.has(x)))];
- vehicleUI.groups=VehicleModel.prune([...new Set((q.get('groups')||'').split(','))],vehicleAvailable());
- const next=q.get('illustration');
- if(next!==vehicleUI.illustration){vehicleUI.selected=[];vehicleUI.zoom=1;}
- vehicleUI.illustration=vehicleUI.groups.includes(next)?next:null;
- for(const [key,id] of [['type','vehicleType'],['powertrain','powertrain']]){const value=q.get(key);if(value&&[...$('#'+id).options].some(o=>o.value===value))$('#'+id).value=value;}
-}
-function saveVehicleRoute(){
- const q=new URLSearchParams();
- if(vehicleUI.systems.length)q.set('systems',vehicleUI.systems.join(','));
- if(vehicleUI.groups.length)q.set('groups',vehicleUI.groups.join(','));
- if(vehicleUI.illustration)q.set('illustration',vehicleUI.illustration);
- q.set('type',$('#vehicleType').value);q.set('powertrain',$('#powertrain').value);
- const next='#vehicle?'+q; if(location.hash!==next)history.pushState(null,'',next);
-}
-function refreshVehicle(focus){saveVehicleRoute();renderVehicle();renderRelated();if(focus)document.querySelector(focus)?.focus({preventScroll:true});}
-function selectSystem(id,fromKeyboard=false){
- if(!groupFor(id))return;
- vehicleUI.systems=VehicleModel.toggle(vehicleUI.systems,id);
- vehicleUI.groups=VehicleModel.prune(vehicleUI.groups,vehicleAvailable());
- vehicleUI.illustration=null;vehicleUI.selected=[];vehicleUI.zoom=1;state.component=id;
- refreshVehicle(fromKeyboard?`[data-part="${id}"]`:null);
-}
-function vehicleMap(){return `<div class="visual-overview"><svg viewBox="0 0 1536 1024" role="group" aria-label="Regiões do veículo ilustrativo"><image href="vehicle.png" width="1536" height="1024" aria-hidden="true"/>${mapRegions.map(r=>`<path d="${r.d}" class="vehicle-part ${vehicleUI.systems.includes(r.id)?'selected':''}" data-part="${r.id}" tabindex="0" role="button" aria-pressed="${vehicleUI.systems.includes(r.id)}" aria-label="${esc(r.label)}"><title>${esc(r.label)}</title></path>`).join('')}</svg><p class="scope-note">Ilustração geral do projeto. Clique nas regiões ou use os sistemas ao lado. Seleções se acumulam.</p></div>`;}
-function vehicleThumbnail(c){const brake=c.id.startsWith('freios/');const region=mapRegions.find(r=>r.id===c.id)||mapRegions.find(r=>r.id===c.id.split('/')[0]);return brake?'<img src="assets/brake-schematic.svg" alt="Esquema conceitual do sistema de freios" loading="lazy">':region?`<svg viewBox="0 0 1536 1024" aria-label="Localização ilustrativa no veículo"><image href="vehicle.png" width="1536" height="1024"/><path d="${region.d}" fill="#ed1d2340" stroke="#ba1535" stroke-width="12"/></svg>`:'<span class="no-graphic">Sem miniatura disponível</span>';}
+function componentArt(c,cls=''){return c.asset?`<img class="${cls}" src="${c.asset}" alt="Ilustração conceitual de ${esc(c.label)}" decoding="async">`:`<svg class="${cls}" viewBox="${c.crop}" role="img" aria-label="${esc(c.label)}"><image href="assets/vehicle-exploded.webp" width="1536" height="1024"/></svg>`;}
+function vehicleLink(c,lane){const q=new URLSearchParams({component:c.id});if(lane)q.set('lane',lane);q.set('type',$('#vehicleType').value);q.set('powertrain',$('#powertrain').value);return '#vehicle?'+q;}
+function saveVehicleRoute(){const q=new URLSearchParams(location.hash.split('?')[1]||'');q.set('type',$('#vehicleType').value);q.set('powertrain',$('#powertrain').value);history.replaceState(null,'','#vehicle?'+q);}
+function selectSystem(id){const c=ComponentFlow.component(id)||vehicleComponents.find(x=>x.taxonomy===id);if(c)goVehicle(vehicleLink(c));}
+function goVehicle(url){const update=()=>{history.pushState(null,'',url);render();window.scrollTo({top:0,behavior:'instant'});$('#main h1')?.focus({preventScroll:true});};if(document.startViewTransition&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.startViewTransition(update);else update();}
+function vehicleMap(){return `<div class="catalog-stage"><svg id="vehicleDrawing" viewBox="0 0 1536 1024" role="group" aria-label="Veículo ilustrado: selecione um componente"><g id="vehicleLayer"><image href="assets/vehicle-exploded.webp" width="1536" height="1024"/><rect x="1100" y="785" width="415" height="230" rx="14" fill="white" stroke="#dde4ec" stroke-width="2"/><image href="assets/tanque.webp" x="1110" y="785" width="395" height="205" preserveAspectRatio="xMidYMid meet"/><text x="1307" y="1000" text-anchor="middle" fill="#536579" font-size="20" font-family="Arial">Tanque e circuito de vapores</text>${vehicleComponents.map(c=>`<a href="${esc(vehicleLink(c))}" data-component-link="${c.id}" aria-label="Explorar normas: ${esc(c.label)}"><path class="component-region" d="${c.path}"><title>${esc(c.label)}</title></path></a>`).join('')}</g></svg><div class="vehicle-drawing-tools"><button data-vehicle-zoom="out" aria-label="Diminuir imagem do veículo">−</button><button data-vehicle-zoom="reset" aria-label="Restaurar imagem do veículo"><output id="vehicleImageZoom">100%</output></button><button data-vehicle-zoom="in" aria-label="Ampliar imagem do veículo">+</button></div><output id="componentHover" class="component-hover" aria-live="polite">Selecione um componente do veículo</output><p class="catalog-caption">Ilustração conceitual · SUV genérico. Selecione no desenho ou nos componentes abaixo.</p></div>`;}
 function renderVehicle(){
- readVehicleRoute();
- const h=catalog.metadata.hierarchy||[];
- $('#main').innerHTML=`<div class="eyebrow">Consulta visual · Brasil</div><h1>Do veículo à referência</h1><div class="vehicle-context"><span aria-hidden="true">▱</span><div><strong>${esc(vehicleContext())}</strong><small>Perfil ilustrativo do projeto · sem identificação de modelo ou VIN</small></div></div><p class="subtitle">Explore sistemas e selecione subsistemas para abrir a consulta visual.</p><nav class="visual-trail" aria-label="Percurso do veículo"><button data-visual="back">Veículo</button><span>›</span><button data-visual="back">Sistemas e subsistemas</button>${vehicleUI.illustration?`<span>›</span><strong>${esc(systemLabel(vehicleUI.illustration))}</strong>`:''}</nav><div id="visualContent">${vehicleUI.illustration?vehicleDetail():vehicleGroups(h)}</div>`;
- if(vehicleUI.illustration){const svg=$('#detailDrawing');svg?.addEventListener('wheel',e=>{e.preventDefault();changeVehicleZoom(e.deltaY<0?.2:-.2);},{passive:false});}
-
+ $('#main').onpointerover=null;$('#main').onfocusin=null;$('#main').onpointerleave=null;
+ const q=new URLSearchParams(location.hash.split('?')[1]||'');
+ for(const [key,id] of [['type','vehicleType'],['powertrain','powertrain']]){const value=q.get(key);if(value&&[...$('#'+id).options].some(o=>o.value===value))$('#'+id).value=value;}
+ const c=ComponentFlow.component(q.get('component'));
+ vehicleUI.component=c?.id||null;
+ $('#app').classList.toggle('tree-mode',Boolean(c));$('#app').classList.toggle('vehicle-flow-mode',Boolean(c));$('#app').classList.toggle('vehicle-overview-mode',!c);
+ if(c){initializeComponentTree(c,q);renderVehicleFlow();return;}
+ restoreAssistantPanel();
+ $('#main').innerHTML=`<header class="vehicle-page-heading"><div><p class="vehicle-kicker">Exploração por componentes</p><h1 tabindex="-1">O veículo como ponto de partida.</h1><p>Escolha uma parte para explorar suas legislações e normas.</p></div><div class="vehicle-profile"><span>Perfil de consulta</span><strong>${esc(vehicleContext())}</strong></div></header>${q.has('component')?'<p class="notice" role="status">Componente não encontrado. Escolha uma das opções do veículo.</p>':''}${vehicleMap()}<section class="component-directory" aria-labelledby="componentDirectory"><div class="section-heading"><h2 id="componentDirectory">Qual componente você quer explorar?</h2><span>${vehicleComponents.length} entradas visuais</span></div><div class="component-cards">${vehicleComponents.map(c=>`<a class="component-card" href="${esc(vehicleLink(c))}" data-component-link="${c.id}"><div class="component-card-art">${componentArt(c)}</div><div class="component-card-copy"><strong>${esc(c.label)}</strong><span>${ComponentFlow.topics(c,catalog.metadata.hierarchy).map(l=>l.label).join(' · ')}</span></div><span class="component-card-arrow" aria-hidden="true">↗</span></a>`).join('')}</div></section><p class="scope-note">A seleção organiza a consulta por assunto. O perfil ilustrativo não determina aplicabilidade. As ilustrações são próprias, geradas para navegação, e não identificam um modelo real.</p>`;
+ vehicleUI.zoom=1;setupComponentHover();
 }
-function vehicleGroups(h){
- const available=vehicleAvailable();
- return `<div class="visual-picker">${vehicleMap()}<aside class="visual-systems"><h2>Sistemas</h2><p>Selecione um ou mais.</p>${h.filter(g=>g.physical).map(g=>`<button data-visual-system="${g.id}" aria-pressed="${vehicleUI.systems.includes(g.id)}"><span>${esc(g.label)}</span><small>${g.children.length} subsistemas</small><b aria-hidden="true">${vehicleUI.systems.includes(g.id)?'✓':'+'}</b></button>`).join('')}</aside></div><section class="visual-groups" aria-labelledby="subsystemTitle"><div class="section-heading"><h2 id="subsystemTitle">Subsistemas</h2><span role="status">${available.length} disponíveis · ${vehicleUI.groups.length} selecionados</span></div><p class="scope-note">Selecione os cards e use “Abrir ilustração”. Os códigos abaixo são identificadores da taxonomia regulatória do projeto.</p><div class="visual-cards">${available.map(c=>`<button class="visual-card ${vehicleUI.groups.includes(c.id)?'active':''}" data-visual-group="${c.id}" aria-pressed="${vehicleUI.groups.includes(c.id)}"><div class="visual-thumb">${vehicleThumbnail(c)}</div><small>${esc(c.id)}</small><strong>${esc(c.label)}</strong><span>${vehicleUI.groups.includes(c.id)?'✓ Selecionado':'Selecionar'} · ${systemCount(c.id)} referências</span></button>`).join('')||'<p class="visual-empty" role="status">Selecione uma região do carro ou um sistema para ver os subsistemas associados.</p>'}</div><div class="visual-actions"><button class="btn" data-visual="clear">Limpar seleção</button><button class="btn" data-visual="all" ${available.length?'':'disabled'}>Selecionar todos os subsistemas</button><button class="btn primary" data-visual="open" ${vehicleUI.groups.length?'':'disabled'}>Abrir ilustração (${vehicleUI.groups.length}) →</button></div></section><details class="visual-other"><summary>Processos e temas além do mapa físico</summary><p class="scope-note">Temas regulatórios sem correspondência obrigatória a uma peça.</p>${h.filter(g=>!g.physical).map(g=>`<button class="btn" data-visual-system="${g.id}" aria-pressed="${vehicleUI.systems.includes(g.id)}">${esc(g.label)} ${vehicleUI.systems.includes(g.id)?'✓':'+'}</button>`).join('')}</details>`;
+function initializeComponentTree(c,q){
+ const lanes=ComponentFlow.topics(c,catalog.metadata.hierarchy);const lane=lanes.find(x=>x.id===q.get('lane'))||lanes[0];vehicleUI.lane=lane.id;
+ const laneNodes=lanes.map(l=>branch(`component:${c.id}:${l.id}`,l.label,'Caminho de consulta',l.id==='ambiental'?'♧':'◇',l.topics.map(t=>{
+  const records=ComponentFlow.records(t,catalog.records),id=`component:${c.id}:${l.id}:${t.id}`;
+  const leaves=records.map(r=>({id:`${id}:record:${r.id}`,label:r.title,subtitle:r.issuer||r.agency,icon:'▤',kind:'Referência do acervo',recordId:r.id,recordIds:[r.id],text:r.summary}));
+  (t.gaps||[]).forEach((gap,i)=>leaves.push({id:`${id}:gap:${i}`,label:'Mapeamento pendente',subtitle:gap,icon:'!',kind:'Lacuna do acervo',recordIds:[],text:gap}));
+  if(!leaves.length)leaves.push({id:`${id}:empty`,label:'Sem referência cadastrada',subtitle:'Pesquisa e validação pendentes',icon:'!',kind:'Lacuna do acervo',recordIds:[],text:'Ainda não há referência associada a este assunto no acervo. Nenhuma norma foi inferida a partir da ilustração.'});
+  return {id,label:t.label,subtitle:`${records.length} referências${t.gaps?.length?' · mapeamento parcial':''}`,icon:'◇',kind:'Assunto do componente',recordIds:records.map(r=>r.id),text:t.text||'Associação temática já registrada no acervo. Verifique o objeto, as condições e os anexos nas fontes.',children:leaves};
+ })));
+ const root=branch(`component:${c.id}`,c.label,'Componente selecionado','▱',laneNodes,'Componente do veículo');treeModels.vehicle=indexTree(root);
+ const lid=`component:${c.id}:${lane.id}`,first=treeModels.vehicle.nodes[lid].children[0];
+ const node=q.get('node');const valid=node&&treeModels.vehicle.nodes[node]&&(node===root.id||node===lid||node.startsWith(lid+':'));
+ treeUI.vehicle={path:valid?nodeTrail(node,treeModels.vehicle):[root.id,lid,first.id],selected:valid?node:first.id,zoom:1,tab:'summary',fit:true};
 }
-function vehicleDetail(){
- const current=vehicleUI.illustration,g=groupFor(current),brake=g.id==='freios';
- const rows=g.children;const selected=rows.filter(c=>vehicleUI.selected.includes(c.id));
- const refs=[...new Map(selected.flatMap(c=>VehicleModel.records(catalog.records,c.id)).map(r=>[r.id,r])).values()];
- return `<section class="visual-detail"><div class="visual-detail-head"><button class="text-button" data-visual="back">← Voltar aos grupos</button><h2>${esc(systemLabel(current))}</h2><span class="pill">${esc(current)}</span></div><div class="visual-illustration-tabs" aria-label="Grupos selecionados">${vehicleUI.groups.map(id=>`<button data-visual-illustration="${id}" aria-pressed="${id===current}">${esc(systemLabel(id))}</button>`).join('')}</div><p class="scope-note">${brake?'Esquema conceitual próprio, em vista separada. Não é desenho técnico de um modelo real. Os pontos representam assuntos da taxonomia, não PNCs ou números comerciais.':'Não há ilustração detalhada e mapa de hotspots disponíveis para este sistema. A consulta textual aos assuntos e às referências permanece disponível.'}</p><div class="visual-detail-grid"><div class="drawing-panel">${brake?`<div class="drawing-tools"><button class="btn" data-visual="minus" aria-label="Diminuir zoom">−</button><button class="btn" data-visual="reset" aria-label="Restaurar enquadramento">100% · Restaurar</button><button class="btn" data-visual="plus" aria-label="Aumentar zoom">+</button><output id="visualZoom" aria-live="polite">${Math.round(vehicleUI.zoom*100)}%</output></div><svg id="detailDrawing" viewBox="0 0 900 520" role="group" aria-label="Esquema conceitual interativo de freios"><g id="drawingTransform" transform="translate(450 260) scale(${vehicleUI.zoom}) translate(-450 -260)"><image href="assets/brake-schematic.svg" width="900" height="520"/>${brakePoints.map((p,i)=>`<g class="topic-hotspot ${vehicleUI.selected.includes(p.id)?'active':''}" data-visual-topic="${p.id}" tabindex="0" role="button" aria-pressed="${vehicleUI.selected.includes(p.id)}" aria-label="${esc(systemLabel(p.id))}" transform="translate(${p.x} ${p.y})"><circle r="30"/><text text-anchor="middle" dy="7">${i+1}</text><title>${esc(systemLabel(p.id))}</title></g>`).join('')}</g></svg>`:'<div class="visual-empty">Ilustração detalhada indisponível.<br>Selecione os assuntos na lista ao lado para consultar o acervo.</div>'}</div><section class="topic-panel" aria-label="Assuntos do sistema"><h3>Componentes e assuntos</h3><p class="scope-note">Desenho e lista compartilham os mesmos identificadores.</p>${rows.map((c,i)=>`<button class="visual-topic ${vehicleUI.selected.includes(c.id)?'active':''}" data-visual-topic="${c.id}" aria-pressed="${vehicleUI.selected.includes(c.id)}"><b>${i+1}</b><span><small>${esc(c.id)}</small><strong>${esc(c.label)}</strong><small>${systemCount(c.id)} referências · ${vehicleUI.selected.includes(c.id)?'Selecionado':'Selecionar'}</small></span></button>`).join('')||'<p role="status">Nenhum assunto cadastrado neste sistema.</p>'}<button class="btn" data-visual="clear-topics">Limpar assuntos selecionados</button></section></div><section class="visual-references" aria-labelledby="visualRefsTitle"><h3 id="visualRefsTitle">Legislações dos assuntos selecionados</h3><p class="scope-note">Associações temáticas já cadastradas no projeto. Confirme vigência e aplicabilidade na fonte oficial.</p><div role="status">${selected.length} assuntos selecionados · ${refs.length} referências</div>${refs.map(documentCard).join('')||`<p class="visual-empty">${selected.length?'Nenhuma referência associada no acervo aos assuntos selecionados.':'Selecione um ponto do desenho ou um assunto na lista para ver suas referências.'}</p>`}</section></section>`;
+function renderVehicleFlow(){
+ const c=ComponentFlow.component(vehicleUI.component);if(!c)return renderVehicle();
+ const model=treeModels.vehicle,ui=treeUI.vehicle,lanes=ComponentFlow.topics(c,catalog.metadata.hierarchy);
+ const q=new URLSearchParams(location.hash.split('?')[1]||'');q.set('component',c.id);q.set('lane',vehicleUI.lane);q.set('node',ui.selected);history.replaceState(null,'','#vehicle?'+q);
+ $('#main').innerHTML=`<nav class="component-breadcrumb" aria-label="Caminho selecionado"><a href="#vehicle" data-vehicle-back>← Voltar ao veículo</a><span> / </span><strong>${esc(c.label)}</strong></nav><header class="component-flow-heading"><div class="component-hero-art">${componentArt(c)}</div><div><p class="vehicle-kicker">${esc(vehicleContext())}</p><h1 tabindex="-1">${esc(c.label)}</h1><p>Do componente ao assunto.<br>Do assunto à fonte.</p></div></header><nav class="component-lanes" aria-label="Área regulatória">${lanes.map(l=>`<a href="${esc(vehicleLink(c,l.id))}" data-component-link="${c.id}" class="${vehicleUI.lane===l.id?'active':''}" ${vehicleUI.lane===l.id?'aria-current="page"':''}><span>${l.id==='ambiental'?'♧':'◇'}</span>${esc(l.label)}</a>`).join('')}</nav><div class="tree-breadcrumb" aria-label="Ramo do fluxograma">${nodeTrail(ui.selected,model).map(id=>`<button data-tree-node="${esc(id)}">${esc(model.nodes[id].label)}</button>`).join('<span>›</span>')}</div><section class="graph-shell component-graph" aria-label="Fluxograma de normas de ${esc(c.label)}">${graphMarkup(model,ui)}</section><div class="tree-footer"><span>ⓘ</span><span>Abra os ramos e selecione uma norma. Arraste o fundo ou deslize para navegar. Conexões indicam associação temática.</span><button data-graph-action="reset">Recomeçar</button></div><p class="scope-note">O acervo não certifica vigência ou aplicabilidade. Lacunas, inclusive normas NBR ainda não cadastradas, aparecem como mapeamento pendente.</p>`;
+ renderTreeDetails();setupGraph();
 }
-function changeVehicleZoom(delta){vehicleUI.zoom=VehicleModel.zoom(vehicleUI.zoom+delta);$('#drawingTransform')?.setAttribute('transform',`translate(450 260) scale(${vehicleUI.zoom}) translate(-450 -260)`);if($('#visualZoom'))$('#visualZoom').textContent=Math.round(vehicleUI.zoom*100)+'%';}
-function handleVisual(target){
- if(target.dataset.visualSystem){selectSystem(target.dataset.visualSystem);return;}
- if(target.dataset.visualGroup){vehicleUI.groups=VehicleModel.toggle(vehicleUI.groups,target.dataset.visualGroup);refreshVehicle(`[data-visual-group="${target.dataset.visualGroup}"]`);return;}
- if(target.dataset.visualTopic){const id=target.dataset.visualTopic;vehicleUI.selected=VehicleModel.toggle(vehicleUI.selected,id);state.component=id;refreshVehicle(`[data-visual-topic="${id}"]`);return;}
- if(target.dataset.visualIllustration){vehicleUI.illustration=target.dataset.visualIllustration;vehicleUI.selected=[vehicleUI.illustration];vehicleUI.zoom=1;refreshVehicle();return;}
- const action=target.dataset.visual;
- if(['plus','minus','reset'].includes(action)){changeVehicleZoom(action==='reset'?1-vehicleUI.zoom:action==='plus'?.2:-.2);return;}
- if(action==='clear'){vehicleUI.systems=[];vehicleUI.groups=[];vehicleUI.selected=[];vehicleUI.illustration=null;}
- if(action==='all')vehicleUI.groups=vehicleAvailable().map(c=>c.id);
- if(action==='open'){vehicleUI.illustration=vehicleUI.groups[0];vehicleUI.selected=[vehicleUI.illustration];vehicleUI.zoom=1;state.component=vehicleUI.illustration;}
- if(action==='back'){vehicleUI.illustration=null;vehicleUI.selected=[];vehicleUI.zoom=1;}
- if(action==='clear-topics')vehicleUI.selected=[];
- refreshVehicle(action==='open'?'[data-visual="back"]':null);
+function setupComponentHover(){
+ const stage=$('.catalog-stage');if(!stage)return;
+ const show=id=>{document.querySelectorAll('[data-component-link]').forEach(el=>el.classList.toggle('is-hovered',el.dataset.componentLink===id));const c=ComponentFlow.component(id);if($('#componentHover'))$('#componentHover').textContent=c?`${c.label} · explorar normas`:'Selecione um componente do veículo';};
+ $('#main').onpointerover=e=>{const link=e.target.closest('[data-component-link]');if(link)show(link.dataset.componentLink);};
+ $('#main').onfocusin=e=>{const link=e.target.closest('[data-component-link]');if(link)show(link.dataset.componentLink);};
+ $('#main').onpointerleave=()=>show(null);
 }
 if(typeof document!=='undefined'){
- document.addEventListener('error',e=>{
-  if(!e.target.matches?.('img,image'))return;
-  const container=e.target.closest('.visual-thumb,.drawing-panel,.visual-overview');if(!container)return;
-  (e.target.closest('svg')||e.target).style.display='none';
-  if(!container.querySelector('.no-graphic')){const message=document.createElement('p');message.className='no-graphic';message.setAttribute('role','status');message.textContent='Imagem indisponível. Use a lista textual para navegar.';container.append(message);}
- },true);
- document.addEventListener('click',e=>{const target=e.target.closest('[data-visual],[data-visual-system],[data-visual-group],[data-visual-topic],[data-visual-illustration]');if(target)handleVisual(target);});
- document.addEventListener('keydown',e=>{const target=e.target.closest('g[data-visual-topic]');if(target&&['Enter',' '].includes(e.key)){e.preventDefault();handleVisual(target);}});
- window.addEventListener('popstate',()=>{if(location.hash.startsWith('#vehicle')){renderVehicle();renderRelated();}});
+ document.addEventListener('click',e=>{const zoom=e.target.closest('[data-vehicle-zoom]');if(zoom){vehicleUI.zoom=zoom.dataset.vehicleZoom==='reset'?1:Math.max(1,Math.min(2.4,Math.round((vehicleUI.zoom+(zoom.dataset.vehicleZoom==='in'?.2:-.2))*10)/10));$('#vehicleLayer').setAttribute('transform',`translate(768 512) scale(${vehicleUI.zoom}) translate(-768 -512)`);$('#vehicleImageZoom').textContent=Math.round(vehicleUI.zoom*100)+'%';return;}const link=e.target.closest('[data-component-link],[data-vehicle-back]');if(!link||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;e.preventDefault();goVehicle(link.getAttribute('href'));});
+ document.addEventListener('error',e=>{if(!e.target.matches?.('img,image'))return;const parent=e.target.closest('.component-card-art,.component-hero-art,.catalog-stage');if(!parent||parent.querySelector('.image-unavailable'))return;const note=document.createElement('p');note.className='image-unavailable';note.setAttribute('role','status');note.textContent='Imagem indisponível. Use o nome do componente para navegar.';parent.append(note);},true);
+ window.addEventListener('popstate',()=>{if(location.hash.startsWith('#vehicle'))render();});
 }

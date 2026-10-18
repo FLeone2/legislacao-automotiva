@@ -1,67 +1,96 @@
 # legislacao-automotiva
+
 Protótipo público de consulta à legislação automotiva, com referências oficiais e ressalvas de validação.
 
-## Navegação visual do veículo
+## Navegação do veículo aos fluxogramas
 
 Execute `python -m http.server 8000 --bind 127.0.0.1` e abra
 `http://127.0.0.1:8000/#vehicle`.
 
-Selecione regiões da imagem ou sistemas na lista. As seleções se acumulam e os
-subsistemas disponíveis são a união dos vínculos da taxonomia. Selecionar um card
-não abre o detalhe: use **Abrir ilustração**. **Limpar seleção** remove sistemas e
-cards; **Limpar assuntos selecionados** atua somente sobre o detalhe. Ao remover
-um sistema, cards que deixam de estar disponíveis também saem da seleção.
+Clique em um componente no desenho ou no card equivalente. A consulta abre um
+fluxograma com os assuntos e referências do componente. Bancos abre Segurança;
+motor e tanque oferecem caminhos separados de Segurança e Ambiental. O perfil do
+veículo permanece no cabeçalho. As imagens são ilustrativas, sem modelo ou VIN.
 
-No detalhe, os pontos e as linhas selecionam os mesmos assuntos, com múltipla
-seleção. O acervo exibido usa exclusivamente `records[].taxonomy` de
-`catalog.json`, sem atribuir normas a códigos PNC ou inventar aplicabilidade.
-Zoom por rolagem ou botões transforma imagem e hotspots juntos. **100% · Restaurar**
-restabelece o enquadramento; a lista não participa do zoom. Não há pan.
+- **Bancos:** ancoragem/cintos/apoios de cabeça, materiais e inflamabilidade,
+  proteção e retenção. O ramo de espuma mostra a referência de inflamabilidade
+  já cadastrada e uma lacuna explícita para normas ABNT NBR ainda não mapeadas.
+- **Motor:** conformidade de componentes, emissões, OBD e catalisadores.
+- **Tanque:** referência de tanques/alteração de capacidade, emissões
+  evaporativas/RVEP e lacuna específica para o circuito do cânister.
+- **Demais componentes:** fluxogramas derivados dos vínculos temáticos existentes
+  na taxonomia: freios, suspensão, vidros, iluminação, carroceria, retrovisores,
+  rodas, elétrica e escapamento.
 
-O perfil, os sistemas, os grupos e o detalhe atual usam identificadores na URL,
-permitindo recarregar, compartilhar e usar o histórico do navegador. Voltar aos
-grupos conserva o perfil e os cards. O perfil continua sendo ilustrativo e não
-filtra aplicabilidade jurídica.
+As conexões organizam assuntos e não representam uma sequência obrigatória de
+homologação. O acervo inclui categorias distintas de veículos; perfil visual,
+componente e ramo não confirmam aplicabilidade, vigência ou requisitos técnicos.
+Nenhuma norma foi inferida de PNCs, de imagens ou do catálogo ASA. Referências
+legais existentes não foram substituídas por dados gerados.
 
-### Arquivos e recursos
+Os ramos abrem por clique ou teclado. Selecionar um documento mostra resumo,
+rastreabilidade e link para a fonte do acervo. Lacunas não recebem normas de
+outros assuntos como preenchimento. A URL guarda componente, ramo, nó e perfil;
+histórico, recarregamento e retorno ao veículo funcionam sem perder o contexto.
 
-- `vehicle-navigation.js`: estado, relações, rotas e interface progressiva.
-- `app.js`: mantém os pontos da imagem geral, a consulta ao acervo e os detalhes
-  das normas. Integra a nova interface com as rotas existentes.
-- `catalog.json`: taxonomia, nomes e vínculos regulatórios preexistentes; não foi
-  modificado por esta implementação.
-- `vehicle.png`: imagem geral preexistente no repositório, reutilizada. Sua autoria
-  e licença não estão documentadas no projeto.
-- `assets/brake-schematic.svg`: desenho vetorial conceitual original criado nesta
-  implementação. Demonstra três assuntos reais da taxonomia de freios, com
-  hotspots cujos identificadores são os mesmos da lista. Não representa o
-  Eclipse Cross nem um desenho técnico de montagem.
-- `styles.css` e `index.html`: apresentação responsiva e carregamento do módulo.
+A imagem geral tem zoom/reset e regiões vetoriais sobre a mesma transformação.
+Desenho e cards compartilham os mesmos identificadores. O realce acompanha mouse
+e foco de teclado. A transição de tela respeita preferência por movimento
+reduzido. O fluxograma tem controles próprios de zoom e enquadramento.
 
-A amostra completa é **Freios e estabilidade → Frenagem, ABS e componentes →
-Abrir ilustração → pontos 1, 2 e 3 → referências oficiais**. Os cards de outros
-sistemas usam a localização na imagem geral como miniatura; o detalhe informa a
-falta de desenho e mantém a consulta textual. Nenhuma imagem, credencial ou dado
-de catálogo do ASA foi copiado. O projeto não contém catálogo comercial, preços,
-PNCs, peças específicas ou imagens detalhadas dos demais sistemas. As referências
-continuam sujeitas às ressalvas de vigência e classificação do próprio acervo.
+## Arquivos e origem dos recursos
 
-### Verificação
+- `catalog.json`: acervo e taxonomia preexistentes, mantidos nesta implementação.
+- `vehicle-data.js`: componentes, polígonos e vínculos entre assuntos e registros
+  do acervo. Ligações específicas de bancos/motor/tanque citam IDs do catálogo;
+  demais ramos usam sua taxonomia existente.
+- `vehicle-navigation.js`: desenho interativo, cards, rotas e montagem dos
+  fluxogramas por componente.
+- `tree.js`: motor de fluxogramas já existente, reaproveitado para a nova consulta.
+- `app.js`, `index.html`, `styles.css`: integração e interface responsiva.
+- `assets/vehicle-exploded.webp`: ilustração original de um SUV genérico em vista
+  explodida, gerada por IA para esta experiência. As miniaturas de outros sistemas
+  usam recortes de exibição SVG dessa mesma imagem.
+- `assets/bancos.webp`, `motor.webp`, `tanque.webp`: três ilustrações detalhadas
+  originais, geradas por IA, sem marcas ou dados de catálogo de fabricantes.
+- `assets/image-provenance.json`: prompts, método e origem dos quatro recursos.
+  PNGs originais foram preservados no ambiente de geração; os recursos da aplicação
+  foram somente convertidos para WebP com ImageMagick, qualidade 88. O conjunto
+  carregado tem aproximadamente 785 KiB, contra cerca de 8 MiB dos originais.
+- `vehicle.png`: imagem da versão anterior, mantida para histórico do projeto,
+  sem uso na nova visão do veículo. Autoria/licença não documentadas no acervo.
+
+O ASA é referência de interação. Nenhum recurso gráfico, sessão, credencial,
+catálogo comercial ou número de peça foi copiado dele. Os desenhos gerados são
+conceituais; não são representações de engenharia de um Eclipse Cross nem
+instruções para montagem, manutenção ou homologação.
+
+## Testes
 
 ```sh
 node --test tests/vehicle-model.test.cjs
 node --check app.js
+node --check tree.js
 node --check vehicle-navigation.js
+node --check vehicle-data.js
 ```
 
-Com o servidor acima em execução, Python com Playwright instalado e Chromium em
-`/usr/bin/chromium`, execute:
+Com o servidor local em execução, Python com Playwright instalado e Chromium em
+`/usr/bin/chromium`:
 
 ```sh
 python tests/vehicle-browser.py
 ```
 
-A verificação de navegador cobre seleção gráfica/textual, união de sistemas,
-seleção explícita de cards, referências, zoom/reset, retorno, histórico,
-recarregamento, URL inválida, falta de dados/imagem, teclado e telas de 1440 e
-390 px. Capturas são gravadas em `tests/artifacts/` (não versionadas).
+É possível verificar outra publicação com
+`VEHICLE_TEST_URL=https://servidor/caminho/ python tests/vehicle-browser.py`.
+Os testes cobrem regiões reais do SVG, zoom/reset, bancos/motor/tanque, documentos
+e lacunas, retorno/histórico/URL, teclado, tela de 390 px, ausência de dados e
+imagem, além das seis páginas já existentes. Capturas são salvas em
+`tests/artifacts/` e não são versionadas.
+
+## Publicação de teste
+
+A versão é uma aplicação estática e funciona no GitHub Pages com a raiz do
+repositório como origem. `.nojekyll` evita processamento de arquivos pelo Jekyll.
+A branch e o endereço efetivamente publicados são informados na entrega/PR.
