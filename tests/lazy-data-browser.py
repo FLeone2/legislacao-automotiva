@@ -3,7 +3,7 @@
 import asyncio
 import os
 from playwright.async_api import async_playwright
-from browser_support import launch_options
+from browser_support import launch_options, wait_for_route
 
 BASE = os.environ.get("VEHICLE_TEST_URL", "http://127.0.0.1:8000/").rstrip("/") + "/"
 
@@ -47,6 +47,23 @@ async def main():
         await page.goto(BASE + "#anatel?record=" + act)
         await page.locator("[data-canonical-requirement]").first.wait_for()
         assert sum("/" + act + ".json" in url for url in requests) == count
+        # A delayed older record must not replace the current screen or steal focus.
+        delayed = asyncio.get_running_loop().create_future()
+        slow_id = "anatel-ato4088-2020"
+        slow_url = "**/data/site/records/anatel/" + slow_id + ".json"
+        await page.route(slow_url, lambda route: delayed.set_result(route))
+        await page.goto(BASE + "#anatel?record=" + slow_id)
+        held = await asyncio.wait_for(delayed, timeout=10)
+        await page.goto(BASE + "#anatel?record=" + act)
+        await wait_for_route(page)
+        summary = page.locator(".contran-evidence > summary")
+        await summary.focus()
+        focused = await summary.element_handle()
+        await held.continue_()
+        await page.evaluate("id=>loadRegulationRecord('anatel',id)", slow_id)
+        assert await focused.evaluate("e=>e.isConnected && e===document.activeElement")
+        assert await page.locator("#main").get_attribute("aria-busy") == "false"
+        await page.unroute(slow_url)
         await page.goto(
             BASE + "#vehicle?component=eletrica&subsystem=eletronica%2Fimagens"
         )
@@ -61,6 +78,21 @@ async def main():
             "id=>Object.values(treeModels.flow.nodes).some(n=>n.requirementId===id)",
             requirement_id,
         )
+        # A queued graph animation must be harmless after a fast route change.
+        await page.goto(BASE + "#vehicle?component=bancos")
+        await page.locator(".component-graph").wait_for()
+        await page.evaluate("""()=>{
+            const original=window.requestAnimationFrame;
+            const queued=[];
+            try {
+                window.requestAnimationFrame=fn=>{queued.push(fn);return queued.length;};
+                renderVehicleFlow();
+                location.hash='library';
+                render();
+            } finally { window.requestAnimationFrame=original; }
+            for(const fn of queued) fn(performance.now());
+        }""")
+        await page.locator(".document").first.wait_for()
         await page.goto(BASE + "#contran?record=contran-248-2007")
         await page.locator(".contran-records .empty").wait_for()
         assert not any("contran-248-2007.json" in url for url in requests)

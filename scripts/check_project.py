@@ -2,6 +2,7 @@
 """Check syntax, publication states, canonical joins and initial payload budget."""
 
 import json
+import gzip
 import subprocess
 from pathlib import Path
 import jsonschema
@@ -28,6 +29,11 @@ def check():
     for agency, collection in index["regulations"].items():
         source = read(f"data/{agency}/active.json")
         originals = {r["id"]: r for r in source["records"]}
+        snapshots_path = ROOT / f"data/{agency}/sources/evidence.json.gz"
+        snapshots = {}
+        if snapshots_path.exists():
+            with gzip.open(snapshots_path, "rt") as snapshot_file:
+                snapshots = json.load(snapshot_file)["sources"]
         assert len(originals) == len(collection["records"])
         for summary in collection["records"]:
             record = originals[summary["id"]]
@@ -49,6 +55,10 @@ def check():
                 assert q["provision"]["reference"] and q["evidenceSource"][
                     "url"
                 ].startswith("https://")
+                if q["evidenceSource"]["sourceKey"] in snapshots:
+                    snapshot = snapshots[q["evidenceSource"]["sourceKey"]]
+                    assert q["evidenceSource"]["url"] == snapshot["url"]
+                    assert q["evidenceSource"]["documentSha256"] == snapshot["sha256"]
                 assert q["context"]["relation"] == "act_context_only"
                 assert q["verificationPlan"]["method"] is None
                 assert q["verificationPlan"]["state"] == "not_structured"

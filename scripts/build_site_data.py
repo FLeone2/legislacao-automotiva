@@ -7,6 +7,7 @@ provision of that act applies to every activity or vehicle.
 """
 
 import json
+import gzip
 import shutil
 import subprocess
 from pathlib import Path
@@ -87,6 +88,14 @@ def main():
     for agency in AGENCIES:
         data = read(f"data/{agency}/active.json")
         summaries = []
+        evidence_path = ROOT / f"data/{agency}/sources/evidence.json.gz"
+        snapshots = {}
+        if evidence_path.exists():
+            with gzip.open(evidence_path, "rt") as evidence_file:
+                snapshots = json.load(evidence_file)["sources"]
+        snapshots_by_url = {
+            snapshot["url"]: snapshot for snapshot in snapshots.values()
+        }
         for record in data["records"]:
             detail = dict(record)
             detail["requirements"] = []
@@ -105,10 +114,24 @@ def main():
                     "reference": q["clause"],
                     "sourceUrl": q.get("sourceUrl", record["officialUrl"]),
                 }
+                evidence_url = q.get("sourceUrl", record["officialUrl"])
+                source_key = q.get("sourceKey", record.get("sourceKey"))
+                snapshot = snapshots.get(source_key, {})
+                if snapshot.get("url") != evidence_url:
+                    snapshot = snapshots_by_url.get(evidence_url, {})
+                document = record["documentCheck"]
+                document_hash = snapshot.get("sha256") or (
+                    document.get("sha256")
+                    if document.get("url") == evidence_url
+                    else None
+                )
                 q["evidenceSource"] = {
-                    "url": q.get("sourceUrl", record["officialUrl"]),
-                    "sourceKey": q.get("sourceKey", record.get("sourceKey")),
-                    "actDocumentSha256": record["documentCheck"].get("sha256"),
+                    "url": evidence_url,
+                    "sourceKey": source_key,
+                    "documentSha256": document_hash,
+                    "documentKind": "official_guidance_snapshot"
+                    if record.get("fullTextReviewed") is False
+                    else "official_text_snapshot",
                 }
                 q["verification"] = {
                     "state": "directed_review"

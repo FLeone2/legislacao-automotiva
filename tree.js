@@ -367,8 +367,12 @@ function applyGraphZoom(fit = false) {
 }
 function setupGraph() {
   const ui = activeTreeUI();
+  const v = $('#graphViewport');
+  if (!v) return;
   requestAnimationFrame(() => {
-    const viewport = $('#graphViewport');
+    // Ignore work scheduled by a graph that navigation has since removed.
+    if (!v.isConnected || $('#graphViewport') !== v || activeTreeUI() !== ui) return;
+    const viewport = v;
     if (ui.fit && viewport.clientWidth < 540) {
       ui.zoom = 0.9;
       applyGraphZoom(false);
@@ -383,7 +387,6 @@ function setupGraph() {
     } else applyGraphZoom(ui.fit);
     ui.fit = false;
   });
-  const v = $('#graphViewport');
   let drag = null;
   v.addEventListener('pointerdown', (e) => {
     if (e.target.closest('button')) return;
