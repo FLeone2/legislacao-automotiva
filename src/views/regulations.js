@@ -29,6 +29,7 @@ function regulatoryUrl(view, values = {}) {
   return '#' + view + (q.size ? '?' + q : '');
 }
 async function renderRegulations(view) {
+  const route = location.hash;
   $('#app').classList.add('contran-mode');
   $('#main').innerHTML =
     `<h1>${esc(regulatoryConfig[view].title)}</h1><p role="status">Carregando o acervo vigente…</p>`;
@@ -37,7 +38,7 @@ async function renderRegulations(view) {
     const requested = new URLSearchParams(location.hash.split('?')[1] || '').get('record');
     if (requested && regulatoryData[view].records.some((r) => r.id === requested))
       await loadRegulationRecord(view, requested);
-    if (state.view !== view) return;
+    if (state.view !== view || route !== location.hash) return;
     if (regulatoryBaseCatalog) {
       catalog = installActiveRegulations(regulatoryBaseCatalog);
       delete treeModels.tree;
@@ -45,7 +46,7 @@ async function renderRegulations(view) {
     }
     renderRegulatoryPage(view);
   } catch (e) {
-    if (state.view !== view) return;
+    if (state.view !== view || route !== location.hash) return;
     $('#main').innerHTML =
       `<h1>${esc(regulatoryConfig[view].title)}</h1><p class="notice" role="alert">Não foi possível carregar o acervo vigente. Tente novamente.</p><button class="btn" data-contran-retry>Tentar novamente</button>`;
   }

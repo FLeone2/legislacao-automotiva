@@ -42,3 +42,10 @@ class TestServer:
         if self.server:
             self.server.shutdown()
             self.server.server_close()
+
+
+async def wait_for_route(page):
+    await page.wait_for_function("""()=>{
+        const main=document.querySelector('#main');
+        return main?.dataset.renderedRoute===location.hash && main.getAttribute('aria-busy')==='false';
+    }""")

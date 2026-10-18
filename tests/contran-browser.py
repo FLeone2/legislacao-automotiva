@@ -1,7 +1,7 @@
 import asyncio, os, json
 from pathlib import Path
 from playwright.async_api import async_playwright
-from browser_support import launch_options
+from browser_support import launch_options, wait_for_route
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = os.environ.get("VEHICLE_TEST_URL", "http://127.0.0.1:8000/").rstrip("/") + "/"
@@ -10,6 +10,7 @@ ARTIFACTS.mkdir(exist_ok=True)
 
 
 async def ready(page):
+    await wait_for_route(page)
     await page.locator(".contran-record").first.wait_for()
 
 
