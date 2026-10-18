@@ -10,7 +10,7 @@ async function render() {
   const main = $('#main');
   main.setAttribute('aria-busy', 'true');
   try {
-    $('#app').classList.remove('homologation-flow-mode');
+    $('#app').classList.remove('homologation-flow-mode', 'aurora-home');
     state.view = location.hash.slice(1).split('?')[0] || 'tree';
     if (
       ![

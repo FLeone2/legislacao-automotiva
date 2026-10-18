@@ -30,13 +30,22 @@ async def point(page, xy):
 
 
 async def overview(page):
-    await page.goto(BASE + "#vehicle")
+    await page.goto(BASE + "#vehicle?all=1")
     await page.locator("#vehicleDrawing").wait_for()
     await page.evaluate("document.fonts.ready")
     await page.wait_for_timeout(150)
 
 
 async def flow(page):
+    # The approved Aurora overview selects a system before opening its flow.
+    if "component=" not in page.url:
+        await page.wait_for_function("""()=>{
+            const q=new URLSearchParams(location.hash.split('?')[1]||'');
+            const expected=ComponentFlow.component(q.get('focus')||'bancos');
+            return !document.documentElement.classList.contains('transitioning') &&
+              document.querySelector('.aurora-explorer h2')?.textContent===expected?.label;
+        }""")
+        await page.locator(".aurora-primary").click()
     await page.locator(".component-graph").wait_for()
     await page.wait_for_timeout(300)
 
@@ -50,7 +59,7 @@ async def main():
         errors = []
         page.on("pageerror", lambda e: errors.append(str(e)))
         await overview(page)
-        assert await page.locator(".component-card").count() == 14
+        assert await page.locator(".aurora-system-card").count() == 14
         # Hit-testing actual transformed SVG geometry: each physical point must land on its own region.
         for name, xy in POINTS.items():
             pos = await point(page, xy)
@@ -147,7 +156,7 @@ async def main():
         await flow(page)
         assert "component=bancos" in page.url
         await overview(page)
-        await page.locator('.component-card[data-component-link="motor"]').click()
+        await page.locator('.aurora-system-card[data-aurora-component="motor"]').click()
         await flow(page)
         assert await page.locator(".component-lanes a").count() == 2
         await page.locator(".component-lanes a", has_text="Ambiental").click()
@@ -216,7 +225,7 @@ async def main():
         assert await page.evaluate("document.documentElement.scrollWidth<=innerWidth")
         await page.screenshot(path=str(ARTIFACTS / "bancos-mobile.png"), full_page=True)
         await overview(page)
-        link = page.locator('.component-card[data-component-link="motor"]')
+        link = page.locator('.aurora-system-card[data-aurora-component="motor"]')
         await link.focus()
         await page.keyboard.press("Enter")
         await flow(page)
@@ -269,7 +278,7 @@ async def main():
         await page.set_viewport_size({"width": 1440, "height": 1100})
         await page.emulate_media(reduced_motion="no-preference")
         await overview(page)
-        await page.locator('.component-card[data-component-link="motor"]').click()
+        await page.locator('.aurora-system-card[data-aurora-component="motor"]').click()
         await flow(page)
         await page.wait_for_function(
             '!document.documentElement.classList.contains("transitioning")'

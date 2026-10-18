@@ -453,3 +453,20 @@ configurações do GitHub; o workflow não a configura.
 de avaliação, sem transformar referências ou lacunas em confirmação jurídica.
 O build usa uma lista explícita de arquivos; inventários históricos, snapshots,
 políticas editoriais e pesquisas brutas ficam fora de `dist`.
+
+## Tema oficial · Liquid Aurora
+
+O tema aprovado é implementado em `src/styles/aurora.css` e `src/views/aurora.js`.
+A entrada padrão abre o veículo com o painel de sistemas e subsistemas. O botão
+**Explorar fluxograma** abre a árvore do componente; todas as rotas anteriores
+continuam disponíveis. O controle **Liquid Aurora** suaviza os reflexos.
+
+As 16 imagens e os contornos de `vehicle-data.js` permanecem originais. A prancha
+técnica recebe um fundo claro azulado dentro do tema escuro para preservar sua
+leitura. Nenhuma nova montagem de carro foi adotada. Os dados normativos,
+requisitos e ressalvas permanecem os mesmos.
+
+O tema também cobre biblioteca, consultas por órgão, etiquetas/VIN, árvores,
+fluxo de homologação e diálogos. A suíte `tests/aurora-browser.py` verifica seleção
+por imagem, 14 entradas, subsistemas, fontes, busca e navegação móvel. Os baselines
+visuais foram revisados para o tema aprovado.
