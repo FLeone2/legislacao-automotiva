@@ -16,7 +16,7 @@ const vehicleComponents = [
     ]},
     {id:'ambiental',label:'Ambiental',topics:[
       {id:'gases',label:'Emissões de gases e partículas',recordIds:['ibama-042','senatran-069','ibama-021','ibama-026'],text:'Referências de emissões e procedimentos já cadastradas. Conferir categoria, combustível, fase e datas de aplicação.'},
-      {id:'diagnostico',label:'Diagnóstico de emissões — OBD',taxonomy:['eletronica/obd'],text:'O acervo reúne procedimentos de diferentes categorias, incluindo motociclos e diesel. A seleção visual não filtra nem decide aplicabilidade.'},
+      {id:'diagnostico',label:'Diagnóstico de emissões — OBD',taxonomy:['eletronica/obd'],text:'O acervo ativo reúne exigências OBDBr-3 do recorte L8 e procedimentos de diferentes combustíveis. A fase está indicada em cada ato; a seleção visual não decide sua aplicabilidade.'},
       {id:'catalisador',label:'Catalisador e pós-tratamento',recordIds:['inmetro-052'],text:'Referência de conversores catalíticos de reposição, conforme classificação do acervo.'}
     ]}
   ]},
@@ -25,8 +25,8 @@ const vehicleComponents = [
       {id:'instalacao',label:'Tanques e alteração de capacidade',recordIds:['senatran-118'],text:'Referência cadastrada sobre múltiplos tanques, tanque suplementar e alteração de capacidade. Não equivale à validação de todos os requisitos de um tanque original.',gaps:['Demais requisitos de construção e instalação do tanque precisam de mapeamento específico.']}
     ]},
     {id:'ambiental',label:'Ambiental',topics:[
-      {id:'evaporativas',label:'Emissões evaporativas e RVEP',recordIds:['ibama-031','ibama-020'],text:'Procedimentos e atualização já apontados no acervo. Ler os atos conjuntamente e verificar enquadramento.'},
-      {id:'canister',label:'Cânister e circuito de vapores',recordIds:[],text:'Assunto físico para navegação. O acervo não contém uma associação específica validada para o cânister.',gaps:['Mapear requisitos específicos do cânister, válvulas e linhas de vapor.']}
+      {id:'evaporativas',label:'Emissões evaporativas e RVEP',recordIds:['ibama-020','ibama-014'],text:'Exigências L8 e atualização de procedimentos evaporativos. A IN 3/2023 referencia a IN 26/2020, cujo inteiro teor ainda não foi localizado.',gaps:['Conferir o inteiro teor da IN Ibama 26/2020 antes de detalhar seu método de ensaio.']},
+      {id:'canister',label:'Cânister e circuito de vapores',recordIds:['ibama-029','ibama-025'],text:'Assunto físico para navegação. O controle de purga e de emissões evaporativas está vinculado às normas ambientais relacionadas. Requisitos construtivos específicos do cânister ainda precisam de mapeamento.',gaps:['Mapear requisitos específicos do cânister, válvulas e linhas de vapor.']}
     ]}
   ]},
   {id:'freios',label:'Freios e estabilidade',short:'Freios',taxonomy:'freios',crop:'740 720 170 210',path:'M1329.0 572.5L1350.0 581.5L1372.5 605.0L1375.5 633.0L1365.0 644.5L1364.5 637.0L1365.5 636.0L1365.5 629.0L1366.5 628.0L1366.0 620.5L1361.5 621.0L1362.5 625.0L1358.0 631.5L1356.0 632.5L1350.0 632.5L1347.5 637.0L1340.0 644.5L1335.0 647.5L1332.0 647.5L1331.0 648.5L1328.0 647.5L1319.0 647.5L1316.0 646.5L1314.0 644.5L1310.0 644.5L1309.0 645.5L1295.5 626.0L1297.5 605.0L1308.5 583.0L1313.0 579.5L1315.0 579.5L1315.5 582.0L1318.0 582.5L1318.5 578.0L1320.0 576.5L1324.0 575.5L1329.0 572.5Z M808.0 778.5L821.0 778.5L821.5 779.0L818.5 784.0L820.0 790.5L831.0 791.5L833.0 789.5L839.0 789.5L856.0 798.5L859.5 802.0L860.5 808.0L864.5 811.0L865.5 813.0L865.5 818.0L866.5 819.0L866.5 828.0L865.5 829.0L866.5 839.0L865.5 840.0L865.5 844.0L861.5 854.0L859.0 856.5L856.5 857.0L855.5 863.0L847.0 868.5L840.0 866.5L837.5 871.0L825.0 883.5L816.0 888.5L813.0 888.5L812.0 889.5L805.0 889.5L804.0 888.5L794.0 887.5L772.5 866.0L758.5 842.0L759.5 821.0L770.5 807.0L772.5 803.0L780.0 795.5L800.0 779.5L807.0 779.5L808.0 778.5Z'},

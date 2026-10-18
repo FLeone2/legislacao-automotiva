@@ -2,63 +2,84 @@
 
 Protótipo público de consulta à legislação automotiva, com referências oficiais e ressalvas de validação.
 
-## Levantamento oficial CONTRAN
+## Consulta ativa CONTRAN e PROCONVE
 
-Abra `/#contran` ou **Resoluções CONTRAN** no menu. Consulta realizada em
-**18/10/2026** no [índice oficial da SENATRAN](https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran),
-que declara atualização em **06/10/2026, 14h52**.
+Revisão de **18/10/2026**. Abra `/#contran` ou `/#proconve` pelo menu.
 
-- **1.141 atos inventariados:** 1.030 resoluções distintas da tabela principal e
-  111 atos-base do ZIP oficial anterior a 1998. Três linhas de retificação foram
-  vinculadas aos respectivos atos; o número 982 não aparece na tabela.
-- **252 com indicação de vigência**, incluindo seis com revogação parcial;
-  826 indicados como revogados, três suspensos, quatro com prazo encerrado,
-  um declarado nulo e 55 históricos com vigência atual não confirmada.
-- **370 textos-base extraídos**, com URL, hash SHA-256 e evidências preservadas.
-  O anexo da Resolução 993/2023 foi consultado como referência adicional.
-- Busca, paginação, filtros por situação, assunto e sistema; exportação em CSV
-  e JSON; relações explícitas de alteração/revogação e ressalvas temporais.
-  A página de cada sistema do veículo e os detalhes das referências CONTRAN
-  oferecem acesso ao levantamento.
+- **CONTRAN: 210 atos na consulta ativa**, 65 ligados a sistemas físicos e 145
+  em categorias gerais. Os 55 históricos apontados pelo responsável foram
+  retirados da publicação ativa; a decisão não foi transformada em revogação
+  oficial inventada. Também ficam fora os revogados, suspensos, atos com objeto
+  temporal encerrado e aqueles cujos efeitos atuais não foram confirmados.
+- A conferência final encontrou a revogação expressa de 412/2012 e 433/2013 no
+  art. 6º da 537/2015, apesar de o índice antigo ainda indicá-las em vigor.
+  Alterações de bases suspensas também ficaram fora do conjunto ativo.
+- **PROCONVE: 23 atos**, com recortes separados **L8 (19)** e **P8 (6)**; dois
+  atos de avaliação técnica são comuns aos recortes. São 17 atos relacionados
+  a componentes e seis em categorias de homologação/conformidade e créditos
+  corporativos. PROMOT M5 e as INs 19/2021 e 22/2022, revogadas pela IN 5/2024,
+  não entram nessa consulta.
+- As cadeias incluem as INs 16/2025 e 20/2025: coleta de IUMPR em 2026 e
+  entregas em 2027. Retificações ficam vinculadas ao ato, sem contagem duplicada.
+- Sistemas e subsistemas oferecem fluxogramas com referências ativas e acesso
+  à consulta filtrada. Cada ato também permite retornar ao sistema associado.
+  Créditos corporativos, habilitação, fiscalização, registro e outros assuntos
+  transversais têm categorias próprias; não são atribuídos a peças por analogia.
+- Busca, paginação, filtros, fases, fontes, alterações e exportações CSV/JSON
+  usam o mesmo conjunto ativo. Parâmetros antigos como `scope=all` não recuperam
+  registros excluídos. A biblioteca e os fluxogramas recebem esse mesmo recorte.
 
-**Este levantamento não certifica que todos esses atos se aplicam hoje a um
-veículo específico.** “Entrada em vigor localizada” confirma a cláusula original;
-não substitui consolidação de dispositivos. Foram cruzadas as anotações do
-próprio índice e conferidos casos dirigidos, incluindo as revogações das
-248/2007 e 219/2007 e os prazos da 1.029/2026. Algumas linhas antigas do portal
-continuam dizendo “Em vigor”, apesar da revogação anotada em outro ato.
+### Fontes e limites da confirmação
 
-O prazo dos arts. 2º e 3º da 910/2022 terminou em 2025, sem presumir revogação
-integral. Suspensões, efeitos exauridos e bases revogadas de atos modificadores
-permanecem explícitos. A associação por sistema é temática: “janela” de exame
-toxicológico não é vidro e suspensão do direito de dirigir não é suspensão do
-veículo. Nenhuma norma foi aplicada ao SUV apenas por sua imagem.
+O [índice oficial CONTRAN](https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran)
+foi atualizado em **06/10/2026, 14h52**. A busca suplementar no DOU retornou HTTP
+403: **permanece uma lacuna entre essa atualização e 18/10/2026**. Uma cláusula
+original de entrada em vigor não certifica isoladamente a vigência atual de todos
+os dispositivos; as evidências e ressalvas ficam acessíveis em cada registro.
 
-A consulta suplementar ao buscador do DOU retornou HTTP 403; **não foi possível
-fechar a lacuna entre a atualização de 06/10 e a consulta de 18/10/2026**.
-A página de consolidadas está assinalada “em construção” e não foi tratada
-como lista exaustiva de vigência. Os 55 atos históricos sem conclusão continuam
-pendentes, incluindo referências antigas ainda citadas no anexo da 993/2023.
+O PROCONVE cruza textos oficiais do sistema de legislação do Ibama, as Resoluções
+CONAMA 490/2018 e 492/2018, alterações até 2025 e o balanço corporativo oficial
+publicado pelo Ibama em 2026. As páginas gerais de legislação, desatualizadas,
+não foram usadas isoladamente como prova de vigência. **O inteiro teor da IN
+26/2020 não foi localizado**: sua aplicação/alteração é referenciada no art. 6º
+da IN 3/2023, sem criar um registro integralmente conferido para a norma ausente.
+L8 e P8 não são intercambiáveis; categoria, combustível, datas, anexos e exceções
+continuam necessários para aplicar qualquer requisito a um veículo.
 
-O acervo preexistente de 124 entradas em `catalog.json` foi preservado. O novo
-inventário fica em `data/contran/inventory.json`, acompanhado de CSVs,
-`LEIA-ME.txt`, conferências em `reviewed-effects.json` e evidências comprimidas
-em `data/contran/sources/`. Os textos são fontes públicas oficiais; as imagens
-da navegação não foram alteradas nesta etapa.
+### Dados, rastreabilidade e reprodução
 
-Para reproduzir a classificação da fotografia preservada, sem rede:
+`catalog.json` conserva o acervo preexistente de 124 entradas como fonte de
+histórico. A aplicação filtra suas referências CONTRAN/IBAMA e incorpora os atos
+ativos em tempo de execução; preserva IDs dos documentos que continuam ativos.
+O inventário original de **1.141 atos** e **370 textos-base extraídos** permanece
+no GitHub para auditoria, sem a opção de consultá-lo como acervo ativo no site.
+
+- `data/contran/active.json` e `active.csv`: conjunto publicado.
+- `data/contran/publication-policy.json` e `publication-decisions.json`: decisão
+  por registro, distinguindo a orientação do responsável de evidência oficial.
+- `data/contran/inventory.json`, `reviewed-effects.json` e `sources/`: inventário
+  histórico, conferências e fontes oficiais comprimidas, com SHA-256.
+- `data/proconve/active.json` e `active.csv`: conjunto publicado por fase.
+- `data/proconve/reviewed-map.json` e `sources/evidence.json.gz`: relações revisadas,
+  fontes, textos, hashes e lacunas para reprodução offline.
+- `contran.js`: consulta compartilhada, política ativa em tempo de execução e
+  vínculos usados pelos fluxogramas. Imagens e áreas de seleção foram preservadas.
+
+A publicação privada copia apenas os conjuntos ativos de `data/contran` e
+`data/proconve`; fontes comprimidas, decisões de auditoria e inventários antigos
+permanecem no repositório, fora da pasta estática publicada.
 
 ```sh
 python -m pip install -r scripts/requirements-contran.txt
 python scripts/build_contran_map.py
+python scripts/build_active_catalogs.py
+python scripts/build_proconve_map.py
 python tests/contran-map.test.py
+python tests/active-regulations.test.py
 ```
 
-Para fazer nova coleta, use um diretório de cache novo e tenha `pandoc` e
-`antiword` disponíveis para os formatos RTF/DOC antigos. `CONTRAN_ANTIWORD`
-permite indicar o executável; `ANTIWORDHOME`, o diretório de seus mapas.
-As conferências dirigidas continuam vinculadas às fontes e às datas registradas;
-nova coleta não equivale a nova revisão jurídica.
+Uma nova coleta CONTRAN requer cache novo, `pandoc` e `antiword` para RTF/DOC
+antigos. `CONTRAN_ANTIWORD` indica o executável; `ANTIWORDHOME`, os mapas.
 
 ```sh
 python scripts/map_contran.py --as-of AAAA-MM-DD --cache /tmp/contran-nova-coleta
@@ -66,10 +87,10 @@ python scripts/collect_contran_supplements.py --cache /tmp/contran-nova-coleta
 python scripts/build_contran_map.py
 ```
 
-Com servidor HTTP local e Chromium/Playwright, execute
-`python tests/contran-browser.py`. O teste cobre filtros, fontes, relações,
-prazos, CSV, retorno ao levantamento pelos sistemas e documentos, URL/reload,
-teclado, celular e estados vazio/erro/repetição de carga.
+Revisar as decisões e os textos antes de republicar: refazer a coleta não equivale
+a revisão jurídica. Com servidor local e Chromium/Playwright, execute
+`python tests/contran-browser.py`. O teste percorre exclusão de inativos, fases,
+categorias, exportação, relações com o veículo, teclado, celular e erro/repetição.
 
 ## Navegação do veículo aos fluxogramas
 
@@ -86,7 +107,7 @@ veículo permanece no cabeçalho. As imagens são ilustrativas, sem modelo ou VI
   já cadastrada e uma lacuna explícita para normas ABNT NBR ainda não mapeadas.
 - **Motor:** conformidade de componentes, emissões, OBD e catalisadores.
 - **Tanque:** referência de tanques/alteração de capacidade, emissões
-  evaporativas/RVEP e lacuna específica para o circuito do cânister.
+  evaporativas/RVEP e vínculo ao diagnóstico de purga/evaporação. Requisitos construtivos do cânister continuam como lacuna.
 - **Demais componentes:** fluxogramas derivados dos vínculos temáticos existentes
   na taxonomia: freios, suspensão, vidros, iluminação, carroceria, retrovisores,
   rodas, elétrica e escapamento.
@@ -162,7 +183,8 @@ imagem, além das seis páginas já existentes. Capturas são salvas em
 
 A prévia privada está em
 https://legislacao-automotiva-teste.fleone.chatgpt.site/#vehicle e o levantamento
-em https://legislacao-automotiva-teste.fleone.chatgpt.site/#contran.
+em https://legislacao-automotiva-teste.fleone.chatgpt.site/#contran e
+https://legislacao-automotiva-teste.fleone.chatgpt.site/#proconve.
 O código está na branch `feat/navegacao-visual-sistemas` (PR #1); `main` não foi
 mesclada. A publicação preserva o acesso privado existente.
 

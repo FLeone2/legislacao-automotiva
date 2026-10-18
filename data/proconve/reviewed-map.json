@@ -1,0 +1,794 @@
+{
+  "reviewDate": "2026-10-18",
+  "phaseScope": "L8 e P8 em recortes separados; PROCONVE L8 não é PROCONVE P8 nem PROMOT M5.",
+  "records": [
+    {
+      "id": "ibama-in-22-2020",
+      "issuer": "IBAMA",
+      "number": 22,
+      "year": 2020,
+      "sourceKey": "138750",
+      "phases": [
+        "L8"
+      ],
+      "topic": "Medição de NMOG",
+      "targets": [
+        {
+          "componentId": "motor",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "escapamento",
+          "subsystemId": "propulsao/emissoes"
+        }
+      ],
+      "categories": [],
+      "modifies": [],
+      "catalogRecordIds": [
+        "ibama-033",
+        "ibama-034"
+      ],
+      "articles": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "ibama-in-21-2021",
+      "issuer": "IBAMA",
+      "number": 21,
+      "year": 2021,
+      "sourceKey": "138783",
+      "phases": [
+        "L8"
+      ],
+      "topic": "NMOG: alterações e valores de referência",
+      "targets": [
+        {
+          "componentId": "motor",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "escapamento",
+          "subsystemId": "propulsao/emissoes"
+        }
+      ],
+      "categories": [],
+      "modifies": [
+        "ibama-in-22-2020"
+      ],
+      "catalogRecordIds": [
+        "ibama-026"
+      ],
+      "articles": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "ibama-in-15-2022",
+      "issuer": "IBAMA",
+      "number": 15,
+      "year": 2022,
+      "sourceKey": "139195",
+      "phases": [
+        "L8"
+      ],
+      "topic": "NMOG: atualização do anexo",
+      "targets": [
+        {
+          "componentId": "motor",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "escapamento",
+          "subsystemId": "propulsao/emissoes"
+        }
+      ],
+      "categories": [],
+      "modifies": [
+        "ibama-in-22-2020"
+      ],
+      "catalogRecordIds": [
+        "ibama-021"
+      ],
+      "articles": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "ibama-in-23-2020",
+      "issuer": "IBAMA",
+      "number": 23,
+      "year": 2020,
+      "sourceKey": "138749",
+      "phases": [
+        "L8"
+      ],
+      "topic": "OBDBr-3 e monitores em uso",
+      "targets": [
+        {
+          "componentId": "motor",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "escapamento",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "eletrica",
+          "subsystemId": "eletronica/obd"
+        },
+        {
+          "componentId": "tanque",
+          "subsystemId": "propulsao/combustiveis"
+        }
+      ],
+      "categories": [],
+      "modifies": [],
+      "catalogRecordIds": [
+        "ibama-029",
+        "ibama-032"
+      ],
+      "articles": [
+        1,
+        6,
+        7
+      ]
+    },
+    {
+      "id": "ibama-in-7-2021",
+      "issuer": "IBAMA",
+      "number": 7,
+      "year": 2021,
+      "sourceKey": "139130",
+      "phases": [
+        "L8"
+      ],
+      "topic": "OBDBr-3: atualização de requisitos",
+      "targets": [
+        {
+          "componentId": "motor",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "escapamento",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "eletrica",
+          "subsystemId": "eletronica/obd"
+        }
+      ],
+      "categories": [],
+      "modifies": [
+        "ibama-in-23-2020"
+      ],
+      "catalogRecordIds": [
+        "ibama-028"
+      ],
+      "articles": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "ibama-in-20-2021",
+      "issuer": "IBAMA",
+      "number": 20,
+      "year": 2021,
+      "sourceKey": "138784",
+      "phases": [
+        "L8"
+      ],
+      "topic": "OBDBr-3: veículos diesel, PDTC e IUMPR",
+      "targets": [
+        {
+          "componentId": "motor",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "escapamento",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "eletrica",
+          "subsystemId": "eletronica/obd"
+        },
+        {
+          "componentId": "tanque",
+          "subsystemId": "propulsao/combustiveis"
+        }
+      ],
+      "categories": [],
+      "modifies": [
+        "ibama-in-23-2020"
+      ],
+      "catalogRecordIds": [
+        "ibama-025"
+      ],
+      "articles": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "ibama-in-25-2023",
+      "issuer": "IBAMA",
+      "number": 25,
+      "year": 2023,
+      "sourceKey": "139347",
+      "phases": [
+        "L8"
+      ],
+      "topic": "OBDBr-3: novos itens do anexo",
+      "targets": [
+        {
+          "componentId": "motor",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "escapamento",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "eletrica",
+          "subsystemId": "eletronica/obd"
+        }
+      ],
+      "categories": [],
+      "modifies": [
+        "ibama-in-23-2020"
+      ],
+      "catalogRecordIds": [
+        "ibama-019"
+      ],
+      "articles": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "ibama-in-16-2025",
+      "issuer": "IBAMA",
+      "number": 16,
+      "year": 2025,
+      "sourceKey": "139520",
+      "phases": [
+        "L8"
+      ],
+      "topic": "IUMPR: desempenho de monitores em uso",
+      "targets": [
+        {
+          "componentId": "motor",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "escapamento",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "eletrica",
+          "subsystemId": "eletronica/obd"
+        }
+      ],
+      "categories": [],
+      "modifies": [
+        "ibama-in-23-2020"
+      ],
+      "catalogRecordIds": [
+        "ibama-016"
+      ],
+      "articles": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "ibama-in-20-2025",
+      "issuer": "IBAMA",
+      "number": 20,
+      "year": 2025,
+      "sourceKey": "139548",
+      "phases": [
+        "L8"
+      ],
+      "topic": "IUMPR: coleta a partir de 2026 e entregas em 2027",
+      "targets": [
+        {
+          "componentId": "motor",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "escapamento",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "eletrica",
+          "subsystemId": "eletronica/obd"
+        }
+      ],
+      "categories": [],
+      "modifies": [
+        "ibama-in-23-2020",
+        "ibama-in-16-2025"
+      ],
+      "catalogRecordIds": [
+        "ibama-015"
+      ],
+      "articles": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "ibama-in-29-2020",
+      "issuer": "IBAMA",
+      "number": 29,
+      "year": 2020,
+      "sourceKey": "138769",
+      "phases": [
+        "L8"
+      ],
+      "topic": "Amônia e fator de regeneração Ki",
+      "targets": [
+        {
+          "componentId": "motor",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "escapamento",
+          "subsystemId": "propulsao/emissoes"
+        }
+      ],
+      "categories": [],
+      "modifies": [],
+      "catalogRecordIds": [
+        "ibama-024"
+      ],
+      "articles": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "ibama-in-3-2021",
+      "issuer": "IBAMA",
+      "number": 3,
+      "year": 2021,
+      "sourceKey": "138776",
+      "phases": [
+        "L8"
+      ],
+      "topic": "Emissões em tráfego real (ETR/RDE)",
+      "targets": [
+        {
+          "componentId": "motor",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "escapamento",
+          "subsystemId": "propulsao/emissoes"
+        }
+      ],
+      "categories": [],
+      "modifies": [],
+      "catalogRecordIds": [
+        "ibama-027",
+        "ibama-030"
+      ],
+      "articles": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "ibama-in-3-2023",
+      "issuer": "IBAMA",
+      "number": 3,
+      "year": 2023,
+      "sourceKey": "139279",
+      "phases": [
+        "L8"
+      ],
+      "topic": "Referências técnicas, híbridos, evaporativas e reabastecimento",
+      "targets": [
+        {
+          "componentId": "motor",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "escapamento",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "tanque",
+          "subsystemId": "propulsao/combustiveis"
+        },
+        {
+          "componentId": "bateria",
+          "subsystemId": "propulsao/eletrica"
+        }
+      ],
+      "categories": [],
+      "modifies": [
+        "ibama-in-11-2014",
+        "ibama-in-29-2020",
+        "ibama-in-3-2021"
+      ],
+      "catalogRecordIds": [
+        "ibama-020"
+      ],
+      "articles": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "id": "ibama-in-23-2022",
+      "issuer": "IBAMA",
+      "number": 23,
+      "year": 2022,
+      "sourceKey": "139211",
+      "phases": [
+        "L8"
+      ],
+      "topic": "Controle das emissões corporativas e créditos",
+      "targets": [],
+      "categories": [
+        "emissoes-corporativas"
+      ],
+      "modifies": [],
+      "catalogRecordIds": [
+        "ibama-022",
+        "ibama-023"
+      ],
+      "articles": [
+        1,
+        2,
+        5,
+        15
+      ]
+    },
+    {
+      "id": "ibama-in-28-2023",
+      "issuer": "IBAMA",
+      "number": 28,
+      "year": 2023,
+      "sourceKey": "139365",
+      "phases": [
+        "L8"
+      ],
+      "topic": "Emissões corporativas: alterações e negociação de créditos",
+      "targets": [],
+      "categories": [
+        "emissoes-corporativas"
+      ],
+      "modifies": [
+        "ibama-in-23-2022"
+      ],
+      "catalogRecordIds": [
+        "ibama-018"
+      ],
+      "articles": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "ibama-in-5-2024",
+      "issuer": "IBAMA",
+      "number": 5,
+      "year": 2024,
+      "sourceKey": "139386",
+      "phases": [
+        "L8"
+      ],
+      "topic": "Avaliação de conformidade de produção (ACP)",
+      "targets": [],
+      "categories": [
+        "homologacao"
+      ],
+      "modifies": [],
+      "catalogRecordIds": [
+        "ibama-017"
+      ],
+      "articles": [
+        1,
+        28,
+        29,
+        30
+      ]
+    },
+    {
+      "id": "ibama-in-20-2020",
+      "issuer": "IBAMA",
+      "number": 20,
+      "year": 2020,
+      "sourceKey": "138748",
+      "phases": [
+        "P8"
+      ],
+      "topic": "OBD, emissões em tráfego real e conformidade em uso (ISC)",
+      "targets": [
+        {
+          "componentId": "motor",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "escapamento",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "eletrica",
+          "subsystemId": "eletronica/obd"
+        }
+      ],
+      "categories": [],
+      "modifies": [],
+      "catalogRecordIds": [
+        "ibama-039"
+      ],
+      "articles": [
+        1,
+        2,
+        9,
+        18
+      ]
+    },
+    {
+      "id": "ibama-in-18-2021",
+      "issuer": "IBAMA",
+      "number": 18,
+      "year": 2021,
+      "sourceKey": "138780",
+      "phases": [
+        "P8"
+      ],
+      "topic": "Atualização de OBD, ISC e ruído",
+      "targets": [
+        {
+          "componentId": "motor",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "escapamento",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "eletrica",
+          "subsystemId": "eletronica/obd"
+        }
+      ],
+      "categories": [],
+      "modifies": [
+        "ibama-in-20-2020"
+      ],
+      "catalogRecordIds": [
+        "ibama-040"
+      ],
+      "articles": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "ibama-in-18-2023",
+      "issuer": "IBAMA",
+      "number": 18,
+      "year": 2023,
+      "sourceKey": "139337",
+      "phases": [
+        "P8"
+      ],
+      "topic": "Atualização dos procedimentos de homologação e ISC",
+      "targets": [
+        {
+          "componentId": "motor",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "escapamento",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "eletrica",
+          "subsystemId": "eletronica/obd"
+        }
+      ],
+      "categories": [],
+      "modifies": [
+        "ibama-in-20-2020"
+      ],
+      "catalogRecordIds": [],
+      "articles": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "ibama-in-11-2014",
+      "issuer": "IBAMA",
+      "number": 11,
+      "year": 2014,
+      "sourceKey": "133670",
+      "phases": [
+        "L8"
+      ],
+      "topic": "Ensaio de autonomia e licenciamento",
+      "targets": [],
+      "categories": [
+        "homologacao"
+      ],
+      "modifies": [],
+      "catalogRecordIds": [
+        "ibama-035",
+        "ibama-036"
+      ],
+      "articles": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "ibama-in-11-2020",
+      "issuer": "IBAMA",
+      "number": 11,
+      "year": 2020,
+      "sourceKey": "138713",
+      "phases": [
+        "L8",
+        "P8"
+      ],
+      "topic": "Agentes técnicos cooperados e comprovação de conformidade",
+      "targets": [],
+      "categories": [
+        "homologacao"
+      ],
+      "modifies": [],
+      "catalogRecordIds": [],
+      "articles": [
+        1,
+        4,
+        5
+      ]
+    },
+    {
+      "id": "ibama-in-16-2024",
+      "issuer": "IBAMA",
+      "number": 16,
+      "year": 2024,
+      "sourceKey": "139418",
+      "phases": [
+        "L8",
+        "P8"
+      ],
+      "topic": "Agentes técnicos: acordos de cooperação",
+      "targets": [],
+      "categories": [
+        "homologacao"
+      ],
+      "modifies": [
+        "ibama-in-11-2020"
+      ],
+      "catalogRecordIds": [],
+      "articles": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "conama-492-2018",
+      "issuer": "CONAMA",
+      "number": 492,
+      "year": 2018,
+      "sourceKey": "conama492",
+      "phases": [
+        "L8"
+      ],
+      "topic": "Fase PROCONVE L8: limites e exigências para leves",
+      "targets": [
+        {
+          "componentId": "motor",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "escapamento",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "eletrica",
+          "subsystemId": "eletronica/obd"
+        },
+        {
+          "componentId": "tanque",
+          "subsystemId": "propulsao/combustiveis"
+        }
+      ],
+      "categories": [],
+      "modifies": [],
+      "catalogRecordIds": [
+        "ibama-014"
+      ],
+      "articles": [
+        1,
+        2,
+        4,
+        18,
+        19,
+        26,
+        37
+      ]
+    },
+    {
+      "id": "conama-490-2018",
+      "issuer": "CONAMA",
+      "number": 490,
+      "year": 2018,
+      "sourceKey": "conama490",
+      "phases": [
+        "P8"
+      ],
+      "topic": "Fase PROCONVE P8: emissões e ruído para pesados",
+      "targets": [
+        {
+          "componentId": "motor",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "escapamento",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "eletrica",
+          "subsystemId": "eletronica/obd"
+        }
+      ],
+      "categories": [],
+      "modifies": [],
+      "catalogRecordIds": [
+        "ibama-037"
+      ],
+      "articles": [
+        1,
+        2,
+        18,
+        19,
+        36
+      ]
+    }
+  ],
+  "inactiveReferences": [
+    {
+      "id": "ibama-in-19-2021",
+      "reason": "Revogada expressamente pelo art. 28 da IN Ibama 5/2024.",
+      "evidenceSource": "139386"
+    },
+    {
+      "id": "ibama-in-22-2022",
+      "reason": "Revogada expressamente pelo art. 28 da IN Ibama 5/2024.",
+      "evidenceSource": "139386"
+    },
+    {
+      "id": "ibama-in-21-2022",
+      "reason": "PROMOT M5 (categoria L), fora do recorte PROCONVE L8/P8.",
+      "evidenceSource": "139213"
+    }
+  ],
+  "sourceGaps": [
+    {
+      "id": "ibama-in-26-2020",
+      "note": "O inteiro teor não foi localizado na coleta. Sua alteração e aplicação à fase L8 estão expressamente referenciadas no art. 6º da IN Ibama 3/2023; a referência está preservada no respectivo registro, sem inventar métodos do texto não coletado.",
+      "evidenceSource": "139279"
+    }
+  ]
+}

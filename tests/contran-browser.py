@@ -14,15 +14,14 @@ async def main():
   browser=await p.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox'])
   page=await browser.new_page(viewport={'width':1440,'height':1050},reduced_motion='reduce')
   errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
-  m=json.loads((ROOT/'data/contran/inventory.json').read_text())['metadata']
+  m=json.loads((ROOT/'data/contran/active.json').read_text())['metadata']
   await page.goto(BASE+'#contran');await ready(page)
-  assert str(m['currentIndicationCount']) in await page.locator('#contranResultCount').inner_text()
+  assert str(m['activeCount']) in await page.locator('#contranResultCount').inner_text()
   assert await page.locator('.contran-record').count()==25
-  assert '06/10/2026' in await page.locator('.contran-notice').inner_text()
+  assert '06/10/2026' in await page.locator('.contran-source').inner_text()
   await page.screenshot(path=str(ARTIFACTS/'contran-desktop-verified.png'))
   await page.locator('[data-contran-page="2"]').click();await ready(page)
   assert 'página 2 de' in await page.locator('#contranResultCount').inner_text()
-  await page.locator('#contranScope').select_option('all');await ready(page)
   await page.locator('#contranSearch').fill('951/2022');await page.locator('#contranFilters button[type=submit]').click();await ready(page)
   assert await page.locator('.contran-record').count()==1
   card=page.locator('[data-contran-record="contran-951-2022"]');await card.locator('summary').click()
@@ -32,24 +31,45 @@ async def main():
   await page.reload();await ready(page);assert '951/2022'==await page.locator('#contranSearch').input_value()
   await page.goto(BASE+'#contran?system=ocupantes');await ready(page)
   assert await page.locator('[data-contran-record="contran-951-2022"]').count()==1
-  for key,text in [('contran-1029-2026','09/10/2026'),('contran-910-2022','dispositivos'),('contran-248-2007','Revogada'),('contran-827-1997','não confirmada')]:
-   await page.goto(BASE+'#contran?scope=all&record='+key);await ready(page)
-   assert await page.locator('.contran-record').count()==1
-   assert text in await page.locator('.contran-record').inner_text(),(key,text)
+  # Historical scope parameters cannot reveal an inactive record.
+  for key in ['contran-1029-2026','contran-248-2007','contran-827-1997','contran-412-2012']:
+   await page.goto(BASE+'#contran?scope=all&record='+key);await page.locator('.contran-records .empty').wait_for()
+   assert await page.locator('.contran-record').count()==0
   await page.goto(BASE+'#contran?scope=current&q=termo-sem-correspondencia-xyz');await page.locator('.contran-records .empty').wait_for()
   await page.locator('.empty [data-contran-clear]').click();await ready(page)
   assert str(m['recordCount']) in await page.locator('#contranResultCount').inner_text()
-  async with page.expect_download() as pending:await page.locator('a[download][href$="vigencia-indicada.csv"]').click()
-  download=await pending.value;assert download.suggested_filename=='vigencia-indicada.csv'
+  async with page.expect_download() as pending:await page.locator('a[download][href$="active.csv"]').click()
+  download=await pending.value;assert download.suggested_filename=='active.csv'
   # Real navigation from a vehicle system and from an existing catalogue reference.
   await page.goto(BASE+'#vehicle?component=bancos');await page.locator('.component-graph').wait_for()
-  await page.locator('.contran-component-link a').click();await ready(page)
-  assert 'system=ocupantes' in page.url
-  await page.goto(BASE+'#library');await page.locator('#librarySearch').fill('951.22')
+  await page.locator('.contran-component-link a').first.click();await ready(page)
+  assert 'component=bancos' in page.url
+  await page.goto(BASE+'#library');await page.locator('#librarySearch').fill('951')
   await page.locator('[data-open="senatran-061"]').first.click();await page.locator('#normDialog').wait_for()
   await page.locator('#normDialog [data-contran-open]').click();await ready(page)
   assert not await page.locator('#normDialog').is_visible()
   assert await page.locator('[data-contran-record="contran-951-2022"]').count()==1
+  # Transverse categories never force a physical system association.
+  await page.goto(BASE+'#contran?category=homologacao');await ready(page)
+  assert await page.locator('[data-contran-record="contran-922-2022"]').count()==1
+  await page.goto(BASE+'#proconve?phase=L8');await ready(page)
+  assert '19 resultados' in await page.locator('#contranResultCount').inner_text()
+  assert await page.locator('[data-contran-record="ibama-in-20-2025"]').count()==1
+  assert await page.locator('[data-contran-record="ibama-in-20-2020"]').count()==0
+  await page.goto(BASE+'#proconve?phase=P8');await ready(page)
+  assert '6 resultados' in await page.locator('#contranResultCount').inner_text()
+  assert await page.locator('[data-contran-record="ibama-in-20-2020"]').count()==1
+  assert await page.locator('[data-contran-record="ibama-in-20-2021"]').count()==0
+  await page.goto(BASE+'#proconve?category=emissoes-corporativas');await ready(page)
+  assert await page.locator('.contran-record').count()==2
+  assert await page.locator('.regulatory-system-links a[href^="#vehicle"]').count()==0
+  await page.goto(BASE+'#proconve?component=tanque');await ready(page)
+  assert '4 resultados' in await page.locator('#contranResultCount').inner_text()
+  await page.locator('.regulatory-context a').click();await page.locator('.component-graph').wait_for()
+  assert 'component=tanque' in page.url
+  await page.goto(BASE+'#vehicle?component=motor&lane=ambiental');await page.locator('.component-graph').wait_for()
+  refs=await page.evaluate("Object.values(treeModels.vehicle.nodes).filter(n=>n.recordIds?.some(id=>catalog.records.find(r=>r.id===id)?.regulatoryId==='ibama-in-20-2025')).length")
+  assert refs>0
   await page.set_viewport_size({'width':390,'height':844})
   await page.goto(BASE+'#contran');await ready(page)
   assert await page.evaluate('document.documentElement.scrollWidth<=innerWidth')
@@ -61,11 +81,14 @@ async def main():
   assert await page.evaluate('document.documentElement.scrollWidth<=innerWidth')
   # Failure is explicit and a retry can recover without reloading the application.
   other=await browser.new_page(viewport={'width':1000,'height':900});other.on('pageerror',lambda e:errors.append(str(e)))
-  await other.route('**/data/contran/inventory.json',lambda r:r.fulfill(status=503,body='unavailable'))
+  await other.route('**/data/contran/active.json',lambda r:r.fulfill(status=503,body='unavailable'))
   await other.goto(BASE+'#contran');await other.locator('[data-contran-retry]').wait_for()
-  await other.unroute('**/data/contran/inventory.json');await other.locator('[data-contran-retry]').click();await ready(other)
+  await other.unroute('**/data/contran/active.json');await other.locator('[data-contran-retry]').click();await ready(other)
+  await page.goto(BASE+'#proconve');await ready(page)
+  assert await page.evaluate('document.documentElement.scrollWidth<=innerWidth')
+  await page.screenshot(path=str(ARTIFACTS/'proconve-mobile-verified.png'),full_page=True)
   assert not errors,errors
   await browser.close()
-  print('PASS: CONTRAN filters, sources, amendments, temporal warnings, year identity, pagination, URL/reload, CSV, vehicle/catalogue links, mobile, keyboard, empty/error/retry. No JavaScript errors.')
+  print('PASS: active-only CONTRAN/PROCONVE, inactive URL exclusion, L8/P8 separation, corporate categories, sources, pagination, CSV, vehicle/catalogue links, new flow references, mobile, keyboard, empty/error/retry. No JavaScript errors.')
 
 asyncio.run(main())

@@ -52,8 +52,8 @@ async def main():
   await page.screenshot(path=str(ARTIFACTS/'motor-ambiental.png'),full_page=True)
   await page.locator('.component-lanes a',has_text='Segurança').click();await flow(page);assert await page.locator('[data-tree-node$=":record:inmetro-045"]').count()==1
   await overview(page);tank=await point(page,POINTS['tanque']);await page.mouse.click(**tank);await flow(page);assert await page.locator('[data-tree-node$=":record:senatran-118"]').count()==1
-  await page.locator('.component-lanes a',has_text='Ambiental').click();await flow(page);assert await page.locator('[data-tree-node$=":record:ibama-031"]').count()==1
-  await page.locator('[data-tree-node="component:tanque:ambiental:canister"]').click();assert await page.locator('#aiPanel .tree-doc').count()==0
+  await page.locator('.component-lanes a',has_text='Ambiental').click();await flow(page);assert await page.locator('[data-tree-node$=":record:ibama-020"]').count()==1;assert await page.locator('[data-tree-node$=":record:ibama-031"]').count()==0
+  await page.locator('[data-tree-node="component:tanque:ambiental:canister"]').click();assert await page.locator('#aiPanel .tree-doc').count()==2
   # Graph zoom is independent of hero image; reset and fit are usable.
   art=await page.locator('.component-hero-art').evaluate('(e)=>({width:e.offsetWidth,height:e.offsetHeight})');await page.locator('[data-graph-action="in"]').click();assert await page.locator('.component-hero-art').evaluate('(e)=>({width:e.offsetWidth,height:e.offsetHeight})')==art
   await page.locator('[data-graph-action="fit"]').click();await page.locator('[data-graph-action="reset"]').click()
