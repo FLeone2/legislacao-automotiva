@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520">
+<title>Esquema conceitual próprio de frenagem, controle e fluido</title>
+<defs><linearGradient id="metal" x2="1" y2="1"><stop stop-color="#edf2f7"/><stop offset="1" stop-color="#9aabba"/></linearGradient></defs>
+<rect width="900" height="520" fill="#f7fafc"/>
+<g fill="none" stroke="#b5c3d0" stroke-width="3" stroke-dasharray="7 8"><path d="M260 290L570 290L690 140"/><path d="M570 290L690 390"/></g>
+<g stroke="#415a70" stroke-width="3"><ellipse cx="260" cy="285" rx="135" ry="158" fill="url(#metal)"/><ellipse cx="260" cy="285" rx="89" ry="110" fill="#f7fafc"/><ellipse cx="260" cy="285" rx="42" ry="53" fill="#9cabb9"/><path d="M345 175L400 195L400 334L345 355L317 326L317 205Z" fill="#6e879a"/><path d="M540 245L610 225L635 245L635 315L563 337L540 315Z" fill="url(#metal)"/><path d="M540 245L563 265L635 245M563 265V337" fill="none"/><path d="M640 105Q700 85 750 105L750 160Q690 180 640 160Z" fill="#e4eff5"/><path d="M640 105Q700 125 750 105M661 98V83H726V99" fill="none"/><path d="M659 383L724 370L750 393L682 410Z" fill="#b3c2cf"/><path d="M659 383V425L682 448L750 431V393M682 410V448" fill="url(#metal)"/></g>
+<g font-family="sans-serif" fill="#415a70" font-size="16"><text x="125" y="480">Frenagem</text><text x="510" y="382">Controle ABS / estabilidade</text><text x="637" y="65">Circuito de fluido</text></g>
+</svg>
