@@ -432,7 +432,8 @@ Os testes de navegador iniciam e encerram seu próprio servidor. Para um servido
 existente, configure `VEHICLE_TEST_URL`. `BROWSER_EXECUTABLE` permite uma substituição
 local explícita; CI e baselines usam o Chromium da versão fixada do Playwright.
 
-A suíte visual compara imagens de referência de veículo/contorno da roda, fluxo
+A suíte visual fixa as fontes Liberation Sans (licença OFL em `tests/fonts`)
+para evitar substituições entre ambientes Linux. Ela compara imagens de referência de veículo/contorno da roda, fluxo
 e celular, gera diferenças e aceita até 1% de pixels alterados acima da tolerância
 de antialiasing. Há uma mutação sintética para verificar que o comparador rejeita
 mudanças visíveis. Atualize imagens somente após revisão visual deliberada com

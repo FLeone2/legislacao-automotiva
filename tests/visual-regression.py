@@ -1,6 +1,7 @@
 """Deterministic Chromium screenshots with reviewed baselines and pixel diff artifacts."""
 
 import asyncio
+import base64
 import io
 import json
 import os
@@ -56,6 +57,19 @@ async def main(base):
                 if route.startswith("vehicle")
                 else ".homologation-step"
             ).first.wait_for()
+            # Pin OFL-licensed font bytes to avoid platform font substitution.
+            faces = []
+            for weight, face_name in [(400, "Regular"), (700, "Bold")]:
+                font = base64.b64encode(
+                    (ROOT / f"tests/fonts/LiberationSans-{face_name}.ttf").read_bytes()
+                ).decode()
+                faces.append(
+                    f"@font-face{{font-family:VisualRegressionSans;font-style:normal;font-weight:{weight};src:url(data:font/ttf;base64,{font}) format('truetype');}}"
+                )
+            await page.add_style_tag(
+                content="".join(faces)
+                + "body,button,input,select,svg text {font-family:VisualRegressionSans,sans-serif !important;}"
+            )
             await page.evaluate("""async()=>{
                 await document.fonts.ready;
                 await Promise.all([...document.images].map(i=>{i.loading='eager';return i.decode().catch(()=>{})}));
