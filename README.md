@@ -2,6 +2,75 @@
 
 Protótipo público de consulta à legislação automotiva, com referências oficiais e ressalvas de validação.
 
+## Levantamento oficial CONTRAN
+
+Abra `/#contran` ou **Resoluções CONTRAN** no menu. Consulta realizada em
+**18/10/2026** no [índice oficial da SENATRAN](https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran),
+que declara atualização em **06/10/2026, 14h52**.
+
+- **1.141 atos inventariados:** 1.030 resoluções distintas da tabela principal e
+  111 atos-base do ZIP oficial anterior a 1998. Três linhas de retificação foram
+  vinculadas aos respectivos atos; o número 982 não aparece na tabela.
+- **252 com indicação de vigência**, incluindo seis com revogação parcial;
+  826 indicados como revogados, três suspensos, quatro com prazo encerrado,
+  um declarado nulo e 55 históricos com vigência atual não confirmada.
+- **370 textos-base extraídos**, com URL, hash SHA-256 e evidências preservadas.
+  O anexo da Resolução 993/2023 foi consultado como referência adicional.
+- Busca, paginação, filtros por situação, assunto e sistema; exportação em CSV
+  e JSON; relações explícitas de alteração/revogação e ressalvas temporais.
+  A página de cada sistema do veículo e os detalhes das referências CONTRAN
+  oferecem acesso ao levantamento.
+
+**Este levantamento não certifica que todos esses atos se aplicam hoje a um
+veículo específico.** “Entrada em vigor localizada” confirma a cláusula original;
+não substitui consolidação de dispositivos. Foram cruzadas as anotações do
+próprio índice e conferidos casos dirigidos, incluindo as revogações das
+248/2007 e 219/2007 e os prazos da 1.029/2026. Algumas linhas antigas do portal
+continuam dizendo “Em vigor”, apesar da revogação anotada em outro ato.
+
+O prazo dos arts. 2º e 3º da 910/2022 terminou em 2025, sem presumir revogação
+integral. Suspensões, efeitos exauridos e bases revogadas de atos modificadores
+permanecem explícitos. A associação por sistema é temática: “janela” de exame
+toxicológico não é vidro e suspensão do direito de dirigir não é suspensão do
+veículo. Nenhuma norma foi aplicada ao SUV apenas por sua imagem.
+
+A consulta suplementar ao buscador do DOU retornou HTTP 403; **não foi possível
+fechar a lacuna entre a atualização de 06/10 e a consulta de 18/10/2026**.
+A página de consolidadas está assinalada “em construção” e não foi tratada
+como lista exaustiva de vigência. Os 55 atos históricos sem conclusão continuam
+pendentes, incluindo referências antigas ainda citadas no anexo da 993/2023.
+
+O acervo preexistente de 124 entradas em `catalog.json` foi preservado. O novo
+inventário fica em `data/contran/inventory.json`, acompanhado de CSVs,
+`LEIA-ME.txt`, conferências em `reviewed-effects.json` e evidências comprimidas
+em `data/contran/sources/`. Os textos são fontes públicas oficiais; as imagens
+da navegação não foram alteradas nesta etapa.
+
+Para reproduzir a classificação da fotografia preservada, sem rede:
+
+```sh
+python -m pip install -r scripts/requirements-contran.txt
+python scripts/build_contran_map.py
+python tests/contran-map.test.py
+```
+
+Para fazer nova coleta, use um diretório de cache novo e tenha `pandoc` e
+`antiword` disponíveis para os formatos RTF/DOC antigos. `CONTRAN_ANTIWORD`
+permite indicar o executável; `ANTIWORDHOME`, o diretório de seus mapas.
+As conferências dirigidas continuam vinculadas às fontes e às datas registradas;
+nova coleta não equivale a nova revisão jurídica.
+
+```sh
+python scripts/map_contran.py --as-of AAAA-MM-DD --cache /tmp/contran-nova-coleta
+python scripts/collect_contran_supplements.py --cache /tmp/contran-nova-coleta
+python scripts/build_contran_map.py
+```
+
+Com servidor HTTP local e Chromium/Playwright, execute
+`python tests/contran-browser.py`. O teste cobre filtros, fontes, relações,
+prazos, CSV, retorno ao levantamento pelos sistemas e documentos, URL/reload,
+teclado, celular e estados vazio/erro/repetição de carga.
+
 ## Navegação do veículo aos fluxogramas
 
 Execute `python -m http.server 8000 --bind 127.0.0.1` e abra
@@ -91,14 +160,16 @@ imagem, além das seis páginas já existentes. Capturas são salvas em
 
 ## Publicação de teste
 
-A versão é uma aplicação estática e funciona no GitHub Pages com a raiz do
-repositório como origem. `.nojekyll` evita processamento de arquivos pelo Jekyll.
-O código de teste está na branch `feat/navegacao-visual-sistemas` (PR #1).
-A ativação automática do Pages foi recusada pelo GitHub com HTTP 403
-(`Resource not accessible by integration`); nenhum site foi publicado.
-Para ativar pelo GitHub: Settings → Pages → Deploy from a branch →
-`feat/navegacao-visual-sistemas` → `/ (root)` → Save. Depois abra a URL
-fornecida pelo GitHub com `/#vehicle` ao final.
+A prévia privada está em
+https://legislacao-automotiva-teste.fleone.chatgpt.site/#vehicle e o levantamento
+em https://legislacao-automotiva-teste.fleone.chatgpt.site/#contran.
+O código está na branch `feat/navegacao-visual-sistemas` (PR #1); `main` não foi
+mesclada. A publicação preserva o acesso privado existente.
+
+A aplicação é estática e também pode ser hospedada no GitHub Pages, com a raiz
+do repositório como origem. `.nojekyll` evita processamento pelo Jekyll. A
+ativação automática do Pages havia sido recusada com HTTP 403; a prévia acima
+usa Sites.
 
 ## Cobertura integral dos sistemas cadastrados
 

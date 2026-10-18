@@ -1,0 +1,30 @@
+Levantamento CONTRAN — consulta em 2026-10-18
+Fonte: https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran
+Atualização declarada pelo portal: 06/10/2026 14h52
+1030 resoluções do índice principal; 111 do arquivo anterior a 1998.
+252 atos com indicação de vigência, incluindo revogação parcial. Isso não significa aplicação automática hoje.
+
+Situações encontradas:
+- Vigência indicada no índice: 152
+- Entrada em vigor localizada no texto: 94
+- Revogação parcial — conferir redação remanescente: 6
+- Revogada: 826
+- Efeitos suspensos: 3
+- Prazo encerrado no índice: 4
+- Declarada nula: 1
+- Vigência atual não confirmada: 55
+
+Limites da verificação:
+- Consulta em 18/10/2026; o índice declara atualização em 06/10/2026. Não foi possível fechar a lacuna posterior com busca exaustiva no DOU.
+- Vigência indicada combina a anotação do índice, a entrada em vigor original e cruzamentos explícitos. Ausência de revogação no índice não comprova vigência plena.
+- Atos históricos sem indicação conclusiva ficam pendentes; a presença no ZIP ou a citação em um anexo não confirma vigência atual.
+- Os textos e os anexos não foram integralmente consolidados artigo por artigo. Suspensões, normas alteradoras, regras transitórias e efeitos exauridos exigem conferência.
+- Associação a sistema ou tema é um índice de consulta, sem decisão automática de aplicabilidade ao perfil ilustrativo do veículo.
+
+Fontes e reprodução:
+- sources/index.html.gz: cópia do índice, com SHA-256 registrado no JSON.
+- sources/text-extracts.json.gz e historical-extracts.json.gz: textos extraídos, URLs e hashes dos originais.
+- sources/993-annex.json.gz: anexo de equipamentos/requisitos consultado, sem transcrever suas tabelas como enquadramento automático.
+- reviewed-effects.json: conferências dirigidas de efeitos não resolvidos apenas pela linha do índice.
+- Atualizar: python scripts/map_contran.py --as-of AAAA-MM-DD; python scripts/collect_contran_supplements.py; python scripts/build_contran_map.py. Usar cache novo para uma coleta nova.
+- Reproduzir a fotografia preservada: python scripts/build_contran_map.py (sem rede).

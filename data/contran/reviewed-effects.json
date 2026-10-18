@@ -1,0 +1,38 @@
+{
+  "reviewDate": "2026-10-18",
+  "method": "Conferência dirigida dos trechos abaixo nos textos oficiais extraídos. Não é uma consolidação jurídica integral.",
+  "effects": [
+    {
+      "sourceId": "contran-390-2011",
+      "targetId": "contran-248-2007",
+      "kind": "revoga",
+      "evidence": "Art. 17. Esta Resolução entrará em vigor após decorridos 180 (cento e oitenta) dias de sua publicação oficial, quando ficará revogada a Resolução nº 248/07, do CONTRAN.",
+      "effectiveDate": "2012-02-11",
+      "calculation": "Publicação de 15/08/2011 informada no índice + 180 dias. O texto oficial explicita a revogação; a anotação antiga de 'Em vigor' na linha 248 não foi usada como conclusão atual."
+    },
+    {
+      "sourceId": "contran-356-2010",
+      "targetId": "contran-219-2007",
+      "kind": "revoga",
+      "evidence": "Esta Resolução entra em vigor na data de sua publicação, produzindo efeitos no prazo de trezentos e sessenta e cinco dias contados da data de sua publicação, quando ficará revogada a Resolução CONTRAN nº 219, de 11 de janeiro de 2007.",
+      "effectiveDate": "2011-08-04",
+      "calculation": "Publicação de 04/08/2010 informada no índice + 365 dias. A revogação posterior da 356/2010 não implica repristinação automática da 219/2007."
+    },
+    {
+      "sourceId": "contran-1028-2026",
+      "targetId": "contran-1013-2024",
+      "kind": "altera",
+      "evidence": "Art. 4º A Resolução Contran nº 1.013, de 2024, passa a vigorar com as seguintes alterações:",
+      "effectiveDate": "2026-08-25",
+      "calculation": "Art. 5º: entrada em vigor na data da publicação. A publicação de 25/08/2026 é a informada no índice."
+    }
+  ],
+  "temporalReviews": [
+    {
+      "id": "contran-1029-2026",
+      "kind": "prazo_principal_encerrado",
+      "evidence": "Art. 2º A validade da Autorização para Conduzir Ciclomotor e da CNH dos condutores de que trata o art. 1º fica prorrogada até 9 de setembro de 2026. § 1º Encerrado o prazo de prorrogação previsto no caput, os condutores nele referidos disporão de trinta dias para renovação do documento de habilitação.",
+      "note": "O prazo de validade termina em 09/09/2026 e os 30 dias subsequentes se encerram em 09/10/2026. Em 18/10/2026 esses prazos já passaram; isso não equivale a declarar a resolução integralmente revogada nem a afastar efeitos de situações anteriores."
+    }
+  ]
+}
