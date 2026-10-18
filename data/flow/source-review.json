@@ -1,0 +1,160 @@
+{
+  "purpose": "Vínculos para árvore de atividades de homologação; indicação temática com limites de escopo, não checklist completo de obrigações.",
+  "stages": [
+    {
+      "id": "preparacao",
+      "activity": "Construir e configurar protótipo representativo; preparar e amaciar conforme ensaio",
+      "acts": [
+        "ibama-in-23-2020",
+        "ibama-in-3-2023"
+      ],
+      "evidence": [
+        "IN23/2020 Anexo4.3.1.1: veículo amaciado a critério do fabricante, componentes envelhecidos e representativos de durabilidade conforme NBR16897 ou sucedânea.",
+        "IN3/2023 arts2–3 remete NBR16567 para híbridos e métodos de poluentes."
+      ],
+      "limits": "O requisito de amaciamento citado pertence ao ensaio OBD; não impor quilometragem universal a todo protótipo. Preparação/coastdown exigem método específico ainda não integralmente conferido."
+    },
+    {
+      "id": "coastdown",
+      "activity": "Determinar resistência ao avanço e parametrizar dinamômetro",
+      "acts": [
+        "inmetro-169-2023",
+        "ibama-in-11-2014",
+        "ibama-in-3-2023"
+      ],
+      "evidence": [
+        "IN11/2014 art1§4: Massa em Ordem de Marcha será maior entre versões representadas, dinamômetro ajustado com respectiva potência resistiva.",
+        "Portal IQ169/2023 lista ABNT NBR10312 entre referências técnicas."
+      ],
+      "limits": "NBR10312 está referenciada no Portal IQ; inteiro teor do RTAC/NBR não conferido. Não publicar edição, limites de vento/pista, pneus, pressões, curva de coastdown ou quilometragem como confirmados. Tratar vínculo NBR10312→coastdown como pendente de método até fonte integral."
+    },
+    {
+      "id": "laboratorios",
+      "activity": "Selecionar laboratório, ATC e método; definir testemunho e rastreabilidade",
+      "acts": [
+        "ibama-in-11-2020",
+        "ibama-in-16-2024",
+        "senatran-095"
+      ],
+      "evidence": [
+        "IN11/2020 anexoII: ATC deve garantir ensaios por laboratório de emissão próprio ou terceiro; realiza ou acompanha ensaios e inspeções de protótipos.",
+        "Portaria990/2022 art9: capacidade técnica de laboratório de segurança passiva não acreditado por signatário ILAC demonstrada com acompanhamento SENATRAN/INMETRO; arts12–22 relatórios e rastreabilidade."
+      ],
+      "limits": "Não confundir ATC com acreditação Cgcre, nem dizer todo laboratório deve ser acreditado indistintamente. Diferentes processos de avaliação e exceções."
+    },
+    {
+      "id": "emissoes-combustao",
+      "activity": "Ensaios emissões, NMOG, OBD, ETR e regeneração segundo escopo",
+      "acts": [
+        "conama-492-2018",
+        "ibama-in-22-2020",
+        "ibama-in-21-2021",
+        "ibama-in-15-2022",
+        "ibama-in-23-2020",
+        "ibama-in-7-2021",
+        "ibama-in-20-2021",
+        "ibama-in-25-2023",
+        "ibama-in-3-2021",
+        "ibama-in-3-2023",
+        "ibama-in-29-2020"
+      ],
+      "evidence": [
+        "IN3/2023 art3 remete NBR12026,15598,6601,16567 atualizadas."
+      ],
+      "limits": "Evaporativas IN26/2020 somente remissão IN3/2023; texto integral não localizado. NMOG, regeneração e ETR dependem de combustível/motorização; não impor todos ensaios a todos powertrains."
+    },
+    {
+      "id": "hibrido",
+      "activity": "Selecionar HEV/PHEV e protocolo de emissões/energia",
+      "acts": [
+        "conama-492-2018",
+        "ibama-in-3-2023",
+        "ibama-in-11-2014",
+        "inmetro-169-2023"
+      ],
+      "evidence": [
+        "IN3/2023 art2: híbridos recarregáveis externamente ou não, homologação conforme NBR16567 versão mais recente.",
+        "IN11/2014 com alteração3/2023: ciclo estrada NBR7024:2010 e NBR16567:2020 ou sucedâneas."
+      ],
+      "limits": "Não usar mesmo ciclo de carga/descarga indistintamente para HEV/PHEV."
+    },
+    {
+      "id": "eletrico",
+      "activity": "Avaliar consumo elétrico/autonomia e segurança aplicável",
+      "acts": [
+        "inmetro-169-2023"
+      ],
+      "evidence": [
+        "Portal IQ169/2023 lista SAEJ1634:2017 nas referências."
+      ],
+      "limits": "Nenhuma licença ambiental de elétrico puro foi confirmada nesta tarefa. Não ligar BEV a ensaio de emissão escapamento ou LCVM obrigatória sem comprovação. CAT e identificação seguem conforme enquadramento."
+    },
+    {
+      "id": "p8",
+      "activity": "Homologação do motor/veículo pesado; OBD/ETR e ISC em etapas distintas",
+      "acts": [
+        "conama-490-2018",
+        "ibama-in-20-2020",
+        "ibama-in-18-2021",
+        "ibama-in-18-2023"
+      ],
+      "evidence": [
+        "IN20/2020 art9 e12: famílias de motor/mestre conforme NBRISO16185:2010. Art16: executores ETR/ISC aceitos Ibama conforme procedimento."
+      ],
+      "limits": "IN20/2020 e20/2021 possuem escopos diferentes. ISC é conformidade em uso e não equivalente à ACP/COP de leves."
+    },
+    {
+      "id": "lcvm",
+      "activity": "Protocolar evidências e obter licença ambiental conforme enquadramento",
+      "acts": [
+        "ibama-in-11-2014",
+        "ibama-in-3-2023",
+        "ibama-in-11-2020",
+        "ibama-in-16-2024",
+        "conama-492-2018",
+        "conama-490-2018"
+      ],
+      "evidence": [
+        "IN11/2014 art1: ensaio autonomia acrescido ao processo de obtenção LCVM para leves.",
+        "Portaria990/2022 AnexoV2.1: comprovação ambiental emitida pelo Ibama, para veículos com combustão interna que emitam pelo escapamento."
+      ],
+      "limits": "Esses atos não substituem toda norma do procedimento administrativo LCVM. Não apresentar lista de formulários/prazos completa."
+    },
+    {
+      "id": "cat",
+      "activity": "Consolidar segurança, identificação, certificações e comprovação ambiental; requerer CAT/MMV",
+      "acts": [
+        "senatran-095"
+      ],
+      "officialPdf": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+      "officialIndex": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/portarias-2022",
+      "evidence": [
+        "Índice: estabelece homologação veículos/equipamentos, código marca/modelo/versão e CAT para pré-cadastro, registro e licenciamento. Entrada vigor1Set2022.",
+        "AnexoV: avaliação conformidade compulsória e comprovação ambiental. AnexoVII: manter conformidade produção. AnexoXI: declaração e relatórios por níveis."
+      ],
+      "limits": "PDF original2022 contém remissões antigas e inclusive224/2007; usar normas atuais do acervo como fontes independentes e não reconstruir consolidação sem revisão. Índice2022 não certifica cadeia de alterações integral atual."
+    },
+    {
+      "id": "cop",
+      "activity": "Executar conformidade de produção e monitoramento pós-homologação",
+      "acts": [
+        "ibama-in-5-2024",
+        "conama-492-2018",
+        "inmetro-169-2023",
+        "senatran-095"
+      ],
+      "evidence": [
+        "IN5/2024 arts2–5 ACP básico com PBEV; art14 detalhado unidade veículo leve ou motocicleta de produção. Vedados protótipo/desenvolvimento/incompleto e unidade usada em homologação.",
+        "Portaria990/2022 art10 permite requisitar amostras após concessão MMV; AnexoVII responsabilidade manter conformidade produção."
+      ],
+      "limits": "Planejar COP desde engenharia, executar com produção representativa. Não aplicar IN5/2024 como base ACP de pesados. IUMPR e ISC são ramos pós-homologação distintos, não sinônimos de COP. Faltam fontes para cadeia integral de COP segurança e P8."
+    }
+  ],
+  "globalGaps": [
+    "ABNT normas técnicas integrais não consultadas; referência no ato não equivale a revisão técnica da norma.",
+    "Amaciamento não possui quilometragem única comprovada para todos protocolos.",
+    "IN26/2020 texto integral ainda não localizado.",
+    "Conama complementares e cadeia integral COP/P8 continuam revisão pendente.",
+    "Não exibir conexão etapa→todo ato do mesmo órgão como se relação fosse precisa."
+  ]
+}

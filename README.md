@@ -171,6 +171,58 @@ snapshots de pesquisa ficam no GitHub. O catálogo histórico original continua
 preservado, mas as referências Inmetro sem confirmação são filtradas em tempo de
 execução.
 
+## Fluxo de homologação por atividade
+
+A aba `/#flow` substitui os quatro cartões antigos por um **diagrama navegável de
+12 etapas**, com três níveis: **etapa → atividade → referência**. As frentes de
+segurança, componentes e ambiental/eficiência convergem no dossiê e no CAT.
+A produção segue com COP e retorno à engenharia/aprovações quando necessário.
+As setas organizam o processo conceitual; não determinam precedência legal
+universal entre todos os ensaios.
+
+As etapas cobrem enquadramento, projeto/construção, preparação/amaciamento,
+coastdown, laboratório, aprovações ambientais/eficiência, segurança, componentes,
+dossiê, CAT, produção/liberação e COP. Cada uma contém propósito, atividades,
+resultados a organizar, vínculos explícitos e lacunas; essa estrutura permite
+acrescentar depois um resumo operacional por atividade sem misturar fontes de
+etapas distintas.
+
+- Clique no mapa ou escolha pela lista textual para abrir a árvore. Expanda uma
+  atividade para ver normas e pendências, selecione um documento e abra seu
+  detalhe/fonte. Alterações ativas conhecidas são vinculadas ao respectivo ato.
+- Recorte por combustão, híbrido/plug-in e elétrico a bateria. É um recorte de
+  consulta: categoria, combustível, fase e datas continuam necessários. O elétrico
+  puro não recebe automaticamente o ramo de escapamento ou LCVM da combustão.
+- Amaciamento e coastdown são separados. A preparação citada na IN 23/2020 é
+  específica do ensaio OBD; não foi criada quilometragem universal. NBR 16897,
+  NBR 16567 e NBR 10312 aparecem no contexto das referências localizadas, com
+  seus limites explícitos; métodos integrais e edições ainda requerem revisão.
+- COP é planejada desde o projeto e executada na produção. ACP da IN 5/2024
+  (leves/motos) não foi universalizada para pesados P8. ISC/IUMPR são controles
+  em uso apresentados em atividade distinta.
+- A Portaria SENATRAN 990/2022 ganhou link direto ao PDF oficial, conferido para
+  CAT, relatórios, laboratório e responsabilidade pela conformidade. A cadeia
+  integral de alterações permanece pendente, sem selo de consolidação jurídica.
+- URL guarda etapa, nó e powertrain; reload/histórico preservam o contexto.
+  O mapa e a árvore têm controles de escala independentes; seleção textual,
+  teclado, preferência por movimento reduzido e navegação móvel são suportados.
+
+Arquivos: `flow-data.js` contém a estrutura editorial e os identificadores das
+referências; `homologation-flow.js` monta o diagrama e a expansão, reaproveitando
+`tree.js`. `data/flow/evidence.json.gz` preserva o texto e hash do PDF oficial
+990/2022; `source-review.json` documenta vínculos e lacunas. Fontes de pesquisa
+ficam no GitHub, fora dos arquivos estáticos publicados.
+
+```sh
+node --test tests/flow-model.test.cjs
+python tests/flow-browser.py
+```
+
+Os testes verificam relações, recortes, junções sem preenchimento artificial,
+expansão/recolhimento, documentos/alterações, CAT, lacunas, URL/reload/retorno,
+controles independentes, teclado/celular, ausência de dados e retorno à árvore
+preexistente.
+
 ## Navegação do veículo aos fluxogramas
 
 Execute `python -m http.server 8000 --bind 127.0.0.1` e abra
