@@ -225,6 +225,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "fiscalizacao"
       ]
@@ -316,6 +318,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -388,6 +392,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -494,6 +500,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "registro"
       ]
@@ -608,6 +616,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "registro"
       ]
@@ -687,6 +697,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "registro"
       ]
@@ -777,6 +789,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -861,6 +875,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -960,6 +976,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -1063,6 +1081,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -1297,6 +1317,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "habilitacao"
       ]
@@ -1377,6 +1399,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "educacao"
       ]
@@ -1441,6 +1465,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "registro"
       ]
@@ -1545,6 +1571,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "registro",
         "circulacao"
@@ -1626,6 +1654,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "registro"
       ]
@@ -1724,6 +1754,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -1851,6 +1883,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -1957,6 +1991,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "fiscalizacao",
         "circulacao"
@@ -2038,6 +2074,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "regras-gerais"
       ]
@@ -2166,6 +2204,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "regras-gerais"
       ]
@@ -2255,6 +2295,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -2346,6 +2388,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "habilitacao"
       ]
@@ -2429,6 +2473,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -2516,6 +2562,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "educacao"
       ]
@@ -2600,6 +2648,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "fiscalizacao"
       ]
@@ -2669,6 +2719,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "habilitacao"
       ]
@@ -2769,6 +2821,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "habilitacao"
       ]
@@ -2859,6 +2913,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -2955,6 +3011,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "regras-gerais"
       ]
@@ -3045,6 +3103,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -3130,6 +3190,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -3210,6 +3272,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "fiscalizacao"
       ]
@@ -3304,6 +3368,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -3395,6 +3461,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -3483,6 +3551,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -3571,6 +3641,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -3648,6 +3720,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -3868,6 +3942,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "fiscalizacao"
       ]
@@ -3967,6 +4043,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -4066,6 +4144,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -4143,6 +4223,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "habilitacao"
       ]
@@ -4208,6 +4290,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "habilitacao",
         "registro"
@@ -4303,6 +4387,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "habilitacao",
         "circulacao"
@@ -4693,6 +4779,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -4922,6 +5010,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -5245,6 +5335,22 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [
+        {
+          "title": "Placa de Identificação Veicular (PIV)",
+          "rule": "PIV dianteira e traseira após o registro, com exceções do art. 2º; especificações no Anexo I. O QR Code é o lacre eletrônico. A norma não determina troca universal de toda placa antiga.",
+          "clause": "Arts. 2º e 3º; Anexo I",
+          "scope": "Veículos registrados no território nacional, observadas as categorias e hipóteses de substituição.",
+          "evidence": "Art. 2º Após o registro no respectivo órgão ou entidade executivo de trânsito do Estado ou do Distrito Federal, cada veículo será identiﬁcado por PIV dianteira e traseira, de acordo com os requisitos estabelecidos nesta Resolução. § 1º Os reboques, semirreboques, motocicletas, motonetas, ciclomotores, cicloelétricos, triciclos, quadriciclos e guindastes serão identiﬁcados apenas pela PIV traseira. § 2º As especiﬁcações técnicas das PIV estão contidas no Anexo I. § 3º Excetuadas as situações descritas no art. 56, não será obrigatória a substituição da Placa Nacional Única (PNU), modelo de placa anteriormente estabelecido identiﬁcada por uma sequência de três caracteres alfabéticos e quatro caracteres numéricos no padrão \"AAA-1111\", pelo modelo de PIV previsto nesta Resolução. § 4º Caso os proprietários de veículos que estejam em circulação identiﬁcados pela PNU desejem adotar voluntariamente o modelo de PIV previsto nesta Resolução, haverá a substituição automática do segundo caractere numérico da PNU, conforme padrão previsto no Anexo II. § 5º Os veículos de coleção classiﬁcados como originais, conforme regulamentação especíﬁca do CONTRAN, podem ser identiﬁcados com placa especíﬁca para uso restrito ao território nacional, conforme disposições apresentadas no Anexo I.",
+          "topics": [
+            "placas"
+          ]
+        }
+      ],
+      "topics": [
+        "placas",
+        "etiquetas"
+      ],
       "generalCategories": []
     },
     {
@@ -5378,7 +5484,9 @@
         "senatran-064"
       ],
       "systems": [
-        "identificacao"
+        "identificacao",
+        "propulsao",
+        "vidros"
       ],
       "themes": [
         "outros"
@@ -5395,9 +5503,105 @@
           "systemId": "identificacao",
           "subsystemId": "identificacao/vin",
           "basis": "Vínculo temático pela ementa e taxonomia do projeto; confirmar categoria, requisitos e exceções no texto."
+        },
+        {
+          "componentId": "identificacao",
+          "systemId": "identificacao",
+          "subsystemId": "identificacao/rotulagem",
+          "basis": "ETA e identificação do ano: arts. 8º e 12."
+        },
+        {
+          "componentId": "vidros",
+          "systemId": "vidros",
+          "subsystemId": "vidros/vidros",
+          "basis": "Marcação VIS nos vidros: art. 9º."
+        },
+        {
+          "componentId": "motor",
+          "systemId": "propulsao",
+          "subsystemId": "propulsao/componentes",
+          "basis": "Identificação do motor: art. 7º."
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [
+        {
+          "title": "Estrutura do VIN",
+          "rule": "O VIN tem 17 caracteres: WMI (3), VDS (6) e VIS (8). A referência pública remete à ABNT NBR 6066:2022; seu texto integral não foi reproduzido.",
+          "clause": "Art. 3º, I a IV, e art. 5º",
+          "scope": "Veículos produzidos/importados a partir de 01/01/2025, conforme art. 49; Capítulo V desde 01/01/2023. Conferir exceções por categoria; não aplicar retroativamente a um veículo de 2018 apenas por esta tela.",
+          "evidence": "Art. 3º Para os efeitos desta Resolução, aplicam-se os seguintes termos e deﬁnições: I - VIN - Número de Identiﬁcação do Veículo: combinação de 17 caracteres, estruturada em três seções (WMI/VDS/VIS), designada a um veículo por seu fabricante para ﬁns de identiﬁcação; II - WMI - Identiﬁcador Internacional do Fabricante: primeira seção do VIN, composta por 3 caracteres, que identiﬁca o fabricante do veículo; III - VDS - Seção Descritiva do Veículo: segunda seção do VIN, composta por 6 caracteres, que fornece informações descritivas das características gerais do veículo; IV - VIS - Seção Indicadora do Veículo: terceira e última seção do VIN, composta por 8 caracteres, que apresenta a combinação de caracteres para distinção dos veículos em produção; V - ETA - Etiqueta Autocolante: etiqueta em material de segurança, destrutível quando da tentativa de sua remoção; VI - Divisor - símbolo, caractere ou delimitação física, utilizado para separar as seções do VIN ou indicar seus limites (início e ﬁm); VII - NIEV - Número de Identiﬁcação do Equipamento Veicular: combinação de 17 caracteres designada a um equipamento veicular (carroceria) por seu fabricante para ﬁns de identiﬁcação; VIII - NICV - Número de Identiﬁcação de Carroceria de Veículo: combinação de 21 caracteres designada a uma carroceria de ônibus pelo seu encarroçador, conforme regulamentação especíﬁca do CONTRAN; IX - SSP - Seção Sequencial de Produção: terceira seção do NICV, composta por 6 dígitos, que indica a numeração sequencial de produção da carroceria de veículos encarroçados, conforme regulamentação especíﬁca do CONTRAN; 24/06/2022 07:38 RESOLUÇÃO CONTRAN Nº 968, DE 20 DE JUNHO DE 2022 - RESOLUÇÃO CONTRAN Nº 968, DE 20 DE JUNHO DE 2022 - DOU - Imprensa Nacional https://www.in.gov.br/web/dou/-/resolucao-contran-n-968-de-20-de-junho-de-2022-410048371 2/16 X - fornecedor: pessoa física ou jurídica responsável pela fabricação, montagem, importação, encarroçamento ou modiﬁcação de um veículo; e XI - agregado: motor, caixa de câmbio, cabine, carroceria, eixo, ou qualquer outro componente de um veículo que pode ser utilizado como elemento de identiﬁcação. CAPÍTULO II DOS ITENS DE IDENTIFICAÇÃO VEICULAR",
+          "topics": [
+            "vin"
+          ]
+        },
+        {
+          "title": "Gravação principal",
+          "rule": "Gravar o VIN no lado direito do chassi ou monobloco, segundo os formatos da NBR 6066:2022 e profundidade mínima de 0,2 mm. Há regras específicas para materiais não metálicos, categorias e métodos de gravação.",
+          "clause": "Art. 5º",
+          "scope": "Veículos produzidos/importados a partir de 01/01/2025, conforme art. 49; Capítulo V desde 01/01/2023. Conferir exceções por categoria; não aplicar retroativamente a um veículo de 2018 apenas por esta tela.",
+          "evidence": "Art. 5º O VIN deve ser gravado no lado direito do chassi ou monobloco, de acordo com as especiﬁcações e formatos estabelecidos pela norma da Associação Brasileira de Normas Técnicas (ABNT) NBR 6066:2022, em profundidade mínima de 0,2 mm. § 1º No caso de chassi ou monobloco não metálico, o VIN deve ser gravado em plaqueta metálica, destrutível quando da sua remoção, incorporada ou moldada na estrutura do chassi ou monobloco, durante a fabricação. § 2º É vedado o processo de gravação do VIN por meio de punção manual, excetuando-se os fabricantes de veículos cuja produção não exceda a 500 unidades de veículos por ano. § 3º Para os ﬁns previstos no caput, o décimo caractere do VIN, estabelecido pela ABNT NBR 6066:2022, pode ser alfanumérico e deve corresponder obrigatoriamente à identiﬁcação do ano-modelo do veículo. § 4º O ano-modelo somente pode ser imediatamente anterior, igual ou imediatamente posterior ao ano de fabricação do veículo. § 5º Para os veículos tipo ciclomotor, motoneta, motocicleta, triciclo e quadriciclo, os caracteres do VIN devem ter altura mínima de 4 mm e devem ser gravados em ponto na coluna de suporte de direção ou no chassi monobloco. § 6º Nos veículos reboques, semirreboques e nos veículos de transporte coletivo de passageiros M3, o VIN deverá ser gravado: I - na face lateral externa da longarina direita, ou estrutura equivalente; II - na parte dianteira do chassi, próximo ao eixo dianteiro, no caso dos veículos M3; e III - numa porção delimitada a no máximo 10% do tamanho total da longarina e em local de fácil acesso e visualização, no caso de reboques e semirreboques, considerando a posição ﬁnal da gravação após a montagem do veículo. § 7º É vedada a sobreposição de qualquer película sobre a gravação do VIN, com exceção daquelas originalmente aplicadas pelo fabricante para ﬁns de proteção da gravação, desde que não impeça sua visualização ou inspeção.",
+          "topics": [
+            "vin"
+          ]
+        },
+        {
+          "title": "Segunda identificação",
+          "rule": "Prever a segunda gravação por uma das alternativas do art. 6º. Plaqueta/ETA não são alternativas universais; reboques, semirreboques e categorias isentas têm tratamento próprio.",
+          "clause": "Art. 6º",
+          "scope": "Veículos produzidos/importados a partir de 01/01/2025, conforme art. 49; Capítulo V desde 01/01/2023. Conferir exceções por categoria; não aplicar retroativamente a um veículo de 2018 apenas por esta tela.",
+          "evidence": "Art. 6º Uma segunda gravação do VIN deve ser feita conforme uma das seguintes alternativas: I - em alto relevo, com altura mínima de 0,2 mm; II - em plaqueta metálica colada, soldada ou rebitada, destrutível quando de sua remoção; III - em baixo relevo, com profundidade mínima de 0,2 mm; ou IV - em ETA, com exceção de reboques e semirreboques. § 1º Para reboques e semirreboques, a segunda gravação do VIN deve ser feita na longarina esquerda, com as mesmas especiﬁcações da primeira gravação. § 2º Para cabine ou monobloco, a segunda gravação do VIN deve ser feita no quadrante distinto ao da primeira marcação. § 3º Alternativamente, a gravação na cabine prevista no § 2º pode ser aceita como número de identiﬁcação da cabine de que trata o inciso VI do caput do art. 4º. § 4º Os ciclomotores, motonetas, motocicletas, triciclos, quadriciclos, os chassis plataforma e os ônibus M3 encarroçados destinados ao transporte coletivo de passageiros estão isentos da segunda gravação do VIN. § 5º Aplicam-se as disposições dos §§ 1º, 2º, 3º e 4º do art. 5º também à segunda gravação.",
+          "topics": [
+            "vin"
+          ]
+        },
+        {
+          "title": "Etiqueta autocolante de identificação (ETA)",
+          "rule": "Conter pelo menos o VIS; ser autocolante, destrutível na tentativa de remoção, resistente a intempéries e com elemento adicional de segurança. O art. 8º define posições por categoria e proíbe película sobreposta.",
+          "clause": "Art. 8º",
+          "scope": "Veículos produzidos/importados a partir de 01/01/2025, conforme art. 49; Capítulo V desde 01/01/2023. Conferir exceções por categoria; não aplicar retroativamente a um veículo de 2018 apenas por esta tela.",
+          "evidence": "Art. 8º As ETA previstas no inciso IX do art. 4º devem: I - conter pelo menos o VIS; II - ser autocolantes; III - ser destrutíveis no caso de tentativa de sua remoção; IV - ser resistente a intempéries; e V - conter no mínimo um elemento de segurança, além do citado no inciso III. § 1º As ETA devem ser aﬁxadas: I - para os ciclomotores, motonetas, motocicletas, triciclos e quadriciclos: sob o assento ou na porção dianteira do veículo; e II - para os demais veículos automotores: a) uma na coluna da porta dianteira direita; e b) uma no compartimento do motor, quando existente. III - para os reboques e semirreboques: em uma das longarinas, em local distinto das gravações mencionadas nos arts. 5º e 6º. § 2º Para os reboques e semirreboques é facultada a utilização de plaqueta metálica soldada ou colada na longarina em substituição à ETA. § 3º Para os ônibus e micro-ônibus, é facultada a utilização de plaqueta metálica soldada na estrutura da carroceria em substituição à ETA. § 4º É vedada a sobreposição de qualquer película sobre a ETA. § 5º O fabricante ou importador deve informar quais elementos de segurança estão presentes nas respectivas ETA, na forma do art. 13.",
+          "topics": [
+            "vin",
+            "etiquetas"
+          ]
+        },
+        {
+          "title": "VIS nos vidros",
+          "rule": "Marcar o VIS no para-brisa, vidro traseiro e vidros laterais conforme a existência e quantidade previstas no art. 9º; quebra-ventos são excetuados.",
+          "clause": "Art. 9º",
+          "scope": "Veículos produzidos/importados a partir de 01/01/2025, conforme art. 49; Capítulo V desde 01/01/2023. Conferir exceções por categoria; não aplicar retroativamente a um veículo de 2018 apenas por esta tela.",
+          "evidence": "Art. 9º A marcação do VIS nos vidros do veículo deve ser feita da seguinte forma: I - em um dos para-brisas e em um dos vidros traseiros, quando existentes; e II - em pelo menos dois vidros de cada lado do veículo, quando existentes, excetuados os quebra-ventos.",
+          "topics": [
+            "vin"
+          ]
+        },
+        {
+          "title": "Identificação do motor",
+          "rule": "O número do motor deve ser gravado no bloco e permitir identificação após montagem; etiqueta/plaqueta de repetição é prevista quando o acesso é impossível. Motores elétricos têm previsão específica no § 3º.",
+          "clause": "Art. 7º",
+          "scope": "Veículos produzidos/importados a partir de 01/01/2025, conforme art. 49; Capítulo V desde 01/01/2023. Conferir exceções por categoria; não aplicar retroativamente a um veículo de 2018 apenas por esta tela.",
+          "evidence": "Art. 7º O número de identiﬁcação do motor deve ser gravado: I - no bloco do motor; 24/06/2022 07:38 RESOLUÇÃO CONTRAN Nº 968, DE 20 DE JUNHO DE 2022 - RESOLUÇÃO CONTRAN Nº 968, DE 20 DE JUNHO DE 2022 - DOU - Imprensa Nacional https://www.in.gov.br/web/dou/-/resolucao-contran-n-968-de-20-de-junho-de-2022-410048371 4/16 II - em local de fácil acesso e visualização que possibilite sua identiﬁcação, considerando a posição do motor e demais componentes após a montagem do veículo; III - em alto ou baixo relevo; e IV - admite-se a utilização de caracteres alfanuméricos. § 1º Em caso da impossibilidade de atendimento ao disposto no inciso II do caput, o número de identiﬁcação do motor deve ser aﬁxado no compartimento do motor, replicando a gravação do bloco em etiqueta ou plaqueta destrutível quando da tentativa de remoção, resistente a intempéries e em um componente que não seja facilmente removido ou substituído. § 2º Para os ciclomotores, motonetas, motocicletas, triciclos e quadriciclos uma segunda gravação contendo o número de identiﬁcação do motor deve ser aplicada em etiqueta ou plaqueta destrutível quando da tentativa de sua remoção, resistente a intempéries e em um componente que não seja facilmente removido ou substituído. § 3º No caso de motor(es) elétrico(s), a identiﬁcação do motor deve ser gravada no seu bloco, carcaça ou componente responsável pela tração do veículo, admitindo-se o uso de plaqueta destrutível que não seja facilmente removida ou substituída, de modo a evitar o risco de descargas elétricas indesejadas.",
+          "topics": [
+            "vin"
+          ]
+        },
+        {
+          "title": "Ano de fabricação",
+          "rule": "Identificar o ano de fabricação conforme art. 12 e alternativas do Anexo I. Não confundir ano de fabricação com ano-modelo codificado no VIN.",
+          "clause": "Art. 12 e Anexo I",
+          "scope": "Veículos produzidos/importados a partir de 01/01/2025, conforme art. 49; Capítulo V desde 01/01/2023. Conferir exceções por categoria; não aplicar retroativamente a um veículo de 2018 apenas por esta tela.",
+          "evidence": "Art. 12. É obrigatória a gravação do ano de fabricação do veículo no chassi ou monobloco, conforme estabelece o § 1° do art. 114 do CTB. § 1º Faculta-se a utilização de ETA ou de plaqueta metálica destrutível quando de sua remoção, para ﬁns de cumprimento do caput. § 2º Alternativamente, pode ser utilizada uma etiqueta destrutível única contendo o ano de fabricação, em conjunto com o VIN ou o VIS. § 3º A identiﬁcação do ano de fabricação deve ser realizada conforme uma das alternativas constantes do Anexo I. § 4º A identiﬁcação do ano de fabricação por meio de gravação no chassi ou monobloco deve ser realizada nas imediações do VIN, em 4 algarismos, na profundidade mínima de 0,2 mm e altura mínima dos caracteres de 4 mm para ciclomotores, motonetas, motocicletas, triciclos e quadriciclos e de 7 mm para os demais veículos. § 5º No caso da identiﬁcação do ano de fabricação nas imediações do VIN, é facultado o uso de divisores, conforme estabelece a norma ABNT NBR 6066:2022. § 6º Na utilização de plaqueta destrutível quando de sua remoção, a identiﬁcação do ano de fabricação será gravado de forma que qualquer tentativa de adulteração seja claramente constatada. CAPÍTULO III DA OBRIGAÇÃO DE INFORMAÇÃO DOS ITENS DE IDENTIFICAÇÃO",
+          "topics": [
+            "vin",
+            "etiquetas"
+          ]
+        }
+      ],
+      "topics": [
+        "vin",
+        "etiquetas"
+      ],
       "generalCategories": []
     },
     {
@@ -5544,6 +5748,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "registro"
       ]
@@ -5664,6 +5870,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -5793,6 +6001,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -5921,6 +6131,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -6039,6 +6251,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -6147,6 +6361,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "registro",
         "circulacao"
@@ -6375,6 +6591,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -6496,6 +6714,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -6659,6 +6879,8 @@
         }
       ],
       "regulatoryDomain": "environmental",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -6754,6 +6976,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "registro"
       ]
@@ -6848,6 +7072,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -6953,6 +7179,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -7076,6 +7304,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -7202,6 +7432,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -7319,6 +7551,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -7458,6 +7692,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -7559,6 +7795,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -7691,6 +7929,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -7805,6 +8045,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -7922,6 +8164,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -8030,6 +8274,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "regras-gerais"
       ]
@@ -8159,6 +8405,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -8266,6 +8514,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -8374,6 +8624,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -8524,6 +8776,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -8631,6 +8885,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "habilitacao"
       ]
@@ -8760,6 +9016,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -8876,6 +9134,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -8977,6 +9237,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -9083,6 +9345,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -9179,6 +9443,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -9272,6 +9538,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "registro",
         "fiscalizacao"
@@ -9365,6 +9633,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "regras-gerais"
       ]
@@ -9474,6 +9744,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "regras-gerais"
       ]
@@ -9554,6 +9826,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "fiscalizacao"
       ]
@@ -9668,6 +9942,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -9835,6 +10111,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "habilitacao"
       ]
@@ -9955,6 +10233,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "homologacao"
       ]
@@ -10058,6 +10338,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -10160,6 +10442,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "fiscalizacao"
       ]
@@ -10326,6 +10610,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "regras-gerais"
       ]
@@ -10531,6 +10817,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "fiscalizacao"
       ]
@@ -10629,6 +10917,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -10915,6 +11205,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "homologacao"
       ]
@@ -11090,6 +11382,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -11192,6 +11486,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "regras-gerais"
       ]
@@ -11377,6 +11673,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -11522,6 +11820,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "registro"
       ]
@@ -11680,6 +11980,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -11770,6 +12072,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "fiscalizacao"
       ]
@@ -11892,6 +12196,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -11973,6 +12279,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "habilitacao",
         "registro",
@@ -12439,6 +12747,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "gestao-normativa"
       ]
@@ -12518,6 +12828,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "regras-gerais"
       ]
@@ -12621,6 +12933,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "educacao"
       ]
@@ -12713,6 +13027,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "fiscalizacao"
       ]
@@ -13128,6 +13444,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -13190,6 +13508,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "regras-gerais"
       ]
@@ -13293,6 +13613,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -13545,6 +13867,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "habilitacao"
       ]
@@ -13694,6 +14018,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -13756,6 +14082,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "registro"
       ]
@@ -14190,7 +14518,8 @@
         "senatran-104"
       ],
       "systems": [
-        "chassi"
+        "chassi",
+        "identificacao"
       ],
       "themes": [
         "outros"
@@ -14207,9 +14536,30 @@
           "systemId": "chassi",
           "subsystemId": "chassi/componentes",
           "basis": "Vínculo temático pela ementa e taxonomia do projeto; confirmar categoria, requisitos e exceções no texto."
+        },
+        {
+          "componentId": "identificacao",
+          "systemId": "identificacao",
+          "subsystemId": "identificacao/rotulagem",
+          "basis": "Anexo VI: inscrição de pesos e capacidades."
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [
+        {
+          "title": "Plaqueta de pesos e capacidades",
+          "rule": "Indicar pesos/capacidades nos casos abrangidos pelo Anexo VI. Plaqueta ou etiqueta deve resistir ao tempo; o anexo especifica contraste, caracteres e locais de fixação por categoria.",
+          "clause": "Anexo VI, itens 2 e 3",
+          "scope": "Veículos de tração, carga, especiais e transporte coletivo com PBT acima de 3.500 kg: conferir o campo de aplicação do Anexo VI, a categoria do veículo e as alterações vinculadas à Resolução 882/2021. Não equivale à ETA do VIN.",
+          "evidence": "3.1.1 As indicações referentes ao item 2 serão inscritas em plaqueta ou em etiqueta adesiva resistente à ação do tempo; 3.1.2 As indicações serão inscritas em fundo claro ou escuro, adotados caracteres alfanuméricos contrastantes, com altura não inferior a 3 mm. 3.1.3 Poderão ser usados letras ou números inscritos em alto ou baixo relevo, sem necessidade de contraste de cor. 3.2 Normas gerais. 24/12/2021 10:06 RESOLUÇÃO CONTRAN Nº 882, DE 13 DE DEZEMBRO DE 2021 - RESOLUÇÃO CONTRAN Nº 882, DE 13 DE DEZEMBRO DE 2021 - DOU - Imprensa Nacional https://www.in.gov.br/en/web/dou/-/resolucao-contran-n-882-de-13-de-dezembro-de-2021-370017699 27/27 3.2.1 A indicação nos veículos automotores de tração, de carga e especiais será inscrita ou aﬁxada em um dos seguintes locais, assegurada a facilidade de visualização. 3.2.1.1 Na coluna de qualquer porta, junto às dobradiças, ou no lado da fechadura. 3.2.1.2 Na borda de qualquer porta. 3.2.1.3 Na parte inferior do assento, voltada para porta. 3.2.1.4 Na superfície interna de qualquer porta. 3.2.1.5 No painel de instrumentos. 3.2.2 Nos veículos destinados ao transporte coletivo de passageiros, a indicação deverá ser aﬁxada na parte frontal interna ",
+          "topics": [
+            "etiquetas"
+          ]
+        }
+      ],
+      "topics": [
+        "etiquetas"
+      ],
       "generalCategories": []
     },
     {
@@ -14300,6 +14650,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "regras-gerais"
       ]
@@ -14391,6 +14743,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "fiscalizacao"
       ]
@@ -14533,6 +14887,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -14652,6 +15008,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -14712,6 +15070,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -14794,6 +15154,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "registro"
       ]
@@ -14900,6 +15262,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "habilitacao",
         "fiscalizacao"
@@ -15004,6 +15368,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "educacao"
       ]
@@ -15154,6 +15520,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -15217,6 +15585,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -15297,6 +15667,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -15376,6 +15748,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "educacao"
       ]
@@ -15480,6 +15854,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "registro"
       ]
@@ -15559,6 +15935,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "registro"
       ]
@@ -15718,6 +16096,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "registro"
       ]
@@ -15798,6 +16178,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "educacao"
       ]
@@ -15879,6 +16261,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "fiscalizacao"
       ]
@@ -15985,6 +16369,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "fiscalizacao"
       ]
@@ -16053,6 +16439,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -16139,6 +16527,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -16219,6 +16609,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "gestao-normativa"
       ]
@@ -16299,6 +16691,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "gestao-normativa"
       ]
@@ -16372,6 +16766,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -16473,6 +16869,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -16546,6 +16944,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -16640,6 +17040,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -16702,6 +17104,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "regras-gerais"
       ]
@@ -16777,6 +17181,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -16854,6 +17260,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -16933,6 +17341,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -16998,6 +17408,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "habilitacao",
         "fiscalizacao",
@@ -17080,6 +17492,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "regras-gerais"
       ]
@@ -17185,6 +17599,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -17290,6 +17706,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "habilitacao",
         "fiscalizacao"
@@ -17355,6 +17773,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "regras-gerais"
       ]
@@ -17421,6 +17841,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "regras-gerais"
       ]
@@ -17527,6 +17949,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "habilitacao",
         "fiscalizacao"
@@ -17621,6 +18045,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "registro"
       ]
@@ -17713,6 +18139,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "gestao-normativa"
       ]
@@ -17806,6 +18234,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "gestao-normativa"
       ]
@@ -17868,6 +18298,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "fiscalizacao"
       ]
@@ -17935,6 +18367,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -18015,6 +18449,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "gestao-normativa"
       ]
@@ -18167,6 +18603,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "gestao-normativa"
       ]
@@ -18303,6 +18741,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "regras-gerais"
       ]
@@ -18383,6 +18823,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "fiscalizacao"
       ]
@@ -18473,6 +18915,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "habilitacao",
         "circulacao"
@@ -18554,6 +18998,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "educacao"
       ]
@@ -18635,6 +19081,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "registro",
         "fiscalizacao"
@@ -18749,6 +19197,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -18830,6 +19280,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "fiscalizacao"
       ]
@@ -18904,6 +19356,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "gestao-normativa"
       ]
@@ -18977,6 +19431,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -19046,6 +19502,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -19156,6 +19614,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "fiscalizacao"
       ]
@@ -19232,6 +19692,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "regras-gerais"
       ]
@@ -19324,6 +19786,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -19386,6 +19850,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "habilitacao"
       ]
@@ -19459,6 +19925,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -19523,6 +19991,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "gestao-normativa"
       ]
@@ -19598,6 +20068,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -19660,6 +20132,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -19724,6 +20198,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "gestao-normativa"
       ]
@@ -19816,6 +20292,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "gestao-normativa"
       ]
@@ -19890,6 +20368,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "gestao-normativa"
       ]
@@ -19954,6 +20434,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "regras-gerais"
       ]
@@ -20027,6 +20509,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "regras-gerais"
       ]
@@ -20115,6 +20599,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "fiscalizacao"
       ]
@@ -20191,6 +20677,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "fiscalizacao",
         "educacao"
@@ -20276,6 +20764,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "regras-gerais"
       ]
@@ -20349,6 +20839,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -20411,6 +20903,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "registro"
       ]
@@ -20475,6 +20969,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "regras-gerais"
       ]
@@ -20539,6 +21035,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "registro"
       ]
@@ -20604,6 +21102,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "educacao"
       ]
@@ -20664,6 +21164,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "habilitacao"
       ]
@@ -20728,6 +21230,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "gestao-normativa"
       ]
@@ -20794,6 +21298,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "fiscalizacao",
         "circulacao"
@@ -20866,6 +21372,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -20964,6 +21472,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -21026,6 +21536,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "habilitacao"
       ]
@@ -21107,6 +21619,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -21202,6 +21716,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -21274,6 +21790,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "fiscalizacao"
       ]
@@ -21349,6 +21867,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -21410,6 +21930,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "registro"
       ]
@@ -21482,6 +22004,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "regras-gerais"
       ]
@@ -21546,6 +22070,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "habilitacao",
         "fiscalizacao"
@@ -21630,6 +22156,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "gestao-normativa"
       ]
@@ -21694,6 +22222,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "gestao-normativa"
       ]
@@ -21780,6 +22310,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "habilitacao",
         "circulacao"
@@ -21845,6 +22377,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "gestao-normativa"
       ]
@@ -21919,6 +22453,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "registro"
       ]
@@ -21983,6 +22519,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "fiscalizacao"
       ]
@@ -22081,6 +22619,8 @@
         }
       ],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": []
     },
     {
@@ -22143,6 +22683,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "regras-gerais"
       ]
@@ -22207,6 +22749,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "educacao"
       ]
@@ -22271,6 +22815,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "circulacao"
       ]
@@ -22333,6 +22879,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "gestao-normativa"
       ]
@@ -22395,6 +22943,8 @@
       "active": true,
       "vehicleLinks": [],
       "regulatoryDomain": "safety",
+      "requirements": [],
+      "topics": [],
       "generalCategories": [
         "gestao-normativa"
       ]

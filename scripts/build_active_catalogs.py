@@ -89,6 +89,7 @@ def write_csv(path,records):
 def main():
  directory=ROOT/'data/contran';data=json.loads((directory/'inventory.json').read_text());policy=json.loads((directory/'publication-policy.json').read_text())
  indexed={r['id']:r for r in data['records']};active=[];decisions=[]
+ markings=json.loads((ROOT/'data/markings/reviewed.json').read_text())['records']
  for original in data['records']:
   reason=exclusion(original,policy,indexed)
   decisions.append({'id':original['id'],'active':reason is None,'reason':reason,'reviewSource':policy['reviewSource'] if original['id'] in policy['inactiveHistoricalIds'] else policy.get('officialExclusions',{}).get(original['id'],'Critérios documentais de publicação conservadora.')})
@@ -98,6 +99,10 @@ def main():
   if r['id']=='contran-224-2006':
    r['catalogRecordIds']=sorted(set(r['catalogRecordIds']+['senatran-094']))
    r['notes']=r['notes']+['O índice e o cabeçalho do texto oficial usam 224/2006, publicado em 2007. O catálogo anterior e referências posteriores usam 224/2007. O vínculo com o limpador/lavador foi mantido com esta divergência de ano explícita.']
+  enrichment=markings.get(r['id'],{})
+  r['requirements']=enrichment.get('requirements',[]);r['topics']=enrichment.get('topics',[])
+  r['vehicleLinks']+=enrichment.get('extraVehicleLinks',[])
+  r['systems']=sorted(set(r['systems']+[x['systemId'] for x in r['vehicleLinks']]))
   r['generalCategories']=[] if r['vehicleLinks'] else general_categories(r)
   active.append(r)
  metadata={**data['metadata'],'publicationDate':policy['reviewDate'],'activeCount':len(active),'recordCount':len(active),

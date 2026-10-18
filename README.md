@@ -92,6 +92,85 @@ a revisão jurídica. Com servidor local e Chromium/Playwright, execute
 `python tests/contran-browser.py`. O teste percorre exclusão de inativos, fases,
 categorias, exportação, relações com o veículo, teclado, celular e erro/repetição.
 
+## Inmetro, Anatel, etiquetas e VIN
+
+As novas consultas são `/#inmetro`, `/#anatel` e `/#markings` (**Etiquetas e VIN**).
+As mesmas fontes aparecem nos fluxogramas do veículo e nos detalhes da biblioteca,
+com retorno à consulta por ato. Imagens, contornos e os 30 subsistemas foram
+preservados.
+
+- **Inmetro: 18 referências atuais e 36 resumos de requisitos/orientações.**
+  Componentes da 145/2022, vidros, rodas, líquido de freio, pneus novos e
+  reformados, conversores catalíticos de reposição, retenção infantil, GNV,
+  engates, PBEV/ENCE, RGCP, declaração do fornecedor, registro e selos.
+  Cada cartão informa o mecanismo; declaração do fornecedor não foi apresentada
+  como certificação por OCP. Baterias chumbo-ácido não foram transformadas em
+  certificação de baterias de tração de íons de lítio.
+- **Anatel: 22 atos e 15 resumos de requisitos**, incluindo Resoluções 715/2019,
+  779/2025 e 780/2025; procedimento de identificação 4.088/2020 com 5.701/2021;
+  radiação restrita e alterações até 4.746/2026; terminais celulares,
+  carregadores, compatibilidade eletromagnética e segurança elétrica.
+  Rádio AM/FM exclusivamente receptor não recebe exigência universal inferida.
+  Ato 5.155/2024 distingue carregadores de interfaces USB integradas à central.
+  Módulo homologado não foi tratado como dispensa automática do equipamento final.
+- **VIN, ETA e PIV: nove resumos de dispositivos públicos** das Resoluções
+  CONTRAN 968/2022, 969/2022 e 882/2021, com trechos e âmbito de aplicação.
+  Estrutura do VIN, gravações, identificação do motor, ETA, VIS nos vidros,
+  ano de fabricação, PIV/QR Code e plaquetas de pesos/capacidades têm referências
+  próprias. Os requisitos da 968 dependem do art. 49 e não foram aplicados
+  retroativamente ao exemplo de veículo de 2018.
+- **Etiquetas:** ENCE do veículo, ENCE do pneu, selo Inmetro, selo INMPAM,
+  identificação/e-label Anatel, ETA e PIV aparecem por finalidade. O selo
+  314/2025 não foi estendido indiscriminadamente a toda peça. A transição de
+  pneus citada na FAQ oficial mantém a data de 23/10/2026, sem reutilizar como
+  autorização presente o prazo de laboratório não acreditado encerrado em 2025.
+
+### Profundidade da confirmação
+
+**O levantamento Inmetro ainda não é revisão integral de vigência nem de todos
+os RTQs/RACs.** As 18 referências foram confirmadas em fontes oficiais atuais
+(Portal IQ e FAQs), com requisitos reproduzidos nessas orientações. Os PDFs
+SIL retornaram 503 e o DOU direto 403. Cada cartão explicita **“Referência atual ·
+íntegra pendente”**; detalhes técnicos de ensaios, exclusões OEM, baixo volume
+110/2022, retificações da 145/2022 e a cadeia integral continuam pendentes.
+A 845/2025 e a 110/2022 não ganharam cartões ativos sem essa conferência.
+
+As fontes da Anatel incluem textos oficiais anotados com alterações e
+revogações. Atos revogados (como 950/2018, 5.159/2022 e 4.521/2021) ficam na
+pesquisa, fora da consulta ativa. Exposição humana/SAR e a configuração exata
+da integração automotiva ainda exigem enquadramento específico. Não se afirma
+cobertura de todo o universo de produtos regulados, de todas as CONAMAs/COP,
+ou de toda legislação necessária a qualquer veículo.
+
+Cada resumo apresenta dispositivo, aplicação, trecho e acesso à fonte que o
+sustenta. Normas ABNT/ISO referenciadas no ato são apontadas sem reproduzir
+conteúdo não consultado ou inventar dimensões/limites de ensaio.
+
+### Arquivos e reprodução
+
+- `data/inmetro/` e `data/anatel/`: `reviewed-map.json`, `active.json`, CSV ativo
+  e `sources/evidence.json.gz` com URLs, textos e SHA-256 das fontes oficiais.
+- `data/markings/reviewed.json`: resumos dos dispositivos CONTRAN; os trechos
+  correspondem aos textos preservados no inventário anterior.
+- `scripts/build_certification_maps.py`: gera as duas consultas a partir das
+  fontes e relações revisadas, sem buscar novas normas ou inferir vigência.
+- `contran.js`: consulta compartilhada, requisitos, marcações e vínculos.
+- `tests/certification-maps.test.py` e `certification-browser.py`: proveniência,
+  mecanismos, atuais/revogados, relações, datas, exclusões, etiquetas, fluxo
+  multimídia → fonte, teclado, celular e carga parcial/repetição.
+
+```sh
+python scripts/build_active_catalogs.py
+python scripts/build_certification_maps.py
+python tests/certification-maps.test.py
+python tests/certification-browser.py
+```
+
+A publicação estática contém somente os conjuntos ativos; os mapas revisados e
+snapshots de pesquisa ficam no GitHub. O catálogo histórico original continua
+preservado, mas as referências Inmetro sem confirmação são filtradas em tempo de
+execução.
+
 ## Navegação do veículo aos fluxogramas
 
 Execute `python -m http.server 8000 --bind 127.0.0.1` e abra
@@ -184,7 +263,8 @@ imagem, além das seis páginas já existentes. Capturas são salvas em
 A prévia privada está em
 https://legislacao-automotiva-teste.fleone.chatgpt.site/#vehicle e o levantamento
 em https://legislacao-automotiva-teste.fleone.chatgpt.site/#contran e
-https://legislacao-automotiva-teste.fleone.chatgpt.site/#proconve.
+https://legislacao-automotiva-teste.fleone.chatgpt.site/#proconve. As novas frentes
+são `/#inmetro`, `/#anatel` e `/#markings` no mesmo endereço.
 O código está na branch `feat/navegacao-visual-sistemas` (PR #1); `main` não foi
 mesclada. A publicação preserva o acesso privado existente.
 
