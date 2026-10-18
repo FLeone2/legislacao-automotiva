@@ -93,4 +93,9 @@ imagem, além das seis páginas já existentes. Capturas são salvas em
 
 A versão é uma aplicação estática e funciona no GitHub Pages com a raiz do
 repositório como origem. `.nojekyll` evita processamento de arquivos pelo Jekyll.
-A branch e o endereço efetivamente publicados são informados na entrega/PR.
+O código de teste está na branch `feat/navegacao-visual-sistemas` (PR #1).
+A ativação automática do Pages foi recusada pelo GitHub com HTTP 403
+(`Resource not accessible by integration`); nenhum site foi publicado.
+Para ativar pelo GitHub: Settings → Pages → Deploy from a branch →
+`feat/navegacao-visual-sistemas` → `/ (root)` → Save. Depois abra a URL
+fornecida pelo GitHub com `/#vehicle` ao final.
