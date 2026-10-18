@@ -32,7 +32,7 @@ async function renderRegulations(view) {
   const route = location.hash;
   $('#app').classList.add('contran-mode');
   $('#main').innerHTML =
-    `<h1>${esc(regulatoryConfig[view].title)}</h1><p role="status">Carregando o acervo vigente…</p>`;
+    `<h1>${esc(regulatoryConfig[view].title)}</h1><p role="status">Carregando as referências…</p>`;
   try {
     await loadRegulations(view);
     const requested = new URLSearchParams(location.hash.split('?')[1] || '').get('record');
@@ -48,7 +48,7 @@ async function renderRegulations(view) {
   } catch (e) {
     if (state.view !== view || route !== location.hash) return;
     $('#main').innerHTML =
-      `<h1>${esc(regulatoryConfig[view].title)}</h1><p class="notice" role="alert">Não foi possível carregar o acervo vigente. Tente novamente.</p><button class="btn" data-contran-retry>Tentar novamente</button>`;
+      `<h1>${esc(regulatoryConfig[view].title)}</h1><p class="notice" role="alert">Não foi possível carregar as referências. Tente novamente.</p><button class="btn" data-contran-retry>Tentar novamente</button>`;
   }
 }
 function renderContran() {
@@ -98,7 +98,7 @@ function renderRegulatoryPage(view) {
     )
     .join('');
   $('#main').innerHTML =
-    `<div class="eyebrow">Acervo ativo · ${esc(config.issuer)}</div><h1>${esc(config.title)}</h1><p class="subtitle">Do sistema do veículo à norma. Assuntos transversais organizados em categorias próprias.</p>${['inmetro', 'anatel'].includes(view) ? '<p><a class="btn" href="#markings">Etiquetas, selos e VIN →</a></p>' : ''}<div class="contran-source"><div><strong>Revisão: ${esc((m.publicationDate || m.asOf).split('-').reverse().join('/'))}</strong><span>${notice}</span></div>${safeLink(m.sourceUrl, 'Fonte oficial', 'btn')}</div><div class="contran-counts"><div><strong>${m.activeCount}</strong><span>${view === 'inmetro' ? 'referências atuais na consulta' : 'atos na consulta ativa'}</span></div><div><strong>${m.systemLinkedCount}</strong><span>ligados a sistemas</span></div><div><strong>${m.generalCategoryCount}</strong><span>em categorias gerais</span></div><div><strong>${categories.length}</strong><span>categorias transversais</span></div></div>${view === 'proconve' ? `<nav class="regulatory-phases" aria-label="Fase PROCONVE"><a href="#proconve">Todas as fases mapeadas</a><a href="#proconve?phase=L8">L8 · veículos leves</a><a href="#proconve?phase=P8">P8 · veículos pesados</a></nav>` : ''}${component ? `<p class="regulatory-context">Sistema: <strong>${esc(component.label)}</strong>${q.get('subsystem') ? ' · ' + esc(systemLabel(q.get('subsystem'))) : ''} <a href="${esc(vehicleLink(component, null, q.get('subsystem')))}">← Voltar ao veículo</a></p>` : ''}<details class="regulatory-categories" ${!component && !q.get('record') ? 'open' : ''}><summary>Assuntos sem relação direta com um sistema físico</summary><div>${categoryLinks || '<p>Não há categoria geral neste recorte.</p>'}</div></details><form class="contran-filters" id="contranFilters"><label>Buscar norma ou assunto<input id="contranSearch" type="search" placeholder="Número, ano, assunto…" value="${esc(q.get('q') || '')}"></label><label>Sistema do veículo<select id="contranSystem">${options([['', 'Todos os sistemas'], ...catalog.metadata.components.filter((c) => SYSTEM_CONTRAN_LABELS[c.id]).map((c) => [c.id, c.label])], q.get('system') || '')}</select></label><label>Categoria geral<select id="contranCategory">${options([['', 'Todas as categorias'], ...categories], q.get('category') || '')}</select></label>${
+    `<div class="eyebrow">Acervo de referência · ${esc(config.issuer)}</div><h1>${esc(config.title)}</h1><p class="subtitle">Do sistema do veículo à norma. Assuntos transversais organizados em categorias próprias.</p>${['inmetro', 'anatel'].includes(view) ? '<p><a class="btn" href="#markings">Etiquetas, selos e VIN →</a></p>' : ''}<div class="contran-source"><div><strong>Revisão: ${esc((m.publicationDate || m.asOf).split('-').reverse().join('/'))}</strong><span>${notice}</span></div>${safeLink(m.sourceUrl, 'Fonte oficial', 'btn')}</div><div class="contran-counts"><div><strong>${m.activeCount}</strong><span>${view === 'inmetro' ? 'referências atuais na consulta' : 'atos na consulta ativa'}</span></div><div><strong>${m.systemLinkedCount}</strong><span>ligados a sistemas</span></div><div><strong>${m.generalCategoryCount}</strong><span>em categorias gerais</span></div><div><strong>${categories.length}</strong><span>categorias transversais</span></div></div>${view === 'proconve' ? `<nav class="regulatory-phases" aria-label="Fase PROCONVE"><a href="#proconve">Todas as fases mapeadas</a><a href="#proconve?phase=L8">L8 · veículos leves</a><a href="#proconve?phase=P8">P8 · veículos pesados</a></nav>` : ''}${component ? `<p class="regulatory-context">Sistema: <strong>${esc(component.label)}</strong>${q.get('subsystem') ? ' · ' + esc(systemLabel(q.get('subsystem'))) : ''} <a href="${esc(vehicleLink(component, null, q.get('subsystem')))}">← Voltar ao veículo</a></p>` : ''}<details class="regulatory-categories" ${!component && !q.get('record') ? 'open' : ''}><summary>Assuntos sem relação direta com um sistema físico</summary><div>${categoryLinks || '<p>Não há categoria geral neste recorte.</p>'}</div></details><form class="contran-filters" id="contranFilters"><label>Buscar norma ou assunto<input id="contranSearch" type="search" placeholder="Número, ano, assunto…" value="${esc(q.get('q') || '')}"></label><label>Sistema do veículo<select id="contranSystem">${options([['', 'Todos os sistemas'], ...catalog.metadata.components.filter((c) => SYSTEM_CONTRAN_LABELS[c.id]).map((c) => [c.id, c.label])], q.get('system') || '')}</select></label><label>Categoria geral<select id="contranCategory">${options([['', 'Todas as categorias'], ...categories], q.get('category') || '')}</select></label>${
       view === 'proconve'
         ? `<label>Fase<select id="regulatoryPhase">${options(
             [
@@ -108,8 +108,8 @@ function renderRegulatoryPage(view) {
             ],
             q.get('phase') || '',
           )}</select></label>`
-        : '<p class="regulatory-filter-note">Somente atos ativos. Revogados, suspensos e registros sem confirmação atual não compõem esta consulta.</p>'
-    }<button class="btn primary" type="submit">Pesquisar</button><button class="btn" type="button" data-contran-clear>Limpar</button></form><div class="contran-results-heading"><p id="contranResultCount" role="status">${rows.length} resultados · página ${page} de ${pages}</p><div><a href="${config.csv}" download>CSV do acervo ativo ↓</a><a href="${config.url}" download>Dados e evidências ↓</a></div></div><div class="contran-records">${
+        : '<p class="regulatory-filter-note">Consulte a situação de vigência, o nível de revisão e as condições de aplicação em cada referência.</p>'
+    }<button class="btn primary" type="submit">Pesquisar</button><button class="btn" type="button" data-contran-clear>Limpar</button></form><div class="contran-results-heading"><p id="contranResultCount" role="status">${rows.length} resultados · página ${page} de ${pages}</p><div><a href="${config.csv}" download>CSV da consulta ↓</a><a href="${config.url}" download>Dados e evidências ↓</a></div></div><div class="contran-records">${
       rows
         .slice((page - 1) * contranPageSize, page * contranPageSize)
         .map(contranCard)

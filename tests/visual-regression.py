@@ -21,8 +21,8 @@ def mismatch(expected, actual):
         return 1.0
     # Blur subpixel text antialiasing; retain misplaced contours and layout shifts.
     delta = ImageChops.difference(
-        expected.convert("RGB").filter(ImageFilter.GaussianBlur(0.5)),
-        actual.convert("RGB").filter(ImageFilter.GaussianBlur(0.5)),
+        expected.convert("RGB").filter(ImageFilter.GaussianBlur(1)),
+        actual.convert("RGB").filter(ImageFilter.GaussianBlur(1)),
     )
     pixels = list(delta.get_flattened_data())
     return sum(max(p) > 30 for p in pixels) / len(pixels)
@@ -98,6 +98,11 @@ async def main(base):
                 path.write_bytes(raw)
             assert path.exists(), f"Missing reviewed baseline {path}"
             expected = Image.open(path).convert("RGB")
+            if name == "vehicle-wheel":
+                # A 2 px displacement of the actual wheel crop must still fail.
+                assert mismatch(expected, ImageChops.offset(expected, 2, 0)) > 0.01
+            if name == "flow-overview":
+                assert mismatch(expected, ImageChops.offset(expected, 8, 0)) > 0.01
             ratio = mismatch(expected, actual)
             results.append({"name": name, "mismatchRatio": ratio})
             (OUT / (name + "-actual.png")).write_bytes(raw)

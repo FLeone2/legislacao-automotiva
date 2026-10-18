@@ -435,7 +435,8 @@ local explícita; CI e baselines usam o Chromium da versão fixada do Playwright
 A suíte visual fixa as fontes Liberation Sans (licença OFL em `tests/fonts`)
 para evitar substituições entre ambientes Linux. Ela compara imagens de referência de veículo/contorno da roda, fluxo
 e celular, gera diferenças e aceita até 1% de pixels alterados acima da tolerância
-de antialiasing. Há uma mutação sintética para verificar que o comparador rejeita
+de antialiasing (desfoque de 1 px). Testes deslocam o recorte da roda em 2 px
+e o mapa em 8 px, além de uma mutação sintética, para verificar que o comparador rejeita
 mudanças visíveis. Atualize imagens somente após revisão visual deliberada com
 `UPDATE_VISUAL_BASELINES=1 npm run test:visual`; CI nunca atualiza baselines.
 A suíte axe verifica WCAG A/AA nas principais telas e testa navegação por teclado.
