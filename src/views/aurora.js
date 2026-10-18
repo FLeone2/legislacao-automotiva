@@ -56,7 +56,7 @@ function auroraPanel(component) {
     ${linked ? `<button class="aurora-reference" data-open="${esc(linked.id)}">${auroraIcon('book')}<span><strong>${esc(linked.title)}</strong><small>Consultar fonte e condições de aplicação</small></span><span aria-hidden="true">↗</span></button>` : '<p class="aurora-reference">Nenhuma referência associada neste recorte.</p>'}
     <div class="aurora-applicability">${auroraIcon('shield')}<div><strong>Aplicabilidade a avaliar</strong><small>Confira o escopo e as condições de cada norma.</small></div></div>
     <a class="aurora-primary" href="${esc(vehicleLink(component))}">Explorar fluxograma ${auroraIcon('arrow')}</a>
-    <p class="aurora-panel-foot">${subsystems.length} subsistemas · fontes do acervo existente</p>
+    <p class="aurora-panel-foot">${subsystems.length} subsistemas · fontes oficiais para consulta</p>
   </aside>`;
 }
 function renderAuroraOverview(query) {
@@ -90,7 +90,7 @@ function renderAuroraOverview(query) {
     <header class="aurora-heading"><h1>Do veículo à legislação.</h1><p>Selecione um sistema para explorar requisitos e fontes oficiais.</p></header>
     <nav class="aurora-breadcrumb" aria-label="Seleção atual">${auroraIcon('home')}<span>Veículo</span><span>›</span><strong>${esc(component.label)}</strong></nav>
     <div class="aurora-car-glass">${vehicleMap()}<div class="aurora-selection-caption">${auroraIcon('shield')}<div><strong>${esc(component.label)}</strong><small>${esc(focusLabel)}</small></div><span>Selecionado</span></div></div>
-    <p class="aurora-original-note">Ilustração e contornos originais do projeto · selecione no desenho ou nos cartões</p>
+    <p class="aurora-original-note">Ilustração conceitual · selecione no desenho ou nos cartões</p>
   </section>${auroraPanel(component)}</div>
   <section class="aurora-directory" aria-labelledby="auroraDirectory"><header><div><h2 id="auroraDirectory">Explore os sistemas</h2><span>11 sistemas · 30 subsistemas</span></div><a href="${esc(auroraFocusLink(component) + (all ? '' : '&all=1'))}">${all ? 'Mostrar principais' : 'Ver todos os sistemas'} →</a></header><div class="aurora-directory-grid ${all ? 'expanded' : ''}">${directory
     .map(
@@ -103,7 +103,7 @@ function renderAuroraOverview(query) {
     )
     .join(
       '',
-    )}</div></section><footer class="aurora-page-foot">Liquid Aurora · Legislação Automotiva <span>Mesmas imagens, fontes e relações do projeto</span></footer>`;
+    )}</div></section><footer class="aurora-page-foot">Liquid Aurora · Legislação Automotiva <span>Referências oficiais · aplicabilidade por projeto</span></footer>`;
   $('#main')
     .querySelectorAll('#vehicleDrawing [data-component-link]')
     .forEach((link) => {
