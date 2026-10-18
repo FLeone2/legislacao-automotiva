@@ -83,7 +83,8 @@ python tests/vehicle-browser.py
 
 É possível verificar outra publicação com
 `VEHICLE_TEST_URL=https://servidor/caminho/ python tests/vehicle-browser.py`.
-Os testes cobrem regiões reais do SVG, zoom/reset, bancos/motor/tanque, documentos
+Os testes cobrem regiões reais do SVG, limites internos/externos das rodas em
+desktop, zoom e celular, zoom/reset, bancos/motor/tanque, documentos
 e lacunas, retorno/histórico/URL, teclado, tela de 390 px, ausência de dados e
 imagem, além das seis páginas já existentes. Capturas são salvas em
 `tests/artifacts/` e não são versionadas.

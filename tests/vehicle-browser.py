@@ -5,7 +5,7 @@ BASE=os.environ.get('VEHICLE_TEST_URL','http://127.0.0.1:8000/').rstrip('/')+'/'
 ARTIFACTS=Path(__file__).resolve().parent/'artifacts';ARTIFACTS.mkdir(exist_ok=True)
 POINTS={'bancos':(750,350),'motor':(450,550),'tanque':(1300,900),'freios':(820,820),'chassi':(650,720),'vidros':(480,240),'iluminacao':(430,790),'carroceria':(1080,160),'retrovisores':(1180,370),'pneus-rodas':(980,870),'eletrica':(610,510),'escapamento':(900,570)}
 async def point(page,xy):
- return await page.locator('#vehicleDrawing').evaluate('(svg,p)=>{const pt=svg.createSVGPoint();pt.x=p[0];pt.y=p[1];const s=pt.matrixTransform(svg.getScreenCTM());return {x:s.x,y:s.y}}',list(xy))
+ return await page.locator('#vehicleDrawing').evaluate('(svg,p)=>{const pt=svg.createSVGPoint();pt.x=p[0];pt.y=p[1];const s=pt.matrixTransform(svg.querySelector("#vehicleLayer").getScreenCTM());return {x:s.x,y:s.y}}',list(xy))
 async def overview(page):
  await page.goto(BASE+'#vehicle');await page.locator('#vehicleDrawing').wait_for();await page.evaluate('document.fonts.ready');await page.wait_for_timeout(150)
 async def flow(page):
@@ -19,8 +19,17 @@ async def main():
   # Hit-testing actual transformed SVG geometry: each physical point must land on its own region.
   for name,xy in POINTS.items():
    pos=await point(page,xy);actual=await page.evaluate('(p)=>document.elementFromPoint(p.x,p.y)?.closest("[data-component-link]")?.dataset.componentLink',pos);assert actual==name,(name,actual)
+  # Tire outlines must include the tire edge while excluding adjacent white pixels.
+  wheel_samples=[((980,870),True),((875,900),True),((1430,620),True),((1060,850),False),((970,995),False),((1460,730),False)]
+  async def wheel_boundaries(samples):
+   for xy,inside in samples:
+    pos=await point(page,xy)
+    actual=await page.evaluate('(p)=>document.elementFromPoint(p.x,p.y)?.closest("[data-component-link]")?.dataset.componentLink',pos)
+    assert (actual=='pneus-rodas')==inside,(xy,inside,actual)
+  await wheel_boundaries(wheel_samples)
   pseat=await point(page,POINTS['bancos']);await page.mouse.move(**pseat);assert 'Bancos' in await page.locator('#componentHover').inner_text()
   await page.locator('[data-vehicle-zoom="in"]').click();assert await page.locator('#vehicleImageZoom').inner_text()=='120%'
+  await wheel_boundaries(wheel_samples[:2]+[wheel_samples[3]])
   pseat=await point(page,POINTS['bancos']);assert await page.evaluate('(p)=>document.elementFromPoint(p.x,p.y)?.closest("[data-component-link]")?.dataset.componentLink',pseat)=='bancos'
   await page.locator('[data-vehicle-zoom="reset"]').click();assert await page.locator('#vehicleImageZoom').inner_text()=='100%'
   await page.mouse.move(0,0);await page.screenshot(path=str(ARTIFACTS/'veiculo-desktop.png'),full_page=True)
@@ -52,6 +61,7 @@ async def main():
    await page.goto(BASE+'#vehicle?component='+component);await flow(page);assert await page.locator('#main h1').inner_text()
   # Keyboard alternative and real clicks on mobile (no document overflow).
   await page.set_viewport_size({'width':390,'height':844});await overview(page)
+  await wheel_boundaries(wheel_samples)
   assert await page.evaluate('document.documentElement.scrollWidth<=innerWidth')
   await page.screenshot(path=str(ARTIFACTS/'veiculo-mobile.png'),full_page=True)
   seat=await point(page,POINTS['bancos']);await page.mouse.click(**seat);await flow(page)
