@@ -317,11 +317,10 @@ https://legislacao-automotiva-teste.fleone.chatgpt.site/#vehicle e o levantament
 em https://legislacao-automotiva-teste.fleone.chatgpt.site/#contran e
 https://legislacao-automotiva-teste.fleone.chatgpt.site/#proconve. As novas frentes
 são `/#inmetro`, `/#anatel` e `/#markings` no mesmo endereço.
-O código está na branch `feat/navegacao-visual-sistemas` (PR #1); `main` não foi
-mesclada. A publicação preserva o acesso privado existente.
+O PR #1 foi integrado à `main`, usada na publicação pelo Cloudflare Pages. A publicação preserva o acesso privado existente.
 
-A aplicação é estática e também pode ser hospedada no GitHub Pages, com a raiz
-do repositório como origem. `.nojekyll` evita processamento pelo Jekyll. A
+A aplicação é estática. Publique o artefato `dist` gerado por `npm run build`,
+inclusive ao usar GitHub Pages. `.nojekyll` evita processamento pelo Jekyll. A
 ativação automática do Pages havia sido recusada com HTTP 403; a prévia acima
 usa Sites.
 
@@ -454,9 +453,9 @@ de avaliação, sem transformar referências ou lacunas em confirmação jurídi
 O build usa uma lista explícita de arquivos; inventários históricos, snapshots,
 políticas editoriais e pesquisas brutas ficam fora de `dist`.
 
-## Tema oficial · Liquid Aurora
+## Tema anterior · Liquid Aurora
 
-O tema aprovado é implementado em `src/styles/aurora.css` e `src/views/aurora.js`.
+O tema anterior foi implementado em `src/styles/aurora.css` e `src/views/aurora.js`.
 A entrada padrão abre o veículo com o painel de sistemas e subsistemas. O botão
 **Explorar fluxograma** abre a árvore do componente; todas as rotas anteriores
 continuam disponíveis. O controle **Liquid Aurora** suaviza os reflexos.
@@ -490,3 +489,36 @@ regenere os dados e execute os checks antes da publicação. Atualizações visu
 não alteram a data de conferência normativa. A tela **Atualizações** reúne as
 fontes, os limites de cobertura e as pendências já registradas; não monitora o
 Diário Oficial automaticamente.
+
+
+## Tema escuro e revisão de navegação
+
+O tema atual usa os tokens Escuro OLED / Cobre de
+`FLeone2/mover-saas/src/mover/web/static/themes.css`, adaptados em
+`src/styles/mover-dark.css`. O arquivo `aurora.css` mantém o layout responsivo,
+sem a pintura Liquid Glass. As imagens originais não foram alteradas.
+
+Os realces do veículo são transitórios (mouse ou teclado), com uma única cor.
+A seleção continua no painel e nos cartões. O tanque usa contornos extraídos da
+imagem exibida em vez de um retângulo sobre a prancha. Os seletores visuais de
+perfil, que não filtravam a legislação, e o controle decorativo de tema foram
+retirados da interface; URLs anteriores continuam compatíveis.
+
+`tests/checkup-browser.py` percorre todos os menus em computador e celular,
+os 14 acessos ao veículo, seus subsistemas, as atividades do fluxo, os detalhes
+dos 273 atos dos recortes ativos e os 298 registros da biblioteca. Verifica
+hover/foco, tanque, abas de documentos, atalhos e erros JavaScript, e grava
+`tests/artifacts/full-checkup.json`. Os links oficiais exigem conferência de
+alcance separada: bloqueios de portais e de rede não são prova de URL removida.
+
+No Cloudflare Pages, a configuração esperada é comando `npm run build` e
+diretório de saída `dist`. A raiz do repositório contém pesquisas e inventários
+que não fazem parte do artefato estático.
+
+Resultado da checagem de 19/10/2026: 11 menus, 14 acessos ao veículo,
+30 subsistemas, 37 atividades, 273 atos e 298 documentos percorridos sem erros
+JavaScript. As nove suítes funcionais, os testes de dados/modelos e a auditoria
+axe nas rotas principais e detalhes passaram. Na verificação externa de 814
+endereços de fontes: 65 responderam HTTP 200, 696 retornaram 403 e 53 retornaram
+503. Os 749 casos sem confirmação permanecem como acesso não verificado; nenhum
+404/410 foi confirmado nessa rodada. Isso não altera a revisão normativa.

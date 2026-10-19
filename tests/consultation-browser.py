@@ -40,7 +40,7 @@ async def main():
         await page.locator(".aurora-directory header>a").click()
         await expect(page.locator(".aurora-system-card")).to_have_count(6)
         await page.goto(BASE + "#vehicle?focus=bancos")
-        await page.locator(".aurora-mini-tree a").last.click()
+        await page.locator(".aurora-library-link").click()
         await expect(page.locator("#componentFilter")).to_have_value("ocupantes")
         await expect(page.locator(".document")).not_to_have_count(0)
         await page.goto(BASE + "#library?agency=INMETRO&review=reference&q=145")

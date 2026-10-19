@@ -37,25 +37,11 @@ function auroraFocusLink(component) {
 }
 function auroraPanel(component) {
   const subsystems = ComponentFlow.subsystems(component, catalog.metadata.hierarchy);
-  const ordered = subsystems;
-  const topics = ComponentFlow.topics(component, catalog.metadata.hierarchy);
-  const topic = topics[0]?.topics?.[0];
-  const linked =
-    (topic?.recordIds || []).map((id) => catalog.records.find((r) => r.id === id)).find(Boolean) ||
-    catalog.records.find((r) => componentMatches(r, component.taxonomy));
-  const lane = topics[0];
-  const topicQuery = new URLSearchParams(vehicleLink(component, lane?.id).split('?')[1]);
-  if (topic) topicQuery.set('node', `component:${component.id}:${lane.id}:${topic.id}`);
   return `<aside class="aurora-explorer" aria-label="Subsistemas de ${esc(component.label)}">
-    <header class="aurora-explorer-heading">${auroraIcon('shield')}<div><h2>${esc(component.label)}</h2><p>Sistema <span>→</span> Subsistema <span>→</span> Requisito</p></div></header>
-    <div class="aurora-subsystem-list">${ordered.map((sub, i) => `<a class="aurora-subsystem ${i === 0 ? 'emphasis' : ''}" href="${esc(vehicleLink(component, null, sub.id))}"><span class="aurora-subsystem-art">${subsystemArt(sub)}</span><span><strong>${esc(sub.label)}</strong><small>Explorar referências e condições</small></span><b aria-hidden="true">›</b></a>`).join('')}</div>
-    <p class="aurora-panel-label">Percurso regulatório</p>
-    <ol class="aurora-mini-tree"><li><a href="${esc(vehicleLink(component, lane?.id))}">${auroraIcon('shield')}${esc(lane?.label || 'Referências')}</a></li><li><a href="#vehicle?${esc(topicQuery)}">${auroraIcon('book')}${esc(topic?.label || 'Subsistemas associados')}</a></li><li><a href="${esc(libraryRoute({ component: component.taxonomy }))}">${auroraIcon('book')}Todas as referências do sistema</a></li></ol>
-    ${linked ? `<button class="aurora-reference" data-open="${esc(linked.id)}">${auroraIcon('book')}<span><strong>${esc(linked.title)}</strong><small>Consultar fonte e condições de aplicação</small></span><span aria-hidden="true">↗</span></button>` : '<p class="aurora-reference">Nenhuma referência associada neste recorte.</p>'}
-    <p class="aurora-reference-note">Referência em destaque · consulte o conjunto completo acima.</p>
-    <div class="aurora-applicability">${auroraIcon('shield')}<div><strong>Consulta por assunto</strong><small>Confira o escopo e as condições de cada norma. O perfil visual não filtra obrigações.</small></div></div>
-    <a class="aurora-primary" href="${esc(vehicleLink(component))}">Explorar fluxograma ${auroraIcon('arrow')}</a>
-    <p class="aurora-panel-foot">${subsystems.length} subsistemas disponíveis · fontes oficiais para consulta</p>
+    <header class="aurora-explorer-heading"><h2>${esc(component.label)}</h2></header>
+    <div class="aurora-subsystem-list">${subsystems.map((sub) => `<a class="aurora-subsystem" href="${esc(vehicleLink(component, null, sub.id))}"><span class="aurora-subsystem-art">${subsystemArt(sub)}</span><strong>${esc(sub.label)}</strong></a>`).join('')}</div>
+    <a class="aurora-primary" href="${esc(vehicleLink(component))}">Ver referências ${auroraIcon('arrow')}</a>
+    <a class="aurora-library-link" href="${esc(libraryRoute({ component: component.taxonomy }))}">Biblioteca do sistema →</a>
   </aside>`;
 }
 function renderAuroraOverview(query) {
@@ -89,12 +75,12 @@ function renderAuroraOverview(query) {
     .join(' · ');
   $('#main').innerHTML =
     `<div class="aurora-overview-grid"><section class="aurora-vehicle-column" aria-label="Exploração visual do veículo">
-    <header class="aurora-heading"><h1>Do veículo à legislação.</h1><p>Selecione um sistema para explorar requisitos e fontes oficiais.</p></header>
+    <header class="aurora-heading"><h1>Sistemas do veículo</h1></header>
     <nav class="aurora-breadcrumb" aria-label="Seleção atual">${auroraIcon('home')}<span>Veículo</span><span>›</span><strong>${esc(component.label)}</strong></nav>
     <div class="aurora-car-glass">${vehicleMap()}<div class="aurora-selection-caption">${auroraIcon('shield')}<div><strong>${esc(component.label)}</strong><small>${esc(focusLabel)}</small></div><span>Selecionado</span></div></div>
     <p class="aurora-original-note">Ilustração conceitual · selecione no desenho ou nos cartões</p>
   </section>${auroraPanel(component)}</div>
-  <section class="aurora-directory" aria-labelledby="auroraDirectory"><header><div><h2 id="auroraDirectory">Explore os sistemas</h2><span>11 sistemas · 30 subsistemas</span></div><a href="${esc('#vehicle?' + directoryLink)}">${all ? 'Mostrar principais' : 'Ver todos os sistemas'} →</a></header><div class="aurora-directory-grid ${all ? 'expanded' : ''}">${directory
+  <section class="aurora-directory" aria-labelledby="auroraDirectory"><header><div><h2 id="auroraDirectory">Sistemas</h2><span>11 sistemas · 30 subsistemas</span></div><a href="${esc('#vehicle?' + directoryLink)}">${all ? 'Mostrar principais' : 'Ver todos os sistemas'} →</a></header><div class="aurora-directory-grid ${all ? 'expanded' : ''}">${directory
     .map(
       (c) =>
         `<a data-aurora-component="${esc(c.id)}" class="aurora-system-card ${component.id === c.id ? 'selected' : ''}" href="${esc(auroraFocusLink(c))}"><div class="aurora-system-art">${componentArt(c)}</div><strong>${esc(c.label)}</strong><small>${esc(
@@ -122,7 +108,7 @@ document.documentElement.classList.add('liquid-aurora');
 $('.brand').innerHTML =
   '<svg class="aurora-logo" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 5 5 40h17l6-11M28 13l15 27H27l-7-12" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Legislação<br> Automotiva</strong>';
 $('.brand').setAttribute('href', '#vehicle');
-$('.brand-pill').textContent = 'Liquid Aurora';
+$('.brand-pill').textContent = 'Legislação';
 const navIconMap = {
   vehicle: 'car',
   flow: 'flow',
@@ -141,21 +127,3 @@ $('.nav-source-group').open = true;
 document.querySelector('[data-navigation-group="programas"] .nav-group-label').textContent =
   'Acompanhamento';
 $('.topbrand').setAttribute('href', '#vehicle');
-$('.topbar').insertAdjacentHTML(
-  'beforeend',
-  '<button class="aurora-theme-control" data-aurora-theme aria-pressed="false"><span class="aurora-orb"></span><span>Liquid Aurora</span><span aria-hidden="true">⌄</span></button>',
-);
-$('.sidebar').insertAdjacentHTML(
-  'beforeend',
-  `<div class="aurora-sidebar-bottom">${auroraIcon('gear')}<span>Tema</span><button data-aurora-theme aria-pressed="false"><span class="aurora-orb"></span>Liquid Aurora</button></div>`,
-);
-document.addEventListener('click', (event) => {
-  if (!event.target.closest('[data-aurora-theme]')) return;
-  const soft = document.documentElement.classList.toggle('aurora-soft');
-  document.querySelectorAll('[data-aurora-theme]').forEach((button) => {
-    button.setAttribute('aria-pressed', String(soft));
-    button.title = soft
-      ? 'Reflexos suaves — clique para intensificar'
-      : 'Reflexos intensos — clique para suavizar';
-  });
-});

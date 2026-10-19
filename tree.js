@@ -280,14 +280,14 @@ function graphMarkup(model, ui) {
         selected = ui.selected === n.id,
         onPath = ui.path.includes(n.id),
         expanded = onPath && Boolean(n.children?.length);
-      return `<article class="graph-node ${selected ? 'selected' : ''} ${onPath ? 'on-path' : ''} ${n.id === model.root.id ? 'root-node' : ''}" style="left:${p.x}px;top:${p.y}px;width:${nodeW}px;height:${nodeH}px"><button class="node-main" data-tree-node="${n.id}" aria-current="${selected ? 'true' : 'false'}" title="${esc(n.label)}"><span class="node-icon">${n.icon || '▤'}</span><span class="node-copy"><strong>${esc(n.label)}</strong><small>${esc(n.subtitle || n.kind || '')}</small></span></button>${n.children?.length ? `<button class="node-toggle" data-tree-toggle="${n.id}" aria-label="${expanded ? 'Recolher' : 'Expandir'} ${esc(n.label)}" aria-expanded="${expanded}">${expanded ? '−' : '+'}</button>` : ''}</article>`;
+      return `<article class="graph-node ${selected ? 'selected' : ''} ${onPath ? 'on-path' : ''} ${n.id === model.root.id ? 'root-node' : ''}" style="left:${p.x}px;top:${p.y}px;width:${nodeW}px;height:${nodeH}px"><button class="node-main" data-tree-node="${n.id}" aria-current="${selected ? 'true' : 'false'}" title="${esc(n.label)}"><span class="node-copy"><strong>${esc(n.label)}</strong><small>${esc(n.subtitle || n.kind || '')}</small></span></button>${n.children?.length ? `<button class="node-toggle" data-tree-toggle="${n.id}" aria-label="${expanded ? 'Recolher' : 'Expandir'} ${esc(n.label)}" aria-expanded="${expanded}">${expanded ? '−' : '+'}</button>` : ''}</article>`;
     })
     .join('');
   const mini = `<svg viewBox="0 0 ${width} ${height}" aria-hidden="true">${paths}${columns
     .flat()
     .map((n) => {
       const p = pos[n.id];
-      return `<rect x="${p.x}" y="${p.y}" width="${nodeW}" height="${nodeH}" rx="9" fill="${ui.selected === n.id ? '#287bf0' : ui.path.includes(n.id) ? '#b6d4fa' : '#d6dce6'}"/>`;
+      return `<rect x="${p.x}" y="${p.y}" width="${nodeW}" height="${nodeH}" rx="9" fill="${ui.selected === n.id ? 'var(--accent)' : ui.path.includes(n.id) ? '#77777e' : '#34373a'}"/>`;
     })
     .join('')}</svg>`;
   return `<div class="graph-viewport" id="graphViewport" tabindex="0" aria-label="Árvore navegável. Use os botões para expandir e a rolagem para explorar."><div class="graph-space" id="graphSpace" style="width:${width}px;height:${height}px"><div class="graph-world" id="graphWorld" style="width:${width}px;height:${height}px"><svg class="graph-links" width="${width}" height="${height}" aria-hidden="true">${paths}</svg>${nodes}</div></div></div><div class="graph-controls"><button data-graph-action="out" aria-label="Diminuir zoom">−</button><output id="graphZoom">100%</output><button data-graph-action="in" aria-label="Aumentar zoom">+</button><span></span><button data-graph-action="fit" aria-label="Ajustar árvore à tela">⛶</button><button data-graph-action="back" aria-label="Voltar um nível">↶</button></div><div class="graph-mini" title="Visão geral da árvore">${mini}<span>Visão geral</span></div>`;
@@ -311,14 +311,14 @@ function renderTree(mode) {
   }
   const selected = model.nodes[ui.selected];
   $('#main').innerHTML =
-    `<div class="tree-page-head"><div class="eyebrow">${mover ? 'Políticas automotivas · MOVER' : 'Árvore regulatória · Brasil'}</div><h1>${mover ? 'Políticas automotivas, em detalhe.' : 'Homologação, em cada detalhe.'}</h1><p class="subtitle">${mover ? 'Explore requisitos, incentivos e procedimentos em seus próprios ramos.' : 'Explore os caminhos e abra os assuntos de cada área.'}</p><div class="tree-context"><span>🇧🇷 Brasil</span><span>Âmbito federal</span><span>${mover ? '13 referências temáticas' : catalog.records.length + ' entradas documentais'}</span><span class="context-note">Consulta temática · aplicabilidade a verificar</span></div></div><div class="tree-breadcrumb" aria-label="Caminho selecionado">${nodeTrail(
+    `<div class="tree-page-head"><div class="eyebrow">${mover ? 'Políticas automotivas · MOVER' : 'Árvore regulatória · Brasil'}</div><h1>${mover ? 'MOVER' : 'Legislação por assunto'}</h1><p class="subtitle">${mover ? 'Explore requisitos, incentivos e procedimentos em seus próprios ramos.' : ''}</p><div class="tree-context"><span>🇧🇷 Brasil</span><span>Âmbito federal</span><span>${mover ? '13 referências temáticas' : catalog.records.length + ' entradas documentais'}</span><span class="context-note">Consulta temática · aplicabilidade a verificar</span></div></div><div class="tree-breadcrumb" aria-label="Caminho selecionado">${nodeTrail(
       selected.id,
       model,
     )
       .map((id) => `<button data-tree-node="${id}">${esc(model.nodes[id].label)}</button>`)
       .join(
         '<span>›</span>',
-      )}</div><section class="graph-shell" aria-label="${mover ? 'Árvore de políticas automotivas MOVER' : 'Árvore de consulta regulatória'}">${graphMarkup(model, ui)}</section><div class="tree-footer"><span>ⓘ</span><span>Abra um ramo pelo +. Arraste o fundo ou role para navegar. As conexões organizam referências; não são uma sequência obrigatória de homologação.</span><button data-graph-action="reset">Recomeçar</button></div>${mover ? '<p class="tree-caveat">Recorte temático: 13 registros, incluindo referência do CNPE. Grupos podem compartilhar atos. A Portaria 277/2026 permanece como referência pendente, sem virar uma 14ª entrada.</p>' : ''}`;
+      )}</div><section class="graph-shell" aria-label="${mover ? 'Árvore de políticas automotivas MOVER' : 'Árvore de consulta regulatória'}">${graphMarkup(model, ui)}</section><div class="tree-footer"><span>ⓘ</span><span>Use + para expandir os assuntos.</span><button data-graph-action="reset">Recomeçar</button></div>${mover ? '<p class="tree-caveat">Recorte temático: 13 registros, incluindo referência do CNPE. Grupos podem compartilhar atos. A Portaria 277/2026 permanece como referência pendente, sem virar uma 14ª entrada.</p>' : ''}`;
   renderTreeDetails();
   setupGraph();
 }
@@ -339,7 +339,7 @@ function renderTreeDetails() {
   const text =
     n.text ||
     `${n.label} reúne ${records.length} referências para consulta. Expanda os ramos ou abra os documentos para verificar objeto, condições, datas e alterações.`;
-  const tabs = `<div class="detail-tabs"><button data-tree-tab="summary" class="${ui.tab === 'summary' ? 'active' : ''}">Resumo</button><button data-tree-tab="documents" class="${ui.tab === 'documents' ? 'active' : ''}">Documentos <span>${records.length}</span></button></div>`;
+  const tabs = `<div class="detail-tabs" role="tablist" aria-label="Detalhes"><button role="tab" aria-selected="${ui.tab === 'summary'}" data-tree-tab="summary" class="${ui.tab === 'summary' ? 'active' : ''}">Resumo</button><button role="tab" aria-selected="${ui.tab === 'documents'}" data-tree-tab="documents" class="${ui.tab === 'documents' ? 'active' : ''}">Documentos <span>${records.length}</span></button></div>`;
   detailPanel.innerHTML = `<div class="tree-detail-top"><small>${esc(trail.join(' / ') || 'Visão geral')}</small><span class="pill">${esc(n.kind || 'Tema selecionado')}</span><h2>${esc(n.label)}</h2></div>${tabs}<div class="detail-scroll">${ui.tab === 'documents' ? `<p class="detail-intro">${records.length} referências associadas. Abra cada registro para ver a rastreabilidade.</p>${records.map(treeDocument).join('') || '<p class="notice">Nenhuma referência classificada neste ramo.</p>'}` : `<p class="detail-intro">${esc(text)}</p><details class="tree-accordion" open><summary>▤ Aplicabilidade</summary><p>${state.view === 'mover' ? 'Confirmar objeto, sujeitos alcançados, datas, condições de enquadramento e anexos. Incentivos e obrigações empresariais não são requisitos universais de cada veículo.' : 'Confirmar categoria, configuração, datas, exceções e anexos. O portal organiza referências por assunto; não determina automaticamente o enquadramento de um veículo específico.'}</p></details><details class="tree-accordion" open><summary>▱ Base documental</summary><p>${one ? 'Consulte o ato e os seus modificadores na fonte.' : 'As referências abaixo são pontos de partida para a revisão técnica.'}</p>${records.slice(0, 3).map(treeDocument).join('')}${records.length > 3 ? `<button class="text-button" data-tree-tab="documents">Ver as ${records.length} referências →</button>` : ''}</details><details class="tree-accordion" open><summary>◷ Vigência e alterações</summary><div class="tree-warning">! ${esc(one?.status || 'Validação normativa pendente')}</div><p>Leia a redação atual, retificações e regras de transição. A organização do catálogo não certifica vigência.</p></details>${state.view === 'mover' ? `<details class="tree-accordion"><summary>◇ Ressalva do recorte MOVER</summary><p>Requisitos, incentivos e habilitação são instrumentos distintos. O vínculo temático não implica elegibilidade nem benefício automático.</p><p>Portaria GM/MDIC 277/2026: inteiro teor e efeitos ainda pendentes de conferência.</p><button class="text-button" data-route="updates">Consultar ressalvas →</button></details>` : ''}`}</div><div class="tree-detail-footer"><small>Consulta regulatória: revisão dirigida de 18/10/2026. Consulta temática; conferir enquadramento.</small>${one ? `<button class="btn primary" data-open="${one.id}" data-requirement="${esc(n.requirementId || '')}">Abrir detalhes da referência ↗</button>` : `<button class="btn primary" data-tree-tab="documents">Consultar documentos ↗</button>`}</div>`;
 }
 function applyGraphZoom(fit = false) {
@@ -420,6 +420,7 @@ document.addEventListener('click', (e) => {
   if (b.dataset.treeTab) {
     activeTreeUI().tab = b.dataset.treeTab;
     renderTreeDetails();
+    if (state.view === 'flow') renderFlowActivityContext();
     return;
   }
   if (b.dataset.graphAction) {
@@ -443,6 +444,15 @@ document.addEventListener('click', (e) => {
   }
 });
 document.addEventListener('keydown', (e) => {
+  const tab = e.target.closest('.detail-tabs [role=tab]');
+  if (tab && ['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) {
+    e.preventDefault();
+    activeTreeUI().tab = ['Home', 'ArrowLeft'].includes(e.key) ? 'summary' : 'documents';
+    renderTreeDetails();
+    if (state.view === 'flow') renderFlowActivityContext();
+    document.querySelector('.detail-tabs button.active')?.focus();
+    return;
+  }
   const b = e.target.closest('[data-tree-node]');
   if (!b) return;
   const n = activeTree().nodes[b.dataset.treeNode];

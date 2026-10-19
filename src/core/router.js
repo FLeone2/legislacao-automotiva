@@ -11,7 +11,19 @@ async function render() {
   main.setAttribute('aria-busy', 'true');
   try {
     $('#app').classList.remove('homologation-flow-mode', 'aurora-home');
+    for (const handler of [
+      'onpointerover',
+      'onpointerout',
+      'onpointerleave',
+      'onfocusin',
+      'onfocusout',
+    ])
+      main[handler] = null;
     state.view = location.hash.slice(1).split('?')[0] || 'tree';
+    if (state.view === 'ai') {
+      history.replaceState(null, '', '#library');
+      state.view = 'library';
+    }
     if (
       ![
         'tree',

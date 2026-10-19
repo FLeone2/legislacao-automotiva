@@ -34,9 +34,7 @@ function goVehicle(url) {
     window.scrollTo({ top: 0, behavior: 'instant' });
     $('#main h1')?.focus({ preventScroll: true });
   };
-  if (document.startViewTransition && !matchMedia('(prefers-reduced-motion: reduce)').matches)
-    document.startViewTransition(update);
-  else update();
+  update();
 }
 function vehicleMap() {
   return `<div class="catalog-stage"><svg id="vehicleDrawing" viewBox="0 0 1536 1024" role="group" aria-label="Veículo ilustrado: selecione um componente"><g id="vehicleLayer"><image href="assets/vehicle-exploded.webp" width="1536" height="1024"/><rect x="106" y="528" width="174" height="48" rx="6" fill="white" stroke="#8a9cad"/><text x="193" y="558" text-anchor="middle" font-size="18" fill="#425b72">Bateria elétrica ↗</text><rect x="1100" y="785" width="415" height="230" rx="14" fill="white" stroke="#dde4ec" stroke-width="2"/><image href="assets/tanque.webp" x="1110" y="785" width="395" height="205" preserveAspectRatio="xMidYMid meet"/><text x="1307" y="1000" text-anchor="middle" fill="#536579" font-size="20" font-family="Arial">Tanque e circuito de vapores</text>${vehicleComponents.map((c) => `<a href="${esc(vehicleLink(c))}" data-component-link="${c.id}" aria-label="Explorar normas: ${esc(c.label)}"><path class="component-region" d="${c.path}"><title>${esc(c.label)}</title></path></a>`).join('')}</g></svg><div class="vehicle-drawing-tools"><button data-vehicle-zoom="out" aria-label="Diminuir imagem do veículo">−</button><button data-vehicle-zoom="reset" aria-label="Restaurar imagem do veículo"><output id="vehicleImageZoom">100%</output></button><button data-vehicle-zoom="in" aria-label="Ampliar imagem do veículo">+</button></div><output id="componentHover" class="component-hover" aria-live="polite">Selecione um componente do veículo</output><p class="catalog-caption">Ilustração conceitual · SUV genérico. Selecione no desenho ou nos componentes abaixo.</p></div>`;
@@ -45,6 +43,8 @@ function renderVehicle() {
   $('#main').onpointerover = null;
   $('#main').onfocusin = null;
   $('#main').onpointerleave = null;
+  $('#main').onpointerout = null;
+  $('#main').onfocusout = null;
   const q = new URLSearchParams(location.hash.split('?')[1] || '');
   for (const [key, id] of [
     ['type', 'vehicleType'],
@@ -237,27 +237,25 @@ function renderVehicleFlow() {
   setupGraph();
 }
 function setupComponentHover() {
-  const stage = $('.catalog-stage');
-  if (!stage) return;
+  const main = $('#main');
+  if (!$('.catalog-stage')) return;
   const show = (id) => {
-    document
+    main
       .querySelectorAll('[data-component-link]')
       .forEach((el) => el.classList.toggle('is-hovered', el.dataset.componentLink === id));
-    const c = ComponentFlow.component(id);
+    const component = ComponentFlow.component(id);
     if ($('#componentHover'))
-      $('#componentHover').textContent = c
-        ? `${c.label} · explorar normas`
-        : 'Selecione um componente do veículo';
+      $('#componentHover').textContent = component?.label || 'Selecione um sistema';
   };
-  $('#main').onpointerover = (e) => {
-    const link = e.target.closest('[data-component-link]');
-    if (link) show(link.dataset.componentLink);
+  const componentLink = (target) =>
+    target instanceof Element ? target.closest('[data-component-link]') : null;
+  main.onpointerover = (event) => show(componentLink(event.target)?.dataset.componentLink);
+  main.onpointerout = (event) => {
+    if (componentLink(event.target) !== componentLink(event.relatedTarget)) show(null);
   };
-  $('#main').onfocusin = (e) => {
-    const link = e.target.closest('[data-component-link]');
-    if (link) show(link.dataset.componentLink);
-  };
-  $('#main').onpointerleave = () => show(null);
+  main.onfocusin = (event) => show(componentLink(event.target)?.dataset.componentLink);
+  main.onfocusout = () => show(null);
+  main.onpointerleave = () => show(null);
 }
 if (typeof document !== 'undefined') {
   document.addEventListener('click', (e) => {
@@ -316,7 +314,7 @@ function subsystemArt(sub) {
 function subsystemExplorer(c, selected) {
   const subs = ComponentFlow.subsystems(c, catalog.metadata.hierarchy);
   const art = subs.map((sub) => ComponentFlow.art(sub, catalog.metadata.hierarchy));
-  const shared = art.length > 0 && art.every((a) => a?.asset === art[0]?.asset);
+  const shared = art.length > 1 && art.every((a) => a?.asset === art[0]?.asset);
   return `<details class="subsystem-explorer" ${selected ? '' : 'open'}><summary><span>Subsistemas de ${esc(c.label)}</span><span>${subs.length} ${selected ? '· ' + esc(selected.label) : '· escolha no desenho ou nos cards'}</span></summary><div class="subsystem-explorer-content">${shared ? `<svg class="subsystem-board" viewBox="0 0 1536 1024" role="group" aria-label="Subsistemas ilustrados de ${esc(c.label)}"><image href="${art[0].asset}" width="1536" height="1024"/>${subs.map((sub, i) => `<a href="${esc(vehicleLink(c, null, sub.id))}" data-subsystem-link="${esc(sub.id)}" aria-label="Abrir fluxograma de ${esc(sub.label)}"><rect x="${art[i].x + 8}" y="${art[i].y + 8}" width="${art[i].width - 16}" height="${art[i].height - 16}" class="subsystem-region ${selected?.id === sub.id ? 'selected' : ''}"><title>${esc(sub.label)}</title></rect></a>`).join('')}</svg>` : ''}<div class="subsystem-cards">${subs.map((sub) => `<a class="subsystem-card ${selected?.id === sub.id ? 'active' : ''}" href="${esc(vehicleLink(c, null, sub.id))}" data-subsystem-link="${esc(sub.id)}" ${selected?.id === sub.id ? 'aria-current="page"' : ''}><div>${subsystemArt(sub)}</div><strong>${esc(sub.label)}</strong><small>Explorar normas ↗</small></a>`).join('')}</div></div></details>${selected ? `<a class="subsystem-parent" href="${esc(vehicleLink(c))}" data-component-link="${c.id}">← Fluxograma completo de ${esc(c.label)}</a>` : ''}`;
 }
 document.addEventListener('click', (e) => {

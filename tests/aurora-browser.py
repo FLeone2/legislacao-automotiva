@@ -68,10 +68,6 @@ async def main():
         await page.locator(".component-graph").wait_for()
         assert "subsystem=ocupantes%2Fcintos" in page.url
         await page.goto(BASE + "#vehicle?focus=bancos")
-        await page.locator(".aurora-reference").click()
-        await page.locator("#normDialog").wait_for()
-        assert "951/2022" in await page.locator("#normDialog").inner_text()
-        await page.locator("#closeDialog").click()
         await page.locator(".aurora-primary").click()
         await page.locator(".component-graph").wait_for()
         for route, ready in [
@@ -92,11 +88,8 @@ async def main():
             ), route
         await page.goto(BASE + "#vehicle")
         await page.locator(".aurora-explorer").wait_for()
-        await page.locator("[data-aurora-theme]").first.click()
-        assert await page.locator("html").evaluate(
-            "e=>e.classList.contains('aurora-soft')"
-        )
-        await page.locator("[data-aurora-theme]").first.click()
+        await expect(page.locator("html")).to_have_attribute("data-theme", "dark")
+        assert await page.locator("[data-aurora-theme]").count() == 0
         await page.locator("#globalSearch").fill("951")
         await page.locator("#globalSearch").press("Enter")
         await page.locator(".document").first.wait_for()

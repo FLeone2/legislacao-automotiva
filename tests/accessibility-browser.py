@@ -20,6 +20,15 @@ async def main(base):
         )
         routes = [
             ("vehicle", "#vehicleDrawing"),
+            ("vehicle?component=tanque", ".component-graph"),
+            ("vehicle?component=bancos", ".component-graph"),
+            ("tree", ".graph-node"),
+            ("mover", ".graph-node"),
+            ("flow", ".homologation-step"),
+            ("contran", ".contran-record"),
+            ("proconve", ".contran-record"),
+            ("anatel", ".contran-record"),
+            ("updates", ".update-card"),
             ("flow?stage=coastdown", "#flowDetailPanel"),
             ("library", ".document"),
             ("inmetro?record=inmetro-145-2022", ".contran-record"),
