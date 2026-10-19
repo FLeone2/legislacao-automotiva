@@ -111,6 +111,13 @@ async def main():
             assert not await page.evaluate(
                 "document.documentElement.scrollWidth>innerWidth"
             ), link
+        await page.locator("#navigationToggle").click()
+        await page.locator(".sidebar .brand").click()
+        await wait_for_route(page)
+        assert (
+            await page.locator("#navigationToggle").get_attribute("aria-expanded")
+            == "false"
+        )
         await page.set_viewport_size({"width": 1440, "height": 1100})
         await route("#vehicle?all=1")
         systems = await page.evaluate(

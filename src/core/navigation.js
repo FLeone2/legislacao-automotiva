@@ -24,7 +24,7 @@ document.addEventListener('click', (event) => {
     event.preventDefault();
     $('#main').focus();
   }
-  if (event.target.closest('[data-nav]')) closeNavigation();
+  if (event.target.closest('.sidebar a[href^="#"]')) closeNavigation();
 });
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && document.querySelector('.sidebar.nav-open')) {
