@@ -731,3 +731,36 @@ html[data-theme] #app #vehicleDrawing.is-zoomed {
 html[data-theme] #app #vehicleDrawing.is-panning {
   cursor: grabbing;
 }
+
+/* Selection over the illustration: fade the rest, glow the chosen system, numbered pins. */
+html[data-theme] #app .selection-fade {
+  fill: #f4f4f5;
+  fill-opacity: 0.66;
+}
+html[data-theme] #app .selection-edge {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 3;
+  stroke-linejoin: round;
+}
+html[data-theme] #app .selection-pin circle {
+  fill: #ffffff;
+  stroke: #3a3d42;
+  stroke-width: 1.6;
+}
+html[data-theme] #app .selection-pin text {
+  fill: #1d1f22;
+  font:
+    700 13px/1 Inter,
+    system-ui,
+    sans-serif;
+}
+html[data-theme] #app .selection-pin.active circle {
+  fill: var(--accent);
+  stroke: #ffffff;
+  stroke-width: 3;
+}
+html[data-theme] #app .selection-pin.active text {
+  fill: #1a0d03;
+  font-size: 17px;
+}

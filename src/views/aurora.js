@@ -101,7 +101,67 @@ function renderAuroraOverview(query) {
       link.classList.toggle('aurora-selected', c.id === component.id);
       link.setAttribute('aria-current', c.id === component.id ? 'true' : 'false');
     });
+  decorateVehicleSelection(component.id);
   setupComponentHover();
+}
+// Selection is drawn inside the zoomed layer, over the image and under the hotspots,
+// so highlight, pins and hit areas share one transform. It never takes pointer events.
+function decorateVehicleSelection(selectedId) {
+  const layer = $('#vehicleLayer');
+  if (!layer) return;
+  const NS = 'http://www.w3.org/2000/svg';
+  const make = (name, attrs, parent) => {
+    const node = document.createElementNS(NS, name);
+    for (const [key, value] of Object.entries(attrs)) node.setAttribute(key, value);
+    parent?.append(node);
+    return node;
+  };
+  const selected = vehicleComponents.find((c) => c.id === selectedId);
+  const group = make('g', {
+    class: 'selection-layer',
+    'pointer-events': 'none',
+    'aria-hidden': 'true',
+  });
+  const defs = make('defs', {}, group);
+  const glow = make(
+    'filter',
+    { id: 'selectionGlow', x: '-20%', y: '-20%', width: '140%', height: '140%' },
+    defs,
+  );
+  make('feGaussianBlur', { in: 'SourceGraphic', stdDeviation: '5', result: 'blur' }, glow);
+  const merge = make('feMerge', {}, glow);
+  make('feMergeNode', { in: 'blur' }, merge);
+  make('feMergeNode', { in: 'SourceGraphic' }, merge);
+  make(
+    'path',
+    { class: 'selection-fade', 'fill-rule': 'evenodd', d: `M0 0H1536V1024H0Z ${selected.path}` },
+    group,
+  );
+  make('path', { class: 'selection-edge', d: selected.path, filter: 'url(#selectionGlow)' }, group);
+  const hotspots = layer.querySelector('[data-component-link]');
+  layer.insertBefore(group, hotspots);
+  const pins = make(
+    'g',
+    { class: 'selection-pins', 'pointer-events': 'none', 'aria-hidden': 'true' },
+    layer,
+  );
+  vehicleComponents.forEach((c, index) => {
+    const shape = layer.querySelector(`[data-component-link="${c.id}"] path`);
+    const spot = shape && !c.external ? pinSpot(shape) : null;
+    if (!spot) return;
+    const active = c.id === selectedId;
+    const pin = make(
+      'g',
+      {
+        class: `selection-pin${active ? ' active' : ''}`,
+        transform: `translate(${spot.x} ${spot.y})`,
+      },
+      pins,
+    );
+    make('circle', { r: active ? 17 : 12 }, pin);
+    const label = make('text', { 'text-anchor': 'middle', dy: active ? 6 : 4.5 }, pin);
+    label.textContent = String(index + 1);
+  });
 }
 // Keep all original routes and regulatory data; add the theme shell before bootstrap.
 if (!location.hash) history.replaceState(null, '', '#vehicle?focus=bancos');
@@ -128,3 +188,37 @@ $('.nav-source-group').open = true;
 document.querySelector('[data-navigation-group="programas"] .nav-group-label').textContent =
   'Acompanhamento';
 $('.topbrand').setAttribute('href', '#vehicle');
+
+// A point inside the shape nearest its centre of mass, so a pin never floats beside a part.
+function pinSpot(shape) {
+  const box = shape.getBBox();
+  const step = Math.max(4, Math.min(box.width, box.height) / 14);
+  const inside = [];
+  for (let x = box.x; x <= box.x + box.width; x += step)
+    for (let y = box.y; y <= box.y + box.height; y += step)
+      if (shape.isPointInFill(new DOMPoint(x, y))) inside.push({ x, y });
+  if (!inside.length) return null;
+  const mean = {
+    x: inside.reduce((t, p) => t + p.x, 0) / inside.length,
+    y: inside.reduce((t, p) => t + p.y, 0) / inside.length,
+  };
+  const margin = (p) => {
+    let least = Infinity;
+    for (const [dx, dy] of [
+      [1, 0],
+      [-1, 0],
+      [0, 1],
+      [0, -1],
+    ])
+      for (let d = step; d < 40; d += step)
+        if (!shape.isPointInFill(new DOMPoint(p.x + dx * d, p.y + dy * d))) {
+          least = Math.min(least, d);
+          break;
+        }
+    return Math.min(least, 40);
+  };
+  const best = inside
+    .map((p) => ({ p, score: margin(p) * 4 - Math.hypot(p.x - mean.x, p.y - mean.y) }))
+    .sort((a, b) => b.score - a.score)[0];
+  return { x: Math.round(best.p.x), y: Math.round(best.p.y) };
+}
