@@ -75,11 +75,7 @@ def check():
     assert expected_files == set((ROOT / "data/site/records").rglob("*.json")), (
         "Stale/unpublished detail"
     )
-    for path in [
-        *ROOT.glob("*.js"),
-        *ROOT.glob("src/**/*.js"),
-        *ROOT.glob("src/**/*.mjs"),
-    ]:
+    for path in [*ROOT.glob("*.js"), *ROOT.glob("src/**/*.js")]:
         subprocess.run(["node", "--check", str(path)], check=True, capture_output=True)
     print(
         f"PASS: {len(expected_files)} acts, {len(ids)} canonical requirements, independent states, publication joins, JavaScript syntax and 450 kB initial budget"

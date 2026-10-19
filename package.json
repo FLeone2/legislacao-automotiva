@@ -4,8 +4,8 @@
   "version": "0.1.0",
   "scripts": {
     "postinstall": "python scripts/build_static.py",
-    "format": "prettier --write '**/*.{js,cjs,mjs,css,html,yml}' && python -m ruff format scripts tests",
-    "format:check": "prettier --check '**/*.{js,cjs,mjs,css,html,yml}' && python -m ruff format --check scripts tests",
+    "format": "prettier --write '**/*.{js,cjs,css,html,yml}' && python -m ruff format scripts tests",
+    "format:check": "prettier --check '**/*.{js,cjs,css,html,yml}' && python -m ruff format --check scripts tests",
     "build:data": "python scripts/build_active_catalogs.py && python scripts/build_proconve_map.py && python scripts/build_certification_maps.py && python scripts/build_site_data.py",
     "check": "python scripts/check_project.py",
     "test": "node --test tests/*.test.cjs && python scripts/run_checks.py unit",

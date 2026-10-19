@@ -19,8 +19,7 @@ async def main(base):
             viewport={"width": 1440, "height": 1000}, reduced_motion="reduce"
         )
         routes = [
-            ("vehicle?vista=2d", "#vehicleDrawing"),
-            ("vehicle?vista=3d&focus=motor", ".model-stage.is-ready"),
+            ("vehicle", "#vehicleDrawing"),
             ("vehicle?component=tanque", ".component-graph"),
             ("vehicle?component=bancos", ".component-graph"),
             ("tree", ".graph-node"),
@@ -62,7 +61,7 @@ async def main(base):
                         ],
                     }
                 )
-        await page.goto(base + "#vehicle?vista=2d")
+        await page.goto(base + "#vehicle")
         await page.locator("#vehicleDrawing").wait_for()
         await page.keyboard.press("Tab")
         assert await page.locator(".skip-link").evaluate(

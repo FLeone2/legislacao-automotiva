@@ -140,7 +140,7 @@ async def main():
         assert await page.locator(".document").count() == 22
         # Extra navigation entries stay reachable in short desktop and narrow mobile.
         await page.set_viewport_size({"width": 1024, "height": 700})
-        await page.goto(BASE + "#vehicle?vista=2d")
+        await page.goto(BASE + "#vehicle")
         await page.locator("#vehicleDrawing").wait_for()
         await page.locator('[data-nav="markings"]').click()
         await page.locator("#markings-vin").wait_for()

@@ -16,7 +16,7 @@ async def main():
         )
         errors = []
         page.on("pageerror", lambda e: errors.append(str(e)))
-        await page.goto(BASE + "#vehicle?vista=2d")
+        await page.goto(BASE + "#vehicle")
         await page.locator("#vehicleDrawing").wait_for()
         cases = await page.evaluate(
             """()=>catalog.metadata.hierarchy.filter(g=>g.physical).flatMap(g=>g.children.map(s=>{const c=vehicleComponents.find(c=>ComponentFlow.subsystems(c,catalog.metadata.hierarchy).some(x=>x.id===s.id));return {component:c.id,id:s.id,label:s.label,asset:ComponentFlow.art({...s,system:g.id},catalog.metadata.hierarchy).asset}}))"""

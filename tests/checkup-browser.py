@@ -31,7 +31,7 @@ async def main():
             await page.evaluate("(value)=>location.hash=value", value)
             await wait_for_route(page)
 
-        await page.goto(BASE + "#vehicle?all=1&vista=2d")
+        await page.goto(BASE + "#vehicle?all=1")
         await wait_for_route(page)
         assert await page.locator("html").get_attribute("data-theme") == "dark"
 

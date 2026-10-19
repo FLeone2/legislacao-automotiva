@@ -719,3 +719,15 @@ html[data-theme] #app .tree-breadcrumb button:last-of-type {
   color: var(--accent-ink);
   font-weight: 600;
 }
+
+/* The illustration pans when zoomed; at rest touch scrolling stays with the page. */
+html[data-theme] #app #vehicleDrawing {
+  touch-action: pan-y;
+}
+html[data-theme] #app #vehicleDrawing.is-zoomed {
+  touch-action: none;
+  cursor: grab;
+}
+html[data-theme] #app #vehicleDrawing.is-panning {
+  cursor: grabbing;
+}

@@ -30,7 +30,7 @@ async def point(page, xy):
 
 
 async def overview(page):
-    await page.goto(BASE + "#vehicle?all=1&vista=2d")
+    await page.goto(BASE + "#vehicle?all=1")
     await page.locator("#vehicleDrawing").wait_for()
     await page.evaluate("document.fonts.ready")
     await page.wait_for_timeout(150)
@@ -102,6 +102,29 @@ async def main():
             )
             == "bancos"
         )
+        await page.locator('[data-vehicle-zoom="reset"]').click()
+        assert await page.locator("#vehicleImageZoom").inner_text() == "100%"
+        # Wheel zoom keeps the seat under the cursor; dragging pans without navigating.
+        pseat = await point(page, POINTS["bancos"])
+        await page.mouse.move(**pseat)
+        await page.mouse.wheel(0, -300)
+        assert await page.locator("#vehicleImageZoom").inner_text() != "100%"
+        assert (
+            await page.evaluate(
+                '(p)=>document.elementFromPoint(p.x,p.y)?.closest("[data-component-link]")?.dataset.componentLink',
+                pseat,
+            )
+            == "bancos"
+        )
+        url, before = (
+            page.url,
+            await page.locator("#vehicleLayer").get_attribute("transform"),
+        )
+        await page.mouse.down()
+        await page.mouse.move(pseat["x"] + 120, pseat["y"] + 50, steps=6)
+        await page.mouse.up()
+        assert await page.locator("#vehicleLayer").get_attribute("transform") != before
+        assert page.url == url
         await page.locator('[data-vehicle-zoom="reset"]').click()
         assert await page.locator("#vehicleImageZoom").inner_text() == "100%"
         await page.mouse.move(0, 0)

@@ -25,7 +25,7 @@ async def main():
         )
         page = await context.new_page()
         page.on("pageerror", lambda error: errors.append(str(error)))
-        await page.goto(BASE + "#vehicle?focus=bancos&vista=2d")
+        await page.goto(BASE + "#vehicle?focus=bancos")
         await wait_for_route(page)
         picker = page.get_by_label("Tema", exact=True)
         await expect(picker).to_have_value("dark")
@@ -78,7 +78,7 @@ async def main():
                 assert await page.evaluate(
                     "document.documentElement.scrollWidth<=innerWidth"
                 ), (theme, route)
-            await page.goto(BASE + "#vehicle?focus=bancos&vista=2d")
+            await page.goto(BASE + "#vehicle?focus=bancos")
             await wait_for_route(page)
             seat = page.locator('#vehicleDrawing [data-component-link="bancos"] path')
             assert (
