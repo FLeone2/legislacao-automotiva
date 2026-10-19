@@ -764,3 +764,8 @@ html[data-theme] #app .selection-pin.active text {
   fill: #1a0d03;
   font-size: 17px;
 }
+
+/* The fuel-system board has a white background: blend it into the stage like the main image. */
+html[data-theme] #app #vehicleDrawing .tank-detail {
+  mix-blend-mode: multiply;
+}

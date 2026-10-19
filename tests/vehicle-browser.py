@@ -17,7 +17,8 @@ POINTS = {
     "carroceria": (1080, 160),
     "retrovisores": (1180, 370),
     "pneus-rodas": (980, 870),
-    "eletrica": (610, 510),
+    "eletrica": (680, 530),
+    "bateria": (610, 515),
     "escapamento": (900, 570),
 }
 
