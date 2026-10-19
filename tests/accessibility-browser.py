@@ -21,6 +21,16 @@ async def main(base):
         routes = [
             ("vehicle", "#vehicleDrawing"),
             ("vehicle?component=tanque", ".component-graph"),
+            (
+                "vehicle?focus=eletrica&part=peca_27_bateria_12v",
+                ".vehicle-reference-group",
+            ),
+            (
+                "vehicle?component=carroceria&part=peca_10_carroceria&subsystem=identificacao%2Fvin",
+                ".component-graph",
+            ),
+            ("vehicle?component=motor&part=peca_29_radiador", ".component-graph"),
+            ("library?part=peca_27_bateria_12v", ".document"),
             ("vehicle?component=bancos", ".component-graph"),
             ("tree", ".graph-node"),
             ("mover", ".graph-node"),

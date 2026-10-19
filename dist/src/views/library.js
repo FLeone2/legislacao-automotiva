@@ -18,16 +18,52 @@ function libraryValues() {
     q: state.query,
     agency: state.agency,
     component: state.filterComponent,
+    part: state.libraryPart,
     stage: state.stage,
     review: state.review,
     page: state.libraryPage > 1 ? state.libraryPage : '',
   };
 }
+let libraryPartSearchSource;
+let libraryPartSearchIndex;
+function libraryPartSearchTerms(record) {
+  if (libraryPartSearchSource !== VehicleLegislationData) {
+    libraryPartSearchSource = VehicleLegislationData;
+    libraryPartSearchIndex = new Map();
+    for (const part of VehicleLegislationData.parts) {
+      const shortLabel = part.label
+        .replace(/\bde\b/giu, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+      const labels = [
+        part.label,
+        shortLabel,
+        shortLabel.replace(/\b(\d+)\s+(V|W|A)\b/giu, '$1$2'),
+        shortLabel.replace(/\s+/g, ''),
+      ];
+      for (const topic of part.topics) {
+        for (const link of topic.links) {
+          if (!libraryPartSearchIndex.has(link.actId))
+            libraryPartSearchIndex.set(link.actId, new Set());
+          const terms = libraryPartSearchIndex.get(link.actId);
+          for (const term of [...labels, topic.label]) terms.add(term);
+        }
+      }
+    }
+  }
+  return [
+    ...new Set(
+      [record.regulatoryId, record.id].flatMap((id) => [...(libraryPartSearchIndex.get(id) || [])]),
+    ),
+  ].join(' ');
+}
 function filters() {
-  return catalog.records.filter(
+  const records = state.libraryPart ? VehicleLegislation.unique(catalog.records) : catalog.records;
+  return records.filter(
     (r) =>
       (!state.agency || r.agency === state.agency) &&
       componentMatches(r, state.filterComponent) &&
+      (!state.libraryPart || VehicleLegislation.matchesRecord(state.libraryPart, r)) &&
       (!state.stage || (r.stages || []).includes(state.stage)) &&
       (!state.review || libraryReview(r) === state.review) &&
       norm(
@@ -36,6 +72,7 @@ function filters() {
           r.summary,
           r.agency,
           r.issuer,
+          libraryPartSearchTerms(r),
           ...(r.componentLabels || []),
           ...(r.taxonomy || []).map(systemLabel),
           ...(r.amendingRefs || []),
@@ -47,7 +84,24 @@ function filters() {
 }
 function documentCard(r) {
   const themes = [...new Set((r.taxonomy || []).map(systemLabel))];
-  return `<article class="document"><div class="row"><span class="tag">${esc(r.issuer || r.agency)}</span><span class="status">${esc(r.status)}</span></div><h3>${esc(r.title)}</h3><p>${esc(r.summary)}</p><p class="document-context">${esc(themes.slice(0, 3).join(' · ') || 'Assunto transversal')}<br>Revisão do registro: ${esc(r.reviewDate || 'não informada')} · ${esc(libraryReviewLabels[libraryReview(r)])}</p><div class="links"><button data-open="${esc(r.id)}">Resumo, escopo e alterações →</button>${safeLink(r.officialUrl, 'Fonte oficial')}</div></article>`;
+  const relations = state.libraryPart
+    ? [
+        VehicleLegislation.matchesRecord(state.libraryPart, r, { relation: 'component' }) &&
+          'Vínculo com o componente',
+        VehicleLegislation.matchesRecord(state.libraryPart, r, { relation: 'vehicle' }) &&
+          'Contexto do veículo',
+      ].filter(Boolean)
+    : [];
+  return `<article class="document"><div class="row"><span class="tag">${esc(r.issuer || r.agency)}</span><span class="status">${esc(r.status)}</span></div><h3>${esc(r.title)}</h3><p>${esc(r.summary)}</p><p class="document-context">${relations.length ? `<strong>${esc(relations.join(' · '))}</strong><br>` : ''}${esc(themes.slice(0, 3).join(' · ') || 'Assunto transversal')}<br>Revisão do registro: ${esc(r.reviewDate || 'não informada')} · ${esc(libraryReviewLabels[libraryReview(r)])}</p><div class="links"><button data-open="${esc(r.id)}">Resumo, escopo e alterações →</button>${safeLink(r.officialUrl, 'Fonte oficial')}</div></article>`;
+}
+function libraryPartContext() {
+  if (!state.libraryPart) return '';
+  const part = VehicleLegislation.part(state.libraryPart);
+  const remove = libraryRoute({ ...libraryValues(), part: '', page: '' });
+  const back = part
+    ? '#vehicle?' + new URLSearchParams({ focus: part.componentId, part: part.id })
+    : '';
+  return `<span class="pill">Conjunto: ${esc(part?.label || 'indisponível')}</span><a class="btn" href="${esc(remove)}" aria-label="Remover filtro de conjunto">Remover conjunto</a>${part ? `<a class="btn" href="${esc(back)}">Ver no veículo →</a>` : '<span class="scope-note">Este conjunto não está cadastrado.</span>'}`;
 }
 function updateList() {
   const rows = filters();
@@ -59,8 +113,11 @@ function updateList() {
     pages > 1
       ? `<a class="btn" href="${esc(libraryRoute({ ...libraryValues(), page: state.libraryPage > 1 ? state.libraryPage - 1 : pages }))}">${state.libraryPage > 1 ? '← Anterior' : 'Última página'}</a><span>Página ${state.libraryPage} de ${pages}</span><a class="btn" href="${esc(libraryRoute({ ...libraryValues(), page: state.libraryPage < pages ? state.libraryPage + 1 : '' }))}">${state.libraryPage < pages ? 'Próxima →' : 'Primeira página'}</a>`
       : '';
-  $('#resultCount').textContent =
-    `${rows.length} de ${catalog.records.length} entradas documentais · associações temáticas para consulta`;
+  $('#resultCount').textContent = state.libraryPart
+    ? `${rows.length} referências encontradas para este conjunto`
+    : `${rows.length} de ${catalog.records.length} entradas documentais · associações temáticas para consulta`;
+  $('#libraryPartContext').innerHTML = libraryPartContext();
+  $('#libraryPartContext').className = state.libraryPart ? 'consultation-query-actions' : '';
   $('#documents').innerHTML =
     visible.map(documentCard).join('') ||
     '<div class="empty"><h3>Nenhum resultado com estes filtros</h3><p>Tente outro termo ou limpe os filtros.</p><button class="btn" id="clearEmpty">Limpar filtros</button></div>';
@@ -76,7 +133,10 @@ function updateList() {
       libraryReviewLabels[state.review],
     ]
       .filter(Boolean)
-      .join(' · ') || 'Exibindo todo o acervo. Escolha um assunto ou combine os filtros.';
+      .join(' · ') ||
+    (state.libraryPart
+      ? 'Vínculos cadastrados para consulta.'
+      : 'Exibindo todo o acervo. Escolha um assunto ou combine os filtros.');
 }
 function consultationSources() {
   return `<details class="consultation-sources"><summary id="consultationSourcesTitle">Fontes e revisão</summary><p>Os recortes abaixo reúnem referências por órgão. As contagens não representam cobertura integral da legislação nem confirmação de aplicação ao veículo.</p><div class="consultation-source-grid">${Object.entries(
@@ -93,6 +153,7 @@ function consultationSources() {
 function renderLibrary() {
   const q = new URLSearchParams(location.hash.split('?')[1] || '');
   state.query = q.get('q') || '';
+  state.libraryPart = q.get('part') || '';
   state.libraryPage = Math.max(1, Math.floor(Number(q.get('page'))) || 1);
   state.agency = ['SENATRAN', 'IBAMA', 'INMETRO', 'ANATEL', 'MOVER'].includes(q.get('agency'))
     ? q.get('agency')
@@ -117,7 +178,7 @@ function renderLibrary() {
       )
       .join(
         '',
-      )}</select><button class="btn" id="clearFilters">Limpar</button></div><p class="library-query-summary" id="libraryQuerySummary"></p><div class="consultation-query-actions"><a class="btn" id="libraryPermalink" href="#library">Link desta consulta</a><button class="btn" id="copyLibraryLink">Copiar link</button><span id="libraryCopyStatus" role="status"></span></div><div class="count-line" id="resultCount" role="status" aria-live="polite"></div><div class="document-list" id="documents"></div><nav id="libraryPagination" class="consultation-query-actions" aria-label="Páginas da biblioteca"></nav>${consultationSources()}<p class="scope-note">CONTRAN, PROCONVE, Inmetro e Anatel: conferência registrada em 18/10/2026, com profundidades distintas. Consulte os detalhes de cada referência e as <a href="#updates">pendências de atualização</a>.</p>`;
+      )}</select><button class="btn" id="clearFilters">Limpar</button></div><div class="consultation-query-actions" id="libraryPartContext" role="group" aria-label="Conjunto selecionado"></div><p class="library-query-summary" id="libraryQuerySummary"></p><div class="consultation-query-actions"><a class="btn" id="libraryPermalink" href="#library">Link desta consulta</a><button class="btn" id="copyLibraryLink">Copiar link</button><span id="libraryCopyStatus" role="status"></span></div><div class="count-line" id="resultCount" role="status" aria-live="polite"></div><div class="document-list" id="documents"></div><nav id="libraryPagination" class="consultation-query-actions" aria-label="Páginas da biblioteca"></nav>${consultationSources()}<p class="scope-note">CONTRAN, PROCONVE, Inmetro e Anatel: conferência registrada em 18/10/2026, com profundidades distintas. Consulte os detalhes de cada referência e as <a href="#updates">pendências de atualização</a>.</p>`;
   updateList();
   $('#librarySearch').addEventListener('input', (e) => {
     state.query = e.target.value;
@@ -133,6 +194,7 @@ function renderLibrary() {
     ['reviewFilter', 'review'],
   ]) {
     $('#' + id).addEventListener('change', (e) => {
+      if (id === 'componentFilter' && state[key] !== e.target.value) state.libraryPart = '';
       state[key] = e.target.value;
       state.libraryPage = 1;
       history.pushState(null, '', libraryRoute(libraryValues()));

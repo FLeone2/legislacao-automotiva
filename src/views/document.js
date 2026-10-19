@@ -1,11 +1,37 @@
 'use strict';
 function documentConsultationLinks(record) {
+  const mapped = VehicleLegislationData.parts
+    .map((part) => ({
+      part,
+      component: VehicleLegislation.matchesRecord(part.id, record, { relation: 'component' }),
+      vehicle: VehicleLegislation.matchesRecord(part.id, record, { relation: 'vehicle' }),
+    }))
+    .filter((entry) => entry.component || entry.vehicle);
+  if (mapped.length) {
+    const groups = [
+      ['component', 'Vínculos com componentes'],
+      ['vehicle', 'Contexto do veículo'],
+    ]
+      .map(([relation, label]) => {
+        const entries = mapped.filter((entry) => entry[relation]);
+        if (!entries.length) return '';
+        const links = entries.map(({ part }) => {
+          const route =
+            '#vehicle?' + new URLSearchParams({ component: part.componentId, part: part.id });
+          return `<a class="btn" data-close-reference data-document-part="${esc(part.id)}" data-document-relation="${relation}" href="${esc(route)}">${esc(part.label)} →</a>`;
+        });
+        const remaining = links.length - 6;
+        return `<h4>${label}</h4><div class="consultation-shortcuts">${links.slice(0, 6).join('')}</div>${remaining > 0 ? `<details><summary>Ver outros ${remaining} conjuntos</summary><div class="consultation-shortcuts">${links.slice(6).join('')}</div></details>` : ''}`;
+      })
+      .join('');
+    return `<section class="document-consultation-links"><h3>Explore no veículo</h3>${groups}<div class="consultation-shortcuts"><a class="btn" data-close-reference href="#flow">Etapas de homologação →</a></div><p class="scope-note">Vínculos para consulta. O contexto do veículo não equivale a uma exigência individual da peça.</p></section>`;
+  }
   const components = vehicleComponents.filter(
     (c) =>
       (record.vehicleLinks || []).some((l) => l.componentId === c.id) ||
       componentMatches(record, c.taxonomy),
   );
-  return `<section class="document-consultation-links"><h3>Explore o assunto</h3><div class="consultation-shortcuts">${components.map((c) => `<a class="btn" data-close-reference href="${esc(vehicleLink(c))}">${esc(c.label)} →</a>`).join('')}<a class="btn" data-close-reference href="#flow">Etapas de homologação →</a></div><p class="scope-note">Os vínculos organizam a consulta por assunto; não confirmam aplicação automática ao veículo.</p></section>`;
+  return `<section class="document-consultation-links"><h3>Assuntos gerais</h3><div class="consultation-shortcuts">${components.map((c) => `<a class="btn" data-close-reference href="#vehicle?component=${esc(c.id)}">${esc(c.label)} →</a>`).join('')}<a class="btn" data-close-reference href="#flow">Etapas de homologação →</a></div><p class="scope-note">Associações temáticas, sem vínculo cadastrado com uma região específica da imagem.</p></section>`;
 }
 
 async function openNorm(id, requirementId = null) {

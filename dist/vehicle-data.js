@@ -2,8 +2,8 @@
 const vehicleVector =
   typeof module !== 'undefined' ? require('./src/core/vehicle-vector.js') : VehicleVector;
 // These links reference the repository's catalogue, never ASA part numbers.
-// Overview paths follow the original 1536x1024 illustration's visible silhouettes.
-// Geometry is simplified to subpixel tolerance; the image and SVG share the zoom transform.
+// The supplied 37 silhouettes retain their original 1536x1024 coordinate space.
+// Paint previews and vector hit regions share the same zoom transform.
 const vehicleComponents = [
   {
     id: 'bancos',
@@ -243,7 +243,7 @@ const ComponentFlow = {
         );
   },
   unique(records) {
-    return [...new Map(records.map((r) => [r.id, r])).values()];
+    return [...new Map(records.map((r) => [r.regulatoryId || r.id, r])).values()];
   },
 };
 if (typeof module !== 'undefined') module.exports = { vehicleComponents, ComponentFlow };
@@ -436,7 +436,8 @@ for (const component of vehicleComponents) {
   component.mapParts = vehicleVector.parts.filter((part) => part.componentId === component.id);
   component.path = component.mapParts.map((part) => part.path).join(' ');
   component.external = component.mapParts.length === 0;
-  component.overviewAsset = component.mapParts.find(
+  const primaryPart = component.mapParts.find(
     (part) => part.id === vehiclePrimaryParts[component.id],
-  )?.asset;
+  );
+  component.overviewAsset = primaryPart?.displayAsset || primaryPart?.asset;
 }

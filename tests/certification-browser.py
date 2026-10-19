@@ -10,7 +10,16 @@ OUT.mkdir(exist_ok=True)
 
 
 async def ready(p):
-    await wait_for_route(p)
+    try:
+        await wait_for_route(p)
+    except Exception:
+        print(
+            await p.evaluate(
+                """()=>({url:location.href,route:document.querySelector('#main')?.dataset.renderedRoute,busy:document.querySelector('#main')?.getAttribute('aria-busy'),heading:document.querySelector('#main h1')?.textContent,text:document.querySelector('#main')?.innerText.slice(0,600)})"""
+            ),
+            flush=True,
+        )
+        raise
     await p.locator(".contran-record").first.wait_for()
 
 

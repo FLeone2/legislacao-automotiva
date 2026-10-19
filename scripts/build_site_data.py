@@ -186,7 +186,14 @@ def main():
                 for rel in record.get("relationships", [])
             ]
             summary["requirements"] = [
-                {k: q[k] for k in ["id", "title", "rule", "clause", "topics", "actId"]}
+                {
+                    **{
+                        k: q[k]
+                        for k in ["id", "title", "rule", "clause", "topics", "actId"]
+                    },
+                    # Keep the source classification before the full record loads.
+                    "provision": {"kind": q["provision"]["kind"]},
+                }
                 for q in detail["requirements"]
             ]
             summary["requirementIds"] = detail["requirementIds"]

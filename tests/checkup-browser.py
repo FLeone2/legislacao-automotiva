@@ -13,6 +13,7 @@ async def main():
     report = {
         "routes": [],
         "systems": [],
+        "partGaps": [],
         "subsystems": [],
         "activities": [],
         "records": [],
@@ -85,8 +86,24 @@ async def main():
         await expect(page.locator(".aurora-explorer h2")).to_have_text(
             "Tanque de combustível"
         )
+        await expect(page.locator("#vehiclePartSelect")).to_have_value(
+            "peca_30_tanque_tubo_combustivel"
+        )
+        await expect(page.locator(".vehicle-part-name")).to_have_text(
+            "Tanque e tubo de combustível"
+        )
+        await expect(
+            page.locator('[data-part-topic="vehicle:tanque-impacto"]')
+        ).to_have_count(1)
+        await expect(
+            page.locator('[data-part-topic="component:bomba-combustivel"]')
+        ).to_have_count(1)
         await page.locator(".aurora-primary").click()
         await wait_for_route(page)
+        await expect(page.locator("#main h1")).to_have_text(
+            "Tanque e tubo de combustível"
+        )
+        assert "part=peca_30_tanque_tubo_combustivel" in page.url
         for tab in ["documents", "summary"]:
             await page.locator(f'.detail-tabs [data-tree-tab="{tab}"]').click()
             assert await page.evaluate("activeTreeUI().tab") == tab
@@ -95,6 +112,28 @@ async def main():
         assert await page.evaluate("activeTreeUI().tab") == "documents"
         await page.keyboard.press("ArrowLeft")
         assert await page.evaluate("activeTreeUI().tab") == "summary"
+        # A drawn part without reviewed references must not inherit its system's laws.
+        for part, component, label, fragment in [
+            ("peca_29_radiador", "motor", "Radiador e ventilador", "radiador"),
+            ("peca_28_chicote_eletrico", "eletrica", "Chicote elétrico", "chicote"),
+        ]:
+            await route(f"#vehicle?focus={component}&part={part}")
+            await expect(page.locator("#vehiclePartSelect")).to_have_value(part)
+            await expect(page.locator(".vehicle-reference-count")).to_have_text(
+                "Sem referência específica cadastrada"
+            )
+            await page.locator(".aurora-primary").click()
+            await wait_for_route(page)
+            await expect(page.locator("#main h1")).to_have_text(label)
+            assert (
+                await page.evaluate(
+                    "Object.values(treeModels.vehicle.nodes).filter(node=>node.recordId).length"
+                )
+                == 0
+            ), part
+            assert fragment in (await page.locator("#aiPanel").inner_text()).lower()
+            assert await page.locator("#aiPanel .tree-doc").count() == 0
+            report["partGaps"].append(part)
         # Every primary route uses actual sidebar links, followed by mobile navigation.
         await route("#vehicle")
         links = await page.locator(".main-nav [data-nav]").evaluate_all(

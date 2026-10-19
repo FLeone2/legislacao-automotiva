@@ -1,6 +1,7 @@
 """Exercise the supplied 37-part scene through real mouse, touch and keyboard input."""
 
 import asyncio
+from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 import xml.etree.ElementTree as ET
 
@@ -29,6 +30,7 @@ ELECTRIC_PARTS = {
     "peca_27_bateria_12v": "eletrica",
     "peca_28_chicote_eletrico": "eletrica",
 }
+CAPTURED_SCENES = set()
 
 
 def query(page):
@@ -86,6 +88,16 @@ async def assert_selection(page, part):
         ]
         == part["id"]
     )
+    scene = {
+        (1440, "peca_27_bateria_12v"): "vehicle-law-desktop-12v.png",
+        (1440, "peca_21_porta_dianteira"): "vehicle-law-desktop-porta.png",
+        (390, "peca_09_bancos_dianteiros_console"): "vehicle-law-mobile-bancos.png",
+    }.get((page.viewport_size["width"], part["id"]))
+    if scene and scene not in CAPTURED_SCENES:
+        artifacts = Path(__file__).resolve().parent / "artifacts"
+        artifacts.mkdir(exist_ok=True)
+        await page.screenshot(path=str(artifacts / scene), full_page=True)
+        CAPTURED_SCENES.add(scene)
 
 
 def query_from_href(href):
@@ -103,6 +115,7 @@ async def main():
         await overview(page)
         parts = await page.evaluate("""()=>VehicleVector.parts.map(p=>({
             id:p.id,label:p.label,componentId:p.componentId,testPoint:p.testPoint,asset:p.asset,
+            displayAsset:p.displayAsset,
             systemLabel:ComponentFlow.component(p.componentId).label
         }))""")
         assert len(parts) == 37
@@ -115,14 +128,14 @@ async def main():
             "viewBox", "0 0 1536 1024"
         )
         await expect(page.locator("#vehicleDrawing image")).to_have_attribute(
-            "href", "assets/vehicle-vector/vehicle.svg"
+            "href", await page.evaluate("VehicleVector.displayAsset")
         )
         await expect(page.locator("#vehicleDrawing [data-map-part]")).to_have_count(37)
         await expect(
             page.locator("#vehicleDrawing rect, #vehicleDrawing text")
         ).to_have_count(0)
 
-        # The complete scene and all part thumbnails are standalone vector assets.
+        # Keep every exact-source SVG, with no embedded images or remote resources.
         for asset in ["assets/vehicle-vector/vehicle.svg"] + [
             part["asset"] for part in parts
         ]:
@@ -132,6 +145,32 @@ async def main():
             assert svg.tag == "{http://www.w3.org/2000/svg}svg", asset
             assert svg.findall(".//{http://www.w3.org/2000/svg}path"), asset
             assert not svg.findall(".//{http://www.w3.org/2000/svg}image"), asset
+
+        # Faithful WebP derivatives paint quickly while the vector contours own clicks.
+        previews = [await page.evaluate("VehicleVector.displayAsset")] + [
+            part["displayAsset"] for part in parts
+        ]
+        assert len(set(previews)) == 38
+        for index, asset in enumerate(previews):
+            assert asset.startswith("assets/vehicle-vector/previews/")
+            assert asset.endswith(".webp")
+            response = await page.request.get(BASE + asset)
+            assert response.ok, asset
+            content = await response.body()
+            assert content[:4] == b"RIFF" and content[8:12] == b"WEBP", asset
+            dimensions = await page.evaluate(
+                """async url=>{
+                    const response=await fetch(url);
+                    const bitmap=await createImageBitmap(await response.blob());
+                    const dimensions={width:bitmap.width,height:bitmap.height};
+                    bitmap.close();return dimensions;
+                }""",
+                BASE + asset,
+            )
+            assert dimensions["width"] > 0 and dimensions["height"] > 0, asset
+            if index == 0:
+                assert dimensions["width"] * 2 == dimensions["height"] * 3
+                assert dimensions["width"] >= 1536
 
         # Every supplied safe point resolves to its exact physical part at both sizes.
         for width in [1440, 390]:
@@ -198,7 +237,7 @@ async def main():
             await assert_selection(page, part)
             await page.locator(".aurora-primary").click()
             await wait_for_route(page)
-            await expect(page.locator("#main h1")).to_have_text(part["systemLabel"])
+            await expect(page.locator("#main h1")).to_have_text(part["label"])
             for key, value in {
                 "component": component,
                 "part": part_id,

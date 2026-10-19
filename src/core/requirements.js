@@ -1,16 +1,25 @@
 'use strict';
 function requirementNodesForRecord(record, parentId) {
-  return (record.requirements || []).map((requirement) => ({
-    id: parentId + ':requirement:' + requirement.id,
-    label: requirement.title,
-    subtitle: requirement.clause,
-    icon: '§',
-    kind: 'Requisito com fonte',
-    recordId: record.id,
-    recordIds: [record.id],
-    requirementId: requirement.id,
-    text: requirement.rule,
-  }));
+  return (record.requirements || [])
+    .filter(
+      (requirement) =>
+        record.vehicleRequirementIds === undefined ||
+        record.vehicleRequirementIds.includes(requirement.id),
+    )
+    .map((requirement) => ({
+      id: parentId + ':requirement:' + requirement.id,
+      label: requirement.title,
+      subtitle: requirement.clause,
+      icon: '§',
+      kind:
+        requirement.provision?.kind === 'official_guidance'
+          ? 'Orientação oficial vinculada'
+          : 'Requisito com fonte',
+      recordId: record.id,
+      recordIds: [record.id],
+      requirementId: requirement.id,
+      text: requirement.rule,
+    }));
 }
 function requirementContextLinks(requirement) {
   if (!requirement.context) return '';

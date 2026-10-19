@@ -93,7 +93,11 @@ function installActiveRegulations(base) {
   };
 }
 
-function activeVehicleRecords(component, subsystem, lane) {
+function activeVehicleRecords(component, subsystem, lane, partId) {
+  if (partId)
+    return VehicleLegislation.part(partId, component.id)
+      ? VehicleLegislation.records(partId, catalog.records, { subsystemId: subsystem?.id, lane })
+      : [];
   const domain = lane === 'ambiental' ? 'environmental' : 'safety';
   return [
     ...new Map(
@@ -101,7 +105,8 @@ function activeVehicleRecords(component, subsystem, lane) {
         .filter(
           (r) =>
             r.regulatoryId &&
-            (r.regulatoryDomain === 'conformity' || r.regulatoryDomain === domain) &&
+            ((lane !== 'ambiental' && r.regulatoryDomain === 'conformity') ||
+              r.regulatoryDomain === domain) &&
             r.vehicleLinks.some(
               (x) =>
                 x.componentId === component.id && (!subsystem || x.subsystemId === subsystem.id),
@@ -112,7 +117,19 @@ function activeVehicleRecords(component, subsystem, lane) {
   ];
 }
 
-function activeVehicleSourceLinks(component, subsystem) {
+function activeVehicleSourceLinks(component, subsystem, partId) {
+  if (partId) {
+    const records = VehicleLegislation.records(partId, catalog.records, {
+      subsystemId: subsystem?.id,
+    });
+    return [...new Set(records.map((record) => record.agency))]
+      .map(
+        (agency) =>
+          `<a href="${esc(libraryRoute({ part: partId, agency }))}">${esc(agency)} · ${records.filter((record) => record.agency === agency).length} referências →</a>`,
+      )
+      .join(' · ');
+  }
+  if (component.id === 'bateria') return '';
   return Object.entries(regulatoryData)
     .map(([source, data]) => {
       const count = (data?.records || []).filter((r) =>

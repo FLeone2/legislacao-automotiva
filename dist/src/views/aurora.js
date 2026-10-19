@@ -42,6 +42,9 @@ function auroraFocusLink(component, partId) {
 }
 function auroraPanel(component, selectedPart) {
   const subsystems = ComponentFlow.subsystems(component, catalog.metadata.hierarchy);
+  const count = selectedPart
+    ? VehicleLegislation.records(selectedPart.id, catalog.records).length
+    : null;
   return `<aside class="aurora-explorer" aria-label="Subsistemas de ${esc(component.label)}">
     <header class="aurora-explorer-heading"><div><h2>${esc(component.label)}</h2>${selectedPart ? `<span class="vehicle-part-name">${esc(selectedPart.label)}</span>` : ''}</div></header>
     <div class="vehicle-part-picker"><label class="sr-only" for="vehiclePartSelect">Selecionar conjunto</label><select id="vehiclePartSelect"><option value="">Selecionar conjunto</option>${vehicleComponents
@@ -51,10 +54,29 @@ function auroraPanel(component, selectedPart) {
           `<optgroup label="${esc(c.label)}">${c.mapParts.map((part) => `<option value="${esc(part.id)}" ${selectedPart?.id === part.id ? 'selected' : ''}>${esc(part.label)}</option>`).join('')}</optgroup>`,
       )
       .join('')}</select></div>
-    <div class="aurora-subsystem-list">${subsystems.map((sub) => `<a class="aurora-subsystem" href="${esc(vehicleLink(component, null, sub.id))}"><span class="aurora-subsystem-art">${subsystemArt(sub)}</span><strong>${esc(sub.label)}</strong></a>`).join('')}</div>
+    ${selectedPart ? `<p class="vehicle-reference-count" role="status">${count ? `${count} ${count === 1 ? 'referência associada' : 'referências associadas'}` : 'Sem referência específica cadastrada'}</p>${auroraPartTopics(component, selectedPart)}` : `<div class="aurora-subsystem-list">${subsystems.map((sub) => `<a class="aurora-subsystem" href="${esc(vehicleLink(component, null, sub.id))}"><span class="aurora-subsystem-art">${subsystemArt(sub)}</span><strong>${esc(sub.label)}</strong></a>`).join('')}</div>`}
     <a class="aurora-primary" href="${esc(vehicleLink(component))}">Ver referências ${auroraIcon('arrow')}</a>
-    <a class="aurora-library-link" href="${esc(libraryRoute({ component: component.taxonomy }))}">Biblioteca do sistema →</a>
+    <a class="aurora-library-link" href="${esc(libraryRoute(selectedPart ? { part: selectedPart.id } : { component: component.taxonomy }))}">${selectedPart ? 'Biblioteca deste conjunto' : 'Biblioteca do sistema'} →</a>
   </aside>`;
+}
+function auroraPartTopics(component, part) {
+  const topics = VehicleLegislation.topics(part.id);
+  const hierarchy = catalog.metadata.hierarchy;
+  return ['component', 'vehicle']
+    .map((relation) => {
+      const related = topics.filter((topic) => topic.relation === relation);
+      if (!related.length) return '';
+      return `<section class="vehicle-reference-group" aria-label="${relation === 'component' ? 'Sobre este conjunto' : 'Contexto do veículo'}"><h3>${relation === 'component' ? 'Sobre este conjunto' : 'Contexto do veículo'}</h3><div class="aurora-subsystem-list">${related
+        .map((topic) => {
+          const subsystem = hierarchy
+            .flatMap((system) => system.children.map((sub) => ({ ...sub, system: system.id })))
+            .find((sub) => sub.id === topic.subsystemId);
+          const records = VehicleLegislation.recordsForTopic(topic, catalog.records);
+          return `<a class="aurora-subsystem vehicle-topic-card" data-part-topic="${esc(topic.id)}" href="${esc(vehicleTopicLink(component, part, topic))}"><span class="aurora-subsystem-art">${subsystem && component.id !== 'eletrica' ? subsystemArt(subsystem) : `<img src="${esc(part.displayAsset || part.asset)}" alt="">`}</span><span><strong>${esc(topic.label)}</strong><small>${records.length ? `${records.length} ${records.length === 1 ? 'referência' : 'referências'}` : 'Mapeamento pendente'}</small></span></a>`;
+        })
+        .join('')}</div></section>`;
+    })
+    .join('');
 }
 function renderAuroraOverview(query) {
   for (const [key, id] of [
@@ -66,10 +88,13 @@ function renderAuroraOverview(query) {
     if (value && [...select.options].some((option) => option.value === value)) select.value = value;
   }
   const component =
-    ComponentFlow.component(query.get('focus')) || ComponentFlow.component('bancos');
+    ComponentFlow.component(query.get('focus')) ||
+    ComponentFlow.component(VehicleLegislation.part(query.get('part'))?.componentId) ||
+    ComponentFlow.component('bancos');
   const selectedPart = vehicleVector.parts.find(
     (part) => part.id === query.get('part') && part.componentId === component.id,
   );
+  if (query.has('part') && !selectedPart) return renderInvalidVehiclePart();
   vehicleUI.component = null;
   vehicleUI.lane = null;
   vehicleUI.subsystem = null;
@@ -90,7 +115,7 @@ function renderAuroraOverview(query) {
     .join(' · ');
   $('#main').innerHTML =
     `<div class="aurora-overview-grid"><section class="aurora-vehicle-column" aria-label="Exploração visual do veículo">
-    <header class="aurora-heading"><h1>Sistemas do veículo</h1></header>
+    <header class="aurora-heading"><h1 tabindex="-1">Sistemas do veículo</h1></header>
     <nav class="aurora-breadcrumb" aria-label="Seleção atual">${auroraIcon('home')}<span>Veículo</span><span>›</span><strong>${esc(component.label)}</strong></nav>
     <div class="aurora-car-glass">${vehicleMap()}<div class="aurora-selection-caption">${auroraIcon('shield')}<div><strong>${esc(component.label)}</strong><small>${esc(focusLabel)}</small></div><span>Selecionado</span></div></div>
     <p class="aurora-original-note">Ilustração conceitual · selecione no desenho ou nos cartões</p>
@@ -106,7 +131,7 @@ function renderAuroraOverview(query) {
     )
     .join(
       '',
-    )}</div></section><footer class="aurora-page-foot">Liquid Aurora · Legislação Automotiva <span>Referências oficiais · aplicabilidade por projeto</span></footer>`;
+    )}</div></section><details class="vehicle-other-topics"><summary>Outros assuntos do acervo</summary><nav aria-label="Assuntos sem região própria na ilustração"><a href="#vehicle?component=eletrica&subsystem=eletronica/imagens">Rádio e multimídia</a><a href="#markings">Etiquetas e VIN</a><a href="#flow">Homologação e COP</a><a href="#mover">MOVER e eficiência</a><a href="#library">Todo o acervo</a></nav></details>`;
   $('#main')
     .querySelectorAll('#vehicleDrawing [data-component-link]')
     .forEach((link) => {

@@ -314,6 +314,7 @@ def generate(source):
                 "label": item["nome"],
                 "componentId": component,
                 "asset": asset,
+                "displayAsset": f"{ASSETS}/previews/{identifier}.webp",
                 "bbox": bbox,
                 "path": silhouette.get("d"),
                 "fillRule": "evenodd",
@@ -332,6 +333,7 @@ def generate(source):
         "width": WIDTH,
         "height": HEIGHT,
         "asset": f"{ASSETS}/vehicle.svg",
+        "displayAsset": f"{ASSETS}/previews/vehicle.webp",
         "parts": parts,
     }
     javascript = (

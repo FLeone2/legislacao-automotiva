@@ -23,7 +23,7 @@ async def main(base):
         )
         page = await context.new_page()
         page.on("pageerror", lambda error: errors.append(str(error)))
-        await page.goto(base + "#vehicle?focus=bancos")
+        await page.goto(base + "#vehicle?focus=bancos&part=peca_08_banco_traseiro")
         await wait_for_route(page)
         picker = page.get_by_label("Tema", exact=True)
         await expect(picker).to_have_value("dark")
@@ -41,6 +41,12 @@ async def main(base):
             await expect(page.locator("#vehicleImageZoom")).to_have_text(zoom)
             await expect(page.locator(".aurora-explorer h2")).to_have_text(
                 "Bancos e ocupantes"
+            )
+            await expect(page.locator("#vehiclePartSelect")).to_have_value(
+                "peca_08_banco_traseiro"
+            )
+            await expect(page.locator(".vehicle-part-name")).to_have_text(
+                "Banco traseiro"
             )
         await page.locator("[data-vehicle-zoom=reset]").click()
 

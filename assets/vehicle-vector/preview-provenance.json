@@ -1,0 +1,915 @@
+{
+  "schemaVersion": 1,
+  "renderers": {
+    "svg": {
+      "name": "librsvg",
+      "version": "2.60.0"
+    },
+    "cairo": {
+      "name": "Cairo",
+      "version": "1.18.4"
+    },
+    "webp": {
+      "name": "ImageMagick",
+      "version": "Version: ImageMagick 7.1.1-43 Q16 x86_64 22550 https://imagemagick.org"
+    }
+  },
+  "recipe": {
+    "source": "Exact existing SVG bytes; no geometry, labels or colors changed",
+    "svgRasterization": "librsvg.rsvg_handle_render_document(handle, Cairo ARGB32 context, viewport[0,0,width,height])",
+    "mainDimensions": [
+      3072,
+      2048
+    ],
+    "partMaxDimension": 768,
+    "partSizing": "Scale the SVG viewport to a longest edge of 768 px; preserve aspect ratio",
+    "background": "Preserve source transparency; no added background or trim",
+    "encoding": [
+      "magick",
+      "rendered.png",
+      "-strip",
+      "-define",
+      "webp:lossless=true",
+      "-define",
+      "webp:exact=true",
+      "output.webp"
+    ],
+    "verification": "Decoded RGBA bytes must equal the renderer PNG before publication"
+  },
+  "assets": [
+    {
+      "id": "vehicle",
+      "source": "assets/vehicle-vector/vehicle.svg",
+      "sourceSha256": "0cd0ed15215d88f6235eb484a8ae8f123d2c8979f62a3d2cd69e16f6b8ae287c",
+      "sourceGeometry": {
+        "width": 1536.0,
+        "height": 1024.0,
+        "viewBox": [
+          0.0,
+          0.0,
+          1536.0,
+          1024.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/vehicle.webp",
+      "outputSha256": "f44b1dae89ead340ee0b3b03a62d04629329a6da3c4611732ca4aff84192c220",
+      "dimensions": {
+        "width": 3072,
+        "height": 2048,
+        "hasTransparency": false,
+        "rgbaSha256": "47b723d6c9f52efc88448439a9266f7fbfeace92b692745bcc4e879f2f745264"
+      }
+    },
+    {
+      "id": "peca_01_painel_teto",
+      "source": "assets/vehicle-vector/peca_01_painel_teto.svg",
+      "sourceSha256": "5753ecd4f4bbe5433f4d874b4723f0dc299c33786fa78748e0c89d9b5a7b2695",
+      "sourceGeometry": {
+        "width": 309.0,
+        "height": 113.0,
+        "viewBox": [
+          610.0,
+          22.0,
+          309.0,
+          113.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_01_painel_teto.webp",
+      "outputSha256": "5b7e0f51e5a61e2c268969080cec960b2573efd25c3d529b06eb5d16a2caf7c5",
+      "dimensions": {
+        "width": 768,
+        "height": 281,
+        "hasTransparency": true,
+        "rgbaSha256": "bc6b72c44d42b8727c23f5d722492391ca1998d22655c2f3037e2a2d73b46505"
+      }
+    },
+    {
+      "id": "peca_02_vidro_lateral_dianteiro",
+      "source": "assets/vehicle-vector/peca_02_vidro_lateral_dianteiro.svg",
+      "sourceSha256": "f15f09963995e413f480d314718b863641a6a666dc472636d236536fd104a1ae",
+      "sourceGeometry": {
+        "width": 109.0,
+        "height": 103.0,
+        "viewBox": [
+          487.0,
+          87.0,
+          109.0,
+          103.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_02_vidro_lateral_dianteiro.webp",
+      "outputSha256": "331c7fc880fe8bbc1b14576ca3c2b9ff98689f294f6bd011aec68206c5f9233a",
+      "dimensions": {
+        "width": 768,
+        "height": 726,
+        "hasTransparency": true,
+        "rgbaSha256": "17f4f396ec2549713961578cadd474c2d6c16ce3a36f6ccf847ecb628dd15359"
+      }
+    },
+    {
+      "id": "peca_03_parabrisa",
+      "source": "assets/vehicle-vector/peca_03_parabrisa.svg",
+      "sourceSha256": "275c8d654cd9d137b365f521088ef261e34476c2d64ff1b78ae89ca083649170",
+      "sourceGeometry": {
+        "width": 228.0,
+        "height": 147.0,
+        "viewBox": [
+          503.0,
+          115.0,
+          228.0,
+          147.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_03_parabrisa.webp",
+      "outputSha256": "dceb092c99a358da5ee925dca975d8cb1a060924cc74bdca76d8f85e050962d4",
+      "dimensions": {
+        "width": 768,
+        "height": 495,
+        "hasTransparency": true,
+        "rgbaSha256": "f36a7b226b4ce1987b209034c8b518e291a06eee4d2565fbf07308fce2e12587"
+      }
+    },
+    {
+      "id": "peca_04_vidro_lateral_superior",
+      "source": "assets/vehicle-vector/peca_04_vidro_lateral_superior.svg",
+      "sourceSha256": "e399431f12640b8d693099bf9c59c5b1a1d10511f4dcebe72a30d3b50e251b10",
+      "sourceGeometry": {
+        "width": 152.0,
+        "height": 99.0,
+        "viewBox": [
+          842.0,
+          51.0,
+          152.0,
+          99.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_04_vidro_lateral_superior.webp",
+      "outputSha256": "866f49433bce2ef4c9e3534926f1ccfaf070b0e55991141bef7a144749d23d84",
+      "dimensions": {
+        "width": 768,
+        "height": 500,
+        "hasTransparency": true,
+        "rgbaSha256": "9f71427b6b7e3a63269d6f57d91bbd74a414071a23afedc6e70e1fae1d3f7f47"
+      }
+    },
+    {
+      "id": "peca_05_vidro_triangular_superior",
+      "source": "assets/vehicle-vector/peca_05_vidro_triangular_superior.svg",
+      "sourceSha256": "5b6c99ea82094b9f2a54a958d00723aed2820d14b7289f156e2f6f0fe812caed",
+      "sourceGeometry": {
+        "width": 71.0,
+        "height": 55.0,
+        "viewBox": [
+          993.0,
+          59.0,
+          71.0,
+          55.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_05_vidro_triangular_superior.webp",
+      "outputSha256": "8ed1ebb01d9665011d2305928c34333d6bee692d9e682070797d4f2554c5ff3d",
+      "dimensions": {
+        "width": 768,
+        "height": 595,
+        "hasTransparency": true,
+        "rgbaSha256": "b116cc19c54119dadba6c5ef45173099e160eea64e1bf422819033ead9122610"
+      }
+    },
+    {
+      "id": "peca_06_vidro_traseiro",
+      "source": "assets/vehicle-vector/peca_06_vidro_traseiro.svg",
+      "sourceSha256": "34b3fc444f49b4726bf63b04d6bacf63496bc2b848f325e3954c28200a49ceba",
+      "sourceGeometry": {
+        "width": 181.0,
+        "height": 105.0,
+        "viewBox": [
+          1062.0,
+          38.0,
+          181.0,
+          105.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_06_vidro_traseiro.webp",
+      "outputSha256": "d1ee93a36f920b37d22548254a1da3ab8b477eec3d05566c1128e03737a2bc0a",
+      "dimensions": {
+        "width": 768,
+        "height": 446,
+        "hasTransparency": true,
+        "rgbaSha256": "ac58a2f24591086d9082ecf5958e84f44b0a4263da86ac0191c155178f70acee"
+      }
+    },
+    {
+      "id": "peca_07_vidro_lateral_traseiro",
+      "source": "assets/vehicle-vector/peca_07_vidro_lateral_traseiro.svg",
+      "sourceSha256": "b9d2ff5306e061046659ae064e046575c73639e48efbf899792cc51f25da6aef",
+      "sourceGeometry": {
+        "width": 91.0,
+        "height": 77.0,
+        "viewBox": [
+          1108.0,
+          124.0,
+          91.0,
+          77.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_07_vidro_lateral_traseiro.webp",
+      "outputSha256": "3c2c082a97af195a65dca74b3bccbecf730a3b0b13ebd15c9eec62d2ebcffef2",
+      "dimensions": {
+        "width": 768,
+        "height": 650,
+        "hasTransparency": true,
+        "rgbaSha256": "0c8f9bf8a5779a4b6436ff9378fe1be62eecfada43530934eb5decf202a58d3d"
+      }
+    },
+    {
+      "id": "peca_08_banco_traseiro",
+      "source": "assets/vehicle-vector/peca_08_banco_traseiro.svg",
+      "sourceSha256": "7ef4c858a51d4322bdfe05fe8c17a911c3aa712ab68db805061e742921aad0a7",
+      "sourceGeometry": {
+        "width": 211.0,
+        "height": 166.0,
+        "viewBox": [
+          920.0,
+          108.0,
+          211.0,
+          166.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_08_banco_traseiro.webp",
+      "outputSha256": "cd177adf527a570c2dd7c4441effeb510fa85e3fffbd206526aedebb2df3e4b4",
+      "dimensions": {
+        "width": 768,
+        "height": 604,
+        "hasTransparency": true,
+        "rgbaSha256": "435bd420f7814f7e23b0f7859c7b9111bfb5cf0d26fe9a164557a9e424e3f7d5"
+      }
+    },
+    {
+      "id": "peca_09_bancos_dianteiros_console",
+      "source": "assets/vehicle-vector/peca_09_bancos_dianteiros_console.svg",
+      "sourceSha256": "cb8665be41e0d0b933c9ac12061cafc6bd73773690f040ffa47113b83c19ef11",
+      "sourceGeometry": {
+        "width": 251.0,
+        "height": 181.0,
+        "viewBox": [
+          675.0,
+          120.0,
+          251.0,
+          181.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_09_bancos_dianteiros_console.webp",
+      "outputSha256": "72202797a8142474e6fec3cb95966e7165182f2ead403ddbcce5af86bd3c7da3",
+      "dimensions": {
+        "width": 768,
+        "height": 554,
+        "hasTransparency": true,
+        "rgbaSha256": "2a2afc91a126394ab327b63e87b2d0d16bd3d358e6f2d3594f8acb1adfaaa008"
+      }
+    },
+    {
+      "id": "peca_10_carroceria",
+      "source": "assets/vehicle-vector/peca_10_carroceria.svg",
+      "sourceSha256": "3b0bde4afacd37acb7c1e3f39562bfa76bd0f2917e2ea3763601b595e2477d1b",
+      "sourceGeometry": {
+        "width": 659.0,
+        "height": 317.0,
+        "viewBox": [
+          432.0,
+          257.0,
+          659.0,
+          317.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_10_carroceria.webp",
+      "outputSha256": "c3bba2887d19e4f6d34b7faa1d0ecf15ec13c533e3cafdc6dd5b94e8bf14091d",
+      "dimensions": {
+        "width": 768,
+        "height": 369,
+        "hasTransparency": true,
+        "rgbaSha256": "8630ba0e29b98ba94da7eecdc22d5ff1e19012332e76842ced0028da2d55307a"
+      }
+    },
+    {
+      "id": "peca_11_capo",
+      "source": "assets/vehicle-vector/peca_11_capo.svg",
+      "sourceSha256": "2189eb9fd6abb6e3cf5cfb70faf59bd525dda1b58aff7004eeaf8a4919407520",
+      "sourceGeometry": {
+        "width": 302.0,
+        "height": 150.0,
+        "viewBox": [
+          254.0,
+          313.0,
+          302.0,
+          150.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_11_capo.webp",
+      "outputSha256": "69f00914fbf05529ee00d379f6a3ad8ea7a71fc16debe3d858eeee98c825e4a1",
+      "dimensions": {
+        "width": 768,
+        "height": 381,
+        "hasTransparency": true,
+        "rgbaSha256": "88da8ea1dbb2d1f8f0365be56256097c22d70a54e603647e8a1b9332a8ab8e3e"
+      }
+    },
+    {
+      "id": "peca_12_farol_lado_oposto",
+      "source": "assets/vehicle-vector/peca_12_farol_lado_oposto.svg",
+      "sourceSha256": "4d782cef793ba2df110a72120c67a8913bd7c4c87df192df9eeeecb66cf1eab5",
+      "sourceGeometry": {
+        "width": 80.0,
+        "height": 95.0,
+        "viewBox": [
+          168.0,
+          409.0,
+          80.0,
+          95.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_12_farol_lado_oposto.webp",
+      "outputSha256": "586485bf13b1356ab046540e41c95549c9520ae83598bbfbf43667b69f916e8c",
+      "dimensions": {
+        "width": 647,
+        "height": 768,
+        "hasTransparency": true,
+        "rgbaSha256": "3b159740caa9131fba652257281e3a6fc123e3025a2e1bc0809fd3d9e76e695c"
+      }
+    },
+    {
+      "id": "peca_13_farol_lado_visivel",
+      "source": "assets/vehicle-vector/peca_13_farol_lado_visivel.svg",
+      "sourceSha256": "1dd48b10c23e7203e60cef53b0e4047f20dc6e18e334bb4965a01de00c747980",
+      "sourceGeometry": {
+        "width": 165.0,
+        "height": 73.0,
+        "viewBox": [
+          247.0,
+          467.0,
+          165.0,
+          73.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_13_farol_lado_visivel.webp",
+      "outputSha256": "493e5a25487889a2f1bccc59b9ddb06ef9feccf033373f976a2d0ffae942a7a7",
+      "dimensions": {
+        "width": 768,
+        "height": 340,
+        "hasTransparency": true,
+        "rgbaSha256": "93597c1f08593a666e13f342ed4768e0e94399e3c917006490649962fb5cad9a"
+      }
+    },
+    {
+      "id": "peca_14_parachoque_dianteiro",
+      "source": "assets/vehicle-vector/peca_14_parachoque_dianteiro.svg",
+      "sourceSha256": "8acc1dd9ca7113fb47fb9096c319caf3521bcdada61325ae0c9cd2f323859430",
+      "sourceGeometry": {
+        "width": 249.0,
+        "height": 178.0,
+        "viewBox": [
+          108.0,
+          478.0,
+          249.0,
+          178.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_14_parachoque_dianteiro.webp",
+      "outputSha256": "0c81d2a8d5347252776f479c8f0500ccb66e0794099c2c82308e54ff6c99103d",
+      "dimensions": {
+        "width": 768,
+        "height": 549,
+        "hasTransparency": true,
+        "rgbaSha256": "93c9fc56aee1ab28770a094796756f902f1de5dca2915ab44b7d841a5fc2d0de"
+      }
+    },
+    {
+      "id": "peca_15_lanterna_traseira_1",
+      "source": "assets/vehicle-vector/peca_15_lanterna_traseira_1.svg",
+      "sourceSha256": "ca017185228f5c4c666290832e4baa05d6ee86f8509992bc7f5311932ae24081",
+      "sourceGeometry": {
+        "width": 67.0,
+        "height": 44.0,
+        "viewBox": [
+          1231.0,
+          143.0,
+          67.0,
+          44.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_15_lanterna_traseira_1.webp",
+      "outputSha256": "0ec1eac57457484624b2810955faf5899ef0b892a3cacb48265b851d351128e5",
+      "dimensions": {
+        "width": 768,
+        "height": 504,
+        "hasTransparency": true,
+        "rgbaSha256": "1ea7bb6fb86cc66c251c6cead5bf4e131679c621aa44c398309837fa111db014"
+      }
+    },
+    {
+      "id": "peca_16_lanterna_traseira_2",
+      "source": "assets/vehicle-vector/peca_16_lanterna_traseira_2.svg",
+      "sourceSha256": "9f08027808b64083690fe2c1592eb01dc465b07c67fcf0f2b08d32058b3ebfd1",
+      "sourceGeometry": {
+        "width": 79.0,
+        "height": 46.0,
+        "viewBox": [
+          1334.0,
+          184.0,
+          79.0,
+          46.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_16_lanterna_traseira_2.webp",
+      "outputSha256": "4703cc3a176a0cb9c1eab4c4b92992120d7a632293e3bcc950b986f5ee3e45e1",
+      "dimensions": {
+        "width": 768,
+        "height": 447,
+        "hasTransparency": true,
+        "rgbaSha256": "94ad3e11e1c31c3b8a3ace863d86de64050e7a4d6771eafb42bcfda281f54ff5"
+      }
+    },
+    {
+      "id": "peca_17_parachoque_traseiro",
+      "source": "assets/vehicle-vector/peca_17_parachoque_traseiro.svg",
+      "sourceSha256": "b5c98655934eeaad3bc439fbf510694f614302ea15bf9c04d49c640af03abb64",
+      "sourceGeometry": {
+        "width": 252.0,
+        "height": 152.0,
+        "viewBox": [
+          1216.0,
+          193.0,
+          252.0,
+          152.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_17_parachoque_traseiro.webp",
+      "outputSha256": "f1ba0a8326a84b20be474f1a1c059d464daab9d455584b012acc3f3092d839ec",
+      "dimensions": {
+        "width": 768,
+        "height": 463,
+        "hasTransparency": true,
+        "rgbaSha256": "241d58dde31ed0b6f37c7c56d98f752ef2715299c6478a930f92c45ba8efc6ff"
+      }
+    },
+    {
+      "id": "peca_18_vidro_lateral_inferior",
+      "source": "assets/vehicle-vector/peca_18_vidro_lateral_inferior.svg",
+      "sourceSha256": "9ed3d0e250d1ec8248a3e73d766b4612dfcaf85713790ea9080e0970fc372153",
+      "sourceGeometry": {
+        "width": 120.0,
+        "height": 102.0,
+        "viewBox": [
+          971.0,
+          406.0,
+          120.0,
+          102.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_18_vidro_lateral_inferior.webp",
+      "outputSha256": "f592cb28f62d864c1437fe8a81a6a051b58a301a0c1b4c2df292f8c858e70444",
+      "dimensions": {
+        "width": 768,
+        "height": 653,
+        "hasTransparency": true,
+        "rgbaSha256": "dadf0caaa73cda03354ebd5b6695b5c1181fa6f8782928a45ea90341964fdc9c"
+      }
+    },
+    {
+      "id": "peca_19_vidro_porta_dianteira",
+      "source": "assets/vehicle-vector/peca_19_vidro_porta_dianteira.svg",
+      "sourceSha256": "d8ae409800f0cc12dcd1fb1f02f8bfc30e1e70f9ce8367f064c566ca994628ff",
+      "sourceGeometry": {
+        "width": 109.0,
+        "height": 113.0,
+        "viewBox": [
+          1099.0,
+          328.0,
+          109.0,
+          113.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_19_vidro_porta_dianteira.webp",
+      "outputSha256": "553d79f12ead5eaf9d826b10dd847e17761d36b71ccfa88d30b0caa02ee0e7fb",
+      "dimensions": {
+        "width": 741,
+        "height": 768,
+        "hasTransparency": true,
+        "rgbaSha256": "c60bd209235628530fd686c6ca9b63597d4655e01972cfe80dbd09e6b874cac9"
+      }
+    },
+    {
+      "id": "peca_20_vidro_porta_traseira",
+      "source": "assets/vehicle-vector/peca_20_vidro_porta_traseira.svg",
+      "sourceSha256": "6357dd157b2cae622bd10025c45e983416bbfd91630d02e5ab57bb64996fd7af",
+      "sourceGeometry": {
+        "width": 99.0,
+        "height": 85.0,
+        "viewBox": [
+          1215.0,
+          313.0,
+          99.0,
+          85.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_20_vidro_porta_traseira.webp",
+      "outputSha256": "a821ac5ffd9315081bcd816585a9b4af8883dc1184933bc2e79aee310cf48930",
+      "dimensions": {
+        "width": 768,
+        "height": 659,
+        "hasTransparency": true,
+        "rgbaSha256": "832346848b86cfb9e487d857f5949cbc7f736c2d10e5dec2b3ef6c46328d2b6e"
+      }
+    },
+    {
+      "id": "peca_21_porta_dianteira",
+      "source": "assets/vehicle-vector/peca_21_porta_dianteira.svg",
+      "sourceSha256": "5dd1e22e1e2a1e950a0fe8bc6c1eedc3b16c73943998ebb458fdc0ecc3ded35f",
+      "sourceGeometry": {
+        "width": 133.0,
+        "height": 161.0,
+        "viewBox": [
+          1078.0,
+          405.0,
+          133.0,
+          161.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_21_porta_dianteira.webp",
+      "outputSha256": "5f9036c5be5f10e59a1b1f178bd605010471c4d6ee7bef4b3d6be807be22e25c",
+      "dimensions": {
+        "width": 634,
+        "height": 768,
+        "hasTransparency": true,
+        "rgbaSha256": "1aa91f37c578889b84ee88fa1453758c1bfc414587886d51ac9306b0c7e78561"
+      }
+    },
+    {
+      "id": "peca_22_porta_traseira",
+      "source": "assets/vehicle-vector/peca_22_porta_traseira.svg",
+      "sourceSha256": "c8228dbc311357b0d7fd83a8ce77a4beb1ddacfb49fc8ec93adcdbf9302a811a",
+      "sourceGeometry": {
+        "width": 123.0,
+        "height": 158.0,
+        "viewBox": [
+          1210.0,
+          368.0,
+          123.0,
+          158.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_22_porta_traseira.webp",
+      "outputSha256": "f37747eb395ba90baf7880193fc7c558f04f9422fdc292f8747ed66ec3799b7e",
+      "dimensions": {
+        "width": 598,
+        "height": 768,
+        "hasTransparency": true,
+        "rgbaSha256": "bc02688d908f430ca8eee34a9534f46b758eaf33de059bad1573fcc1d7746b5f"
+      }
+    },
+    {
+      "id": "peca_23_retrovisor",
+      "source": "assets/vehicle-vector/peca_23_retrovisor.svg",
+      "sourceSha256": "79f1d05444ce9ea7dcf95ed932d3ec033a7f436b8ca1eaaf688153b4eeb4cd54",
+      "sourceGeometry": {
+        "width": 76.0,
+        "height": 61.0,
+        "viewBox": [
+          991.0,
+          489.0,
+          76.0,
+          61.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_23_retrovisor.webp",
+      "outputSha256": "b198cd8fad9ce876e6a6c3c20ce49e438d21b9229dd66fc05ee71bf089e84157",
+      "dimensions": {
+        "width": 768,
+        "height": 616,
+        "hasTransparency": true,
+        "rgbaSha256": "02c74bdf3aeeaf13ded5a88edb77fc2ec31c9c00be5497e961842dfda6f50a6a"
+      }
+    },
+    {
+      "id": "peca_24_motor_combustao_transmissao",
+      "source": "assets/vehicle-vector/peca_24_motor_combustao_transmissao.svg",
+      "sourceSha256": "bf83d175df52b5d4fcbda21013809361dc5975c4e2393ee8bba77acf361a7dd5",
+      "sourceGeometry": {
+        "width": 306.0,
+        "height": 188.0,
+        "viewBox": [
+          352.0,
+          549.0,
+          306.0,
+          188.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_24_motor_combustao_transmissao.webp",
+      "outputSha256": "b21758a1b7d3d640395841d96950660928c0b176c4502970d9830fbadf03d4f3",
+      "dimensions": {
+        "width": 768,
+        "height": 472,
+        "hasTransparency": true,
+        "rgbaSha256": "3c6440035211b35f09d924626a40754cd7f4dd7094939274b837b57543059945"
+      }
+    },
+    {
+      "id": "peca_25_motor_eletrico_inversor_cabos",
+      "source": "assets/vehicle-vector/peca_25_motor_eletrico_inversor_cabos.svg",
+      "sourceSha256": "5d9613c49a22b3b37f44b7bc40e8bd3babfdfd7c2e58bbf9fc55f1dc1e2f0091",
+      "sourceGeometry": {
+        "width": 226.0,
+        "height": 129.0,
+        "viewBox": [
+          657.0,
+          546.0,
+          226.0,
+          129.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_25_motor_eletrico_inversor_cabos.webp",
+      "outputSha256": "331cc032cf0dc1d4dd2f9827401aab14f04c9919b89def3d1c9b067a046aea44",
+      "dimensions": {
+        "width": 768,
+        "height": 438,
+        "hasTransparency": true,
+        "rgbaSha256": "8b314a64557257f5c7a4a03c259a8d3e438d1982f6f73edfdc6d38fa3accf45c"
+      }
+    },
+    {
+      "id": "peca_26_bateria_tracao",
+      "source": "assets/vehicle-vector/peca_26_bateria_tracao.svg",
+      "sourceSha256": "8c9f2f43f3a135e153621e6faa6638014a95ed0b9676a5b54ad66aa018de1d06",
+      "sourceGeometry": {
+        "width": 504.0,
+        "height": 227.0,
+        "viewBox": [
+          575.0,
+          592.0,
+          504.0,
+          227.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_26_bateria_tracao.webp",
+      "outputSha256": "da745beb4e9d6d55a0df6c6254bcac1c115578b6a099a49123cb17a9c8392f9c",
+      "dimensions": {
+        "width": 768,
+        "height": 346,
+        "hasTransparency": true,
+        "rgbaSha256": "988e42d0bf808e76010ebb7f8fcd52f661bf3c3e4d5ccf3cc2ff9fe84438fc25"
+      }
+    },
+    {
+      "id": "peca_27_bateria_12v",
+      "source": "assets/vehicle-vector/peca_27_bateria_12v.svg",
+      "sourceSha256": "2c6b2313df138cd531063c28c3f3e9b748869a4018545656e5e9bf7a316ff6aa",
+      "sourceGeometry": {
+        "width": 74.0,
+        "height": 68.0,
+        "viewBox": [
+          891.0,
+          514.0,
+          74.0,
+          68.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_27_bateria_12v.webp",
+      "outputSha256": "4c240a13d931f7ef742feacef9d8ae4c898cda0c8e3bf23ed6fc62b53650ccce",
+      "dimensions": {
+        "width": 768,
+        "height": 706,
+        "hasTransparency": true,
+        "rgbaSha256": "3b610aabccbdf2e372ad60f7b2b4c94b7185e9525d95f15a47e2c9148d70096a"
+      }
+    },
+    {
+      "id": "peca_28_chicote_eletrico",
+      "source": "assets/vehicle-vector/peca_28_chicote_eletrico.svg",
+      "sourceSha256": "022d6306a689878f02e891f6979404b136557406987549bf21bc7fb5565c567b",
+      "sourceGeometry": {
+        "width": 390.0,
+        "height": 157.0,
+        "viewBox": [
+          1018.0,
+          530.0,
+          390.0,
+          157.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_28_chicote_eletrico.webp",
+      "outputSha256": "b9ae1be5db5e1abe62435a8d171e77c25f3f3d34f7113026d923c78d33d348e6",
+      "dimensions": {
+        "width": 768,
+        "height": 309,
+        "hasTransparency": true,
+        "rgbaSha256": "d807d9d8ba4f45a032025ce0bf4a8b98649390553d0b4cf8e4a3b83446a95068"
+      }
+    },
+    {
+      "id": "peca_29_radiador",
+      "source": "assets/vehicle-vector/peca_29_radiador.svg",
+      "sourceSha256": "a471c1891394f6b4d68679712a70a5854536852ca39f4269c0093f6c3466f899",
+      "sourceGeometry": {
+        "width": 230.0,
+        "height": 174.0,
+        "viewBox": [
+          125.0,
+          621.0,
+          230.0,
+          174.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_29_radiador.webp",
+      "outputSha256": "9334f748ad2781c06bab69b6c2d80b9c721b184cb9ea4c896f74f13720c759b0",
+      "dimensions": {
+        "width": 768,
+        "height": 581,
+        "hasTransparency": true,
+        "rgbaSha256": "ccf9eaa4b2b796e13fd6a82bbcc0c1a82a9a30a62b52d7188637613b4fb359ea"
+      }
+    },
+    {
+      "id": "peca_30_tanque_tubo_combustivel",
+      "source": "assets/vehicle-vector/peca_30_tanque_tubo_combustivel.svg",
+      "sourceSha256": "52ab879313375060b04b85574f991b22d70abc6feb21d830485af4a9ec5ed118",
+      "sourceGeometry": {
+        "width": 341.0,
+        "height": 264.0,
+        "viewBox": [
+          1134.0,
+          514.0,
+          341.0,
+          264.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_30_tanque_tubo_combustivel.webp",
+      "outputSha256": "3496e1df2c59be6534168f78394172def0ae12745cc70085996ab420601b7b5b",
+      "dimensions": {
+        "width": 768,
+        "height": 595,
+        "hasTransparency": true,
+        "rgbaSha256": "790dd0b223e195dd17e41347e058f7d16c5f6bd0611525d940e46d3c59581f1c"
+      }
+    },
+    {
+      "id": "peca_31_escapamento",
+      "source": "assets/vehicle-vector/peca_31_escapamento.svg",
+      "sourceSha256": "b443a581d0da9fb48a7b10b934c42f21fec9e93f40b278e4584e985967ae116e",
+      "sourceGeometry": {
+        "width": 487.0,
+        "height": 171.0,
+        "viewBox": [
+          685.0,
+          731.0,
+          487.0,
+          171.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_31_escapamento.webp",
+      "outputSha256": "6dfbd54c3150a141a380b3597c5cb80be495163c6be998ed4870da003f3f9a34",
+      "dimensions": {
+        "width": 768,
+        "height": 270,
+        "hasTransparency": true,
+        "rgbaSha256": "1d3b345b50fb8e885f8f442cf72ac5221c3417315c6f8706eb7e18d519b0e698"
+      }
+    },
+    {
+      "id": "peca_32_suspensao_dianteira_direcao",
+      "source": "assets/vehicle-vector/peca_32_suspensao_dianteira_direcao.svg",
+      "sourceSha256": "f444b97103b1f8a0ca235c27ff17c853cf18e748a191883b5f79e01bc46d6101",
+      "sourceGeometry": {
+        "width": 394.0,
+        "height": 248.0,
+        "viewBox": [
+          288.0,
+          734.0,
+          394.0,
+          248.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_32_suspensao_dianteira_direcao.webp",
+      "outputSha256": "e612c7feac6e2911c9d761a381c4df6c3a23c71e2ca006b07afc66986ff9ed76",
+      "dimensions": {
+        "width": 768,
+        "height": 483,
+        "hasTransparency": true,
+        "rgbaSha256": "289e0853e7c6ac6b0367fd2b307a8d479c8c1e47d7eb2ccdc785a6f01c2f060b"
+      }
+    },
+    {
+      "id": "peca_33_suspensao_traseira",
+      "source": "assets/vehicle-vector/peca_33_suspensao_traseira.svg",
+      "sourceSha256": "ea9f5b7fb3a532e99ed6ecd993c1173c0e6f3d5ed519521ed9a5762107362d37",
+      "sourceGeometry": {
+        "width": 342.0,
+        "height": 206.0,
+        "viewBox": [
+          898.0,
+          772.0,
+          342.0,
+          206.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_33_suspensao_traseira.webp",
+      "outputSha256": "bda47820630b2c39254623c21902b2c7de7373af976d96fe88a31a937c7430af",
+      "dimensions": {
+        "width": 768,
+        "height": 463,
+        "hasTransparency": true,
+        "rgbaSha256": "f888ae3d6cd674f55533b0f8c769c673f8de7a7be3a3a8915f33699990d72a5f"
+      }
+    },
+    {
+      "id": "peca_34_roda_dianteira",
+      "source": "assets/vehicle-vector/peca_34_roda_dianteira.svg",
+      "sourceSha256": "5c61f340cbfd82773fbbd532efb0dc6b76ebd7ddbfa6b9b931fc64cb62befaa5",
+      "sourceGeometry": {
+        "width": 156.0,
+        "height": 180.0,
+        "viewBox": [
+          53.0,
+          773.0,
+          156.0,
+          180.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_34_roda_dianteira.webp",
+      "outputSha256": "02a8c4dbd865938b6413d9c0e1a3468f97c4144863993f9b0e29d0db96e3f0ef",
+      "dimensions": {
+        "width": 666,
+        "height": 768,
+        "hasTransparency": true,
+        "rgbaSha256": "56e5b8018e2649656ae43067e57a4c2dba9801a3203d1e0e6979bf67cc36b687"
+      }
+    },
+    {
+      "id": "peca_35_freio_dianteiro",
+      "source": "assets/vehicle-vector/peca_35_freio_dianteiro.svg",
+      "sourceSha256": "8fd2cab3253ab2f3a207b6af728952d9a2b03c69a23536ab05f7b98ede02943c",
+      "sourceGeometry": {
+        "width": 87.0,
+        "height": 89.0,
+        "viewBox": [
+          205.0,
+          818.0,
+          87.0,
+          89.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_35_freio_dianteiro.webp",
+      "outputSha256": "5d2055f72d52b08f8a5e88bd7bced92a3428e1402ca7dc0938c74b5afa15d019",
+      "dimensions": {
+        "width": 751,
+        "height": 768,
+        "hasTransparency": true,
+        "rgbaSha256": "d7240cc34e1a96d12053d09f4409e424d5b0a8b29073a4d753eb9f7945fb5c0f"
+      }
+    },
+    {
+      "id": "peca_36_roda_traseira",
+      "source": "assets/vehicle-vector/peca_36_roda_traseira.svg",
+      "sourceSha256": "9960e7065b77125f001f2ada4c68baea4956c2d8f6c513f8f25762504545fbc8",
+      "sourceGeometry": {
+        "width": 153.0,
+        "height": 186.0,
+        "viewBox": [
+          1323.0,
+          780.0,
+          153.0,
+          186.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_36_roda_traseira.webp",
+      "outputSha256": "513c357d85fe49dd2c9e29d15cf5aafb662326bc439aa2f43336829f5d93aef2",
+      "dimensions": {
+        "width": 632,
+        "height": 768,
+        "hasTransparency": true,
+        "rgbaSha256": "4717aaaa5b8e8c49023282ce77c28ef7a32f603734d4104faf11c4732b827f23"
+      }
+    },
+    {
+      "id": "peca_37_freio_traseiro",
+      "source": "assets/vehicle-vector/peca_37_freio_traseiro.svg",
+      "sourceSha256": "a6fa5899b95524ff5203680d8d3e76ee64758e8c5bf5fe7abfb86bc1e72c99d7",
+      "sourceGeometry": {
+        "width": 83.0,
+        "height": 91.0,
+        "viewBox": [
+          1240.0,
+          848.0,
+          83.0,
+          91.0
+        ]
+      },
+      "output": "assets/vehicle-vector/previews/peca_37_freio_traseiro.webp",
+      "outputSha256": "789484134b9f04caa3cfc39dae84ce9e5c5b34e2d80089c533e393a04b0cc9e4",
+      "dimensions": {
+        "width": 700,
+        "height": 768,
+        "hasTransparency": true,
+        "rgbaSha256": "733e16347d1f24a751639bdbde623b0e5be5ce4d2b409fd37a7670a81e0a810e"
+      }
+    }
+  ]
+}

@@ -586,3 +586,68 @@ Na rodada anterior de verificação externa de 814
 endereços de fontes: 65 responderam HTTP 200, 696 retornaram 403 e 53 retornaram
 503. Os 749 casos sem confirmação permanecem como acesso não verificado; nenhum
 404/410 foi confirmado nessa rodada. Isso não altera a revisão normativa.
+
+## Associação entre os conjuntos vetoriais e a legislação
+
+A seleção por peça usa `data/vehicle-legislation/reviewed-map.json`, revisado em
+19/10/2026 a partir das referências já existentes. Os 37 contornos permanecem
+inalterados. Cada conjunto aponta para assuntos com referências explícitas,
+separadas entre **sobre o conjunto** e **contexto do veículo**. Não há herança
+indiscriminada dos atos do sistema inteiro ao selecionar uma peça.
+
+O mapa contém 86 entradas de assunto e 153 associações. O inventário de 298
+entradas documentais representa 293 atos únicos: 56 têm alguma associação visual
+(20 com relação ao conjunto, 37 como contexto, com um ato em ambas) e 237 seguem
+acessíveis pelos assuntos e processos do acervo, sem região visual atribuída.
+Essas contagens descrevem a classificação do acervo, não sua completude jurídica.
+
+Exemplos de delimitação:
+
+- Porta: retenção e fechaduras; capô: proteção de pedestres no veículo.
+- Vidro fixo: requisitos do vidro e contexto de marcação; acionamento de janela
+  fica ligado aos conjuntos correspondentes.
+- Bateria de 12 V: referência de bateria chumbo-ácido, condicionada à química;
+  a referência não é transferida para o conjunto de tração.
+- Portaria com vários produtos: a árvore exibe somente os dispositivos
+  associados ao assunto selecionado. O documento completo conserva seus dados.
+- Radiador e chicote: lacunas explícitas, sem preencher com normas de
+  catalisador, rádio ou multimídia. Uma lacuna não significa ausência de obrigação.
+
+`src/core/vehicle-legislation.js` é o único resolvedor dessas relações para
+cards, árvore, biblioteca e retorno do documento à peça. A URL conserva `part`
+e o assunto em `topic`; subsistemas de outra categoria, como VIN no monobloco,
+podem ser consultados sem inventar sua posição na imagem. Aliases de um mesmo
+ato são agrupados nos resultados por peça, preservando os endereços antigos.
+
+O gerador valida IDs e geometria de origem, categorias, atos publicados,
+requisitos pertencentes ao ato e os trechos que fundamentam o vínculo. Não altera
+publicação, vigência, profundidade de revisão ou aplicabilidade. As exclusões
+editoriais e as ressalvas das referências continuam válidas.
+
+```sh
+npm run build:vehicle-map
+python scripts/build_vehicle_legislation.py --check
+```
+
+`npm run build:data` também atualiza esse mapa. As saídas incluem
+`src/core/vehicle-legislation-data.js` e
+`data/site/vehicle-legislation-audit.{json,csv}`, com classificação dos 293 atos,
+IDs canônicos, aliases e conjuntos associados. A evidência editorial completa
+permanece fora do artefato público; o documento original é consultado pelos links
+do acervo.
+
+As referências de interação estão registradas em
+`data/vehicle-legislation/navigation-references.json`: [RealOEM](https://www.realoem.com/bmw/enUS/partgrp?id=3A91-EUR-02-2013-F30-BMW-335i)
+para contexto e relação desenho/lista; [eCFR](https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-571)
+para sumário e links por seção; [Baymard](https://baymard.com/blog/how-to-design-applied-filters)
+para filtros visíveis e removíveis; e [W3C](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/)
+para expansão progressiva e teclado. São referências de navegação, sem importação
+de conteúdo normativo estrangeiro nem afirmação de ranking.
+
+A imagem exibida e as miniaturas têm derivados WebP sem perdas, renderizados dos
+SVGs fornecidos; os SVGs originais e os 37 contornos continuam preservados.
+`displayAsset` aponta para o derivado de pintura e `asset` para o original.
+Essa separação evita redesenhar milhões de coordenadas a cada transição ou zoom,
+sem alterar a composição ou a área clicável. `preview-provenance.json` registra
+origens, versões, dimensões e hashes; a CI confere os arquivos comprometidos,
+sem depender do renderizador nativo para publicar o site.

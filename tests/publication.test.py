@@ -53,6 +53,7 @@ with tempfile.TemporaryDirectory() as directory:
         "scripts",
         "data/contran/sources",
         "data/vehicle-visual",
+        "data/vehicle-legislation",
         "data/contran/publication-policy.json",
     ]:
         assert not (target / private).exists(), private

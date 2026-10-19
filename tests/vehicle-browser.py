@@ -100,15 +100,19 @@ async def main():
         pseat = await point(page, points["bancos"])
         await page.mouse.click(**pseat)
         await flow(page)
-        assert await page.locator("#main h1").inner_text() == "Bancos e ocupantes"
+        assert await page.locator("#main h1").inner_text() == "Banco traseiro"
+        assert "part=peca_08_banco_traseiro" in page.url
+        assert (
+            await page.locator('[data-tree-node$=":record:senatran-118"]').count() == 0
+        )
         assert (
             await page.locator(
-                '[data-tree-node="component:bancos:seguranca:ancoragem:record:senatran-061"]'
+                '[data-tree-node="component:bancos:seguranca:component:bancos-ancoragem:record:senatran-061"]'
             ).count()
             == 1
         )
         await page.locator(
-            '[data-tree-node="component:bancos:seguranca:materiais"]'
+            '[data-tree-node="component:bancos:seguranca:component:materiais"]'
         ).click()
         await flow(page)
         assert (
@@ -116,19 +120,19 @@ async def main():
             or await page.locator('[data-tree-node$=":gap:0"]').count() == 1
         )
         await page.locator(
-            '[data-tree-node="component:bancos:seguranca:materiais:gap:0"]'
+            '[data-tree-node="component:bancos:seguranca:component:materiais:gap:0"]'
         ).click()
         assert "NBR" in await page.locator("#aiPanel").inner_text()
         assert await page.locator("#aiPanel .tree-doc").count() == 0
         await page.locator(
-            '[data-tree-node="component:bancos:seguranca:materiais:record:senatran-092"]'
+            '[data-tree-node="component:bancos:seguranca:component:materiais:record:senatran-092"]'
         ).click()
         await page.locator("#aiPanel .tree-detail-footer [data-open]").click()
         await page.locator("#normDialog").wait_for()
         assert await page.locator("#normDialog").is_visible()
         await page.locator("#closeDialog").click()
         await page.locator(
-            '[data-tree-node="component:bancos:seguranca:ancoragem"]'
+            '[data-tree-node="component:bancos:seguranca:component:bancos-ancoragem"]'
         ).click()
         await flow(page)
         await page.screenshot(
@@ -172,6 +176,14 @@ async def main():
         await page.mouse.click(**tank)
         await flow(page)
         assert (
+            await page.locator("#main h1").inner_text()
+            == "Tanque e tubo de combustível"
+        )
+        await page.locator(
+            '[data-tree-node="component:tanque:seguranca:component:tanques-multiplos"]'
+        ).click()
+        await flow(page)
+        assert (
             await page.locator('[data-tree-node$=":record:senatran-118"]').count() == 1
         )
         await page.locator(".component-lanes a", has_text="Ambiental").click()
@@ -179,7 +191,7 @@ async def main():
         assert await page.locator('[data-tree-node$=":record:ibama-020"]').count() == 1
         assert await page.locator('[data-tree-node$=":record:ibama-031"]').count() == 0
         await page.locator(
-            '[data-tree-node="component:tanque:ambiental:canister"]'
+            '.node-main[data-tree-node="component:tanque:ambiental:vehicle:evaporativas-reabastecimento"]'
         ).click()
         assert await page.locator("#aiPanel .tree-doc").count() == 2
         # Graph zoom is independent of hero image; reset and fit are usable.
@@ -210,7 +222,7 @@ async def main():
         seat = await point(page, points["bancos"])
         await page.mouse.click(**seat)
         await flow(page)
-        assert await page.locator("#main h1").inner_text() == "Bancos e ocupantes"
+        assert await page.locator("#main h1").inner_text() == "Banco traseiro"
         assert await page.evaluate("document.documentElement.scrollWidth<=innerWidth")
         await page.screenshot(path=str(ARTIFACTS / "bancos-mobile.png"), full_page=True)
         await overview(page)
@@ -262,7 +274,7 @@ async def main():
         pos = await point(touch, points["bancos"])
         await touch.touchscreen.tap(pos["x"], pos["y"])
         await flow(touch)
-        assert "Bancos" in await touch.locator("#main h1").inner_text()
+        assert await touch.locator("#main h1").inner_text() == "Banco traseiro"
         viewport = touch.locator("#graphViewport")
         await viewport.evaluate("(v)=>v.scrollLeft=120")
         assert await viewport.evaluate("(v)=>v.scrollLeft") == 120
@@ -278,7 +290,7 @@ async def main():
         assert "Motor" in await page.locator("#main h1").inner_text()
         assert not errors, errors
         print(
-            "PASS: 13 supplied SVG groups plus 14 component entries, image zoom/reset, bank/engine/tank flows, reference/gap provenance, source dialog, graph controls, URL/reload/back, keyboard, mobile clicks/layout, missing image/data and 6 existing views. No JavaScript errors."
+            "PASS: legacy vehicle entry points and 14 system entries, image zoom/reset, bank/engine/tank flows, reference/gap provenance, source dialog, graph controls, URL/reload/back, keyboard, mobile clicks/layout, missing image/data and 6 existing views. No JavaScript errors."
         )
         await browser.close()
 

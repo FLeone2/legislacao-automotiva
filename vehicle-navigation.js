@@ -3,6 +3,66 @@ const vehicleUI = { component: null, lane: null, subsystem: null, zoom: 1 };
 function vehicleContext() {
   return `${$('#vehicleType').value} · ${$('#powertrain').value}`;
 }
+function selectedVehiclePart(
+  component,
+  query = new URLSearchParams(location.hash.split('?')[1] || ''),
+) {
+  const id = query.get('part');
+  return VehicleLegislation.part(id, component.id)
+    ? vehicleVector.parts.find((part) => part.id === id)
+    : null;
+}
+function renderInvalidVehiclePart() {
+  $('#app').classList.remove(
+    'tree-mode',
+    'vehicle-flow-mode',
+    'vehicle-overview-mode',
+    'aurora-home',
+  );
+  $('#main').innerHTML =
+    '<h1 tabindex="-1">Conjunto não encontrado</h1><p role="status">Escolha um conjunto da ilustração para consultar suas referências.</p><a class="btn" data-vehicle-back href="#vehicle">Voltar ao veículo</a>';
+}
+function vehicleTopicLink(component, part, topic) {
+  const query = new URLSearchParams(
+    vehicleLink(component, topic.lane, topic.subsystemId).split('?')[1],
+  );
+  query.set('part', part.id);
+  query.set('topic', topic.id);
+  return '#vehicle?' + query;
+}
+function vehicleMappedLanes(component, subsystem, part) {
+  if (!part && component.id !== 'bateria')
+    return subsystem
+      ? ComponentFlow.subsystemLanes(component, subsystem)
+      : ComponentFlow.topics(component, catalog.metadata.hierarchy);
+  const parts = part ? [part] : component.mapParts;
+  const lanes = new Map();
+  const seen = new Set();
+  for (const item of parts)
+    for (const topic of VehicleLegislation.topics(item.id, { subsystemId: subsystem?.id })) {
+      const signature = JSON.stringify([
+        topic.label,
+        topic.lane,
+        topic.relation,
+        topic.links.map((link) => [link.actId, link.requirementIds]),
+      ]);
+      if (seen.has(signature)) continue;
+      seen.add(signature);
+      if (!lanes.has(topic.lane))
+        lanes.set(topic.lane, {
+          id: topic.lane,
+          label: topic.lane === 'ambiental' ? 'Ambiental' : 'Segurança e conformidade',
+          topics: [],
+        });
+      lanes.get(topic.lane).topics.push(topic);
+    }
+  return [...lanes.values()];
+}
+function vehicleTopicRecords(topic) {
+  return topic.links
+    ? VehicleLegislation.recordsForTopic(topic, catalog.records)
+    : ComponentFlow.records(topic, catalog.records);
+}
 function componentArt(c, cls = '') {
   const asset = c.overviewAsset || c.asset;
   return asset
@@ -49,7 +109,7 @@ function vehicleMap() {
       return `<a id="${esc(part.id)}" href="#vehicle?${esc(q)}" data-component-link="${component.id}" data-map-part="${esc(part.id)}" data-map-label="${esc(part.label)}" aria-label="${esc(part.label)}"><path id="${esc(part.contourId)}" class="component-region" d="${part.path}" fill-rule="evenodd" pointer-events="all"><title>${esc(part.label)}</title></path></a>`;
     })
     .join('');
-  return `<div class="catalog-stage"><svg id="vehicleDrawing" viewBox="${vehicleVector.viewBox}" role="group" aria-label="Vista explodida do veículo híbrido: selecione um conjunto"><g id="vehicleLayer"><image id="vehicleVectorArt" href="${vehicleVector.asset}" width="${vehicleVector.width}" height="${vehicleVector.height}"/>${hotspots}</g></svg><div class="vehicle-drawing-bar"><output id="componentHover" class="component-hover" aria-live="polite">Selecione um conjunto</output><div class="vehicle-drawing-tools"><button data-vehicle-zoom="out" aria-label="Diminuir imagem do veículo">−</button><button data-vehicle-zoom="reset" aria-label="Restaurar imagem do veículo"><output id="vehicleImageZoom">100%</output></button><button data-vehicle-zoom="in" aria-label="Ampliar imagem do veículo">+</button></div></div></div>`;
+  return `<div class="catalog-stage"><svg id="vehicleDrawing" viewBox="${vehicleVector.viewBox}" role="group" aria-label="Vista explodida do veículo híbrido: selecione um conjunto"><g id="vehicleLayer"><image id="vehicleVectorArt" href="${vehicleVector.displayAsset || vehicleVector.asset}" width="${vehicleVector.width}" height="${vehicleVector.height}"/>${hotspots}</g></svg><div class="vehicle-drawing-bar"><output id="componentHover" class="component-hover" aria-live="polite">Selecione um conjunto</output><div class="vehicle-drawing-tools"><button data-vehicle-zoom="out" aria-label="Diminuir imagem do veículo">−</button><button data-vehicle-zoom="reset" aria-label="Restaurar imagem do veículo"><output id="vehicleImageZoom">100%</output></button><button data-vehicle-zoom="in" aria-label="Ampliar imagem do veículo">+</button></div></div></div>`;
 }
 
 function renderVehicle() {
@@ -67,6 +127,7 @@ function renderVehicle() {
     if (value && [...$('#' + id).options].some((o) => o.value === value)) $('#' + id).value = value;
   }
   const c = ComponentFlow.component(q.get('component'));
+  if (q.has('part') && (!c || !selectedVehiclePart(c, q))) return renderInvalidVehiclePart();
   vehicleUI.component = c?.id || null;
   $('#app').classList.toggle('tree-mode', Boolean(c));
   $('#app').classList.toggle('vehicle-flow-mode', Boolean(c));
@@ -97,13 +158,14 @@ function renderVehicle() {
   setupComponentHover();
 }
 function initializeComponentTree(c, q) {
-  const sub = ComponentFlow.subsystems(c, catalog.metadata.hierarchy).find(
-    (x) => x.id === q.get('subsystem'),
-  );
+  const part = selectedVehiclePart(c, q);
+  const availableSubsystems = part
+    ? VehicleLegislation.subsystems(part.id, catalog.metadata.hierarchy)
+    : ComponentFlow.subsystems(c, catalog.metadata.hierarchy);
+  const sub = availableSubsystems.find((x) => x.id === q.get('subsystem'));
+  vehicleUI.part = part?.id || null;
   vehicleUI.subsystem = sub?.id || null;
-  const lanes = sub
-    ? ComponentFlow.subsystemLanes(c, sub)
-    : ComponentFlow.topics(c, catalog.metadata.hierarchy);
+  const lanes = vehicleMappedLanes(c, sub, part);
   const lane = lanes.find((x) => x.id === q.get('lane')) || lanes[0];
   vehicleUI.lane = lane.id;
   const laneNodes = lanes.map((l) =>
@@ -113,7 +175,7 @@ function initializeComponentTree(c, q) {
       'Caminho de consulta',
       l.id === 'ambiental' ? '♧' : '◇',
       l.topics.map((t) => {
-        const records = ComponentFlow.records(t, catalog.records),
+        const records = vehicleTopicRecords(t),
           id = `component:${c.id}:${l.id}:${t.id}`;
         const leaves = records.map((r) => ({
           id: `${id}:record:${r.id}`,
@@ -124,7 +186,11 @@ function initializeComponentTree(c, q) {
           recordId: r.id,
           children: requirementNodesForRecord(r, `${id}:record:${r.id}`),
           recordIds: [r.id],
-          text: r.summary,
+          text:
+            r.vehicleMappingLinks
+              ?.map((link) => link.note)
+              .filter(Boolean)
+              .join(' ') || r.summary,
         }));
         (t.gaps || []).forEach((gap, i) =>
           leaves.push({
@@ -150,12 +216,17 @@ function initializeComponentTree(c, q) {
         return {
           id,
           label: t.label,
-          subtitle: `${records.length} referências${t.gaps?.length ? ' · mapeamento parcial' : ''}`,
+          subtitle: `${records.length} referências${t.relation === 'vehicle' ? ' · contexto do veículo' : t.relation === 'component' ? ' · sobre o conjunto' : ''}${t.gaps?.length ? ' · mapeamento parcial' : ''}`,
           icon: '◇',
           kind: 'Assunto do componente',
           recordIds: records.map((r) => r.id),
           text:
+            t.links
+              ?.map((link) => link.note)
+              .filter(Boolean)
+              .join(' ') ||
             t.text ||
+            t.gaps?.join(' ') ||
             'Associação temática já registrada no acervo. Verifique o objeto, as condições e os anexos nas fontes.',
           children: leaves,
         };
@@ -169,7 +240,10 @@ function initializeComponentTree(c, q) {
           .map((id) => catalog.records.find((r) => r.id === id)?.regulatoryId)
           .filter(Boolean),
       );
-    const extra = activeVehicleRecords(c, sub, laneId).filter((r) => !present.has(r.regulatoryId));
+    const extra =
+      part || c.id === 'bateria'
+        ? []
+        : activeVehicleRecords(c, sub, laneId).filter((r) => !present.has(r.regulatoryId));
     if (extra.length) {
       const id = `${lane.id}:official`;
       const children = extra.map((r) => ({
@@ -197,7 +271,7 @@ function initializeComponentTree(c, q) {
   }
   const root = branch(
     `component:${c.id}`,
-    sub?.label || c.label,
+    sub?.label || part?.label || c.label,
     'Componente selecionado',
     '▱',
     laneNodes,
@@ -206,7 +280,8 @@ function initializeComponentTree(c, q) {
   treeModels.vehicle = indexTree(root);
   const lid = `component:${c.id}:${lane.id}`,
     first = treeModels.vehicle.nodes[lid].children[0];
-  const node = q.get('node');
+  const topic = treeModels.vehicle.nodes[`${lid}:${q.get('topic')}`];
+  const node = q.get('node') || topic?.id;
   const valid =
     node &&
     treeModels.vehicle.nodes[node] &&
@@ -224,12 +299,13 @@ function renderVehicleFlow() {
   if (!c) return renderVehicle();
   const model = treeModels.vehicle,
     ui = treeUI.vehicle,
-    sub = ComponentFlow.subsystems(c, catalog.metadata.hierarchy).find(
-      (x) => x.id === vehicleUI.subsystem,
-    ),
-    lanes = sub
-      ? ComponentFlow.subsystemLanes(c, sub)
-      : ComponentFlow.topics(c, catalog.metadata.hierarchy);
+    part = selectedVehiclePart(c),
+    sub = (
+      part
+        ? VehicleLegislation.subsystems(part.id, catalog.metadata.hierarchy)
+        : ComponentFlow.subsystems(c, catalog.metadata.hierarchy)
+    ).find((x) => x.id === vehicleUI.subsystem),
+    lanes = vehicleMappedLanes(c, sub, part);
   const q = new URLSearchParams(location.hash.split('?')[1] || '');
   q.set('component', c.id);
   q.set('lane', vehicleUI.lane);
@@ -238,16 +314,28 @@ function renderVehicleFlow() {
   else q.delete('subsystem');
   history.replaceState(null, '', '#vehicle?' + q);
   $('#main').innerHTML =
-    `<nav class="component-breadcrumb" aria-label="Caminho selecionado"><a href="${esc(auroraFocusLink(c, new URLSearchParams(location.hash.split('?')[1] || '').get('part')))}" data-vehicle-back>← Voltar ao veículo</a><span> / </span><strong>${esc(c.label)}</strong></nav><header class="component-flow-heading"><div class="component-hero-art">${sub ? subsystemArt(sub) : componentArt(c)}</div><div><p class="vehicle-kicker">${esc(vehicleContext())}</p><h1 tabindex="-1">${esc(sub?.label || c.label)}</h1></div></header>${subsystemExplorer(c, sub)}<nav class="component-lanes" aria-label="Área regulatória">${lanes.map((l) => `<a href="${esc(vehicleLink(c, l.id, sub?.id))}" data-component-link="${c.id}" class="${vehicleUI.lane === l.id ? 'active' : ''}" ${vehicleUI.lane === l.id ? 'aria-current="page"' : ''}>${esc(l.label)}</a>`).join('')}</nav><div class="tree-breadcrumb" aria-label="Ramo do fluxograma">${nodeTrail(
+    `<nav class="component-breadcrumb" aria-label="Caminho selecionado"><a href="${esc(auroraFocusLink(c, part?.id))}" data-vehicle-back>← Voltar ao veículo</a><span> / </span><strong>${esc(c.label)}</strong></nav><header class="component-flow-heading"><div class="component-hero-art">${part ? `<img src="${esc(part.displayAsset || part.asset)}" alt="${esc(part.label)}">` : sub ? subsystemArt(sub) : componentArt(c)}</div><div><p class="vehicle-kicker">${part ? esc(c.label) : esc(vehicleContext())}</p><h1 tabindex="-1">${esc(sub?.label || part?.label || c.label)}</h1></div></header>${part ? vehiclePartTopicNavigation(c, part, sub?.id) : subsystemExplorer(c, sub)}<nav class="component-lanes" aria-label="Área regulatória">${lanes.map((l) => `<a href="${esc(vehicleLink(c, l.id, sub?.id))}" data-component-link="${c.id}" class="${vehicleUI.lane === l.id ? 'active' : ''}" ${vehicleUI.lane === l.id ? 'aria-current="page"' : ''}>${esc(l.label)}</a>`).join('')}</nav><div class="tree-breadcrumb" aria-label="Ramo do fluxograma">${nodeTrail(
       ui.selected,
       model,
     )
       .map((id) => `<button data-tree-node="${esc(id)}">${esc(model.nodes[id].label)}</button>`)
       .join(
         '<span>›</span>',
-      )}</div><section class="graph-shell component-graph" aria-label="Fluxograma de normas de ${esc(c.label)}">${graphMarkup(model, ui)}</section><div class="tree-footer"><span>ⓘ</span><span>Abra os ramos e selecione uma norma. Arraste o fundo ou deslize para navegar. Conexões indicam associação temática.</span><button data-graph-action="reset">Recomeçar</button></div><p class="contran-component-link">${activeVehicleSourceLinks(c, sub)}</p><p class="scope-note">O acervo não certifica vigência ou aplicabilidade. Lacunas, inclusive normas NBR ainda não cadastradas, aparecem como mapeamento pendente.</p>`;
+      )}</div><section class="graph-shell component-graph" aria-label="Fluxograma de normas de ${esc(part?.label || c.label)}">${graphMarkup(model, ui)}</section><div class="tree-footer"><span>Abra um assunto para consultar suas referências.</span><button data-graph-action="reset">Recolher</button></div><p class="contran-component-link">${activeVehicleSourceLinks(c, sub, part?.id)}</p><p class="scope-note">Associação para consulta. Confira escopo, configuração e datas na fonte oficial.</p>`;
   renderTreeDetails();
   setupGraph();
+}
+function vehiclePartTopicNavigation(component, part, subsystemId) {
+  const all = vehicleLink(component);
+  return `<nav class="vehicle-part-topics" aria-label="Assuntos de ${esc(part.label)}"><a href="${esc(all)}" ${!subsystemId ? 'aria-current="page"' : ''}>Todos os assuntos do conjunto</a>${VehicleLegislation.subsystems(
+    part.id,
+    catalog.metadata.hierarchy,
+  )
+    .map(
+      (sub) =>
+        `<a data-subsystem-link="${esc(sub.id)}" href="${esc(vehicleLink(component, null, sub.id))}" ${subsystemId === sub.id ? 'aria-current="page"' : ''}>${esc(sub.label)}</a>`,
+    )
+    .join('')}</nav>`;
 }
 function setupComponentHover() {
   const main = $('#main');

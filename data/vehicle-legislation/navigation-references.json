@@ -1,0 +1,130 @@
+{
+  "observed_at": "2026-10-19T13:39:08.396704+00:00",
+  "scope": "Referências de interação e consulta; não são fontes de legislação brasileira nem ranking dos melhores sites.",
+  "method": "Inspeção dirigida de HTML público de páginas originais, obtido com urllib e User-Agent de navegador; sem login, cópia de recursos ou varredura de catálogo. Comportamentos dinâmicos não testados estão explicitamente excluídos.",
+  "references": [
+    {
+      "id": "realoem",
+      "title": "BMW 3 Series F30 335i (2013) Parts Catalog & Diagrams / Cylinder head, electr. add-on parts",
+      "url": "https://www.realoem.com/bmw/enUS/partgrp?id=3A91-EUR-02-2013-F30-BMW-335i",
+      "detail_url": "https://www.realoem.com/bmw/enUS/showparts?id=3A91-EUR-02-2013-F30-BMW-335i&diagId=11_4451",
+      "http_status": 200,
+      "observed": [
+        "O contexto exibe modelo, carroceria, motor, produção, direção e mercado.",
+        "A seleção oferece grupos como ENGINE, FUEL SUPPLY, BRAKES, SEATS e alternativa \"Switch to text drill down\".",
+        "No detalhe há trilha veículo > Engine > Cylinder head, electr. add-on parts e tabela com No., Description, Qty e Part Number."
+      ],
+      "quote": "Each item in the Cylinder head, electr. add-on parts corresponds to the numbered list below the illustration.",
+      "recommendation": "Usar o mesmo identificador estável para contorno do SVG, nome do conjunto, seleção textual e conjunto de assuntos. Preservar a trilha e o link do conjunto selecionado ao abrir uma referência e voltar.",
+      "limits": "A correspondência desenho/tabela foi observada no HTML; destaque bidirecional em hover/clique não foi testado. Não importar catálogo, imagens ou peças comerciais."
+    },
+    {
+      "id": "ecfr",
+      "title": "eCFR :: 49 CFR Part 571 — Federal Motor Vehicle Safety Standards",
+      "url": "https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-571",
+      "http_status": 200,
+      "observed": [
+        "O cabeçalho diferencia a data de atualização do título e a data da última alteração.",
+        "Existe sumário hierárquico de seções, incluindo Scope, Applicability e normas individuais por sistema.",
+        "São oferecidas versões históricas e busca por citação ou frase; a orientação distingue resultado de citação direta de resultado textual."
+      ],
+      "quote": "Displaying title 49, up to date as of 10/15/2026. Title 49 was last amended 10/13/2026.",
+      "recommendation": "Mostrar no documento os metadados já existentes de vigência, órgão, escopo e revisão. No mapa, abrir assuntos precisos e referências rastreáveis, com URL preservada. Uma referência relacionada ao componente não equivale automaticamente a obrigação aplicável àquele veículo.",
+      "limits": "Referência de arquitetura de informação somente; normas dos EUA não devem ser adicionadas como normas brasileiras. Não se verificou a exaustividade nem a aplicabilidade do conteúdo brasileiro usando esta fonte."
+    },
+    {
+      "id": "baymard-applied-filters",
+      "title": "Filtering UX: Display “Applied Filters” in an Overview",
+      "url": "https://baymard.com/blog/how-to-design-applied-filters",
+      "http_status": 200,
+      "observed": [
+        "Artigo original do Baymard, atualizado em 13/05/2026, com recomendações de filtros aplicados em desktop e mobile.",
+        "Explica três problemas sem resumo: falta de confirmação, remoção difícil de filtros e perda de contexto."
+      ],
+      "quote": "Providing an “Applied Filters Overview” if implemented correctly alleviates these issues on both mobile and desktop.",
+      "recommendation": "Exibir de forma compacta o conjunto/assunto e filtros ativos, com remoção clara. Atualizar a contagem após cada filtro. Se a combinação não tem referências cadastradas, oferecer limpar filtros ou ampliar a busca; não declarar ausência de obrigação legal.",
+      "limits": "Pesquisa de UX em comércio eletrônico; a adaptação deve servir à consulta de legislação, sem criar carrinho ou métricas comerciais. Não se mediu adesão do site automotivo a partir desse artigo."
+    },
+    {
+      "id": "w3c-disclosure",
+      "title": "Example Disclosure Navigation Menu | APG | WAI | W3C",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/",
+      "http_status": 200,
+      "observed": [
+        "A W3C recomenda semântica de listas, botões e links para navegação comum, em vez de impor o papel menu.",
+        "O exemplo usa aria-expanded e aria-controls nos botões, aria-current no link atual e suporte Tab, Enter/Space e Escape.",
+        "A própria página exige testar combinações de navegador e tecnologia assistiva, com atenção a mobile/touch."
+      ],
+      "quote": "Typical site navigation does not need all the keyboard interactions specified by the menu and menubar pattern.",
+      "recommendation": "Expandir conjunto → assunto → referências progressivamente com controles nativos. Toda área da imagem deve possuir alternativa textual; manter foco ao voltar e indicar seleção por texto/estado além de cor. Em telas estreitas, manter o resultado próximo da seleção.",
+      "limits": "O exemplo da APG é ilustrativo e não deve ser copiado como garantia de acessibilidade. Testar a implementação real com teclado, touch e leitura de estados."
+    },
+    {
+      "id": "w3c-treeview",
+      "title": "Tree View Pattern | APG | WAI | W3C",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/",
+      "http_status": 200,
+      "observed": [
+        "Hierarquias podem abrir/fechar nós para revelar filhos.",
+        "A orientação distingue claramente o estado selecionado do elemento que recebe foco.",
+        "Define teclas de setas, Home/End e digitação incremental para uma árvore completa."
+      ],
+      "quote": "It is important that the visual design distinguish between items that are selected and the item that has focus.",
+      "recommendation": "Separar hover, foco e seleção persistente no vetor e no painel. Adotar uma árvore ARIA completa somente se a interação realmente for uma árvore; para listas de assuntos expansíveis, preferir o padrão disclosure mais simples.",
+      "limits": "Não atribuir role=tree sem implementar o contrato completo de teclado e foco."
+    }
+  ],
+  "implementation_priorities": [
+    {
+      "priority": 1,
+      "action": "Mapear cada um dos 37 conjuntos para os assuntos efetivamente sustentados pelas referências cadastradas. Separar, por exemplo, luminária de para-choque; vidro de porta de sua estrutura; bateria 12 V de bateria de tração; radiador de motor.",
+      "reason": "A classificação ampla do sistema não justifica exibir todas as suas referências em cada peça."
+    },
+    {
+      "priority": 2,
+      "action": "Um mesmo relacionamento deve alimentar a imagem, seletor textual, painel de assuntos e resultados de legislação. Preservar peça e assunto na URL.",
+      "reason": "Evita divergências e permite compartilhar ou retomar uma busca."
+    },
+    {
+      "priority": 3,
+      "action": "Clique no conjunto revela poucos assuntos pertinentes, com contagem de referências, e cada assunto leva ao documento e à fonte oficial.",
+      "reason": "Reduz excesso de opções sem esconder informação ou exigir conhecimento de códigos de normas."
+    },
+    {
+      "priority": 4,
+      "action": "Manter temas e composição visual existentes; tornar hover/foco/transição suaves e previsíveis. Disponibilizar alternativa textual e controles com área de toque adequada.",
+      "reason": "A imagem deve ajudar a encontrar a lei, sem se tornar a única forma de acesso."
+    },
+    {
+      "priority": 5,
+      "action": "Manter itens de legislação geral fora da localização física do carro e identificar ausência de associação específica como lacuna de mapeamento.",
+      "reason": "Evita inventar regiões clicáveis ou afirmar que um conjunto não tem requisitos legais."
+    }
+  ],
+  "local_evidence": [
+    {
+      "file": "ref-realoemgroups.html",
+      "sha256": "a6dc963e17e6af72096c9d1eaf7d0535172c86c19f84e289aa24d07fc0b13c97"
+    },
+    {
+      "file": "ref-realoemdiagram.html",
+      "sha256": "95b58a98502a6314e3be73631aaa5e9f2b79da8d09b29f2612659b37fac9ea1e"
+    },
+    {
+      "file": "ref-ecfr.html",
+      "sha256": "3b6d88e9beade04c5c02755ae3c323503d16a608d7415b35269763258c3ee696"
+    },
+    {
+      "file": "ref-baymardfilter.html",
+      "sha256": "db243942dd70e61c20da378c138a7c130faa6e34f02bada6d5af400851f34f12"
+    },
+    {
+      "file": "ref-disclosure.html",
+      "sha256": "f5d1fcb09e8e4516955859ec7945960867493420bfee6840b038226d3eeed35c"
+    },
+    {
+      "file": "ref-w3c.html",
+      "sha256": "e6022a0518c400b093253220c5eeca9a39419c1290aa24888ce14542ef6fc14b"
+    }
+  ]
+}
