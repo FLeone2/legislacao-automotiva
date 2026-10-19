@@ -1,0 +1,30 @@
+{
+  "assets": {
+    "app.js": "55f234a55190147c",
+    "flow-data.js": "f5e3feef06f748f1",
+    "homologation-flow.js": "290606757587fbda",
+    "src/core/dom.js": "666c2b83f219e9ce",
+    "src/core/navigation.js": "0435f21db6c6531e",
+    "src/core/requirements.js": "526e7e7d89933f3f",
+    "src/core/router.js": "91dbe80c3000799d",
+    "src/core/theme.js": "34e204846c9f9eaf",
+    "src/core/vehicle-vector.js": "f261d4cae5f1654a",
+    "src/regulations/catalog.js": "b3736f66e8e7284f",
+    "src/regulations/status.js": "9837d3bf97ff6f57",
+    "src/regulations/store.js": "100a365b6b2ee557",
+    "src/styles/aurora.css": "1ded24c4aa89ceea",
+    "src/styles/mover-dark.css": "ded469ece11435d6",
+    "src/styles/navigation.css": "1b993dacafdaa1d2",
+    "src/styles/theme-tokens.css": "9df78ef799bdc299",
+    "src/views/aurora.js": "0e60752487029b40",
+    "src/views/document.js": "acfca50876e71a7d",
+    "src/views/library.js": "c72d9ff448ef3266",
+    "src/views/markings.js": "ab5ad74a8ab35fe5",
+    "src/views/regulations.js": "e571eb830dd29836",
+    "styles.css": "c791fe18ff9cc9bb",
+    "tree.js": "c69647c4ddb691cd",
+    "vehicle-data.js": "fee707e2a19e74e5",
+    "vehicle-navigation.js": "572bedf7737f80e4"
+  },
+  "revision": "1bbcc51e1a3ff6b37b0df0688cbe3f30c53f06a3ccaeaa64f167d10829ef9fbb"
+}

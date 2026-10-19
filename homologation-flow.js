@@ -82,7 +82,7 @@ function flowStageTree(stage) {
       leaves.push({
         id: `${id}:empty`,
         label: 'Sem referência disponível',
-        subtitle: 'Nenhuma norma foi inferida para preencher esta atividade.',
+        subtitle: 'Nenhuma referência associada a esta atividade.',
         icon: '!',
         recordIds: [],
         kind: 'Lacuna desta atividade',
@@ -142,9 +142,19 @@ function flowMap() {
     ['M540 632H257V370', 'feedback'],
     ['M1132 580V370', 'feedback'],
   ];
-  return `<div class="homologation-map-toolbar"><span><i class="flow-dot environment"></i> Ambiental e eficiência <i class="flow-dot safety"></i> Segurança <i class="flow-dot components"></i> Conformidade</span><div class="flow-map-tools"><button data-flow-map-fit>Ajustar mapa</button><output id="flowMapZoom">100%</output><button data-flow-map-size>Tamanho original</button></div></div><div class="homologation-map-viewport" tabindex="0" aria-label="Mapa de homologação. Role horizontalmente para explorar ou escolha uma etapa abaixo."><div class="homologation-map"><svg viewBox="0 0 1400 720" class="homologation-connectors" aria-hidden="true"><defs><marker id="flowArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="currentColor"/></marker></defs>${links.map(([path, kind]) => `<path d="${path}" class="flow-connection ${kind}" marker-end="url(#flowArrow)"/>`).join('')}<text x="540" y="23">AMBIENTAL E EFICIÊNCIA</text><text x="540" y="208">FRENTES TÉCNICAS EM PARALELO</text><text x="28" y="632" class="flow-feedback-label">Desvios e mudanças</text><text x="28" y="652" class="flow-feedback-label">retornam ao projeto</text><text x="28" y="672" class="flow-feedback-label">e às aprovações pertinentes.</text></svg>${homologationFlowSpec.stages.map((stage) => `<button class="homologation-step ${stage.tone} ${selected === stage.id ? 'selected' : ''}" style="--flow-x:${stage.x};--flow-y:${stage.y};--flow-w:${stage.w};--flow-h:${stage.h}" data-flow-stage="${stage.id}" aria-expanded="${selected === stage.id}" aria-controls="flowExplorer"><span class="homologation-step-kicker"><b>${stage.number}</b><span aria-hidden="true">${stage.icon}</span></span><strong>${stage.label}</strong><small>${stage.short}</small><span class="homologation-step-open">${selected === stage.id ? 'Árvore aberta' : 'Expandir atividade'} <span aria-hidden="true">${selected === stage.id ? '−' : '+'}</span></span></button>`).join('')}</div></div>`;
+  return `<div class="homologation-map-toolbar"><span><i class="flow-dot environment"></i> Ambiental e eficiência <i class="flow-dot safety"></i> Segurança <i class="flow-dot components"></i> Conformidade</span><div class="flow-map-tools"><button data-flow-map-fit>Ajustar mapa</button><output id="flowMapZoom">100%</output><button data-flow-map-size>Tamanho original</button></div></div><div class="homologation-map-viewport" tabindex="0" aria-label="Mapa de homologação. Role horizontalmente para explorar ou escolha uma etapa abaixo."><div class="homologation-map"><svg viewBox="0 0 1400 720" class="homologation-connectors" aria-hidden="true"><defs><marker id="flowArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="currentColor"/></marker></defs>${links.map(([path, kind]) => `<path d="${path}" class="flow-connection ${kind}" marker-end="url(#flowArrow)"/>`).join('')}<text x="540" y="23">AMBIENTAL E EFICIÊNCIA</text><text x="540" y="208">FRENTES TÉCNICAS EM PARALELO</text><text x="28" y="632" class="flow-feedback-label">Desvios e mudanças</text><text x="28" y="652" class="flow-feedback-label">retornam ao projeto</text><text x="28" y="672" class="flow-feedback-label">e às aprovações pertinentes.</text></svg>${homologationFlowSpec.stages.map((stage) => `<button class="homologation-step ${stage.tone} ${selected === stage.id ? 'selected' : ''}" style="--flow-x:${stage.x};--flow-y:${stage.y};--flow-w:${stage.w};--flow-h:${stage.h}" data-flow-stage="${stage.id}" aria-expanded="${selected === stage.id}" aria-controls="flowExplorer"><span class="homologation-step-kicker"><b>${stage.number}</b><span aria-hidden="true">${stage.icon}</span></span><strong>${stage.label}</strong><small>${stage.short}</small><span class="homologation-step-open">${selected === stage.id ? 'Etapa selecionada' : 'Ver atividades'} <span aria-hidden="true">${selected === stage.id ? '−' : '+'}</span></span></button>`).join('')}</div></div>`;
 }
 function renderFlow() {
+  const mapViewport = document.querySelector('.homologation-map-viewport');
+  const mapState = mapViewport
+    ? {
+        scale: parseFloat(
+          mapViewport.querySelector('.homologation-map').style.getPropertyValue('--flow-scale'),
+        ),
+        left: mapViewport.scrollLeft,
+        top: mapViewport.scrollTop,
+      }
+    : null;
   $('#aiPanel').replaceChildren();
   $('#app').classList.add('homologation-flow-mode');
   const q = new URLSearchParams(location.hash.split('?')[1] || '');
@@ -182,15 +192,16 @@ function renderFlow() {
               '<span>›</span>',
             )}</div><div class="homologation-explorer-layout"><div><section class="graph-shell" aria-label="Etapa, atividades e legislações">${graphMarkup(treeModels.flow, treeUI.flow)}</section><div class="tree-footer"><span>Expanda uma atividade pelo + ou pelo título para ver as normas e as lacunas.</span><button data-graph-action="reset">Recolher árvore</button></div></div><aside id="flowDetailPanel" class="homologation-detail" aria-label="Detalhes da atividade"></aside></div>`
         : '<div class="homologation-empty"><span aria-hidden="true">↖</span><h2>Por qual etapa você quer começar?</h2><p>Selecione no mapa para expandir atividades, referências e pontos ainda pendentes de conferência.</p></div>'
-    }</section><p class="scope-note">Mapa de consulta. As fontes e suas limitações são as do acervo disponível; nenhuma norma ausente foi inventada para completar uma etapa. Os resultados indicam o que organizar, não uma lista legal exaustiva de entregáveis.</p>`;
+    }</section><p class="scope-note">Referências e lacunas do acervo disponível. A relação de documentos não é exaustiva; confirme o enquadramento e as exigências nas fontes oficiais.</p>`;
   $('#flowPowertrain').onchange = (e) => goFlow(stage?.id, null, e.target.value, false);
   $('#flowStagePicker').onchange = (e) => goFlow(e.target.value || null);
-  setupFlowMap();
+  setupFlowMap(mapState);
   if (stage) {
     renderTreeDetails();
     setupGraph();
     renderFlowActivityContext();
   }
+  $('#main').dataset.renderedRoute = location.hash;
 }
 function renderFlowActivityContext() {
   const n = treeModels.flow.nodes[treeUI.flow.selected],
@@ -212,13 +223,16 @@ function goFlow(stage, node = null, powertrain = flowUI.powertrain, scroll = tru
   if (!node) treeUI.flow.selected = null;
   history.pushState(null, '', flowRoute(stage, node, powertrain));
   renderFlow();
+  const target = scroll ? $('#flowExplorer') : $('#flowPowertrain');
+  target?.focus({ preventScroll: true });
   if (scroll)
-    requestAnimationFrame(() =>
-      $('#flowExplorer')?.scrollIntoView({
+    requestAnimationFrame(() => {
+      if (!target?.isConnected) return;
+      target.scrollIntoView({
         block: 'start',
         behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
-      }),
-    );
+      });
+    });
 }
 function persistFlowNode() {
   history.replaceState(null, '', flowRoute(flowUI.stage, treeUI.flow.selected));
@@ -229,26 +243,33 @@ document.addEventListener('click', (e) => {
     goFlow(stage.dataset.flowStage);
     return;
   }
-  if (e.target.closest('[data-flow-overview]'))
+  if (e.target.closest('[data-flow-overview]')) {
+    document.querySelector('.homologation-step.selected')?.focus({ preventScroll: true });
     document.querySelector('.homologation-map-shell')?.scrollIntoView({
       block: 'start',
       behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
     });
+  }
 });
 
 let flowMapObserver = null;
-function setupFlowMap() {
+function setupFlowMap(savedState = null) {
   flowMapObserver?.disconnect();
   const viewport = document.querySelector('.homologation-map-viewport');
-  let lastWidth = 0;
+  let lastWidth = viewport.clientWidth;
+  const defaultScale = (width) => (width >= 850 ? Math.min(1, width / 1400) : 0.95);
+  setFlowMapScale(savedState?.scale || defaultScale(lastWidth));
+  if (savedState) {
+    viewport.scrollLeft = savedState.left;
+    viewport.scrollTop = savedState.top;
+  }
   const resize = () => {
-    if (viewport.clientWidth === lastWidth) return;
+    if (!viewport.isConnected || viewport.clientWidth === lastWidth) return;
     lastWidth = viewport.clientWidth;
-    setFlowMapScale(lastWidth >= 850 ? Math.min(1, lastWidth / 1400) : 0.95);
+    setFlowMapScale(defaultScale(lastWidth));
   };
   flowMapObserver = new ResizeObserver(resize);
   flowMapObserver.observe(viewport);
-  resize();
 }
 function setFlowMapScale(scale) {
   const map = document.querySelector('.homologation-map');

@@ -63,10 +63,13 @@ test('taxonomy joins return no unrelated fallback documents', () => {
   for (const r of ComponentFlow.records({ taxonomy: ['freios'] }, catalog.records))
     assert(r.taxonomy.some((t) => t.startsWith('freios/')));
 });
-test('all fourteen regions have image geometry and artwork; deduplication preserves source records', () => {
+test('fourteen system entries retain artwork; only supplied drawing regions are interactive', () => {
   assert.equal(vehicleComponents.length, 14);
   for (const c of vehicleComponents) {
-    assert(c.path.startsWith('M'));
+    if (c.external) {
+      assert.equal(c.id, 'identificacao');
+      assert.equal(c.path, '');
+    } else assert(c.path.startsWith('M'));
     assert(c.asset || c.crop);
   }
   const r = catalog.records[0];

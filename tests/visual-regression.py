@@ -39,6 +39,8 @@ async def main(base):
     assert mismatch(sample, changed) > 0.01
     cases = [
         ("vehicle-wheel", "vehicle", (1440, 1000), "#vehicleDrawing"),
+        ("vehicle-tank", "vehicle", (1440, 1000), "#vehicleDrawing"),
+        ("vehicle-batteries", "vehicle", (1440, 1000), "#vehicleDrawing"),
         ("flow-overview", "flow", (1440, 1050), ".homologation-map"),
         ("vehicle-mobile", "vehicle", (390, 844), "#main"),
     ]
@@ -78,16 +80,23 @@ async def main(base):
                 }));
             }""")
             await page.wait_for_load_state("networkidle")
-            if name == "vehicle-wheel":
-                pos = await page.locator("#vehicleDrawing").evaluate(
-                    "svg=>{const p=svg.createSVGPoint();p.x=980;p.y=870;const q=p.matrixTransform(svg.querySelector('#vehicleLayer').getScreenCTM());return {x:q.x,y:q.y}}"
-                )
-                await page.mouse.move(pos["x"], pos["y"])
+            geometry = {
+                "vehicle-wheel": ([131, 860], [40, 760, 220, 980]),
+                "vehicle-tank": ([1225, 703], [1110, 500, 1490, 800]),
+                "vehicle-batteries": ([932, 549], [570, 500, 1095, 830]),
+            }
             target = page.locator(selector)
             await target.wait_for()
-            if name == "vehicle-wheel":
+            if name in geometry:
+                hover, bounds = geometry[name]
+                pos = await page.locator("#vehicleDrawing").evaluate(
+                    "(svg,xy)=>{const p=svg.createSVGPoint();[p.x,p.y]=xy;const q=p.matrixTransform(svg.querySelector('#vehicleLayer').getScreenCTM());return {x:q.x,y:q.y}}",
+                    hover,
+                )
+                await page.mouse.move(pos["x"], pos["y"])
                 clip = await page.locator("#vehicleDrawing").evaluate(
-                    "svg=>{const m=svg.querySelector('#vehicleLayer').getScreenCTM();const p=svg.createSVGPoint();p.x=820;p.y=760;const a=p.matrixTransform(m);p.x=1090;p.y=1020;const b=p.matrixTransform(m);return {x:a.x,y:a.y,width:b.x-a.x,height:b.y-a.y}}"
+                    "(svg,box)=>{const m=svg.querySelector('#vehicleLayer').getScreenCTM();const p=svg.createSVGPoint();[p.x,p.y]=box;const a=p.matrixTransform(m);[p.x,p.y]=box.slice(2);const b=p.matrixTransform(m);return {x:a.x,y:a.y,width:b.x-a.x,height:b.y-a.y}}",
+                    bounds,
                 )
                 raw = await page.screenshot(clip=clip, animations="disabled")
             else:
@@ -98,8 +107,8 @@ async def main(base):
                 path.write_bytes(raw)
             assert path.exists(), f"Missing reviewed baseline {path}"
             expected = Image.open(path).convert("RGB")
-            if name == "vehicle-wheel":
-                # A 2 px displacement of the actual wheel crop must still fail.
+            if name in geometry:
+                # A 2 px displacement of a contour crop must still fail.
                 assert mismatch(expected, ImageChops.offset(expected, 2, 0)) > 0.01
             if name == "flow-overview":
                 assert mismatch(expected, ImageChops.offset(expected, 8, 0)) > 0.01

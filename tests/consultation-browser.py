@@ -60,7 +60,9 @@ async def main():
         await expect(page.locator("#normDialog")).to_contain_text(
             "Não confirmada integralmente"
         )
-        await page.locator("#normDialog [data-close-reference]").first.click()
+        await page.locator(
+            "#normDialog .document-consultation-links [data-close-reference]"
+        ).first.click()
         await expect(page.locator("#normDialog")).not_to_be_visible()
         await page.locator(".component-graph").wait_for()
         await page.go_back()

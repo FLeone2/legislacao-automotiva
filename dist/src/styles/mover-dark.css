@@ -1,0 +1,743 @@
+/* Shared MOVER layout and states; palettes live in theme-tokens.css. */
+html[data-theme] body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    sans-serif;
+}
+html[data-theme] body::before,
+html[data-theme] body::after {
+  display: none;
+}
+html[data-theme] #app :is(.sidebar, .topbar, .ai-panel) {
+  background: var(--drawer-bg);
+  color: var(--ink);
+  border-color: var(--border);
+  box-shadow: none;
+  backdrop-filter: none;
+}
+html[data-theme] #app .sidebar {
+  inset: 0 auto 0 0;
+  width: var(--sidebar);
+  border: 0;
+  border-right: 1px solid var(--border);
+  border-radius: 0;
+}
+html[data-theme] #app .topbar {
+  border-bottom: 1px solid var(--border);
+}
+html[data-theme] #app .brand {
+  color: var(--ink);
+}
+html[data-theme] #app .aurora-logo {
+  color: var(--accent-ink);
+  filter: none;
+}
+html[data-theme]
+  #app
+  :is(
+    .brand-pill,
+    .aurora-sidebar-bottom,
+    .aurora-theme-control,
+    .fixed-filter,
+    .sidebar-foot,
+    .aurora-page-foot,
+    .aurora-original-note,
+    .aurora-breadcrumb,
+    .aurora-selection-caption,
+    .aurora-panel-foot,
+    .aurora-panel-label,
+    .aurora-mini-tree,
+    .aurora-reference-note,
+    .homologation-guide,
+    .tree-page-head .eyebrow,
+    .tree-context .context-note
+  ) {
+  display: none;
+}
+html[data-theme] #app .profile-control {
+  display: none;
+}
+html[data-theme] #app .sidebar .main-nav a {
+  color: var(--ink-2);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  box-shadow: none;
+}
+html[data-theme] #app .sidebar .main-nav a:hover {
+  background: var(--surface-2);
+  color: var(--ink);
+}
+html[data-theme] #app .sidebar .main-nav a.active {
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  border-color: transparent;
+}
+html[data-theme] #app :is(.aurora-icon, .nav-group-label, .nav-source-group summary) {
+  color: var(--ink-2);
+}
+html[data-theme] #app .active .aurora-icon {
+  color: var(--accent-ink);
+}
+html[data-theme] #app :is(h1, h2, h3, h4, strong) {
+  color: var(--ink);
+}
+html[data-theme] #app h1 {
+  font-size: 28px;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+}
+html[data-theme]
+  #app
+  :is(
+    p,
+    small,
+    .subtitle,
+    .tree-context,
+    .tree-breadcrumb,
+    .count-line,
+    .library-query-summary,
+    .document-context,
+    .component-breadcrumb,
+    .vehicle-kicker,
+    .regulatory-state-grid dt,
+    .regulatory-state-grid dd,
+    .regulatory-requirements summary,
+    .regulatory-mechanism,
+    .contran-evidence,
+    .contran-evidence dd,
+    .contran-evidence dt,
+    .regulatory-context,
+    .regulatory-filter-note,
+    .tree-footer,
+    .homologation-reading-note,
+    .homologation-outputs,
+    .section-heading span
+  ) {
+  color: var(--ink-2);
+}
+html[data-theme] #app a {
+  color: var(--accent-ink);
+}
+html[data-theme]
+  #app
+  :is(
+    .aurora-explorer,
+    .aurora-system-card,
+    .document,
+    .contran-record,
+    .update-card,
+    .graph-shell,
+    .homologation-map-shell,
+    .homologation-profile,
+    .homologation-empty,
+    .subsystem-explorer,
+    .vehicle-profile,
+    .tree-context,
+    .tree-detail-top,
+    .regulatory-state-grid,
+    .regulatory-requirements,
+    .consultation-help,
+    .consultation-sources,
+    .contran-source,
+    .contran-filters,
+    .contran-counts > div,
+    .regulatory-categories,
+    .flow-strip,
+    .markings-section,
+    .marking-record,
+    .wide-ai
+  ) {
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+html[data-theme]
+  #app
+  :is(
+    .aurora-heading p,
+    .aurora-explorer-heading p,
+    .aurora-subsystem small,
+    .aurora-applicability,
+    .aurora-subsystem b,
+    .aurora-heading .eyebrow,
+    .consultation-steps
+  ) {
+  display: none;
+}
+html[data-theme]
+  #app
+  :is(
+    .aurora-subsystem,
+    .aurora-system-card,
+    .subsystem-card,
+    .tree-doc,
+    .related-card,
+    .tree-accordion,
+    .regulatory-category,
+    .regulatory-system-links a,
+    .requirement-context-links a,
+    .component-lanes a,
+    .detail-tabs button,
+    .tree-breadcrumb button,
+    .flow-map-tools button,
+    .graph-tools button,
+    .graph-tools output,
+    .btn,
+    .navigation-toggle,
+    .homologation-outputs span,
+    .tree-detail-footer
+  ) {
+  background: var(--surface-2);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  box-shadow: none;
+  filter: none;
+}
+html[data-theme]
+  #app
+  :is(
+    .aurora-subsystem:hover,
+    .aurora-system-card:hover,
+    .subsystem-card:hover,
+    .tree-doc:hover,
+    .related-card:hover,
+    .btn:hover,
+    .detail-tabs button:hover,
+    .component-lanes a:hover
+  ) {
+  background: var(--surface-3);
+  border-color: var(--field-border);
+}
+html[data-theme] #app :is(.aurora-subsystem.emphasis, .aurora-subsystem) {
+  min-height: 64px;
+  border-radius: 12px;
+  background: var(--surface-2);
+}
+html[data-theme] #app :is(.aurora-system-card.selected, .subsystem-card.active) {
+  border-color: var(--accent-ink);
+}
+html[data-theme]
+  #app
+  :is(.aurora-primary, .btn.primary, .detail-tabs button.active, .component-lanes a.active) {
+  background: var(--accent);
+  color: var(--on-accent);
+  border: 1px solid var(--accent);
+  box-shadow: none;
+}
+html[data-theme] #app .aurora-primary {
+  margin-top: 16px;
+  border-radius: 12px;
+}
+html[data-theme] #app .aurora-primary svg {
+  color: inherit;
+}
+html[data-theme]
+  #app
+  :is(
+    .global-search,
+    .library-toolbar input,
+    .library-toolbar select,
+    .contran-filters input,
+    .contran-filters select,
+    .homologation-profile select,
+    .profile-control select
+  ) {
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--field-border);
+  box-shadow: none;
+  border-radius: 12px;
+}
+html[data-theme] #app .global-search :is(input, span) {
+  background: transparent;
+  color: var(--ink);
+}
+html[data-theme] #app input::placeholder {
+  color: var(--ink-2);
+}
+html[data-theme] :is(select option, optgroup) {
+  background: var(--surface);
+  color: var(--ink);
+}
+html[data-theme] :is(button, a, input, select, summary):focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+html[data-theme] #app :is(.graph-node, .homologation-step) {
+  background: var(--surface-2);
+  border: 1px solid var(--field-border);
+  color: var(--ink);
+  box-shadow: none;
+  border-radius: 12px;
+}
+html[data-theme] #app :is(.graph-node.selected, .homologation-step.selected) {
+  background: var(--accent-soft);
+  border-color: var(--accent-ink);
+  box-shadow: none;
+}
+html[data-theme] #app :is(.graph-node strong, .homologation-step strong, .node-icon, .node-toggle) {
+  color: var(--ink);
+}
+html[data-theme] #app :is(.graph-node small, .homologation-step small, .homologation-step-open) {
+  color: var(--ink-2);
+}
+html[data-theme] #app .node-icon {
+  background: var(--surface-3);
+  font-size: 14px;
+}
+html[data-theme] #app .node-toggle {
+  background: var(--surface-3);
+  border: 1px solid var(--field-border);
+}
+html[data-theme] #app :is(.graph-edge, .flow-connection) {
+  stroke: #77777e;
+}
+html[data-theme] #app .homologation-connectors text {
+  fill: var(--ink-2);
+}
+html[data-theme] #app :is(.graph-tools, .graph-toolbar, .detail-tabs, .tree-breadcrumb) {
+  background: transparent;
+}
+html[data-theme] #app :is(.notice, .tree-warning, .tree-caveat, .contran-temporal) {
+  background: var(--warning-soft);
+  color: var(--warning);
+  border: 1px solid var(--warning-line);
+  box-shadow: none;
+}
+html[data-theme]
+  #app
+  :is(.tag, .pill, .status, .contran-tags span, .contran-status, .context-note, .subsystem-parent) {
+  color: var(--ink-2);
+  background: var(--surface-2);
+  border-color: var(--border);
+}
+html[data-theme] #app .contran-status.pending {
+  color: var(--warning);
+  background: var(--warning-soft);
+}
+html[data-theme]
+  #app
+  :is(
+    .aurora-car-glass,
+    .catalog-stage,
+    .aurora-system-art,
+    .aurora-subsystem-art,
+    .component-hero-art,
+    .subsystem-visual,
+    .subsystem-thumb,
+    .subsystem-board
+  ) {
+  background: #f4f4f5;
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+html[data-theme] #app .aurora-car-glass {
+  padding: 8px;
+  border-radius: 14px;
+}
+html[data-theme] #app #vehicleDrawing image {
+  mix-blend-mode: normal;
+}
+html[data-theme] #app .catalog-stage .component-region {
+  fill: transparent;
+  stroke: transparent;
+  filter: none;
+  stroke-width: 2;
+}
+html[data-theme] #app .catalog-stage a:is(:hover, :focus-visible, .is-hovered) .component-region {
+  fill: #f4772124;
+  stroke: #a34508;
+  filter: none;
+  stroke-width: 2;
+}
+html[data-theme]
+  #app
+  .catalog-stage
+  a:focus:not(:focus-visible):not(:hover):not(.is-hovered)
+  .component-region {
+  fill: transparent;
+  stroke: transparent;
+}
+html[data-theme] #app .subsystem-region {
+  fill: transparent;
+  stroke: transparent;
+}
+html[data-theme] #app a:is(:hover, :focus-visible) .subsystem-region {
+  fill: #f4772124;
+  stroke: #a34508;
+}
+html[data-theme] #app .subsystem-region.selected {
+  stroke: #a34508;
+}
+html[data-theme] #app :is(.vehicle-drawing-tools, .component-hover) {
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--field-border);
+  box-shadow: none;
+}
+html[data-theme] #app .vehicle-drawing-tools button {
+  color: var(--ink);
+  background: transparent;
+}
+html[data-theme] #app .aurora-explorer {
+  align-self: start;
+}
+html[data-theme] #app .aurora-directory {
+  border-top: 1px solid var(--border);
+}
+html[data-theme] #app .aurora-explorer-heading {
+  margin-bottom: 16px;
+}
+html[data-theme] #app .vehicle-part-name {
+  display: block;
+  margin-top: 6px;
+  color: var(--ink-2);
+  font-size: 12px;
+  line-height: 1.4;
+}
+html[data-theme] #app :is(.aurora-system-art, .component-hero-art) img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 5px;
+}
+html[data-theme] #app .vehicle-part-picker {
+  display: block;
+  margin-bottom: 14px;
+}
+html[data-theme] #app .vehicle-part-picker select {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px;
+  background: var(--surface-2);
+  color: var(--ink);
+  border: 1px solid var(--field-border);
+  border-radius: 10px;
+  font: inherit;
+  font-size: 12px;
+}
+html[data-theme] #app .vehicle-drawing-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 4px 0;
+}
+html[data-theme] #app .vehicle-drawing-bar .component-hover {
+  position: static;
+  inset: auto;
+  transform: none;
+  max-width: none;
+  min-width: 0;
+  padding: 0;
+  background: transparent;
+  color: #425b72;
+  border: 0;
+  box-shadow: none;
+  font-size: 12px;
+  line-height: 1.4;
+}
+html[data-theme] #app .vehicle-drawing-bar .vehicle-drawing-tools {
+  position: static;
+  inset: auto;
+  transform: none;
+  flex: none;
+  padding: 0 4px;
+}
+html[data-theme] #app .vehicle-drawing-tools button {
+  min-width: 32px;
+  min-height: 40px;
+}
+html[data-theme] #app .aurora-overview-grid {
+  align-items: start;
+}
+html[data-theme] #app .aurora-heading {
+  margin-bottom: 16px;
+}
+html[data-theme] #app .aurora-library-link {
+  display: block;
+  padding: 12px 0;
+  font-size: 13px;
+}
+html[data-theme] #app .consultation-query-actions span {
+  color: var(--ink-2);
+}
+html[data-theme] dialog {
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--field-border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-pop);
+}
+html[data-theme] dialog :is(h2, h3, h4, strong) {
+  color: var(--ink);
+}
+html[data-theme] dialog :is(p, small, dd, dt, summary) {
+  color: var(--ink-2);
+}
+html[data-theme] dialog :is(a, .close) {
+  color: var(--accent-ink);
+}
+html[data-theme] dialog :is(.notice, .regulatory-requirements, .regulatory-state-grid) {
+  background: var(--surface-2);
+  border-color: var(--border);
+}
+html[data-theme] dialog .btn {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--ink);
+}
+html[data-theme] dialog::backdrop {
+  background: var(--backdrop);
+  backdrop-filter: none;
+}
+@media (max-width: 700px) {
+  html[data-theme] #app .sidebar {
+    position: sticky;
+    inset: auto;
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid var(--border);
+  }
+  html[data-theme] #app .profile-control {
+    display: none;
+  }
+  html[data-theme] #app .aurora-explorer {
+    display: block;
+  }
+}
+html[data-theme] #app .aurora-car-glass .catalog-stage {
+  padding: 0;
+}
+html[data-theme] #app:not(.tree-mode) #aiPanel {
+  display: none;
+}
+html[data-theme] #app:not(.tree-mode) .body-layout {
+  grid-template-columns: minmax(0, 1fr);
+}
+html[data-theme] #app .aurora-subsystem strong {
+  font-size: 13px;
+  line-height: 1.4;
+}
+html[data-theme] #app .node-copy {
+  padding-left: 10px;
+}
+html[data-theme] #app .consultation-sources > p {
+  font-size: 12px;
+}
+html[data-theme] #app .nav-source-group {
+  border: 0;
+  background: transparent;
+}
+html[data-theme] #app .eyebrow {
+  display: none;
+}
+html[data-theme] #app .document .links button {
+  color: var(--accent-ink);
+}
+html[data-theme] #app .consultation-sources > summary {
+  font-size: 13px;
+}
+html[data-theme] #app .aurora-directory-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+@media (max-width: 1100px) {
+  html[data-theme] #app .aurora-directory-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 700px) {
+  html[data-theme] #app .aurora-directory-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 700px) {
+  html[data-theme] #app .sidebar {
+    margin: 0;
+    left: 0;
+    right: 0;
+  }
+}
+html[data-theme]
+  #app
+  :is(main, .body-layout, .homologation-explorer, .homologation-explorer-heading, .tree-page-head) {
+  background: var(--bg);
+}
+html[data-theme]
+  #app
+  :is(
+    .homologation-detail,
+    .detail-scroll,
+    .tree-detail-footer,
+    .regulatory-requirements > article,
+    .markings-group,
+    .regulatory-requirements article
+  ) {
+  background: var(--surface);
+  border-color: var(--border);
+}
+html[data-theme]
+  #app
+  :is(
+    label,
+    summary,
+    .contran-counts span,
+    .contran-source span,
+    .homologation-map-toolbar > span,
+    #flowMapZoom,
+    .graph-mini > span
+  ) {
+  color: var(--ink-2);
+}
+html[data-theme] #app .homologation-step-kicker b {
+  background: var(--surface-3);
+  color: var(--ink);
+}
+html[data-theme] #app .homologation-step.selected {
+  outline-color: var(--accent-ink);
+}
+html[data-theme] #app .scope-note a {
+  text-decoration: underline;
+}
+html[data-theme] #app .scope-note {
+  background: transparent;
+}
+html[data-theme] #app :is(.graph-mini, .contran-method, .contran-evidence blockquote) {
+  background: var(--surface-2);
+  border-color: var(--border);
+}
+html[data-theme] #app :is([data-graph-action], .contran-pagination span) {
+  color: var(--ink-2);
+}
+html[data-theme] #app .homologation-map-viewport {
+  background: var(--surface);
+}
+html[data-theme] #app .homologation-step-kicker > span {
+  display: none;
+}
+html[data-theme] #app .component-flow-heading {
+  background: var(--surface);
+  border-color: var(--border);
+}
+html[data-theme] #app :is(.tree-context > span, .regulatory-phases a) {
+  background: var(--surface-2);
+  color: var(--ink-2);
+  border-color: var(--border);
+}
+html[data-theme] #app .regulatory-phases a.selected {
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  border-color: var(--accent-ink);
+}
+html[data-theme] #app .vehicle-kicker {
+  display: none;
+}
+html[data-theme] #app .graph-controls {
+  background: var(--surface-2);
+  border-color: var(--field-border);
+  box-shadow: none;
+}
+html[data-theme] #app .graph-controls :is(button, output) {
+  color: var(--ink-2);
+}
+html[data-theme] #app .graph-controls button:hover {
+  background: var(--surface-3);
+}
+html[data-theme] #app .graph-links path {
+  stroke: #77777e;
+}
+html[data-theme] #app .graph-links path.chosen {
+  stroke: var(--accent);
+}
+html[data-theme] #app .detail-tabs button span {
+  background: var(--surface-3);
+  color: var(--ink);
+}
+html[data-theme] #app .detail-tabs button.active span {
+  background: var(--surface);
+  color: var(--ink);
+}
+html[data-theme] #app :is(.subsystem-explorer summary span, .regulatory-category span) {
+  color: var(--ink-2);
+}
+
+html[data-theme] #app .theme-picker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  font-size: 12px;
+}
+html[data-theme] #app .theme-picker select {
+  height: 43px;
+  padding: 0 10px;
+  max-width: 150px;
+  border: 1px solid var(--field-border);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Aurora uses the original MOVER glass material without changing hit regions. */
+html[data-theme='aurora'] body {
+  background-color: var(--bg);
+  background-image: var(--app-wash);
+  background-attachment: fixed;
+}
+html[data-theme='aurora'] #app :is(main, .body-layout) {
+  background: transparent;
+}
+html[data-theme='aurora'] #app :is(.sidebar, .topbar) {
+  background: var(--liquid-sidebar-glass);
+  box-shadow: var(--liquid-sidebar-shadow);
+}
+html[data-theme='aurora'] #app :is(.aurora-explorer, .document, .homologation-profile) {
+  background: var(--liquid-glass);
+  box-shadow: var(--liquid-glass-shadow);
+}
+@media (max-width: 700px) {
+  html[data-theme] #app .topbar {
+    flex-wrap: nowrap;
+    gap: 8px;
+    padding: 10px 12px;
+  }
+  html[data-theme] #app .global-search {
+    order: 0;
+    flex: 1;
+    min-width: 0;
+    padding: 0 8px;
+    gap: 5px;
+  }
+  html[data-theme] #app .global-search > :is(kbd, span) {
+    display: none;
+  }
+  html[data-theme] #app .theme-picker {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+    font-size: 11px;
+  }
+  html[data-theme] #app .theme-picker select {
+    height: 42px;
+    max-width: 132px;
+  }
+  html[data-theme] #app .theme-picker > label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+}

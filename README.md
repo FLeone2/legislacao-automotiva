@@ -254,29 +254,48 @@ rastreabilidade e link para a fonte do acervo. Lacunas não recebem normas de
 outros assuntos como preenchimento. A URL guarda componente, ramo, nó e perfil;
 histórico, recarregamento e retorno ao veículo funcionam sem perder o contexto.
 
-A imagem geral tem zoom/reset e regiões vetoriais sobre a mesma transformação.
-Desenho e cards compartilham os mesmos identificadores. O realce acompanha mouse
-e foco de teclado. A transição de tela respeita preferência por movimento
+A vista explodida do SUV híbrido tem **37 conjuntos selecionáveis**, organizados
+em **13 grupos visuais**, além do acesso textual a Identificação e marcações.
+A bateria auxiliar de **12 V** e o chicote abrem Elétrica e comandos; a bateria de
+tração **HV**, o motor elétrico, o inversor e seus cabos abrem o grupo de propulsão
+elétrica já existente. O tanque e o tubo de combustível têm seu próprio contorno.
+Essa associação serve à navegação e não amplia a aplicabilidade das referências.
+
+A imagem geral tem zoom/reset e silhuetas sobre a mesma transformação, com
+`viewBox="0 0 1536 1024"`. Desenho e alternativas textuais compartilham os mesmos
+identificadores; a URL também pode guardar o conjunto em `part`. O realce acompanha
+mouse e foco de teclado. A transição de tela respeita preferência por movimento
 reduzido. O fluxograma tem controles próprios de zoom e enquadramento.
 
 ## Arquivos e origem dos recursos
 
 - `catalog.json`: acervo e taxonomia preexistentes, mantidos nesta implementação.
-- `vehicle-data.js`: componentes, polígonos e vínculos entre assuntos e registros
+- `vehicle-data.js`: componentes e vínculos entre assuntos e registros
   do acervo. Ligações específicas de bancos/motor/tanque citam IDs do catálogo;
-  demais ramos usam sua taxonomia existente.
+  demais ramos usam sua taxonomia existente. Os conjuntos da ilustração se ligam
+  aos IDs estáveis desses componentes, sem alterar as relações normativas.
+- `data/vehicle-visual/source.zip`: cópia integral de
+  `1-primeira_imagem_vetorizada.zip`, fornecido pelo responsável, que autorizou seu
+  uso para substituir a vista explodida. O arquivo conserva o mapa, as instruções,
+  as prévias e os SVGs recebidos; fica fora do artefato estático publicado.
+- `assets/vehicle-vector/vehicle.svg` e `peca_*.svg`: vista atual e 37 conjuntos
+  individuais, copiados sem alterar os bytes dos SVGs fornecidos. A cena é
+  ilustrativa: o traçado segue os pixels visíveis da referência, não é geometria
+  CAD nem fornece medidas físicas. Peças que se tocam internamente permanecem
+  agrupadas; a separação dos bancos dianteiros e da carroceria é aproximada.
+- `src/core/vehicle-vector.js`: dataset gerado com os 37 IDs, nomes, contornos
+  originais, coordenadas globais, imagens individuais e grupos de navegação.
+- `scripts/import_vehicle_vector.py`: importação determinística e validação dos
+  SVGs, limites, IDs e pontos internos de interação. Usa a biblioteca padrão do
+  Python e o Prettier já instalado no projeto, sem baixar dependências.
 - `vehicle-navigation.js`: desenho interativo, cards, rotas e montagem dos
   fluxogramas por componente.
 - `tree.js`: motor de fluxogramas já existente, reaproveitado para a nova consulta.
 - `app.js`, `index.html`, `styles.css`: integração e interface responsiva.
-- `assets/vehicle-exploded.webp`: ilustração original de um SUV genérico em vista
-  explodida, gerada por IA para esta experiência. Os demais sistemas usam suas pranchas próprias, descritas na seção de cobertura.
-- `assets/bancos.webp`, `motor.webp`, `tanque.webp`: três ilustrações detalhadas
-  originais, geradas por IA, sem marcas ou dados de catálogo de fabricantes.
-- `assets/image-provenance.json`: prompts, método e origem dos 16 recursos.
-  PNGs originais foram preservados no ambiente de geração; os recursos da aplicação
-  foram somente convertidos para WebP com ImageMagick, qualidade 88. As quatro imagens iniciais somavam aproximadamente 785 KiB; a ampliação
-  completa e a estratégia de carregamento estão detalhadas na seção de cobertura.
+- `assets/bancos.webp`, `motor.webp`, `tanque.webp` e demais pranchas WebP:
+  ilustrações anteriores geradas por IA, mantidas para os detalhes dos subsistemas.
+- `assets/image-provenance.json`: prompts, método e origem dessas 16 ilustrações
+  anteriores. A origem da vista vetorial atual é o ZIP fornecido, descrito acima.
 - `vehicle.png`: imagem da versão anterior, mantida para histórico do projeto,
   sem uso na nova visão do veículo. Autoria/licença não documentadas no acervo.
 
@@ -284,6 +303,25 @@ O ASA é referência de interação. Nenhum recurso gráfico, sessão, credencia
 catálogo comercial ou número de peça foi copiado dele. Os desenhos gerados são
 conceituais; não são representações de engenharia de um Eclipse Cross nem
 instruções para montagem, manutenção ou homologação.
+
+Para reproduzir a importação após `npm ci`, ou conferir os arquivos sem regravá-los:
+
+```sh
+npm run build:vehicle
+python scripts/import_vehicle_vector.py --check
+node --test tests/vehicle-vector.test.cjs
+```
+
+O importador exige os 37 IDs recebidos, preserva `fill-rule="evenodd"` e verifica
+que cada ponto de teste pertence somente ao seu conjunto. Rejeita scripts,
+recursos externos, atributos de eventos, caminhos de ZIP inseguros e geometria
+fora dos limites da imagem.
+
+A revisão visual aplica as orientações de composição e interação da skill
+[Anatomy](https://github.com/wheresryan22/anatomy/blob/main/SKILL.md): controles sem
+ocultar peças, contornos no mesmo espaço do desenho, alternativas por teclado,
+movimento reduzido e conferência em tamanho normal, 4× e celular. A implementação
+continua sendo uma ilustração 2D fornecida pelo responsável; não é um modelo 3D.
 
 ## Testes
 
@@ -345,24 +383,26 @@ de veículos.
 | Identificação do veículo | Placas; identificação e marcações; rotulagem e informação |
 | Suspensão e direção | Componentes de suspensão e direção |
 
-A visão geral oferece 14 acessos físicos/temáticos (alguns pertencem ao mesmo
-sistema do acervo). Todos agora usam arte detalhada própria. Ao abrir um sistema,
-a área **Subsistemas** apresenta o desenho com regiões clicáveis e cards textuais.
+A visão geral oferece **37 conjuntos em 13 grupos visuais**, mais o acesso
+textual a **Identificação e marcações**: são 14 entradas de navegação, algumas
+pertencentes ao mesmo sistema do acervo. Identificação não recebe uma região
+inventada na ilustração. Ao abrir um sistema, a área **Subsistemas** apresenta o
+desenho com regiões clicáveis e cards textuais.
 Selecionar um deles abre seu fluxograma específico, e o endereço guarda
 `component`, `subsystem`, `lane`, `node` e o perfil. Voltar ao fluxograma completo
 mantém o sistema.
 
-Foram adicionadas **12 pranchas geradas por IA**, totalizando **16 arquivos de
-imagem**. As ilustrações dos 30 subsistemas são recortes de exibição SVG das
-pranchas correspondentes, com coordenadas explícitas em `subsystemBoards` e
+As pranchas anteriores geradas por IA continuam nos detalhes dos **30 subsistemas**;
+sua contagem e suas relações permanecem as mesmas. Essas ilustrações são recortes
+de exibição SVG das pranchas correspondentes, com coordenadas explícitas em `subsystemBoards` e
 `specialSubsystemArt` de `vehicle-data.js`. Os originais não são recortados nem
-alterados: os SVGs recortam somente a exibição. Isso mantém a coerência entre a
-vista do sistema e as miniaturas/detalhes dos seus subsistemas. Os prompts e os
+alterados: os SVGs recortam somente a exibição. Assim, a prancha de subsistemas e
+seus recortes mostram a mesma arte. Os prompts e os
 caminhos dos PNGs originais estão em `assets/image-provenance.json`.
 
-Os 16 WebPs somam aproximadamente 2,9 MiB; imagens dos cards usam carregamento
-sob demanda. A imagem geral permanece uma ilustração genérica de referência, com
-entrada auxiliar identificada para a bateria elétrica.
+A vista geral carrega um SVG externo com as 37 silhuetas de interação sobrepostas;
+as imagens individuais dos cartões usam carregamento sob demanda. A bateria de
+tração HV faz parte da cena fornecida e tem seleção separada da bateria de 12 V.
 
 O teste `ComponentFlow.coverage()` exige zero lacunas de navegação. Ele não conta
 uma norma não cadastrada como cobertura legal: uma referência ausente permanece
@@ -460,10 +500,9 @@ A entrada padrão abre o veículo com o painel de sistemas e subsistemas. O bot�
 **Explorar fluxograma** abre a árvore do componente; todas as rotas anteriores
 continuam disponíveis. O controle **Liquid Aurora** suaviza os reflexos.
 
-As 16 imagens e os contornos de `vehicle-data.js` permanecem originais. A prancha
-técnica recebe um fundo claro azulado dentro do tema escuro para preservar sua
-leitura. Nenhuma nova montagem de carro foi adotada. Os dados normativos,
-requisitos e ressalvas permanecem os mesmos.
+Os temas compartilham a vista vetorial atual fornecida no ZIP e os mesmos 37
+contornos de interação. As pranchas anteriores permanecem nos detalhes dos
+subsistemas. Os dados normativos, requisitos e ressalvas permanecem os mesmos.
 
 O tema também cobre biblioteca, consultas por órgão, etiquetas/VIN, árvores,
 fluxo de homologação e diálogos. A suíte `tests/aurora-browser.py` verifica seleção
@@ -499,11 +538,14 @@ pintura. As três paletas vêm de
 `FLeone2/mover-saas/src/mover/web/static/themes.css`, em `src/styles/theme-tokens.css`.
 `src/styles/mover-dark.css` aplica os estados compartilhados e os materiais de vidro
 somente ao tema Aurora. `src/core/theme.js` controla a escolha, inclusive quando
-o armazenamento está bloqueado. As imagens originais não foram alteradas.
+o armazenamento está bloqueado. A escolha da paleta é independente da vista
+vetorial atual.
 
 Os realces do veículo são transitórios (mouse ou teclado), com uma única cor.
-A seleção continua no painel e nos cartões. O tanque usa contornos extraídos da
-imagem exibida em vez de um retângulo sobre a prancha. Os seletores visuais de
+A seleção continua no painel e nos cartões. Tanque, baterias, bancos, rodas e
+demais conjuntos usam as silhuetas fornecidas com a mesma vista vetorial, sem
+montagens intermediárias. Posicionamento e contornos compartilham as coordenadas
+do SVG e o zoom. Os seletores visuais de
 perfil, que não filtravam a legislação, foram retirados da interface; URLs
 anteriores continuam compatíveis. Trocar o tema preserva rota, zoom e seleção.
 
@@ -518,19 +560,29 @@ No Cloudflare Pages, a configuração esperada é comando `npm run build` e
 diretório de saída `dist`. A raiz do repositório contém pesquisas e inventários
 que não fazem parte do artefato estático.
 
+`wrangler.toml` fixa o projeto existente e a saída `./dist`. O artefato `dist` é
+versionado para que a integração publique a saída correta mesmo quando não
+executa instalação ou build. `postinstall` também o recompila nas instalações
+npm. A CI refaz `npm run build` e exige correspondência exata com a saída
+versionada; `tests/publication.test.py` verifica determinismo, revisão por conteúdo
+e exclusão dos arquivos de pesquisa. O build usa apenas a biblioteca padrão do
+Python, sem depender dos pacotes de pesquisa ou teste.
+
 O build gera versões por conteúdo para os scripts e estilos, regras `_headers`
-para revalidar a página e `version.json` com o commit de origem e as revisões dos
-arquivos. O endereço estável é `https://legislacao-automotiva.pages.dev/`; os links
+para revalidar a página e `version.json` com a revisão do conteúdo publicado
+(`revision`) e as revisões dos scripts e estilos. A revisão é determinística e
+independe do hash do commit; o check do GitHub identifica o commit implantado.
+O endereço estável é `https://legislacao-automotiva.pages.dev/`; os links
 com prefixo de implantação são fotografias de uma publicação e não acompanham
 novos commits. A entrega precisa ser conferida nesse endereço estável, com
 `version.json` e teste no navegador; um check de deploy sozinho não comprova a UI.
 
 Resultado da checagem de 19/10/2026: 11 menus, 14 acessos ao veículo,
 30 subsistemas, 37 atividades, 273 atos e 298 documentos percorridos sem erros
-JavaScript. As dez suítes funcionais incluem persistência e troca de tema, estados
+JavaScript. As suítes funcionais incluem persistência e troca de tema, estados
 do desenho, teclado, celular e armazenamento bloqueado. A auditoria axe cobre 14
 rotas e detalhes em cada uma das três paletas, além da navegação móvel.
-Na verificação externa de 814
+Na rodada anterior de verificação externa de 814
 endereços de fontes: 65 responderam HTTP 200, 696 retornaram 403 e 53 retornaram
 503. Os 749 casos sem confirmação permanecem como acesso não verificado; nenhum
 404/410 foi confirmado nessa rodada. Isso não altera a revisão normativa.

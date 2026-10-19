@@ -17,7 +17,7 @@ function requirementContextLinks(requirement) {
   const vehicle = requirement.context.vehicleLinks.map((link) => {
     const component = ComponentFlow.component(link.componentId);
     return component
-      ? `<a href="${esc(vehicleLink(component, null, link.subsystemId))}">${esc(component.label)} →</a>`
+      ? `<a data-close-reference href="${esc(vehicleLink(component, null, link.subsystemId))}">${esc(component.label)} →</a>`
       : '';
   });
   const activities = requirement.context.activities.map((link) => {
@@ -25,7 +25,7 @@ function requirementContextLinks(requirement) {
       stage: link.stageId,
       node: `flow:${link.stageId}:${link.activityId}`,
     });
-    return `<a href="#flow?${q}">${esc(link.stageLabel)} · ${esc(link.activityLabel)} →</a>`;
+    return `<a data-close-reference href="#flow?${q}">${esc(link.stageLabel)} · ${esc(link.activityLabel)} →</a>`;
   });
   return `<details class="requirement-context"><summary>Consultar este ato no veículo e no fluxo</summary><p>${esc(requirement.context.note)}</p><div class="requirement-context-links">${[...new Set([...vehicle, ...activities])].join('')}</div></details>`;
 }

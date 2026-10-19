@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta
+      content="Portal consultivo de legislação automotiva brasileira. Explore sistemas do veículo, etapas de homologação e fontes oficiais."
+      name="description"
+    />
+    <title>Legislação Automotiva</title>
+    <script src="src/core/theme.js?v=34e204846c9f9eaf"></script>
+    <link href="styles.css?v=c791fe18ff9cc9bb" rel="stylesheet" />
+    <link href="src/styles/navigation.css?v=1b993dacafdaa1d2" rel="stylesheet" />
+    <link href="src/styles/aurora.css?v=1ded24c4aa89ceea" rel="stylesheet" />
+    <link href="src/styles/theme-tokens.css?v=9df78ef799bdc299" rel="stylesheet" />
+    <link href="src/styles/mover-dark.css?v=ded469ece11435d6" rel="stylesheet" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Ir para o conteúdo</a>
+    <div id="app">
+      <aside class="sidebar">
+        <a class="brand" href="#tree"
+          ><span class="flag">🇧🇷</span><strong>Legislação<br />Automotiva</strong></a
+        ><span class="pill brand-pill">Protótipo navegável</span
+        ><button
+          aria-controls="mainNavigation"
+          aria-expanded="false"
+          class="navigation-toggle"
+          id="navigationToggle"
+        >
+          Menu
+        </button>
+        <nav aria-label="Navegação principal" class="main-nav" id="mainNavigation">
+          <div class="nav-group" data-navigation-group="explorar">
+            <p class="nav-group-label">Explorar</p>
+            <a data-nav="vehicle" href="#vehicle"
+              ><span aria-hidden="true">▱</span>Veículo e sistemas</a
+            ><a data-nav="flow" href="#flow"
+              ><span aria-hidden="true">♧</span>Fluxo de homologação</a
+            ><a data-nav="tree" href="#tree"><span aria-hidden="true">◇</span>Árvore regulatória</a>
+          </div>
+          <div class="nav-group" data-navigation-group="acervo">
+            <p class="nav-group-label">Acervo normativo</p>
+            <a data-nav="library" href="#library"><span aria-hidden="true">▤</span>Biblioteca</a
+            ><a data-nav="markings" href="#markings"
+              ><span aria-hidden="true">▥</span>Etiquetas e VIN</a
+            >
+            <details class="nav-source-group">
+              <summary>Consultar por órgão</summary>
+              <a data-nav="contran" href="#contran">CONTRAN</a
+              ><a data-nav="proconve" href="#proconve">PROCONVE / IBAMA</a
+              ><a data-nav="inmetro" href="#inmetro">Inmetro</a
+              ><a data-nav="anatel" href="#anatel">Anatel</a>
+            </details>
+          </div>
+          <div class="nav-group" data-navigation-group="programas">
+            <p class="nav-group-label">Programas e acompanhamento</p>
+            <a data-nav="mover" href="#mover"><span aria-hidden="true">◈</span>MOVER</a
+            ><a data-nav="updates" href="#updates"><span aria-hidden="true">◷</span>Atualizações</a
+            ><a data-nav="ai" href="#ai"
+              ><span aria-hidden="true">✧</span>Assistente · demonstração</a
+            >
+          </div>
+        </nav>
+        <div class="sidebar-foot">
+          <div class="road"></div>
+          <p>Conhecimento que<br />move o amanhã.</p>
+          <small>Brasil · Acervo federal</small>
+          <div class="teal-line"></div>
+        </div>
+      </aside>
+      <div class="workspace">
+        <header class="topbar">
+          <a class="topbrand" href="#tree">Legislação</a><span class="fixed-filter">🇧🇷 Brasil</span
+          ><span class="fixed-filter" title="Este acervo abrange apenas normas federais"
+            >⚖ Âmbito federal</span
+          ><label class="profile-control"
+            ><span class="sr-only">Categoria visual</span
+            ><select id="vehicleType">
+              <option>SUV / passeio</option>
+              <option>Comercial leve</option>
+              <option>Ônibus</option>
+              <option>Caminhão</option>
+              <option>Motocicleta</option>
+            </select></label
+          ><label class="profile-control"
+            ><span class="sr-only">Motorização visual</span
+            ><select id="powertrain">
+              <option>Híbrido</option>
+              <option>Combustão</option>
+              <option>Elétrico</option>
+            </select></label
+          ><label class="global-search"
+            ><span>⌕</span
+            ><input
+              aria-label="Buscar norma ou componente"
+              autocomplete="off"
+              id="globalSearch"
+              name="busca"
+              placeholder="Buscar norma ou componente"
+              spellcheck="false"
+            /><kbd>/</kbd></label
+          >
+          <div class="theme-picker">
+            <label for="themeSelect">Tema</label>
+            <select id="themeSelect">
+              <option value="dark">Escuro MOVER</option>
+              <option value="light">Claro</option>
+              <option value="aurora">Aurora</option>
+            </select>
+          </div>
+        </header>
+        <div class="body-layout">
+          <main id="main" tabindex="-1"></main>
+          <aside aria-label="Orientações de consulta" class="ai-panel" id="aiPanel">
+            <div class="ai-title">
+              <span aria-hidden="true">▤</span>
+              <div>
+                <h2>Como consultar</h2>
+                <p>Do assunto à fonte oficial</p>
+              </div>
+            </div>
+            <ol class="consultation-steps">
+              <li>Escolha um sistema do veículo ou uma etapa de homologação.</li>
+              <li>Leia o resumo e as condições registradas.</li>
+              <li>Abra a fonte oficial e confira alterações, datas e exceções.</li>
+            </ol>
+            <p class="notice">
+              Associação temática não significa aplicação automática. Uma norma pode ter disposições
+              alteradas ou revogadas parcialmente.
+            </p>
+            <div class="related-head">
+              <h3>Fontes relacionadas</h3>
+              <button class="text-button" id="relatedLibrary">Ver todas ↗</button>
+            </div>
+            <div id="relatedNorms"></div>
+            <div class="consultation-shortcuts">
+              <a class="btn" href="#markings">Etiquetas e VIN →</a
+              ><a class="btn" href="#updates">Fontes, revisão e pendências →</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+    <dialog aria-labelledby="normDialogTitle" id="normDialog">
+      <button aria-label="Fechar documento" class="close" id="closeDialog">×</button>
+      <div id="dialogContent"></div>
+    </dialog>
+    <div id="toast" role="status"></div>
+    <script src="src/core/dom.js?v=666c2b83f219e9ce"></script>
+    <script src="src/core/requirements.js?v=526e7e7d89933f3f"></script>
+    <script src="tree.js?v=c69647c4ddb691cd"></script>
+    <script src="src/core/vehicle-vector.js?v=f261d4cae5f1654a"></script>
+    <script src="vehicle-data.js?v=fee707e2a19e74e5"></script>
+    <script src="vehicle-navigation.js?v=572bedf7737f80e4"></script>
+    <script src="src/regulations/store.js?v=100a365b6b2ee557"></script>
+    <script src="src/regulations/catalog.js?v=b3736f66e8e7284f"></script>
+    <script src="src/regulations/status.js?v=9837d3bf97ff6f57"></script>
+    <script src="src/views/regulations.js?v=e571eb830dd29836"></script>
+    <script src="src/views/markings.js?v=ab5ad74a8ab35fe5"></script>
+    <script src="flow-data.js?v=f5e3feef06f748f1"></script>
+    <script src="homologation-flow.js?v=290606757587fbda"></script>
+    <script src="src/views/library.js?v=c72d9ff448ef3266"></script>
+    <script src="src/views/document.js?v=acfca50876e71a7d"></script>
+    <script src="src/core/router.js?v=91dbe80c3000799d"></script>
+    <script src="src/core/navigation.js?v=0435f21db6c6531e"></script>
+    <script src="src/views/aurora.js?v=0e60752487029b40"></script>
+    <script src="app.js?v=55f234a55190147c"></script>
+  </body>
+</html>

@@ -27,7 +27,7 @@ with tempfile.TemporaryDirectory() as directory:
     target = Path(directory) / "dist"
     module.build(target)
     version = json.loads((target / "version.json").read_text())
-    assert re.fullmatch(r"[0-9a-f]{40}", version["commit"])
+    assert re.fullmatch(r"[0-9a-f]{64}", version["revision"])
     html = (target / "index.html").read_text()
     assets = re.findall(r'(?:src|href)="([^"?]+\.(?:js|css))\?v=([0-9a-f]{16})"', html)
     assert dict(assets) == version["assets"]
@@ -35,6 +35,13 @@ with tempfile.TemporaryDirectory() as directory:
     assert "src/styles/theme-tokens.css" in version["assets"]
     for path, revision in assets:
         assert hashlib.sha256((target / path).read_bytes()).hexdigest()[:16] == revision
+    fingerprint = hashlib.sha256()
+    for path in sorted(
+        p for p in target.rglob("*") if p.is_file() and p != target / "version.json"
+    ):
+        fingerprint.update(path.relative_to(target).as_posix().encode() + b"\0")
+        fingerprint.update(hashlib.sha256(path.read_bytes()).digest())
+    assert version["revision"] == fingerprint.hexdigest()
     assert html.index("src/core/theme.js") < html.index('rel="stylesheet"')
     headers = (target / "_headers").read_text()
     assert "/index.html\n  Cache-Control: no-cache" in headers
@@ -45,6 +52,7 @@ with tempfile.TemporaryDirectory() as directory:
         "tests",
         "scripts",
         "data/contran/sources",
+        "data/vehicle-visual",
         "data/contran/publication-policy.json",
     ]:
         assert not (target / private).exists(), private
@@ -53,6 +61,7 @@ with tempfile.TemporaryDirectory() as directory:
         for path in target.rglob("*")
         if path.is_file()
     }
+    (target / "stale-private-input.json").write_text("must not be published")
     module.build(target)
     after = {
         str(path.relative_to(target)): path.read_bytes()
@@ -61,5 +70,5 @@ with tempfile.TemporaryDirectory() as directory:
     }
     assert before == after, "The same source must produce the same static artifact"
 print(
-    "PASS: deploy commit, content-based asset URLs, revalidation rules, private input exclusion and deterministic build."
+    "PASS: content revision, asset URLs, revalidation rules, private input exclusion, stale output removal and deterministic build."
 )

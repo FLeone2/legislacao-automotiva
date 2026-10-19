@@ -1,11 +1,11 @@
 """Full internal-access audit, including transient map states and every document."""
 
-import asyncio, json, os
+import asyncio
+import json
 from pathlib import Path
 from playwright.async_api import async_playwright, expect
-from browser_support import launch_options, wait_for_route
+from browser_support import TestServer, launch_options, wait_for_route
 
-BASE = os.environ.get("VEHICLE_TEST_URL", "http://127.0.0.1:8000/").rstrip("/") + "/"
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -34,6 +34,11 @@ async def main():
         await page.goto(BASE + "#vehicle?all=1")
         await wait_for_route(page)
         assert await page.locator("html").get_attribute("data-theme") == "dark"
+        parts = await page.evaluate("""()=>Object.fromEntries(
+            VehicleVector.parts.map(p=>[p.id,p.testPoint])
+        )""")
+        seat = parts["peca_08_banco_traseiro"]
+        tank = parts["peca_30_tanque_tubo_combustivel"]
 
         async def point(x, y):
             return await page.locator("#vehicleDrawing").evaluate(
@@ -43,11 +48,11 @@ async def main():
 
         async def fill():
             return await page.locator(
-                '#vehicleDrawing [data-component-link="bancos"] path'
+                "#vehicleDrawing #peca_08_banco_traseiro path"
             ).evaluate("e=>getComputedStyle(e).fill")
 
         assert await fill() == "rgba(0, 0, 0, 0)"
-        await page.mouse.move(**await point(750, 350))
+        await page.mouse.move(**await point(*seat))
         await page.wait_for_timeout(250)
         hover = await fill()
         assert hover != "rgba(0, 0, 0, 0)"
@@ -55,23 +60,27 @@ async def main():
         await page.wait_for_timeout(250)
         assert await fill() == "rgba(0, 0, 0, 0)"
         assert await page.locator(".is-hovered").count() == 0
-        await page.mouse.click(**await point(750, 350))
+        await page.mouse.click(**await point(*seat))
         await wait_for_route(page)
         await page.mouse.move(0, 0)
         await page.wait_for_timeout(250)
         assert await fill() == "rgba(0, 0, 0, 0)"
-        await page.mouse.move(**await point(750, 350))
+        await page.mouse.move(**await point(*seat))
         await page.wait_for_timeout(250)
         assert await fill() == hover
         await page.mouse.move(0, 0)
-        for xy, expected in [((1110, 790), None), ((1300, 900), "tanque")]:
+        for xy, expected in [
+            ((130, 150), None),
+            ((1500, 990), None),
+            (tank, "tanque"),
+        ]:
             pt = await point(*xy)
             hit = await page.evaluate(
                 'p=>document.elementFromPoint(p.x,p.y)?.closest("[data-component-link]")?.dataset.componentLink||null',
                 pt,
             )
             assert hit == expected, (xy, hit)
-        await page.mouse.click(**await point(1300, 900))
+        await page.mouse.click(**await point(*tank))
         await wait_for_route(page)
         await expect(page.locator(".aurora-explorer h2")).to_have_text(
             "Tanque de combustível"
@@ -215,4 +224,5 @@ async def main():
     print("PASS full checkup:", {k: len(v) for k, v in report.items()})
 
 
-asyncio.run(main())
+with TestServer() as BASE:
+    asyncio.run(main())

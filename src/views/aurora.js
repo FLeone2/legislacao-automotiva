@@ -22,23 +22,35 @@ renderVehicle = function () {
   if (query.has('component')) return originalVehicleRenderer();
   renderAuroraOverview(query);
 };
-function auroraFocusLink(component) {
+function auroraFocusLink(component, partId) {
   return (
     '#vehicle?' +
     new URLSearchParams({
       focus: component.id,
       type: $('#vehicleType').value,
       powertrain: $('#powertrain').value,
+      ...(vehicleVector.parts.some(
+        (part) => part.id === partId && part.componentId === component.id,
+      )
+        ? { part: partId }
+        : {}),
       ...(new URLSearchParams(location.hash.split('?')[1] || '').get('all') === '1'
         ? { all: '1' }
         : {}),
     })
   );
 }
-function auroraPanel(component) {
+function auroraPanel(component, selectedPart) {
   const subsystems = ComponentFlow.subsystems(component, catalog.metadata.hierarchy);
   return `<aside class="aurora-explorer" aria-label="Subsistemas de ${esc(component.label)}">
-    <header class="aurora-explorer-heading"><h2>${esc(component.label)}</h2></header>
+    <header class="aurora-explorer-heading"><div><h2>${esc(component.label)}</h2>${selectedPart ? `<span class="vehicle-part-name">${esc(selectedPart.label)}</span>` : ''}</div></header>
+    <div class="vehicle-part-picker"><label class="sr-only" for="vehiclePartSelect">Selecionar conjunto</label><select id="vehiclePartSelect"><option value="">Selecionar conjunto</option>${vehicleComponents
+      .filter((c) => c.mapParts.length)
+      .map(
+        (c) =>
+          `<optgroup label="${esc(c.label)}">${c.mapParts.map((part) => `<option value="${esc(part.id)}" ${selectedPart?.id === part.id ? 'selected' : ''}>${esc(part.label)}</option>`).join('')}</optgroup>`,
+      )
+      .join('')}</select></div>
     <div class="aurora-subsystem-list">${subsystems.map((sub) => `<a class="aurora-subsystem" href="${esc(vehicleLink(component, null, sub.id))}"><span class="aurora-subsystem-art">${subsystemArt(sub)}</span><strong>${esc(sub.label)}</strong></a>`).join('')}</div>
     <a class="aurora-primary" href="${esc(vehicleLink(component))}">Ver referências ${auroraIcon('arrow')}</a>
     <a class="aurora-library-link" href="${esc(libraryRoute({ component: component.taxonomy }))}">Biblioteca do sistema →</a>
@@ -55,6 +67,9 @@ function renderAuroraOverview(query) {
   }
   const component =
     ComponentFlow.component(query.get('focus')) || ComponentFlow.component('bancos');
+  const selectedPart = vehicleVector.parts.find(
+    (part) => part.id === query.get('part') && part.componentId === component.id,
+  );
   vehicleUI.component = null;
   vehicleUI.lane = null;
   vehicleUI.subsystem = null;
@@ -67,7 +82,7 @@ function renderAuroraOverview(query) {
   else directoryLink.set('all', '1');
   const directory = all
     ? vehicleComponents
-    : ['motor', 'freios', 'iluminacao', 'pneus-rodas', 'eletrica', 'identificacao'].map((id) =>
+    : ['motor', 'freios', 'iluminacao', 'pneus-rodas', 'eletrica', 'bateria'].map((id) =>
         ComponentFlow.component(id),
       );
   const focusLabel = ComponentFlow.topics(component, catalog.metadata.hierarchy)
@@ -79,8 +94,8 @@ function renderAuroraOverview(query) {
     <nav class="aurora-breadcrumb" aria-label="Seleção atual">${auroraIcon('home')}<span>Veículo</span><span>›</span><strong>${esc(component.label)}</strong></nav>
     <div class="aurora-car-glass">${vehicleMap()}<div class="aurora-selection-caption">${auroraIcon('shield')}<div><strong>${esc(component.label)}</strong><small>${esc(focusLabel)}</small></div><span>Selecionado</span></div></div>
     <p class="aurora-original-note">Ilustração conceitual · selecione no desenho ou nos cartões</p>
-  </section>${auroraPanel(component)}</div>
-  <section class="aurora-directory" aria-labelledby="auroraDirectory"><header><div><h2 id="auroraDirectory">Sistemas</h2><span>11 sistemas · 30 subsistemas</span></div><a href="${esc('#vehicle?' + directoryLink)}">${all ? 'Mostrar principais' : 'Ver todos os sistemas'} →</a></header><div class="aurora-directory-grid ${all ? 'expanded' : ''}">${directory
+  </section>${auroraPanel(component, selectedPart)}</div>
+  <section class="aurora-directory" aria-labelledby="auroraDirectory"><header><div><h2 id="auroraDirectory">Sistemas</h2><span>${vehicleVector.parts.length} conjuntos · 30 subsistemas</span></div><a href="${esc('#vehicle?' + directoryLink)}">${all ? 'Mostrar principais' : 'Ver todos os sistemas'} →</a></header><div class="aurora-directory-grid ${all ? 'expanded' : ''}">${directory
     .map(
       (c) =>
         `<a data-aurora-component="${esc(c.id)}" class="aurora-system-card ${component.id === c.id ? 'selected' : ''}" href="${esc(auroraFocusLink(c))}"><div class="aurora-system-art">${componentArt(c)}</div><strong>${esc(c.label)}</strong><small>${esc(
@@ -96,11 +111,20 @@ function renderAuroraOverview(query) {
     .querySelectorAll('#vehicleDrawing [data-component-link]')
     .forEach((link) => {
       const c = ComponentFlow.component(link.dataset.componentLink);
-      link.setAttribute('href', auroraFocusLink(c));
-      link.classList.toggle('aurora-selected', c.id === component.id);
-      link.setAttribute('aria-current', c.id === component.id ? 'true' : 'false');
+      link.setAttribute('href', auroraFocusLink(c, link.dataset.mapPart));
+      const selected = selectedPart
+        ? link.dataset.mapPart === selectedPart.id
+        : c.id === component.id;
+      link.classList.toggle('aurora-selected', selected);
+      link.setAttribute('aria-current', selected ? 'true' : 'false');
     });
   setupComponentHover();
+  $('#vehiclePartSelect').addEventListener('change', (event) => {
+    const part = vehicleVector.parts.find((item) => item.id === event.target.value);
+    if (!part) return;
+    goVehicle(auroraFocusLink(ComponentFlow.component(part.componentId), part.id));
+    $('#vehiclePartSelect')?.focus({ preventScroll: true });
+  });
 }
 // Keep all original routes and regulatory data; add the theme shell before bootstrap.
 if (!location.hash) history.replaceState(null, '', '#vehicle?focus=bancos');

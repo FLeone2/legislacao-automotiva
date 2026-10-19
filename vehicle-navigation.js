@@ -4,8 +4,9 @@ function vehicleContext() {
   return `${$('#vehicleType').value} · ${$('#powertrain').value}`;
 }
 function componentArt(c, cls = '') {
-  return c.asset
-    ? `<img class="${cls}" src="${c.asset}" alt="Ilustração conceitual de ${esc(c.label)}" decoding="async" loading="lazy">`
+  const asset = c.overviewAsset || c.asset;
+  return asset
+    ? `<img class="${cls}" src="${asset}" alt="Ilustração de ${esc(c.label)}" decoding="async" loading="lazy">`
     : `<svg class="${cls}" viewBox="${c.crop}" role="img" aria-label="${esc(c.label)}"><image href="assets/vehicle-exploded.webp" width="1536" height="1024"/></svg>`;
 }
 function vehicleLink(c, lane, subsystem) {
@@ -15,6 +16,9 @@ function vehicleLink(c, lane, subsystem) {
   q.set('type', $('#vehicleType').value);
   q.set('powertrain', $('#powertrain').value);
   if (new URLSearchParams(location.hash.split('?')[1] || '').get('all') === '1') q.set('all', '1');
+  const partId = new URLSearchParams(location.hash.split('?')[1] || '').get('part');
+  if (vehicleVector.parts.some((part) => part.id === partId && part.componentId === c.id))
+    q.set('part', partId);
   return '#vehicle?' + q;
 }
 function saveVehicleRoute() {
@@ -37,8 +41,17 @@ function goVehicle(url) {
   update();
 }
 function vehicleMap() {
-  return `<div class="catalog-stage"><svg id="vehicleDrawing" viewBox="0 0 1536 1024" role="group" aria-label="Veículo ilustrado: selecione um componente"><g id="vehicleLayer"><image href="assets/vehicle-exploded.webp" width="1536" height="1024"/><rect x="106" y="528" width="174" height="48" rx="6" fill="white" stroke="#8a9cad"/><text x="193" y="558" text-anchor="middle" font-size="18" fill="#425b72">Bateria elétrica ↗</text><rect x="1100" y="785" width="415" height="230" rx="14" fill="white" stroke="#dde4ec" stroke-width="2"/><image href="assets/tanque.webp" x="1110" y="785" width="395" height="205" preserveAspectRatio="xMidYMid meet"/><text x="1307" y="1000" text-anchor="middle" fill="#536579" font-size="20" font-family="Arial">Tanque e circuito de vapores</text>${vehicleComponents.map((c) => `<a href="${esc(vehicleLink(c))}" data-component-link="${c.id}" aria-label="Explorar normas: ${esc(c.label)}"><path class="component-region" d="${c.path}"><title>${esc(c.label)}</title></path></a>`).join('')}</g></svg><div class="vehicle-drawing-tools"><button data-vehicle-zoom="out" aria-label="Diminuir imagem do veículo">−</button><button data-vehicle-zoom="reset" aria-label="Restaurar imagem do veículo"><output id="vehicleImageZoom">100%</output></button><button data-vehicle-zoom="in" aria-label="Ampliar imagem do veículo">+</button></div><output id="componentHover" class="component-hover" aria-live="polite">Selecione um componente do veículo</output><p class="catalog-caption">Ilustração conceitual · SUV genérico. Selecione no desenho ou nos componentes abaixo.</p></div>`;
+  const hotspots = vehicleVector.parts
+    .map((part) => {
+      const component = ComponentFlow.component(part.componentId);
+      const q = new URLSearchParams(vehicleLink(component).split('?')[1]);
+      q.set('part', part.id);
+      return `<a id="${esc(part.id)}" href="#vehicle?${esc(q)}" data-component-link="${component.id}" data-map-part="${esc(part.id)}" data-map-label="${esc(part.label)}" aria-label="${esc(part.label)}"><path id="${esc(part.contourId)}" class="component-region" d="${part.path}" fill-rule="evenodd" pointer-events="all"><title>${esc(part.label)}</title></path></a>`;
+    })
+    .join('');
+  return `<div class="catalog-stage"><svg id="vehicleDrawing" viewBox="${vehicleVector.viewBox}" role="group" aria-label="Vista explodida do veículo híbrido: selecione um conjunto"><g id="vehicleLayer"><image id="vehicleVectorArt" href="${vehicleVector.asset}" width="${vehicleVector.width}" height="${vehicleVector.height}"/>${hotspots}</g></svg><div class="vehicle-drawing-bar"><output id="componentHover" class="component-hover" aria-live="polite">Selecione um conjunto</output><div class="vehicle-drawing-tools"><button data-vehicle-zoom="out" aria-label="Diminuir imagem do veículo">−</button><button data-vehicle-zoom="reset" aria-label="Restaurar imagem do veículo"><output id="vehicleImageZoom">100%</output></button><button data-vehicle-zoom="in" aria-label="Ampliar imagem do veículo">+</button></div></div></div>`;
 }
+
 function renderVehicle() {
   $('#main').onpointerover = null;
   $('#main').onfocusin = null;
@@ -225,7 +238,7 @@ function renderVehicleFlow() {
   else q.delete('subsystem');
   history.replaceState(null, '', '#vehicle?' + q);
   $('#main').innerHTML =
-    `<nav class="component-breadcrumb" aria-label="Caminho selecionado"><a href="${esc(auroraFocusLink(c))}" data-vehicle-back>← Voltar ao veículo</a><span> / </span><strong>${esc(c.label)}</strong></nav><header class="component-flow-heading"><div class="component-hero-art">${sub ? subsystemArt(sub) : componentArt(c)}</div><div><p class="vehicle-kicker">${esc(vehicleContext())}</p><h1 tabindex="-1">${esc(sub?.label || c.label)}</h1><p>Do componente ao assunto.<br>Do assunto à fonte.</p></div></header>${subsystemExplorer(c, sub)}<nav class="component-lanes" aria-label="Área regulatória">${lanes.map((l) => `<a href="${esc(vehicleLink(c, l.id, sub?.id))}" data-component-link="${c.id}" class="${vehicleUI.lane === l.id ? 'active' : ''}" ${vehicleUI.lane === l.id ? 'aria-current="page"' : ''}><span>${l.id === 'ambiental' ? '♧' : '◇'}</span>${esc(l.label)}</a>`).join('')}</nav><div class="tree-breadcrumb" aria-label="Ramo do fluxograma">${nodeTrail(
+    `<nav class="component-breadcrumb" aria-label="Caminho selecionado"><a href="${esc(auroraFocusLink(c, new URLSearchParams(location.hash.split('?')[1] || '').get('part')))}" data-vehicle-back>← Voltar ao veículo</a><span> / </span><strong>${esc(c.label)}</strong></nav><header class="component-flow-heading"><div class="component-hero-art">${sub ? subsystemArt(sub) : componentArt(c)}</div><div><p class="vehicle-kicker">${esc(vehicleContext())}</p><h1 tabindex="-1">${esc(sub?.label || c.label)}</h1></div></header>${subsystemExplorer(c, sub)}<nav class="component-lanes" aria-label="Área regulatória">${lanes.map((l) => `<a href="${esc(vehicleLink(c, l.id, sub?.id))}" data-component-link="${c.id}" class="${vehicleUI.lane === l.id ? 'active' : ''}" ${vehicleUI.lane === l.id ? 'aria-current="page"' : ''}>${esc(l.label)}</a>`).join('')}</nav><div class="tree-breadcrumb" aria-label="Ramo do fluxograma">${nodeTrail(
       ui.selected,
       model,
     )
@@ -239,21 +252,22 @@ function renderVehicleFlow() {
 function setupComponentHover() {
   const main = $('#main');
   if (!$('.catalog-stage')) return;
-  const show = (id) => {
+  const show = (link) => {
     main
       .querySelectorAll('[data-component-link]')
-      .forEach((el) => el.classList.toggle('is-hovered', el.dataset.componentLink === id));
-    const component = ComponentFlow.component(id);
+      .forEach((el) => el.classList.toggle('is-hovered', el === link));
+    const component = ComponentFlow.component(link?.dataset.componentLink);
     if ($('#componentHover'))
-      $('#componentHover').textContent = component?.label || 'Selecione um sistema';
+      $('#componentHover').textContent =
+        link?.dataset.mapLabel || component?.label || 'Selecione um conjunto';
   };
   const componentLink = (target) =>
     target instanceof Element ? target.closest('[data-component-link]') : null;
-  main.onpointerover = (event) => show(componentLink(event.target)?.dataset.componentLink);
+  main.onpointerover = (event) => show(componentLink(event.target));
   main.onpointerout = (event) => {
     if (componentLink(event.target) !== componentLink(event.relatedTarget)) show(null);
   };
-  main.onfocusin = (event) => show(componentLink(event.target)?.dataset.componentLink);
+  main.onfocusin = (event) => show(componentLink(event.target));
   main.onfocusout = () => show(null);
   main.onpointerleave = () => show(null);
 }
@@ -273,9 +287,13 @@ if (typeof document !== 'undefined') {
                 ) / 10,
               ),
             );
+      const partId = new URLSearchParams(location.hash.split('?')[1] || '').get('part');
+      const anchor = vehicleVector.parts.find((part) => part.id === partId)?.testPoint || [
+        768, 512,
+      ];
       $('#vehicleLayer').setAttribute(
         'transform',
-        `translate(768 512) scale(${vehicleUI.zoom}) translate(-768 -512)`,
+        `translate(${anchor[0]} ${anchor[1]}) scale(${vehicleUI.zoom}) translate(${-anchor[0]} ${-anchor[1]})`,
       );
       $('#vehicleImageZoom').textContent = Math.round(vehicleUI.zoom * 100) + '%';
       return;
@@ -290,7 +308,7 @@ if (typeof document !== 'undefined') {
     (e) => {
       if (!e.target.matches?.('img,image')) return;
       const parent = e.target.closest(
-        '.component-card-art,.component-hero-art,.catalog-stage,.subsystem-explorer',
+        '.component-card-art,.component-hero-art,.catalog-stage,.subsystem-explorer,.aurora-system-art,.aurora-subsystem-art',
       );
       if (!parent || parent.querySelector('.image-unavailable')) return;
       const note = document.createElement('p');

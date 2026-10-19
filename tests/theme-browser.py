@@ -1,12 +1,10 @@
 """Exercise real palette changes, persistence, map states and blocked storage."""
 
 import asyncio
-import os
 from pathlib import Path
 from playwright.async_api import async_playwright, expect
-from browser_support import launch_options, wait_for_route
+from browser_support import TestServer, launch_options, wait_for_route
 
-BASE = os.environ.get("VEHICLE_TEST_URL", "http://127.0.0.1:8000/").rstrip("/") + "/"
 ROOT = Path(__file__).resolve().parents[1]
 KEY = "legislacao-automotiva.theme"
 PALETTES = {
@@ -16,7 +14,7 @@ PALETTES = {
 }
 
 
-async def main():
+async def main(base):
     errors = []
     async with async_playwright() as p:
         browser = await p.chromium.launch(**launch_options())
@@ -25,7 +23,7 @@ async def main():
         )
         page = await context.new_page()
         page.on("pageerror", lambda error: errors.append(str(error)))
-        await page.goto(BASE + "#vehicle?focus=bancos")
+        await page.goto(base + "#vehicle?focus=bancos")
         await wait_for_route(page)
         picker = page.get_by_label("Tema", exact=True)
         await expect(picker).to_have_value("dark")
@@ -62,7 +60,7 @@ async def main():
                 "markings",
                 "inmetro?record=inmetro-145-2022",
             ]:
-                await page.goto(BASE + "#" + route)
+                await page.goto(base + "#" + route)
                 await wait_for_route(page)
                 await expect(picker).to_have_value(theme)
                 assert (
@@ -78,15 +76,19 @@ async def main():
                 assert await page.evaluate(
                     "document.documentElement.scrollWidth<=innerWidth"
                 ), (theme, route)
-            await page.goto(BASE + "#vehicle?focus=bancos")
+            await page.goto(base + "#vehicle?focus=bancos")
             await wait_for_route(page)
-            seat = page.locator('#vehicleDrawing [data-component-link="bancos"] path')
+            seat = page.locator(
+                "#vehicleDrawing #peca_09_bancos_dianteiros_console path"
+            )
             assert (
                 await seat.evaluate("e=>getComputedStyle(e).fill") == "rgba(0, 0, 0, 0)"
             )
-            point = await page.locator("#vehicleDrawing").evaluate("""svg=>{
-                const p=svg.createSVGPoint();p.x=750;p.y=350;
-                const q=p.matrixTransform(svg.querySelector('#vehicleLayer').getScreenCTM());
+            point = await seat.evaluate("""path=>{
+                const part=VehicleVector.parts.find(part=>part.contourId===path.id);
+                const p=path.ownerSVGElement.createSVGPoint();
+                [p.x,p.y]=part.testPoint;
+                const q=p.matrixTransform(path.getScreenCTM());
                 return{x:q.x,y:q.y};
             }""")
             await page.mouse.move(**point)
@@ -111,7 +113,7 @@ async def main():
 
         # A second tab follows a preference change without a reload.
         other = await context.new_page()
-        await other.goto(BASE + "#library")
+        await other.goto(base + "#library")
         await wait_for_route(other)
         await picker.select_option("light")
         await expect(other.get_by_label("Tema", exact=True)).to_have_value("light")
@@ -145,10 +147,10 @@ async def main():
         });""")
         page = await blocked.new_page()
         page.on("pageerror", lambda error: errors.append(str(error)))
-        await page.goto(BASE + "#vehicle")
+        await page.goto(base + "#vehicle")
         await wait_for_route(page)
         await page.get_by_label("Tema", exact=True).select_option("light")
-        await page.goto(BASE + "#flow")
+        await page.goto(base + "#flow")
         await wait_for_route(page)
         await expect(page.get_by_label("Tema", exact=True)).to_have_value("light")
         assert not errors, errors
@@ -159,4 +161,6 @@ async def main():
     )
 
 
-asyncio.run(main())
+if __name__ == "__main__":
+    with TestServer() as base:
+        asyncio.run(main(base))

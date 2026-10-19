@@ -1,6 +1,5 @@
 tests/artifacts/
 __pycache__/
 node_modules/
-dist/
 .playwright/
 .ruff_cache/

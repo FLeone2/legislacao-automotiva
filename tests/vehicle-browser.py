@@ -1,25 +1,10 @@
-import asyncio, os
+import asyncio
 from pathlib import Path
 from playwright.async_api import async_playwright
-from browser_support import launch_options
+from browser_support import TestServer, launch_options
 
-BASE = os.environ.get("VEHICLE_TEST_URL", "http://127.0.0.1:8000/").rstrip("/") + "/"
 ARTIFACTS = Path(__file__).resolve().parent / "artifacts"
 ARTIFACTS.mkdir(exist_ok=True)
-POINTS = {
-    "bancos": (750, 350),
-    "motor": (450, 550),
-    "tanque": (1300, 900),
-    "freios": (820, 820),
-    "chassi": (650, 720),
-    "vidros": (480, 240),
-    "iluminacao": (430, 790),
-    "carroceria": (1080, 160),
-    "retrovisores": (1180, 370),
-    "pneus-rodas": (980, 870),
-    "eletrica": (610, 510),
-    "escapamento": (900, 570),
-}
 
 
 async def point(page, xy):
@@ -59,23 +44,28 @@ async def main():
         errors = []
         page.on("pageerror", lambda e: errors.append(str(e)))
         await overview(page)
+        points = await page.evaluate("""()=>Object.fromEntries(
+            vehicleComponents.filter(c=>c.mapParts.length).map(c=>[c.id,c.mapParts[0].testPoint])
+        )""")
         assert await page.locator(".aurora-system-card").count() == 14
         # Hit-testing actual transformed SVG geometry: each physical point must land on its own region.
-        for name, xy in POINTS.items():
+        for name, xy in points.items():
             pos = await point(page, xy)
             actual = await page.evaluate(
                 '(p)=>document.elementFromPoint(p.x,p.y)?.closest("[data-component-link]")?.dataset.componentLink',
                 pos,
             )
             assert actual == name, (name, actual)
-        # Tire outlines must include the tire edge while excluding adjacent white pixels.
+        # Both supplied wheel silhouettes are interactive; nearby blank canvas is not.
+        rear_wheel = await page.evaluate(
+            'VehicleVector.parts.find(p=>p.id==="peca_36_roda_traseira").testPoint'
+        )
         wheel_samples = [
-            ((980, 870), True),
-            ((875, 900), True),
-            ((1430, 620), True),
-            ((1060, 850), False),
-            ((970, 995), False),
-            ((1460, 730), False),
+            (points["pneus-rodas"], True),
+            (rear_wheel, True),
+            ((20, 800), False),
+            ((200, 980), False),
+            ((1480, 980), False),
         ]
 
         async def wheel_boundaries(samples):
@@ -88,13 +78,12 @@ async def main():
                 assert (actual == "pneus-rodas") == inside, (xy, inside, actual)
 
         await wheel_boundaries(wheel_samples)
-        pseat = await point(page, POINTS["bancos"])
+        pseat = await point(page, points["bancos"])
         await page.mouse.move(**pseat)
-        assert "Bancos" in await page.locator("#componentHover").inner_text()
+        assert "Banco" in await page.locator("#componentHover").inner_text()
         await page.locator('[data-vehicle-zoom="in"]').click()
         assert await page.locator("#vehicleImageZoom").inner_text() == "120%"
-        await wheel_boundaries(wheel_samples[:2] + [wheel_samples[3]])
-        pseat = await point(page, POINTS["bancos"])
+        pseat = await point(page, points["bancos"])
         assert (
             await page.evaluate(
                 '(p)=>document.elementFromPoint(p.x,p.y)?.closest("[data-component-link]")?.dataset.componentLink',
@@ -108,7 +97,7 @@ async def main():
         await page.screenshot(
             path=str(ARTIFACTS / "veiculo-desktop.png"), full_page=True
         )
-        pseat = await point(page, POINTS["bancos"])
+        pseat = await point(page, points["bancos"])
         await page.mouse.click(**pseat)
         await flow(page)
         assert await page.locator("#main h1").inner_text() == "Bancos e ocupantes"
@@ -179,7 +168,7 @@ async def main():
             await page.locator('[data-tree-node$=":record:inmetro-045"]').count() == 1
         )
         await overview(page)
-        tank = await point(page, POINTS["tanque"])
+        tank = await point(page, points["tanque"])
         await page.mouse.click(**tank)
         await flow(page)
         assert (
@@ -206,7 +195,7 @@ async def main():
         )
         await page.locator('[data-graph-action="fit"]').click()
         await page.locator('[data-graph-action="reset"]').click()
-        for component in POINTS:
+        for component in points:
             await page.goto(BASE + "#vehicle?component=" + component)
             await flow(page)
             assert await page.locator("#main h1").inner_text()
@@ -218,7 +207,7 @@ async def main():
         await page.screenshot(
             path=str(ARTIFACTS / "veiculo-mobile.png"), full_page=True
         )
-        seat = await point(page, POINTS["bancos"])
+        seat = await point(page, points["bancos"])
         await page.mouse.click(**seat)
         await flow(page)
         assert await page.locator("#main h1").inner_text() == "Bancos e ocupantes"
@@ -248,11 +237,14 @@ async def main():
             "pendente"
             in (await page.locator(".graph-node strong").all_inner_texts())[-1].lower()
         )
-        await page.route("**/assets/motor.webp", lambda route: route.abort())
+        motor_asset = "**/" + await page.evaluate(
+            'ComponentFlow.component("motor").overviewAsset'
+        )
+        await page.route(motor_asset, lambda route: route.abort())
         await page.reload()
         await flow(page)
         await page.locator(".image-unavailable").first.wait_for()
-        await page.unroute("**/assets/motor.webp")
+        await page.unroute(motor_asset)
         # Existing application views remain intact.
         for view in ["tree", "mover", "library", "flow", "updates", "ai"]:
             await page.goto(BASE + "#" + view)
@@ -267,7 +259,7 @@ async def main():
         )
         touch.on("pageerror", lambda e: errors.append(str(e)))
         await overview(touch)
-        pos = await point(touch, POINTS["bancos"])
+        pos = await point(touch, points["bancos"])
         await touch.touchscreen.tap(pos["x"], pos["y"])
         await flow(touch)
         assert "Bancos" in await touch.locator("#main h1").inner_text()
@@ -286,7 +278,7 @@ async def main():
         assert "Motor" in await page.locator("#main h1").inner_text()
         assert not errors, errors
         print(
-            "PASS: 12 original SVG hit targets plus 14 component entries, image zoom/reset, bank/engine/tank flows, reference/gap provenance, source dialog, graph controls, URL/reload/back, keyboard, mobile clicks/layout, missing image/data and 6 existing views. No JavaScript errors."
+            "PASS: 13 supplied SVG groups plus 14 component entries, image zoom/reset, bank/engine/tank flows, reference/gap provenance, source dialog, graph controls, URL/reload/back, keyboard, mobile clicks/layout, missing image/data and 6 existing views. No JavaScript errors."
         )
         await browser.close()
 
@@ -295,4 +287,5 @@ def vehicle_url_has(page, value):
     return value in page.url
 
 
-asyncio.run(main())
+with TestServer() as BASE:
+    asyncio.run(main())

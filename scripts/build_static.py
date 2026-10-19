@@ -3,25 +3,11 @@
 
 import hashlib
 import json
-import os
 import re
 import shutil
-import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-
-
-def source_commit():
-    commit = os.environ.get("CF_PAGES_COMMIT_SHA", "")
-    if not re.fullmatch(r"[0-9a-f]{40}", commit):
-        try:
-            commit = subprocess.check_output(
-                ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True
-            ).strip()
-        except (OSError, subprocess.CalledProcessError):
-            return None
-    return commit if re.fullmatch(r"[0-9a-f]{40}", commit) else None
 
 
 def build(destination=None):
@@ -69,15 +55,6 @@ def build(destination=None):
         index.read_text(),
     )
     index.write_text(html)
-    (target / "version.json").write_text(
-        json.dumps(
-            {"commit": source_commit(), "assets": revisions},
-            ensure_ascii=False,
-            sort_keys=True,
-            indent=2,
-        )
-        + "\n"
-    )
     # Revalidate the entry page/data in browsers, including the stable Pages URL.
     (target / "_headers").write_text(
         "/*\n  Cache-Control: public, max-age=0, must-revalidate\n"
@@ -86,6 +63,22 @@ def build(destination=None):
         "/version.json\n  Cache-Control: no-store\n"
     )
     (target / ".nojekyll").touch()
+    # A content revision remains reproducible when Pages publishes committed
+    # output without running a build. Embedding the containing Git SHA would
+    # make that artifact self-referential.
+    fingerprint = hashlib.sha256()
+    for path in sorted(p for p in target.rglob("*") if p.is_file()):
+        fingerprint.update(path.relative_to(target).as_posix().encode() + b"\0")
+        fingerprint.update(hashlib.sha256(path.read_bytes()).digest())
+    (target / "version.json").write_text(
+        json.dumps(
+            {"revision": fingerprint.hexdigest(), "assets": revisions},
+            ensure_ascii=False,
+            sort_keys=True,
+            indent=2,
+        )
+        + "\n"
+    )
     print(f"Static artifact: {target}")
 
 
