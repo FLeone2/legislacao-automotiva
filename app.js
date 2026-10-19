@@ -6,6 +6,7 @@ const state = {
   agency: '',
   filterComponent: '',
   stage: '',
+  review: '',
   view: 'tree',
 };
 const labels = {
@@ -29,6 +30,7 @@ function componentMatches(r, id) {
   return (r.taxonomy || []).some((t) => t === id || t.startsWith(id + '/'));
 }
 function related() {
+  if (state.view === 'library') return filters();
   return catalog.records
     .filter((r) => componentMatches(r, state.component))
     .sort((a, b) => Number(Boolean(b.officialAudit)) - Number(Boolean(a.officialAudit)));
@@ -91,7 +93,7 @@ function systemCount(id) {
 
 function renderUpdates() {
   $('#main').innerHTML =
-    `<div class="eyebrow">Rastreabilidade e controle</div><h1>Atualizações e ressalvas</h1><p><a class="btn" href="#contran">Consultar levantamento oficial CONTRAN →</a></p><p class="subtitle">Pendências conhecidas no catálogo e referências a alterações. Esta página não é um monitor automático do Diário Oficial.</p><div class="notice">Consulta CONTRAN, PROCONVE, Inmetro e Anatel revisada em 18/10/2026. O acervo reúne ${catalog.records.length} entradas documentais. A vigência e a aplicação a um projeto exigem leitura das fontes e dos atos modificadores.</div>${catalog.metadata.pendingReviews.map((r) => `<article class="update-card"><span class="tag">CONFERÊNCIA PENDENTE</span><h3>${esc(r.title)}</h3><p>${esc(r.note)}</p><div class="actions">${safeLink(r.officialUrl, 'Consultar referência oficial', 'btn')}</div></article>`).join('')}<article class="update-card"><span class="tag">CADEIA DOCUMENTAL</span><h3>Consulte também os atos modificadores</h3><p>As referências a alterações, revogações, anexos e transições estão registradas nos detalhes de cada entrada. Uma cópia arquivada pode não conter a redação consolidada.</p><button class="btn" data-route="library">Abrir biblioteca</button></article>`;
+    `<div class="eyebrow">Rastreabilidade e controle</div><h1>Atualizações e ressalvas</h1><p><a class="btn" href="#contran">Consultar levantamento oficial CONTRAN →</a></p><p class="subtitle">Pendências conhecidas no catálogo e referências a alterações. Esta página não é um monitor automático do Diário Oficial.</p><div class="notice">Consulta CONTRAN, PROCONVE, Inmetro e Anatel revisada em 18/10/2026. O acervo reúne ${catalog.records.length} entradas documentais. A vigência e a aplicação a um projeto exigem leitura das fontes e dos atos modificadores.</div>${consultationSources()}${catalog.metadata.pendingReviews.map((r) => `<article class="update-card"><span class="tag">CONFERÊNCIA PENDENTE</span><h3>${esc(r.title)}</h3><p>${esc(r.note)}</p><div class="actions">${safeLink(r.officialUrl, 'Consultar referência oficial', 'btn')}</div></article>`).join('')}<article class="update-card"><span class="tag">CADEIA DOCUMENTAL</span><h3>Consulte também os atos modificadores</h3><p>As referências a alterações, revogações, anexos e transições estão registradas nos detalhes de cada entrada. Uma cópia arquivada pode não conter a redação consolidada.</p><button class="btn" data-route="library">Abrir biblioteca</button></article>`;
 }
 function renderAI() {
   $('#main').innerHTML =
@@ -103,8 +105,9 @@ function clearFilters() {
   state.agency = '';
   state.filterComponent = '';
   state.stage = '';
+  state.review = '';
   $('#globalSearch').value = '';
-  renderLibrary();
+  navigate('library');
 }
 
 document.addEventListener('click', (e) => {
@@ -131,7 +134,7 @@ document.addEventListener('click', (e) => {
     state.query = '';
     state.agency = '';
     state.stage = '';
-    navigate('library');
+    navigate(libraryRoute({ component: state.filterComponent }).slice(1));
   }
   if (b.dataset.flow) {
     state.stage = b.dataset.flow;
@@ -140,7 +143,7 @@ document.addEventListener('click', (e) => {
   if (b.dataset.stageLibrary) {
     clearState();
     state.stage = b.dataset.stageLibrary;
-    navigate('library');
+    navigate(libraryRoute({ stage: state.stage }).slice(1));
   }
   if (['clearFilters', 'clearEmpty'].includes(b.id)) clearFilters();
 });
@@ -149,22 +152,23 @@ function clearState() {
   state.agency = '';
   state.filterComponent = '';
   state.stage = '';
+  state.review = '';
   $('#globalSearch').value = '';
 }
 const originalAssistantMarkup = $('#aiPanel').innerHTML;
 function restoreAssistantPanel() {
-  $('#aiPanel').setAttribute('aria-label', 'Conceito visual do assistente');
+  $('#aiPanel').setAttribute('aria-label', 'Orientações de consulta');
   $('#aiPanel').innerHTML = originalAssistantMarkup;
+  if (state.view === 'library')
+    $('#aiPanel .related-head h3').textContent = 'Referências desta consulta';
   $('#relatedLibrary').onclick = () => {
-    clearState();
-    state.filterComponent = state.component;
-    navigate('library');
+    navigate((state.view === 'library' ? libraryRoute(libraryValues()) : '#library').slice(1));
   };
 }
 $('#relatedLibrary').onclick = () => {
   clearState();
   state.filterComponent = state.component;
-  navigate('library');
+  navigate(libraryRoute({ component: state.filterComponent }).slice(1));
 };
 $('#closeDialog').onclick = () => $('#normDialog').close();
 $('#normDialog').addEventListener('click', (e) => {
@@ -179,7 +183,7 @@ $('#globalSearch').addEventListener('input', (e) => {
   state.agency = '';
   state.filterComponent = '';
   state.stage = '';
-  navigate('library');
+  navigate(libraryRoute({ q: state.query }).slice(1));
 });
 document.addEventListener('keydown', (e) => {
   const part = e.target.closest('[data-part]');

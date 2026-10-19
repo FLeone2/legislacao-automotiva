@@ -1669,3 +1669,79 @@ dialog .close {
 .homologation-connectors .flow-feedback-label {
   fill: #f7be80;
 }
+
+/* Consultation tools retain the Aurora shell and original technical drawings. */
+.consultation-help,
+.consultation-sources {
+  border: 1px solid #5399cd6b;
+  background: #10283c80;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 18px 0;
+  color: #c0d6e9;
+  line-height: 1.6;
+}
+.consultation-help summary,
+.consultation-sources summary {
+  cursor: pointer;
+  color: #e0edfa;
+  font-weight: 700;
+}
+.consultation-sources h2 {
+  color: #e0edfa;
+  font-size: 18px;
+}
+.consultation-source-grid,
+.consultation-query-actions,
+.consultation-shortcuts {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 14px 0;
+}
+.consultation-source-grid .btn {
+  white-space: normal;
+  text-align: left;
+}
+.consultation-steps {
+  padding-left: 22px;
+  color: #c0d6e9;
+  line-height: 1.7;
+}
+.consultation-steps li {
+  margin-bottom: 12px;
+}
+.library-query-summary,
+.document-context {
+  color: #adc9e9;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.consultation-query-actions span {
+  font-size: 12px;
+  color: #c0d6e9;
+}
+.library-toolbar select {
+  max-width: 100%;
+}
+.consultation-shortcuts {
+  padding-top: 16px;
+}
+@media (max-width: 700px) {
+  .library-toolbar > input,
+  .library-toolbar > select {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}
+.library-toolbar input {
+  flex: 1 1 100%;
+}
+.aurora-reference-note {
+  color: #adc9e9;
+  font-size: 10px;
+  line-height: 1.5;
+  margin: 8px 0 12px;
+}

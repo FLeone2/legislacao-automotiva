@@ -470,3 +470,23 @@ O tema também cobre biblioteca, consultas por órgão, etiquetas/VIN, árvores,
 fluxo de homologação e diálogos. A suíte `tests/aurora-browser.py` verifica seleção
 por imagem, 14 entradas, subsistemas, fontes, busca e navegação móvel. Os baselines
 visuais foram revisados para o tema aprovado.
+
+## Portal consultivo
+
+O produto agrega referências e direciona às fontes oficiais. Os vínculos entre
+sistemas, subsistemas, etapas e documentos são temáticos; não constituem avaliação
+automática de aplicabilidade nem um checklist operacional de homologação.
+
+A biblioteca preserva no endereço os filtros `q`, `agency`, `component`, `stage`
+e `review`, além da página de resultados (`page`). A listagem apresenta até 30
+registros por página. O botão **Copiar link** permite retomar ou compartilhar a consulta,
+respeitando o acesso atual do site. **Todos os níveis de revisão** distingue
+revisão dirigida, referência/índice e conferência pendente; esse filtro não
+certifica vigência. Os detalhes apresentam a fonte e as ressalvas disponíveis.
+
+Para manutenção do acervo, use o procedimento de revisão normativa em
+`.agents/skills/revisao-normativa/SKILL.md`, registre fonte/data e alterações,
+regenere os dados e execute os checks antes da publicação. Atualizações visuais
+não alteram a data de conferência normativa. A tela **Atualizações** reúne as
+fontes, os limites de cobertura e as pendências já registradas; não monitora o
+Diário Oficial automaticamente.

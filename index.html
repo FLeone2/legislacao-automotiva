@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width,initial-scale=1" name="viewport" />
     <meta
-      content="Consulta assistida ao acervo de legislação automotiva brasileira. Protótipo com fontes e rastreabilidade."
+      content="Portal consultivo de legislação automotiva brasileira. Explore sistemas do veículo, etapas de homologação e fontes oficiais."
       name="description"
     />
     <title>Legislação Automotiva · Liquid Aurora</title>
@@ -101,43 +101,31 @@
         </header>
         <div class="body-layout">
           <main id="main" tabindex="-1"></main>
-          <aside aria-label="Conceito visual do assistente" class="ai-panel" id="aiPanel">
+          <aside aria-label="Orientações de consulta" class="ai-panel" id="aiPanel">
             <div class="ai-title">
-              <span>✦</span>
+              <span aria-hidden="true">▤</span>
               <div>
-                <h2>Pergunte à IA</h2>
-                <p>O próximo passo da consulta</p>
+                <h2>Como consultar</h2>
+                <p>Do assunto à fonte oficial</p>
               </div>
             </div>
-            <div class="demo-badge">DEMONSTRAÇÃO VISUAL · SEM IA CONECTADA</div>
-            <div class="bubble question">Quais normas se relacionam aos freios deste veículo?</div>
-            <div class="bubble answer">
-              <strong>Assim será a experiência</strong>
-              <p>
-                O assistente poderá considerar o perfil do veículo, localizar fontes e mostrar os
-                trechos usados na resposta.
-              </p>
-              <p>
-                Por enquanto, explore abaixo os documentos do acervo. Nenhuma resposta jurídica é
-                gerada.
-              </p>
-            </div>
+            <ol class="consultation-steps">
+              <li>Escolha um sistema do veículo ou uma etapa de homologação.</li>
+              <li>Leia o resumo e as condições registradas.</li>
+              <li>Abra a fonte oficial e confira alterações, datas e exceções.</li>
+            </ol>
+            <p class="notice">
+              Associação temática não significa aplicação automática. Uma norma pode ter disposições
+              alteradas ou revogadas parcialmente.
+            </p>
             <div class="related-head">
-              <h3>▤ Fontes do componente</h3>
+              <h3>Fontes relacionadas</h3>
               <button class="text-button" id="relatedLibrary">Ver todas ↗</button>
             </div>
             <div id="relatedNorms"></div>
-            <div class="ai-bottom">
-              <label for="demoInput">Prévia do campo de consulta</label>
-              <div class="chat-input">
-                <input disabled="" id="demoInput" placeholder="IA ainda não conectada" /><button
-                  aria-label="Envio indisponível"
-                  disabled=""
-                >
-                  ➤
-                </button>
-              </div>
-              <p>Sem API, envio de dados ou cobrança de IA.</p>
+            <div class="consultation-shortcuts">
+              <a class="btn" href="#markings">Etiquetas e VIN →</a
+              ><a class="btn" href="#updates">Fontes, revisão e pendências →</a>
             </div>
           </aside>
         </div>

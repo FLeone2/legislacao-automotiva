@@ -14,6 +14,7 @@ function vehicleLink(c, lane, subsystem) {
   if (subsystem) q.set('subsystem', subsystem);
   q.set('type', $('#vehicleType').value);
   q.set('powertrain', $('#powertrain').value);
+  if (new URLSearchParams(location.hash.split('?')[1] || '').get('all') === '1') q.set('all', '1');
   return '#vehicle?' + q;
 }
 function saveVehicleRoute() {
@@ -224,7 +225,7 @@ function renderVehicleFlow() {
   else q.delete('subsystem');
   history.replaceState(null, '', '#vehicle?' + q);
   $('#main').innerHTML =
-    `<nav class="component-breadcrumb" aria-label="Caminho selecionado"><a href="#vehicle" data-vehicle-back>← Voltar ao veículo</a><span> / </span><strong>${esc(c.label)}</strong></nav><header class="component-flow-heading"><div class="component-hero-art">${sub ? subsystemArt(sub) : componentArt(c)}</div><div><p class="vehicle-kicker">${esc(vehicleContext())}</p><h1 tabindex="-1">${esc(sub?.label || c.label)}</h1><p>Do componente ao assunto.<br>Do assunto à fonte.</p></div></header>${subsystemExplorer(c, sub)}<nav class="component-lanes" aria-label="Área regulatória">${lanes.map((l) => `<a href="${esc(vehicleLink(c, l.id, sub?.id))}" data-component-link="${c.id}" class="${vehicleUI.lane === l.id ? 'active' : ''}" ${vehicleUI.lane === l.id ? 'aria-current="page"' : ''}><span>${l.id === 'ambiental' ? '♧' : '◇'}</span>${esc(l.label)}</a>`).join('')}</nav><div class="tree-breadcrumb" aria-label="Ramo do fluxograma">${nodeTrail(
+    `<nav class="component-breadcrumb" aria-label="Caminho selecionado"><a href="${esc(auroraFocusLink(c))}" data-vehicle-back>← Voltar ao veículo</a><span> / </span><strong>${esc(c.label)}</strong></nav><header class="component-flow-heading"><div class="component-hero-art">${sub ? subsystemArt(sub) : componentArt(c)}</div><div><p class="vehicle-kicker">${esc(vehicleContext())}</p><h1 tabindex="-1">${esc(sub?.label || c.label)}</h1><p>Do componente ao assunto.<br>Do assunto à fonte.</p></div></header>${subsystemExplorer(c, sub)}<nav class="component-lanes" aria-label="Área regulatória">${lanes.map((l) => `<a href="${esc(vehicleLink(c, l.id, sub?.id))}" data-component-link="${c.id}" class="${vehicleUI.lane === l.id ? 'active' : ''}" ${vehicleUI.lane === l.id ? 'aria-current="page"' : ''}><span>${l.id === 'ambiental' ? '♧' : '◇'}</span>${esc(l.label)}</a>`).join('')}</nav><div class="tree-breadcrumb" aria-label="Ramo do fluxograma">${nodeTrail(
       ui.selected,
       model,
     )
