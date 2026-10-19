@@ -38,6 +38,7 @@ async function render() {
         'inmetro',
         'anatel',
         'markings',
+        'history',
       ].includes(state.view)
     )
       state.view = 'tree';
@@ -45,12 +46,19 @@ async function render() {
       'contran-mode',
       ['contran', 'proconve', 'inmetro', 'anatel', 'markings'].includes(state.view),
     );
-    updateNavigation(state.view);
+    updateNavigation(state.view === 'history' ? 'library' : state.view);
+    // The header search belongs to the library. Its URL is the source of truth
+    // when returning; a previous term must not appear to filter another screen.
+    if (state.view !== 'library') {
+      state.query = '';
+      $('#globalSearch').value = '';
+    }
     $('#app').classList.toggle('tree-mode', ['tree', 'mover', 'flow'].includes(state.view));
     if (state.view !== 'vehicle') {
       $('#app').classList.remove('vehicle-flow-mode', 'vehicle-overview-mode');
     }
     if (['tree', 'mover'].includes(state.view)) {
+      restoreRegulatoryTreeRoute(state.view);
       renderTree(state.view);
       return;
     }
@@ -74,6 +82,7 @@ async function render() {
       inmetro: renderInmetro,
       anatel: renderAnatel,
       markings: renderMarkings,
+      history: renderRegulatoryHistory,
     }[state.view]();
     renderRelated();
   } finally {

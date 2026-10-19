@@ -48,7 +48,13 @@
           ],
           "gaps": [
             "Não há requisito exclusivo do painel de teto estruturado no acervo."
-          ]
+          ],
+          "gapReview": {
+            "state": "research_pending",
+            "reviewedAt": "2026-10-19",
+            "summary": "Há referências associadas e pontos que ainda exigem pesquisa.",
+            "nextAction": "Pesquisar fonte e enquadramento antes de concluir a cobertura. Zero documentos não significa isenção."
+          }
         }
       ]
     },
@@ -726,31 +732,16 @@
       "topics": [
         {
           "id": "bancos-ancoragem",
-          "label": "Bancos, ancoragem e apoios de cabeça",
+          "label": "Cintos, ancoragens e apoios de cabeça",
           "subsystemId": "ocupantes/cintos",
           "lane": "seguranca",
           "relation": "component",
           "links": [
             {
-              "actId": "contran-220-2007",
-              "requirementIds": [],
-              "basis": "Ementa e vínculo temático existentes no acervo; associação de consulta.",
-              "note": "Resistência e ancoragem de bancos e apoios de cabeça.",
-              "sourceFields": [
-                {
-                  "path": "data/contran/active.json",
-                  "recordId": "contran-220-2007",
-                  "field": "subject",
-                  "excerpt": "Estabelece requisitos para ensaios de resistência e ancoragem dos bancos e apoios de cabeça nos veículos.",
-                  "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao_220.pdf"
-                }
-              ]
-            },
-            {
               "actId": "contran-951-2022",
               "requirementIds": [],
               "basis": "Ementa e vínculo temático existentes no acervo; associação de consulta.",
-              "note": "Instalação e ensaios de cintos, ancoragens e apoios de cabeça.",
+              "note": "Consultar a 951/2022 com a alteração da 997/2023. A 220/2007 é histórica desde 02/10/2023. Categoria, posição do assento e dispositivo precisam de enquadramento; não se presumiu substituição textual de toda a regra estrutural antiga.",
               "sourceFields": [
                 {
                   "path": "data/contran/active.json",
@@ -765,7 +756,7 @@
               "actId": "contran-997-2023",
               "requirementIds": [],
               "basis": "Ementa e vínculo temático existentes no acervo; associação de consulta.",
-              "note": "Alterador da951/2022; consultar em conjunto.",
+              "note": "Consultar a 951/2022 com a alteração da 997/2023. A 220/2007 é histórica desde 02/10/2023. Categoria, posição do assento e dispositivo precisam de enquadramento; não se presumiu substituição textual de toda a regra estrutural antiga.",
               "sourceFields": [
                 {
                   "path": "data/contran/active.json",
@@ -829,7 +820,13 @@
           ],
           "gaps": [
             "Não há norma ABNT NBR específica de espuma/banco com texto e edição verificados no acervo."
-          ]
+          ],
+          "gapReview": {
+            "state": "research_pending",
+            "reviewedAt": "2026-10-19",
+            "summary": "Há referências associadas e pontos que ainda exigem pesquisa.",
+            "nextAction": "Pesquisar fonte e enquadramento antes de concluir a cobertura. Zero documentos não significa isenção."
+          }
         },
         {
           "id": "retencao-infantil",
@@ -899,31 +896,16 @@
       "topics": [
         {
           "id": "bancos-ancoragem",
-          "label": "Bancos, ancoragem e apoios de cabeça",
+          "label": "Cintos, ancoragens e apoios de cabeça",
           "subsystemId": "ocupantes/cintos",
           "lane": "seguranca",
           "relation": "component",
           "links": [
             {
-              "actId": "contran-220-2007",
-              "requirementIds": [],
-              "basis": "Ementa e vínculo temático existentes no acervo; associação de consulta.",
-              "note": "Resistência e ancoragem de bancos e apoios de cabeça.",
-              "sourceFields": [
-                {
-                  "path": "data/contran/active.json",
-                  "recordId": "contran-220-2007",
-                  "field": "subject",
-                  "excerpt": "Estabelece requisitos para ensaios de resistência e ancoragem dos bancos e apoios de cabeça nos veículos.",
-                  "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao_220.pdf"
-                }
-              ]
-            },
-            {
               "actId": "contran-951-2022",
               "requirementIds": [],
               "basis": "Ementa e vínculo temático existentes no acervo; associação de consulta.",
-              "note": "Instalação e ensaios de cintos, ancoragens e apoios de cabeça.",
+              "note": "Consultar a 951/2022 com a alteração da 997/2023. A 220/2007 é histórica desde 02/10/2023. Categoria, posição do assento e dispositivo precisam de enquadramento; não se presumiu substituição textual de toda a regra estrutural antiga.",
               "sourceFields": [
                 {
                   "path": "data/contran/active.json",
@@ -938,7 +920,7 @@
               "actId": "contran-997-2023",
               "requirementIds": [],
               "basis": "Ementa e vínculo temático existentes no acervo; associação de consulta.",
-              "note": "Alterador da951/2022; consultar em conjunto.",
+              "note": "Consultar a 951/2022 com a alteração da 997/2023. A 220/2007 é histórica desde 02/10/2023. Categoria, posição do assento e dispositivo precisam de enquadramento; não se presumiu substituição textual de toda a regra estrutural antiga.",
               "sourceFields": [
                 {
                   "path": "data/contran/active.json",
@@ -1002,7 +984,13 @@
           ],
           "gaps": [
             "Não há norma ABNT NBR específica de espuma/banco com texto e edição verificados no acervo."
-          ]
+          ],
+          "gapReview": {
+            "state": "research_pending",
+            "reviewedAt": "2026-10-19",
+            "summary": "Há referências associadas e pontos que ainda exigem pesquisa.",
+            "nextAction": "Pesquisar fonte e enquadramento antes de concluir a cobertura. Zero documentos não significa isenção."
+          }
         },
         {
           "id": "retencao-infantil",
@@ -1088,7 +1076,13 @@
           ],
           "gaps": [
             "Console e bancos dianteiros compartilham um contorno. O console não comprova existência de tela ou rádio."
-          ]
+          ],
+          "gapReview": {
+            "state": "research_pending",
+            "reviewedAt": "2026-10-19",
+            "summary": "Há referências associadas e pontos que ainda exigem pesquisa.",
+            "nextAction": "Pesquisar fonte e enquadramento antes de concluir a cobertura. Zero documentos não significa isenção."
+          }
         }
       ]
     },
@@ -1190,7 +1184,13 @@
           ],
           "gaps": [
             "A posição física da gravação/ETA não foi identificada no vetor; manter também acesso textual a identificação e etiquetas."
-          ]
+          ],
+          "gapReview": {
+            "state": "research_pending",
+            "reviewedAt": "2026-10-19",
+            "summary": "Há referências associadas e pontos que ainda exigem pesquisa.",
+            "nextAction": "Pesquisar fonte e enquadramento antes de concluir a cobertura. Zero documentos não significa isenção."
+          }
         }
       ]
     },
@@ -1284,7 +1284,7 @@
                 "inmetro-145-2022:req:05"
               ],
               "basis": "Objeto expressamente listado na orientação oficial cadastrada; íntegra e aplicação dependem de revisão.",
-              "note": "Somente lâmpadas abrangidas: não transformar certificação da lâmpada em certificação automática de todo farol ou lanterna.",
+              "note": "Lâmpadas abrangidas de filamento e miniatura. LED automotivo está fora dos escopos 145/2022 e 231/2026 segundo a FAQ oficial; a exclusão não autoriza qualquer instalação/substituição nem certifica todo farol/lanterna. Consultar separadamente as regras CONTRAN de iluminação.",
               "sourceFields": [
                 {
                   "path": "data/inmetro/active.json",
@@ -1297,9 +1297,9 @@
                   "path": "data/inmetro/active.json",
                   "recordId": "inmetro-145-2022",
                   "field": "requirements[id=inmetro-145-2022:req:05].scope",
-                  "excerpt": "Lâmpada para veículos automotivos",
+                  "excerpt": "Lâmpadas automotivas de filamento e miniatura abrangidas; LED automotivo excluído conforme orientação oficial de 13/08/2026.",
                   "clause": "Orientação oficial sobre o regulamento",
-                  "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022"
+                  "sourceUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/lampadas-e-luminarias-led-portaria-inmetro-no-231-2026-fabricantes-importadores-comerciantes-e-distribuidores/lampadas-led-para-carros-precisam-de-certificacao"
                 }
               ]
             }
@@ -1366,7 +1366,7 @@
                 "inmetro-145-2022:req:05"
               ],
               "basis": "Objeto expressamente listado na orientação oficial cadastrada; íntegra e aplicação dependem de revisão.",
-              "note": "Somente lâmpadas abrangidas: não transformar certificação da lâmpada em certificação automática de todo farol ou lanterna.",
+              "note": "Lâmpadas abrangidas de filamento e miniatura. LED automotivo está fora dos escopos 145/2022 e 231/2026 segundo a FAQ oficial; a exclusão não autoriza qualquer instalação/substituição nem certifica todo farol/lanterna. Consultar separadamente as regras CONTRAN de iluminação.",
               "sourceFields": [
                 {
                   "path": "data/inmetro/active.json",
@@ -1379,9 +1379,9 @@
                   "path": "data/inmetro/active.json",
                   "recordId": "inmetro-145-2022",
                   "field": "requirements[id=inmetro-145-2022:req:05].scope",
-                  "excerpt": "Lâmpada para veículos automotivos",
+                  "excerpt": "Lâmpadas automotivas de filamento e miniatura abrangidas; LED automotivo excluído conforme orientação oficial de 13/08/2026.",
                   "clause": "Orientação oficial sobre o regulamento",
-                  "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022"
+                  "sourceUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/lampadas-e-luminarias-led-portaria-inmetro-no-231-2026-fabricantes-importadores-comerciantes-e-distribuidores/lampadas-led-para-carros-precisam-de-certificacao"
                 }
               ]
             }
@@ -1480,7 +1480,7 @@
                 "inmetro-145-2022:req:05"
               ],
               "basis": "Objeto expressamente listado na orientação oficial cadastrada; íntegra e aplicação dependem de revisão.",
-              "note": "Somente lâmpadas abrangidas: não transformar certificação da lâmpada em certificação automática de todo farol ou lanterna.",
+              "note": "Lâmpadas abrangidas de filamento e miniatura. LED automotivo está fora dos escopos 145/2022 e 231/2026 segundo a FAQ oficial; a exclusão não autoriza qualquer instalação/substituição nem certifica todo farol/lanterna. Consultar separadamente as regras CONTRAN de iluminação.",
               "sourceFields": [
                 {
                   "path": "data/inmetro/active.json",
@@ -1493,9 +1493,9 @@
                   "path": "data/inmetro/active.json",
                   "recordId": "inmetro-145-2022",
                   "field": "requirements[id=inmetro-145-2022:req:05].scope",
-                  "excerpt": "Lâmpada para veículos automotivos",
+                  "excerpt": "Lâmpadas automotivas de filamento e miniatura abrangidas; LED automotivo excluído conforme orientação oficial de 13/08/2026.",
                   "clause": "Orientação oficial sobre o regulamento",
-                  "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022"
+                  "sourceUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/lampadas-e-luminarias-led-portaria-inmetro-no-231-2026-fabricantes-importadores-comerciantes-e-distribuidores/lampadas-led-para-carros-precisam-de-certificacao"
                 }
               ]
             }
@@ -1562,7 +1562,7 @@
                 "inmetro-145-2022:req:05"
               ],
               "basis": "Objeto expressamente listado na orientação oficial cadastrada; íntegra e aplicação dependem de revisão.",
-              "note": "Somente lâmpadas abrangidas: não transformar certificação da lâmpada em certificação automática de todo farol ou lanterna.",
+              "note": "Lâmpadas abrangidas de filamento e miniatura. LED automotivo está fora dos escopos 145/2022 e 231/2026 segundo a FAQ oficial; a exclusão não autoriza qualquer instalação/substituição nem certifica todo farol/lanterna. Consultar separadamente as regras CONTRAN de iluminação.",
               "sourceFields": [
                 {
                   "path": "data/inmetro/active.json",
@@ -1575,9 +1575,9 @@
                   "path": "data/inmetro/active.json",
                   "recordId": "inmetro-145-2022",
                   "field": "requirements[id=inmetro-145-2022:req:05].scope",
-                  "excerpt": "Lâmpada para veículos automotivos",
+                  "excerpt": "Lâmpadas automotivas de filamento e miniatura abrangidas; LED automotivo excluído conforme orientação oficial de 13/08/2026.",
                   "clause": "Orientação oficial sobre o regulamento",
-                  "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022"
+                  "sourceUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/lampadas-e-luminarias-led-portaria-inmetro-no-231-2026-fabricantes-importadores-comerciantes-e-distribuidores/lampadas-led-para-carros-precisam-de-certificacao"
                 }
               ]
             }
@@ -1616,7 +1616,13 @@
           ],
           "gaps": [
             "O acervo não comprova regra exclusiva do para-choque traseiro do SUV ilustrado."
-          ]
+          ],
+          "gapReview": {
+            "state": "research_pending",
+            "reviewedAt": "2026-10-19",
+            "summary": "Há referências associadas e pontos que ainda exigem pesquisa.",
+            "nextAction": "Pesquisar fonte e enquadramento antes de concluir a cobertura. Zero documentos não significa isenção."
+          }
         }
       ]
     },
@@ -2145,13 +2151,13 @@
                 "inmetro-145-2022:req:02"
               ],
               "basis": "requirements:req02.scope: anel, pino, pistão e bronzina",
-              "note": "O escopo é de produtos enumerados. Não confirma certificação do conjunto completo ou de toda transmissão; revisar anexos e exceções OEM/reposição.",
+              "note": "Produtos internos enumerados no RAC; o conjunto motor/transmissão não recebe certificação por essa associação. A retificação de 11/12/2024 incorpora ISO 4383:2000 somente para a tabela 2 do Anexo Específico F (bronzinas); não define método universal para todos os componentes.",
               "sourceFields": [
                 {
                   "path": "data/inmetro/active.json",
                   "recordId": "inmetro-145-2022",
                   "field": "requirements[id=inmetro-145-2022:req:02].evidence",
-                  "excerpt": "Natureza do Regulamento: Compulsório Tipo de documento: Regulamento técnico Tipo de objeto: Produto Escopo: Componentes Automotivos Objeto: Amortecedor da suspensão;\r\n\r\nAnel de pistão;\r\n\r\nBomba elétrica de combustível para motores do Ciclo Otto;\r\n\r\nBronzina;\r\n\r\nBuzina ou equipamento similar;\r\n\r\nLâmpada para veículos automotivos;\r\n\r\nPino e anel de trava (retenção);\r\n\r\nPistão de liga leve de alumínio;\r\n\r\nBaterias chumbo-ácido para veículos automotivos;\r\n\r\nTerminal de direção;\r\n\r\nBarra de direção;\r\n\r\nBarra de ligação;\r\n\r\nTerminal axial para veículos rodoviários automotores;\r\n\r\nlona para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O.\r\n\r\npastilha para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O. Normas técnicas e outros documentos referenciados: ABNT NBR 15914:2018;ABNT NBR 15916:2018;ABNT NBR 15940:2019;ABNT NBR 15941:2019;ABNT NBR 13776:2021;ABNT NBR 16130:2012;ABNT NBR 5505:2019;ABNT NBR 5537:2002;ABNT NBR ISO 6310:2016;EPA/600/R-93/116:1993;Portaria Inmetro nº 200, de 2021;IATF 16949:2016;Norma ABNT NBR 13308:2014;Norma ABNT NBR 8095:2015;ABNT NBR 15754: 2017;ABNT NBR 7014:2017;ABNT NBR 5535:2011;ABNT NBR 5536:2011;ABNT NBR 15905:2017;ABNT NBR 15934:2017;ABNT NBR ISO 18669-1:2014;ABNT NBR ISO 18669-2:2010;ABNT NBR 15933:2013;ABNT NBR 16100:2013;ABNT NBR ISO 6621-2:2009;ABNT NBR ISO 6621-3:2009;ABNT NBR ISO 6621-4:2016;ABNT NBR ISO 6621-5:2014;ABNT NBR ISO 3547-1:2021;ABNT NBR ISO 3547-5:2021;ABNT NBR ISO 3547-7:2022;ABNT NBR 16127:2015;ABNT NBR ISO 3548-2:2022;ABNT NBR ISO 4379:2021;ABNT NBR ISO 4382-1:2010;ABNT NBR 16128:2015;AB",
+                  "excerpt": "Amortecedor da suspensão;\r\n\r\nAnel de pistão;\r\n\r\nBomba elétrica de combustível para motores do Ciclo Otto;\r\n\r\nBronzina;\r\n\r\nBuzina ou equipamento similar;\r\n\r\nLâmpada para veículos automotivos;\r\n\r\nPino e anel de trava (retenção);\r\n\r\nPistão de liga leve de alumínio;\r\n\r\nBaterias chumbo-ácido para veículos automotivos;\r\n\r\nTerminal de direção;\r\n\r\nBarra de direção;\r\n\r\nBarra de ligação;\r\n\r\nTerminal axial para veículos rodoviários automotores;\r\n\r\nlona para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O.\r\n\r\npastilha para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O.",
                   "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022"
                 }
               ]
@@ -2500,6 +2506,33 @@
             }
           ],
           "gaps": []
+        },
+        {
+          "id": "bronzinas",
+          "label": "Bronzinas · referência retificada",
+          "subsystemId": "propulsao/componentes",
+          "lane": "seguranca",
+          "relation": "component",
+          "links": [
+            {
+              "actId": "inmetro-145-2022",
+              "requirementIds": [
+                "inmetro-145-2022:req:15"
+              ],
+              "basis": "Retificação de 11/12/2024, Anexo Específico F, tabela 2, incorporando ISO 4383:2000.",
+              "note": "Referência incorporada somente no escopo das bronzinas. Não é método universal para o motor ou a transmissão, nem leitura integral da norma técnica privada.",
+              "sourceFields": [
+                {
+                  "path": "data/inmetro/active.json",
+                  "recordId": "inmetro-145-2022",
+                  "field": "requirements[id=inmetro-145-2022:req:15].evidence",
+                  "excerpt": "Na tabela 2 do Anexo Específico F - Bronzinas planas utilizadas em motores de\ncombustão interna de veículos rodoviários automotores, onde se lê: \"ABNT NBR ISO\n4383:2010\"\n           Leia-se:\n           \"ISO 4383:2000\".",
+                  "sourceUrl": "https://www.gov.br/participamaisbrasil/blob/baixar/61530"
+                }
+              ]
+            }
+          ],
+          "gaps": []
         }
       ]
     },
@@ -2635,14 +2668,65 @@
                 "inmetro-145-2022:req:06"
               ],
               "basis": "requirements:req06.scope: Baterias chumbo-ácido para veículos automotivos",
-              "note": "Ligação condicionada à química: a ilustração mostra12V, mas tensão não comprova chumbo-ácido. Não usar para bateria12V de outra química ou bateria de tração.",
+              "note": "Somente bateria auxiliar chumbo-ácido abrangida pelo RAC. Ofício Circular 5/2026 é orientação para importação: fabricação/marcação na origem; selo/certificação na chegada quando utilizado modelo 5; verificação da carga e auditoria do importador. Não se estende automaticamente a bateria de tração ou a toda bateria instalada em veículo importado.",
               "sourceFields": [
                 {
                   "path": "data/inmetro/active.json",
                   "recordId": "inmetro-145-2022",
                   "field": "requirements[id=inmetro-145-2022:req:06].evidence",
-                  "excerpt": "Natureza do Regulamento: Compulsório Tipo de documento: Regulamento técnico Tipo de objeto: Produto Escopo: Componentes Automotivos Objeto: Amortecedor da suspensão;\r\n\r\nAnel de pistão;\r\n\r\nBomba elétrica de combustível para motores do Ciclo Otto;\r\n\r\nBronzina;\r\n\r\nBuzina ou equipamento similar;\r\n\r\nLâmpada para veículos automotivos;\r\n\r\nPino e anel de trava (retenção);\r\n\r\nPistão de liga leve de alumínio;\r\n\r\nBaterias chumbo-ácido para veículos automotivos;\r\n\r\nTerminal de direção;\r\n\r\nBarra de direção;\r\n\r\nBarra de ligação;\r\n\r\nTerminal axial para veículos rodoviários automotores;\r\n\r\nlona para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O.\r\n\r\npastilha para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O. Normas técnicas e outros documentos referenciados: ABNT NBR 15914:2018;ABNT NBR 15916:2018;ABNT NBR 15940:2019;ABNT NBR 15941:2019;ABNT NBR 13776:2021;ABNT NBR 16130:2012;ABNT NBR 5505:2019;ABNT NBR 5537:2002;ABNT NBR ISO 6310:2016;EPA/600/R-93/116:1993;Portaria Inmetro nº 200, de 2021;IATF 16949:2016;Norma ABNT NBR 13308:2014;Norma ABNT NBR 8095:2015;ABNT NBR 15754: 2017;ABNT NBR 7014:2017;ABNT NBR 5535:2011;ABNT NBR 5536:2011;ABNT NBR 15905:2017;ABNT NBR 15934:2017;ABNT NBR ISO 18669-1:2014;ABNT NBR ISO 18669-2:2010;ABNT NBR 15933:2013;ABNT NBR 16100:2013;ABNT NBR ISO 6621-2:2009;ABNT NBR ISO 6621-3:2009;ABNT NBR ISO 6621-4:2016;ABNT NBR ISO 6621-5:2014;ABNT NBR ISO 3547-1:2021;ABNT NBR ISO 3547-5:2021;ABNT NBR ISO 3547-7:2022;ABNT NBR 16127:2015;ABNT NBR ISO 3548-2:2022;ABNT NBR ISO 4379:2021;ABNT NBR ISO 4382-1:2010;ABNT NBR 16128:2015;AB",
+                  "excerpt": "Baterias chumbo-ácido para veículos automotivos;",
                   "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022"
+                }
+              ]
+            }
+          ],
+          "gaps": []
+        },
+        {
+          "id": "importacao-bateria-chumbo-acido",
+          "label": "Importação de bateria chumbo-ácido",
+          "subsystemId": "eletronica/comandos",
+          "lane": "seguranca",
+          "relation": "component",
+          "links": [
+            {
+              "actId": "inmetro-145-2022",
+              "requirementIds": [
+                "inmetro-145-2022:req:11",
+                "inmetro-145-2022:req:12",
+                "inmetro-145-2022:req:13",
+                "inmetro-145-2022:req:14"
+              ],
+              "basis": "Orientação oficial do Ofício Circular 5/2026/Dconf-Inmetro para importação de bateria chumbo-ácido.",
+              "note": "Fabricação e marcações na origem; chegada com certificação/selo quando usado o modelo 5; carga, inspeção e auditoria do importador. Não se estende à bateria de tração nem a toda bateria instalada em veículo importado.",
+              "sourceFields": [
+                {
+                  "path": "data/inmetro/active.json",
+                  "recordId": "inmetro-145-2022",
+                  "field": "requirements[id=inmetro-145-2022:req:11].evidence",
+                  "excerpt": "I-       Fica estabelecido como \"Fabricante\" o fabricante estrangeiro, devendo o\n                         mesmo cumprir para que todas a etapas do processo de fabricação do produto sejam\n                         realizadas no país de origem, ainda que etapas de verificação de carga e possível recarga\n                         sejam realizadas pelo importador.\n                         II -    Dessa forma, ratificamos que, todas a etapas do processo produtivo, incluindo\n                         marcações obrigatórias, deverão ser realizadas no país de origem, devendo a bateria\n                         chegar ao solo brasileiro com Selo e devidamente certificada (quando utilizado o\n                         modelo 5 de certificação).",
+                  "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/acreditacao-reconhecimento-bpl/comunicados/dicor-alerta/2026/oficio-circular-5-2026-dconf-inmetro.pdf"
+                },
+                {
+                  "path": "data/inmetro/active.json",
+                  "recordId": "inmetro-145-2022",
+                  "field": "requirements[id=inmetro-145-2022:req:12].evidence",
+                  "excerpt": "II -    Dessa forma, ratificamos que, todas a etapas do processo produtivo, incluindo\n                         marcações obrigatórias, deverão ser realizadas no país de origem, devendo a bateria\n                         chegar ao solo brasileiro com Selo e devidamente certificada (quando utilizado o\n                         modelo 5 de certificação).",
+                  "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/acreditacao-reconhecimento-bpl/comunicados/dicor-alerta/2026/oficio-circular-5-2026-dconf-inmetro.pdf"
+                },
+                {
+                  "path": "data/inmetro/active.json",
+                  "recordId": "inmetro-145-2022",
+                  "field": "requirements[id=inmetro-145-2022:req:13].evidence",
+                  "excerpt": "III -     No Brasil, o importador será responsável apenas pela verificação final da carga\n                         da bateria após o processo de importação e quando necessário, recarga e e inspeção\n                         final do produto.",
+                  "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/acreditacao-reconhecimento-bpl/comunicados/dicor-alerta/2026/oficio-circular-5-2026-dconf-inmetro.pdf"
+                },
+                {
+                  "path": "data/inmetro/active.json",
+                  "recordId": "inmetro-145-2022",
+                  "field": "requirements[id=inmetro-145-2022:req:14].evidence",
+                  "excerpt": "IV -     O processo de Auditoria do Sistema de Gestão da Qualidade - SGQ, tanto\n                         na etapa inicial de avaliação, quanto nas manutenções e recertificação, realizado pelo\n                         Organismo de Certificação de Produtos - OCP, considerando a norma ISO 9001,\n                         deverá abranger as instalações do Importador no Brasil para verificação de registros de\n                         testes/inspeção e infraestrutura para realização da recarga.",
+                  "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/acreditacao-reconhecimento-bpl/comunicados/dicor-alerta/2026/oficio-circular-5-2026-dconf-inmetro.pdf"
                 }
               ]
             }
@@ -2665,7 +2749,13 @@
           "links": [],
           "gaps": [
             "Não há referência específica de chicote elétrico revisada no acervo."
-          ]
+          ],
+          "gapReview": {
+            "state": "no_specific_reference_in_collection",
+            "reviewedAt": "2026-10-19",
+            "summary": "Sem referência específica cadastrada neste recorte.",
+            "nextAction": "Pesquisar fonte e enquadramento antes de concluir a cobertura. Zero documentos não significa isenção."
+          }
         }
       ]
     },
@@ -2683,7 +2773,13 @@
           "links": [],
           "gaps": [
             "O acervo não contém referência específica de radiador/ventilador ou subsistema de arrefecimento."
-          ]
+          ],
+          "gapReview": {
+            "state": "no_specific_reference_in_collection",
+            "reviewedAt": "2026-10-19",
+            "summary": "Sem referência específica cadastrada neste recorte.",
+            "nextAction": "Pesquisar fonte e enquadramento antes de concluir a cobertura. Zero documentos não significa isenção."
+          }
         }
       ]
     },
@@ -2701,15 +2797,24 @@
           "links": [
             {
               "actId": "contran-910-2022",
-              "requirementIds": [],
-              "basis": "subject: integridade do sistema de combustível decorrente de impacto; vehicleLinks tanque",
-              "note": "Ensaio/desempenho do veículo após impacto. Não corresponde a norma de certificação isolada do tanque.",
+              "requirementIds": [
+                "contran-910-2022:req:03"
+              ],
+              "basis": "Art. 4º, parágrafo único, II: integridade do sistema de combustível em impacto traseiro, no contexto do veículo.",
+              "note": "Integridade do combustível após impacto traseiro. Não se vinculam ao tanque os requisitos de habitáculo, impacto frontal ou um limite universal de PBT.",
               "sourceFields": [
                 {
                   "path": "data/contran/active.json",
                   "recordId": "contran-910-2022",
                   "field": "subject",
                   "excerpt": "Estabelece requisitos de proteção aos ocupantes e integridade do sistema de combustível decorrente de impacto nos veículos.",
+                  "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9102022.pdf"
+                },
+                {
+                  "path": "data/contran/active.json",
+                  "recordId": "contran-910-2022",
+                  "field": "requirements[id=contran-910-2022:req:03].evidence",
+                  "excerpt": "II - os requisitos de integridade do sistema de combustível em ensaio de impacto traseiro, conforme Anexo V desta Resolução.",
                   "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9102022.pdf"
                 }
               ]
@@ -2761,7 +2866,7 @@
                   "path": "data/inmetro/active.json",
                   "recordId": "inmetro-145-2022",
                   "field": "requirements[id=inmetro-145-2022:req:03].evidence",
-                  "excerpt": "Natureza do Regulamento: Compulsório Tipo de documento: Regulamento técnico Tipo de objeto: Produto Escopo: Componentes Automotivos Objeto: Amortecedor da suspensão;\r\n\r\nAnel de pistão;\r\n\r\nBomba elétrica de combustível para motores do Ciclo Otto;\r\n\r\nBronzina;\r\n\r\nBuzina ou equipamento similar;\r\n\r\nLâmpada para veículos automotivos;\r\n\r\nPino e anel de trava (retenção);\r\n\r\nPistão de liga leve de alumínio;\r\n\r\nBaterias chumbo-ácido para veículos automotivos;\r\n\r\nTerminal de direção;\r\n\r\nBarra de direção;\r\n\r\nBarra de ligação;\r\n\r\nTerminal axial para veículos rodoviários automotores;\r\n\r\nlona para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O.\r\n\r\npastilha para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O. Normas técnicas e outros documentos referenciados: ABNT NBR 15914:2018;ABNT NBR 15916:2018;ABNT NBR 15940:2019;ABNT NBR 15941:2019;ABNT NBR 13776:2021;ABNT NBR 16130:2012;ABNT NBR 5505:2019;ABNT NBR 5537:2002;ABNT NBR ISO 6310:2016;EPA/600/R-93/116:1993;Portaria Inmetro nº 200, de 2021;IATF 16949:2016;Norma ABNT NBR 13308:2014;Norma ABNT NBR 8095:2015;ABNT NBR 15754: 2017;ABNT NBR 7014:2017;ABNT NBR 5535:2011;ABNT NBR 5536:2011;ABNT NBR 15905:2017;ABNT NBR 15934:2017;ABNT NBR ISO 18669-1:2014;ABNT NBR ISO 18669-2:2010;ABNT NBR 15933:2013;ABNT NBR 16100:2013;ABNT NBR ISO 6621-2:2009;ABNT NBR ISO 6621-3:2009;ABNT NBR ISO 6621-4:2016;ABNT NBR ISO 6621-5:2014;ABNT NBR ISO 3547-1:2021;ABNT NBR ISO 3547-5:2021;ABNT NBR ISO 3547-7:2022;ABNT NBR 16127:2015;ABNT NBR ISO 3548-2:2022;ABNT NBR ISO 4379:2021;ABNT NBR ISO 4382-1:2010;ABNT NBR 16128:2015;AB",
+                  "excerpt": "Bomba elétrica de combustível para motores do Ciclo Otto;",
                   "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022"
                 }
               ]
@@ -2793,9 +2898,11 @@
             },
             {
               "actId": "ibama-in-3-2023",
-              "requirementIds": [],
+              "requirementIds": [
+                "ibama-in-3-2023:req:01"
+              ],
               "basis": "reviewed-map.topic; art.6º referenciado nas notes do ato; targets tanque",
-              "note": "A revisão existente registra atualização de evaporativas/RVEP e referência à IN26/2020. Não inventar os métodos da IN26 cujo inteiro teor não foi localizado.",
+              "note": "Consultar a alteração junto à IN 26/2020; condições de híbridos e sistemas descritos no dispositivo não se aplicam automaticamente a todo tanque.",
               "sourceFields": [
                 {
                   "path": "data/proconve/active.json",
@@ -2803,14 +2910,59 @@
                   "field": "subject",
                   "excerpt": "Referências técnicas, híbridos, evaporativas e reabastecimento",
                   "sourceUrl": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139279"
+                },
+                {
+                  "path": "data/proconve/active.json",
+                  "recordId": "ibama-in-3-2023",
+                  "field": "requirements[id=ibama-in-3-2023:req:01].evidence",
+                  "excerpt": "Art. 6º A Instrução Normativa Nº 26, de 17 de dezembro de 2020, passa a vigorar acrescida de novo § 5º no art. 7º, com a seguinte redação: \"................................................................................................................................. .................................................................................................................................. Art. 7º....................................................................................................................... .................................................................................................................................. § 5º Para veículos cujos agrupamentos de família de sistemas de controle evaporativo tenham previsão de vendas anuais de até 15.000 (quinze mil) unidades, o fabricante e/ou importador poderá optar por usar os valores pré-definidos conforme Art. 6º desta Instrução Normativa ou aplicar um dos procedimentos descritos nos parágrafos acima.\"",
+                  "sourceUrl": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139279"
+                }
+              ]
+            },
+            {
+              "actId": "ibama-in-26-2020",
+              "requirementIds": [
+                "ibama-in-26-2020:req:01",
+                "ibama-in-26-2020:req:02",
+                "ibama-in-26-2020:req:04"
+              ],
+              "basis": "Procedimentos de evaporativas/famílias e condicionantes de híbridos e deterioração, nos dispositivos revisados da IN 26/2020.",
+              "note": "Referência do veículo/família de controle evaporativo; o tanque é uma entrada visual para consulta. Categoria, combustível, tecnologia e fase precisam de enquadramento.",
+              "sourceFields": [
+                {
+                  "path": "data/proconve/active.json",
+                  "recordId": "ibama-in-26-2020",
+                  "field": "requirements[id=ibama-in-26-2020:req:01].evidence",
+                  "excerpt": "Art. 3º A partir da Fase PROCONVE L7, os procedimentos de ensaio de emissões evaporativa e da emissão de vapor durante o abastecimento, assim como os critérios de agrupamento em famílias, serão realizados em conformidade com norma técnica brasileira ABNT NBR 16927.",
+                  "sourceUrl": "https://www.ibama.gov.br/sophia/cnia/legislacao/IBAMA/2020/IN0026-18122020.pdf"
+                },
+                {
+                  "path": "data/proconve/active.json",
+                  "recordId": "ibama-in-26-2020",
+                  "field": "requirements[id=ibama-in-26-2020:req:02].evidence",
+                  "excerpt": "§ 2º Alternativamente, para veículos elétricos híbridos, recarregáveis por fonte externa de energia ou não, (VEH), dotados de tecnologias de controle ativas das emissões evaporativas ou de reabastecimento, como por exemplo os dotados de tanque pressurizado, poderá ser utilizado procedimento aceito por autoridade norte americana Agência de Proteção Ambiental (United States Environmental Protection Agency - USEPA) ou Agência de Proteção Ambiental da Califórnia (California Environmental Protection Agency - Air Resources Board - CARB) - e aprovado pelo Ibama, ou procedimento alternativo aprovado pelo Ibama, ou ainda pelo procedimento constante na Norma ABNT NBR 16927. § 3º Caso o fabricante ou importador opte por usar procedimento já aprovado pela USEPA ou pelo CARB, conforme descrito no § 2º, o mesmo deve submeter, para a aprovação do Ibama, declaração de que utilizará procedimento conforme diretrizes estabelecidas pelos Estados Unidos da América no Código de Regulamentações Federais (Code of Federal Regulations - CFR) 86.132.96 e 86.133.96.",
+                  "sourceUrl": "https://www.ibama.gov.br/sophia/cnia/legislacao/IBAMA/2020/IN0026-18122020.pdf"
+                },
+                {
+                  "path": "data/proconve/active.json",
+                  "recordId": "ibama-in-26-2020",
+                  "field": "requirements[id=ibama-in-26-2020:req:04].evidence",
+                  "excerpt": "Art. 7º A partir da Fase PROCONVE L8, o fabricante ou importador deverá comprovar o atendimento aos limites das emissões evaporativas e de reabastecimento, considerando o total de vendas dos agrupamentos (famílias de sistema de controle evaporativo), conforme uma das seguintes alternativas: § 1º Para veículos cujos agrupamentos de família de sistemas de controle evaporativo tenham previsão de vendas anuais maiores que 15.000 (quinze mil) unidades, a comprovação do atendimento aos limites poderá ser feita após a aplicação dos fatores de deterioração, os quais deverão ser determinados seguindo a norma NBR 16927, na qual o veículo é envelhecido por 160.000 km em pista ou dinamômetro de chassis, dentro de um prazo máximo permitido de 24 meses além do ano em que o critério de vendas anuais for ultrapassado, sendo que neste período deverá ser adotado o valor de fator de deterioração conforme Art. 6º desta Instrução Normativa. § 2º Para veículos cujos agrupamentos de família de sistemas de controle evaporativo tenham previsão de vendas anuais maiores que 15.000 (quinze mil) unidades, a comprovação do atendimento aos limites poderá ser feita com o uso de um veículo já envelhecido ou com o uso de componentes e sistemas já envelhecidos seguindo procedimento aceito pela USEPA ou pelo CARB e aprovado pelo Ibama, ou pela Norma ABNT NBR 16927 ou procedimento alternativo aprovado pelo Ibama, no ato da certificação, sem a aplicação do fator de deterioração, ou dentro de um prazo máximo permitido de 12 meses além do ano em que o critério de vendas anuais for ultrapassado, sendo que neste período deverão ser adotados os valores de fatores de deterioração conforme Art. 6º desta Instrução Normativa. § 3º Para veículos cujos agrupamentos de família de sistemas de controle evaporativo tenham previsão de vendas anuais maiores que 15.000 (quinze mil) unidades, a comprovação do atendimento aos limites poderá ser feita após a determinação dos fatores de deterioração com o uso de um veículo já envelhecido ou com o uso de componentes e sistemas já envelhecidos, seguindo procedimento aprovado por autoridade norte americana (EPA ou CARB) ou pela Norma ABNT NBR 16927 ou procedimento alternativo aprovado pelo Ibama, dentro de um prazo máximo permitido de 12 meses além do ano em que o critério de vendas anuais for ultrapassado, sendo que neste período deverão ser adotados os valores de fatores de deterioração conforme Art. 6º desta Instrução Normativa. § 4º Caso o fabricante ou importador opte por usar procedimento já autorizado por autoridade norte americana (USEPA ou CARB), conforme § 2º acima, o mesmo deve submeter declaração de que utilizará o procedimento igual ao norte americano para a aprovação do Ibama.",
+                  "sourceUrl": "https://www.ibama.gov.br/sophia/cnia/legislacao/IBAMA/2020/IN0026-18122020.pdf"
                 }
               ]
             }
           ],
           "gaps": [
-            "IN Ibama26/2020 não integra o acervo ativo publicado; sua referência e lacuna ficam na IN3/2023.",
             "Não há requisito construtivo específico confirmado de cânister, válvulas e linhas de vapor."
-          ]
+          ],
+          "gapReview": {
+            "state": "research_pending",
+            "reviewedAt": "2026-10-19",
+            "summary": "Há referências associadas e pontos que ainda exigem pesquisa.",
+            "nextAction": "Pesquisar fonte e enquadramento antes de concluir a cobertura. Zero documentos não significa isenção."
+          }
         }
       ]
     },

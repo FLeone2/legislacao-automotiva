@@ -1,26 +1,36 @@
 # legislacao-automotiva
 
-Protótipo público de consulta à legislação automotiva, com referências oficiais e ressalvas de validação.
+Portal consultivo de legislação automotiva, com navegação visual, referências oficiais e limites de revisão por registro.
+
+Site: https://legislacao-automotiva.pages.dev/#vehicle. A implementação da auditoria de
+19/10/2026 está documentada em [matriz de melhorias e evidências](docs/audit-implementation-2026-10-19.md).
+Esse documento distingue implementação, validação de release e pesquisa ainda pendente.
 
 ## Consulta ativa CONTRAN e PROCONVE
 
-Revisão de **18/10/2026**. Abra `/#contran` ou `/#proconve` pelo menu.
+Acervo atualizado com a revisão dirigida de **19/10/2026**. A data e a profundidade
+da conferência continuam próprias de cada registro; essa atualização não significa
+revisão integral de todas as cadeias. Abra `/#contran` ou `/#proconve` pelo menu.
 
-- **CONTRAN: 210 atos na consulta ativa**, 65 ligados a sistemas físicos e 145
+- **CONTRAN: 209 atos na consulta ativa**, 64 ligados a sistemas físicos e 145
   em categorias gerais. Os 55 históricos apontados pelo responsável foram
   retirados da publicação ativa; a decisão não foi transformada em revogação
   oficial inventada. Também ficam fora os revogados, suspensos, atos com objeto
   temporal encerrado e aqueles cujos efeitos atuais não foram confirmados.
 - A conferência final encontrou a revogação expressa de 412/2012 e 433/2013 no
   art. 6º da 537/2015, apesar de o índice antigo ainda indicá-las em vigor.
-  Alterações de bases suspensas também ficaram fora do conjunto ativo.
-- **PROCONVE: 23 atos**, com recortes separados **L8 (19)** e **P8 (6)**; dois
-  atos de avaliação técnica são comuns aos recortes. São 17 atos relacionados
-  a componentes e seis em categorias de homologação/conformidade e créditos
+  Alterações de bases suspensas também ficaram fora do conjunto ativo. A revisão
+  de 19/10 conferiu a revogação da 220/2007 pela redação dada ao art. 8º da
+  951/2022 pela 997/2023, com efeito em 02/10/2023. A ficha da 220 permanece
+  apenas em consulta histórica, separada do acervo atual e de suas exportações.
+- **PROCONVE: 25 atos**, com recortes separados **L8 (21)** e **P8 (7)**;
+  as contagens de fases se sobrepõem. São 18 atos relacionados a componentes
+  e sete em categorias de homologação/conformidade e créditos
   corporativos. PROMOT M5 e as INs 19/2021 e 22/2022, revogadas pela IN 5/2024,
   não entram nessa consulta.
 - As cadeias incluem as INs 16/2025 e 20/2025: coleta de IUMPR em 2026 e
-  entregas em 2027. Retificações ficam vinculadas ao ato, sem contagem duplicada.
+  entregas em 2027. Coleta, plano e relatório têm marcos próprios, com condições
+  por fase/configuração. Retificações ficam vinculadas ao ato, sem contagem duplicada.
 - Sistemas e subsistemas oferecem fluxogramas com referências ativas e acesso
   à consulta filtrada. Cada ato também permite retornar ao sistema associado.
   Créditos corporativos, habilitação, fiscalização, registro e outros assuntos
@@ -33,23 +43,27 @@ Revisão de **18/10/2026**. Abra `/#contran` ou `/#proconve` pelo menu.
 
 O [índice oficial CONTRAN](https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran)
 foi atualizado em **06/10/2026, 14h52**. A busca suplementar no DOU retornou HTTP
-403: **permanece uma lacuna entre essa atualização e 18/10/2026**. Uma cláusula
+403 na coleta original: a revisão dirigida de 19/10 não constitui uma nova varredura
+integral do período posterior à atualização do índice. Uma cláusula
 original de entrada em vigor não certifica isoladamente a vigência atual de todos
 os dispositivos; as evidências e ressalvas ficam acessíveis em cada registro.
 
 O PROCONVE cruza textos oficiais do sistema de legislação do Ibama, as Resoluções
 CONAMA 490/2018 e 492/2018, alterações até 2025 e o balanço corporativo oficial
 publicado pelo Ibama em 2026. As páginas gerais de legislação, desatualizadas,
-não foram usadas isoladamente como prova de vigência. **O inteiro teor da IN
-26/2020 não foi localizado**: sua aplicação/alteração é referenciada no art. 6º
-da IN 3/2023, sem criar um registro integralmente conferido para a norma ausente.
+não foram usadas isoladamente como prova de vigência. Em 19/10, foram recuperados
+os PDFs oficiais certificados das **INs 26/2020 e 6/2025** no acervo Sophia do
+Ibama. Evaporativas, famílias, reabastecimento e a alteração pela IN 3/2023 têm
+dispositivos vinculados; a IN 6/2025 distingue importação/LPCO da aprovação
+técnica. Métodos integrais das NBRs e a consolidação exaustiva das cadeias
+continuam pendentes.
 L8 e P8 não são intercambiáveis; categoria, combustível, datas, anexos e exceções
 continuam necessários para aplicar qualquer requisito a um veículo.
 
 ### Dados, rastreabilidade e reprodução
 
-`catalog.json` conserva o acervo preexistente de 124 entradas como fonte de
-histórico. A aplicação filtra suas referências CONTRAN/IBAMA e incorpora os atos
+`catalog.json` conserva as entradas preexistentes e suas identificações, além
+das atualizações editoriais, como fonte de histórico. A aplicação filtra suas referências CONTRAN/IBAMA e incorpora os atos
 ativos em tempo de execução; preserva IDs dos documentos que continuam ativos.
 O inventário original de **1.141 atos** e **370 textos-base extraídos** permanece
 no GitHub para auditoria, sem a opção de consultá-lo como acervo ativo no site.
@@ -65,9 +79,11 @@ no GitHub para auditoria, sem a opção de consultá-lo como acervo ativo no sit
 - `contran.js`: consulta compartilhada, política ativa em tempo de execução e
   vínculos usados pelos fluxogramas. Imagens e áreas de seleção foram preservadas.
 
-A publicação privada copia apenas os conjuntos ativos de `data/contran` e
-`data/proconve`; fontes comprimidas, decisões de auditoria e inventários antigos
-permanecem no repositório, fora da pasta estática publicada.
+A publicação usa uma lista explícita de arquivos ativos e detalhes carregados
+sob demanda. Somente fichas históricas selecionadas e identificadas como tais
+são publicadas em `data/site/history`; os 55 atos excluídos não são reativados.
+Fontes comprimidas, decisões de auditoria e inventários antigos permanecem no
+repositório, fora da pasta estática publicada.
 
 ```sh
 python -m pip install -r scripts/requirements-contran.txt
@@ -99,13 +115,18 @@ As mesmas fontes aparecem nos fluxogramas do veículo e nos detalhes da bibliote
 com retorno à consulta por ato. Imagens, contornos e os 30 subsistemas foram
 preservados.
 
-- **Inmetro: 18 referências atuais e 36 resumos de requisitos/orientações.**
+- **Inmetro: 18 referências atuais e 42 resumos de requisitos/orientações.**
   Componentes da 145/2022, vidros, rodas, líquido de freio, pneus novos e
   reformados, conversores catalíticos de reposição, retenção infantil, GNV,
   engates, PBEV/ENCE, RGCP, declaração do fornecedor, registro e selos.
   Cada cartão informa o mecanismo; declaração do fornecedor não foi apresentada
   como certificação por OCP. Baterias chumbo-ácido não foram transformadas em
-  certificação de baterias de tração de íons de lítio.
+  certificação de baterias de tração de íons de lítio. O Ofício 5/2026 aparece
+  como orientação de importação de baterias chumbo-ácido; as condições de modelo 5
+  permanecem no requisito correspondente. Lâmpadas LED são explicitamente
+  excluídas do escopo dos RACs de filamento/miniatura citados, com encaminhamento
+  às regras CONTRAN. A referência retificada ISO 4383:2000 fica no assunto
+  bronzinas, sem criar um novo processo de certificação por analogia.
 - **Anatel: 22 atos e 15 resumos de requisitos**, incluindo Resoluções 715/2019,
   779/2025 e 780/2025; procedimento de identificação 4.088/2020 com 5.701/2021;
   radiação restrita e alterações até 4.746/2026; terminais celulares,
@@ -132,7 +153,9 @@ os RTQs/RACs.** As 18 referências foram confirmadas em fontes oficiais atuais
 (Portal IQ e FAQs), com requisitos reproduzidos nessas orientações. Os PDFs
 SIL retornaram 503 e o DOU direto 403. Cada cartão explicita **“Referência atual ·
 íntegra pendente”**; detalhes técnicos de ensaios, exclusões OEM, baixo volume
-110/2022, retificações da 145/2022 e a cadeia integral continuam pendentes.
+110/2022 e a cadeia integral continuam pendentes. A retificação da 145/2022 de
+11/12/2024 foi conferida pontualmente nos arts. 14/15 e na referência a bronzinas;
+essa evidência de trecho público não promove a íntegra do ato a revisada.
 A 845/2025 e a 110/2022 não ganharam cartões ativos sem essa conferência.
 
 As fontes da Anatel incluem textos oficiais anotados com alterações e
@@ -190,7 +213,9 @@ etapas distintas.
 - Clique no mapa ou escolha pela lista textual para abrir a árvore. Expanda uma
   atividade para ver normas e pendências, selecione um documento e abra seu
   detalhe/fonte. Alterações ativas conhecidas são vinculadas ao respectivo ato.
-- Recorte por combustão, híbrido/plug-in e elétrico a bateria. É um recorte de
+- Recortes por combustão, híbridos em conjunto, HEV, PHEV e elétrico a bateria.
+  HEV/PHEV mantêm o ramo térmico pertinente e têm caminhos específicos; BEV não
+  herda ensaios térmicos. É um recorte de
   consulta: categoria, combustível, fase e datas continuam necessários. O elétrico
   puro não recebe automaticamente o ramo de escapamento ou LCVM da combustão.
 - Amaciamento e coastdown são separados. A preparação citada na IN 23/2020 é
@@ -203,6 +228,14 @@ etapas distintas.
 - A Portaria SENATRAN 990/2022 ganhou link direto ao PDF oficial, conferido para
   CAT, relatórios, laboratório e responsabilidade pela conformidade. A cadeia
   integral de alterações permanece pendente, sem selo de consolidação jurídica.
+- Cinco orientações oficiais separam LCVM regular, quantidades limitadas,
+  dispensa, alterações e importação/LPCO. O serviço atual indica Infoserv 2
+  para leves/pesados; condições, exceções e diferenças perante orientações
+  anteriores ficam visíveis. São orientações de serviço, não novos atos ou
+  dispensa universal de elétricos.
+- CAT/CCT e SISCAT têm encaminhamentos próprios, preservando a condição de SGQ
+  da Portaria 990/2022. Ruído, RDE, durabilidade/FD, equipamentos obrigatórios e
+  obrigações corporativas têm assuntos consultivos separados.
 - URL guarda etapa, nó e powertrain; reload/histórico preservam o contexto.
   O mapa e a árvore têm controles de escala independentes; seleção textual,
   teclado, preferência por movimento reduzido e navegação móvel são suportados.
@@ -237,8 +270,11 @@ veículo permanece no cabeçalho. As imagens são ilustrativas, sem modelo ou VI
   proteção e retenção. O ramo de espuma mostra a referência de inflamabilidade
   já cadastrada e uma lacuna explícita para normas ABNT NBR ainda não mapeadas.
 - **Motor:** conformidade de componentes, emissões, OBD e catalisadores.
-- **Tanque:** referência de tanques/alteração de capacidade, emissões
-  evaporativas/RVEP e vínculo ao diagnóstico de purga/evaporação. Requisitos construtivos do cânister continuam como lacuna.
+- **Tanque:** referência de tanques/alteração de capacidade, integridade do
+  combustível no impacto traseiro e evaporativas/RVEP. A IN 26/2020 e sua
+  alteração pela IN 3/2023 têm vínculos específicos; não se atribui ao tanque
+  individual a proteção frontal do habitáculo. Requisitos construtivos do
+  cânister continuam como lacuna.
 - **Demais componentes:** fluxogramas derivados dos vínculos temáticos existentes
   na taxonomia: freios, suspensão, vidros, iluminação, carroceria, retrovisores,
   rodas, elétrica e escapamento.
@@ -348,19 +384,16 @@ e lacunas, retorno/histórico/URL, teclado, tela de 390 px, ausência de dados e
 imagem, além das seis páginas já existentes. Capturas são salvas em
 `tests/artifacts/` e não são versionadas.
 
-## Publicação de teste
+## Publicação
 
-A prévia privada está em
-https://legislacao-automotiva-teste.fleone.chatgpt.site/#vehicle e o levantamento
-em https://legislacao-automotiva-teste.fleone.chatgpt.site/#contran e
-https://legislacao-automotiva-teste.fleone.chatgpt.site/#proconve. As novas frentes
-são `/#inmetro`, `/#anatel` e `/#markings` no mesmo endereço.
-O PR #1 foi integrado à `main`, usada na publicação pelo Cloudflare Pages. A publicação preserva o acesso privado existente.
+A publicação atual usa a branch `main` de `FLeone2/legislacao-automotiva` no
+Cloudflare Pages: https://legislacao-automotiva.pages.dev/. As antigas prévias
+em Sites são históricas e não identificam a versão atual.
 
 A aplicação é estática. Publique o artefato `dist` gerado por `npm run build`,
-inclusive ao usar GitHub Pages. `.nojekyll` evita processamento pelo Jekyll. A
-ativação automática do Pages havia sido recusada com HTTP 403; a prévia acima
-usa Sites.
+inclusive ao usar GitHub Pages. `.nojekyll` evita processamento pelo Jekyll.
+A revisão do conteúdo está em `version.json`; confira esse manifesto e a UI
+no endereço estável após cada implantação.
 
 ## Cobertura integral dos sistemas cadastrados
 
@@ -369,19 +402,19 @@ atual do projeto**, sem subsistema ausente. Essa contagem descreve o acervo atua
 não afirma que uma taxonomia de 30 itens esgote todas as configurações possíveis
 de veículos.
 
-| Sistema do acervo | Subsistemas com entrada visual e fluxograma |
-| --- | --- |
-| Vidros e visibilidade | Vidros e transparência; limpadores e lavadores; acionamento de janelas |
-| Pneus e rodas | Pneus e estepe; rodas e requisitos |
-| Freios e estabilidade | Frenagem/ABS/componentes; controle de estabilidade; fluido de freio |
-| Iluminação e sinalização | Dispositivos e instalação; componentes de iluminação |
-| Proteção dos ocupantes | Cintos/ancoragem/apoios; airbags; retenção infantil; materiais do habitáculo |
-| Carroceria e proteção externa | Impactos e pedestres; portas/dobradiças/fechaduras; acessórios e proteção externa |
-| Retrovisores e visão traseira | Espelhos e visão indireta; monitoramento traseiro |
-| Propulsão e emissões | Emissões e ensaios; propulsão elétrica/bateria; combustíveis e eficiência; componentes do motor |
-| Eletrônica e comandos | Diagnóstico/OBD; telas e imagens; comandos/sinal sonoro |
-| Identificação do veículo | Placas; identificação e marcações; rotulagem e informação |
-| Suspensão e direção | Componentes de suspensão e direção |
+| Sistema do acervo             | Subsistemas com entrada visual e fluxograma                                                     |
+| ----------------------------- | ----------------------------------------------------------------------------------------------- |
+| Vidros e visibilidade         | Vidros e transparência; limpadores e lavadores; acionamento de janelas                          |
+| Pneus e rodas                 | Pneus e estepe; rodas e requisitos                                                              |
+| Freios e estabilidade         | Frenagem/ABS/componentes; controle de estabilidade; fluido de freio                             |
+| Iluminação e sinalização      | Dispositivos e instalação; componentes de iluminação                                            |
+| Proteção dos ocupantes        | Cintos/ancoragem/apoios; airbags; retenção infantil; materiais do habitáculo                    |
+| Carroceria e proteção externa | Impactos e pedestres; portas/dobradiças/fechaduras; acessórios e proteção externa               |
+| Retrovisores e visão traseira | Espelhos e visão indireta; monitoramento traseiro                                               |
+| Propulsão e emissões          | Emissões e ensaios; propulsão elétrica/bateria; combustíveis e eficiência; componentes do motor |
+| Eletrônica e comandos         | Diagnóstico/OBD; telas e imagens; comandos/sinal sonoro                                         |
+| Identificação do veículo      | Placas; identificação e marcações; rotulagem e informação                                       |
+| Suspensão e direção           | Componentes de suspensão e direção                                                              |
 
 A visão geral oferece **37 conjuntos em 13 grupos visuais**, mais o acesso
 textual a **Identificação e marcações**: são 14 entradas de navegação, algumas
@@ -439,17 +472,18 @@ pendente; publicá-los não confirma sua vigência integral. Os cinco atos CONTR
 com revogação parcial mantêm a ressalva. A política dos 55 excluídos e o inventário
 histórico são preservados.
 
-Há 60 requisitos com IDs estáveis, dispositivo/orientação, fonte e contexto
+Há 97 requisitos canônicos com IDs estáveis, dispositivo/orientação, fonte e contexto
 compartilhados entre veículo e atividade de homologação. A relação de contexto
 significa que a atividade consulta o ato; não comprova a incidência de cada
 requisito. Métodos e evidências de ensaio ainda não revisados aparecem como
 pendência, sem procedimento inventado.
 
-`data/site/index.json` contém o índice inicial de aproximadamente **416 kB**, ante
-1,55 MB dos cinco JSONs anteriores (redução de cerca de **73%**, bytes sem
-compressão). Cada ato completo carrega sob demanda e fica em cache na sessão. A
+`data/site/index.json` contém o índice inicial de aproximadamente **446 kB**,
+com orçamento de 450 kB sem compressão. Cada ato completo carrega sob demanda e fica em cache na sessão. A
 tela de marcações busca somente os atos necessários. Falhas exibem tentativa de
-recuperação; registros excluídos não são recuperados por URL.
+recuperação; registros excluídos não são recuperados como atos atuais por URL.
+As duas fichas históricas selecionadas têm rota e aviso próprios, fora dos
+filtros e contagens do acervo ativo.
 
 ### Desenvolvimento e CI
 
@@ -521,6 +555,12 @@ registros por página. O botão **Copiar link** permite retomar ou compartilhar 
 respeitando o acesso atual do site. **Todos os níveis de revisão** distingue
 revisão dirigida, referência/índice e conferência pendente; esse filtro não
 certifica vigência. Os detalhes apresentam a fonte e as ressalvas disponíveis.
+A biblioteca, as árvores e as exportações usam uma visão canônica por ato,
+preservando aliases e relações das entradas anteriores. CSV/JSON exportam todos
+os resultados filtrados, inclusive páginas não exibidas; o acervo completo tem
+acesso separado. Pesquisar dentro de uma peça preserva o contexto até sua remoção
+explícita. As árvores gerais e MOVER oferecem apresentação em lista, breadcrumb
+e links com nó/aba persistidos na URL.
 
 Para manutenção do acervo, use o procedimento de revisão normativa em
 `.agents/skills/revisao-normativa/SKILL.md`, registre fonte/data e alterações,
@@ -528,7 +568,6 @@ regenere os dados e execute os checks antes da publicação. Atualizações visu
 não alteram a data de conferência normativa. A tela **Atualizações** reúne as
 fontes, os limites de cobertura e as pendências já registradas; não monitora o
 Diário Oficial automaticamente.
-
 
 ## Tema escuro e revisão de navegação
 
@@ -551,7 +590,7 @@ anteriores continuam compatíveis. Trocar o tema preserva rota, zoom e seleção
 
 `tests/checkup-browser.py` percorre todos os menus em computador e celular,
 os 14 acessos ao veículo, seus subsistemas, as atividades do fluxo, os detalhes
-dos 273 atos dos recortes ativos e os 298 registros da biblioteca. Verifica
+dos atos dos recortes ativos e dos registros canônicos da biblioteca. Verifica
 hover/foco, tanque, abas de documentos, atalhos e erros JavaScript, e grava
 `tests/artifacts/full-checkup.json`. Os links oficiais exigem conferência de
 alcance separada: bloqueios de portais e de rede não são prova de URL removida.
@@ -577,14 +616,14 @@ com prefixo de implantação são fotografias de uma publicação e não acompan
 novos commits. A entrega precisa ser conferida nesse endereço estável, com
 `version.json` e teste no navegador; um check de deploy sozinho não comprova a UI.
 
-Resultado da checagem de 19/10/2026: 11 menus, 14 acessos ao veículo,
+Resultado da rodada anterior à implementação desta auditoria, em 19/10/2026:
+11 menus, 14 acessos ao veículo,
 30 subsistemas, 37 atividades, 273 atos e 298 documentos percorridos sem erros
 JavaScript. As suítes funcionais incluem persistência e troca de tema, estados
 do desenho, teclado, celular e armazenamento bloqueado. A auditoria axe cobre 14
 rotas e detalhes em cada uma das três paletas, além da navegação móvel.
 Na rodada anterior de verificação externa de 814
-endereços de fontes: 65 responderam HTTP 200, 696 retornaram 403 e 53 retornaram
-503. Os 749 casos sem confirmação permanecem como acesso não verificado; nenhum
+endereços de fontes: 65 responderam HTTP 200, 696 retornaram 403 e 53 retornaram 503. Os 749 casos sem confirmação permanecem como acesso não verificado; nenhum
 404/410 foi confirmado nessa rodada. Isso não altera a revisão normativa.
 
 ## Associação entre os conjuntos vetoriais e a legislação
@@ -595,9 +634,9 @@ inalterados. Cada conjunto aponta para assuntos com referências explícitas,
 separadas entre **sobre o conjunto** e **contexto do veículo**. Não há herança
 indiscriminada dos atos do sistema inteiro ao selecionar uma peça.
 
-O mapa contém 86 entradas de assunto e 153 associações. O inventário de 298
-entradas documentais representa 293 atos únicos: 56 têm alguma associação visual
-(20 com relação ao conjunto, 37 como contexto, com um ato em ambas) e 237 seguem
+O mapa contém 88 entradas de assunto e 154 associações editoriais. O inventário
+de 299 entradas documentais representa 294 atos únicos: 56 têm alguma associação
+visual (19 com relação ao conjunto, 38 como contexto, com um ato em ambas) e 238 seguem
 acessíveis pelos assuntos e processos do acervo, sem região visual atribuída.
 Essas contagens descrevem a classificação do acervo, não sua completude jurídica.
 
@@ -607,7 +646,8 @@ Exemplos de delimitação:
 - Vidro fixo: requisitos do vidro e contexto de marcação; acionamento de janela
   fica ligado aos conjuntos correspondentes.
 - Bateria de 12 V: referência de bateria chumbo-ácido, condicionada à química;
-  a referência não é transferida para o conjunto de tração.
+  a referência não é transferida para o conjunto de tração. A orientação de
+  importação fica em assunto próprio, separado do RAC de produto.
 - Portaria com vários produtos: a árvore exibe somente os dispositivos
   associados ao assunto selecionado. O documento completo conserva seus dados.
 - Radiador e chicote: lacunas explícitas, sem preencher com normas de
@@ -631,7 +671,7 @@ python scripts/build_vehicle_legislation.py --check
 
 `npm run build:data` também atualiza esse mapa. As saídas incluem
 `src/core/vehicle-legislation-data.js` e
-`data/site/vehicle-legislation-audit.{json,csv}`, com classificação dos 293 atos,
+`data/site/vehicle-legislation-audit.{json,csv}`, com classificação dos 294 atos,
 IDs canônicos, aliases e conjuntos associados. A evidência editorial completa
 permanece fora do artefato público; o documento original é consultado pelos links
 do acervo.
@@ -651,3 +691,21 @@ Essa separação evita redesenhar milhões de coordenadas a cada transição ou 
 sem alterar a composição ou a área clicável. `preview-provenance.json` registra
 origens, versões, dimensões e hashes; a CI confere os arquivos comprometidos,
 sem depender do renderizador nativo para publicar o site.
+
+## Revisão dirigida de 19/10/2026
+
+A [matriz dos 26 itens da auditoria](docs/audit-implementation-2026-10-19.md)
+registra as alterações, os arquivos de evidência e os testes de aceitação.
+O acervo atual reúne 274 atos nos quatro recortes de órgãos; a biblioteca
+canônica soma 294 atos, incluindo o restante do acervo. Entradas documentais
+legadas não são contadas como atos distintos quando representam aliases.
+
+A Portaria GM-MDIC 68/2026 substitui a 43/2024 na consulta atual do MOVER,
+conforme o índice oficial. A 43 conserva ficha histórica. A íntegra da 68,
+o dispositivo e a data de efeito da revogação permanecem sem conferência
+integral, sem preenchimento por inferência.
+
+Os marcos temporais preservam dispositivo, categoria e condições e são
+comparados à data da consulta. Uma data passada não transforma todo o ato
+em revogado nem indica irregularidade universal. O portal mantém distintas
+a publicação, a indicação legal, a profundidade de revisão e a aplicabilidade.

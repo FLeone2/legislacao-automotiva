@@ -1,0 +1,44 @@
+{
+  "asOf": "2026-10-19",
+  "purpose": "Revisão dirigida da sucessão de incentivos MOVER; não equivale a consolidação integral.",
+  "sources": [
+    {
+      "id": "mdic-index-2026",
+      "officialUrl": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2026",
+      "retrievedAt": "2026-10-19",
+      "archivePath": "data/mover/sources/mdic-2026.html",
+      "sha256": "9d21b192f676d2a34efbe8741f5c36b5dc8b064bcb33b6b195843e308d0a29bc",
+      "excerpt": "PORTARIA GM/MDIC Nº 68, DE 17 DE MARÇO DE 2026 (Revoga a PORTARIA MDIC/GM Nº 43, DE 26 DE MARÇO DE 2024)",
+      "sourceKind": "official_index",
+      "locator": "Entrada Portaria GM/MDIC 68, de 17 de março de 2026",
+      "limits": [
+        "O índice oficial confirma a relação 68/2026 → 43/2024. A íntegra do DOU não pôde ser recuperada nesta revisão; artigo revogador, entrada em vigor, transições e procedimentos não foram inferidos."
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "sourceId": "mover-014",
+      "targetId": "mover-009",
+      "kind": "revoga",
+      "basis": "official_index",
+      "device": null,
+      "effectiveDate": null,
+      "sourceIdEvidence": "mdic-index-2026",
+      "excerpt": "PORTARIA GM/MDIC Nº 68, DE 17 DE MARÇO DE 2026 (Revoga a PORTARIA MDIC/GM Nº 43, DE 26 DE MARÇO DE 2024)"
+    }
+  ],
+  "attempts": [
+    {
+      "officialUrl": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-68-de-17-de-marco-de-2026-694449850",
+      "retrievedAt": "2026-10-19",
+      "status": 403,
+      "result": "Inteiro teor indisponível nesta consulta; não inferir dispositivo, efeito temporal ou procedimento."
+    }
+  ],
+  "separation": [
+    "Requisitos técnicos e compromissos de eficiência/segurança do veículo: Lei 14.902/2024, Decreto 12.435/2025 e atos específicos.",
+    "Incentivos empresariais, habilitação e P&D: Portaria 68/2026 e demais atos específicos; Portaria 43/2024 somente histórica.",
+    "PBEV é programa veicular. ACP é conformidade de produção. Nenhum foi atribuído a roda ou bateria como certificação do componente."
+  ]
+}

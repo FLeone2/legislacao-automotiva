@@ -27,6 +27,10 @@ def apply_contract(original, agency, as_of):
         else "Indicação nas fontes do recorte revisado; não equivale a consolidação integral.",
         "evidence": record.get("statusEvidence", []),
     }
+    editorial_review = {
+        **deepcopy(record.get("reviewMetadata", {})),
+        **deepcopy(record.get("reviewStatus", {})),
+    }
     record["reviewStatus"] = {
         "state": "reference_only"
         if reference_only
@@ -35,9 +39,34 @@ def apply_contract(original, agency, as_of):
         else "index_review",
         "fullTextReviewed": record.get("fullTextReviewed"),
         "amendmentChainReviewed": False,
-        "reviewedAt": as_of,
+        "reviewedAt": record.get("reviewedAt", as_of),
         "gaps": record.get("notes", []),
+        **editorial_review,
     }
+    if record["reviewStatus"]["state"] not in {
+        "reference_only",
+        "directed_text_review",
+        "index_review",
+    }:
+        raise ValueError("Unknown review state: " + record["id"])
+    # A clause or amendment reviewed in isolation never proves consolidation.
+    # Editorial review metadata may narrow the scope without promoting the act.
+    if reference_only:
+        record["reviewStatus"]["fullTextReviewed"] = record.get("fullTextReviewed")
+    if record["reviewStatus"]["amendmentChainReviewed"] and not editorial_review.get(
+        "chainEvidence"
+    ):
+        raise ValueError("Complete chain review requires evidence: " + record["id"])
+    review = record["reviewStatus"]
+    review["summary"] = (
+        "Referências e orientações oficiais; íntegra consolidada pendente."
+        if reference_only
+        else "Trechos e relações identificadas revisados; cadeia integral não certificada."
+        if review["state"] == "directed_text_review"
+        else "Índice e anotações oficiais consultados; texto e cadeia precisam de conferência."
+    )
+    if review["amendmentChainReviewed"]:
+        review["summary"] = "Cadeia revisada no escopo e nas evidências registrados."
     record["applicability"] = {
         "state": "requires_assessment",
         "vehicleSpecific": False,

@@ -44,6 +44,11 @@ def check():
             expected_files.add(ROOT / path)
             detail = read(path)
             assert detail["id"] == record["id"]
+            assert summary["reviewStatus"].get(
+                "reviewedAt", collection["metadata"]["asOf"]
+            ) == detail["reviewStatus"].get("reviewedAt"), (
+                "Review date changed in summary"
+            )
             assert summary["requirementIds"] == detail["requirementIds"]
             assert summary["relationships"] == [
                 {k: rel[k] for k in ("kind", "label") if k in rel}
@@ -66,14 +71,40 @@ def check():
                 assert record["legalStatus"]["state"] == "official_current_reference"
                 assert record["reviewStatus"]["fullTextReviewed"] is False
                 assert record["currentIndication"] is False
-                assert all(
-                    q["provision"]["kind"] == "official_guidance"
-                    for q in detail["requirements"]
-                )
+                editorial = {q["id"]: q for q in record["requirements"]}
+                for q in detail["requirements"]:
+                    expected_kind = editorial[q["id"]].get(
+                        "evidenceKind", "official_guidance"
+                    )
+                    assert q["provision"]["kind"] == expected_kind
+                    if expected_kind == "public_text_excerpt":
+                        assert (
+                            q["evidenceSource"]["documentSha256"]
+                            and q["evidenceSource"]["sourceKey"] in snapshots
+                        )
+                        assert q["verification"]["state"] == "directed_review"
             if record["status"] == "parcialmente_revogada":
                 assert record["legalStatus"]["state"] == "partially_repealed"
     assert expected_files == set((ROOT / "data/site/records").rglob("*.json")), (
         "Stale/unpublished detail"
+    )
+    # A historical URL is a separate publication, never a way to load one of
+    # the 55 intentionally excluded CONTRAN records into current searches.
+    history = index.get("historicalReferences", [])
+    historical_ids = {(entry["agency"], entry["id"]) for entry in history}
+    assert len(historical_ids) == len(history), "Duplicate historical identity"
+    expected_history = set()
+    for agency, record_id in historical_ids:
+        assert agency in {"contran", "mover"}
+        path = f"data/site/history/{agency}/{record_id}.json"
+        expected_history.add(ROOT / path)
+        detail = read(path)
+        assert detail["id"] == record_id
+        assert detail["publication"]["included"] is False
+        assert detail["legalStatus"]["state"] in {"repealed", "revoked"}
+        assert not (ROOT / f"data/site/records/{agency}/{record_id}.json").exists()
+    assert expected_history == set((ROOT / "data/site/history").rglob("*.json")), (
+        "Unregistered historical publication"
     )
     for path in [*ROOT.glob("*.js"), *ROOT.glob("src/**/*.js")]:
         subprocess.run(["node", "--check", str(path)], check=True, capture_output=True)

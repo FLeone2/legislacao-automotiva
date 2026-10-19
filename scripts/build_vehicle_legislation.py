@@ -51,7 +51,8 @@ vm.runInContext(fs.readFileSync('src/regulations/catalog.js', 'utf8'), context);
 context.base = index.base;
 vm.runInContext('globalThis.installed = installActiveRegulations(base)', context);
 process.stdout.write(JSON.stringify({
-  records: context.installed.records,
+  records: context.installed.canonicalRecords || context.installed.records,
+  documentaryEntryCount: context.installed.records.filter(r => r.publication?.included !== false).length,
   vector: require('./src/core/vehicle-vector.js'),
 }));
 """
@@ -83,7 +84,12 @@ def catalog_context(inputs):
             f"Unpublished act in runtime catalog: {act_id}",
         )
         acts.setdefault(act_id, []).append(record)
-        for alias in (record["id"], act_id):
+        for alias in {
+            record["id"],
+            act_id,
+            *record.get("aliases", []),
+            *record.get("catalogEntryIds", []),
+        }:
             require(
                 alias not in aliases or aliases[alias] == act_id,
                 f"Ambiguous act alias: {alias}",
@@ -279,6 +285,25 @@ def compile_mapping(source, inputs):
                     }
                 )
             compact["gaps"] = topic.get("gaps", [])
+            if topic.get("gapReview"):
+                gap = topic["gapReview"]
+                require(
+                    gap.get("state")
+                    in {
+                        "research_pending",
+                        "no_specific_reference_in_collection",
+                        "not_classified",
+                    },
+                    f"Invalid gap review state: {topic_id}",
+                )
+                require(
+                    all(
+                        isinstance(gap.get(key), str) and gap[key].strip()
+                        for key in ("reviewedAt", "summary", "nextAction")
+                    ),
+                    f"Incomplete gap review: {topic_id}",
+                )
+                compact["gapReview"] = gap
             output["topics"].append(compact)
         runtime["parts"].append(output)
     return runtime
@@ -329,7 +354,13 @@ def build_audit(source, runtime, inputs):
                 "title": representative["title"],
                 "agency": representative["agency"],
                 "regulatorySource": representative.get("regulatorySource"),
-                "catalogIds": sorted({r["id"] for r in records}),
+                "catalogIds": sorted(
+                    {
+                        alias
+                        for r in records
+                        for alias in r.get("catalogEntryIds", [r["id"]])
+                    }
+                ),
                 "classification": classification,
                 "componentPartIds": part_ids,
                 "vehiclePartIds": context_ids,
@@ -346,7 +377,7 @@ def build_audit(source, runtime, inputs):
         "Incomplete published reference classification",
     )
     counts = {
-        "catalogEntries": len(inputs["records"]),
+        "catalogEntries": inputs.get("documentaryEntryCount", len(inputs["records"])),
         "uniqueActs": len(acts),
         "drawingParts": len(runtime["parts"]),
         "partDirectActs": len(direct_ids),

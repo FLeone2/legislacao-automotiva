@@ -49,6 +49,8 @@ const SYSTEM_CONTRAN_LABELS = {
 
 let siteIndexPromise = null;
 const regulatoryRecordLoads = new Map();
+const regulatoryHistoricalReferences = [];
+const regulatoryHistoricalLoads = new Map();
 function initializeRegulatoryStore() {
   if (!siteIndexPromise) {
     siteIndexPromise = fetch('data/site/index.json')
@@ -67,8 +69,19 @@ function initializeRegulatoryStore() {
             data.records.some((r) => r.publication?.included !== true)
           )
             throw new Error('Publicação inválida');
+          for (const record of data.records) {
+            record.reviewStatus = {
+              reviewedAt: data.metadata.asOf,
+              ...record.reviewStatus,
+            };
+          }
           regulatoryData[source] = data;
         }
+        regulatoryHistoricalReferences.splice(
+          0,
+          regulatoryHistoricalReferences.length,
+          ...(index.historicalReferences || []),
+        );
         return index;
       })
       .catch((error) => {
@@ -118,4 +131,33 @@ async function loadRegulationRecord(source, id) {
     );
   }
   return regulatoryRecordLoads.get(key);
+}
+
+async function loadHistoricalRecord(source, id) {
+  await initializeRegulatoryStore();
+  if (!regulatoryHistoricalReferences.some((r) => r.agency === source && r.id === id))
+    throw new Error('Registro histórico não publicado');
+  if ((!Object.hasOwn(regulatoryConfig, source) && source !== 'mover') || !/^[a-z0-9-]+$/.test(id))
+    throw new Error('Fonte histórica inválida');
+  const key = source + ':' + id;
+  if (!regulatoryHistoricalLoads.has(key)) {
+    regulatoryHistoricalLoads.set(
+      key,
+      fetch('data/site/history/' + source + '/' + id + '.json')
+        .then((response) => {
+          if (!response.ok) throw new Error('Histórico indisponível');
+          return response.json();
+        })
+        .then((record) => {
+          if (record.id !== id || record.publication?.included !== false)
+            throw new Error('Registro histórico inválido');
+          return record;
+        })
+        .catch((error) => {
+          regulatoryHistoricalLoads.delete(key);
+          throw error;
+        }),
+    );
+  }
+  return regulatoryHistoricalLoads.get(key);
 }

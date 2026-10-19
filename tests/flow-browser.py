@@ -1,4 +1,5 @@
-import asyncio, os
+import asyncio
+import os
 from pathlib import Path
 from playwright.async_api import async_playwright
 from browser_support import launch_options
@@ -150,16 +151,16 @@ async def main():
         assert await page.evaluate("document.documentElement.scrollWidth<=innerWidth")
         await page.screenshot(path=str(OUT / "flow-mobile-map.png"))
         await stage(page, "laboratorio")
-        await page.locator(
-            '.node-main[data-tree-node="flow:laboratorio:hibrido"]'
-        ).focus()
+        await page.locator('.node-main[data-tree-node="flow:laboratorio:hev"]').focus()
         await page.keyboard.press("Enter")
         assert "NBR 16567" in await page.locator("#flowDetailPanel").inner_text()
         assert await page.evaluate("document.documentElement.scrollWidth<=innerWidth")
         await page.locator("#flowDetailPanel").scroll_into_view_if_needed()
         await page.screenshot(path=str(OUT / "flow-mobile-activity.png"))
         # Missing records / invalid links remain recoverable, with honest empty states.
-        await page.evaluate("catalog.records=[];renderFlow()")
+        await page.evaluate(
+            "catalog.records=[];catalog.canonicalRecords=[];renderFlow()"
+        )
         assert await page.locator("#flowDetailPanel .tree-doc").count() == 0
         assert await page.evaluate(
             "Object.values(treeModels.flow.nodes).some(n=>n.text?.includes('não estão disponíveis'))"

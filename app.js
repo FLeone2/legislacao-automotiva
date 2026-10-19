@@ -31,7 +31,7 @@ function componentMatches(r, id) {
 }
 function related() {
   if (state.view === 'library') return filters();
-  return catalog.records
+  return catalogRecords(catalog)
     .filter((r) => componentMatches(r, state.component))
     .sort((a, b) => Number(Boolean(b.officialAudit)) - Number(Boolean(a.officialAudit)));
 }
@@ -88,12 +88,12 @@ function systemLabel(id) {
   return g?.children.find((c) => c.id === id)?.label || g?.label || id;
 }
 function systemCount(id) {
-  return catalog.records.filter((r) => componentMatches(r, id)).length;
+  return catalogRecords(catalog).filter((r) => componentMatches(r, id)).length;
 }
 
 function renderUpdates() {
   $('#main').innerHTML =
-    `<div class="eyebrow">Rastreabilidade e controle</div><h1>Atualizações e ressalvas</h1><p><a class="btn" href="#contran">Consultar levantamento oficial CONTRAN →</a></p><p class="subtitle">Pendências conhecidas no catálogo e referências a alterações. Esta página não é um monitor automático do Diário Oficial.</p><div class="notice">Consulta CONTRAN, PROCONVE, Inmetro e Anatel revisada em 18/10/2026. O acervo reúne ${catalog.records.length} entradas documentais. A vigência e a aplicação a um projeto exigem leitura das fontes e dos atos modificadores.</div>${consultationSources()}${catalog.metadata.pendingReviews.map((r) => `<article class="update-card"><span class="tag">CONFERÊNCIA PENDENTE</span><h3>${esc(r.title)}</h3><p>${esc(r.note)}</p><div class="actions">${safeLink(r.officialUrl, 'Consultar referência oficial', 'btn')}</div></article>`).join('')}<article class="update-card"><span class="tag">CADEIA DOCUMENTAL</span><h3>Consulte também os atos modificadores</h3><p>As referências a alterações, revogações, anexos e transições estão registradas nos detalhes de cada entrada. Uma cópia arquivada pode não conter a redação consolidada.</p><button class="btn" data-route="library">Abrir biblioteca</button></article>`;
+    `<div class="eyebrow">Rastreabilidade e controle</div><h1>Atualizações e ressalvas</h1><p><a class="btn" href="#contran">Consultar levantamento oficial CONTRAN →</a></p><p class="subtitle">Pendências conhecidas no catálogo e referências a alterações. Esta página não é um monitor automático do Diário Oficial.</p><div class="notice">As datas e o escopo de revisão constam em cada registro de CONTRAN, PROCONVE, Inmetro e Anatel. O acervo reúne ${catalogRecords(catalog).length} atos e referências de consulta. A vigência e a aplicação a um projeto exigem leitura das fontes e dos atos modificadores.</div>${consultationSources()}${catalog.metadata.pendingReviews.map((r) => `<article class="update-card"><span class="tag">CONFERÊNCIA PENDENTE</span><h3>${esc(r.title)}</h3><p>${esc(r.note)}</p><div class="actions">${safeLink(r.officialUrl, 'Consultar referência oficial', 'btn')}</div></article>`).join('')}<article class="update-card"><span class="tag">CADEIA DOCUMENTAL</span><h3>Consulte também os atos modificadores</h3><p>As referências a alterações, revogações, anexos e transições estão registradas nos detalhes de cada entrada. Uma cópia arquivada pode não conter a redação consolidada.</p><button class="btn" data-route="library">Abrir biblioteca</button></article>`;
 }
 function renderAI() {
   $('#main').innerHTML =

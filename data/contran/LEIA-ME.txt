@@ -2,13 +2,13 @@ Levantamento CONTRAN — consulta em 2026-10-18
 Fonte: https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran
 Atualização declarada pelo portal: 06/10/2026 14h52
 1030 resoluções do índice principal; 111 do arquivo anterior a 1998.
-252 atos com indicação de vigência, incluindo revogação parcial. Isso não significa aplicação automática hoje.
+251 atos com indicação de vigência, incluindo revogação parcial. Isso não significa aplicação automática hoje.
 
 Situações encontradas:
-- Vigência indicada no índice: 152
+- Vigência indicada no índice: 151
 - Entrada em vigor localizada no texto: 94
 - Revogação parcial — conferir redação remanescente: 6
-- Revogada: 826
+- Revogada: 827
 - Efeitos suspensos: 3
 - Prazo encerrado no índice: 4
 - Declarada nula: 1

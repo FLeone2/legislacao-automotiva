@@ -1,6 +1,9 @@
 """Publication policy, source chains and physical-vs-administrative associations."""
 
-import csv, gzip, json, unittest
+import csv
+import gzip
+import json
+import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -93,6 +96,7 @@ class ActiveRegulations(unittest.TestCase):
             "contran-412-2012",
             "contran-433-2013",
             "contran-248-2007",
+            "contran-220-2007",
         ]:
             self.assertNotIn(id, self.c)
         with gzip.open(ROOT / "data/contran/sources/text-extracts.json.gz", "rt") as f:
@@ -125,7 +129,13 @@ class ActiveRegulations(unittest.TestCase):
             self.assertTrue(self.c[id]["generalCategories"])
 
     def test_proconve_phases_and_latest_amendments(self):
-        self.assertEqual(self.proconve["metadata"]["phaseCounts"], {"L8": 19, "P8": 6})
+        self.assertEqual(
+            self.proconve["metadata"]["phaseCounts"],
+            {
+                phase: sum(phase in r["phases"] for r in self.p.values())
+                for phase in ("L8", "P8")
+            },
+        )
         for id in [
             "ibama-in-20-2020",
             "ibama-in-18-2021",
@@ -145,7 +155,6 @@ class ActiveRegulations(unittest.TestCase):
             "ibama-in-22-2022",
             "ibama-in-21-2022",
             "conama-493-2019",
-            "ibama-in-26-2020",
         ]:
             self.assertNotIn(id, self.p)
         r = self.p["ibama-in-20-2025"]
@@ -155,7 +164,16 @@ class ActiveRegulations(unittest.TestCase):
         )
         self.assertIn("2026", str(r["notes"]))
         self.assertIn("2027", str(r["notes"]))
-        self.assertIn("ibama-in-26-2020", str(self.proconve["metadata"]["sourceGaps"]))
+        self.assertEqual(self.p["ibama-in-26-2020"]["phases"], ["L8"])
+        self.assertEqual(self.p["ibama-in-6-2025"]["phases"], ["L8", "P8"])
+        self.assertTrue(self.p["ibama-in-26-2020"]["requirements"])
+        self.assertTrue(self.p["ibama-in-6-2025"]["requirements"])
+        self.assertTrue(
+            any(
+                item.get("kind") == "altera" and "26" in str(item)
+                for item in self.p["ibama-in-3-2023"]["relationships"]
+            )
+        )
 
     def test_corporate_obligations_are_not_physical_parts(self):
         for id in ["ibama-in-23-2022", "ibama-in-28-2023"]:

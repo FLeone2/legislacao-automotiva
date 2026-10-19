@@ -4,15 +4,15 @@
   "scope": "Associações editoriais de consulta entre conjuntos da ilustração e referências já cadastradas; não constituem conclusão de aplicabilidade, vigência ou certificação. Estados normativos e exclusões do acervo são preservados.",
   "classificationNote": "Classificação de consulta, sem decisão de aplicabilidade ou vigência. Atos não representados permanecem disponíveis por assunto. Contagens de relações podem se sobrepor; atos são deduplicados por ID canônico.",
   "counts": {
-    "catalogEntries": 298,
-    "uniqueActs": 293,
+    "catalogEntries": 299,
+    "uniqueActs": 294,
     "drawingParts": 37,
-    "partDirectActs": 20,
-    "vehicleContextActs": 37,
+    "partDirectActs": 19,
+    "vehicleContextActs": 38,
     "bothDirectAndContextActs": 1,
     "visualLinkedActs": 56,
-    "nonvisualActs": 237,
-    "classifiedUniqueActs": 293,
+    "nonvisualActs": 238,
+    "classifiedUniqueActs": 294,
     "classificationCoveragePercent": 100
   },
   "parts": [
@@ -131,7 +131,6 @@
       "label": "Banco traseiro",
       "componentId": "bancos",
       "componentActIds": [
-        "contran-220-2007",
         "contran-498-2014",
         "contran-951-2022",
         "contran-997-2023"
@@ -141,16 +140,15 @@
         "contran-936-2022",
         "inmetro-246-2021"
       ],
-      "componentCount": 4,
+      "componentCount": 3,
       "vehicleCount": 3,
-      "uniqueCount": 7
+      "uniqueCount": 6
     },
     {
       "partId": "peca_09_bancos_dianteiros_console",
       "label": "Bancos dianteiros e console",
       "componentId": "bancos",
       "componentActIds": [
-        "contran-220-2007",
         "contran-498-2014",
         "contran-951-2022",
         "contran-997-2023"
@@ -161,9 +159,9 @@
         "contran-964-2022",
         "inmetro-246-2021"
       ],
-      "componentCount": 4,
+      "componentCount": 3,
       "vehicleCount": 4,
-      "uniqueCount": 8
+      "uniqueCount": 7
     },
     {
       "partId": "peca_10_carroceria",
@@ -463,11 +461,12 @@
       "vehicleActIds": [
         "conama-492-2018",
         "contran-910-2022",
+        "ibama-in-26-2020",
         "ibama-in-3-2023"
       ],
       "componentCount": 2,
-      "vehicleCount": 3,
-      "uniqueCount": 5
+      "vehicleCount": 4,
+      "uniqueCount": 6
     },
     {
       "partId": "peca_31_escapamento",
@@ -1917,46 +1916,6 @@
         "regras-gerais/base"
       ],
       "associations": [],
-      "notes": []
-    },
-    {
-      "actId": "contran-220-2007",
-      "title": "Resolução CONTRAN nº 220/2007",
-      "agency": "SENATRAN",
-      "regulatorySource": "contran",
-      "catalogIds": [
-        "official-contran-220-2007"
-      ],
-      "classification": [
-        "part_direct"
-      ],
-      "componentPartIds": [
-        "peca_08_banco_traseiro",
-        "peca_09_bancos_dianteiros_console"
-      ],
-      "vehiclePartIds": [],
-      "nonvisual": false,
-      "taxonomy": [
-        "ocupantes/cintos"
-      ],
-      "associations": [
-        {
-          "partId": "peca_08_banco_traseiro",
-          "topicId": "bancos-ancoragem",
-          "subsystemId": "ocupantes/cintos",
-          "lane": "seguranca",
-          "relation": "component",
-          "requirementIds": []
-        },
-        {
-          "partId": "peca_09_bancos_dianteiros_console",
-          "topicId": "bancos-ancoragem",
-          "subsystemId": "ocupantes/cintos",
-          "lane": "seguranca",
-          "relation": "component",
-          "requirementIds": []
-        }
-      ],
       "notes": []
     },
     {
@@ -4207,7 +4166,9 @@
           "subsystemId": "propulsao/combustiveis",
           "lane": "seguranca",
           "relation": "vehicle",
-          "requirementIds": []
+          "requirementIds": [
+            "contran-910-2022:req:03"
+          ]
         }
       ],
       "notes": []
@@ -6756,6 +6717,42 @@
       "notes": []
     },
     {
+      "actId": "ibama-in-26-2020",
+      "title": "Instrução Normativa IBAMA nº 26/2020",
+      "agency": "IBAMA",
+      "regulatorySource": "proconve",
+      "catalogIds": [
+        "ibama-031"
+      ],
+      "classification": [
+        "vehicle_context"
+      ],
+      "componentPartIds": [],
+      "vehiclePartIds": [
+        "peca_30_tanque_tubo_combustivel"
+      ],
+      "nonvisual": false,
+      "taxonomy": [
+        "propulsao/combustiveis",
+        "propulsao/emissoes"
+      ],
+      "associations": [
+        {
+          "partId": "peca_30_tanque_tubo_combustivel",
+          "topicId": "evaporativas-reabastecimento",
+          "subsystemId": "propulsao/combustiveis",
+          "lane": "ambiental",
+          "relation": "vehicle",
+          "requirementIds": [
+            "ibama-in-26-2020:req:01",
+            "ibama-in-26-2020:req:02",
+            "ibama-in-26-2020:req:04"
+          ]
+        }
+      ],
+      "notes": []
+    },
+    {
       "actId": "ibama-in-28-2023",
       "title": "Instrução Normativa IBAMA nº 28/2023",
       "agency": "IBAMA",
@@ -6914,7 +6911,9 @@
           "subsystemId": "propulsao/combustiveis",
           "lane": "ambiental",
           "relation": "vehicle",
-          "requirementIds": []
+          "requirementIds": [
+            "ibama-in-3-2023:req:01"
+          ]
         },
         {
           "partId": "peca_31_escapamento",
@@ -6948,6 +6947,26 @@
       "notes": [
         "ACP é conformidade de produção e não legislação de uma peça isolada."
       ]
+    },
+    {
+      "actId": "ibama-in-6-2025",
+      "title": "Instrução Normativa IBAMA nº 6/2025",
+      "agency": "IBAMA",
+      "regulatorySource": "proconve",
+      "catalogIds": [
+        "official-ibama-in-6-2025"
+      ],
+      "classification": [
+        "other_topics_no_visual_region"
+      ],
+      "componentPartIds": [],
+      "vehiclePartIds": [],
+      "nonvisual": true,
+      "taxonomy": [
+        "processos/homologacao"
+      ],
+      "associations": [],
+      "notes": []
     },
     {
       "actId": "ibama-in-7-2021",
@@ -7119,6 +7138,16 @@
           ]
         },
         {
+          "partId": "peca_24_motor_combustao_transmissao",
+          "topicId": "bronzinas",
+          "subsystemId": "propulsao/componentes",
+          "lane": "seguranca",
+          "relation": "component",
+          "requirementIds": [
+            "inmetro-145-2022:req:15"
+          ]
+        },
+        {
           "partId": "peca_27_bateria_12v",
           "topicId": "bateria-12v-chumbo-acido",
           "subsystemId": "eletronica/comandos",
@@ -7126,6 +7155,19 @@
           "relation": "component",
           "requirementIds": [
             "inmetro-145-2022:req:06"
+          ]
+        },
+        {
+          "partId": "peca_27_bateria_12v",
+          "topicId": "importacao-bateria-chumbo-acido",
+          "subsystemId": "eletronica/comandos",
+          "lane": "seguranca",
+          "relation": "component",
+          "requirementIds": [
+            "inmetro-145-2022:req:11",
+            "inmetro-145-2022:req:12",
+            "inmetro-145-2022:req:13",
+            "inmetro-145-2022:req:14"
           ]
         },
         {
@@ -7906,26 +7948,6 @@
       "notes": []
     },
     {
-      "actId": "mover-009",
-      "title": "Portaria GM-MDIC 43-2024 - Habilitação e compromissos",
-      "agency": "MOVER",
-      "regulatorySource": null,
-      "catalogIds": [
-        "mover-009"
-      ],
-      "classification": [
-        "other_topics_no_visual_region"
-      ],
-      "componentPartIds": [],
-      "vehiclePartIds": [],
-      "nonvisual": true,
-      "taxonomy": [
-        "corporativo/mover"
-      ],
-      "associations": [],
-      "notes": []
-    },
-    {
       "actId": "mover-010",
       "title": "Portaria GM-MDIC 86-2024 - Autopeças não produzidas",
       "agency": "MOVER",
@@ -7992,6 +8014,26 @@
       "regulatorySource": null,
       "catalogIds": [
         "mover-013"
+      ],
+      "classification": [
+        "other_topics_no_visual_region"
+      ],
+      "componentPartIds": [],
+      "vehiclePartIds": [],
+      "nonvisual": true,
+      "taxonomy": [
+        "corporativo/mover"
+      ],
+      "associations": [],
+      "notes": []
+    },
+    {
+      "actId": "mover-014",
+      "title": "Portaria GM/MDIC nº 68/2026 — Incentivos, pesquisa e desenvolvimento MOVER",
+      "agency": "MOVER",
+      "regulatorySource": null,
+      "catalogIds": [
+        "mover-014"
       ],
       "classification": [
         "other_topics_no_visual_region"

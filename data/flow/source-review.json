@@ -44,7 +44,7 @@
     },
     {
       "id": "emissoes-combustao",
-      "activity": "Ensaios emissões, NMOG, OBD, ETR e regeneração segundo escopo",
+      "activity": "Consultar o ramo térmico em ICE, HEV ou PHEV, preservando categoria/fase",
       "acts": [
         "conama-492-2018",
         "ibama-in-22-2020",
@@ -56,12 +56,13 @@
         "ibama-in-25-2023",
         "ibama-in-3-2021",
         "ibama-in-3-2023",
-        "ibama-in-29-2020"
+        "ibama-in-29-2020",
+        "ibama-in-26-2020"
       ],
       "evidence": [
         "IN3/2023 art3 remete NBR12026,15598,6601,16567 atualizadas."
       ],
-      "limits": "Evaporativas IN26/2020 somente remissão IN3/2023; texto integral não localizado. NMOG, regeneração e ETR dependem de combustível/motorização; não impor todos ensaios a todos powertrains."
+      "limits": "A IN26/2020 foi localizada na fonte oficial. Métodos integrais NBR e cadeia exaustiva ainda pendentes. NMOG, regeneração, ETR e evaporativas dependem de combustível/motorização; não impor todos os ensaios a todos os powertrains. O ramo de motor térmico é consultável em ICE/HEV/PHEV, nunca BEV."
     },
     {
       "id": "hibrido",
@@ -76,7 +77,7 @@
         "IN3/2023 art2: híbridos recarregáveis externamente ou não, homologação conforme NBR16567 versão mais recente.",
         "IN11/2014 com alteração3/2023: ciclo estrada NBR7024:2010 e NBR16567:2020 ou sucedâneas."
       ],
-      "limits": "Não usar mesmo ciclo de carga/descarga indistintamente para HEV/PHEV."
+      "limits": "HEV e PHEV têm entradas próprias e compartilham a referência térmica pertinente. O antigo filtro hibrido continua como agregado de HEV/PHEV. Não usar o mesmo ciclo de carga/descarga indistintamente."
     },
     {
       "id": "eletrico",
@@ -148,13 +149,200 @@
         "Portaria990/2022 art10 permite requisitar amostras após concessão MMV; AnexoVII responsabilidade manter conformidade produção."
       ],
       "limits": "Planejar COP desde engenharia, executar com produção representativa. Não aplicar IN5/2024 como base ACP de pesados. IUMPR e ISC são ramos pós-homologação distintos, não sinônimos de COP. Faltam fontes para cadeia integral de COP segurança e P8."
+    },
+    {
+      "id": "etr-rde",
+      "stageId": "laboratorio",
+      "activityId": "rde",
+      "activity": "Emissões em tráfego real, com separação L7/L8 e P8",
+      "acts": [
+        "ibama-in-3-2021",
+        "conama-492-2018",
+        "ibama-in-20-2020",
+        "ibama-in-18-2021",
+        "ibama-in-18-2023"
+      ],
+      "sources": [
+        {
+          "sourceKey": "138776",
+          "officialUrl": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=138776",
+          "archivePath": "data/proconve/sources/evidence.json.gz",
+          "textSha256": "ad4c74095d7b6d8babb27eec612a7c553f428803db326332ff3c19ff706add79",
+          "clause": "Art. 1º",
+          "excerpt": "Art. 1º Estabelecer, em conformidade com o Capítulo VIII da Resolução CONAMA 492, de 2018, os requisitos e critérios para a avaliação de veículos leves de passageiros e veículos leves comerciais por meio de ensaio de emissões em tráfego real (ETR) para as Fases PROCONV",
+          "reviewedAt": "2026-10-19",
+          "scope": "Vínculo consultivo dirigido; não substitui método integral ou consolidação da cadeia."
+        }
+      ],
+      "limits": "Percurso, medição, condições e critérios não foram convertidos em roteiro técnico executável."
+    },
+    {
+      "id": "durabilidade-fd",
+      "stageId": "laboratorio",
+      "activityId": "durabilidade",
+      "activity": "Durabilidade das emissões de escapamento, FD evaporativo e distinção de Ki",
+      "acts": [
+        "conama-492-2018",
+        "ibama-in-26-2020",
+        "ibama-in-29-2020"
+      ],
+      "sources": [
+        {
+          "sourceKey": "conama492",
+          "officialUrl": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+          "archivePath": "data/proconve/sources/evidence.json.gz",
+          "textSha256": "e48ebec826f8ab31669238a907cc6d25da083ac7f3fcc7f5364c9e82d0e0960b",
+          "clause": "Arts. 16–17, capítulo V",
+          "excerpt": "Art. 16. Para as Fases PROCONVE L7 e PROCONVE L8, o fabricante e/ou importador deverão comprovar, mediante ensaio, o atendimento aos limites máximos de emissão de poluentes por 160.000 km (cento e sessenta mil quilômetros), ou dez anos de uso, o que ocorrer ",
+          "reviewedAt": "2026-10-19",
+          "scope": "Vínculo consultivo dirigido; não substitui método integral ou consolidação da cadeia."
+        }
+      ],
+      "limits": "FD de escapamento é distinto de FD evaporativo, Ki e ISC. Método ABNT integral não revisado; sem importar limiares ou parâmetros como decisão automática."
+    },
+    {
+      "id": "ruido",
+      "stageId": "laboratorio",
+      "activityId": "ruido",
+      "activity": "Ruído veicular, categoria e datas",
+      "acts": [
+        "conama-492-2018",
+        "conama-490-2018",
+        "ibama-in-20-2020",
+        "ibama-in-18-2021"
+      ],
+      "sources": [
+        {
+          "sourceKey": "conama492",
+          "officialUrl": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+          "archivePath": "data/proconve/sources/evidence.json.gz",
+          "textSha256": "e48ebec826f8ab31669238a907cc6d25da083ac7f3fcc7f5364c9e82d0e0960b",
+          "clause": "Art. 24, capítulo X e tabela 5",
+          "excerpt": "Art. 24. Ficam estabelecidos os limites de emissão de ruído de passagem e as datas de implantação, conforme Tabela 5 do Anexo desta Resolução. § 1º A determinação de ruído de passagem dos veículos deverá ser feita conforme método prescrito pela Norma ISO 362",
+          "reviewedAt": "2026-10-19",
+          "scope": "Vínculo consultivo dirigido; não substitui método integral ou consolidação da cadeia."
+        },
+        {
+          "sourceKey": "138780",
+          "officialUrl": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=138780",
+          "archivePath": "data/proconve/sources/evidence.json.gz",
+          "textSha256": "06e45677c7b9369dcd3a340f92f67f71f11331e03ec528a6a4a3f0a72d14cf58",
+          "clause": "Objeto da alteração da IN 20/2020",
+          "excerpt": "Altera a Instrução Normativa 20, de 24 de setembro de 2020, que estabelece os requisitos técnicos e de homologação para os sistemas de OBD, para a medição das emissões em tráfego real, das emissões durante a vida útil do veículo (ISC) e para a medição de ruído de veículos pesados ",
+          "reviewedAt": "2026-10-19",
+          "scope": "Vínculo consultivo dirigido; não substitui método integral ou consolidação da cadeia."
+        }
+      ],
+      "limits": "Vínculo consultivo dos atos de leves/pesados. Métodos e enquadramento acústico de cada tecnologia não revisados integralmente; nenhuma dispensa de BEV inferida."
+    },
+    {
+      "id": "corporativo-l8",
+      "stageId": "aprovacoes",
+      "activityId": "corporativo",
+      "activity": "Controle corporativo de emissões e créditos, fora das peças físicas",
+      "acts": [
+        "ibama-in-23-2022",
+        "ibama-in-28-2023",
+        "conama-492-2018"
+      ],
+      "sources": [
+        {
+          "sourceKey": "139211",
+          "officialUrl": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139211",
+          "archivePath": "data/proconve/sources/evidence.json.gz",
+          "textSha256": "9d65e2bf610adb3483b3478b9fe5365dbe14122d3d528c631a2255e9c341b411",
+          "clause": "Art. 1º",
+          "excerpt": "Art. 1º Regulamentar o controle das emissões corporativas e a gestão de créditos de emissão de poluentes exigidos a partir da fase PROCONVE L8, em conformidade com os Arts. 4º e 26 da Resolução CONAMA Nº 492, de 2018. CAPÍTULO I DAS DEFINIÇÕES Art. 2º Para os efeitos de",
+          "reviewedAt": "2026-10-19",
+          "scope": "Vínculo consultivo dirigido; não substitui método integral ou consolidação da cadeia."
+        }
+      ],
+      "limits": "Consulta corporativa L8; não equivale à homologação de uma configuração nem ao programa de incentivos MOVER."
+    },
+    {
+      "id": "mover-incentivos",
+      "stageId": "aprovacoes",
+      "activityId": "mover",
+      "activity": "Separar requisitos veiculares, compromissos e incentivos empresariais",
+      "acts": [
+        "mover-001",
+        "mover-002",
+        "mover-007",
+        "mover-014"
+      ],
+      "evidence": [
+        "data/mover/reviewed-map.json: índice MDIC2026 registra68/2026 revogando43/2024."
+      ],
+      "limits": "Dispositivo revogador, data de efeito e transições da68 dependem da íntegra ainda indisponível."
+    },
+    {
+      "id": "cat-cct",
+      "stageId": "cat",
+      "activityId": "cct",
+      "activity": "Distinguir CAT/CCT e canal SISCAT",
+      "acts": [
+        "senatran-095",
+        "contran-916-2022"
+      ],
+      "evidence": [
+        "data/contran/reviewed-consultation.json externalRecords.senatran-095: art2§7 SGQ/CCT; art26 e §§1–2 SISCAT; serviço oficialreconsultado19/10/2026."
+      ],
+      "limits": "CCT condicionado a SGQ nas condições do ato. Não universalizar. Obrigatoriedade SISCAT depende da disponibilidade dos módulos."
+    },
+    {
+      "id": "equipamentos-obrigatorios",
+      "stageId": "seguranca",
+      "activityId": "equipamentos",
+      "activity": "Localizar equipamentos obrigatórios como assunto transversal",
+      "acts": [
+        "contran-993-2023"
+      ],
+      "evidence": [
+        "data/contran/reviewed-consultation.json: 993/2023, anexos e notas com fontes específicas."
+      ],
+      "limits": "Consultar categorias, notas, datas e exceções; não criar checklist conclusivo de veículo inteiro."
+    },
+    {
+      "id": "pbev-mover-acp",
+      "stageId": "aprovacoes",
+      "activityId": "eficiencia",
+      "activity": "PBEV/ENCE do veículo, MOVER e ACP como processos distintos",
+      "acts": [
+        "inmetro-169-2023",
+        "ibama-in-5-2024",
+        "mover-001",
+        "mover-002",
+        "mover-007"
+      ],
+      "evidence": [
+        "IN5/2024 arts2–5 relacionaACP básico comPBEV; referênciaInmetro169/2023 mantém adesão voluntária e íntegra pendente."
+      ],
+      "limits": "Vínculos de processo; nenhuma certificação de PBEV atribuída a roda ou bateria como componente. ENCE veicular não é ENCE pneus/VIN/ETA."
+    },
+    {
+      "id": "lcvm-servicos",
+      "stageId": "aprovacoes",
+      "activityId": "lcvm",
+      "activity": "Encaminhar modalidades de LCVM e importação ao serviço atual",
+      "acts": [
+        "ibama-in-6-2025",
+        "senatran-095"
+      ],
+      "evidence": [
+        "data/proconve/reviewed-map.json.procedureGuidance: regular, quantidades limitadas, dispensa, alterações e importação/LPCO, com fontes oficiais arquivadas e consulta19/10/2026."
+      ],
+      "officialLinks": [
+        "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-para-veiculos-motores-ou-maquinas-lcvm-proconve",
+        "https://www.gov.br/ibama/pt-br/assuntos/notas/2025/ibama-publica-instrucao-normativa-que-consolida-os-procedimentos-de-controle-de-importacoes"
+      ],
+      "limits": "Orientação oficial não substitui decisão do Ibama. Usar o serviço atual para canais; páginas antigas LI/Infoserv não prevalecem sobre orientação mais recente. Não impor LCVM de emissão escapamento ao BEV sem comprovação."
     }
   ],
   "globalGaps": [
     "ABNT normas técnicas integrais não consultadas; referência no ato não equivale a revisão técnica da norma.",
     "Amaciamento não possui quilometragem única comprovada para todos protocolos.",
-    "IN26/2020 texto integral ainda não localizado.",
     "Conama complementares e cadeia integral COP/P8 continuam revisão pendente.",
     "Não exibir conexão etapa→todo ato do mesmo órgão como se relação fosse precisa."
-  ]
+  ],
+  "asOf": "2026-10-19"
 }

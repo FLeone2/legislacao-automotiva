@@ -60,7 +60,6 @@ contran-202-2006,Resolução CONTRAN nº 202/2006,SENATRAN,contran,official-cont
 contran-209-2006,Resolução CONTRAN nº 209/2006,SENATRAN,contran,official-contran-209-2006,other_topics_no_visual_region,,,True,regras-gerais/registro,
 contran-215-2006,Resolução CONTRAN nº 215/2006,SENATRAN,contran,senatran-057,other_topics_no_visual_region,,,True,carroceria/acessorios,
 contran-217-2006,Resolução CONTRAN nº 217/2006,SENATRAN,contran,official-contran-217-2006,other_topics_no_visual_region,,,True,regras-gerais/base,
-contran-220-2007,Resolução CONTRAN nº 220/2007,SENATRAN,contran,official-contran-220-2007,part_direct,peca_08_banco_traseiro | peca_09_bancos_dianteiros_console,,False,ocupantes/cintos,
 contran-224-2006,Resolução CONTRAN nº 224/2006,SENATRAN,contran,senatran-094,vehicle_context,,peca_03_parabrisa,False,vidros/limpadores,
 contran-238-2007,Resolução CONTRAN nº 238/2007,SENATRAN,contran,official-contran-238-2007,other_topics_no_visual_region,,,True,regras-gerais/base,
 contran-242-2007,Resolução CONTRAN nº 242/2007,SENATRAN,contran,senatran-093,other_topics_no_visual_region,,,True,eletronica/imagens,
@@ -249,11 +248,13 @@ ibama-in-22-2020,Instrução Normativa IBAMA nº 22/2020,IBAMA,proconve,ibama-03
 ibama-in-23-2020,Instrução Normativa IBAMA nº 23/2020,IBAMA,proconve,ibama-029 | ibama-032,vehicle_context,,peca_24_motor_combustao_transmissao | peca_31_escapamento,False,eletronica/obd | propulsao/combustiveis | propulsao/emissoes,
 ibama-in-23-2022,Instrução Normativa IBAMA nº 23/2022,IBAMA,proconve,ibama-022 | ibama-023,other_topics_no_visual_region,,,True,corporativo/ambiental,Controle corporativo e créditos; não contabilizar como lei direta do motor/tanque.
 ibama-in-25-2023,Instrução Normativa IBAMA nº 25/2023,IBAMA,proconve,ibama-019,vehicle_context,,peca_24_motor_combustao_transmissao | peca_31_escapamento,False,eletronica/obd | propulsao/emissoes,
+ibama-in-26-2020,Instrução Normativa IBAMA nº 26/2020,IBAMA,proconve,ibama-031,vehicle_context,,peca_30_tanque_tubo_combustivel,False,propulsao/combustiveis | propulsao/emissoes,
 ibama-in-28-2023,Instrução Normativa IBAMA nº 28/2023,IBAMA,proconve,ibama-018,other_topics_no_visual_region,,,True,corporativo/ambiental,Negociação de créditos e controle corporativo.
 ibama-in-29-2020,Instrução Normativa IBAMA nº 29/2020,IBAMA,proconve,ibama-024,vehicle_context,,peca_24_motor_combustao_transmissao | peca_31_escapamento,False,propulsao/emissoes,
 ibama-in-3-2021,Instrução Normativa IBAMA nº 3/2021,IBAMA,proconve,ibama-027 | ibama-030,vehicle_context,,peca_24_motor_combustao_transmissao | peca_31_escapamento,False,propulsao/emissoes,
 ibama-in-3-2023,Instrução Normativa IBAMA nº 3/2023,IBAMA,proconve,ibama-020,vehicle_context,,peca_24_motor_combustao_transmissao | peca_25_motor_eletrico_inversor_cabos | peca_26_bateria_tracao | peca_30_tanque_tubo_combustivel | peca_31_escapamento,False,propulsao/combustiveis | propulsao/eletrica | propulsao/emissoes,
 ibama-in-5-2024,Instrução Normativa IBAMA nº 5/2024,IBAMA,proconve,ibama-017,other_topics_no_visual_region,,,True,processos/homologacao,ACP é conformidade de produção e não legislação de uma peça isolada.
+ibama-in-6-2025,Instrução Normativa IBAMA nº 6/2025,IBAMA,proconve,official-ibama-in-6-2025,other_topics_no_visual_region,,,True,processos/homologacao,
 ibama-in-7-2021,Instrução Normativa IBAMA nº 7/2021,IBAMA,proconve,ibama-028,vehicle_context,,peca_24_motor_combustao_transmissao | peca_31_escapamento,False,eletronica/obd | propulsao/emissoes,
 inmetro-111-2022,Portaria Inmetro 111/2022 — Componentes do sistema GNV,INMETRO,inmetro,official-inmetro-111-2022,other_topics_no_visual_region,,,True,propulsao/combustiveis,
 inmetro-140-2021,Portaria Inmetro 140/2021 — Requisitos Gerais de Declaração do Fornecedor de Produtos,INMETRO,inmetro,official-inmetro-140-2021,other_topics_no_visual_region,,,True,processos/homologacao,Declaração do fornecedor de produtos: regra geral complementa escopo específico. | Declaração do fornecedor de produtos; transversal.
@@ -281,11 +282,11 @@ mover-005,Portaria GM-MDIC 213-2025 - Reciclabilidade,MOVER,,mover-005,other_top
 mover-006,Portaria GM-MDIC 215-2025 - Segurança,MOVER,,mover-006,other_topics_no_visual_region,,,True,corporativo/mover,
 mover-007,Portaria GM-MDIC 19-2026 - Eficiência energética - texto-base,MOVER,,mover-007,other_topics_no_visual_region,,,True,propulsao/combustiveis,
 mover-008,Resolução CNPE 14-2025 - ICE e participação energética,MOVER,,mover-008,other_topics_no_visual_region,,,True,propulsao/combustiveis,
-mover-009,Portaria GM-MDIC 43-2024 - Habilitação e compromissos,MOVER,,mover-009,other_topics_no_visual_region,,,True,corporativo/mover,
 mover-010,Portaria GM-MDIC 86-2024 - Autopeças não produzidas,MOVER,,mover-010,other_topics_no_visual_region,,,True,corporativo/mover,
 mover-011,Decreto 12.214/2024,MOVER,,mover-011,other_topics_no_visual_region,,,True,corporativo/mover,
 mover-012,Portaria GM/MDIC 176/2025,MOVER,,mover-012,other_topics_no_visual_region,,,True,corporativo/eficiencia,
 mover-013,Portaria GM/MDIC 192/2025,MOVER,,mover-013,other_topics_no_visual_region,,,True,corporativo/mover,
+mover-014,"Portaria GM/MDIC nº 68/2026 — Incentivos, pesquisa e desenvolvimento MOVER",MOVER,,mover-014,other_topics_no_visual_region,,,True,corporativo/mover,
 senatran-095,Portaria Senatran 990-2022 - Homologação CAT,SENATRAN,,senatran-095,other_topics_no_visual_region,,,True,processos/homologacao,
 senatran-096,Portaria Senatran 1554-2022 - Rotulagem de segurança,SENATRAN,,senatran-096,other_topics_no_visual_region,,,True,identificacao/rotulagem,
 senatran-097,Deliberação Contran 264-2022 - Cronograma ESC,SENATRAN,,senatran-097,vehicle_context,,peca_35_freio_dianteiro | peca_37_freio_traseiro,False,freios/estabilidade,

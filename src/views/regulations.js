@@ -28,6 +28,135 @@ function regulatoryUrl(view, values = {}) {
   const q = new URLSearchParams(Object.entries(values).filter(([, v]) => v));
   return '#' + view + (q.size ? '?' + q : '');
 }
+function regulatoryContext(q) {
+  return Object.fromEntries(
+    ['component', 'subsystem'].filter((key) => q.get(key)).map((key) => [key, q.get(key)]),
+  );
+}
+function regulatoryQueryFilters(q) {
+  return Object.fromEntries(
+    ['q', 'system', 'component', 'subsystem', 'category', 'phase', 'record']
+      .filter((key) => q.get(key))
+      .map((key) => [key, q.get(key)]),
+  );
+}
+function regulatoryExportPayload(data, q, context) {
+  // The initial index deliberately omits evidence-only search text. Use the
+  // actual query result IDs to enrich exports, so opening details cannot turn
+  // an export into a different search over the full source.
+  const selected = context.recordIds
+    ? data.records.filter((record) => context.recordIds.includes(record.id))
+    : contranFiltered(data, q);
+  if (context.recordIds && selected.length !== new Set(context.recordIds).size)
+    throw new Error('A consulta mudou de versão. Recarregue a página.');
+  const records = canonicalCatalogRecords(selected);
+  return {
+    schemaVersion: 1,
+    query: {
+      url: context.queryUrl,
+      filters: regulatoryQueryFilters(q),
+      exportedAt: context.exportedAt,
+      source: context.sourceUrl,
+      sourceAsOf: data.metadata.asOf,
+      datasetSha256: context.datasetSha256,
+      resultCount: records.length,
+    },
+    metadata: data.metadata,
+    records,
+  };
+}
+function regulatoryExportCsv(payload) {
+  const fields = [
+    'id',
+    'title',
+    'number',
+    'year',
+    'subject',
+    'statusLabel',
+    'officialUrl',
+    'systems',
+    'vehicleLinks',
+    'generalCategories',
+    'phases',
+    'legalStatus',
+    'reviewStatus',
+    'applicability',
+    'publication',
+    'temporalFlags',
+    'relationships',
+    'requirementIds',
+  ];
+  const context = {
+    queryUrl: payload.query.url,
+    queryFilters: payload.query.filters,
+    exportedAt: payload.query.exportedAt,
+    sourceAsOf: payload.query.sourceAsOf,
+    sourceUrl: payload.query.source,
+    datasetSha256: payload.query.datasetSha256,
+    resultCount: payload.query.resultCount,
+  };
+  const columns = [...Object.keys(context), ...fields];
+  const cell = (value) => {
+    const text =
+      value == null ? '' : typeof value === 'object' ? JSON.stringify(value) : String(value);
+    return '"' + text.replaceAll('"', '""') + '"';
+  };
+  return (
+    '\uFEFF' +
+    [
+      columns,
+      ...payload.records.map((record) => columns.map((key) => ({ ...context, ...record })[key])),
+    ]
+      .map((row) => row.map(cell).join(','))
+      .join('\r\n') +
+    '\r\n'
+  );
+}
+async function exportRegulatoryQuery(view, query, format, button) {
+  const status = $('#regulatoryExportStatus');
+  const q = new URLSearchParams(query);
+  const recordIds = contranFiltered(regulatoryData[view], q).map((record) => record.id);
+  button.disabled = true;
+  status.textContent = 'Preparando a consulta…';
+  try {
+    const source = new URL(regulatoryConfig[view].url, location.href);
+    const response = await fetch(source, { cache: 'no-store' });
+    if (!response.ok) throw new Error('Acervo indisponível');
+    const bytes = await response.arrayBuffer();
+    const data = JSON.parse(new TextDecoder().decode(bytes));
+    const digest = await crypto.subtle.digest('SHA-256', bytes);
+    const datasetSha256 = Array.from(new Uint8Array(digest), (byte) =>
+      byte.toString(16).padStart(2, '0'),
+    ).join('');
+    const payload = regulatoryExportPayload(data, q, {
+      queryUrl: new URL(regulatoryUrl(view, regulatoryQueryFilters(q)), location.href).href,
+      sourceUrl: source.href,
+      exportedAt: new Date().toISOString(),
+      datasetSha256,
+      recordIds,
+    });
+    if (format === 'csv' && !payload.records.length) {
+      status.textContent =
+        'Nenhum resultado para exportar. O JSON mantém os dados da consulta vazia.';
+      return;
+    }
+    const body =
+      format === 'csv' ? regulatoryExportCsv(payload) : JSON.stringify(payload, null, 2) + '\n';
+    const blob = new Blob([body], {
+      type: format === 'csv' ? 'text/csv;charset=utf-8' : 'application/json;charset=utf-8',
+    });
+    const download = document.createElement('a');
+    download.href = URL.createObjectURL(blob);
+    download.download = `consulta-${view}-${payload.query.exportedAt.slice(0, 10)}.${format}`;
+    download.click();
+    setTimeout(() => URL.revokeObjectURL(download.href), 1000);
+    status.textContent = `${payload.records.length} referências exportadas.`;
+  } catch {
+    status.textContent = 'Não foi possível exportar a consulta. Tente novamente.';
+  } finally {
+    button.disabled = false;
+  }
+}
 async function renderRegulations(view) {
   const route = location.hash;
   $('#app').classList.add('contran-mode');
@@ -35,7 +164,19 @@ async function renderRegulations(view) {
     `<h1>${esc(regulatoryConfig[view].title)}</h1><p role="status">Carregando as referências…</p>`;
   try {
     await loadRegulations(view);
+    const guide = new URLSearchParams(location.hash.split('?')[1] || '').get('guide');
+    if (guide) {
+      if (state.view === view && route === location.hash) renderProcedureGuide(view, guide);
+      return;
+    }
     const requested = new URLSearchParams(location.hash.split('?')[1] || '').get('record');
+    if (
+      requested &&
+      regulatoryHistoricalReferences.some((r) => r.agency === view && r.id === requested)
+    ) {
+      location.hash = regulatoryHistoryUrl(view, requested);
+      return;
+    }
     if (requested && regulatoryData[view].records.some((r) => r.id === requested))
       await loadRegulationRecord(view, requested);
     if (state.view !== view || route !== location.hash) return;
@@ -82,6 +223,11 @@ function renderRegulatoryPage(view) {
     data.records.some((r) => r.generalCategories.includes(id)),
   );
   const component = ComponentFlow.component(q.get('component'));
+  const withoutContext = new URLSearchParams(q);
+  for (const key of ['component', 'subsystem', 'page']) withoutContext.delete(key);
+  const contextChip = q.get('component')
+    ? `<p class="regulatory-context">Sistema: <strong>${esc(component?.label || 'Conjunto não cadastrado')}</strong>${q.get('subsystem') ? ' · ' + esc(systemLabel(q.get('subsystem'))) : ''} <a class="btn" data-regulatory-remove-context href="${esc(regulatoryUrl(view, Object.fromEntries(withoutContext)))}">Remover sistema</a>${component ? ` <a href="${esc(vehicleLink(component, null, q.get('subsystem')))}">← Voltar ao veículo</a>` : ''}</p>`
+    : '';
   const notice =
     view === 'contran'
       ? `Fonte atualizada em ${esc(m.sourceModifiedText || 'data não informada')}. Consulte a fonte e as condições registradas abaixo.`
@@ -98,7 +244,7 @@ function renderRegulatoryPage(view) {
     )
     .join('');
   $('#main').innerHTML =
-    `<div class="eyebrow">Acervo de referência · ${esc(config.issuer)}</div><h1>${esc(config.title)}</h1><p class="subtitle">Do sistema do veículo à norma. Assuntos transversais organizados em categorias próprias.</p>${['inmetro', 'anatel'].includes(view) ? '<p><a class="btn" href="#markings">Etiquetas, selos e VIN →</a></p>' : ''}<div class="contran-source"><div><strong>Revisão: ${esc((m.publicationDate || m.asOf).split('-').reverse().join('/'))}</strong><span>${notice}</span></div>${safeLink(m.sourceUrl, 'Fonte oficial', 'btn')}</div><div class="contran-counts"><div><strong>${m.activeCount}</strong><span>${view === 'inmetro' ? 'referências atuais na consulta' : 'atos na consulta ativa'}</span></div><div><strong>${m.systemLinkedCount}</strong><span>ligados a sistemas</span></div><div><strong>${m.generalCategoryCount}</strong><span>em categorias gerais</span></div><div><strong>${categories.length}</strong><span>categorias transversais</span></div></div>${view === 'proconve' ? `<nav class="regulatory-phases" aria-label="Fase PROCONVE"><a href="#proconve">Todas as fases mapeadas</a><a href="#proconve?phase=L8">L8 · veículos leves</a><a href="#proconve?phase=P8">P8 · veículos pesados</a></nav>` : ''}${component ? `<p class="regulatory-context">Sistema: <strong>${esc(component.label)}</strong>${q.get('subsystem') ? ' · ' + esc(systemLabel(q.get('subsystem'))) : ''} <a href="${esc(vehicleLink(component, null, q.get('subsystem')))}">← Voltar ao veículo</a></p>` : ''}<details class="regulatory-categories" ${!component && !q.get('record') ? 'open' : ''}><summary>Assuntos sem relação direta com um sistema físico</summary><div>${categoryLinks || '<p>Não há categoria geral neste recorte.</p>'}</div></details><form class="contran-filters" id="contranFilters"><label>Buscar norma ou assunto<input id="contranSearch" type="search" placeholder="Número, ano, assunto…" value="${esc(q.get('q') || '')}"></label><label>Sistema do veículo<select id="contranSystem">${options([['', 'Todos os sistemas'], ...catalog.metadata.components.filter((c) => SYSTEM_CONTRAN_LABELS[c.id]).map((c) => [c.id, c.label])], q.get('system') || '')}</select></label><label>Categoria geral<select id="contranCategory">${options([['', 'Todas as categorias'], ...categories], q.get('category') || '')}</select></label>${
+    `<div class="eyebrow">Acervo de referência · ${esc(config.issuer)}</div><h1>${esc(config.title)}</h1><p class="subtitle">Do sistema do veículo à norma. Assuntos transversais organizados em categorias próprias.</p>${['inmetro', 'anatel'].includes(view) ? '<p><a class="btn" href="#markings">Etiquetas, selos e VIN →</a></p>' : ''}<div class="contran-source"><div><strong>Revisão: ${esc((m.publicationDate || m.asOf).split('-').reverse().join('/'))}</strong><span>${notice}</span></div>${safeLink(m.sourceUrl, 'Fonte oficial', 'btn')}</div><div class="contran-counts"><div><strong>${m.activeCount}</strong><span>${view === 'inmetro' ? 'referências atuais na consulta' : 'atos na consulta ativa'}</span></div><div><strong>${m.systemLinkedCount}</strong><span>ligados a sistemas</span></div><div><strong>${m.generalCategoryCount}</strong><span>em categorias gerais</span></div><div><strong>${categories.length}</strong><span>categorias transversais</span></div></div>${view === 'proconve' ? `<nav class="regulatory-phases" aria-label="Fase PROCONVE"><a href="#proconve">Todas as fases mapeadas</a><a href="#proconve?phase=L8">L8 · veículos leves</a><a href="#proconve?phase=P8">P8 · veículos pesados</a></nav>` : ''}${contextChip}<details class="regulatory-categories" ${!component && !q.get('record') ? 'open' : ''}><summary>Assuntos sem relação direta com um sistema físico</summary><div>${categoryLinks || '<p>Não há categoria geral neste recorte.</p>'}</div></details><form class="contran-filters" id="contranFilters"><label>Buscar norma ou assunto<input id="contranSearch" type="search" placeholder="Número, ano, assunto…" value="${esc(q.get('q') || '')}"></label><label>Sistema do veículo<select id="contranSystem">${options([['', 'Todos os sistemas'], ...catalog.metadata.components.filter((c) => SYSTEM_CONTRAN_LABELS[c.id]).map((c) => [c.id, c.label])], q.get('system') || '')}</select></label><label>Categoria geral<select id="contranCategory">${options([['', 'Todas as categorias'], ...categories], q.get('category') || '')}</select></label>${
       view === 'proconve'
         ? `<label>Fase<select id="regulatoryPhase">${options(
             [
@@ -109,7 +255,7 @@ function renderRegulatoryPage(view) {
             q.get('phase') || '',
           )}</select></label>`
         : '<p class="regulatory-filter-note">Consulte a situação de vigência, o nível de revisão e as condições de aplicação em cada referência.</p>'
-    }<button class="btn primary" type="submit">Pesquisar</button><button class="btn" type="button" data-contran-clear>Limpar</button></form><div class="contran-results-heading"><p id="contranResultCount" role="status">${rows.length} resultados · página ${page} de ${pages}</p><div><a href="${config.csv}" download>CSV da consulta ↓</a><a href="${config.url}" download>Dados e evidências ↓</a></div></div><div class="contran-records">${
+    }<button class="btn primary" type="submit">Pesquisar</button><button class="btn" type="button" data-contran-clear>Limpar</button></form>${regulatoryProcedureDirectory(view)}<div class="contran-results-heading"><p id="contranResultCount" role="status">${rows.length} resultados · página ${page} de ${pages}</p><div><button class="btn" data-regulatory-export="csv">Exportar consulta · CSV ↓</button><button class="btn" data-regulatory-export="json">Consulta e evidências · JSON ↓</button><a href="${config.csv}" download>Acervo completo · CSV (${data.records.length}) ↓</a><a href="${config.url}" download>Acervo completo · JSON ↓</a><span id="regulatoryExportStatus" role="status"></span></div></div><div class="contran-records">${
       rows
         .slice((page - 1) * contranPageSize, page * contranPageSize)
         .map(contranCard)
@@ -118,7 +264,7 @@ function renderRegulatoryPage(view) {
     }</div><nav class="contran-pagination" aria-label="Páginas do acervo"><button class="btn" data-contran-page="${page - 1}" ${page <= 1 ? 'disabled' : ''}>← Anterior</button><span>Página ${page} de ${pages}</span><button class="btn" data-contran-page="${page + 1}" ${page >= pages ? 'disabled' : ''}>Próxima →</button></nav><details class="contran-method"><summary>Fontes, critérios e condições de aplicação</summary><p>${esc(m.publicationPolicy || 'Atos vigentes relacionados às fases identificadas nas fontes oficiais.')}</p><ul>${m.limits.map((x) => `<li>${esc(x)}</li>`).join('')}</ul><p>Categoria, datas, combustível, anexos, exceções e transições devem ser considerados antes de aplicar um requisito ao veículo.</p></details>`;
   $('#contranFilters').onsubmit = (e) => {
     e.preventDefault();
-    const next = {};
+    const next = regulatoryContext(q);
     for (const [key, id] of [
       ['q', 'contranSearch'],
       ['system', 'contranSystem'],
@@ -128,6 +274,10 @@ function renderRegulatoryPage(view) {
       if ($('#' + id)?.value) next[key] = $('#' + id).value;
     location.hash = regulatoryUrl(view, next);
   };
+  document.querySelectorAll('[data-regulatory-export]').forEach((button) => {
+    button.onclick = () =>
+      exportRegulatoryQuery(view, q.toString(), button.dataset.regulatoryExport, button);
+  });
   for (const id of ['contranSystem', 'contranCategory', 'regulatoryPhase'])
     if ($('#' + id)) $('#' + id).onchange = () => $('#contranFilters').requestSubmit();
 }
@@ -186,7 +336,7 @@ function contranCard(r) {
     aprova: 'aprova',
   };
   const evidence = [...new Set(r.statusEvidence || [])];
-  return `<article class="contran-record" data-contran-record="${esc(r.id)}"><div class="contran-record-top"><h2>${esc(label)}</h2><span class="contran-status ${r.currentIndication ? 'indicated' : r.status === 'revogada' ? 'repealed' : 'pending'}">${esc(r.statusLabel)}</span></div><p class="contran-subject">${esc(r.subject)}</p>${regulatoryStatusSummary(r)}${r.mechanism ? `<p class="regulatory-mechanism"><strong>Mecanismo:</strong> ${esc(r.mechanism)}</p>` : ''}${r.fullTextReviewed === false ? '<p class="notice">Referência e orientação oficiais conferidas. A íntegra consolidada do regulamento e suas exceções ainda precisam de revisão.</p>' : ''}<div class="regulatory-system-links">${regulatoryBindings(r)}</div>${regulatoryRequirements(r)}<div class="contran-tags">${(r.phases || []).map((p) => `<span>PROCONVE ${esc(p)}</span>`).join('')}${r.systems.map((s) => `<span>${esc(SYSTEM_CONTRAN_LABELS[s] || s)}</span>`).join('')}<span>${r.origin === 'historical_archive' ? 'Arquivo anterior a 1998' : `Publicação: ${esc(r.publicationDate?.split('-').reverse().join('/') || r.sourcePublicationText || 'não informada')}`}</span>${r.actNature === 'modificadora' ? '<span>Ato modificador</span>' : r.actNature === 'revogatoria' ? '<span>Ato revogatório</span>' : ''}</div>${r.temporalFlags?.length ? `<div class="contran-temporal"><strong>Atenção aos efeitos temporários</strong>${r.temporalFlags.map((x) => `<p>${esc(x.note)}</p>`).join('')}</div>` : ''}${r.amendedBasesRevoked?.length ? '<p class="contran-temporal">Este ato altera base indicada como revogada. Não utilizar a alteração isoladamente como requisito atual.</p>' : ''}<div class="contran-actions">${safeLink(r.officialUrl, r.origin === 'historical_archive' ? 'Arquivo histórico oficial (ZIP)' : 'Texto oficial', 'btn')}${r.relatedLinks
+  return `<article class="contran-record" data-contran-record="${esc(r.id)}"><div class="contran-record-top"><h2>${esc(label)}</h2><span class="contran-status ${r.currentIndication ? 'indicated' : r.status === 'revogada' ? 'repealed' : 'pending'}">${esc(r.statusLabel)}</span></div><p class="contran-subject">${esc(r.subject)}</p>${regulatoryStatusSummary(r)}${r.mechanism ? `<p class="regulatory-mechanism"><strong>Mecanismo:</strong> ${esc(r.mechanism)}</p>` : ''}${r.fullTextReviewed === false ? '<p class="notice">Referência e orientação oficiais conferidas. A íntegra consolidada do regulamento e suas exceções ainda precisam de revisão.</p>' : ''}<div class="regulatory-system-links">${regulatoryBindings(r)}</div>${regulatoryRequirements(r)}<div class="contran-tags">${(r.phases || []).map((p) => `<span>PROCONVE ${esc(p)}</span>`).join('')}${r.systems.map((s) => `<span>${esc(SYSTEM_CONTRAN_LABELS[s] || s)}</span>`).join('')}<span>${r.origin === 'historical_archive' ? 'Arquivo anterior a 1998' : `Publicação: ${esc(r.publicationDate?.split('-').reverse().join('/') || r.sourcePublicationText || 'não informada')}`}</span>${r.actNature === 'modificadora' ? '<span>Ato modificador</span>' : r.actNature === 'revogatoria' ? '<span>Ato revogatório</span>' : ''}</div>${r.amendedBasesRevoked?.length ? '<p class="contran-temporal">Este ato altera base indicada como revogada. Não utilizar a alteração isoladamente como requisito atual.</p>' : ''}<div class="contran-actions">${safeLink(r.officialUrl, r.origin === 'historical_archive' ? 'Arquivo histórico oficial (ZIP)' : 'Texto oficial', 'btn')}${r.relatedLinks
     .filter((x) => /anexo|retifica|compilad|integral|circular|\(i|\(xv/i.test(x.label))
     .map((x) => safeLink(x.url, esc(x.label), 'contran-extra-link'))
     .join(

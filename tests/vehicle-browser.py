@@ -188,12 +188,32 @@ async def main():
         )
         await page.locator(".component-lanes a", has_text="Ambiental").click()
         await flow(page)
-        assert await page.locator('[data-tree-node$=":record:ibama-020"]').count() == 1
-        assert await page.locator('[data-tree-node$=":record:ibama-031"]').count() == 0
+        # The previously missing IN26 now has a reviewed, narrow evaporative
+        # scope. Use canonical act IDs rather than historical catalog aliases.
+        environmental_scope = await page.evaluate("""()=>{
+            const nodes=Object.values(treeModels.vehicle.nodes)
+                .filter(node=>node.id.startsWith('component:tanque:ambiental:'));
+            return {
+                acts:[...new Set(nodes.filter(node=>node.recordId&&!node.requirementId)
+                    .map(node=>{const record=catalogRecord(catalog,node.recordId);return record.regulatoryId||record.id}))],
+                requirements:[...new Set(nodes.map(node=>node.requirementId).filter(Boolean))]
+            };
+        }""")
+        assert set(environmental_scope["acts"]) == {
+            "conama-492-2018",
+            "ibama-in-3-2023",
+            "ibama-in-26-2020",
+        }
+        assert set(environmental_scope["requirements"]) == {
+            "ibama-in-3-2023:req:01",
+            "ibama-in-26-2020:req:01",
+            "ibama-in-26-2020:req:02",
+            "ibama-in-26-2020:req:04",
+        }
         await page.locator(
             '.node-main[data-tree-node="component:tanque:ambiental:vehicle:evaporativas-reabastecimento"]'
         ).click()
-        assert await page.locator("#aiPanel .tree-doc").count() == 2
+        assert await page.locator("#aiPanel .tree-doc").count() == 3
         # Graph zoom is independent of hero image; reset and fit are usable.
         art = await page.locator(".component-hero-art").evaluate(
             "(e)=>({width:e.offsetWidth,height:e.offsetHeight})"
@@ -243,7 +263,9 @@ async def main():
         )
         await page.goto(BASE + "#vehicle?component=motor")
         await flow(page)
-        await page.evaluate("catalog.records=[];renderVehicle()")
+        await page.evaluate(
+            "catalog.records=[];catalog.canonicalRecords=[];renderVehicle()"
+        )
         assert await page.locator("#aiPanel .tree-doc").count() == 0
         assert (
             "pendente"

@@ -133,6 +133,14 @@ async def main():
             ), part
             assert fragment in (await page.locator("#aiPanel").inner_text()).lower()
             assert await page.locator("#aiPanel .tree-doc").count() == 0
+            await page.locator('.node-main[data-tree-node$=":gap:0"]').click()
+            await wait_for_route(page)
+            await expect(page.locator("#aiPanel")).to_contain_text(
+                "Sem referência neste acervo"
+            )
+            await expect(page.locator("#aiPanel")).to_contain_text(
+                "Zero documentos não significa isenção"
+            )
             report["partGaps"].append(part)
         # Every primary route uses actual sidebar links, followed by mobile navigation.
         await route("#vehicle")
@@ -209,6 +217,7 @@ async def main():
                 report["activities"].append(node)
         # Every active collection record opens its own detail, with the correct source binding.
         for source in ["contran", "proconve", "inmetro", "anatel"]:
+            print("Checking every active " + source + " record", flush=True)
             await route("#" + source)
             ids = await page.evaluate(
                 "(s)=>regulatoryData[s].records.map(r=>r.id)", source
@@ -228,9 +237,10 @@ async def main():
                 report["activeRecords"].append(source + ":" + record)
         await route("#library")
         records = await page.evaluate(
-            "catalog.records.map(r=>({id:r.id,title:r.title}))"
+            "catalogRecords(catalog).map(r=>({id:r.id,title:r.title}))"
         )
-        for record in records:
+        print(f"Checking {len(records)} canonical document dialogs", flush=True)
+        for ordinal, record in enumerate(records, 1):
             await page.evaluate("id=>openNorm(id)", record["id"])
             assert (
                 await page.locator("#normDialogTitle").inner_text() == record["title"]
@@ -244,6 +254,8 @@ async def main():
             ).evaluate_all("els=>els.map(e=>e.href)")
             await page.locator("#closeDialog").click()
             report["records"].append(record["id"])
+            if ordinal % 100 == 0:
+                print(f"Checked {ordinal}/{len(records)} document dialogs", flush=True)
         for legacy in ["#ai", "#unknown-route"]:
             await route(legacy) if legacy != "#ai" else await page.evaluate(
                 '()=>location.hash="#ai"'
@@ -251,7 +263,17 @@ async def main():
             if legacy == "#ai":
                 await page.wait_for_url("**/#library")
                 await wait_for_route(page)
-        assert len(report["activeRecords"]) == 273
+        expected_active = sum(
+            json.loads((ROOT / f"data/{source}/active.json").read_text())["metadata"][
+                "activeCount"
+            ]
+            for source in ("contran", "proconve", "inmetro", "anatel")
+        )
+        assert len(report["activeRecords"]) == expected_active
+        assert not any(
+            "contran-220-2007" in record for record in report["activeRecords"]
+        )
+        assert "mover-009" not in report["records"]
         assert not errors, errors
         report["subsystems"] = sorted(set(report["subsystems"]))
         report["externalLinks"] = sorted(set(report["externalLinks"]))

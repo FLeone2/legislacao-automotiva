@@ -39,7 +39,7 @@ test('parallel branches converge before CAT and COP has feedback', () => {
 test('BEV view excludes combustion/LCVM/OBD activities and preserves electric energy', () => {
   assert.deepEqual(
     flow.activities(flow.stage('aprovacoes'), 'eletrico').map((a) => a.id),
-    ['eficiencia'],
+    ['eficiencia', 'mover'],
   );
   assert(
     !flow

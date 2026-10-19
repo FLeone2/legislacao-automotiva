@@ -58,7 +58,7 @@ function libraryPartSearchTerms(record) {
   ].join(' ');
 }
 function filters() {
-  const records = state.libraryPart ? VehicleLegislation.unique(catalog.records) : catalog.records;
+  const records = catalogRecords(catalog);
   return records.filter(
     (r) =>
       (!state.agency || r.agency === state.agency) &&
@@ -92,7 +92,7 @@ function documentCard(r) {
           'Contexto do veículo',
       ].filter(Boolean)
     : [];
-  return `<article class="document"><div class="row"><span class="tag">${esc(r.issuer || r.agency)}</span><span class="status">${esc(r.status)}</span></div><h3>${esc(r.title)}</h3><p>${esc(r.summary)}</p><p class="document-context">${relations.length ? `<strong>${esc(relations.join(' · '))}</strong><br>` : ''}${esc(themes.slice(0, 3).join(' · ') || 'Assunto transversal')}<br>Revisão do registro: ${esc(r.reviewDate || 'não informada')} · ${esc(libraryReviewLabels[libraryReview(r)])}</p><div class="links"><button data-open="${esc(r.id)}">Resumo, escopo e alterações →</button>${safeLink(r.officialUrl, 'Fonte oficial')}</div></article>`;
+  return `<article class="document" data-catalog-act="${esc(catalogIdentity(r))}"><div class="row"><span class="tag">${esc(r.issuer || r.agency)}</span><span class="status">${esc(r.status)}</span></div><h3>${esc(r.title)}</h3><p>${esc(r.summary)}</p><p class="document-context">${relations.length ? `<strong>${esc(relations.join(' · '))}</strong><br>` : ''}${esc(themes.slice(0, 3).join(' · ') || 'Assunto transversal')}<br>Revisão do registro: ${esc(r.reviewDate || 'não informada')} · ${esc(libraryReviewLabels[libraryReview(r)])}</p><div class="links"><button data-open="${esc(r.id)}">Resumo, escopo e alterações →</button>${safeLink(r.officialUrl, 'Fonte oficial')}</div></article>`;
 }
 function libraryPartContext() {
   if (!state.libraryPart) return '';
@@ -115,9 +115,11 @@ function updateList() {
       : '';
   $('#resultCount').textContent = state.libraryPart
     ? `${rows.length} referências encontradas para este conjunto`
-    : `${rows.length} de ${catalog.records.length} entradas documentais · associações temáticas para consulta`;
+    : `${rows.length} de ${catalogRecords(catalog).length} referências · um registro por ato`;
   $('#libraryPartContext').innerHTML = libraryPartContext();
   $('#libraryPartContext').className = state.libraryPart ? 'consultation-query-actions' : '';
+  $('#libraryHistoricalLinks').innerHTML =
+    typeof historicalSearchLinks === 'function' ? historicalSearchLinks(state.query) : '';
   $('#documents').innerHTML =
     visible.map(documentCard).join('') ||
     '<div class="empty"><h3>Nenhum resultado com estes filtros</h3><p>Tente outro termo ou limpe os filtros.</p><button class="btn" id="clearEmpty">Limpar filtros</button></div>';
@@ -178,7 +180,7 @@ function renderLibrary() {
       )
       .join(
         '',
-      )}</select><button class="btn" id="clearFilters">Limpar</button></div><div class="consultation-query-actions" id="libraryPartContext" role="group" aria-label="Conjunto selecionado"></div><p class="library-query-summary" id="libraryQuerySummary"></p><div class="consultation-query-actions"><a class="btn" id="libraryPermalink" href="#library">Link desta consulta</a><button class="btn" id="copyLibraryLink">Copiar link</button><span id="libraryCopyStatus" role="status"></span></div><div class="count-line" id="resultCount" role="status" aria-live="polite"></div><div class="document-list" id="documents"></div><nav id="libraryPagination" class="consultation-query-actions" aria-label="Páginas da biblioteca"></nav>${consultationSources()}<p class="scope-note">CONTRAN, PROCONVE, Inmetro e Anatel: conferência registrada em 18/10/2026, com profundidades distintas. Consulte os detalhes de cada referência e as <a href="#updates">pendências de atualização</a>.</p>`;
+      )}</select><button class="btn" id="clearFilters">Limpar</button></div><div class="consultation-query-actions" id="libraryPartContext" role="group" aria-label="Conjunto selecionado"></div><p class="library-query-summary" id="libraryQuerySummary"></p><div class="consultation-query-actions"><a class="btn" id="libraryPermalink" href="#library">Link desta consulta</a><button class="btn" id="copyLibraryLink">Copiar link</button><span id="libraryCopyStatus" role="status"></span></div><div class="count-line" id="resultCount" role="status" aria-live="polite"></div><div class="document-list" id="documents"></div><div id="libraryHistoricalLinks"></div><nav id="libraryPagination" class="consultation-query-actions" aria-label="Páginas da biblioteca"></nav>${consultationSources()}<p class="scope-note">CONTRAN, PROCONVE, Inmetro e Anatel: conferência registrada em 18/10/2026, com profundidades distintas. Consulte os detalhes de cada referência e as <a href="#updates">pendências de atualização</a>.</p>`;
   updateList();
   $('#librarySearch').addEventListener('input', (e) => {
     state.query = e.target.value;

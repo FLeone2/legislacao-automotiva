@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Build reviewed Inmetro/Anatel requirements from traceable official snapshots."""
 
-import gzip, json
-from pathlib import Path
+import gzip
+import json
 from map_contran import ROOT, write_json
 from build_active_catalogs import CATEGORIES, write_csv
 from regulatory_contract import apply_contract
@@ -32,7 +32,9 @@ def build(agency):
                 "bytes": source.get("bytes"),
             },
             "entryIntoForceEvidence": seed.get("entryIntoForceEvidence", []),
-            "temporalFlags": [],
+            # A deadline concerns the specified family/procedure, not the legal
+            # validity of the whole act. Preserve reviewed conditions and source.
+            "temporalFlags": seed.get("temporalFlags", []),
             "relationships": seed.get("relationships", []),
             "incomingEffects": seed.get("incomingEffects", []),
             "relatedLinks": seed.get("relatedLinks", []),
@@ -48,7 +50,7 @@ def build(agency):
             ),
             "notes": seed.get("notes", []),
             "actNature": seed.get("actNature", "normativa-ou-procedimental"),
-            "phases": [],
+            "phases": seed.get("phases", []),
         }
         assert record.get("statusEvidence"), record["id"]
         assert bool(record["vehicleLinks"]) != bool(record["generalCategories"]), (

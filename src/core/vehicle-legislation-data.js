@@ -31,6 +31,13 @@ const VehicleLegislationData = {
             },
           ],
           gaps: ['Não há requisito exclusivo do painel de teto estruturado no acervo.'],
+          gapReview: {
+            state: 'research_pending',
+            reviewedAt: '2026-10-19',
+            summary: 'Há referências associadas e pontos que ainda exigem pesquisa.',
+            nextAction:
+              'Pesquisar fonte e enquadramento antes de concluir a cobertura. Zero documentos não significa isenção.',
+          },
         },
       ],
     },
@@ -375,28 +382,22 @@ const VehicleLegislationData = {
       topics: [
         {
           id: 'bancos-ancoragem',
-          label: 'Bancos, ancoragem e apoios de cabeça',
+          label: 'Cintos, ancoragens e apoios de cabeça',
           subsystemId: 'ocupantes/cintos',
           lane: 'seguranca',
           relation: 'component',
           links: [
             {
-              actId: 'contran-220-2007',
-              requirementIds: [],
-              basis: 'Ementa e vínculo temático existentes no acervo; associação de consulta.',
-              note: 'Resistência e ancoragem de bancos e apoios de cabeça.',
-            },
-            {
               actId: 'contran-951-2022',
               requirementIds: [],
               basis: 'Ementa e vínculo temático existentes no acervo; associação de consulta.',
-              note: 'Instalação e ensaios de cintos, ancoragens e apoios de cabeça.',
+              note: 'Consultar a 951/2022 com a alteração da 997/2023. A 220/2007 é histórica desde 02/10/2023. Categoria, posição do assento e dispositivo precisam de enquadramento; não se presumiu substituição textual de toda a regra estrutural antiga.',
             },
             {
               actId: 'contran-997-2023',
               requirementIds: [],
               basis: 'Ementa e vínculo temático existentes no acervo; associação de consulta.',
-              note: 'Alterador da951/2022; consultar em conjunto.',
+              note: 'Consultar a 951/2022 com a alteração da 997/2023. A 220/2007 é histórica desde 02/10/2023. Categoria, posição do assento e dispositivo precisam de enquadramento; não se presumiu substituição textual de toda a regra estrutural antiga.',
             },
           ],
           gaps: [],
@@ -434,6 +435,13 @@ const VehicleLegislationData = {
           gaps: [
             'Não há norma ABNT NBR específica de espuma/banco com texto e edição verificados no acervo.',
           ],
+          gapReview: {
+            state: 'research_pending',
+            reviewedAt: '2026-10-19',
+            summary: 'Há referências associadas e pontos que ainda exigem pesquisa.',
+            nextAction:
+              'Pesquisar fonte e enquadramento antes de concluir a cobertura. Zero documentos não significa isenção.',
+          },
         },
         {
           id: 'retencao-infantil',
@@ -467,28 +475,22 @@ const VehicleLegislationData = {
       topics: [
         {
           id: 'bancos-ancoragem',
-          label: 'Bancos, ancoragem e apoios de cabeça',
+          label: 'Cintos, ancoragens e apoios de cabeça',
           subsystemId: 'ocupantes/cintos',
           lane: 'seguranca',
           relation: 'component',
           links: [
             {
-              actId: 'contran-220-2007',
-              requirementIds: [],
-              basis: 'Ementa e vínculo temático existentes no acervo; associação de consulta.',
-              note: 'Resistência e ancoragem de bancos e apoios de cabeça.',
-            },
-            {
               actId: 'contran-951-2022',
               requirementIds: [],
               basis: 'Ementa e vínculo temático existentes no acervo; associação de consulta.',
-              note: 'Instalação e ensaios de cintos, ancoragens e apoios de cabeça.',
+              note: 'Consultar a 951/2022 com a alteração da 997/2023. A 220/2007 é histórica desde 02/10/2023. Categoria, posição do assento e dispositivo precisam de enquadramento; não se presumiu substituição textual de toda a regra estrutural antiga.',
             },
             {
               actId: 'contran-997-2023',
               requirementIds: [],
               basis: 'Ementa e vínculo temático existentes no acervo; associação de consulta.',
-              note: 'Alterador da951/2022; consultar em conjunto.',
+              note: 'Consultar a 951/2022 com a alteração da 997/2023. A 220/2007 é histórica desde 02/10/2023. Categoria, posição do assento e dispositivo precisam de enquadramento; não se presumiu substituição textual de toda a regra estrutural antiga.',
             },
           ],
           gaps: [],
@@ -526,6 +528,13 @@ const VehicleLegislationData = {
           gaps: [
             'Não há norma ABNT NBR específica de espuma/banco com texto e edição verificados no acervo.',
           ],
+          gapReview: {
+            state: 'research_pending',
+            reviewedAt: '2026-10-19',
+            summary: 'Há referências associadas e pontos que ainda exigem pesquisa.',
+            nextAction:
+              'Pesquisar fonte e enquadramento antes de concluir a cobertura. Zero documentos não significa isenção.',
+          },
         },
         {
           id: 'retencao-infantil',
@@ -567,6 +576,13 @@ const VehicleLegislationData = {
           gaps: [
             'Console e bancos dianteiros compartilham um contorno. O console não comprova existência de tela ou rádio.',
           ],
+          gapReview: {
+            state: 'research_pending',
+            reviewedAt: '2026-10-19',
+            summary: 'Há referências associadas e pontos que ainda exigem pesquisa.',
+            nextAction:
+              'Pesquisar fonte e enquadramento antes de concluir a cobertura. Zero documentos não significa isenção.',
+          },
         },
       ],
     },
@@ -619,6 +635,13 @@ const VehicleLegislationData = {
           gaps: [
             'A posição física da gravação/ETA não foi identificada no vetor; manter também acesso textual a identificação e etiquetas.',
           ],
+          gapReview: {
+            state: 'research_pending',
+            reviewedAt: '2026-10-19',
+            summary: 'Há referências associadas e pontos que ainda exigem pesquisa.',
+            nextAction:
+              'Pesquisar fonte e enquadramento antes de concluir a cobertura. Zero documentos não significa isenção.',
+          },
         },
       ],
     },
@@ -684,7 +707,7 @@ const VehicleLegislationData = {
               requirementIds: ['inmetro-145-2022:req:05'],
               basis:
                 'Objeto expressamente listado na orientação oficial cadastrada; íntegra e aplicação dependem de revisão.',
-              note: 'Somente lâmpadas abrangidas: não transformar certificação da lâmpada em certificação automática de todo farol ou lanterna.',
+              note: 'Lâmpadas abrangidas de filamento e miniatura. LED automotivo está fora dos escopos 145/2022 e 231/2026 segundo a FAQ oficial; a exclusão não autoriza qualquer instalação/substituição nem certifica todo farol/lanterna. Consultar separadamente as regras CONTRAN de iluminação.',
             },
           ],
           gaps: [],
@@ -730,7 +753,7 @@ const VehicleLegislationData = {
               requirementIds: ['inmetro-145-2022:req:05'],
               basis:
                 'Objeto expressamente listado na orientação oficial cadastrada; íntegra e aplicação dependem de revisão.',
-              note: 'Somente lâmpadas abrangidas: não transformar certificação da lâmpada em certificação automática de todo farol ou lanterna.',
+              note: 'Lâmpadas abrangidas de filamento e miniatura. LED automotivo está fora dos escopos 145/2022 e 231/2026 segundo a FAQ oficial; a exclusão não autoriza qualquer instalação/substituição nem certifica todo farol/lanterna. Consultar separadamente as regras CONTRAN de iluminação.',
             },
           ],
           gaps: [],
@@ -799,7 +822,7 @@ const VehicleLegislationData = {
               requirementIds: ['inmetro-145-2022:req:05'],
               basis:
                 'Objeto expressamente listado na orientação oficial cadastrada; íntegra e aplicação dependem de revisão.',
-              note: 'Somente lâmpadas abrangidas: não transformar certificação da lâmpada em certificação automática de todo farol ou lanterna.',
+              note: 'Lâmpadas abrangidas de filamento e miniatura. LED automotivo está fora dos escopos 145/2022 e 231/2026 segundo a FAQ oficial; a exclusão não autoriza qualquer instalação/substituição nem certifica todo farol/lanterna. Consultar separadamente as regras CONTRAN de iluminação.',
             },
           ],
           gaps: [],
@@ -845,7 +868,7 @@ const VehicleLegislationData = {
               requirementIds: ['inmetro-145-2022:req:05'],
               basis:
                 'Objeto expressamente listado na orientação oficial cadastrada; íntegra e aplicação dependem de revisão.',
-              note: 'Somente lâmpadas abrangidas: não transformar certificação da lâmpada em certificação automática de todo farol ou lanterna.',
+              note: 'Lâmpadas abrangidas de filamento e miniatura. LED automotivo está fora dos escopos 145/2022 e 231/2026 segundo a FAQ oficial; a exclusão não autoriza qualquer instalação/substituição nem certifica todo farol/lanterna. Consultar separadamente as regras CONTRAN de iluminação.',
             },
           ],
           gaps: [],
@@ -872,6 +895,13 @@ const VehicleLegislationData = {
             },
           ],
           gaps: ['O acervo não comprova regra exclusiva do para-choque traseiro do SUV ilustrado.'],
+          gapReview: {
+            state: 'research_pending',
+            reviewedAt: '2026-10-19',
+            summary: 'Há referências associadas e pontos que ainda exigem pesquisa.',
+            nextAction:
+              'Pesquisar fonte e enquadramento antes de concluir a cobertura. Zero documentos não significa isenção.',
+          },
         },
       ],
     },
@@ -1173,7 +1203,7 @@ const VehicleLegislationData = {
               actId: 'inmetro-145-2022',
               requirementIds: ['inmetro-145-2022:req:02'],
               basis: 'requirements:req02.scope: anel, pino, pistão e bronzina',
-              note: 'O escopo é de produtos enumerados. Não confirma certificação do conjunto completo ou de toda transmissão; revisar anexos e exceções OEM/reposição.',
+              note: 'Produtos internos enumerados no RAC; o conjunto motor/transmissão não recebe certificação por essa associação. A retificação de 11/12/2024 incorpora ISO 4383:2000 somente para a tabela 2 do Anexo Específico F (bronzinas); não define método universal para todos os componentes.',
             },
           ],
           gaps: [],
@@ -1339,6 +1369,23 @@ const VehicleLegislationData = {
           ],
           gaps: [],
         },
+        {
+          id: 'bronzinas',
+          label: 'Bronzinas · referência retificada',
+          subsystemId: 'propulsao/componentes',
+          lane: 'seguranca',
+          relation: 'component',
+          links: [
+            {
+              actId: 'inmetro-145-2022',
+              requirementIds: ['inmetro-145-2022:req:15'],
+              basis:
+                'Retificação de 11/12/2024, Anexo Específico F, tabela 2, incorporando ISO 4383:2000.',
+              note: 'Referência incorporada somente no escopo das bronzinas. Não é método universal para o motor ou a transmissão, nem leitura integral da norma técnica privada.',
+            },
+          ],
+          gaps: [],
+        },
       ],
     },
     {
@@ -1437,7 +1484,29 @@ const VehicleLegislationData = {
               actId: 'inmetro-145-2022',
               requirementIds: ['inmetro-145-2022:req:06'],
               basis: 'requirements:req06.scope: Baterias chumbo-ácido para veículos automotivos',
-              note: 'Ligação condicionada à química: a ilustração mostra12V, mas tensão não comprova chumbo-ácido. Não usar para bateria12V de outra química ou bateria de tração.',
+              note: 'Somente bateria auxiliar chumbo-ácido abrangida pelo RAC. Ofício Circular 5/2026 é orientação para importação: fabricação/marcação na origem; selo/certificação na chegada quando utilizado modelo 5; verificação da carga e auditoria do importador. Não se estende automaticamente a bateria de tração ou a toda bateria instalada em veículo importado.',
+            },
+          ],
+          gaps: [],
+        },
+        {
+          id: 'importacao-bateria-chumbo-acido',
+          label: 'Importação de bateria chumbo-ácido',
+          subsystemId: 'eletronica/comandos',
+          lane: 'seguranca',
+          relation: 'component',
+          links: [
+            {
+              actId: 'inmetro-145-2022',
+              requirementIds: [
+                'inmetro-145-2022:req:11',
+                'inmetro-145-2022:req:12',
+                'inmetro-145-2022:req:13',
+                'inmetro-145-2022:req:14',
+              ],
+              basis:
+                'Orientação oficial do Ofício Circular 5/2026/Dconf-Inmetro para importação de bateria chumbo-ácido.',
+              note: 'Fabricação e marcações na origem; chegada com certificação/selo quando usado o modelo 5; carga, inspeção e auditoria do importador. Não se estende à bateria de tração nem a toda bateria instalada em veículo importado.',
             },
           ],
           gaps: [],
@@ -1457,6 +1526,13 @@ const VehicleLegislationData = {
           relation: 'component',
           links: [],
           gaps: ['Não há referência específica de chicote elétrico revisada no acervo.'],
+          gapReview: {
+            state: 'no_specific_reference_in_collection',
+            reviewedAt: '2026-10-19',
+            summary: 'Sem referência específica cadastrada neste recorte.',
+            nextAction:
+              'Pesquisar fonte e enquadramento antes de concluir a cobertura. Zero documentos não significa isenção.',
+          },
         },
       ],
     },
@@ -1475,6 +1551,13 @@ const VehicleLegislationData = {
           gaps: [
             'O acervo não contém referência específica de radiador/ventilador ou subsistema de arrefecimento.',
           ],
+          gapReview: {
+            state: 'no_specific_reference_in_collection',
+            reviewedAt: '2026-10-19',
+            summary: 'Sem referência específica cadastrada neste recorte.',
+            nextAction:
+              'Pesquisar fonte e enquadramento antes de concluir a cobertura. Zero documentos não significa isenção.',
+          },
         },
       ],
     },
@@ -1492,10 +1575,10 @@ const VehicleLegislationData = {
           links: [
             {
               actId: 'contran-910-2022',
-              requirementIds: [],
+              requirementIds: ['contran-910-2022:req:03'],
               basis:
-                'subject: integridade do sistema de combustível decorrente de impacto; vehicleLinks tanque',
-              note: 'Ensaio/desempenho do veículo após impacto. Não corresponde a norma de certificação isolada do tanque.',
+                'Art. 4º, parágrafo único, II: integridade do sistema de combustível em impacto traseiro, no contexto do veículo.',
+              note: 'Integridade do combustível após impacto traseiro. Não se vinculam ao tanque os requisitos de habitáculo, impacto frontal ou um limite universal de PBT.',
             },
           ],
           gaps: [],
@@ -1549,15 +1632,32 @@ const VehicleLegislationData = {
             },
             {
               actId: 'ibama-in-3-2023',
-              requirementIds: [],
+              requirementIds: ['ibama-in-3-2023:req:01'],
               basis: 'reviewed-map.topic; art.6º referenciado nas notes do ato; targets tanque',
-              note: 'A revisão existente registra atualização de evaporativas/RVEP e referência à IN26/2020. Não inventar os métodos da IN26 cujo inteiro teor não foi localizado.',
+              note: 'Consultar a alteração junto à IN 26/2020; condições de híbridos e sistemas descritos no dispositivo não se aplicam automaticamente a todo tanque.',
+            },
+            {
+              actId: 'ibama-in-26-2020',
+              requirementIds: [
+                'ibama-in-26-2020:req:01',
+                'ibama-in-26-2020:req:02',
+                'ibama-in-26-2020:req:04',
+              ],
+              basis:
+                'Procedimentos de evaporativas/famílias e condicionantes de híbridos e deterioração, nos dispositivos revisados da IN 26/2020.',
+              note: 'Referência do veículo/família de controle evaporativo; o tanque é uma entrada visual para consulta. Categoria, combustível, tecnologia e fase precisam de enquadramento.',
             },
           ],
           gaps: [
-            'IN Ibama26/2020 não integra o acervo ativo publicado; sua referência e lacuna ficam na IN3/2023.',
             'Não há requisito construtivo específico confirmado de cânister, válvulas e linhas de vapor.',
           ],
+          gapReview: {
+            state: 'research_pending',
+            reviewedAt: '2026-10-19',
+            summary: 'Há referências associadas e pontos que ainda exigem pesquisa.',
+            nextAction:
+              'Pesquisar fonte e enquadramento antes de concluir a cobertura. Zero documentos não significa isenção.',
+          },
         },
       ],
     },

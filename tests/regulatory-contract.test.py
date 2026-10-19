@@ -32,6 +32,52 @@ class ContractTests(unittest.TestCase):
         )
         self.assertEqual(result["legalStatus"]["state"], "partially_repealed")
 
+    def test_directed_review_preserves_date_scope_and_unknown_full_text(self):
+        result = apply_contract(
+            {
+                "id": "directed",
+                "documentCheck": {"state": "extraido"},
+                "reviewMetadata": {
+                    "reviewedAt": "2026-10-19",
+                    "reviewScope": ["art. 2º", "revogação expressa"],
+                    "fullTextReviewed": None,
+                    "amendmentChainReviewed": False,
+                },
+            },
+            "contran",
+            "2026-10-18",
+        )
+        review = result["reviewStatus"]
+        self.assertEqual(review["reviewedAt"], "2026-10-19")
+        self.assertEqual(review["reviewScope"], ["art. 2º", "revogação expressa"])
+        self.assertIsNone(review["fullTextReviewed"])
+        self.assertFalse(review["amendmentChainReviewed"])
+        self.assertIn("cadeia integral não certificada", review["summary"])
+
+    def test_guidance_cannot_promote_full_text_even_with_editorial_override(self):
+        result = apply_contract(
+            {
+                "id": "guidance",
+                "fullTextReviewed": False,
+                "reviewMetadata": {"fullTextReviewed": True},
+            },
+            "inmetro",
+            "2026-10-19",
+        )
+        self.assertFalse(result["reviewStatus"]["fullTextReviewed"])
+        self.assertIn("íntegra consolidada pendente", result["reviewStatus"]["summary"])
+
+    def test_complete_chain_requires_its_own_evidence(self):
+        with self.assertRaisesRegex(ValueError, "requires evidence"):
+            apply_contract(
+                {
+                    "id": "unsupported-chain",
+                    "reviewMetadata": {"amendmentChainReviewed": True},
+                },
+                "contran",
+                "2026-10-19",
+            )
+
     def test_compiled_contract(self):
         check()
 

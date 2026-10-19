@@ -4869,9 +4869,36 @@
     },
     {
       "id": "contran-220-2007",
-      "active": true,
-      "reason": null,
-      "reviewSource": "Critérios documentais de publicação conservadora."
+      "active": false,
+      "reason": "revogacao_expressa_conferida_no_texto_oficial",
+      "reviewSource": {
+        "sourceId": "contran-997-2023",
+        "viaActId": "contran-951-2022",
+        "article": "2",
+        "viaClause": "Art. 8º, I",
+        "effectiveDate": "2023-10-02",
+        "reviewedAt": "2026-10-19",
+        "evidence": "Art. 2o A Resolução CONTRAN no 951, de 2022, passa a vigorar com as seguintes alterações: \"Art. 8o ................................................................................................................... I - no 220, de 11 de janeiro de 2007; II - 278, de 28 de maio de 2008; III - no 518, de 29 de janeiro de 2015; e IV - no 551, de 17 de setembro 2015.\" (NR)",
+        "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9972023.pdf",
+        "sha256": "1dea17df18181cdd3f5b5e3e89d810424cd4dcfae453d5a3cd5ecbf64307af58",
+        "chain": [
+          {
+            "actId": "contran-951-2022",
+            "clause": "Art. 8º",
+            "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9512022.pdf",
+            "sourceSha256": "a41b468b4fadc5428cf6a8eb73994c24e057f5293277781bea06845388504369",
+            "evidence": "Art. 8o Ficam revogadas as Resoluções CONTRAN: I - no 278, de 28 de maio de 2008; II - no 518, de 29 de janeiro de 2015; e III - no 551, de 17 de setembro 2015."
+          },
+          {
+            "actId": "contran-997-2023",
+            "clause": "Art. 2º, nova redação do art. 8º da Resolução 951/2022",
+            "effectiveDate": "2023-10-02",
+            "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9972023.pdf",
+            "sourceSha256": "1dea17df18181cdd3f5b5e3e89d810424cd4dcfae453d5a3cd5ecbf64307af58",
+            "evidence": "Art. 2o A Resolução CONTRAN no 951, de 2022, passa a vigorar com as seguintes alterações: \"Art. 8o ................................................................................................................... I - no 220, de 11 de janeiro de 2007; II - 278, de 28 de maio de 2008; III - no 518, de 29 de janeiro de 2015; e IV - no 551, de 17 de setembro 2015.\" (NR)"
+          }
+        ]
+      }
     },
     {
       "id": "contran-219-2007",

@@ -1,0 +1,139 @@
+/* General and MOVER trees show a readable branch; the vehicle and flow
+   diagrams keep their own layout and coordinate system. */
+.tree-presentation {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0 14px;
+}
+html[data-theme] #app .tree-presentation [aria-pressed='true'] {
+  color: var(--ink);
+  background: var(--accent-soft);
+  border-color: var(--accent-ink);
+}
+.tree-permalink {
+  margin-inline-start: auto;
+  font-size: 13px;
+  padding: 10px 4px;
+}
+html[data-theme] #app :is(.graph-viewport, [role='tabpanel']):focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: -3px;
+}
+html[data-theme] #app .focused-tree .node-copy strong {
+  font-size: 14px;
+  line-height: 1.4;
+  -webkit-line-clamp: 3;
+  letter-spacing: 0;
+}
+html[data-theme] #app .focused-tree .node-copy small {
+  font-size: 11px;
+}
+.focused-tree .node-main {
+  padding: 12px 32px 12px 14px;
+}
+.focused-tree .node-toggle {
+  top: 37px;
+  width: 26px;
+  height: 26px;
+}
+.focused-tree .graph-mini {
+  display: none;
+}
+html[data-theme] #app .tree-breadcrumb button {
+  font-size: 12px;
+  min-height: 36px;
+}
+.tree-text-list {
+  padding: 20px;
+  border: 1px solid var(--field-border);
+  border-radius: 12px;
+  background: var(--surface-2);
+}
+.tree-text-list header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.tree-text-list h2 {
+  font-size: 20px;
+  margin: 0;
+}
+.tree-text-list ul {
+  list-style: none;
+  margin: 12px 0 20px;
+  padding: 0;
+}
+.tree-text-list li + li {
+  margin-top: 8px;
+}
+html[data-theme] #app .tree-text-list [data-tree-node] {
+  min-height: 48px;
+  color: var(--ink);
+  background: var(--surface-3);
+  border: 1px solid var(--field-border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.tree-text-list li button {
+  display: grid;
+  width: 100%;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2px 12px;
+}
+.tree-text-list li button small {
+  grid-column: 1;
+}
+.tree-text-list li button span:last-child {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  align-self: center;
+}
+.tree-list-current {
+  display: block;
+  width: 100%;
+}
+html[data-theme] #app .tree-text-list .tree-list-current {
+  background: var(--accent-soft);
+  border-color: var(--accent-ink);
+}
+.tree-text-list small {
+  display: block;
+  color: var(--ink-2);
+  font-size: 12px;
+  font-weight: normal;
+}
+.tree-list-documents {
+  border-top: 1px solid var(--field-border);
+  padding-top: 12px;
+}
+.tree-list-documents h3 {
+  font-size: 14px;
+  margin: 0 0 12px;
+}
+html[data-theme] #app .tree-list-documents .tree-doc {
+  width: 100%;
+  margin-bottom: 8px;
+  color: var(--ink);
+  background: var(--surface-3);
+  border: 1px solid var(--field-border);
+}
+@media (max-width: 600px) {
+  .tree-text-list {
+    padding: 14px;
+  }
+  .tree-permalink {
+    margin-inline-start: 0;
+  }
+  .focused-tree .graph-controls button {
+    min-width: 36px;
+    min-height: 36px;
+  }
+}

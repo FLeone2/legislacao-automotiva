@@ -1,5 +1,5 @@
 {
-  "reviewDate": "2026-10-18",
+  "reviewDate": "2026-10-19",
   "phaseScope": "L8 e P8 em recortes separados; PROCONVE L8 não é PROCONVE P8 nem PROMOT M5.",
   "records": [
     {
@@ -31,6 +31,30 @@
       "articles": [
         1,
         2
+      ],
+      "reviewedAt": "2026-10-19",
+      "temporalFlags": [
+        {
+          "id": "ibama-in-21-2021:nmog-2028",
+          "kind": "obligation_milestone",
+          "date": "2028-01-01",
+          "event": "scope_transition",
+          "label": "NMOG — Tabela 2B a partir de 2028",
+          "scope": {
+            "phases": [
+              "L8"
+            ],
+            "conditions": [
+              "Cronograma de valores de referência do art. 5º, § 1º da IN 22/2020 com redação da IN 21/2021; considerar atualização do anexo pela IN 15/2022 e hipótese de antecipação permitida. Não congelar a Tabela 2A 2025–2027 indefinidamente."
+            ]
+          },
+          "source": {
+            "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=138783",
+            "sourceKey": "138783",
+            "clause": "Art. 1º, alteração do art. 5º, § 1º, incisos I–II da IN 22/2020",
+            "excerpt": "I - Os valores constantes na Tabela 2A, de 1º de janeiro de 2025 a 31 de dezembro de 2027. (NR) II - Os valores constantes na Tabela 2B, a partir de 1º de janeiro de 2028. (NR)"
+          }
+        }
       ]
     },
     {
@@ -63,6 +87,30 @@
       "articles": [
         1,
         2
+      ],
+      "reviewedAt": "2026-10-19",
+      "temporalFlags": [
+        {
+          "id": "ibama-in-21-2021:nmog-2028",
+          "kind": "obligation_milestone",
+          "date": "2028-01-01",
+          "event": "scope_transition",
+          "label": "NMOG — Tabela 2B a partir de 2028",
+          "scope": {
+            "phases": [
+              "L8"
+            ],
+            "conditions": [
+              "Cronograma de valores de referência do art. 5º, § 1º da IN 22/2020 com redação da IN 21/2021; considerar atualização do anexo pela IN 15/2022 e hipótese de antecipação permitida. Não congelar a Tabela 2A 2025–2027 indefinidamente."
+            ]
+          },
+          "source": {
+            "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=138783",
+            "sourceKey": "138783",
+            "clause": "Art. 1º, alteração do art. 5º, § 1º, incisos I–II da IN 22/2020",
+            "excerpt": "I - Os valores constantes na Tabela 2A, de 1º de janeiro de 2025 a 31 de dezembro de 2027. (NR) II - Os valores constantes na Tabela 2B, a partir de 1º de janeiro de 2028. (NR)"
+          }
+        }
       ]
     },
     {
@@ -95,7 +143,8 @@
       "articles": [
         1,
         2
-      ]
+      ],
+      "reviewedAt": "2026-10-18"
     },
     {
       "id": "ibama-in-23-2020",
@@ -135,6 +184,94 @@
         1,
         6,
         7
+      ],
+      "reviewedAt": "2026-10-19",
+      "temporalFlags": [
+        {
+          "id": "ibama-in-20-2025:coleta",
+          "kind": "obligation_milestone",
+          "date": "2026-01-01",
+          "event": "collection_start",
+          "label": "Início da coleta IUMPR",
+          "scope": {
+            "phases": [
+              "L8"
+            ],
+            "powertrains": [
+              "combustao",
+              "hibrido"
+            ],
+            "conditions": [
+              "Famílias OBD da fase L8 certificadas, conforme Parte 7 da IN 23/2020; enquadramento da configuração pendente."
+            ]
+          },
+          "source": {
+            "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139548",
+            "sourceKey": "139548",
+            "clause": "Art. 1º, Parte 9, item 9.1.1",
+            "excerpt": "A partir de janeiro de 2026, os fabricantes e importadores devem coletar e relatar um conjunto de dados de desempenho de monitoramento em uso representativos de cada Família OBD da fase L8 certificada pelo fabricante ou importador, de acordo com a Parte 7 do Anexo desta Instrução Normativa."
+          }
+        },
+        {
+          "id": "ibama-in-20-2025:plano",
+          "kind": "obligation_milestone",
+          "date": "2027-03-31",
+          "event": "deadline",
+          "label": "Primeiro Plano de Comprovação IUMPR",
+          "scope": {
+            "phases": [
+              "L8"
+            ],
+            "powertrains": [
+              "combustao",
+              "hibrido"
+            ],
+            "conditions": [
+              "Famílias OBD da fase L8 certificadas, conforme Parte 7 da IN 23/2020; enquadramento da configuração pendente."
+            ]
+          },
+          "source": {
+            "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139548",
+            "sourceKey": "139548",
+            "clause": "Art. 1º, Parte 9, item 9.2.2",
+            "excerpt": "9.2.2 O Plano de Comprovação deverá ser entregue até 31 de março de cada ano, iniciando em 2027."
+          },
+          "recurrence": {
+            "frequency": "annual",
+            "monthDay": "03-31",
+            "firstYear": 2027
+          }
+        },
+        {
+          "id": "ibama-in-20-2025:relatorio",
+          "kind": "obligation_milestone",
+          "date": "2027-07-31",
+          "event": "deadline",
+          "label": "Primeiro Relatório de Atendimento IUMPR",
+          "scope": {
+            "phases": [
+              "L8"
+            ],
+            "powertrains": [
+              "combustao",
+              "hibrido"
+            ],
+            "conditions": [
+              "Famílias OBD da fase L8 certificadas, conforme Parte 7 da IN 23/2020; enquadramento da configuração pendente."
+            ]
+          },
+          "source": {
+            "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139548",
+            "sourceKey": "139548",
+            "clause": "Art. 1º, Parte 9, item 9.2.1",
+            "excerpt": "9.2.1 O Relatório de Atendimento ao IUMPR deverá ser entregue até 31 de julho de cada ano, iniciando em 2027."
+          },
+          "recurrence": {
+            "frequency": "annual",
+            "monthDay": "07-31",
+            "firstYear": 2027
+          }
+        }
       ]
     },
     {
@@ -171,7 +308,8 @@
       "articles": [
         1,
         2
-      ]
+      ],
+      "reviewedAt": "2026-10-18"
     },
     {
       "id": "ibama-in-20-2021",
@@ -211,7 +349,8 @@
       "articles": [
         1,
         2
-      ]
+      ],
+      "reviewedAt": "2026-10-18"
     },
     {
       "id": "ibama-in-25-2023",
@@ -247,7 +386,8 @@
       "articles": [
         1,
         2
-      ]
+      ],
+      "reviewedAt": "2026-10-18"
     },
     {
       "id": "ibama-in-16-2025",
@@ -283,6 +423,94 @@
       "articles": [
         1,
         2
+      ],
+      "reviewedAt": "2026-10-19",
+      "temporalFlags": [
+        {
+          "id": "ibama-in-20-2025:coleta",
+          "kind": "obligation_milestone",
+          "date": "2026-01-01",
+          "event": "collection_start",
+          "label": "Início da coleta IUMPR",
+          "scope": {
+            "phases": [
+              "L8"
+            ],
+            "powertrains": [
+              "combustao",
+              "hibrido"
+            ],
+            "conditions": [
+              "Famílias OBD da fase L8 certificadas, conforme Parte 7 da IN 23/2020; enquadramento da configuração pendente."
+            ]
+          },
+          "source": {
+            "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139548",
+            "sourceKey": "139548",
+            "clause": "Art. 1º, Parte 9, item 9.1.1",
+            "excerpt": "A partir de janeiro de 2026, os fabricantes e importadores devem coletar e relatar um conjunto de dados de desempenho de monitoramento em uso representativos de cada Família OBD da fase L8 certificada pelo fabricante ou importador, de acordo com a Parte 7 do Anexo desta Instrução Normativa."
+          }
+        },
+        {
+          "id": "ibama-in-20-2025:plano",
+          "kind": "obligation_milestone",
+          "date": "2027-03-31",
+          "event": "deadline",
+          "label": "Primeiro Plano de Comprovação IUMPR",
+          "scope": {
+            "phases": [
+              "L8"
+            ],
+            "powertrains": [
+              "combustao",
+              "hibrido"
+            ],
+            "conditions": [
+              "Famílias OBD da fase L8 certificadas, conforme Parte 7 da IN 23/2020; enquadramento da configuração pendente."
+            ]
+          },
+          "source": {
+            "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139548",
+            "sourceKey": "139548",
+            "clause": "Art. 1º, Parte 9, item 9.2.2",
+            "excerpt": "9.2.2 O Plano de Comprovação deverá ser entregue até 31 de março de cada ano, iniciando em 2027."
+          },
+          "recurrence": {
+            "frequency": "annual",
+            "monthDay": "03-31",
+            "firstYear": 2027
+          }
+        },
+        {
+          "id": "ibama-in-20-2025:relatorio",
+          "kind": "obligation_milestone",
+          "date": "2027-07-31",
+          "event": "deadline",
+          "label": "Primeiro Relatório de Atendimento IUMPR",
+          "scope": {
+            "phases": [
+              "L8"
+            ],
+            "powertrains": [
+              "combustao",
+              "hibrido"
+            ],
+            "conditions": [
+              "Famílias OBD da fase L8 certificadas, conforme Parte 7 da IN 23/2020; enquadramento da configuração pendente."
+            ]
+          },
+          "source": {
+            "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139548",
+            "sourceKey": "139548",
+            "clause": "Art. 1º, Parte 9, item 9.2.1",
+            "excerpt": "9.2.1 O Relatório de Atendimento ao IUMPR deverá ser entregue até 31 de julho de cada ano, iniciando em 2027."
+          },
+          "recurrence": {
+            "frequency": "annual",
+            "monthDay": "07-31",
+            "firstYear": 2027
+          }
+        }
       ]
     },
     {
@@ -320,6 +548,162 @@
       "articles": [
         1,
         2
+      ],
+      "reviewedAt": "2026-10-19",
+      "temporalFlags": [
+        {
+          "id": "ibama-in-20-2025:coleta",
+          "kind": "obligation_milestone",
+          "date": "2026-01-01",
+          "event": "collection_start",
+          "label": "Início da coleta IUMPR",
+          "scope": {
+            "phases": [
+              "L8"
+            ],
+            "powertrains": [
+              "combustao",
+              "hibrido"
+            ],
+            "conditions": [
+              "Famílias OBD da fase L8 certificadas, conforme Parte 7 da IN 23/2020; enquadramento da configuração pendente."
+            ]
+          },
+          "source": {
+            "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139548",
+            "sourceKey": "139548",
+            "clause": "Art. 1º, Parte 9, item 9.1.1",
+            "excerpt": "A partir de janeiro de 2026, os fabricantes e importadores devem coletar e relatar um conjunto de dados de desempenho de monitoramento em uso representativos de cada Família OBD da fase L8 certificada pelo fabricante ou importador, de acordo com a Parte 7 do Anexo desta Instrução Normativa."
+          }
+        },
+        {
+          "id": "ibama-in-20-2025:plano",
+          "kind": "obligation_milestone",
+          "date": "2027-03-31",
+          "event": "deadline",
+          "label": "Primeiro Plano de Comprovação IUMPR",
+          "scope": {
+            "phases": [
+              "L8"
+            ],
+            "powertrains": [
+              "combustao",
+              "hibrido"
+            ],
+            "conditions": [
+              "Famílias OBD da fase L8 certificadas, conforme Parte 7 da IN 23/2020; enquadramento da configuração pendente."
+            ]
+          },
+          "source": {
+            "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139548",
+            "sourceKey": "139548",
+            "clause": "Art. 1º, Parte 9, item 9.2.2",
+            "excerpt": "9.2.2 O Plano de Comprovação deverá ser entregue até 31 de março de cada ano, iniciando em 2027."
+          },
+          "recurrence": {
+            "frequency": "annual",
+            "monthDay": "03-31",
+            "firstYear": 2027
+          }
+        },
+        {
+          "id": "ibama-in-20-2025:relatorio",
+          "kind": "obligation_milestone",
+          "date": "2027-07-31",
+          "event": "deadline",
+          "label": "Primeiro Relatório de Atendimento IUMPR",
+          "scope": {
+            "phases": [
+              "L8"
+            ],
+            "powertrains": [
+              "combustao",
+              "hibrido"
+            ],
+            "conditions": [
+              "Famílias OBD da fase L8 certificadas, conforme Parte 7 da IN 23/2020; enquadramento da configuração pendente."
+            ]
+          },
+          "source": {
+            "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139548",
+            "sourceKey": "139548",
+            "clause": "Art. 1º, Parte 9, item 9.2.1",
+            "excerpt": "9.2.1 O Relatório de Atendimento ao IUMPR deverá ser entregue até 31 de julho de cada ano, iniciando em 2027."
+          },
+          "recurrence": {
+            "frequency": "annual",
+            "monthDay": "07-31",
+            "firstYear": 2027
+          }
+        }
+      ],
+      "requirements": [
+        {
+          "id": "ibama-in-20-2025:req:01",
+          "title": "Início da coleta IUMPR",
+          "rule": "Coleta a partir de janeiro de 2026.",
+          "clause": "Art. 1º, Parte 9, item 9.1.1",
+          "scope": "Famílias OBD certificadas na fase L8; não é COP/ACP nem obrigação universal de peça.",
+          "evidence": "A partir de janeiro de 2026, os fabricantes e importadores devem coletar e relatar um conjunto de dados de desempenho de monitoramento em uso representativos de cada Família OBD da fase L8 certificada pelo fabricante ou importador, de acordo com a Parte 7 do Anexo desta Instrução Normativa.",
+          "sourceUrl": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139548",
+          "sourceKey": "139548",
+          "topics": [
+            "obd",
+            "iumpr",
+            "controles-em-uso"
+          ],
+          "evidenceKind": "public_text_excerpt",
+          "documentKind": "official_text_snapshot",
+          "reviewStatus": {
+            "state": "directed_review",
+            "reviewedAt": "2026-10-19",
+            "scope": "Dispositivo citado; aplicabilidade depende da configuração."
+          }
+        },
+        {
+          "id": "ibama-in-20-2025:req:02",
+          "title": "Primeiro Plano de Comprovação IUMPR",
+          "rule": "Apresentar anualmente o Plano até 31 de março, com primeiras entregas em 2027.",
+          "clause": "Art. 1º, Parte 9, item 9.2.2",
+          "scope": "Famílias OBD certificadas na fase L8; não é COP/ACP nem obrigação universal de peça.",
+          "evidence": "9.2.2 O Plano de Comprovação deverá ser entregue até 31 de março de cada ano, iniciando em 2027.",
+          "sourceUrl": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139548",
+          "sourceKey": "139548",
+          "topics": [
+            "obd",
+            "iumpr",
+            "controles-em-uso"
+          ],
+          "evidenceKind": "public_text_excerpt",
+          "documentKind": "official_text_snapshot",
+          "reviewStatus": {
+            "state": "directed_review",
+            "reviewedAt": "2026-10-19",
+            "scope": "Dispositivo citado; aplicabilidade depende da configuração."
+          }
+        },
+        {
+          "id": "ibama-in-20-2025:req:03",
+          "title": "Primeiro Relatório de Atendimento IUMPR",
+          "rule": "Entregar anualmente o Relatório até 31 de julho, com primeiras entregas em 2027.",
+          "clause": "Art. 1º, Parte 9, item 9.2.1",
+          "scope": "Famílias OBD certificadas na fase L8; não é COP/ACP nem obrigação universal de peça.",
+          "evidence": "9.2.1 O Relatório de Atendimento ao IUMPR deverá ser entregue até 31 de julho de cada ano, iniciando em 2027.",
+          "sourceUrl": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139548",
+          "sourceKey": "139548",
+          "topics": [
+            "obd",
+            "iumpr",
+            "controles-em-uso"
+          ],
+          "evidenceKind": "public_text_excerpt",
+          "documentKind": "official_text_snapshot",
+          "reviewStatus": {
+            "state": "directed_review",
+            "reviewedAt": "2026-10-19",
+            "scope": "Dispositivo citado; aplicabilidade depende da configuração."
+          }
+        }
       ]
     },
     {
@@ -350,7 +734,8 @@
       "articles": [
         1,
         2
-      ]
+      ],
+      "reviewedAt": "2026-10-18"
     },
     {
       "id": "ibama-in-3-2021",
@@ -381,7 +766,8 @@
       "articles": [
         1,
         2
-      ]
+      ],
+      "reviewedAt": "2026-10-18"
     },
     {
       "id": "ibama-in-3-2023",
@@ -415,7 +801,8 @@
       "modifies": [
         "ibama-in-11-2014",
         "ibama-in-29-2020",
-        "ibama-in-3-2021"
+        "ibama-in-3-2021",
+        "ibama-in-26-2020"
       ],
       "catalogRecordIds": [
         "ibama-020"
@@ -430,7 +817,37 @@
         7,
         8,
         9
-      ]
+      ],
+      "reviewedAt": "2026-10-19",
+      "requirements": [
+        {
+          "id": "ibama-in-3-2023:req:01",
+          "title": "Alternativa por volume de famílias evaporativas",
+          "rule": "Para famílias com previsão de até 15.000 unidades anuais, consultar a opção do § 5º acrescentado ao art. 7º da IN 26/2020; a alternativa não é uma dispensa geral de controle evaporativo.",
+          "clause": "Art. 6º, que inclui art. 7º, § 5º da IN 26/2020",
+          "scope": "Famílias de sistemas de controle evaporativo e condição de volume indicada no dispositivo.",
+          "evidence": "Art. 6º A Instrução Normativa Nº 26, de 17 de dezembro de 2020, passa a vigorar acrescida de novo § 5º no art. 7º, com a seguinte redação: \"................................................................................................................................. .................................................................................................................................. Art. 7º....................................................................................................................... .................................................................................................................................. § 5º Para veículos cujos agrupamentos de família de sistemas de controle evaporativo tenham previsão de vendas anuais de até 15.000 (quinze mil) unidades, o fabricante e/ou importador poderá optar por usar os valores pré-definidos conforme Art. 6º desta Instrução Normativa ou aplicar um dos procedimentos descritos nos parágrafos acima.\"",
+          "sourceUrl": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139279",
+          "sourceKey": "139279",
+          "topics": [
+            "evaporativas",
+            "durabilidade"
+          ],
+          "evidenceKind": "public_text_excerpt",
+          "documentKind": "official_text_snapshot",
+          "reviewStatus": {
+            "state": "directed_review",
+            "reviewedAt": "2026-10-19",
+            "scope": "Dispositivo citado; aplicabilidade depende da configuração."
+          }
+        }
+      ],
+      "modificationEvidence": {
+        "ibama-in-11-2014": "Art. 5º A Instrução Normativa Nº 11, de 25 de julho de 2014, passa a vigorar com a seguinte redação: \"O PRESIDENTE DO IBAMA...................................................................................... Art. 1º Fica acrescido o ensaio de autonomia, conforme o ciclo de condução de estrada previsto na Norma Brasileira ABNT NBR 7024:2010 e ABNT NBR 16567:2020, ou suas sucedâneas, ao processo de obtenção da Licença para Uso da Configuração de Veículo ou Motor (LCVM) para veículos leves de passageiro e comercial, nacionais ou importados, junto ao PROCONVE. (NR) .................................................................................................................................. § 3º Deverão ser informados no Sistema INFOSERV, conforme Anexo C4 desta Instrução Normativa, as autonomias de combustível urbana, estrada e combinada, conforme Norma Brasileira ABNT NBR 7024:2010 e ABNT NBR 16567:2020, ou suas sucedâneas, e o consumo de energia combinado, em MJ/km, conforme Portaria Inmetro nº 377, de 29 de setembro de 2011. (NR) ................................................................................................................................... Art. 2º Para veículos híbridos ou equipados com sistema Start-Stop, não se aplica o disposto no item 5.6.6 da Norma Brasileira ABNT NBR 7024:2010, ou sua sucedânea, onde o ensaio deva ser desconsiderado, e a medição reiniciada no instante zero do ciclo, quando ocorrer a interrupção no funcionamento do motor durante o ciclo de condução de estrada. (NR)\" ",
+        "ibama-in-26-2020": "Art. 6º A Instrução Normativa Nº 26, de 17 de dezembro de 2020, passa a vigorar acrescida de novo § 5º no art. 7º, com a seguinte redação: \"................................................................................................................................. .................................................................................................................................. Art. 7º....................................................................................................................... .................................................................................................................................. § 5º Para veículos cujos agrupamentos de família de sistemas de controle evaporativo tenham previsão de vendas anuais de até 15.000 (quinze mil) unidades, o fabricante e/ou importador poderá optar por usar os valores pré-definidos conforme Art. 6º desta Instrução Normativa ou aplicar um dos procedimentos descritos nos parágrafos acima.\" ",
+        "ibama-in-29-2020": "Art. 7º A Instrução Normativa Nº 29, de 29 de dezembro de 2020, passa a vigorar com a seguinte redação: \"O PRESIDENTE DO IBAMA...................................................................................... Art. 1º....................................................................................................................... .................................................................................................................................. § 2º Fica estabelecida a ABNT NBR 16898:2020 - Veículos rodoviários automotores leves - Determinação de amônia nas emissões de gases de escapamento, ou sua sucedânea, como norma técnica brasileira para atendimento do disposto no art. 14 da Resolução CONAMA Nº 492, de 2018. (NR)\" ",
+        "ibama-in-3-2021": "Art. 8º A Instrução Normativa Nº 3, de 24 de fevereiro de 2021, passa a vigorar com a seguinte redação: \"................................................................................................................................. .................................................................................................................................. .................................................................................................................................. ANEXO ................................................................................................................................. PARTE 2 -................................................................................................................ ................................................................................................................................. 2.10.3. Conforme a NBR ABNT 17.011, ou sua sucedânea, será aplicado fator [1.6] para emissões de hidrocarbonetos quando abastecidos com EHR, sem prejuízo da definição final do fator para emissões de hidrocarbonetos quando abastecidos com EHR. (NR) .................................................................................................................................. 2.15. O laboratório ou empresa prestadora de serviços encarregados da execução do ensaio ETR deverá ser aprovado previamente pelo Ibama quanto à sua capacidade técnica para o atendimento dos requisitos da ABNT NBR 17.011, ou sua sucedânea. (NR) ................................................................................................................................... PARTE 3 -.................................................................................................................. ................................................................................................................................... 3.1. Devem ser utilizados os valores de emissão para cada ensaio, a quente e a frio, dos percursos urbano e rural e do percurso completo (urbano+rural), de NOx, CO, THC, NMHC, CH4 e CO2, além do valor calculado de NMOGETR conforme ABNT NBR 17.011, ou sua sucedânea, e autonomia pelo método de balanço de carbono conforme norma ABNT NBR 7024, ou sua sucedânea. (NR) ................................................................................................................................... 3.1.4. Para atendimento ao requerido nos arts. 21 e 22 da Resolução CONAMA Nº 492, de 2018, deverá ser aplicada a ABNT NBR 17.011, ou sua sucedânea, para o cálculo do NMOGETR. (NR) .................................................................................................................................. PARTE 4 -.................................................................................................................. ................................................................................................................................... 4.1. Para a Fase PROCONVE L8, o veículo será considerado aprovado quando os resultados de emissões no percurso completo ETR, realizados conforme ABNT NBR 17.011, ou sua sucedânea, não excederem os valores de limites de ETR (LETR) conforme Equação 2 abaixo: (NR) ................................................................................................................................... PARTE 6 -.................................................................................................................. .................................................................................................................................. 6.2. A validação do PEMS se dará em conformidade com a ABNT NBR 17.011, ou sua sucedânea. (NR) .................................................................................................................................. PARTE 7 -.................................................................................................................. ................................................................................................................................... 7.3. A rota proposta deve atender as condições ambientes de temperatura e altitude, bem como as condições dinâmicas de condução do veículo conforme ABNT NBR 17.011, ou sua sucedânea. (NR)\" Art. 9º Esta Instrução Normativa entrará em vigor na data de sua publicação. RODRIGO AGOSTINHO Este conteúdo não substitui o publicado na versão certificada."
+      }
     },
     {
       "id": "ibama-in-23-2022",
@@ -456,7 +873,8 @@
         2,
         5,
         15
-      ]
+      ],
+      "reviewedAt": "2026-10-18"
     },
     {
       "id": "ibama-in-28-2023",
@@ -481,7 +899,8 @@
       "articles": [
         1,
         2
-      ]
+      ],
+      "reviewedAt": "2026-10-18"
     },
     {
       "id": "ibama-in-5-2024",
@@ -506,7 +925,8 @@
         28,
         29,
         30
-      ]
+      ],
+      "reviewedAt": "2026-10-18"
     },
     {
       "id": "ibama-in-20-2020",
@@ -542,7 +962,8 @@
         2,
         9,
         18
-      ]
+      ],
+      "reviewedAt": "2026-10-18"
     },
     {
       "id": "ibama-in-18-2021",
@@ -578,7 +999,8 @@
       "articles": [
         1,
         2
-      ]
+      ],
+      "reviewedAt": "2026-10-18"
     },
     {
       "id": "ibama-in-18-2023",
@@ -612,7 +1034,8 @@
       "articles": [
         1,
         2
-      ]
+      ],
+      "reviewedAt": "2026-10-18"
     },
     {
       "id": "ibama-in-11-2014",
@@ -637,7 +1060,8 @@
         1,
         2,
         3
-      ]
+      ],
+      "reviewedAt": "2026-10-18"
     },
     {
       "id": "ibama-in-11-2020",
@@ -660,7 +1084,8 @@
         1,
         4,
         5
-      ]
+      ],
+      "reviewedAt": "2026-10-18"
     },
     {
       "id": "ibama-in-16-2024",
@@ -684,7 +1109,8 @@
       "articles": [
         1,
         2
-      ]
+      ],
+      "reviewedAt": "2026-10-18"
     },
     {
       "id": "conama-492-2018",
@@ -727,6 +1153,252 @@
         19,
         26,
         37
+      ],
+      "reviewedAt": "2026-10-19",
+      "temporalFlags": [
+        {
+          "id": "conama-492-2018:corporativo-2025",
+          "kind": "obligation_milestone",
+          "date": "2025-01-01",
+          "event": "scope_transition",
+          "label": "Patamar corporativo L8 — 2025",
+          "scope": {
+            "phases": [
+              "L8"
+            ],
+            "categories": [
+              "leves-passageiros",
+              "leves-comerciais"
+            ],
+            "conditions": [
+              "Limites corporativos distintos por categoria; não são obrigação individual de uma peça. Conferir a Tabela 3 e a cadeia aplicável."
+            ]
+          },
+          "source": {
+            "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+            "sourceKey": "conama492",
+            "clause": "Art. 4º e Anexo, Tabela 3",
+            "excerpt": "Tabela 3 - Limites máximos de emissão de poluentes corporativo para veículos da Fase PROCONVE L8 Data de Implantação Nível corporativo Veículos leves comerciais Nível corporativo Veículos leves de passageiros 01/01/2025 140 50 01/01/2027 110 40 01/01/2029 50 30 01/01/2031 30 30"
+          }
+        },
+        {
+          "id": "conama-492-2018:corporativo-2027",
+          "kind": "obligation_milestone",
+          "date": "2027-01-01",
+          "event": "scope_transition",
+          "label": "Patamar corporativo L8 — 2027",
+          "scope": {
+            "phases": [
+              "L8"
+            ],
+            "categories": [
+              "leves-passageiros",
+              "leves-comerciais"
+            ],
+            "conditions": [
+              "Limites corporativos distintos por categoria; não são obrigação individual de uma peça. Conferir a Tabela 3 e a cadeia aplicável."
+            ]
+          },
+          "source": {
+            "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+            "sourceKey": "conama492",
+            "clause": "Art. 4º e Anexo, Tabela 3",
+            "excerpt": "Tabela 3 - Limites máximos de emissão de poluentes corporativo para veículos da Fase PROCONVE L8 Data de Implantação Nível corporativo Veículos leves comerciais Nível corporativo Veículos leves de passageiros 01/01/2025 140 50 01/01/2027 110 40 01/01/2029 50 30 01/01/2031 30 30"
+          }
+        },
+        {
+          "id": "conama-492-2018:corporativo-2029",
+          "kind": "obligation_milestone",
+          "date": "2029-01-01",
+          "event": "scope_transition",
+          "label": "Patamar corporativo L8 — 2029",
+          "scope": {
+            "phases": [
+              "L8"
+            ],
+            "categories": [
+              "leves-passageiros",
+              "leves-comerciais"
+            ],
+            "conditions": [
+              "Limites corporativos distintos por categoria; não são obrigação individual de uma peça. Conferir a Tabela 3 e a cadeia aplicável."
+            ]
+          },
+          "source": {
+            "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+            "sourceKey": "conama492",
+            "clause": "Art. 4º e Anexo, Tabela 3",
+            "excerpt": "Tabela 3 - Limites máximos de emissão de poluentes corporativo para veículos da Fase PROCONVE L8 Data de Implantação Nível corporativo Veículos leves comerciais Nível corporativo Veículos leves de passageiros 01/01/2025 140 50 01/01/2027 110 40 01/01/2029 50 30 01/01/2031 30 30"
+          }
+        },
+        {
+          "id": "conama-492-2018:corporativo-2031",
+          "kind": "obligation_milestone",
+          "date": "2031-01-01",
+          "event": "scope_transition",
+          "label": "Patamar corporativo L8 — 2031",
+          "scope": {
+            "phases": [
+              "L8"
+            ],
+            "categories": [
+              "leves-passageiros",
+              "leves-comerciais"
+            ],
+            "conditions": [
+              "Limites corporativos distintos por categoria; não são obrigação individual de uma peça. Conferir a Tabela 3 e a cadeia aplicável."
+            ]
+          },
+          "source": {
+            "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+            "sourceKey": "conama492",
+            "clause": "Art. 4º e Anexo, Tabela 3",
+            "excerpt": "Tabela 3 - Limites máximos de emissão de poluentes corporativo para veículos da Fase PROCONVE L8 Data de Implantação Nível corporativo Veículos leves comerciais Nível corporativo Veículos leves de passageiros 01/01/2025 140 50 01/01/2027 110 40 01/01/2029 50 30 01/01/2031 30 30"
+          }
+        },
+        {
+          "id": "conama-492-2018:ruido-2025-new",
+          "kind": "obligation_milestone",
+          "date": "2025-01-01",
+          "event": "scope_transition",
+          "label": "Ruído fase 2 — novos modelos",
+          "scope": {
+            "phases": [
+              "L8"
+            ],
+            "categories": [
+              "M1",
+              "M2",
+              "N1",
+              "N2"
+            ],
+            "modelCohort": "new",
+            "conditions": [
+              "Categorias e faixas de massa/potência da Tabela 5, com limites e exceções próprios; ler com art. 4º da IN 3/2023. Não aplicar a todas categorias sem enquadramento."
+            ]
+          },
+          "source": {
+            "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+            "sourceKey": "conama492",
+            "clause": "Art. 24 e Anexo, Tabela 5",
+            "excerpt": "Tabela 5 - Limites de emissão de ruído em dbA Categorias de Veículos Veículos Leve de PASSAGEIROS Fase 1 Fase 2 Fase 3 Data de entrada em Vigor (1º de janeiro de) 2022 Todos 2025 Novos 2027 Todos 2030 Novos 2032 Todos"
+          }
+        },
+        {
+          "id": "conama-492-2018:ruido-2027-all",
+          "kind": "obligation_milestone",
+          "date": "2027-01-01",
+          "event": "scope_transition",
+          "label": "Ruído fase 2 — todos os modelos abrangidos",
+          "scope": {
+            "phases": [
+              "L8"
+            ],
+            "categories": [
+              "M1",
+              "M2",
+              "N1",
+              "N2"
+            ],
+            "modelCohort": "all",
+            "conditions": [
+              "Categorias e faixas de massa/potência da Tabela 5, com limites e exceções próprios; ler com art. 4º da IN 3/2023. Não aplicar a todas categorias sem enquadramento."
+            ]
+          },
+          "source": {
+            "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+            "sourceKey": "conama492",
+            "clause": "Art. 24 e Anexo, Tabela 5",
+            "excerpt": "Tabela 5 - Limites de emissão de ruído em dbA Categorias de Veículos Veículos Leve de PASSAGEIROS Fase 1 Fase 2 Fase 3 Data de entrada em Vigor (1º de janeiro de) 2022 Todos 2025 Novos 2027 Todos 2030 Novos 2032 Todos"
+          }
+        },
+        {
+          "id": "conama-492-2018:ruido-2030-new",
+          "kind": "obligation_milestone",
+          "date": "2030-01-01",
+          "event": "scope_transition",
+          "label": "Ruído fase 3 — novos modelos",
+          "scope": {
+            "phases": [
+              "L8"
+            ],
+            "categories": [
+              "M1",
+              "M2",
+              "N1",
+              "N2"
+            ],
+            "modelCohort": "new",
+            "conditions": [
+              "Categorias e faixas de massa/potência da Tabela 5, com limites e exceções próprios; ler com art. 4º da IN 3/2023. Não aplicar a todas categorias sem enquadramento."
+            ]
+          },
+          "source": {
+            "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+            "sourceKey": "conama492",
+            "clause": "Art. 24 e Anexo, Tabela 5",
+            "excerpt": "Tabela 5 - Limites de emissão de ruído em dbA Categorias de Veículos Veículos Leve de PASSAGEIROS Fase 1 Fase 2 Fase 3 Data de entrada em Vigor (1º de janeiro de) 2022 Todos 2025 Novos 2027 Todos 2030 Novos 2032 Todos"
+          }
+        },
+        {
+          "id": "conama-492-2018:ruido-2032-all",
+          "kind": "obligation_milestone",
+          "date": "2032-01-01",
+          "event": "scope_transition",
+          "label": "Ruído fase 3 — todos os modelos abrangidos",
+          "scope": {
+            "phases": [
+              "L8"
+            ],
+            "categories": [
+              "M1",
+              "M2",
+              "N1",
+              "N2"
+            ],
+            "modelCohort": "all",
+            "conditions": [
+              "Categorias e faixas de massa/potência da Tabela 5, com limites e exceções próprios; ler com art. 4º da IN 3/2023. Não aplicar a todas categorias sem enquadramento."
+            ]
+          },
+          "source": {
+            "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+            "sourceKey": "conama492",
+            "clause": "Art. 24 e Anexo, Tabela 5",
+            "excerpt": "Tabela 5 - Limites de emissão de ruído em dbA Categorias de Veículos Veículos Leve de PASSAGEIROS Fase 1 Fase 2 Fase 3 Data de entrada em Vigor (1º de janeiro de) 2022 Todos 2025 Novos 2027 Todos 2030 Novos 2032 Todos"
+          }
+        },
+        {
+          "id": "conama-492-2018:etr-2027",
+          "kind": "obligation_milestone",
+          "date": "2027-01-01",
+          "event": "scope_transition",
+          "label": "ETR L8 — transição dois anos após início da fase",
+          "scope": {
+            "phases": [
+              "L8"
+            ],
+            "powertrains": [
+              "combustao",
+              "hibrido"
+            ],
+            "conditions": [
+              "Art. 22, II: 1,5 vezes o nível homologado, conforme poluentes e configuração abrangidos. A data decorre do início L8 em 01/01/2025 fixado no art. 4º."
+            ]
+          },
+          "source": {
+            "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+            "sourceKey": "conama492",
+            "clause": "Art. 22, incisos I–II",
+            "excerpt": "Art. 22. Ficam estabelecidos os limites de emissão em tráfego real de CO e da soma das emissões de NMHC e de NOx, com a seguinte aplicação: I – a partir do início da Fase PROCONVE L8 os limites serão iguais a duas vezes o nível homologado; e II – dois anos após o início da Fase PROCONVE L8 os limites ser ão reduzidos a 1,5 vezes o nível homologado. Parágrafo único. Opcionalmente, poderá ser declarado o valor de THC em substituição ao NMHC."
+          },
+          "dateBasis": {
+            "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+            "sourceKey": "conama492",
+            "clause": "Art. 4º,caput",
+            "excerpt": "Art. 4º Ficam estabelecidos, a partir de 1º de janeiro de 2025, novos limites máximos de emissão de poluentes de forma corporativa, para veículos rodoviários leves de passageiros e leves comerciais, conforme definidos na Resolução CONAMA nº 15/1995, nacionais e importados, comercializados no país, doravante denominada Fase PROCONVE L8, conforme Tabela 3 do Anexo desta Resolução."
+          }
+        }
       ]
     },
     {
@@ -764,6 +1436,396 @@
         18,
         19,
         36
+      ],
+      "reviewedAt": "2026-10-18"
+    },
+    {
+      "id": "ibama-in-26-2020",
+      "issuer": "IBAMA",
+      "number": 26,
+      "year": 2020,
+      "sourceKey": "in26-2020-certified",
+      "phases": [
+        "L8"
+      ],
+      "topic": "Evaporativas, fatores de deterioração e RVEP",
+      "targets": [
+        {
+          "componentId": "tanque",
+          "subsystemId": "propulsao/combustiveis"
+        },
+        {
+          "componentId": "motor",
+          "subsystemId": "propulsao/emissoes"
+        },
+        {
+          "componentId": "escapamento",
+          "subsystemId": "propulsao/emissoes"
+        }
+      ],
+      "categories": [],
+      "modifies": [],
+      "catalogRecordIds": [
+        "ibama-031"
+      ],
+      "articles": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10
+      ],
+      "notes": [
+        "Texto original e anexo da IN 26/2020 revisados no PDF certificado do DOU; art. 6º da IN 3/2023, que acrescenta § 5º ao art. 7º, conferido separadamente. Cadeia exaustiva e consolidação integral não certificadas.",
+        "As NBR 16927,16897,6601 e 16567 são referências do ato; métodos integrais e edições aplicáveis ainda precisam de conferência. Não transcrever como método já validado.",
+        "O amaciamento do anexo se refere à determinação de fatores para RVEP, não à rodagem universal de todo protótipo. O recorte publicado é L8; disposições históricas L7 permanecem identificadas na fonte."
+      ],
+      "reviewedAt": "2026-10-19",
+      "fullTextReviewed": true,
+      "reviewStatus": {
+        "state": "directed_text_review",
+        "fullTextReviewed": true,
+        "amendmentChainReviewed": false,
+        "reviewedAt": "2026-10-19",
+        "scope": "Texto original e anexo da IN 26/2020 revisados no PDF certificado do DOU; art. 6º da IN 3/2023, que acrescenta § 5º ao art. 7º, conferido separadamente. Cadeia exaustiva e consolidação integral não certificadas."
+      },
+      "requirements": [
+        {
+          "id": "ibama-in-26-2020:req:01",
+          "title": "Evaporativas e famílias",
+          "rule": "Consultar os procedimentos de emissões evaporativas e de vapor no abastecimento e os critérios de família referenciados na NBR 16927. Conferir o método integral antes de definir o ensaio.",
+          "clause": "Art. 3º, caput",
+          "scope": "Veículos e combustíveis abrangidos; vínculo consultivo ao recorte L8.",
+          "evidence": "Art. 3º A partir da Fase PROCONVE L7, os procedimentos de ensaio de emissões evaporativa e da emissão de vapor durante o abastecimento, assim como os critérios de agrupamento em famílias, serão realizados em conformidade com norma técnica brasileira ABNT NBR 16927.",
+          "sourceUrl": "https://www.ibama.gov.br/sophia/cnia/legislacao/IBAMA/2020/IN0026-18122020.pdf",
+          "sourceKey": "in26-2020-certified",
+          "topics": [
+            "emissoes",
+            "evaporativas",
+            "combustiveis"
+          ],
+          "evidenceKind": "public_text_excerpt",
+          "documentKind": "official_act_pdf",
+          "reviewStatus": {
+            "state": "directed_review",
+            "reviewedAt": "2026-10-19",
+            "scope": "Dispositivo citado; aplicabilidade depende da configuração."
+          }
+        },
+        {
+          "id": "ibama-in-26-2020:req:02",
+          "title": "Alternativas para híbridos com controle ativo",
+          "rule": "HEV/PHEV com controle ativo, incluindo tanque pressurizado, podem usar as alternativas do dispositivo, sujeitas à aprovação e declaração previstas; não é dispensa geral.",
+          "clause": "Art. 3º, §§ 2º–3º",
+          "scope": "Híbridos recarregáveis externamente ou não, dotados das tecnologias descritas.",
+          "evidence": "§ 2º Alternativamente, para veículos elétricos híbridos, recarregáveis por fonte externa de energia ou não, (VEH), dotados de tecnologias de controle ativas das emissões evaporativas ou de reabastecimento, como por exemplo os dotados de tanque pressurizado, poderá ser utilizado procedimento aceito por autoridade norte americana Agência de Proteção Ambiental (United States Environmental Protection Agency - USEPA) ou Agência de Proteção Ambiental da Califórnia (California Environmental Protection Agency - Air Resources Board - CARB) - e aprovado pelo Ibama, ou procedimento alternativo aprovado pelo Ibama, ou ainda pelo procedimento constante na Norma ABNT NBR 16927. § 3º Caso o fabricante ou importador opte por usar procedimento já aprovado pela USEPA ou pelo CARB, conforme descrito no § 2º, o mesmo deve submeter, para a aprovação do Ibama, declaração de que utilizará procedimento conforme diretrizes estabelecidas pelos Estados Unidos da América no Código de Regulamentações Federais (Code of Federal Regulations - CFR) 86.132.96 e 86.133.96.",
+          "sourceUrl": "https://www.ibama.gov.br/sophia/cnia/legislacao/IBAMA/2020/IN0026-18122020.pdf",
+          "sourceKey": "in26-2020-certified",
+          "topics": [
+            "emissoes",
+            "evaporativas",
+            "hibridos"
+          ],
+          "evidenceKind": "public_text_excerpt",
+          "documentKind": "official_act_pdf",
+          "reviewStatus": {
+            "state": "directed_review",
+            "reviewedAt": "2026-10-19",
+            "scope": "Dispositivo citado; aplicabilidade depende da configuração."
+          }
+        },
+        {
+          "id": "ibama-in-26-2020:req:03",
+          "title": "Durabilidade e fatores de deterioração",
+          "rule": "Consultar agrupamentos, métodos de durabilidade e alternativas aprovadas para fatores de deterioração; critérios de volume e prazos dependem do dispositivo.",
+          "clause": "Art. 4º",
+          "scope": "Agrupamentos de veículos ou motores abrangidos no recorte L8.",
+          "evidence": "Art. 4º, § 8º, Art. 15, dos Capítulos V e VII e Art. 23, § 3º da Resolução CONAMA 492, de 20 de dezembro de 2018, e dá outras providências. O PRESIDENTE DO INSTITUTO BRASILEIRO DO MEIO AMBIENTE E DOS RECURSOS NATURAIS RENOVÁVEIS - IBAMA, nomeado por Decreto da Presidência da República de 9 de janeiro de 2019, este publicado no Diário Oficial da União (D.O.U) Edição Extra de 9 de janeiro de 2019, no uso das atribuições que lhe conferem o art. 23, incisos I, V e VIII, do Anexo I do Decreto nº 8.973, de 24 de janeiro de 2017, que aprovou a Estrutura Regimental do Ibama, publicado no D.O.U. de 25 de janeiro de 2017, e o art. 132 do Anexo I da Portaria Ibama nº 4.396, de 10 de dezembro de 2019, publicada no D.O.U. do dia subsequente, com fundamento no art. 7º, inc. XII e XIII, da Lei Complementar nº 140, de 8 de dezembro de 2011, no art. 8º, inciso VI, da Lei nº 6.938, de 31 de agosto de 1981, no art. 3º da Lei nº 8.723, de 28 de outubro de 1993, e na Resolução do Conselho Nacional do Meio Ambiente (Conama) nº 492, de 20 de dezembro de 2018, e considerando o constante no Processo nº 02001.003797/2020-74, resolve: Art. 1º Regulamentar, em conformidade com a Resolução CONAMA 492, de 2018: I - os procedimentos de medição da emissão de poluentes provenientes da emissão evaporativa e de emissão de vapor durante o abastecimento, conforme previsto no art. 15 da Resolução CONAMA 492, de 2018; II - a aplicação dos fatores de deterioração e a determinação dos fatores de deterioração de acordo com os critérios de volume de produção, conforme previsto nos Art. 4º, § 8º, Art. 23, § 3º e Capítulo V da Resolução CONAMA 492, de 2018; III - determinar o procedimento para obtenção e aplicação dos fatores de amaciamento para todos os poluentes a serem reportados no Relatório de Valores de Emissão da Produção (RVEP), conforme previsto no Capítulo VII da Resolução CONAMA 492, de 2018. Art. 2º Ficam estabelecidos os fatores de deterioração de emissão evaporativa e de reabastecimento juntamente com os procedimentos para a utilização de métodos alternativos para sua determinação. CAPÍTULO I DOS PROCEDIMENTOS DE MEDIÇÃO DA EMISSÃO DE POLUENTES PROVENIENTES DE EMISSÃO EVAPORATIVA E DE ABASTECIMENTO Art. 3º A partir da Fase PROCONVE L7, os procedimentos de ensaio de emissões evaporativa e da emissão de vapor durante o abastecimento, assim como os critérios de agrupamento em famílias, serão realizados em conformidade com norma técnica brasileira ABNT NBR 16927. § 1º Alternativamente, para o cálculo de emissão evaporativa e de abastecimento, quando o veículo for abastecido com etanol, poderá ser utilizada a regulamentação dos Estados Unidos da América 40 CFR § 86.143-96 - Cálculos; emissões evaporativas (Calculations; evaporative emissions), item (c), até ser publicada regulamentação nacional equivalente pelo Ibama, considerando o disposto na Norma ABNT NBR 16927 ou sucedâneas. § 2º Alternativamente, para veículos elétricos híbridos, recarregáveis por fonte externa de energia ou não, (VEH), dotados de tecnologias de controle ativas das emissões evaporativas ou de reabastecimento, como por exemplo os dotados de tanque pressurizado, poderá ser utilizado procedimento aceito por autoridade norte americana Agência de Proteção Ambiental (United States Environmental Protection Agency - USEPA) ou Agência de Proteção Ambiental da Califórnia (California Environmental Protection Agency - Air Resources Board - CARB) - e aprovado pelo Ibama, ou procedimento alternativo aprovado pelo Ibama, ou ainda pelo procedimento constante na Norma ABNT NBR 16927. § 3º Caso o fabricante ou importador opte por usar procedimento já aprovado pela USEPA ou pelo CARB, conforme descrito no § 2º, o mesmo deve submeter, para a aprovação do Ibama, declaração de que utilizará procedimento conforme diretrizes estabelecidas pelos Estados Unidos da América no Código de Regulamentações Federais (Code of Federal Regulations - CFR) 86.132.96 e 86.133.96. CAPÍTULO II DOS FATORES DE DETERIORAÇÃO DAS EMISSÕES DE ESCAPAMENTO Art. 4º A partir da Fase PROCONVE L7, os agrupamentos de veículos ou motores mencionados no art. 16 e os métodos de ensaios de durabilidade alternativos mencionados no art. 17 da Resolução CONAMA 492, de 2018, deverão atender aos critérios da norma técnica brasileira ABNT NBR 16897. § 1º Para os agrupamentos de veículos ou motores cuja previsão de vendas anuais seja superior a 15.000 (quinze mil) unidades, os fatores de deterioração relativos aos gases de exaustão deverão ser determinados conforme norma técnica brasileira ABNT NBR 16897 dentro de um prazo máximo permitido de 24 meses, além do ano em que o critério de vendas anuais for ultrapassado, sendo que neste período deverão ser adotados os valores dos fatores de deterioração pré-definidos para emissão de escapamento, conforme Tabela 4 do Anexo da Resolução CONAMA 492, de 2018. § 2º Caso o fabricante ou importador opte por usar procedimento de envelhecimento em banco de ensaio de motor descrito na Norma ABNT NBR 16897, os fatores de deterioração da emissão de escapamento deverão ser determinados dentro de um prazo máximo de 12 meses, além do ano em que o critério de vendas anuais for ultrapassado, sendo que neste período deverão ser adotados os valores de fatores de deterioração pré-definidos para emissão de escapamento conforme Tabela 4 do Anexo da Resolução CONAMA 492, de 2018. § 3º Os métodos de ensaios de durabilidade alternativos mencionados no art. 17 da Resolução CONAMA 492, de 2018, poderão ser aprovados pelo Ibama, desde que o fabricante ou importador comprovem a equivalência ou maior rigor em relação à Norma ABNT NBR 16897, devendo o prazo para determinação dos fatores de deterioração ser aprovado pelo Ibama.",
+          "sourceUrl": "https://www.ibama.gov.br/sophia/cnia/legislacao/IBAMA/2020/IN0026-18122020.pdf",
+          "sourceKey": "in26-2020-certified",
+          "topics": [
+            "emissoes",
+            "durabilidade"
+          ],
+          "evidenceKind": "public_text_excerpt",
+          "documentKind": "official_act_pdf",
+          "reviewStatus": {
+            "state": "directed_review",
+            "reviewedAt": "2026-10-19",
+            "scope": "Dispositivo citado; aplicabilidade depende da configuração."
+          }
+        },
+        {
+          "id": "ibama-in-26-2020:req:04",
+          "title": "Fatores de deterioração de evaporativas na L8",
+          "rule": "Conferir as alternativas de comprovação por família e vendas anuais. Ler o art. 7º com o § 5º incluído pelo art. 6º da IN 3/2023.",
+          "clause": "Art. 7º, caput e §§ 1º–4º; IN 3/2023, art. 6º",
+          "scope": "Famílias de controle evaporativo na fase L8; não confundir texto L7 do art. 6º com regra universal L8.",
+          "evidence": "Art. 7º A partir da Fase PROCONVE L8, o fabricante ou importador deverá comprovar o atendimento aos limites das emissões evaporativas e de reabastecimento, considerando o total de vendas dos agrupamentos (famílias de sistema de controle evaporativo), conforme uma das seguintes alternativas: § 1º Para veículos cujos agrupamentos de família de sistemas de controle evaporativo tenham previsão de vendas anuais maiores que 15.000 (quinze mil) unidades, a comprovação do atendimento aos limites poderá ser feita após a aplicação dos fatores de deterioração, os quais deverão ser determinados seguindo a norma NBR 16927, na qual o veículo é envelhecido por 160.000 km em pista ou dinamômetro de chassis, dentro de um prazo máximo permitido de 24 meses além do ano em que o critério de vendas anuais for ultrapassado, sendo que neste período deverá ser adotado o valor de fator de deterioração conforme Art. 6º desta Instrução Normativa. § 2º Para veículos cujos agrupamentos de família de sistemas de controle evaporativo tenham previsão de vendas anuais maiores que 15.000 (quinze mil) unidades, a comprovação do atendimento aos limites poderá ser feita com o uso de um veículo já envelhecido ou com o uso de componentes e sistemas já envelhecidos seguindo procedimento aceito pela USEPA ou pelo CARB e aprovado pelo Ibama, ou pela Norma ABNT NBR 16927 ou procedimento alternativo aprovado pelo Ibama, no ato da certificação, sem a aplicação do fator de deterioração, ou dentro de um prazo máximo permitido de 12 meses além do ano em que o critério de vendas anuais for ultrapassado, sendo que neste período deverão ser adotados os valores de fatores de deterioração conforme Art. 6º desta Instrução Normativa. § 3º Para veículos cujos agrupamentos de família de sistemas de controle evaporativo tenham previsão de vendas anuais maiores que 15.000 (quinze mil) unidades, a comprovação do atendimento aos limites poderá ser feita após a determinação dos fatores de deterioração com o uso de um veículo já envelhecido ou com o uso de componentes e sistemas já envelhecidos, seguindo procedimento aprovado por autoridade norte americana (EPA ou CARB) ou pela Norma ABNT NBR 16927 ou procedimento alternativo aprovado pelo Ibama, dentro de um prazo máximo permitido de 12 meses além do ano em que o critério de vendas anuais for ultrapassado, sendo que neste período deverão ser adotados os valores de fatores de deterioração conforme Art. 6º desta Instrução Normativa. § 4º Caso o fabricante ou importador opte por usar procedimento já autorizado por autoridade norte americana (USEPA ou CARB), conforme § 2º acima, o mesmo deve submeter declaração de que utilizará o procedimento igual ao norte americano para a aprovação do Ibama.",
+          "sourceUrl": "https://www.ibama.gov.br/sophia/cnia/legislacao/IBAMA/2020/IN0026-18122020.pdf",
+          "sourceKey": "in26-2020-certified",
+          "topics": [
+            "emissoes",
+            "evaporativas",
+            "durabilidade"
+          ],
+          "evidenceKind": "public_text_excerpt",
+          "documentKind": "official_act_pdf",
+          "reviewStatus": {
+            "state": "directed_review",
+            "reviewedAt": "2026-10-19",
+            "scope": "Dispositivo citado; aplicabilidade depende da configuração."
+          }
+        },
+        {
+          "id": "ibama-in-26-2020:req:05",
+          "title": "Fatores de amaciamento para RVEP",
+          "rule": "O uso facultado de fatores de amaciamento nos RVEP segue as condições do art. 8º e do anexo. Não é um procedimento universal de preparação do veículo.",
+          "clause": "Art. 8º e parágrafo único",
+          "scope": "Ensaios para valores reportados no RVEP, conforme poluente/configuração.",
+          "evidence": "Art. 8º A partir da Fase PROCONVE L7, em ensaios para efeito de obtenção de valores a serem reportados no Relatório de Valores de Emissão da Produção (RVEP), poderão ser aplicados fatores de amaciamento previamente determinados como redutor da medição obtida nos valores de óxidos de nitrogênio (NOx) obtidos em veículos diesel novos, e de valores de material particulado obtidos em veículos do ciclo Otto novos com injeção direta e com baixa rodagem, e também para cada poluente regulamentado. Parágrafo único. O procedimento para obtenção e aplicação dos fatores de amaciamento deverá estar de acordo com o constante no ANEXO dessa Instrução Normativa.",
+          "sourceUrl": "https://www.ibama.gov.br/sophia/cnia/legislacao/IBAMA/2020/IN0026-18122020.pdf",
+          "sourceKey": "in26-2020-certified",
+          "topics": [
+            "emissoes",
+            "producao",
+            "amaciamento"
+          ],
+          "evidenceKind": "public_text_excerpt",
+          "documentKind": "official_act_pdf",
+          "reviewStatus": {
+            "state": "directed_review",
+            "reviewedAt": "2026-10-19",
+            "scope": "Dispositivo citado; aplicabilidade depende da configuração."
+          }
+        },
+        {
+          "id": "ibama-in-26-2020:req:06",
+          "title": "Documentação dos fatores de amaciamento",
+          "rule": "A declaração de uso do fator, memorial de cálculo e relatórios acompanham o prazo de apresentação dos RVEP da configuração, conforme o anexo.",
+          "clause": "Anexo, item 5.1",
+          "scope": "Configuração que utiliza os fatores de amaciamento nos RVEP.",
+          "evidence": "5.1. A declaração de utilização do fator de amaciamento, acompanhado do memorial de cálculo e dos respectivos relatórios de ensaios de emissão deverão ser apresentados no mesmo prazo de apresentação dos Relatórios de Valores de Emissão da Produção (RVEP) para cada configuração de veículo.",
+          "sourceUrl": "https://www.ibama.gov.br/sophia/cnia/legislacao/IBAMA/2020/IN0026-18122020.pdf",
+          "sourceKey": "in26-2020-certified",
+          "topics": [
+            "emissoes",
+            "producao",
+            "rvep"
+          ],
+          "evidenceKind": "public_text_excerpt",
+          "documentKind": "official_act_pdf",
+          "reviewStatus": {
+            "state": "directed_review",
+            "reviewedAt": "2026-10-19",
+            "scope": "Dispositivo citado; aplicabilidade depende da configuração."
+          }
+        },
+        {
+          "id": "ibama-in-26-2020:req:07",
+          "title": "LCVM após alteração dos fatores",
+          "rule": "Se a aplicação dos novos fatores aumentar o nível homologado, o fabricante/importador deve solicitar nova LCVM com o novo nível, nas condições do art. 5º.",
+          "clause": "Art. 5º, § 2º",
+          "scope": "Hipótese específica de aumento do nível de emissões após novos fatores; não descreve toda extensão de LCVM.",
+          "evidence": "§ 2º Caso exista um aumento no nível de emissões homologado após aplicação dos novos fatores, o fabricante ou importador deverá solicitar uma nova Licença para uso da Configuração de Veículos ou Motor (LCVM) com o novo nível de emissões, sendo possível a declaração de um nível acima conforme o § 12 do Art. 4º da Resolução CONAMA 492, de 2018.",
+          "sourceUrl": "https://www.ibama.gov.br/sophia/cnia/legislacao/IBAMA/2020/IN0026-18122020.pdf",
+          "sourceKey": "in26-2020-certified",
+          "topics": [
+            "homologacao",
+            "lcvm",
+            "emissoes"
+          ],
+          "evidenceKind": "public_text_excerpt",
+          "documentKind": "official_act_pdf",
+          "reviewStatus": {
+            "state": "directed_review",
+            "reviewedAt": "2026-10-19",
+            "scope": "Dispositivo citado; aplicabilidade depende da configuração."
+          }
+        },
+        {
+          "id": "ibama-in-26-2020:req:08",
+          "title": "Rodagem para determinação de fatores de RVEP",
+          "rule": "Neste procedimento, o acúmulo de quilometragem segue o critério do fabricante/importador e o limite do item 3.2. Esse valor não é rodagem obrigatória para todo ensaio ou protótipo.",
+          "clause": "Anexo, itens 3.1–3.2",
+          "scope": "Determinação dos fatores de amaciamento para RVEP da IN 26/2020.",
+          "evidence": "3. Condição de amaciamento 3.1. Para o acúmulo de quilometragem poderá ser utilizado o combustível comercial ou padrão de emissões, a critério de cada fabricante ou importador. 3.2. O acúmulo de quilometragem deverá ser realizado de acordo com o critério de cada fabricante ou importador, limitado a 3.000 km (três mil quilômetros), com 5% de tolerância, antes da medição de emissões.",
+          "sourceUrl": "https://www.ibama.gov.br/sophia/cnia/legislacao/IBAMA/2020/IN0026-18122020.pdf",
+          "sourceKey": "in26-2020-certified",
+          "topics": [
+            "producao",
+            "rvep",
+            "amaciamento"
+          ],
+          "evidenceKind": "public_text_excerpt",
+          "documentKind": "official_act_pdf",
+          "reviewStatus": {
+            "state": "directed_review",
+            "reviewedAt": "2026-10-19",
+            "scope": "Dispositivo citado; aplicabilidade depende da configuração."
+          }
+        }
+      ],
+      "sourceStatus": "PDF oficial certificado recuperado; texto original e anexo revisados, com leitura dirigida da alteração pela IN3/2023. Não é consolidação integral da cadeia.",
+      "relatedLinks": [
+        {
+          "label": "Publicação original no DOU",
+          "url": "https://www.in.gov.br/web/dou/-/instrucao-normativa-n-26-de-17-de-dezembro-de-2020-294942612"
+        },
+        {
+          "label": "Catálogo oficial Sophia/Ibama",
+          "url": "https://sophia.ibama.gov.br/acervo/detalhe/140313"
+        }
+      ]
+    },
+    {
+      "id": "ibama-in-6-2025",
+      "issuer": "IBAMA",
+      "number": 6,
+      "year": 2025,
+      "sourceKey": "in6-2025-certified",
+      "phases": [
+        "L8",
+        "P8"
+      ],
+      "topic": "Importação: controle ambiental e LPCO",
+      "targets": [],
+      "categories": [
+        "homologacao"
+      ],
+      "modifies": [],
+      "catalogRecordIds": [],
+      "articles": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "notes": [
+        "Revisão dirigida dos arts. 1º–9º e do contexto de veículos nos anexos. Ato abrange outros produtos; a íntegra de todas as NCMs e toda a cadeia não foram revisadas.",
+        "Tratamento administrativo de importação depende de NCM, destaque, operação e cronograma do Portal Único. Não se aplica automaticamente à produção nacional e não substitui a homologação técnica/LCVM.",
+        "A revogação do art. 8º é apenas do Anexo II da IN 17/2021; não declarar revogação integral daquela instrução. Guias antigos de LI/Infoserv podem não refletir o canal atual."
+      ],
+      "reviewedAt": "2026-10-19",
+      "fullTextReviewed": null,
+      "reviewStatus": {
+        "state": "directed_text_review",
+        "fullTextReviewed": null,
+        "amendmentChainReviewed": false,
+        "reviewedAt": "2026-10-19",
+        "scope": "Revisão dirigida dos arts. 1º–9º e do contexto de veículos nos anexos. Ato abrange outros produtos; a íntegra de todas as NCMs e toda a cadeia não foram revisadas."
+      },
+      "requirements": [
+        {
+          "id": "ibama-in-6-2025:req:01",
+          "title": "Controle administrativo de importação",
+          "rule": "O controle sobre operações de importação usa os tratamentos do Portal Único; veículos estão no escopo, mas o tratamento concreto depende de NCM e destaque.",
+          "clause": "Arts. 2º–3º, inciso I, alínea f",
+          "scope": "Importação sujeita ao controle do Ibama; recorte consultivo de veículos, sem extensão automática à produção nacional.",
+          "evidence": "Art. 2 O controle administrativo sobre mercadorias será efetuado pelo Ibama por meio de tratamentos administrativos sobre operações de importação de mercadoria. Parágrafo único. Os tratamentos administrativos a que se refere o caput serão aplicados por meio do Portal Único de Comércio Exterior e compreendendo, sem prejuízo de eventuais medidas fiscalizatórias desta autarquia: I - monitoramento de operações de comércio exterior; II - licença, permissão, certificado ou outro documento de autorização para múltiplas operações de importação; III - licença, permissão, certificado ou outro documento de autorização por operação de importação; IV - conferência do Ibama na declaração de importação; e V - proibição de importação ou de exportação de mercadoria. Art. 3° Estão sujeitas a controle na importação pelo Ibama as seguintes situações: I - cargas sujeitas ao controle pelo Ibama e que se enquadrem como: a) resíduos sólidos; b) substâncias perigosas; c) poluentes orgânicos persistentes; d) produtos de controle ambiental; e) produtos químicos industriais; f) veículos automotores, máquinas agrícolas e rodoviárias, motociclos, ciclomotores e similares; ou g) espécies, produtos e subprodutos da biodiversidade; h) preservativos de madeira. II - em caso de necessidade de atendimento a procedimentos de controle, notificação ou consentimento prévio informado, definido em tratado internacional de que o País seja parte e que sejam implementadas por controle ambiental do Ibama; ou III - em casos identificados a partir de denúncia, gestão de risco ou fiscalização ambiental, em que a situação concreta evidenciar a necessidade de vistoria da carga anteriormente à autorização para sua internalização no país.",
+          "sourceUrl": "https://www.ibama.gov.br/sophia/cnia/legislacao/IBAMA/2025/IN0006-30052025.pdf",
+          "sourceKey": "in6-2025-certified",
+          "topics": [
+            "importacao",
+            "homologacao",
+            "lpco"
+          ],
+          "evidenceKind": "public_text_excerpt",
+          "documentKind": "official_act_pdf",
+          "reviewStatus": {
+            "state": "directed_review",
+            "reviewedAt": "2026-10-19",
+            "scope": "Dispositivo citado; aplicabilidade depende da configuração."
+          }
+        },
+        {
+          "id": "ibama-in-6-2025:req:02",
+          "title": "Tratamento por operação, flex e impedimento",
+          "rule": "Consultar Anexo I e tipo de tratamento. A licença por operação tem regra de embarque prévio; flex admite múltiplas operações nos limites autorizados e dispensa essa licença prévia; não universalizar uma modalidade.",
+          "clause": "Art. 5º e Anexo I",
+          "scope": "Mercadorias e destaques efetivamente abrangidos no Anexo I.",
+          "evidence": "Art. 5° A listagem de códigos da Nomenclatura Comum do Mercosul - NCMs para os quais será aplicado o licenciamento de importação e tipo de tratamento administrativo no Portal Único de Comércio Exterior está definida no Anexo I, nos seguintes termos: I - no caso da licença para cada operação prevista no art. 2°. inciso III, limitada aos produtos e quantidades autorizados, bem como ao prazo de validade da licença: a) os códigos de NCM estão indicados com 'por operação' no Anexo I; b) o Ibama exigirá licença prévia ao embarque; c) é facultada ao Ibama a retirada da restrição de embarque, mediante justificativa fundamentada. II -no caso da licença prevista no art. 2º, inciso II, que poderá ser utilizada em múltiplas operações de importação, limitada aos produtos e quantidades autorizados, bem como ao prazo de validade da LPCO: a) os códigos de NCM estão indicados com 'flex' no Anexo I; e b) é dispensada a licença prévia ao embarque. III - para as mercadorias cuja importação é proibida nos termos da legislação ambiental vigente, os códigos da NCM estão indicados com 'impedimento' no Anexo I. Parágrafo único. O prazo de vigência da licença de importação atenderá: I - ao disposto em ato normativo editado pela Secretaria de Comércio Exterior, do Ministério do Desenvolvimento, Indústria, Comércio e Serviços; ou II - ao indicado no Anexo I, conforme o produto objeto da operação de importação.",
+          "sourceUrl": "https://www.ibama.gov.br/sophia/cnia/legislacao/IBAMA/2025/IN0006-30052025.pdf",
+          "sourceKey": "in6-2025-certified",
+          "topics": [
+            "importacao",
+            "lpco"
+          ],
+          "evidenceKind": "public_text_excerpt",
+          "documentKind": "official_act_pdf",
+          "reviewStatus": {
+            "state": "directed_review",
+            "reviewedAt": "2026-10-19",
+            "scope": "Dispositivo citado; aplicabilidade depende da configuração."
+          }
+        },
+        {
+          "id": "ibama-in-6-2025:req:03",
+          "title": "Monitoramento e transição do canal",
+          "rule": "Distinguir monitoramento posterior do Anexo II e os procedimentos do módulo Siscomex LI ainda sujeitos ao cronograma de desligamento.",
+          "clause": "Arts. 6º–7º",
+          "scope": "Operações e códigos abrangidos; consultar o canal e cronograma oficiais atuais.",
+          "evidence": "Art. 6° Os códigos de NCMs sujeitos ao controle da importação por monitoramento, a que se refere o art. 2°., parágrafo único, inciso I desta Instrução Normativa, estão definidas no Anexo II. Parágrafo único. O tratamento administrativo por monitoramento será aplicado para produtos sujeitos a controle ambiental a posteriori por meio do acesso aos dados de importação para a verificação do cumprimento de regularidade das operações conforme definidas em norma ambiental. Art. 7° As disposições desta Instrução Normativa aplicam-se, no que couber, às operações de importação sujeitas ao controle do Ibama e realizadas por meio de licença de importação no módulo Siscomex LI Importação, conforme cronograma de desligamento desse módulo definido pelos órgãos gestores do Sistema Integrado de Comércio Exterior - Siscomex.",
+          "sourceUrl": "https://www.ibama.gov.br/sophia/cnia/legislacao/IBAMA/2025/IN0006-30052025.pdf",
+          "sourceKey": "in6-2025-certified",
+          "topics": [
+            "importacao",
+            "lpco"
+          ],
+          "evidenceKind": "public_text_excerpt",
+          "documentKind": "official_act_pdf",
+          "reviewStatus": {
+            "state": "directed_review",
+            "reviewedAt": "2026-10-19",
+            "scope": "Dispositivo citado; aplicabilidade depende da configuração."
+          }
+        },
+        {
+          "id": "ibama-in-6-2025:req:04",
+          "title": "Efeito revogatório limitado",
+          "rule": "O art. 8º revoga somente o Anexo II da IN 17/2021.",
+          "clause": "Art. 8º",
+          "scope": "Rastreabilidade de alterações do controle de importações.",
+          "evidence": "Art. 8° Revoga-se o Anexo II da Instrução Normativa Ibama nº 17, de 1 de dezembro de 2021.",
+          "sourceUrl": "https://www.ibama.gov.br/sophia/cnia/legislacao/IBAMA/2025/IN0006-30052025.pdf",
+          "sourceKey": "in6-2025-certified",
+          "topics": [
+            "importacao"
+          ],
+          "evidenceKind": "public_text_excerpt",
+          "documentKind": "official_act_pdf",
+          "reviewStatus": {
+            "state": "directed_review",
+            "reviewedAt": "2026-10-19",
+            "scope": "Dispositivo citado; aplicabilidade depende da configuração."
+          }
+        }
+      ],
+      "sourceStatus": "PDF oficial certificado recuperado; leitura dirigida do rito dos arts.1º–9º e do contexto automotivo dos anexos. Íntegra de todos os produtos e cadeia não certificadas.",
+      "relatedLinks": [
+        {
+          "label": "Metadados oficiais do ato",
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139490"
+        },
+        {
+          "label": "Orientação oficial de migração para LPCO",
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/notas/2025/ibama-publica-instrucao-normativa-que-consolida-os-procedimentos-de-controle-de-importacoes"
+        }
+      ],
+      "relationships": [
+        {
+          "kind": "revoga_parcialmente",
+          "label": "Anexo II da IN IBAMA nº 17/2021",
+          "evidence": "Art. 8° Revoga-se o Anexo II da Instrução Normativa Ibama nº 17, de 1 de dezembro de 2021."
+        }
       ]
     }
   ],
@@ -787,8 +1849,183 @@
   "sourceGaps": [
     {
       "id": "ibama-in-26-2020",
-      "note": "O inteiro teor não foi localizado na coleta. Sua alteração e aplicação à fase L8 estão expressamente referenciadas no art. 6º da IN Ibama 3/2023; a referência está preservada no respectivo registro, sem inventar métodos do texto não coletado.",
-      "evidenceSource": "139279"
+      "state": "technical_method_review_pending",
+      "note": "Texto original e anexo da IN 26/2020 recuperados no PDF certificado do Ibama e lidos com a alteração do art. 6º da IN 3/2023. Métodos integrais das NBRs e consolidação exaustiva da cadeia continuam pendentes.",
+      "evidenceSource": "in26-2020-certified"
+    }
+  ],
+  "procedureGuidance": [
+    {
+      "id": "lcvm-regular",
+      "label": "LCVM regular",
+      "kind": "official_guidance",
+      "reviewedAt": "2026-10-19",
+      "scope": "Fabricante/importador e configuração sujeitos ao Proconve; leves/pesados. Não presume dever universal do BEV.",
+      "who": "Fabricante ou importador, responsável pela configuração.",
+      "channel": {
+        "label": "Infoserv 2 — leves e pesados",
+        "url": "https://infoserv.ibama.gov.br/"
+      },
+      "documents": [
+        "Dados técnicos da configuração e relatórios aplicáveis",
+        "Cadastro CTF/APP e Certificado de Regularidade, conforme sujeito/hipótese descritos no serviço"
+      ],
+      "relatedActIds": [
+        "conama-492-2018",
+        "conama-490-2018",
+        "ibama-in-11-2014"
+      ],
+      "sources": [
+        {
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-para-veiculos-motores-ou-maquinas-lcvm-proconve",
+          "sourceKey": "lcvm-service-2026",
+          "clause": "Quem solicita; requisitos; Como solicitar; Observações",
+          "excerpt": "A solicitação de LCVM para veículos leves e pesados é feita no por meio do novo Sistema Informatizado do Proconve (Infoserv 2 ) , já a solicitação de LCVM para Máquinas continua sendo por meio do Sistema Informatizado do Proconve/Promot (Infoserv1) conforme os passos a seguir:"
+        },
+        {
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-para-veiculos-motores-ou-maquinas-lcvm-proconve",
+          "sourceKey": "lcvm-service-2026",
+          "clause": "Requisitos para solicitação",
+          "excerpt": "Fabricante de veículos - Inscrição no CTF/APP na atividade 6-1 - Indústria de Material de Transporte - Fabricação e montagem de veículos rodoviários e ferroviários, peças e acessórios; - Certificado de Regularidade devidamente emitido e em situação regular."
+        }
+      ],
+      "note": "Orientação oficial de serviço, não checklist exaustivo nem prova de consolidação das Portarias 86/1996 e 167/1997. A página atual direciona leves/pesados ao Infoserv 2 e máquinas ao Infoserv 1."
+    },
+    {
+      "id": "lcvm-quantidades-limitadas",
+      "label": "LCVM — quantidades limitadas",
+      "kind": "official_guidance",
+      "reviewedAt": "2026-10-19",
+      "scope": "Modalidade conforme sujeito, tipologia e volume; confirmar condições na fonte atual, sem converter em dispensa.",
+      "who": "Fabricante/importador e agente técnico, quando exigido pelo rito.",
+      "channel": {
+        "label": "Infoserv 2",
+        "url": "https://infoserv.ibama.gov.br/"
+      },
+      "documents": [
+        "Informações da modalidade solicitada",
+        "Para a hipótese até 100 unidades de leves/pesados descrita no serviço, relatório de emissões do exterior e análise do ATC"
+      ],
+      "relatedActIds": [
+        "ibama-in-11-2020",
+        "ibama-in-16-2024"
+      ],
+      "sources": [
+        {
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-para-veiculos-motores-ou-maquinas-lcvm-proconve",
+          "sourceKey": "lcvm-service-2026",
+          "clause": "Como solicitar; Observações",
+          "excerpt": "Para a modalidade até 100 unidades de veículos leves e/ou pesados, o interessado deve apresentar ao ATC relatório de ensaio de emissões realizado no exterior obtido junto ao fabricante. Após a análise da documentação pelo agente, estando os resultados de emissões dentro dos padrões determinados pela legislação brasileira, um parecer positivo é encaminhado via Infoserv para deferimento da LCVM pelo Ibama;"
+        },
+        {
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-para-veiculos-motores-ou-maquinas-lcvm-proconve",
+          "sourceKey": "lcvm-service-2026",
+          "clause": "Quem solicita; requisitos; Como solicitar; Observações",
+          "excerpt": "A solicitação de LCVM para veículos leves e pesados é feita no por meio do novo Sistema Informatizado do Proconve (Infoserv 2 ) , já a solicitação de LCVM para Máquinas continua sendo por meio do Sistema Informatizado do Proconve/Promot (Infoserv1) conforme os passos a seguir:"
+        }
+      ],
+      "note": "Há divergência entre o serviço atual e a página antiga LCVM/LCM sobre volumes e canais. Priorizar o serviço atual e confirmar no Ibama; não reutilizar os antigos limites 2/20 como regra atual."
+    },
+    {
+      "id": "lcvm-dispensa",
+      "label": "Avaliação de dispensa LCVM",
+      "kind": "official_guidance",
+      "reviewedAt": "2026-10-19",
+      "scope": "Hipóteses específicas listadas no serviço, como protótipos para fins definidos, coleção e aplicações especiais.",
+      "who": "Importador/fabricante enquadrado na hipótese.",
+      "channel": {
+        "label": "Infoserv — menu Dispensas",
+        "url": "https://infoserv.ibama.gov.br/"
+      },
+      "documents": [
+        "Informações e comprovação da hipótese de dispensa solicitadas pelo serviço"
+      ],
+      "relatedActIds": [],
+      "sources": [
+        {
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-para-veiculos-motores-ou-maquinas-lcvm-proconve",
+          "sourceKey": "lcvm-service-2026",
+          "clause": "Quais os casos dispensados de LCVM?",
+          "excerpt": "O Ibama poderá dispensar o importador ou fabricante da obrigação de obter a LCVM, nos seguintes casos, conforme Portaria Ibama 86/1996 e Resolução Conama nº 15/1995 : protótipos para ensaios de emissão e testes de adaptação; para testes de viabilidade econômica; adaptados para uso de deficientes físicos; doação a entidades de caráter filantrópico; para uso de titular de privilégios e imunidades diplomáticas ou consulares; veículos antigos de coleção (mais de 30 anos); para aplicação especial (que não possam ser utilizados para o transporte urbano e/ou rodoviário). As solicitações de dispensa de LCVM deverão ser feitas o menu “Dispensas” na página inicial do Infoserv . A Dispensa de LCVM é aplicada também a veículos que sejam protótipos utilizados em ensaios ou verificação de viabilidade econômica, mas para uso exclusivo dos fabricantes de veículos, dos representantes legalmente constituídos de fabricantes de veículos, dos fabricantes de autopeças e dos produtores de combustível."
+        }
+      ],
+      "note": "O serviço diz que o Ibama poderá dispensar. A dispensa depende de solicitação/enquadramento; não há dispensa geral de LCVM confirmada para todo BEV neste acervo."
+    },
+    {
+      "id": "lcvm-alteracoes",
+      "label": "Alterações da configuração e LCVM",
+      "kind": "official_guidance",
+      "reviewedAt": "2026-10-19",
+      "scope": "Mudança concreta da configuração; a hipótese revisada é aumento do nível de emissões após novos fatores.",
+      "who": "Fabricante/importador detentor da configuração.",
+      "channel": {
+        "label": "Serviço oficial LCVM/Infoserv 2",
+        "url": "https://infoserv.ibama.gov.br/"
+      },
+      "documents": [
+        "Descrição da mudança e evidências técnicas pertinentes",
+        "Na hipótese do art. 5º, § 2º, da IN 26/2020, nova LCVM com o novo nível de emissões"
+      ],
+      "relatedActIds": [
+        "ibama-in-26-2020"
+      ],
+      "sources": [
+        {
+          "url": "https://www.ibama.gov.br/sophia/cnia/legislacao/IBAMA/2020/IN0026-18122020.pdf",
+          "sourceKey": "in26-2020-certified",
+          "clause": "Art. 5º, §§ 2º–3º",
+          "excerpt": "§ 2º Caso exista um aumento no nível de emissões homologado após aplicação dos novos fatores, o fabricante ou importador deverá solicitar uma nova Licença para uso da Configuração de Veículos ou Motor (LCVM) com o novo nível de emissões, sendo possível a declaração de um nível acima conforme o § 12 do Art. 4º da Resolução CONAMA 492, de 2018. § 3º Caso exista uma redução no nível de emissões homologado após aplicação dos novos fatores, o fabricante ou importador poderá solicitar uma nova Licença para uso da Configuração de Veículos ou Motor (LCVM) com o novo nível de emissões, os quais podem ter seu nível de homologação da Fase PROCONVE L8 reclassificado."
+        },
+        {
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-para-veiculos-motores-ou-maquinas-lcvm-proconve",
+          "sourceKey": "lcvm-service-2026",
+          "clause": "Quem solicita; requisitos; Como solicitar; Observações",
+          "excerpt": "A solicitação de LCVM para veículos leves e pesados é feita no por meio do novo Sistema Informatizado do Proconve (Infoserv 2 ) , já a solicitação de LCVM para Máquinas continua sendo por meio do Sistema Informatizado do Proconve/Promot (Infoserv1) conforme os passos a seguir:"
+        }
+      ],
+      "note": "Não foi localizado um rito público geral e integral de extensão válido para qualquer mudança. A fonte prova a hipótese específica; demais alterações exigem consulta ao Ibama."
+    },
+    {
+      "id": "importacao-lpco",
+      "label": "Importação e LPCO",
+      "kind": "official_guidance",
+      "reviewedAt": "2026-10-19",
+      "scope": "Operações de importação abrangidas por NCM/destaque e cronograma; não se aplica à produção nacional como tal.",
+      "who": "Importador e responsáveis pela operação.",
+      "channel": {
+        "label": "Portal Único Siscomex/LPCO",
+        "url": "https://portalunico.siscomex.gov.br/"
+      },
+      "documents": [
+        "Classificação NCM/destaque e dados da operação",
+        "Autorizações e comprovação ambiental exigidas pelo tratamento e configuração"
+      ],
+      "relatedActIds": [
+        "ibama-in-6-2025"
+      ],
+      "sources": [
+        {
+          "url": "https://www.ibama.gov.br/sophia/cnia/legislacao/IBAMA/2025/IN0006-30052025.pdf",
+          "sourceKey": "in6-2025-certified",
+          "clause": "Arts. 2º–5º",
+          "excerpt": "Art. 2 O controle administrativo sobre mercadorias será efetuado pelo Ibama por meio de tratamentos administrativos sobre operações de importação de mercadoria. Parágrafo único. Os tratamentos administrativos a que se refere o caput serão aplicados por meio do Portal Único de Comércio Exterior e compreendendo, sem prejuízo de eventuais medidas fiscalizatórias desta autarquia: I - monitoramento de operações de comércio exterior; II - licença, permissão, certificado ou outro documento de autorização para múltiplas operações de importação; III - licença, permissão, certificado ou outro documento de autorização por operação de importação; IV - conferência do Ibama na declaração de importação; e V - proibição de importação ou de exportação de mercadoria. Art. 3° Estão sujeitas a controle na importação pelo Ibama as seguintes situações: I - cargas sujeitas ao controle pelo Ibama e que se enquadrem como: a) resíduos sólidos; b) substâncias perigosas; c) poluentes orgânicos persistentes; d) produtos de controle ambiental; e) produtos químicos industriais; f) veículos automotores, máquinas agrícolas e rodoviárias, motociclos, ciclomotores e similares; ou g) espécies, produtos e subprodutos da biodiversidade; h) preservativos de madeira. II - em caso de necessidade de atendimento a procedimentos de controle, notificação ou consentimento prévio informado, definido em tratado internacional de que o País seja parte e que sejam implementadas por controle ambiental do Ibama; ou III - em casos identificados a partir de denúncia, gestão de risco ou fiscalização ambiental, em que a situação concreta evidenciar a necessidade de vistoria da carga anteriormente à autorização para sua internalização no país. Art. 4° A importação das mercadorias relacionadas no Art. 3° estará sujeita à conferência do Ibama na declaração de importação. §1° A conferência do Ibama abrange o exame documental e a inspeção da mercadoria, de forma presencial ou remota. §2° Após o registro, a declaração de importação será submetida à gestão de riscos do Ibama, que indicará um dos seguintes canais de fiscalização: I - verde, pelo qual o sistema registrará de forma automática a liberação pelo Ibama, dispensadas a análise documental e a inspeção da mercadoria por ele; II - amarelo, pelo qual será realizada a análise documental pelo Ibama, e, não sendo constatada irregularidade, será realizada a liberação por ele, sendo dispensada a inspeção da mercadoria; ou III - vermelho, pelo qual a liberação pelo Ibama somente será concluída após a realização da análise documental e da inspeção da mercadoria por ele. Art. 5° A listagem de códigos da Nomenclatura Comum do Mercosul - NCMs para os quais será aplicado o licenciamento de importação e tipo de tratamento administrativo no Portal Único de Comércio Exterior está definida no Anexo I, nos seguintes termos: I - no caso da licença para cada operação prevista no art. 2°. inciso III, limitada aos produtos e quantidades autorizados, bem como ao prazo de validade da licença: a) os códigos de NCM estão indicados com 'por operação' no Anexo I; b) o Ibama exigirá licença prévia ao embarque; c) é facultada ao Ibama a retirada da restrição de embarque, mediante justificativa fundamentada. II -no caso da licença prevista no art. 2º, inciso II, que poderá ser utilizada em múltiplas operações de importação, limitada aos produtos e quantidades autorizados, bem como ao prazo de validade da LPCO: a) os códigos de NCM estão indicados com 'flex' no Anexo I; e b) é dispensada a licença prévia ao embarque. III - para as mercadorias cuja importação é proibida nos termos da legislação ambiental vigente, os códigos da NCM estão indicados com 'impedimento' no Anexo I. Parágrafo único. O prazo de vigência da licença de importação atenderá: I - ao disposto em ato normativo editado pela Secretaria de Comércio Exterior, do Ministério do Desenvolvimento, Indústria, Comércio e Serviços; ou II - ao indicado no Anexo I, conforme o produto objeto da operação de importação."
+        },
+        {
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/notas/2025/ibama-publica-instrucao-normativa-que-consolida-os-procedimentos-de-controle-de-importacoes",
+          "sourceKey": "lpco-guidance-2025",
+          "clause": "Notícia oficial 05/06/2025",
+          "excerpt": "Com a publicação da IN o Ibama se torna adepto ao módulo de Licenças, Permissões, Certificados e Outros Documentos (LPCO) do Portal Único a partir de junho de 2025, iniciando os novos procedimentos para veículos automotores, motociclos e ciclomotores, máquinas e equipamentos agrícolas e rodoviárias."
+        }
+      ],
+      "note": "Homologação técnica/LCVM e tratamento administrativo de importação são passos distintos. A IN 6/2025 admite transição do Siscomex LI conforme cronograma; guias antigos de LI/Infoserv não substituem o canal atual."
+    }
+  ],
+  "resolvedSourceGaps": [
+    {
+      "id": "ibama-in-26-2020",
+      "resolvedAt": "2026-10-19",
+      "sourceKey": "in26-2020-certified",
+      "note": "Recuperado PDF certificado oficial p. 100–101; revistos arts 1–10 e anexo, com alteração 3/2023 art 6."
     }
   ]
 }

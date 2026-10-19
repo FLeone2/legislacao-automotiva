@@ -89,7 +89,12 @@ class VehicleLegislationBuild(unittest.TestCase):
             self.part(result, "peca_27_")["topics"][0]["links"][0]["actId"],
             "inmetro-145-2022",
         )
-        for act_id in ("contran-835-1997", "ibama-in-26-2020", "unknown-act"):
+        for act_id in (
+            "contran-835-1997",
+            "contran-220-2007",
+            "mover-009",
+            "unknown-act",
+        ):
             with self.subTest(act_id=act_id):
                 candidate = self.changed_source()
                 candidate["parts"][0]["topics"][0]["links"][0]["actId"] = act_id
@@ -125,9 +130,11 @@ class VehicleLegislationBuild(unittest.TestCase):
     def test_powertrain_false_positives_do_not_reappear_through_system_taxonomy(self):
         battery = self.part(self.runtime, "peca_27_")
         links = [link for topic in battery["topics"] for link in topic["links"]]
-        self.assertEqual(len(links), 1)
-        self.assertEqual(links[0]["actId"], "inmetro-145-2022")
-        self.assertEqual(links[0]["requirementIds"], ["inmetro-145-2022:req:06"])
+        self.assertEqual({link["actId"] for link in links}, {"inmetro-145-2022"})
+        self.assertEqual(
+            {requirement for link in links for requirement in link["requirementIds"]},
+            {f"inmetro-145-2022:req:{number:02}" for number in (6, 11, 12, 13, 14)},
+        )
         for prefix in ("peca_25_", "peca_26_"):
             part = self.part(self.runtime, prefix)
             ids = {link["actId"] for topic in part["topics"] for link in topic["links"]}
@@ -139,6 +146,19 @@ class VehicleLegislationBuild(unittest.TestCase):
             part = self.part(self.runtime, prefix)
             self.assertTrue(all(not topic["links"] for topic in part["topics"]))
             self.assertTrue(all(topic["gaps"] for topic in part["topics"]))
+
+    def test_repealed_seat_act_is_not_replaced_by_an_unreviewed_subject(self):
+        for prefix in ("peca_08_", "peca_09_"):
+            part = self.part(self.runtime, prefix)
+            links = [link for topic in part["topics"] for link in topic["links"]]
+            self.assertNotIn("contran-220-2007", {link["actId"] for link in links})
+            self.assertIn("contran-951-2022", {link["actId"] for link in links})
+        tank = self.part(self.runtime, "peca_30_")
+        links = [link for topic in tank["topics"] for link in topic["links"]]
+        self.assertIn("ibama-in-26-2020", {link["actId"] for link in links})
+        self.assertNotIn(
+            "mover-009", {record["actId"] for record in self.audit["records"]}
+        )
 
     def test_all_published_acts_are_classified_once_without_alias_double_count(self):
         records = self.audit["records"]

@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Rebuild the reviewed L8/P8 map from preserved official Ibama/Conama sources."""
 
-import gzip, json, re
-from pathlib import Path
-from map_contran import ROOT, clean, entry_clauses, write_json, normalized
+import gzip
+import json
+import re
+
+from map_contran import ROOT, clean, entry_clauses, write_json
 from build_active_catalogs import CATEGORIES, write_csv
 from regulatory_contract import apply_contract
 
@@ -24,10 +26,8 @@ def excerpts(text, numbers):
     return results
 
 
-def main():
-    review = json.loads((DIRECTORY / "reviewed-map.json").read_text())
-    with gzip.open(DIRECTORY / "sources/evidence.json.gz", "rt") as f:
-        snapshot = json.load(f)
+def build(review, snapshot):
+    """Compile editorial inputs without writing, so scoped checks need no rebuild."""
     sources = snapshot["sources"]
     records = []
     for seed in review["records"]:
@@ -66,7 +66,14 @@ def main():
             if seed["modifies"]
             else "Vigente no recorte revisado",
             "officialUrl": source["url"],
-            "sourceStatus": "Texto oficial localizado no sistema do Ibama/Conama e cadeia de alterações conferida no recorte L8/P8.",
+            "sourceKey": seed["sourceKey"],
+            "sourceStatus": seed.get(
+                "sourceStatus",
+                "Fonte oficial localizada e trechos do recorte L8/P8 revisados; relações de alteração vinculadas. A cadeia integral não está certificada.",
+            ),
+            "reviewedAt": seed.get("reviewedAt", review["reviewDate"]),
+            "fullTextReviewed": seed.get("fullTextReviewed"),
+            "reviewStatus": seed.get("reviewStatus", {}),
             "statusEvidence": excerpts(text, seed["articles"]),
             "entryIntoForceEvidence": entry_clauses(text),
             "documentCheck": {
@@ -80,29 +87,70 @@ def main():
             "generalCategories": seed["categories"],
             "relationships": [],
             "incomingEffects": [],
-            "relatedLinks": [],
+            "relatedLinks": seed.get("relatedLinks", []).copy(),
             "catalogRecordIds": seed["catalogRecordIds"],
             "actNature": "modificadora"
             if seed["modifies"]
             else "normativa-ou-procedimental",
             "notes": [
-                "O vínculo é temático e depende do enquadramento. A fase L8 de veículos leves não é a fase P8 de veículos pesados."
+                "O vínculo é temático e depende do enquadramento. A fase L8 de veículos leves não é a fase P8 de veículos pesados.",
+                *seed.get("notes", []),
             ],
             "classificationBasis": "Mapa dirigido a partir dos objetos e dispositivos oficiais, com rastreabilidade por norma e fase.",
             "regulatoryDomain": "environmental",
-            "temporalFlags": [],
+            "temporalFlags": seed.get("temporalFlags", []).copy(),
+            "requirements": seed.get("requirements", []).copy(),
         }
+        record["relationships"] = seed.get("relationships", []).copy()
+        for requirement in record["requirements"]:
+            provenance = sources[requirement.get("sourceKey", seed["sourceKey"])]
+            assert requirement["id"].startswith(seed["id"] + ":req:"), requirement["id"]
+            assert clean(requirement["evidence"]) in clean(provenance["text"]), (
+                requirement["id"]
+            )
+            assert requirement["sourceUrl"] == provenance["url"], requirement["id"]
+        for flag in record["temporalFlags"]:
+            provenance = sources[flag["source"]["sourceKey"]]
+            assert clean(flag["source"]["excerpt"]) in clean(provenance["text"]), flag[
+                "id"
+            ]
+            assert flag["source"]["url"] == provenance["url"], flag["id"]
+            if flag.get("dateBasis"):
+                basis = flag["dateBasis"]
+                provenance = sources[basis["sourceKey"]]
+                assert clean(basis["excerpt"]) in clean(provenance["text"]), flag["id"]
+                assert basis["url"] == provenance["url"], flag["id"]
         assert record["statusEvidence"] or record["entryIntoForceEvidence"], title
         records.append(record)
     indexed = {r["id"]: r for r in records}
+    for guidance in review.get("procedureGuidance", []):
+        assert guidance["kind"] == "official_guidance", guidance["id"]
+        assert (
+            guidance.get("who")
+            and guidance.get("channel")
+            and guidance.get("documents")
+        )
+        for act_id in guidance.get("relatedActIds", []):
+            assert act_id in indexed, (guidance["id"], act_id)
+        for citation in guidance["sources"]:
+            provenance = sources[citation["sourceKey"]]
+            assert citation["url"] == provenance["url"], guidance["id"]
+            assert clean(citation["excerpt"]) in clean(provenance["text"]), guidance[
+                "id"
+            ]
     for seed in review["records"]:
         source = indexed[seed["id"]]
         for target_id in seed["modifies"]:
             target = indexed[target_id]
-            evidence = (
+            evidence = seed.get("modificationEvidence", {}).get(
+                target_id,
                 source["statusEvidence"][0]
                 if source["statusEvidence"]
-                else seed["topic"]
+                else seed["topic"],
+            )
+            assert clean(evidence) in clean(sources[seed["sourceKey"]]["text"]), (
+                seed["id"],
+                target_id,
             )
             source["relationships"].append(
                 {
@@ -151,7 +199,11 @@ def main():
     indexed["ibama-in-5-2024"]["notes"].append(
         "O art. 28 revoga as INs 19/2021 e 22/2022. Esses atos anteriores não foram mantidos na consulta ativa. O regime ACP contempla também PROMOT, mas aqui foi vinculado somente ao recorte L8."
     )
-    indexed["ibama-in-3-2023"]["notes"].append(review["sourceGaps"][0]["note"])
+    indexed["ibama-in-3-2023"]["notes"].extend(
+        gap["note"]
+        for gap in review.get("sourceGaps", [])
+        if gap.get("id") == "ibama-in-26-2020"
+    )
     for r in records:
         if r["incomingEffects"]:
             r["statusLabel"] = "Vigente com alterações vinculadas"
@@ -193,16 +245,27 @@ def main():
         "generalCategoryCount": sum(not r["vehicleLinks"] for r in records),
         "categoryLabels": {k: v["label"] for k, v in CATEGORIES.items()},
         "sourceGaps": review["sourceGaps"],
+        "resolvedSourceGaps": review.get("resolvedSourceGaps", []),
+        "procedureGuidance": review.get("procedureGuidance", []),
         "publicationPolicy": "Somente atos selecionados no recorte vigente L8/P8; revogados, fases anteriores sem vínculo atual e PROMOT M5 ficam fora desta consulta. Retificações integram a cadeia de cada ato, sem duplicar a contagem de instruções normativas.",
         "limits": [
             "Revisão dirigida aos atos e alterações localizados nas fontes oficiais; não substitui consolidação integral ou enquadramento técnico de cada veículo.",
             "A página geral de legislação de emissões foi atualizada em 2023 e a lista genérica de atos vigentes em 2022. A coleta cruzou os textos do sistema de legislação do Ibama, as alterações de 2023 a 2025, o sistema do Conama e a publicação oficial de 2026.",
             "Prazos futuros de entrega não significam que o ato ainda não entrou em vigor: a IN 20/2025 fixa coleta em 2026 e entregas em 2027.",
-            review["sourceGaps"][0]["note"],
+            *[gap["note"] for gap in review.get("sourceGaps", [])],
             "Categorias L8 e P8 não são intercambiáveis; combustível, massa/categoria, datas e configuração devem ser confirmados no ato aplicável.",
         ],
     }
-    write_json(DIRECTORY / "active.json", {"metadata": metadata, "records": records})
+    return {"metadata": metadata, "records": records}
+
+
+def main():
+    review = json.loads((DIRECTORY / "reviewed-map.json").read_text())
+    with gzip.open(DIRECTORY / "sources/evidence.json.gz", "rt") as f:
+        snapshot = json.load(f)
+    data = build(review, snapshot)
+    metadata, records = data["metadata"], data["records"]
+    write_json(DIRECTORY / "active.json", data)
     write_csv(DIRECTORY / "active.csv", records)
     print(
         json.dumps(

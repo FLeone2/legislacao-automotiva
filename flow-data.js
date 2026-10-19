@@ -6,7 +6,9 @@ const homologationFlowSpec = {
   powertrains: [
     { id: 'todos', label: 'Todos os powertrains' },
     { id: 'combustao', label: 'Combustão' },
-    { id: 'hibrido', label: 'Híbrido / plug-in' },
+    { id: 'hibrido', label: 'Híbridos (HEV e PHEV)' },
+    { id: 'hev', label: 'Híbrido sem recarga externa (HEV)' },
+    { id: 'phev', label: 'Híbrido plug-in (PHEV)' },
     { id: 'eletrico', label: 'Elétrico a bateria' },
   ],
   stages: [
@@ -209,8 +211,8 @@ const homologationFlowSpec = {
         },
         {
           id: 'combustao',
-          label: 'Combustão: emissões e OBD',
-          text: 'Consultar os ensaios e procedimentos ambientais da fase aplicável. L8 e P8 são recortes distintos e os atos abaixo não se aplicam automaticamente a todas as categorias.',
+          label: 'Motor térmico: emissões e OBD',
+          text: 'Consultar emissões e OBD do motor a combustão, inclusive o presente em HEV/PHEV. L8 é de leves e P8 é de pesados; os atos são alternativas de enquadramento por categoria, combustível e fase, sem aplicação automática de todos ao mesmo veículo.',
           refs: [
             'conama-492-2018',
             'conama-490-2018',
@@ -218,16 +220,72 @@ const homologationFlowSpec = {
             'ibama-in-23-2020',
             'ibama-in-20-2020',
           ],
-          powertrains: ['combustao'],
+          powertrains: ['combustao', 'hibrido'],
         },
         {
           id: 'hibrido',
-          label: 'Híbridos e plug-in',
+          label: 'HEV e PHEV: métodos específicos',
           text: 'A IN 3/2023 referencia a NBR 16567 para HEV/PHEV. Conferir modos elétrico/combustão e condições de carga no método aplicável, sem presumir uma edição não revisada.',
           refs: ['ibama-in-3-2023', 'ibama-in-11-2014', 'inmetro-169-2023'],
           powertrains: ['hibrido'],
           gaps: [
             'Métodos técnicos integrais e parâmetros de preparação ainda precisam de conferência.',
+          ],
+        },
+        {
+          id: 'hev',
+          label: 'HEV: híbrido sem recarga externa',
+          text: 'Consultar a IN 3/2023 e a referência NBR 16567 para o híbrido não recarregável externamente. O ramo térmico continua disponível; preparação, carga e método devem corresponder à configuração HEV.',
+          refs: ['ibama-in-3-2023', 'ibama-in-11-2014', 'inmetro-169-2023'],
+          powertrains: ['hev'],
+          gaps: [
+            'Método integral e edição aplicável ainda precisam de revisão; não reutilizar automaticamente o protocolo de carga de PHEV.',
+          ],
+        },
+        {
+          id: 'phev',
+          label: 'PHEV: híbrido com recarga externa',
+          text: 'Consultar a IN 3/2023 e a referência NBR 16567 para o híbrido recarregável externamente. O ramo térmico continua disponível; modos e condições de carga dependem do método específico de PHEV.',
+          refs: ['ibama-in-3-2023', 'ibama-in-11-2014', 'inmetro-169-2023'],
+          powertrains: ['phev'],
+          gaps: [
+            'Método integral, edição e condições de carga ainda precisam de revisão; não presumir equivalência com HEV ou BEV.',
+          ],
+        },
+        {
+          id: 'rde',
+          label: 'Emissões em tráfego real — ETR/RDE',
+          text: 'Para leves L7/L8, consultar a IN 3/2021 e o Capítulo VIII da CONAMA 492/2018. Para pesados P8, consultar a IN 20/2020 e suas alterações. Os procedimentos de leves e pesados são distintos.',
+          refs: [
+            'ibama-in-3-2021',
+            'conama-492-2018',
+            'ibama-in-20-2020',
+            'ibama-in-18-2021',
+            'ibama-in-18-2023',
+          ],
+          powertrains: ['combustao', 'hibrido'],
+          gaps: [
+            'Percurso, instrumentação, condições e critérios dependem do procedimento aplicável; não há roteiro técnico completo neste portal.',
+          ],
+        },
+        {
+          id: 'durabilidade',
+          label: 'Durabilidade das emissões e fator FD',
+          text: 'Para durabilidade de emissões de escapamento em leves L7/L8, consultar os arts. 16 e 17 da CONAMA 492/2018. A IN 26/2020 trata de FD de evaporativas; Ki de regeneração e ISC são controles distintos. Não transferir o procedimento de leves para pesados.',
+          refs: ['conama-492-2018', 'ibama-in-26-2020', 'ibama-in-29-2020'],
+          powertrains: ['combustao', 'hibrido'],
+          gaps: [
+            'A referência técnica citada no ato não equivale à revisão integral da NBR. Agrupamento, volume, método e alternativas precisam de enquadramento.',
+          ],
+        },
+        {
+          id: 'ruido',
+          label: 'Ruído veicular',
+          text: 'Consultar o Capítulo X e o anexo da CONAMA 492/2018 para leves e o conjunto CONAMA 490/2018 / IN 20/2020 para pesados P8. Os critérios dependem de categoria, datas e configuração; ausência de escapamento não gera dispensa automática de todo requisito acústico.',
+          refs: ['conama-492-2018', 'conama-490-2018', 'ibama-in-20-2020', 'ibama-in-18-2021'],
+          powertrains: ['combustao', 'hibrido'],
+          gaps: [
+            'Não foi concluído o enquadramento acústico de cada tecnologia ou a revisão integral dos métodos. Este assunto não determina limites ou dispensa de BEV.',
           ],
         },
         {
@@ -237,17 +295,17 @@ const homologationFlowSpec = {
           refs: ['inmetro-169-2023'],
           powertrains: ['eletrico'],
           gaps: [
-            'Confirmar norma, edição, ciclos e condições de ensaio de autonomia/consumo elétrico.',
+            'Confirmar norma, edição, ciclos e condições de ensaio de autonomia/consumo elétrico. O enquadramento acústico de BEV ainda não foi concluído; não presumir dispensa.',
           ],
         },
         {
           id: 'evaporativas',
           label: 'Evaporativas e reabastecimento',
           text: 'Conferir combustível, configuração e condições dos ensaios previstos para a fase e as alterações aplicáveis.',
-          refs: ['ibama-in-3-2023', 'conama-492-2018'],
+          refs: ['ibama-in-26-2020', 'ibama-in-3-2023', 'conama-492-2018'],
           powertrains: ['combustao', 'hibrido'],
           gaps: [
-            'Inteiro teor da IN Ibama 26/2020 ainda não localizado; remissão preservada na IN 3/2023.',
+            'A IN 26/2020 foi localizada; métodos integrais das NBR, condições por combustível e cadeia exaustiva ainda precisam de revisão.',
           ],
         },
       ],
@@ -273,9 +331,38 @@ const homologationFlowSpec = {
           text: 'Conferir o licenciamento ambiental da configuração. A documentação CAT trata de comprovação ambiental para veículos com combustão interna e emissão de gases de escapamento.',
           refs: ['conama-492-2018', 'conama-490-2018', 'ibama-in-11-2014'],
           recordIds: ['senatran-095'],
+          route: '#proconve?guide=lcvm-regular',
+          consultationLinks: [
+            { label: 'Quantidades limitadas', route: '#proconve?guide=lcvm-quantidades-limitadas' },
+            { label: 'Dispensa', route: '#proconve?guide=lcvm-dispensa' },
+            { label: 'Alterações de configuração', route: '#proconve?guide=lcvm-alteracoes' },
+          ],
+          officialLinks: [
+            {
+              label: 'LCVM — serviço atual do Ibama',
+              url: 'https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-para-veiculos-motores-ou-maquinas-lcvm-proconve',
+            },
+          ],
           powertrains: ['combustao', 'hibrido'],
           gaps: [
-            'Procedimento completo de solicitação de LCVM e sua cadeia normativa ainda não estão integralmente mapeados.',
+            'Consultar a modalidade regular, quantidades limitadas, dispensa ou alteração no serviço atual. O portal não fornece lista exaustiva de documentos nem decide a modalidade individual.',
+          ],
+        },
+        {
+          id: 'importacao',
+          label: 'Importação: LCVM, limites e dispensas',
+          text: 'Consultar o procedimento ambiental pertinente à importação e à configuração. A IN 6/2025 e o serviço atual do Ibama orientam os caminhos aplicáveis; pequenas quantidades, dispensas e veículos modificados exigem conferência específica, sem dispensa presumida.',
+          refs: ['ibama-in-6-2025'],
+          powertrains: ['combustao', 'hibrido'],
+          route: '#proconve?guide=importacao-lpco',
+          officialLinks: [
+            {
+              label: 'Importação e LPCO — orientação oficial',
+              url: 'https://www.gov.br/ibama/pt-br/assuntos/notas/2025/ibama-publica-instrucao-normativa-que-consolida-os-procedimentos-de-controle-de-importacoes',
+            },
+          ],
+          gaps: [
+            'Confirmar a modalidade e os canais atuais do Ibama e do comércio exterior; este portal não decide a licença ou a dispensa individual.',
           ],
         },
         {
@@ -283,7 +370,34 @@ const homologationFlowSpec = {
           label: 'PBEV e ENCE do veículo',
           text: 'Separar participação e procedimentos do programa de eficiência, resultados de ensaio e informação ao consumidor. ENCE não substitui CAT ou LCVM.',
           refs: ['inmetro-169-2023'],
+          recordIds: ['mover-001', 'mover-002', 'mover-007'],
           route: '#inmetro?record=inmetro-169-2023',
+          relation:
+            'O PBEV tem adesão voluntária segundo sua referência; obrigações do MOVER são consultadas em instrumentos próprios. PBEV/ENCE se referem ao veículo, sem certificação de roda ou bateria como componente.',
+          gaps: [
+            'Íntegra do regulamento PBEV e métodos por tecnologia ainda pendentes de revisão. ENCE do veículo é distinta de ENCE de pneus, VIN e ETA.',
+          ],
+        },
+        {
+          id: 'corporativo',
+          label: 'Emissões corporativas e créditos — L8',
+          text: 'Consultar o controle corporativo e a gestão de créditos de emissão da fase L8, separados da aprovação de uma configuração e dos incentivos MOVER. O assunto pertence ao fabricante/importador e não a uma peça da imagem.',
+          refs: ['ibama-in-23-2022', 'ibama-in-28-2023', 'conama-492-2018'],
+          powertrains: ['combustao', 'hibrido'],
+          gaps: [
+            'Enquadramento da empresa, categorias, volumes, cálculos e datas dependem dos atos; o portal não apura créditos ou atendimento.',
+          ],
+        },
+        {
+          id: 'mover',
+          label: 'MOVER: compromissos e incentivos',
+          text: 'Separar requisitos veiculares de eficiência e segurança, compromissos empresariais e incentivos à pesquisa e desenvolvimento. A Portaria 68/2026 sucede a 43/2024 segundo o índice oficial MDIC; conferir a íntegra e as transições antes de seguir um procedimento.',
+          refs: [],
+          recordIds: ['mover-001', 'mover-002', 'mover-007', 'mover-014'],
+          route: '#mover',
+          gaps: [
+            'Íntegra da Portaria 68/2026, artigo revogador, data de efeito e transições ainda não conferidos. O índice não autoriza inferir condições de habilitação.',
+          ],
         },
       ],
     },
@@ -313,13 +427,7 @@ const homologationFlowSpec = {
           id: 'ocupantes',
           label: 'Ocupantes e estrutura',
           text: 'Separar cintos/ancoragens, airbags e requisitos de impacto. Os requisitos variam por categoria e configuração.',
-          refs: [
-            'contran-951-2022',
-            'contran-220-2007',
-            'contran-964-2022',
-            'contran-949-2022',
-            'contran-910-2022',
-          ],
+          refs: ['contran-951-2022', 'contran-964-2022', 'contran-949-2022', 'contran-910-2022'],
           vehicleComponent: 'bancos',
         },
         {
@@ -328,6 +436,16 @@ const homologationFlowSpec = {
           text: 'Conferir iluminação, vidros, limpadores e visão indireta.',
           refs: ['contran-970-2022', 'contran-960-2022', 'contran-224-2006', 'contran-966-2022'],
           vehicleComponent: 'iluminacao',
+        },
+        {
+          id: 'equipamentos',
+          label: 'Equipamentos obrigatórios por categoria',
+          text: 'Consultar a Resolução 993/2023 e suas tabelas, notas, datas e exceções. Esta é uma consulta transversal: a existência de uma peça no desenho não resolve o enquadramento do veículo inteiro.',
+          refs: ['contran-993-2023'],
+          route: '#contran?record=contran-993-2023',
+          gaps: [
+            'Conferir categoria e condições de cada equipamento no ato; não foi gerado checklist conclusivo de todo veículo.',
+          ],
         },
         {
           id: 'eletrica',
@@ -452,6 +570,22 @@ const homologationFlowSpec = {
           recordIds: ['senatran-095'],
         },
         {
+          id: 'cct',
+          label: 'CAT, CCT e canal SISCAT',
+          text: 'O CAT é a adequação do veículo à legislação de trânsito. Pela Portaria 990/2022, art. 2º, § 7º, fabricantes, importadores, encarroçadores e transformadores sem SGQ certificado nas condições do dispositivo apresentam CCT, emitido por ITL acreditada pelo Inmetro e licenciada pela SENATRAN. Não é exigência universal de CCT para todo fabricante. O art. 26 trata do SISCAT e da disponibilidade dos módulos.',
+          refs: ['contran-916-2022'],
+          recordIds: ['senatran-095'],
+          officialLinks: [
+            {
+              label: 'Solicitar CAT — serviço oficial',
+              url: 'https://www.gov.br/pt-br/servicos/emitir-certificado-de-adequacao-a-legislacao-de-transito-cat',
+            },
+          ],
+          gaps: [
+            'Confirmar o enquadramento do SGQ, a disponibilidade do módulo e o canal indicado no serviço oficial antes de protocolar.',
+          ],
+        },
+        {
           id: 'mudancas',
           label: 'Mudanças e extensões',
           text: 'Conferir como alterações de configuração afetam o código e as comprovações. Retornar às frentes técnicas quando necessário.',
@@ -524,7 +658,9 @@ const homologationFlowSpec = {
           id: 'acp',
           label: 'ACP Ibama — veículos leves',
           text: 'Consultar o sistema de Avaliação de Conformidade de Produção. A IN 5/2024 tem recorte de leves/motos; não foi convertida em ACP universal de pesados P8.',
-          refs: ['ibama-in-5-2024'],
+          refs: ['ibama-in-5-2024', 'inmetro-169-2023'],
+          relation:
+            'A IN 5/2024 relaciona o ACP básico com o PBEV. Consultar o recorte e as condições da IN; ACP não equivale à adesão ao PBEV nem à certificação de cada componente.',
           powertrains: ['combustao', 'hibrido'],
           gaps: [
             'Conferir escopo, amostragem, ensaios e exigências da configuração; a cadeia completa de COP de pesados ainda não foi fechada.',
@@ -576,13 +712,17 @@ const homologationFlowSpec = {
   ],
 };
 const HomologationFlow = {
+  matchesPowertrain(allowed, powertrain = 'todos') {
+    if (powertrain === 'todos' || !allowed) return true;
+    if (allowed.includes(powertrain)) return true;
+    if (['hev', 'phev'].includes(powertrain)) return allowed.includes('hibrido');
+    return powertrain === 'hibrido' && allowed.some((id) => ['hev', 'phev'].includes(id));
+  },
   stage(id) {
     return homologationFlowSpec.stages.find((s) => s.id === id);
   },
   activities(stage, powertrain = 'todos') {
-    return stage.activities.filter(
-      (a) => powertrain === 'todos' || !a.powertrains || a.powertrains.includes(powertrain),
-    );
+    return stage.activities.filter((a) => this.matchesPowertrain(a.powertrains, powertrain));
   },
   references(activity, records, powertrain = 'todos') {
     return [
@@ -591,10 +731,9 @@ const HomologationFlow = {
           .filter(
             (r) =>
               ((activity.refs || []).includes(r.regulatoryId) ||
-                (activity.recordIds || []).includes(r.id)) &&
-              (powertrain === 'todos' ||
-                !activity.referencePowertrains?.[r.regulatoryId] ||
-                activity.referencePowertrains[r.regulatoryId].includes(powertrain)),
+                (activity.recordIds || []).some((id) => id === r.id || r.aliases?.includes(id))) &&
+              r.publication?.included !== false &&
+              this.matchesPowertrain(activity.referencePowertrains?.[r.regulatoryId], powertrain),
           )
           .map((r) => [r.regulatoryId || r.id, r]),
       ).values(),
@@ -607,7 +746,7 @@ const homologationSourceOverrides = {
   'senatran-095': {
     officialUrl:
       'https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf',
-    reviewDate: '2026-10-18',
+    reviewDate: '2026-10-19',
     availability:
       'PDF oficial conferido para os vínculos desta etapa; cadeia integral de alterações ainda não certificada.',
     uncertaintyNotes: [

@@ -1,4 +1,78 @@
 'use strict';
+function catalogIdentity(record) {
+  return record.regulatoryId || record.id;
+}
+
+// Keep the original entries addressable, but present each act once. Array-valued
+// associations belong to the act and must survive reconciliation of legacy IDs.
+function canonicalCatalogRecords(records) {
+  const acts = new Map();
+  for (const record of records) {
+    if (record.publication?.included === false) continue;
+    const identity = catalogIdentity(record);
+    if (!identity) continue;
+    const previous = acts.get(identity);
+    const merged = { ...(previous || record) };
+    if (previous) {
+      for (const [field, value] of Object.entries(record)) {
+        if (!Array.isArray(value)) continue;
+        const values = [...(previous[field] || []), ...value];
+        merged[field] = [...new Map(values.map((item) => [JSON.stringify(item), item])).values()];
+      }
+    }
+    merged.aliases = [
+      ...new Set(
+        [
+          ...(previous?.aliases || []),
+          ...(record.aliases || []),
+          identity,
+          record.id,
+          ...(record.catalogRecordIds || []),
+        ].filter(Boolean),
+      ),
+    ];
+    merged.catalogEntryIds = [
+      ...new Set([
+        ...(previous?.catalogEntryIds || []),
+        ...(record.catalogEntryIds || [record.id]),
+      ]),
+    ];
+    const contexts = [
+      ...(previous?.catalogEntryContexts || []),
+      ...(record.catalogEntryContexts || [
+        Object.fromEntries(
+          [
+            'id',
+            'stages',
+            'taxonomy',
+            'vehicleLinks',
+            'scope',
+            'legalApplicability',
+            'applicability',
+          ]
+            .filter((field) => record[field] !== undefined)
+            .map((field) => [field, record[field]]),
+        ),
+      ]),
+    ];
+    merged.catalogEntryContexts = [
+      ...new Map(contexts.map((context) => [JSON.stringify(context), context])).values(),
+    ];
+    acts.set(identity, merged);
+  }
+  return [...acts.values()];
+}
+
+function catalogRecords(source) {
+  return source.canonicalRecords || canonicalCatalogRecords(source.records || []);
+}
+
+function catalogRecord(source, id) {
+  const matches = (record) =>
+    record.id === id || catalogIdentity(record) === id || record.aliases?.includes(id);
+  return catalogRecords(source).find(matches) || source.records?.find(matches);
+}
+
 function contranReference(record) {
   const match = norm(record.title).match(/contran\s*(?:n[º°o]?\s*)?(\d+)[./](\d{2,4})\b/);
   if (!match) return '';
@@ -40,20 +114,29 @@ function installActiveRegulations(base) {
     summary: source.subject,
     status: source.statusLabel,
     officialUrl: source.officialUrl,
-    reviewDate: regulatoryData[source.regulatorySource].metadata.asOf,
+    reviewDate:
+      source.reviewStatus?.reviewedAt ||
+      source.reviewedAt ||
+      regulatoryData[source.regulatorySource].metadata.asOf,
     taxonomy: taxonomy(source),
     componentLabels: source.vehicleLinks
       .map((x) => ComponentFlow.component(x.componentId)?.label)
       .filter(Boolean),
     stages: old.stages || [source.regulatorySource === 'proconve' ? 'emissoes' : 'seguranca'],
     legalApplicability: `${source.phases?.length ? 'Fase(s) PROCONVE: ' + source.phases.join(' / ') + '. ' : ''}Aplicação condicionada à categoria, configuração, combustível, datas e dispositivos do ato.`,
-    availability: 'Fonte oficial e cadeia normativa vinculadas ao acervo ativo.',
+    availability:
+      source.reviewStatus?.summary || 'Fonte oficial localizada. Confira os limites da revisão.',
     classificationBasis:
       source.classificationBasis ||
       'Vínculo temático no índice; abrir a fonte e conferir o enquadramento.',
     amendingRefs: source.relationships.filter((x) => x.kind !== 'referencia').map((x) => x.label),
     uncertaintyNotes: source.notes,
-    officialAudit: { reviewDate: regulatoryData[source.regulatorySource].metadata.asOf },
+    officialAudit: {
+      reviewDate:
+        source.reviewStatus?.reviewedAt ||
+        source.reviewedAt ||
+        regulatoryData[source.regulatorySource].metadata.asOf,
+    },
     regulatoryId: source.id,
     regulatorySource: source.regulatorySource,
     regulatoryDomain: source.regulatoryDomain || 'safety',
@@ -67,6 +150,11 @@ function installActiveRegulations(base) {
     reviewStatus: source.reviewStatus,
     applicability: source.applicability,
     publication: source.publication,
+    consultation: source.consultation,
+    consultationTracks: source.consultationTracks || [],
+    consultationTopics: source.consultationTopics || [],
+    temporalFlags: source.temporalFlags || [],
+    reviewMetadata: source.reviewMetadata,
     topics: source.topics || [],
   });
   const records = base.records
@@ -82,14 +170,17 @@ function installActiveRegulations(base) {
   for (const source of all)
     if (!records.some((r) => r.regulatoryId === source.id))
       records.push(adapt(source, 'official-' + source.id));
+  const canonicalRecords = canonicalCatalogRecords(records);
   return {
     ...base,
     metadata: {
       ...base.metadata,
-      recordCount: records.length,
-      countCaveat: `${records.length} referências do acervo de consulta, incluindo atos ativos relacionados.`,
+      recordCount: canonicalRecords.length,
+      documentaryEntryCount: records.length,
+      countCaveat: `${canonicalRecords.length} referências canônicas do acervo de consulta.`,
     },
     records,
+    canonicalRecords,
   };
 }
 
@@ -144,3 +235,12 @@ function activeVehicleSourceLinks(component, subsystem, partId) {
     .filter(Boolean)
     .join(' · ');
 }
+
+if (typeof module !== 'undefined' && module.exports)
+  module.exports = {
+    catalogIdentity,
+    canonicalCatalogRecords,
+    catalogRecords,
+    catalogRecord,
+    installActiveRegulations,
+  };

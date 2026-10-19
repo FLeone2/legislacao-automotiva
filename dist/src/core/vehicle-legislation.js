@@ -59,6 +59,10 @@ const VehicleLegislation = (() => {
           !laneIds.includes(topic.lane) ||
           !Array.isArray(topic.links) ||
           (topic.gaps !== undefined && !Array.isArray(topic.gaps)) ||
+          (topic.gapReview &&
+            !['research_pending', 'no_specific_reference_in_collection', 'not_classified'].includes(
+              topic.gapReview.state,
+            )) ||
           topicIds.has(topicId)
         )
           throw new TypeError('Invalid or duplicate vehicle legislation topic');

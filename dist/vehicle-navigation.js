@@ -195,12 +195,23 @@ function initializeComponentTree(c, q) {
         (t.gaps || []).forEach((gap, i) =>
           leaves.push({
             id: `${id}:gap:${i}`,
-            label: 'Mapeamento pendente',
+            label:
+              t.gapReview?.state === 'no_specific_reference_in_collection'
+                ? 'Sem referência neste acervo'
+                : t.gapReview?.state === 'not_classified'
+                  ? 'Classificação pendente'
+                  : 'Pesquisa pendente',
             subtitle: gap,
             icon: '!',
-            kind: 'Lacuna do acervo',
+            kind: t.gapReview?.summary || 'Lacuna do acervo',
             recordIds: [],
-            text: gap,
+            text: [
+              gap,
+              t.gapReview?.reviewedAt ? `Conferência do recorte: ${t.gapReview.reviewedAt}.` : '',
+              t.gapReview?.nextAction || '',
+            ]
+              .filter(Boolean)
+              .join(' '),
           }),
         );
         if (!leaves.length)
@@ -324,6 +335,7 @@ function renderVehicleFlow() {
       )}</div><section class="graph-shell component-graph" aria-label="Fluxograma de normas de ${esc(part?.label || c.label)}">${graphMarkup(model, ui)}</section><div class="tree-footer"><span>Abra um assunto para consultar suas referências.</span><button data-graph-action="reset">Recolher</button></div><p class="contran-component-link">${activeVehicleSourceLinks(c, sub, part?.id)}</p><p class="scope-note">Associação para consulta. Confira escopo, configuração e datas na fonte oficial.</p>`;
   renderTreeDetails();
   setupGraph();
+  $('#main').dataset.renderedRoute = location.hash;
 }
 function vehiclePartTopicNavigation(component, part, subsystemId) {
   const all = vehicleLink(component);

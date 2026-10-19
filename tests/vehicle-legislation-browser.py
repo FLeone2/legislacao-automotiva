@@ -142,7 +142,6 @@ async def main(base):
             }))"""
         )
         assert len(parts) == 37
-        assert sum(len(part["topics"]) for part in parts) == 86
         by_id = {part["id"]: part for part in parts}
         total_topics = 0
         timings = []
@@ -221,7 +220,7 @@ async def main(base):
             assert params(page)["part"] == part["id"]
 
             # Exercise representative cross-topic, domain and requirement branches.
-            # All 86 card targets and the complete 37 part trees were checked above.
+            # All reviewed card targets and all 37 complete part trees were checked above.
             for actual in topics:
                 if actual["id"] not in representative_topics.get(part["id"], set()):
                     continue
@@ -246,7 +245,7 @@ async def main(base):
                 await page.locator("[data-vehicle-back]").click()
                 await wait_for_route(page)
             print("Checked explicit map for " + part["id"], flush=True)
-        assert total_topics == 86
+        assert total_topics == sum(len(part["topics"]) for part in parts)
 
         # Distinct physical objects never acquire their sibling's legislation.
         for number, wanted, unwanted in [
@@ -265,12 +264,15 @@ async def main(base):
             )
             acts, _ = await assert_explicit_tree(page, part)
             assert wanted in acts and unwanted not in acts
+            assert "contran-220-2007" not in acts
 
         battery = by_id["peca_27_bateria_12v"]
         await visit(page, base, "#vehicle?component=eletrica&part=" + battery["id"])
         acts, requirements = await assert_explicit_tree(page, battery)
         assert acts == {"inmetro-145-2022"}
-        assert requirements == {"inmetro-145-2022:req:06"}
+        assert requirements == {
+            f"inmetro-145-2022:req:{number:02}" for number in (6, 11, 12, 13, 14)
+        }
         saved = page.url
         await page.reload()
         await wait_for_route(page)
@@ -295,7 +297,24 @@ async def main(base):
             )
             acts, requirements = await assert_explicit_tree(page, part)
             assert not acts and not requirements
-            await expect(page.locator("#aiPanel")).to_contain_text("pendente")
+            for topic in part["topics"]:
+                assert (
+                    topic["gapReview"]["state"] == "no_specific_reference_in_collection"
+                )
+                assert topic["gapReview"]["reviewedAt"]
+            await page.locator('.node-main[data-tree-node$=":gap:0"]').click()
+            await wait_for_route(page)
+            await expect(page.locator("#aiPanel")).to_contain_text(
+                "Sem referência neste acervo"
+            )
+            await expect(page.locator("#aiPanel")).to_contain_text(
+                "Conferência do recorte: "
+                + part["topics"][0]["gapReview"]["reviewedAt"]
+            )
+            await expect(page.locator("#aiPanel")).to_contain_text(
+                "Zero documentos não significa isenção"
+            )
+            await expect(page.locator("#aiPanel .tree-doc")).to_have_count(0)
 
         # The body can reach VIN even though that taxonomy belongs to another system.
         body = by_id["peca_10_carroceria"]
@@ -378,7 +397,7 @@ async def main(base):
         print("Existing-click timings: " + json.dumps(timings), flush=True)
         await browser.close()
     print(
-        "PASS: 37 graphical selections, 86 explicit subjects, scoped tree/requirements, component versus vehicle context, 12 V/HV, empty radiator/harness, body/VIN, part library, voluntary program and unknown-part guards.",
+        f"PASS: {len(parts)} graphical selections, {total_topics} explicit subjects, scoped tree/requirements, component versus vehicle context, 12 V/HV, empty radiator/harness, body/VIN, part library, voluntary program and unknown-part guards.",
         flush=True,
     )
 

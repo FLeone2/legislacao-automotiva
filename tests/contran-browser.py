@@ -1,4 +1,6 @@
-import asyncio, os, json
+import asyncio
+import os
+import json
 from pathlib import Path
 from playwright.async_api import async_playwright
 from browser_support import launch_options, wait_for_route
@@ -23,6 +25,7 @@ async def main():
         errors = []
         page.on("pageerror", lambda e: errors.append(str(e)))
         m = json.loads((ROOT / "data/contran/active.json").read_text())["metadata"]
+        environmental = json.loads((ROOT / "data/proconve/active.json").read_text())
         await page.goto(BASE + "#contran")
         await ready(page)
         assert (
@@ -67,6 +70,11 @@ async def main():
             await page.goto(BASE + "#contran?scope=all&record=" + key)
             await page.locator(".contran-records .empty").wait_for()
             assert await page.locator(".contran-record").count() == 0
+        await page.goto(BASE + "#contran?record=contran-220-2007")
+        await wait_for_route(page)
+        assert "#history?agency=contran&record=contran-220-2007" in page.url
+        assert await page.locator(".contran-record").count() == 0
+        assert "Fora da consulta atual" in await page.locator("#main").inner_text()
         await page.goto(BASE + "#contran?scope=current&q=termo-sem-correspondencia-xyz")
         await page.locator(".contran-records .empty").wait_for()
         await page.locator(".empty [data-contran-clear]").click()
@@ -79,6 +87,10 @@ async def main():
             await page.locator('a[download][href$="active.csv"]').click()
         download = await pending.value
         assert download.suggested_filename == "active.csv"
+        assert (
+            "Acervo completo"
+            in await page.locator('a[download][href$="active.csv"]').inner_text()
+        )
         # Real navigation from a vehicle system and from an existing catalogue reference.
         await page.goto(BASE + "#vehicle?component=bancos")
         await page.locator(".component-graph").wait_for()
@@ -103,7 +115,10 @@ async def main():
         )
         await page.goto(BASE + "#proconve?phase=L8")
         await ready(page)
-        assert "19 resultados" in await page.locator("#contranResultCount").inner_text()
+        assert (
+            f"{environmental['metadata']['phaseCounts']['L8']} resultados"
+            in await page.locator("#contranResultCount").inner_text()
+        )
         assert (
             await page.locator('[data-contran-record="ibama-in-20-2025"]').count() == 1
         )
@@ -112,7 +127,10 @@ async def main():
         )
         await page.goto(BASE + "#proconve?phase=P8")
         await ready(page)
-        assert "6 resultados" in await page.locator("#contranResultCount").inner_text()
+        assert (
+            f"{environmental['metadata']['phaseCounts']['P8']} resultados"
+            in await page.locator("#contranResultCount").inner_text()
+        )
         assert (
             await page.locator('[data-contran-record="ibama-in-20-2020"]').count() == 1
         )
@@ -128,8 +146,18 @@ async def main():
         )
         await page.goto(BASE + "#proconve?component=tanque")
         await ready(page)
-        assert "4 resultados" in await page.locator("#contranResultCount").inner_text()
-        await page.locator(".regulatory-context a").click()
+        tank_count = sum(
+            any(link["componentId"] == "tanque" for link in record["vehicleLinks"])
+            for record in environmental["records"]
+        )
+        assert (
+            f"{tank_count} resultados"
+            in await page.locator("#contranResultCount").inner_text()
+        )
+        assert (
+            await page.locator('[data-contran-record="ibama-in-26-2020"]').count() == 1
+        )
+        await page.locator('.regulatory-context a[href^="#vehicle"]').click()
         await page.locator(".component-graph").wait_for()
         assert "component=tanque" in page.url
         await page.goto(BASE + "#vehicle?component=motor&lane=ambiental")

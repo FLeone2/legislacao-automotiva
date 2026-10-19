@@ -2,12 +2,17 @@
 """Build the site's active collection; retain evidence/history separately in Git."""
 
 import csv
+from copy import deepcopy
+import datetime as dt
+import gzip
 import json
 import re
+import unicodedata
 from collections import Counter
 from pathlib import Path
 from map_contran import ROOT, normalized, write_json
 from regulatory_contract import apply_contract
+import build_contran_map
 
 CATEGORIES = {
     "habilitacao": {
@@ -45,6 +50,10 @@ CATEGORIES = {
     "emissoes-corporativas": {
         "label": "Emissões corporativas e créditos",
         "description": "Metas corporativas, gestão de créditos, relatórios e obrigações do fabricante.",
+    },
+    "equipamentos-obrigatorios": {
+        "label": "Equipamentos obrigatórios",
+        "description": "Tabelas por categoria, condições e remissões aos sistemas do veículo.",
     },
 }
 COMPONENTS = {
@@ -259,6 +268,9 @@ def write_csv(path, records):
         "reviewStatus",
         "applicability",
         "publication",
+        "consultationTopics",
+        "consultation",
+        "temporalFlags",
     ]
     with path.open("w", newline="", encoding="utf-8-sig") as f:
         w = csv.DictWriter(f, fieldnames=fields, lineterminator="\n")
@@ -274,7 +286,161 @@ def write_csv(path, records):
             )
 
 
+def evidence_text(value):
+    return re.sub(r"\s+", " ", unicodedata.normalize("NFKC", value)).strip()
+
+
+def validate_consultation(editorial, snapshots):
+    """Require inspectable sources for each newly reviewed excerpt and milestone."""
+
+    def validate_source(source):
+        snapshot = snapshots[source["sourceKey"]]
+        url = source.get("url", source.get("sourceUrl"))
+        if url != snapshot["url"] or not url.startswith("https://www.gov.br/"):
+            raise ValueError("Consultation source differs from official snapshot")
+        if source.get("sha256", snapshot["sha256"]) != snapshot["sha256"]:
+            raise ValueError("Consultation source hash differs from snapshot")
+        if not source.get("clause"):
+            raise ValueError("Missing reviewed clause")
+        quoted = evidence_text(source["excerpt"])
+        if not quoted or quoted not in evidence_text(snapshot["text"]):
+            raise ValueError("Consultation excerpt differs from preserved source")
+
+    for entry in [
+        *editorial["records"].values(),
+        *editorial.get("externalRecords", {}).values(),
+    ]:
+        refs = entry["consultation"]["sources"]
+        for source in refs:
+            validate_source(source)
+        ids = set()
+        for requirement in entry.get("requirements", []):
+            if requirement["id"] in ids:
+                raise ValueError("Duplicate consultation requirement ID")
+            ids.add(requirement["id"])
+            validate_source(
+                {
+                    "sourceKey": requirement["sourceKey"],
+                    "url": requirement["sourceUrl"],
+                    "clause": requirement["clause"],
+                    "excerpt": requirement["evidence"],
+                }
+            )
+        for phase in entry.get("applicationPhases", []):
+            dt.date.fromisoformat(phase["date"])
+            if (
+                phase["kind"] != "obligation_milestone"
+                or not phase["scope"]["conditions"]
+            ):
+                raise ValueError("Milestone requires scope and conditions")
+            validate_source(phase["source"])
+            if modifier := phase["source"].get("amendingSource"):
+                validate_source(modifier)
+    for entry in editorial.get("historicalRecords", {}).values():
+        dt.date.fromisoformat(entry["effectiveDate"])
+        for source in entry["sources"]:
+            validate_source(source)
+
+
+def enrich_consultation(record, entry):
+    """Add directed consultation content without deciding vehicle applicability."""
+    if not entry:
+        return record
+    record = deepcopy(record)
+    record["consultation"] = deepcopy(entry["consultation"])
+    record["consultationTopics"] = entry["consultationTopics"][:]
+    record["topics"] = sorted(
+        set(record.get("topics", []) + entry["consultationTopics"])
+    )
+    record["requirements"] = record.get("requirements", []) + deepcopy(
+        entry.get("requirements", [])
+    )
+    ids = [q["id"] for q in record["requirements"]]
+    if len(ids) != len(set(ids)):
+        raise ValueError("Consultation enrichment duplicates an editorial requirement")
+    phases = deepcopy(entry.get("applicationPhases", []))
+    record["applicability"]["phases"] = phases
+    record["applicability"]["conditions"] = entry["consultation"]["conditions"][:]
+    record["temporalFlags"] = record.get("temporalFlags", []) + phases
+    record["reviewMetadata"] = deepcopy(entry["reviewMetadata"])
+    record["reviewStatus"]["reviewedAt"] = entry["reviewMetadata"]["reviewedAt"]
+    record["reviewStatus"]["reviewScope"] = entry["reviewMetadata"]["reviewScope"]
+    record["reviewStatus"]["amendmentChainReviewed"] = False
+    if "generalCategories" in entry:
+        if record["vehicleLinks"]:
+            raise ValueError(
+                "Transverse category cannot silently overwrite a component"
+            )
+        record["generalCategories"] = entry["generalCategories"][:]
+    return record
+
+
+def historical_records(inventory, editorial):
+    """Only explicitly reviewed historical fiches; never expose the 55 exclusions."""
+    originals = {record["id"]: record for record in inventory["records"]}
+    result = []
+    for key, entry in editorial.get("historicalRecords", {}).items():
+        original = originals[key]
+        if original["status"] != "revogada" or original["currentIndication"]:
+            raise ValueError(
+                "Historical record must first be removed from current acts"
+            )
+        result.append(
+            {
+                "id": key,
+                "title": f"Resolução CONTRAN {original['number']}/{original['year']}",
+                "subject": original["subject"],
+                "issuer": "CONTRAN",
+                "regulatoryId": key,
+                "regulatorySource": "contran",
+                "historyOnly": True,
+                "officialUrl": original["officialUrl"],
+                "active": False,
+                "currentIndication": False,
+                "status": "revogada",
+                "statusLabel": "Revogada — consulta histórica",
+                "effectiveDate": entry["effectiveDate"],
+                "publication": {
+                    "included": False,
+                    "reason": "revogacao_expressa_revisada",
+                    "policySource": "data/contran/reviewed-effects.json",
+                },
+                "historicalPublication": {
+                    "included": True,
+                    "scope": "historical_record_only",
+                },
+                "legalStatus": {
+                    "state": "repealed",
+                    "asOf": editorial["reviewDate"],
+                    "effectiveDate": entry["effectiveDate"],
+                    "basis": entry["summary"],
+                },
+                "reviewStatus": {
+                    "state": "directed_text_review",
+                    "reviewedAt": editorial["reviewDate"],
+                    "fullTextReviewed": None,
+                    "amendmentChainReviewed": False,
+                    "reviewScope": "Efeito de revogação e data, pelos dispositivos citados.",
+                },
+                "sourceIndexAnnotation": original["sourceStatus"],
+                "sourceIndexWarning": "Anotação histórica do índice superada pela cadeia de revogação revisada.",
+                **deepcopy(entry),
+            }
+        )
+    return {
+        "metadata": {
+            "asOf": editorial["reviewDate"],
+            "scope": "Fichas históricas dirigidas, separadas da consulta atual.",
+            "recordCount": len(result),
+        },
+        "records": result,
+    }
+
+
 def main():
+    # Offline regeneration is part of the normal build. New reviewed legal effects
+    # cannot depend on someone remembering a second, unpublished build command.
+    build_contran_map.main()
     directory = ROOT / "data/contran"
     data = json.loads((directory / "inventory.json").read_text())
     policy = json.loads((directory / "publication-policy.json").read_text())
@@ -282,6 +448,10 @@ def main():
     active = []
     decisions = []
     markings = json.loads((ROOT / "data/markings/reviewed.json").read_text())["records"]
+    consultation = json.loads((directory / "reviewed-consultation.json").read_text())
+    with gzip.open(directory / "sources/evidence.json.gz", "rt") as source_file:
+        consultation_sources = json.load(source_file)["sources"]
+    validate_consultation(consultation, consultation_sources)
     for original in data["records"]:
         reason = exclusion(original, policy, indexed)
         decisions.append(
@@ -318,10 +488,16 @@ def main():
             set(r["systems"] + [x["systemId"] for x in r["vehicleLinks"]])
         )
         r["generalCategories"] = [] if r["vehicleLinks"] else general_categories(r)
-        active.append(apply_contract(r, "contran", policy["reviewDate"]))
+        active.append(
+            enrich_consultation(
+                apply_contract(r, "contran", policy["reviewDate"]),
+                consultation["records"].get(r["id"]),
+            )
+        )
     metadata = {
         **data["metadata"],
         "publicationDate": policy["reviewDate"],
+        "consultationReviewDate": consultation["reviewDate"],
         "activeCount": len(active),
         "recordCount": len(active),
         "categoryLabels": {k: v["label"] for k, v in CATEGORIES.items()},
@@ -335,6 +511,7 @@ def main():
     }
     write_json(directory / "active.json", {"metadata": metadata, "records": active})
     write_csv(directory / "active.csv", active)
+    write_json(directory / "historical.json", historical_records(data, consultation))
     write_json(
         directory / "publication-decisions.json",
         {"reviewDate": policy["reviewDate"], "decisions": decisions},

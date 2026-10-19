@@ -18,7 +18,8 @@
       "homologacao": "Homologação e conformidade",
       "gestao-normativa": "Gestão normativa",
       "regras-gerais": "Enquadramento e regras gerais",
-      "emissoes-corporativas": "Emissões corporativas e créditos"
+      "emissoes-corporativas": "Emissões corporativas e créditos",
+      "equipamentos-obrigatorios": "Equipamentos obrigatórios"
     },
     "publicationPolicy": "Consulta dirigida aos atos atuais localizados nas fontes oficiais, com alterações vinculadas; referências revogadas ficam somente na auditoria. Não afirma que todo equipamento de áudio precise de homologação.",
     "limits": [
@@ -115,7 +116,8 @@
         "gaps": [
           "Art.2º fixa 06/10/2026 para incisoIII doart.11; data já passada no recorte 18/10/2026. Não apresentar essa exigência como futura.",
           "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
-        ]
+        ],
+        "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
       },
       "applicability": {
         "state": "requires_assessment",
@@ -202,7 +204,8 @@
         "reviewedAt": "2026-10-18",
         "gaps": [
           "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
-        ]
+        ],
+        "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
       },
       "applicability": {
         "state": "requires_assessment",
@@ -292,7 +295,8 @@
         "gaps": [
           "Vigente desde 25/05/2026; revogaAto 4.521/2021. Aplicação por finalidade e modalidade de importação, não copiar procedimento anterior.",
           "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
-        ]
+        ],
+        "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
       },
       "applicability": {
         "state": "requires_assessment",
@@ -426,7 +430,8 @@
         "gaps": [
           "Envolve radares/sensores, redes de dados e procedimentos; aplicar apenas a seção pertinente ao produto.",
           "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
-        ]
+        ],
+        "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
       },
       "applicability": {
         "state": "requires_assessment",
@@ -524,7 +529,8 @@
         "gaps": [
           "Aplicação mandatória desde 13/08/2025; verificar a tecnologia suportada pelo módulo automotivo.",
           "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
-        ]
+        ],
+        "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
       },
       "applicability": {
         "state": "requires_assessment",
@@ -643,7 +649,8 @@
         "gaps": [
           "Art.1º revoga o parágrafo único do art.63 da 715; o caput identificador permanece.",
           "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
-        ]
+        ],
+        "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
       },
       "applicability": {
         "state": "requires_assessment",
@@ -739,7 +746,8 @@
         "gaps": [
           "Art.2º revoga apenas os capítulos de definições das Resoluções 715/2019 e 680/2017, não o conjunto integral das duas resoluções.",
           "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
-        ]
+        ],
+        "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
       },
       "applicability": {
         "state": "requires_assessment",
@@ -852,7 +860,8 @@
         "gaps": [
           "Em vigor desde 06/04/2025. Não transformar regra de nova certificação em obrigação universal de substituir todas as unidades antigas.",
           "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
-        ]
+        ],
+        "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
       },
       "applicability": {
         "state": "requires_assessment",
@@ -957,7 +966,8 @@
         "gaps": [
           "Mandatório desde 14/10/2024. Revoga 5.159/2022 e 3.481/2019; estes não integrarão o acervo ativo.",
           "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
-        ]
+        ],
+        "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
       },
       "applicability": {
         "state": "requires_assessment",
@@ -1062,7 +1072,8 @@
         "gaps": [
           "Aplicação mandatória após um ano da publicação em 27/12/2022; revoga o Ato 950/2018 após o mesmo prazo.",
           "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
-        ]
+        ],
+        "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
       },
       "applicability": {
         "state": "requires_assessment",
@@ -1158,7 +1169,8 @@
         "reviewedAt": "2026-10-18",
         "gaps": [
           "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
-        ]
+        ],
+        "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
       },
       "applicability": {
         "state": "requires_assessment",
@@ -1256,7 +1268,8 @@
         "gaps": [
           "Ler com alterações do 14.158/2025; os procedimentos dependem da tecnologia e faixa efetivamente empregadas.",
           "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
-        ]
+        ],
+        "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
       },
       "applicability": {
         "state": "requires_assessment",
@@ -1360,7 +1373,8 @@
         "gaps": [
           "Prorrogação histórica do art.2º do 4088 já esgotada; conservar as alterações de conteúdo aplicáveis e consultar a redação atual do procedimento.",
           "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
-        ]
+        ],
+        "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
       },
       "applicability": {
         "state": "requires_assessment",
@@ -1458,7 +1472,8 @@
         "gaps": [
           "A existência de regulamentação de 6 GHz não autoriza toda forma de instalação automotiva. Verificar classe, banda, potência e restrições de uso na redação vigente.",
           "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
-        ]
+        ],
+        "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
       },
       "applicability": {
         "state": "requires_assessment",
@@ -1563,7 +1578,8 @@
         "gaps": [
           "Texto da lista atualizado em 28/04/2026. Famílias de baterias estacionárias e telas educacionais não tornam essas normas automaticamente aplicáveis a baterias de tração ou a telas automotivas.",
           "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
-        ]
+        ],
+        "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
       },
       "applicability": {
         "state": "requires_assessment",
@@ -1658,7 +1674,8 @@
         "reviewedAt": "2026-10-18",
         "gaps": [
           "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
-        ]
+        ],
+        "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
       },
       "applicability": {
         "state": "requires_assessment",
@@ -1815,7 +1832,8 @@
           "Ler a marcação/importação em conjunto com Res 780/2025 e procedimento de importação 18.086/2025; não considerar automaticamente vigente obrigação antiga de marcação prévia à entrada no País sem a regra atual.",
           "Ato 5.701/2021 altera transição e acrescenta regramento. Ato 2.221/2020 revogado não é a base ativa.",
           "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
-        ]
+        ],
+        "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
       },
       "applicability": {
         "state": "requires_assessment",
@@ -1928,7 +1946,8 @@
           "Aplicação depende de funcionar como estação terminal de acesso. Considerar atualizações 14.430/2024 e 2.105/2025 e requisitos referenciados deEMC, segurança elétrica e exposição humana.",
           "A referência histórica ao Ato 950/2018 deve ser lida com sua revogação pelo Ato 17.087/2022; este último contém a base atual de segurança elétrica.",
           "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
-        ]
+        ],
+        "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
       },
       "applicability": {
         "state": "requires_assessment",
@@ -2072,7 +2091,8 @@
           "Rádio AM/FM exclusivamente receptor não deve ser tratado automaticamente como transceptor Wi-Fi/Bluetooth/celular: verificar funções, lista de referência e enquadramento com OCD/Anatel. Não foi localizada nesta coleta norma específica que imponha homologação indiscriminada a todo receptor AM/FM puro.",
           "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável.",
           "A homologação de um módulo não foi tratada como dispensa automática para todo equipamento final; a integração deve ser conferida segundo a configuração e o procedimento aplicável."
-        ]
+        ],
+        "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
       },
       "applicability": {
         "state": "requires_assessment",
@@ -2175,7 +2195,8 @@
         "reviewedAt": "2026-10-18",
         "gaps": [
           "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
-        ]
+        ],
+        "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
       },
       "applicability": {
         "state": "requires_assessment",
@@ -2317,7 +2338,8 @@
           "Texto base não incorpora toda atualização de 2025/2026: leitura obrigatória com 14.158/2025 e 4.746/2026.",
           "Não inferir frequência de chave ouTPMS sem especificação do fabricante. Não tratar receptor puro como emissor.",
           "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
-        ]
+        ],
+        "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
       },
       "applicability": {
         "state": "requires_assessment",
@@ -2430,7 +2452,8 @@
         "gaps": [
           "Definições atualizadas pela 779/2025. Há dispositivos acessórios de outras normas revogados; consultar apenas o recorte de radiação restrita aplicável.",
           "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
-        ]
+        ],
+        "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
       },
       "applicability": {
         "state": "requires_assessment",

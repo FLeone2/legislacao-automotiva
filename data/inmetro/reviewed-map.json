@@ -1,5 +1,5 @@
 {
-  "reviewDate": "2026-10-18",
+  "reviewDate": "2026-10-19",
   "records": [
     {
       "id": "inmetro-145-2022",
@@ -11,7 +11,7 @@
       "sourceKey": "iq-1452022",
       "sourceStatus": "Referência normativa mantida em fonte oficial atual; cadeia integral de alterações não certificada nesta revisão",
       "statusEvidence": [
-        "Natureza do Regulamento: Compulsório Tipo de documento: Regulamento técnico Tipo de objeto: Produto Escopo: Componentes Automotivos Objeto: Amortecedor da suspensão;\r\n\r\nAnel de pistão;\r\n\r\nBomba elétrica de combustível para motores do Ciclo Otto;\r\n\r\nBronzina;\r\n\r\nBuzina ou equipamento similar;\r\n\r\nLâmpada para veículos automotivos;\r\n\r\nPino e anel de t"
+        "Natureza do Regulamento: Compulsório Tipo de documento: Regulamento técnico Tipo de objeto: Produto Escopo: Componentes Automotivos Objeto: Amortecedor da suspensão;\r\n\r\nAnel de pistão;\r\n\r\nBomba elétrica de combustível para motores do Ciclo Otto;\r\n\r\nBronzina;\r\n\r\nBuzina ou equipamento similar;\r\n\r\nLâmpada para veículos automotivos;\r\n\r\nPino e anel de trava (retenção);\r\n\r\nPistão de liga leve de alumínio;\r\n\r\nBaterias chumbo-ácido para veículos automotivos;\r\n\r\nTerminal de direção;\r\n\r\nBarra de direção;\r\n\r\nBarra de ligação;\r\n\r\nTerminal axial para veículos rodoviários automotores;\r\n\r\nlona para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O.\r\n\r\npastilha para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O."
       ],
       "subject": "Componentes automotivos",
       "catalogRecordIds": [
@@ -66,7 +66,7 @@
           "rule": "Objeto abrangido expressamente pelo escopo oficial; requisitos específicos de projeto, ensaios, famílias, selo e exceções dependem do anexo aplicável.",
           "clause": "Orientação oficial sobre o regulamento",
           "scope": "Amortecedor da suspensão",
-          "evidence": "Natureza do Regulamento: Compulsório Tipo de documento: Regulamento técnico Tipo de objeto: Produto Escopo: Componentes Automotivos Objeto: Amortecedor da suspensão;\r\n\r\nAnel de pistão;\r\n\r\nBomba elétrica de combustível para motores do Ciclo Otto;\r\n\r\nBronzina;\r\n\r\nBuzina ou equipamento similar;\r\n\r\nLâmpada para veículos automotivos;\r\n\r\nPino e anel de trava (retenção);\r\n\r\nPistão de liga leve de alumínio;\r\n\r\nBaterias chumbo-ácido para veículos automotivos;\r\n\r\nTerminal de direção;\r\n\r\nBarra de direção;\r\n\r\nBarra de ligação;\r\n\r\nTerminal axial para veículos rodoviários automotores;\r\n\r\nlona para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O.\r\n\r\npastilha para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O. Normas técnicas e outros documentos referenciados: ABNT NBR 15914:2018;ABNT NBR 15916:2018;ABNT NBR 15940:2019;ABNT NBR 15941:2019;ABNT NBR 13776:2021;ABNT NBR 16130:2012;ABNT NBR 5505:2019;ABNT NBR 5537:2002;ABNT NBR ISO 6310:2016;EPA/600/R-93/116:1993;Portaria Inmetro nº 200, de 2021;IATF 16949:2016;Norma ABNT NBR 13308:2014;Norma ABNT NBR 8095:2015;ABNT NBR 15754: 2017;ABNT NBR 7014:2017;ABNT NBR 5535:2011;ABNT NBR 5536:2011;ABNT NBR 15905:2017;ABNT NBR 15934:2017;ABNT NBR ISO 18669-1:2014;ABNT NBR ISO 18669-2:2010;ABNT NBR 15933:2013;ABNT NBR 16100:2013;ABNT NBR ISO 6621-2:2009;ABNT NBR ISO 6621-3:2009;ABNT NBR ISO 6621-4:2016;ABNT NBR ISO 6621-5:2014;ABNT NBR ISO 3547-1:2021;ABNT NBR ISO 3547-5:2021;ABNT NBR ISO 3547-7:2022;ABNT NBR 16127:2015;ABNT NBR ISO 3548-2:2022;ABNT NBR ISO 4379:2021;ABNT NBR ISO 4382-1:2010;ABNT NBR 16128:2015;AB",
+          "evidence": "Amortecedor da suspensão;",
           "sourceKey": "iq-1452022",
           "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022",
           "topics": [
@@ -79,7 +79,7 @@
           "rule": "Objeto abrangido expressamente pelo escopo oficial; requisitos específicos de projeto, ensaios, famílias, selo e exceções dependem do anexo aplicável.",
           "clause": "Orientação oficial sobre o regulamento",
           "scope": "Anel de pistão; pino e anel de trava; pistão de liga leve de alumínio; bronzina",
-          "evidence": "Natureza do Regulamento: Compulsório Tipo de documento: Regulamento técnico Tipo de objeto: Produto Escopo: Componentes Automotivos Objeto: Amortecedor da suspensão;\r\n\r\nAnel de pistão;\r\n\r\nBomba elétrica de combustível para motores do Ciclo Otto;\r\n\r\nBronzina;\r\n\r\nBuzina ou equipamento similar;\r\n\r\nLâmpada para veículos automotivos;\r\n\r\nPino e anel de trava (retenção);\r\n\r\nPistão de liga leve de alumínio;\r\n\r\nBaterias chumbo-ácido para veículos automotivos;\r\n\r\nTerminal de direção;\r\n\r\nBarra de direção;\r\n\r\nBarra de ligação;\r\n\r\nTerminal axial para veículos rodoviários automotores;\r\n\r\nlona para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O.\r\n\r\npastilha para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O. Normas técnicas e outros documentos referenciados: ABNT NBR 15914:2018;ABNT NBR 15916:2018;ABNT NBR 15940:2019;ABNT NBR 15941:2019;ABNT NBR 13776:2021;ABNT NBR 16130:2012;ABNT NBR 5505:2019;ABNT NBR 5537:2002;ABNT NBR ISO 6310:2016;EPA/600/R-93/116:1993;Portaria Inmetro nº 200, de 2021;IATF 16949:2016;Norma ABNT NBR 13308:2014;Norma ABNT NBR 8095:2015;ABNT NBR 15754: 2017;ABNT NBR 7014:2017;ABNT NBR 5535:2011;ABNT NBR 5536:2011;ABNT NBR 15905:2017;ABNT NBR 15934:2017;ABNT NBR ISO 18669-1:2014;ABNT NBR ISO 18669-2:2010;ABNT NBR 15933:2013;ABNT NBR 16100:2013;ABNT NBR ISO 6621-2:2009;ABNT NBR ISO 6621-3:2009;ABNT NBR ISO 6621-4:2016;ABNT NBR ISO 6621-5:2014;ABNT NBR ISO 3547-1:2021;ABNT NBR ISO 3547-5:2021;ABNT NBR ISO 3547-7:2022;ABNT NBR 16127:2015;ABNT NBR ISO 3548-2:2022;ABNT NBR ISO 4379:2021;ABNT NBR ISO 4382-1:2010;ABNT NBR 16128:2015;AB",
+          "evidence": "Amortecedor da suspensão;\r\n\r\nAnel de pistão;\r\n\r\nBomba elétrica de combustível para motores do Ciclo Otto;\r\n\r\nBronzina;\r\n\r\nBuzina ou equipamento similar;\r\n\r\nLâmpada para veículos automotivos;\r\n\r\nPino e anel de trava (retenção);\r\n\r\nPistão de liga leve de alumínio;\r\n\r\nBaterias chumbo-ácido para veículos automotivos;\r\n\r\nTerminal de direção;\r\n\r\nBarra de direção;\r\n\r\nBarra de ligação;\r\n\r\nTerminal axial para veículos rodoviários automotores;\r\n\r\nlona para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O.\r\n\r\npastilha para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O.",
           "sourceKey": "iq-1452022",
           "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022",
           "topics": [
@@ -92,7 +92,7 @@
           "rule": "Objeto abrangido expressamente pelo escopo oficial; requisitos específicos de projeto, ensaios, famílias, selo e exceções dependem do anexo aplicável.",
           "clause": "Orientação oficial sobre o regulamento",
           "scope": "Bomba elétrica de combustível para motores do ciclo Otto",
-          "evidence": "Natureza do Regulamento: Compulsório Tipo de documento: Regulamento técnico Tipo de objeto: Produto Escopo: Componentes Automotivos Objeto: Amortecedor da suspensão;\r\n\r\nAnel de pistão;\r\n\r\nBomba elétrica de combustível para motores do Ciclo Otto;\r\n\r\nBronzina;\r\n\r\nBuzina ou equipamento similar;\r\n\r\nLâmpada para veículos automotivos;\r\n\r\nPino e anel de trava (retenção);\r\n\r\nPistão de liga leve de alumínio;\r\n\r\nBaterias chumbo-ácido para veículos automotivos;\r\n\r\nTerminal de direção;\r\n\r\nBarra de direção;\r\n\r\nBarra de ligação;\r\n\r\nTerminal axial para veículos rodoviários automotores;\r\n\r\nlona para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O.\r\n\r\npastilha para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O. Normas técnicas e outros documentos referenciados: ABNT NBR 15914:2018;ABNT NBR 15916:2018;ABNT NBR 15940:2019;ABNT NBR 15941:2019;ABNT NBR 13776:2021;ABNT NBR 16130:2012;ABNT NBR 5505:2019;ABNT NBR 5537:2002;ABNT NBR ISO 6310:2016;EPA/600/R-93/116:1993;Portaria Inmetro nº 200, de 2021;IATF 16949:2016;Norma ABNT NBR 13308:2014;Norma ABNT NBR 8095:2015;ABNT NBR 15754: 2017;ABNT NBR 7014:2017;ABNT NBR 5535:2011;ABNT NBR 5536:2011;ABNT NBR 15905:2017;ABNT NBR 15934:2017;ABNT NBR ISO 18669-1:2014;ABNT NBR ISO 18669-2:2010;ABNT NBR 15933:2013;ABNT NBR 16100:2013;ABNT NBR ISO 6621-2:2009;ABNT NBR ISO 6621-3:2009;ABNT NBR ISO 6621-4:2016;ABNT NBR ISO 6621-5:2014;ABNT NBR ISO 3547-1:2021;ABNT NBR ISO 3547-5:2021;ABNT NBR ISO 3547-7:2022;ABNT NBR 16127:2015;ABNT NBR ISO 3548-2:2022;ABNT NBR ISO 4379:2021;ABNT NBR ISO 4382-1:2010;ABNT NBR 16128:2015;AB",
+          "evidence": "Bomba elétrica de combustível para motores do Ciclo Otto;",
           "sourceKey": "iq-1452022",
           "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022",
           "topics": [
@@ -105,7 +105,7 @@
           "rule": "Objeto abrangido expressamente pelo escopo oficial; requisitos específicos de projeto, ensaios, famílias, selo e exceções dependem do anexo aplicável.",
           "clause": "Orientação oficial sobre o regulamento",
           "scope": "Buzina ou equipamento similar",
-          "evidence": "Natureza do Regulamento: Compulsório Tipo de documento: Regulamento técnico Tipo de objeto: Produto Escopo: Componentes Automotivos Objeto: Amortecedor da suspensão;\r\n\r\nAnel de pistão;\r\n\r\nBomba elétrica de combustível para motores do Ciclo Otto;\r\n\r\nBronzina;\r\n\r\nBuzina ou equipamento similar;\r\n\r\nLâmpada para veículos automotivos;\r\n\r\nPino e anel de trava (retenção);\r\n\r\nPistão de liga leve de alumínio;\r\n\r\nBaterias chumbo-ácido para veículos automotivos;\r\n\r\nTerminal de direção;\r\n\r\nBarra de direção;\r\n\r\nBarra de ligação;\r\n\r\nTerminal axial para veículos rodoviários automotores;\r\n\r\nlona para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O.\r\n\r\npastilha para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O. Normas técnicas e outros documentos referenciados: ABNT NBR 15914:2018;ABNT NBR 15916:2018;ABNT NBR 15940:2019;ABNT NBR 15941:2019;ABNT NBR 13776:2021;ABNT NBR 16130:2012;ABNT NBR 5505:2019;ABNT NBR 5537:2002;ABNT NBR ISO 6310:2016;EPA/600/R-93/116:1993;Portaria Inmetro nº 200, de 2021;IATF 16949:2016;Norma ABNT NBR 13308:2014;Norma ABNT NBR 8095:2015;ABNT NBR 15754: 2017;ABNT NBR 7014:2017;ABNT NBR 5535:2011;ABNT NBR 5536:2011;ABNT NBR 15905:2017;ABNT NBR 15934:2017;ABNT NBR ISO 18669-1:2014;ABNT NBR ISO 18669-2:2010;ABNT NBR 15933:2013;ABNT NBR 16100:2013;ABNT NBR ISO 6621-2:2009;ABNT NBR ISO 6621-3:2009;ABNT NBR ISO 6621-4:2016;ABNT NBR ISO 6621-5:2014;ABNT NBR ISO 3547-1:2021;ABNT NBR ISO 3547-5:2021;ABNT NBR ISO 3547-7:2022;ABNT NBR 16127:2015;ABNT NBR ISO 3548-2:2022;ABNT NBR ISO 4379:2021;ABNT NBR ISO 4382-1:2010;ABNT NBR 16128:2015;AB",
+          "evidence": "Buzina ou equipamento similar;",
           "sourceKey": "iq-1452022",
           "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022",
           "topics": [
@@ -114,13 +114,13 @@
           "id": "inmetro-145-2022:req:04"
         },
         {
-          "title": "Lâmpada para veículos automotivos",
-          "rule": "Objeto abrangido expressamente pelo escopo oficial; requisitos específicos de projeto, ensaios, famílias, selo e exceções dependem do anexo aplicável.",
-          "clause": "Orientação oficial sobre o regulamento",
-          "scope": "Lâmpada para veículos automotivos",
-          "evidence": "Natureza do Regulamento: Compulsório Tipo de documento: Regulamento técnico Tipo de objeto: Produto Escopo: Componentes Automotivos Objeto: Amortecedor da suspensão;\r\n\r\nAnel de pistão;\r\n\r\nBomba elétrica de combustível para motores do Ciclo Otto;\r\n\r\nBronzina;\r\n\r\nBuzina ou equipamento similar;\r\n\r\nLâmpada para veículos automotivos;\r\n\r\nPino e anel de trava (retenção);\r\n\r\nPistão de liga leve de alumínio;\r\n\r\nBaterias chumbo-ácido para veículos automotivos;\r\n\r\nTerminal de direção;\r\n\r\nBarra de direção;\r\n\r\nBarra de ligação;\r\n\r\nTerminal axial para veículos rodoviários automotores;\r\n\r\nlona para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O.\r\n\r\npastilha para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O. Normas técnicas e outros documentos referenciados: ABNT NBR 15914:2018;ABNT NBR 15916:2018;ABNT NBR 15940:2019;ABNT NBR 15941:2019;ABNT NBR 13776:2021;ABNT NBR 16130:2012;ABNT NBR 5505:2019;ABNT NBR 5537:2002;ABNT NBR ISO 6310:2016;EPA/600/R-93/116:1993;Portaria Inmetro nº 200, de 2021;IATF 16949:2016;Norma ABNT NBR 13308:2014;Norma ABNT NBR 8095:2015;ABNT NBR 15754: 2017;ABNT NBR 7014:2017;ABNT NBR 5535:2011;ABNT NBR 5536:2011;ABNT NBR 15905:2017;ABNT NBR 15934:2017;ABNT NBR ISO 18669-1:2014;ABNT NBR ISO 18669-2:2010;ABNT NBR 15933:2013;ABNT NBR 16100:2013;ABNT NBR ISO 6621-2:2009;ABNT NBR ISO 6621-3:2009;ABNT NBR ISO 6621-4:2016;ABNT NBR ISO 6621-5:2014;ABNT NBR ISO 3547-1:2021;ABNT NBR ISO 3547-5:2021;ABNT NBR ISO 3547-7:2022;ABNT NBR 16127:2015;ABNT NBR ISO 3548-2:2022;ABNT NBR ISO 4379:2021;ABNT NBR ISO 4382-1:2010;ABNT NBR 16128:2015;AB",
-          "sourceKey": "iq-1452022",
-          "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022",
+          "title": "Lâmpadas de filamento e miniatura — escopo da certificação",
+          "rule": "A orientação oficial esclarece que a 145/2022 abrange lâmpadas de filamento e miniatura. LED automotivo não integra os escopos da 145/2022 nem da 231/2026. Conferir o RAC e as regras de iluminação do CONTRAN; esta exclusão não autoriza qualquer instalação ou substituição.",
+          "clause": "FAQ Inmetro, atualizada em 13/08/2026 — LED automotivo",
+          "scope": "Lâmpadas automotivas de filamento e miniatura abrangidas; LED automotivo excluído conforme orientação oficial de 13/08/2026.",
+          "evidence": "Lâmpadas LED Automotivas não fazem parte do escopo da Portaria Inmetro nº 145/2022 nem da Portaria Inmetro nº 231/2026 . A Portaria Inmetro nº 145/2022 é aplicável apenas à lâmpadas de filamento e miniatura.",
+          "sourceKey": "faq-led-automotivo-2026",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/lampadas-e-luminarias-led-portaria-inmetro-no-231-2026-fabricantes-importadores-comerciantes-e-distribuidores/lampadas-led-para-carros-precisam-de-certificacao",
           "topics": [
             "certificacao"
           ],
@@ -128,10 +128,10 @@
         },
         {
           "title": "Baterias chumbo-ácido para veículos automotivos",
-          "rule": "Objeto abrangido expressamente pelo escopo oficial; requisitos específicos de projeto, ensaios, famílias, selo e exceções dependem do anexo aplicável.",
+          "rule": "A referência abrange baterias chumbo-ácido para veículos automotivos, conforme o RAC e seu enquadramento. Não confirma certificação de baterias de tração de íons de lítio. Para importação de baterias abrangidas, consultar o Ofício Circular 5/2026; o selo e a certificação na chegada estão condicionados ao modelo 5.",
           "clause": "Orientação oficial sobre o regulamento",
           "scope": "Baterias chumbo-ácido para veículos automotivos",
-          "evidence": "Natureza do Regulamento: Compulsório Tipo de documento: Regulamento técnico Tipo de objeto: Produto Escopo: Componentes Automotivos Objeto: Amortecedor da suspensão;\r\n\r\nAnel de pistão;\r\n\r\nBomba elétrica de combustível para motores do Ciclo Otto;\r\n\r\nBronzina;\r\n\r\nBuzina ou equipamento similar;\r\n\r\nLâmpada para veículos automotivos;\r\n\r\nPino e anel de trava (retenção);\r\n\r\nPistão de liga leve de alumínio;\r\n\r\nBaterias chumbo-ácido para veículos automotivos;\r\n\r\nTerminal de direção;\r\n\r\nBarra de direção;\r\n\r\nBarra de ligação;\r\n\r\nTerminal axial para veículos rodoviários automotores;\r\n\r\nlona para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O.\r\n\r\npastilha para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O. Normas técnicas e outros documentos referenciados: ABNT NBR 15914:2018;ABNT NBR 15916:2018;ABNT NBR 15940:2019;ABNT NBR 15941:2019;ABNT NBR 13776:2021;ABNT NBR 16130:2012;ABNT NBR 5505:2019;ABNT NBR 5537:2002;ABNT NBR ISO 6310:2016;EPA/600/R-93/116:1993;Portaria Inmetro nº 200, de 2021;IATF 16949:2016;Norma ABNT NBR 13308:2014;Norma ABNT NBR 8095:2015;ABNT NBR 15754: 2017;ABNT NBR 7014:2017;ABNT NBR 5535:2011;ABNT NBR 5536:2011;ABNT NBR 15905:2017;ABNT NBR 15934:2017;ABNT NBR ISO 18669-1:2014;ABNT NBR ISO 18669-2:2010;ABNT NBR 15933:2013;ABNT NBR 16100:2013;ABNT NBR ISO 6621-2:2009;ABNT NBR ISO 6621-3:2009;ABNT NBR ISO 6621-4:2016;ABNT NBR ISO 6621-5:2014;ABNT NBR ISO 3547-1:2021;ABNT NBR ISO 3547-5:2021;ABNT NBR ISO 3547-7:2022;ABNT NBR 16127:2015;ABNT NBR ISO 3548-2:2022;ABNT NBR ISO 4379:2021;ABNT NBR ISO 4382-1:2010;ABNT NBR 16128:2015;AB",
+          "evidence": "Baterias chumbo-ácido para veículos automotivos;",
           "sourceKey": "iq-1452022",
           "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022",
           "topics": [
@@ -144,7 +144,7 @@
           "rule": "Objeto abrangido expressamente pelo escopo oficial; requisitos específicos de projeto, ensaios, famílias, selo e exceções dependem do anexo aplicável.",
           "clause": "Orientação oficial sobre o regulamento",
           "scope": "Terminal de direção; barra de direção; barra de ligação; terminal axial",
-          "evidence": "Natureza do Regulamento: Compulsório Tipo de documento: Regulamento técnico Tipo de objeto: Produto Escopo: Componentes Automotivos Objeto: Amortecedor da suspensão;\r\n\r\nAnel de pistão;\r\n\r\nBomba elétrica de combustível para motores do Ciclo Otto;\r\n\r\nBronzina;\r\n\r\nBuzina ou equipamento similar;\r\n\r\nLâmpada para veículos automotivos;\r\n\r\nPino e anel de trava (retenção);\r\n\r\nPistão de liga leve de alumínio;\r\n\r\nBaterias chumbo-ácido para veículos automotivos;\r\n\r\nTerminal de direção;\r\n\r\nBarra de direção;\r\n\r\nBarra de ligação;\r\n\r\nTerminal axial para veículos rodoviários automotores;\r\n\r\nlona para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O.\r\n\r\npastilha para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O. Normas técnicas e outros documentos referenciados: ABNT NBR 15914:2018;ABNT NBR 15916:2018;ABNT NBR 15940:2019;ABNT NBR 15941:2019;ABNT NBR 13776:2021;ABNT NBR 16130:2012;ABNT NBR 5505:2019;ABNT NBR 5537:2002;ABNT NBR ISO 6310:2016;EPA/600/R-93/116:1993;Portaria Inmetro nº 200, de 2021;IATF 16949:2016;Norma ABNT NBR 13308:2014;Norma ABNT NBR 8095:2015;ABNT NBR 15754: 2017;ABNT NBR 7014:2017;ABNT NBR 5535:2011;ABNT NBR 5536:2011;ABNT NBR 15905:2017;ABNT NBR 15934:2017;ABNT NBR ISO 18669-1:2014;ABNT NBR ISO 18669-2:2010;ABNT NBR 15933:2013;ABNT NBR 16100:2013;ABNT NBR ISO 6621-2:2009;ABNT NBR ISO 6621-3:2009;ABNT NBR ISO 6621-4:2016;ABNT NBR ISO 6621-5:2014;ABNT NBR ISO 3547-1:2021;ABNT NBR ISO 3547-5:2021;ABNT NBR ISO 3547-7:2022;ABNT NBR 16127:2015;ABNT NBR ISO 3548-2:2022;ABNT NBR ISO 4379:2021;ABNT NBR ISO 4382-1:2010;ABNT NBR 16128:2015;AB",
+          "evidence": "Terminal de direção;\r\n\r\nBarra de direção;\r\n\r\nBarra de ligação;\r\n\r\nTerminal axial para veículos rodoviários automotores;",
           "sourceKey": "iq-1452022",
           "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022",
           "topics": [
@@ -157,7 +157,7 @@
           "rule": "Objeto abrangido expressamente pelo escopo oficial; requisitos específicos de projeto, ensaios, famílias, selo e exceções dependem do anexo aplicável.",
           "clause": "Orientação oficial sobre o regulamento",
           "scope": "Lonas e pastilhas para freios de veículos M, N e O em vias públicas",
-          "evidence": "Natureza do Regulamento: Compulsório Tipo de documento: Regulamento técnico Tipo de objeto: Produto Escopo: Componentes Automotivos Objeto: Amortecedor da suspensão;\r\n\r\nAnel de pistão;\r\n\r\nBomba elétrica de combustível para motores do Ciclo Otto;\r\n\r\nBronzina;\r\n\r\nBuzina ou equipamento similar;\r\n\r\nLâmpada para veículos automotivos;\r\n\r\nPino e anel de trava (retenção);\r\n\r\nPistão de liga leve de alumínio;\r\n\r\nBaterias chumbo-ácido para veículos automotivos;\r\n\r\nTerminal de direção;\r\n\r\nBarra de direção;\r\n\r\nBarra de ligação;\r\n\r\nTerminal axial para veículos rodoviários automotores;\r\n\r\nlona para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O.\r\n\r\npastilha para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O. Normas técnicas e outros documentos referenciados: ABNT NBR 15914:2018;ABNT NBR 15916:2018;ABNT NBR 15940:2019;ABNT NBR 15941:2019;ABNT NBR 13776:2021;ABNT NBR 16130:2012;ABNT NBR 5505:2019;ABNT NBR 5537:2002;ABNT NBR ISO 6310:2016;EPA/600/R-93/116:1993;Portaria Inmetro nº 200, de 2021;IATF 16949:2016;Norma ABNT NBR 13308:2014;Norma ABNT NBR 8095:2015;ABNT NBR 15754: 2017;ABNT NBR 7014:2017;ABNT NBR 5535:2011;ABNT NBR 5536:2011;ABNT NBR 15905:2017;ABNT NBR 15934:2017;ABNT NBR ISO 18669-1:2014;ABNT NBR ISO 18669-2:2010;ABNT NBR 15933:2013;ABNT NBR 16100:2013;ABNT NBR ISO 6621-2:2009;ABNT NBR ISO 6621-3:2009;ABNT NBR ISO 6621-4:2016;ABNT NBR ISO 6621-5:2014;ABNT NBR ISO 3547-1:2021;ABNT NBR ISO 3547-5:2021;ABNT NBR ISO 3547-7:2022;ABNT NBR 16127:2015;ABNT NBR ISO 3548-2:2022;ABNT NBR ISO 4379:2021;ABNT NBR ISO 4382-1:2010;ABNT NBR 16128:2015;AB",
+          "evidence": "lona para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O.\r\n\r\npastilha para freio para veículos rodoviários automotores destinados ao uso em vias públicas, classificados nas categorias M, N e O.",
           "sourceKey": "iq-1452022",
           "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022",
           "topics": [
@@ -170,7 +170,7 @@
           "rule": "O índice oficial requer memoriais técnicos para cada componente e descreve auditoria do sistema de gestão para avaliar capacidade laboratorial e conformidade contínua da produção. A redação detalhada do RAC deve ser consultada antes de escolher modelo de certificação e ensaios.",
           "clause": "Resumo oficial Portal IQ — Requisitos para Empresa; RAC específico não extraído",
           "scope": "Fornecedores e famílias dos componentes abrangidos",
-          "evidence": "Requisitos para Empresa: O fabricante deve registrar de forma transparente os memoriais técnicos para cada componente. Seu Sistema de Gestão (que pode ser atestado pela IATF 16949 ou ISO 9001) passa por auditoria profunda avaliando a capacidade laboratorial e conformidade contínua da produção. Link: http://sistema-sil.inmetro.gov.br/rtac/RTAC002960.pdf ",
+          "evidence": "O fabricante deve registrar de forma transparente os memoriais técnicos para cada componente. Seu Sistema de Gestão (que pode ser atestado pela IATF 16949 ou ISO 9001) passa por auditoria profunda avaliando a capacidade laboratorial e conformidade contínua da produção.",
           "sourceKey": "iq-1452022",
           "sourceUrl": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022",
           "topics": [
@@ -190,19 +190,205 @@
             "certificacao"
           ],
           "id": "inmetro-145-2022:req:10"
+        },
+        {
+          "id": "inmetro-145-2022:req:11",
+          "title": "Importação de bateria chumbo-ácido: fabricação e marcações na origem",
+          "rule": "O Ofício 5/2026 orienta que o fabricante estrangeiro realize no país de origem todas as etapas de fabricação, incluindo as marcações obrigatórias. Aplica-se às baterias chumbo-ácido importadas abrangidas pela 145/2022; não é regra universal de bateria de tração.",
+          "clause": "Ofício Circular 5/2026/Dconf-Inmetro, item 1, I–II",
+          "scope": "Baterias automotivas chumbo-ácido importadas abrangidas pelo RAC",
+          "sourceKey": "oficio-circular-5-2026",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/acreditacao-reconhecimento-bpl/comunicados/dicor-alerta/2026/oficio-circular-5-2026-dconf-inmetro.pdf",
+          "evidence": "I-       Fica estabelecido como \"Fabricante\" o fabricante estrangeiro, devendo o\n                         mesmo cumprir para que todas a etapas do processo de fabricação do produto sejam\n                         realizadas no país de origem, ainda que etapas de verificação de carga e possível recarga\n                         sejam realizadas pelo importador.\n                         II -    Dessa forma, ratificamos que, todas a etapas do processo produtivo, incluindo\n                         marcações obrigatórias, deverão ser realizadas no país de origem, devendo a bateria\n                         chegar ao solo brasileiro com Selo e devidamente certificada (quando utilizado o\n                         modelo 5 de certificação).",
+          "evidenceKind": "official_guidance",
+          "documentKind": "official_guidance_document",
+          "reviewStatus": {
+            "state": "directed_text_review",
+            "fullTextReviewed": false,
+            "amendmentChainReviewed": false,
+            "reviewScope": "quoted_provisions_only",
+            "reviewedAt": "2026-10-19"
+          },
+          "topics": [
+            "certificacao"
+          ]
+        },
+        {
+          "id": "inmetro-145-2022:req:12",
+          "title": "Importação de bateria chumbo-ácido: selo e certificação no modelo 5",
+          "rule": "Quando utilizado o modelo 5 de certificação, a bateria abrangida deve chegar ao Brasil com selo e devidamente certificada. A condição não se estende automaticamente a qualquer bateria instalada em veículo importado.",
+          "clause": "Ofício Circular 5/2026/Dconf-Inmetro, item 1, II",
+          "scope": "Baterias chumbo-ácido importadas; quando utilizado o modelo 5",
+          "sourceKey": "oficio-circular-5-2026",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/acreditacao-reconhecimento-bpl/comunicados/dicor-alerta/2026/oficio-circular-5-2026-dconf-inmetro.pdf",
+          "evidence": "II -    Dessa forma, ratificamos que, todas a etapas do processo produtivo, incluindo\n                         marcações obrigatórias, deverão ser realizadas no país de origem, devendo a bateria\n                         chegar ao solo brasileiro com Selo e devidamente certificada (quando utilizado o\n                         modelo 5 de certificação).",
+          "evidenceKind": "official_guidance",
+          "documentKind": "official_guidance_document",
+          "reviewStatus": {
+            "state": "directed_text_review",
+            "fullTextReviewed": false,
+            "amendmentChainReviewed": false,
+            "reviewScope": "quoted_provisions_only",
+            "reviewedAt": "2026-10-19"
+          },
+          "topics": [
+            "certificacao"
+          ],
+          "conditions": [
+            "Produto abrangido pela Portaria Inmetro 145/2022",
+            "Bateria chumbo-ácido importada",
+            "Quando utilizado o modelo 5 de certificação"
+          ]
+        },
+        {
+          "id": "inmetro-145-2022:req:13",
+          "title": "Importação de bateria chumbo-ácido: verificação final da carga",
+          "rule": "No Brasil, o importador verifica a carga após a importação e, se necessário, realiza recarga e inspeção final, conforme a orientação oficial.",
+          "clause": "Ofício Circular 5/2026/Dconf-Inmetro, item 1, III",
+          "scope": "Importador de baterias chumbo-ácido abrangidas",
+          "sourceKey": "oficio-circular-5-2026",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/acreditacao-reconhecimento-bpl/comunicados/dicor-alerta/2026/oficio-circular-5-2026-dconf-inmetro.pdf",
+          "evidence": "III -     No Brasil, o importador será responsável apenas pela verificação final da carga\n                         da bateria após o processo de importação e quando necessário, recarga e e inspeção\n                         final do produto.",
+          "evidenceKind": "official_guidance",
+          "documentKind": "official_guidance_document",
+          "reviewStatus": {
+            "state": "directed_text_review",
+            "fullTextReviewed": false,
+            "amendmentChainReviewed": false,
+            "reviewScope": "quoted_provisions_only",
+            "reviewedAt": "2026-10-19"
+          },
+          "topics": [
+            "certificacao"
+          ]
+        },
+        {
+          "id": "inmetro-145-2022:req:14",
+          "title": "Importação de bateria chumbo-ácido: auditoria do importador",
+          "rule": "A auditoria do SGQ realizada pelo OCP, na avaliação inicial, manutenção e recertificação, deve abranger as instalações do importador no Brasil, verificando registros de testes/inspeção e infraestrutura de recarga, conforme o ofício.",
+          "clause": "Ofício Circular 5/2026/Dconf-Inmetro, item 1, IV",
+          "scope": "Instalações do importador de baterias chumbo-ácido abrangidas",
+          "sourceKey": "oficio-circular-5-2026",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/acreditacao-reconhecimento-bpl/comunicados/dicor-alerta/2026/oficio-circular-5-2026-dconf-inmetro.pdf",
+          "evidence": "IV -     O processo de Auditoria do Sistema de Gestão da Qualidade - SGQ, tanto\n                         na etapa inicial de avaliação, quanto nas manutenções e recertificação, realizado pelo\n                         Organismo de Certificação de Produtos - OCP, considerando a norma ISO 9001,\n                         deverá abranger as instalações do Importador no Brasil para verificação de registros de\n                         testes/inspeção e infraestrutura para realização da recarga.",
+          "evidenceKind": "official_guidance",
+          "documentKind": "official_guidance_document",
+          "reviewStatus": {
+            "state": "directed_text_review",
+            "fullTextReviewed": false,
+            "amendmentChainReviewed": false,
+            "reviewScope": "quoted_provisions_only",
+            "reviewedAt": "2026-10-19"
+          },
+          "topics": [
+            "certificacao"
+          ]
+        },
+        {
+          "id": "inmetro-145-2022:req:15",
+          "title": "Bronzinas: edição incorporada corrigida pela retificação de 2024",
+          "rule": "Na tabela 2 do Anexo Específico F da 145/2022, a retificação de 11/12/2024 substitui ABNT NBR ISO 4383:2010 por ISO 4383:2000. A informação registra a edição incorporada nesse dispositivo; não define conteúdo, vigência independente ou procedimento da norma privada.",
+          "clause": "DOU 11/12/2024, Seção 1, p. 68; retificação da 145/2022, Anexo Específico F, tabela 2",
+          "scope": "Bronzinas planas em motores de combustão interna no escopo do Anexo Específico F",
+          "sourceKey": "retificacao-145-2024-12-11",
+          "sourceUrl": "https://www.gov.br/participamaisbrasil/blob/baixar/61530",
+          "evidence": "Na tabela 2 do Anexo Específico F - Bronzinas planas utilizadas em motores de\ncombustão interna de veículos rodoviários automotores, onde se lê: \"ABNT NBR ISO\n4383:2010\"\n           Leia-se:\n           \"ISO 4383:2000\".",
+          "evidenceKind": "public_text_excerpt",
+          "documentKind": "official_text_snapshot",
+          "reviewStatus": {
+            "state": "directed_text_review",
+            "fullTextReviewed": false,
+            "amendmentChainReviewed": false,
+            "reviewScope": "quoted_provisions_only",
+            "reviewedAt": "2026-10-19"
+          },
+          "topics": [
+            "certificacao"
+          ],
+          "referenceStandard": {
+            "designation": "ISO 4383",
+            "edition": "2000",
+            "incorporation": "Portaria 145/2022, Anexo Específico F, tabela 2; retificação de 11/12/2024"
+          }
+        },
+        {
+          "id": "inmetro-145-2022:req:16",
+          "title": "Consolidação de certificados: arts. 14 e 15 retificados",
+          "rule": "O art. 14 retificado mantém que a publicação da consolidação não exige iniciar novo processo de certificação; certificados emitidos são revistos na próxima avaliação. O art. 15 trata do ajuste de validade de certificados baseados na 301/2011. A retificação remove a repetição do § 2º do art. 14; não impõe novo processo apenas pela consolidação.",
+          "clause": "DOU 11/12/2024, Seção 1, p. 68; retificação da 145/2022, arts. 14 e 15",
+          "scope": "Certificados abrangidos pelas regras de transição dos arts. 14 e 15",
+          "sourceKey": "retificacao-145-2024-12-11",
+          "sourceUrl": "https://www.gov.br/participamaisbrasil/blob/baixar/61530",
+          "evidence": "Leia-se:\n           \"Art. 14. A publicação desta Portaria não implica na necessidade de que seja\niniciado novo processo de certificação com base nos requisitos ora consolidados.\n           § 1º Os certificados já emitidos deverão ser revisados, para referência à\nPortaria ora publicada, na próxima etapa de avaliação.\n           Art. 15. Os certificados emitidos com base na Portaria Inmetro nº 301, de 2011,\ndeverão ter seus prazos de validade ajustados conforme previsto no subitem 6.2.1.6 do\nRAC estabelecido no Anexo IV desta Portaria, tendo por referência a data de\nconcessão.\"",
+          "evidenceKind": "public_text_excerpt",
+          "documentKind": "official_text_snapshot",
+          "reviewStatus": {
+            "state": "directed_text_review",
+            "fullTextReviewed": false,
+            "amendmentChainReviewed": false,
+            "reviewScope": "quoted_provisions_only",
+            "reviewedAt": "2026-10-19"
+          },
+          "topics": [
+            "certificacao"
+          ]
         }
       ],
       "notes": [
-        "O PDF oficial RTAC002960 retornou HTTP503; retificações de2024 e exceções/dispensas OEM não foram conferidas integralmente. Não aplicar exigência de certificação a toda peça instalada em veículo novo por generalização.",
         "Baterias chumbo-ácido abrangidas não equivalem a todas as baterias de tração de veículos elétricos.",
         "Normas ABNT/ISO listadas no índice são referências incorporadas; não se afirma vigência independente ou conteúdo integral das normas privadas.",
         "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento.",
-        "As baterias do escopo são chumbo-ácido; esta referência não confirma certificação de baterias de tração de íons de lítio."
+        "As baterias do escopo são chumbo-ácido; esta referência não confirma certificação de baterias de tração de íons de lítio.",
+        "Retificação de 11/12/2024 conferida pontualmente nos arts. 14 e 15 e no Anexo Específico F, tabela 2. As demais retificações e a íntegra consolidada da 145/2022 permanecem pendentes.",
+        "Ofício Circular 5/2026 é orientação oficial sobre baterias chumbo-ácido importadas; não é portaria nova nem certificação universal de BEV. A condição de selo/certificação na chegada refere-se ao modelo 5.",
+        "LED automotivo está excluído dos escopos 145/2022 e 231/2026 segundo a FAQ oficial. Essa exclusão não substitui as regras CONTRAN de iluminação.",
+        "Novas tentativas em 19/10/2026 aos dois endereços oficiais RTAC002960 retornaram HTTP 503; os resultados estão arquivados sem promover revisão integral."
       ],
-      "relationships": [],
+      "relationships": [
+        {
+          "kind": "retificada-por",
+          "sourceKey": "retificacao-145-2024-12-11",
+          "url": "https://www.gov.br/participamaisbrasil/blob/baixar/61530",
+          "date": "2024-12-11",
+          "clauses": [
+            "Arts. 14 e 15",
+            "Anexo Específico F, tabela 2"
+          ],
+          "evidence": "ISO 4383:2000"
+        },
+        {
+          "kind": "orientada-por",
+          "sourceKey": "oficio-circular-5-2026",
+          "url": "https://www.gov.br/inmetro/pt-br/assuntos/acreditacao-reconhecimento-bpl/comunicados/dicor-alerta/2026/oficio-circular-5-2026-dconf-inmetro.pdf",
+          "title": "Ofício Circular 5/2026/Dconf-Inmetro",
+          "date": "2026-03-06",
+          "signedAt": "2026-03-09",
+          "scope": "Baterias chumbo-ácido importadas abrangidas; condição de chegada com selo/certificação quando utilizado modelo 5"
+        }
+      ],
       "verificationLevel": "official-current-reference",
       "fullTextReviewed": false,
-      "statusLabel": "Referência atual · íntegra pendente"
+      "statusLabel": "Referência atual · íntegra pendente",
+      "relatedLinks": [
+        {
+          "url": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/lampadas-e-luminarias-led-portaria-inmetro-no-231-2026-fabricantes-importadores-comerciantes-e-distribuidores/lampadas-led-para-carros-precisam-de-certificacao",
+          "title": "LED automotivo: escopo negativo e distinção das regras CONTRAN",
+          "kind": "official_guidance",
+          "sourceKey": "faq-led-automotivo-2026"
+        },
+        {
+          "url": "https://www.gov.br/inmetro/pt-br/assuntos/acreditacao-reconhecimento-bpl/comunicados/dicor-alerta/2026/oficio-circular-5-2026-dconf-inmetro.pdf",
+          "title": "Ofício Circular 5/2026 — baterias chumbo-ácido importadas",
+          "kind": "official_guidance",
+          "sourceKey": "oficio-circular-5-2026"
+        },
+        {
+          "url": "https://www.gov.br/participamaisbrasil/blob/baixar/61530",
+          "title": "Retificação 145/2022 — DOU 11/12/2024, p. 68",
+          "kind": "primary_document",
+          "sourceKey": "retificacao-145-2024-12-11"
+        }
+      ]
     },
     {
       "id": "inmetro-34-2021",
@@ -214,7 +400,7 @@
       "sourceKey": "iq-342021",
       "sourceStatus": "Referência normativa mantida em fonte oficial atual; cadeia integral de alterações não certificada nesta revisão",
       "statusEvidence": [
-        "Natureza do Regulamento: Compulsório Tipo de documento: Regulamento técnico Tipo de objeto: Produto Escopo: Vidros de Segurança Automotivos Objeto: Vidro de segurança laminado para veículo rodoviário automotor;\r\nVidro de segurança temperado de veículo rodoviário automotor; Normas técnicas e outros documentos referenciados: Resolução Contran nº 254,"
+        "Natureza do Regulamento: Compulsório Tipo de documento: Regulamento técnico Tipo de objeto: Produto Escopo: Vidros de Segurança Automotivos Objeto: Vidro de segurança laminado para veículo rodoviário automotor;\r\nVidro de segurança temperado de veículo rodoviário automotor;"
       ],
       "subject": "Vidros de segurança automotivos",
       "catalogRecordIds": [
@@ -251,7 +437,7 @@
         }
       ],
       "notes": [
-        "PDF oficial indisponível na consulta (HTTP503). Não foi comprovada a ausência de alterações posteriores; conferir versão integral, exclusões e anexos antes de homologar produto.",
+        "PDF oficial indisponível na consulta (HTTP 503). Não foi comprovada a ausência de alterações posteriores; conferir versão integral, exclusões e anexos antes de homologar produto.",
         "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento."
       ],
       "relationships": [],
@@ -269,7 +455,7 @@
       "sourceKey": "iq-5012021",
       "sourceStatus": "Referência normativa mantida em fonte oficial atual; cadeia integral de alterações não certificada nesta revisão",
       "statusEvidence": [
-        "Natureza do Regulamento: Compulsório Tipo de documento: Regulamento técnico Tipo de objeto: Produto Escopo: Rodas Automotivas Objeto: Roda automotiva Normas técnicas e outros documentos referenciados: Portaria Inmetro nº 200, de 2021;ABNT NBR 6608:2013;ABNT NBR 6750:2020;ABNT NBR 6751:2020;ABNT NBR 6752:2020;IATF 16949:2016 Requisitos para Empresa:"
+        "Natureza do Regulamento: Compulsório Tipo de documento: Regulamento técnico Tipo de objeto: Produto Escopo: Rodas Automotivas Objeto: Roda automotiva"
       ],
       "subject": "Rodas automotivas",
       "catalogRecordIds": [
@@ -306,7 +492,7 @@
         }
       ],
       "notes": [
-        "PDF oficial indisponível na consulta (HTTP503). Não foi comprovada a ausência de alterações posteriores; conferir versão integral, exclusões e anexos antes de homologar produto.",
+        "PDF oficial indisponível na consulta (HTTP 503). Não foi comprovada a ausência de alterações posteriores; conferir versão integral, exclusões e anexos antes de homologar produto.",
         "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento."
       ],
       "relationships": [],
@@ -324,7 +510,7 @@
       "sourceKey": "iq-4562021",
       "sourceStatus": "Referência normativa mantida em fonte oficial atual; cadeia integral de alterações não certificada nesta revisão",
       "statusEvidence": [
-        "Natureza do Regulamento: Compulsório Tipo de documento: Regulamento técnico Tipo de objeto: Produto Escopo: Líquidos para Freios Hidráulicos para Veículos Automotores Objeto: Liquido para freios hidráulico para veiculos automotores Normas técnicas e outros documentos referenciados: Portaria Inmetro n° 200, de 2021;Portaria Inmetro n° 249, de 2021;N"
+        "Natureza do Regulamento: Compulsório Tipo de documento: Regulamento técnico Tipo de objeto: Produto Escopo: Líquidos para Freios Hidráulicos para Veículos Automotores Objeto: Liquido para freios hidráulico para veiculos automotores"
       ],
       "subject": "Líquidos para freios hidráulicos",
       "catalogRecordIds": [
@@ -361,7 +547,7 @@
         }
       ],
       "notes": [
-        "PDF oficial indisponível na consulta (HTTP503). Não foi comprovada a ausência de alterações posteriores; conferir versão integral, exclusões e anexos antes de homologar produto.",
+        "PDF oficial indisponível na consulta (HTTP 503). Não foi comprovada a ausência de alterações posteriores; conferir versão integral, exclusões e anexos antes de homologar produto.",
         "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento."
       ],
       "relationships": [],
@@ -408,7 +594,7 @@
           "rule": "Marca/fabricante, dimensão, construção, índice de velocidade, índice de carga, indicador de desgaste TWI, data (semana/ano) e país de fabricação. A ENCE adesiva sobre a banda de rodagem informa resistência ao rolamento, aderência em pista molhada e ruído, observadas as exceções.",
           "clause": "Requisitos7.1 a7.7 e ENCE",
           "scope": "Produtos/serviços abrangidos pelo regulamento",
-          "evidence": "A PORTARIA Nº 379, DE 14 DE SETEMBRO DE 2021 aprova o Regulamento Técnico da Qualidade e os Requisitos de Avaliação da Conformidade para Pneus Novos – Consolidado. Esta Portaria define REQUISITOS DE MARCAÇÕES E INFORMAÇÕES OBRIGATÓRIAS NO PRODUTO: 7.1 Marca e denominação registrada do fabricante - Os pneus devem possuir a marca e denominação registrada do fabricante. 7.2 Dimensões do pneu - A designação da dimensão do pneu deve ser constituída pelas medidas nominais da largura da seção e do diâmetro interno do pneu, podendo incluir a relação nominal de aspecto (série) entre as duas medidas. 7.3 Tipo de estrutura ou de construção do pneu: Para os pneus de estrutura diagonal, a simbologia “-“ ou a letra \"D\" situada antes da indicação do diâmetro do aro. Para os pneus de estrutura radial, a letra \"R\" situada antes da indicação do diâmetro do aro. Para os pneus de estrutura diagonal cintada, a letra \"B\" situada antes da indicação do diâmetro do aro. 7.4 Índice de velocidade do pneu - Também chamado “Índice de Velocidade” ou “Código de Velocidade”, indica a velocidade máxima permitida para o pneu. 7.5 Índice de Capacidade de Carga do pneu - o número que determina a capacidade de carga que o pneu pode ser submetido, conforme indicado no Manual Técnico da ALAPA, deve ser marcado no produto. 7.6 Indicadores de Desgaste da Banda de Rodagem - Os indicadores de desgaste devem ser identificados pela sigla “TWI”, ou por meio de um triângulo (▲), ou por uma seta disposta radialmente no pneu. 7.7 Data e país de fabricação - A marcação da data de fabricação deve ser feita utilizando-se de grupo de quatro algarismos sendo que os dois primeiros indicam, cronologicamente, a semana de fabric",
+          "evidence": "A PORTARIA Nº 379, DE 14 DE SETEMBRO DE 2021 aprova o Regulamento Técnico da Qualidade e os Requisitos de Avaliação da Conformidade para Pneus Novos – Consolidado. Esta Portaria define REQUISITOS DE MARCAÇÕES E INFORMAÇÕES OBRIGATÓRIAS NO PRODUTO: 7.1 Marca e denominação registrada do fabricante - Os pneus devem possuir a marca e denominação registrada do fabricante. 7.2 Dimensões do pneu - A designação da dimensão do pneu deve ser constituída pelas medidas nominais da largura da seção e do diâmetro interno do pneu, podendo incluir a relação nominal de aspecto (série) entre as duas medidas. 7.3 Tipo de estrutura ou de construção do pneu: Para os pneus de estrutura diagonal, a simbologia “-“ ou a letra \"D\" situada antes da indicação do diâmetro do aro. Para os pneus de estrutura radial, a letra \"R\" situada antes da indicação do diâmetro do aro. Para os pneus de estrutura diagonal cintada, a letra \"B\" situada antes da indicação do diâmetro do aro. 7.4 Índice de velocidade do pneu - Também chamado “Índice de Velocidade” ou “Código de Velocidade”, indica a velocidade máxima permitida para o pneu. 7.5 Índice de Capacidade de Carga do pneu - o número que determina a capacidade de carga que o pneu pode ser submetido, conforme indicado no Manual Técnico da ALAPA, deve ser marcado no produto. 7.6 Indicadores de Desgaste da Banda de Rodagem - Os indicadores de desgaste devem ser identificados pela sigla “TWI”, ou por meio de um triângulo (▲), ou por uma seta disposta radialmente no pneu. 7.7 Data e país de fabricação - A marcação da data de fabricação deve ser feita utilizando-se de grupo de quatro algarismos sendo que os dois primeiros indicam, cronologicamente, a semana de fabricação e os dois últimos indicam o ano de produção. Também deve ser marcado o país de fabricação do pneu. Além disso, os pneus destinados a automóveis de passeio, caminhões e ônibus devem possuir a Etiqueta Nacional de Conservação de Energia - ENCE deve ser aposta de forma adesiva, no produto, sobre a banda de rodagem dos pneus, de forma que fique visível ao consumidor, como forma de divulgar as informações de desempenho destes pneus. Como parte do programa Brasileiro de Etiquetagem (PBE Pneus), a ENCE trás três informações importantes para a decisão de compra do consumidor: Coeficiente de resistência ao rolamento: mostra em uma escala de A até G o quanto aquele pneu irá impactar no consumo de combustível do veículo que o utiliza Coeficiente de aderência em pista molhada: mostra em uma escala de A até F o nível de aderência do pneu para frenegam em asfalto molhado. Nível de pressão sonora (ruído): mostra em 3 escalas o ruído emitido pelo pneu durante sua rolagem em pista.",
           "sourceKey": "faq-quais-sao-as-marcacoes-identificacoes-informacoes-obrigatorias-em-um-pneu",
           "sourceUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/pneus-novos/quais-sao-as-marcacoes-identificacoes-informacoes-obrigatorias-em-um-pneu",
           "topics": [
@@ -422,7 +608,7 @@
           "rule": "Distinguir exclusão total de certificação e dispensa apenas dos requisitos de desempenho/etiquetagem. A FAQ reproduz retificação de20/05/2022; não estender dispensa de desempenho à segurança básica.",
           "clause": "Anexo VI; retificação20/05/2022",
           "scope": "Produtos/serviços abrangidos pelo regulamento",
-          "evidence": "A Portaria PORTARIA INMETRO Nº 379/2021 foi retificada através de uma publicação no Diário Oficial da União de 20/05/2022, que redefiniu as condições de exceção no seu escopo: 1. Encontram-se excluídos do cumprimento das disposições previstas neste Regulamento, pneus novos: a) exclusivos para bicicletas ou veículos com índice de velocidade inferior a 80km/h; b) para uso fora das vias públicas, ou fabricados exclusivamente para: b.1) máquinas, implementos e equipamentos agrícolas; b.2) veículos de competições; b.3) veículos militares; b.4) veículos industriais e empilhadeiras; b.5) veículos não motorizados. 2. Os requisitos de desempenho não são aplicáveis para pneus que atendem as características de construção ou aplicações indicadas: a) pneus de construção diagonal; b) pneus destinados ao uso exclusivamente temporário que apresentem marcação de forma indelével “Uso Temporário ou “Temporary Use Only”; c) pneus de motocicletas, motonetas e ciclomotores; d) pneus de veículos de coleção; e) pneus com índices de velocidade menor que 80 km/h; (...) Ou seja, os pneus destinados a veículos de coleção (veículos com mais de 30 anos de fabricação), ou destinados a veículos com índices de velocidade menor que 80 km/h devem ser submetidos ao processo de certificação normal, onde passarão pelos ensaios básicos de segurança, aplicáveis a todos os pneus que são destinados à veículos de circulação em vias públicas. Contudo, eles estão isentos de cumprir os requisitos de desempenho (ensaios de aderência em pista molhada, resistência ao rolamento e emissão de ruído), que compõem os índices de",
+          "evidence": "A Portaria PORTARIA INMETRO Nº 379/2021 foi retificada através de uma publicação no Diário Oficial da União de 20/05/2022, que redefiniu as condições de exceção no seu escopo: 1. Encontram-se excluídos do cumprimento das disposições previstas neste Regulamento, pneus novos: a) exclusivos para bicicletas ou veículos com índice de velocidade inferior a 80km/h; b) para uso fora das vias públicas, ou fabricados exclusivamente para: b.1) máquinas, implementos e equipamentos agrícolas; b.2) veículos de competições; b.3) veículos militares; b.4) veículos industriais e empilhadeiras; b.5) veículos não motorizados. 2. Os requisitos de desempenho não são aplicáveis para pneus que atendem as características de construção ou aplicações indicadas: a) pneus de construção diagonal; b) pneus destinados ao uso exclusivamente temporário que apresentem marcação de forma indelével “Uso Temporário ou “Temporary Use Only”; c) pneus de motocicletas, motonetas e ciclomotores; d) pneus de veículos de coleção; e) pneus com índices de velocidade menor que 80 km/h; (...) Ou seja, os pneus destinados a veículos de coleção (veículos com mais de 30 anos de fabricação), ou destinados a veículos com índices de velocidade menor que 80 km/h devem ser submetidos ao processo de certificação normal, onde passarão pelos ensaios básicos de segurança, aplicáveis a todos os pneus que são destinados à veículos de circulação em vias públicas.",
           "sourceKey": "faq-quais-sao-os-pneus-isentos-da-certificacao-ou-do-atendimento-aos-requisitos-da-regulamentacao-1",
           "sourceUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/pneus-novos/quais-sao-os-pneus-isentos-da-certificacao-ou-do-atendimento-aos-requisitos-da-regulamentacao-1",
           "topics": [
@@ -433,8 +619,8 @@
         },
         {
           "title": "Transições de famílias e laboratórios",
-          "rule": "Famílias antigas abrangidas: adequação até23/10/2026; laboratório1ªparte nãoacreditado: prazo30/11/2025; acreditado:30/11/2027. Não tratar prazo expirado como autorização presente.",
-          "clause": "Art15 §§1 a3; retificação DOU685691832",
+          "rule": "Famílias já certificadas e registradas na publicação da 329/2020: adequação até 23/10/2026. Uso de laboratório de 1ª parte não acreditado: prazo de 30/11/2025; acreditado: 30/11/2027. Não tratar prazo expirado como autorização presente nem aplicar essas transições a todos os pneus.",
+          "clause": "Art. 15, §§ 1º a 3º; FAQ sobre a retificação DOU 685691832",
           "scope": "Produtos/serviços abrangidos pelo regulamento",
           "evidence": "A Portaria PORTARIA INMETRO Nº 379/2021 foi retificada através de uma publicação no Diário Oficial da União que redefiniu aos comandos do Artigo 15: ( https://www.in.gov.br/web/dou/-/retificacao-685691832 ) Solicitamos utilizar como referência a versão mais recente disponível no site para consulta no SIL. Permanecem vigentes os seguintes comandos da Portaria nº 379/2021: Art. 15. § 2º Fica estabelecido o prazo limite de 30 de novembro de 2025 para o uso de laboratórios de 1ª parte não acreditados, conforme previsão do subitem 6.2.4.3.2.1 do Anexo IV desta Portaria. § 3º Fica estabelecido o prazo limite de 30 de novembro de 2027 para o uso de laboratórios de 1ª parte acreditados, conforme previsão do subitem 6.2.4.3.2 do Anexo IV desta Portaria. A única alteração feita se refere ao § 1º Nova redação: § 1º Fica estabelecido o prazo limite de 23 de outubro de 2026 , para adequação das famílias que, na data de publicação da Portaria nº 329, de 2020, já se encontravam certificadas e registradas.",
           "sourceKey": "faq-prazo-de-adequacao-para-pneus-run-flat-e-uso-de-laboratorios-1",
@@ -447,8 +633,9 @@
         }
       ],
       "notes": [
-        "Ler379/2021 com845/2025 e retificações; FAQ atual reproduz prazos da retificação2026, mas acesso direto ao DOU retornou403.",
-        "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento."
+        "Ler 379/2021 com 845/2025 e retificações; FAQ atual reproduz prazos da retificação de 2026, mas acesso direto ao DOU retornou403.",
+        "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento.",
+        "A FAQ de exceções foi recuperada novamente em 19/10/2026 e termina com uma frase incompleta no próprio conteúdo oficial. O excerto exibido usa somente as frases completas anteriores; a íntegra do RAC e da retificação continua necessária."
       ],
       "relationships": [
         {
@@ -462,7 +649,75 @@
       ],
       "verificationLevel": "official-current-reference",
       "fullTextReviewed": false,
-      "statusLabel": "Referência atual · íntegra pendente"
+      "statusLabel": "Referência atual · íntegra pendente",
+      "temporalFlags": [
+        {
+          "id": "inmetro-379-2021:familias-329-2020",
+          "kind": "obligation_milestone",
+          "date": "2026-10-23",
+          "event": "deadline",
+          "label": "Adequação das famílias antigas abrangidas",
+          "scope": {
+            "categories": [],
+            "conditions": [
+              "Famílias já certificadas e registradas na data de publicação da Portaria 329/2020"
+            ]
+          },
+          "source": {
+            "url": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/pneus-novos/prazo-de-adequacao-para-pneus-run-flat-e-uso-de-laboratorios-1",
+            "clause": "Art. 15, § 1º; FAQ sobre a retificação DOU 685691832",
+            "excerpt": "§ 1º Fica estabelecido o prazo limite de 23 de outubro de 2026",
+            "sourceKey": "faq-prazo-de-adequacao-para-pneus-run-flat-e-uso-de-laboratorios-1"
+          },
+          "requirementIds": [
+            "inmetro-379-2021:req:03"
+          ]
+        },
+        {
+          "id": "inmetro-379-2021:laboratorio-primeira-parte-nao-acreditado",
+          "kind": "obligation_milestone",
+          "date": "2025-11-30",
+          "event": "deadline",
+          "label": "Uso de laboratório de 1ª parte não acreditado",
+          "scope": {
+            "categories": [],
+            "conditions": [
+              "Laboratórios de 1ª parte não acreditados; subitem 6.2.4.3.2.1 do Anexo IV"
+            ]
+          },
+          "source": {
+            "url": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/pneus-novos/prazo-de-adequacao-para-pneus-run-flat-e-uso-de-laboratorios-1",
+            "clause": "Art. 15, § 2º; FAQ sobre a retificação DOU 685691832",
+            "excerpt": "§ 2º Fica estabelecido o prazo limite de 30 de novembro de 2025",
+            "sourceKey": "faq-prazo-de-adequacao-para-pneus-run-flat-e-uso-de-laboratorios-1"
+          },
+          "requirementIds": [
+            "inmetro-379-2021:req:03"
+          ]
+        },
+        {
+          "id": "inmetro-379-2021:laboratorio-primeira-parte-acreditado",
+          "kind": "obligation_milestone",
+          "date": "2027-11-30",
+          "event": "deadline",
+          "label": "Uso de laboratório de 1ª parte acreditado",
+          "scope": {
+            "categories": [],
+            "conditions": [
+              "Laboratórios de 1ª parte acreditados; subitem 6.2.4.3.2 do Anexo IV"
+            ]
+          },
+          "source": {
+            "url": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/pneus-novos/prazo-de-adequacao-para-pneus-run-flat-e-uso-de-laboratorios-1",
+            "clause": "Art. 15, § 3º; FAQ sobre a retificação DOU 685691832",
+            "excerpt": "§ 3º Fica estabelecido o prazo limite de 30 de novembro de 2027",
+            "sourceKey": "faq-prazo-de-adequacao-para-pneus-run-flat-e-uso-de-laboratorios-1"
+          },
+          "requirementIds": [
+            "inmetro-379-2021:req:03"
+          ]
+        }
+      ]
     },
     {
       "id": "inmetro-33-2021",
@@ -511,7 +766,7 @@
         }
       ],
       "notes": [
-        "Fonte oficial atual vincula expressamente33/2021; íntegra dos anexos indisponível.",
+        "Fonte oficial atual vincula expressamente 33/2021; íntegra dos anexos indisponível.",
         "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento."
       ],
       "relationships": [],
@@ -529,7 +784,7 @@
       "sourceKey": "iq-1692023",
       "sourceStatus": "Referência normativa mantida em fonte oficial atual; cadeia integral de alterações não certificada nesta revisão",
       "statusEvidence": [
-        "Natureza do Regulamento: Voluntário Tipo de documento: Regulamento técnico Tipo de objeto: Produto Escopo: Veículos Leves de Passageiros e Comerciais Leves Objeto: Veículos leves de passageiros;Veículos comerciais leves;Veículos leves com caracterísiticas especiais para uso fora de estrada Normas técnicas e outros documentos referenciados: Resoluçã"
+        "Natureza do Regulamento: Voluntário Tipo de documento: Regulamento técnico Tipo de objeto: Produto Escopo: Veículos Leves de Passageiros e Comerciais Leves Objeto: Veículos leves de passageiros;Veículos comerciais leves;Veículos leves com caracterísiticas especiais para uso fora de estrada"
       ],
       "subject": "PBE Veicular — eficiência energética e ENCE",
       "catalogRecordIds": [
@@ -570,7 +825,7 @@
           "rule": "A ENCE permite comparar eficiência dentro da categoria; ensaios e tabelas do PBEV sustentam consumo e autonomia. Não confundir ENCE do veículo com ENCE dos pneus.",
           "clause": "Orientação oficial sobre o regulamento",
           "scope": "Produtos/serviços abrangidos pelo regulamento",
-          "evidence": "O Programa Brasileiro de Etiquetagem Veicular tem como propósito permitir que os consumidores comparem a eficiência energética dos veículos de uma mesma categoria para uma escolha consciente, além de fornecer informações sobre o consumo de combustível dos veículos leves comercializados no Brasil. A Etiqueta Nacional de Conservação de Energia criada em 2009, afixada de forma voluntária nos modelos participantes, e as tabelas publicadas nos sites do Inmetro e Conpet informam ao consumidor sobre: • a classificação do veículo quanto à eficiência energética em sua categoria; e • os valores de referência da quilometragem por litro, na cidade e na estrada, com diferentes combustíveis. Esses valores de referência são obtidos a partir de medições de consumo efetuadas em laboratório, de acordo com os padrões NBR 7024. Para tanto, combustíveis padrão brasileiros e ciclos de condução pré-estabelecidos são utilizados. As medições laboratoriais normatizadas são a forma ideal para a aferição da eficiência energética dos veículos, independentemente do laboratório utilizado. Permitem que todos os modelos sejam testados de forma padronizada, em condições controladas, garantindo que as medições possam ser repetidas sob as mesmas condições e utilizadas em uma comparação uniforme entre modelos de veículos diferentes, dentro de uma mesma categoria. Contudo, em condições reais de uso do veículo, diversos fatores influenciam o consumo percebido pelo motorista, podendo apresentar consideráveis variações em relação àqueles obtidos nas medições laboratoriais nas condições-padrão. Para aproximar os valores de referência àqueles percebidos pelos motoristas em seu uso real, mantendo a comparação relat",
+          "evidence": "O Programa Brasileiro de Etiquetagem Veicular tem como propósito permitir que os consumidores comparem a eficiência energética dos veículos de uma mesma categoria para uma escolha consciente, além de fornecer informações sobre o consumo de combustível dos veículos leves comercializados no Brasil. A Etiqueta Nacional de Conservação de Energia criada em 2009, afixada de forma voluntária nos modelos participantes, e as tabelas publicadas nos sites do Inmetro e Conpet informam ao consumidor sobre: • a classificação do veículo quanto à eficiência energética em sua categoria; e • os valores de referência da quilometragem por litro, na cidade e na estrada, com diferentes combustíveis.",
           "sourceKey": "faq-como-obter-informacoes-sobre-metodologia-para-calculo-de-consumo-de-combustivel-pbe-veicular",
           "sourceUrl": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/etiquetagem-para-veiculos-leves/como-obter-informacoes-sobre-metodologia-para-calculo-de-consumo-de-combustivel-pbe-veicular",
           "topics": [
@@ -580,13 +835,129 @@
         }
       ],
       "notes": [
-        "169/2023 consta como voluntária no Portal IQ; isso não dispensa obrigações de etiquetagem/informação derivadas de outros regimes. PDFRTAC003000 indisponível.",
-        "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento."
+        "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento.",
+        "A natureza voluntária informada para o RAC do PBEV não dispensa obrigações de informação e rotulagem de outros regimes, inclusive MOVER, quando aplicáveis.",
+        "As trilhas ICE, HEV, PHEV e BEV são encaminhamentos de consulta. Métodos, edições incorporadas, configuração representativa, evidências e condições de ensaio dependem da íntegra consolidada e do enquadramento; não estão estruturados como checklist.",
+        "Os dois endereços oficiais RTAC003000 retornaram HTTP 503 em 19/10/2026. A íntegra e a cadeia completa permanecem pendentes; ver tentativas arquivadas.",
+        "A IN Ibama 5/2024 já consta no acervo e trata de ACP. O vínculo PBEV/ACP é contexto de consulta e não implica que todos os seus requisitos sejam idênticos ou aplicáveis a todas as tecnologias.",
+        "O link DOU da 169/2023 indicado na notícia oficial de 26/05/2023 também foi tentado em 19/10/2026, nas rotas /en/web/dou e /web/dou; ambas retornaram HTTP 403. A notícia não equivale à íntegra revisada do RAC."
       ],
-      "relationships": [],
+      "relationships": [
+        {
+          "kind": "interface-de-consulta",
+          "targetId": "mover-002",
+          "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/decreto/d12435.htm",
+          "title": "MOVER — enquadramento e obrigações adicionais de informação/rotulagem",
+          "basis": "Interface consultiva; conferir o regime e o enquadramento. Não converte o RAC voluntário em obrigação universal."
+        },
+        {
+          "kind": "interface-de-consulta",
+          "targetId": "ibama-in-5-2024",
+          "url": "https://www.ibama.gov.br/component/legislacao/?legislacao=139386&view=legislacao",
+          "title": "ACP — acompanhamento da conformidade de produção",
+          "basis": "Interface de consulta do processo; não estende obrigações ambientais a BEV por associação."
+        }
+      ],
       "verificationLevel": "official-current-reference",
       "fullTextReviewed": false,
-      "statusLabel": "Referência atual · íntegra pendente"
+      "statusLabel": "Referência atual · íntegra pendente",
+      "consultationTracks": [
+        {
+          "id": "ice",
+          "label": "Combustão — consumo e etiquetagem",
+          "kind": "reference_only",
+          "scope": "Veículos com motor a combustão, categoria/combustível e escopo a conferir",
+          "reviewGaps": [
+            "Íntegra consolidada do RAC pendente",
+            "Método e edição incorporada não validados por esta revisão",
+            "Configurações e evidências dependem de enquadramento"
+          ],
+          "relatedRecordIds": [
+            "inmetro-169-2023",
+            "mover-002",
+            "ibama-in-5-2024"
+          ],
+          "sourceKeys": [
+            "iq-1692023",
+            "news-pbev-2023"
+          ]
+        },
+        {
+          "id": "hev",
+          "label": "Híbrido HEV — consumo e etiquetagem",
+          "kind": "reference_only",
+          "scope": "Veículos híbridos sem recarga externa, escopo e método a conferir",
+          "reviewGaps": [
+            "Íntegra consolidada do RAC pendente",
+            "Método e edição incorporada não validados por esta revisão",
+            "Configurações e evidências dependem de enquadramento"
+          ],
+          "relatedRecordIds": [
+            "inmetro-169-2023",
+            "ibama-in-3-2023",
+            "mover-002"
+          ],
+          "sourceKeys": [
+            "iq-1692023",
+            "news-pbev-2023"
+          ]
+        },
+        {
+          "id": "phev",
+          "label": "Híbrido PHEV — consumo, energia e autonomia",
+          "kind": "reference_only",
+          "scope": "Veículos híbridos com recarga externa, escopo e método a conferir",
+          "reviewGaps": [
+            "Íntegra consolidada do RAC pendente",
+            "Método e edição incorporada não validados por esta revisão",
+            "Configurações e evidências dependem de enquadramento"
+          ],
+          "relatedRecordIds": [
+            "inmetro-169-2023",
+            "ibama-in-3-2023",
+            "ibama-in-11-2014",
+            "mover-002"
+          ],
+          "sourceKeys": [
+            "iq-1692023",
+            "news-pbev-2023"
+          ]
+        },
+        {
+          "id": "bev",
+          "label": "Elétrico BEV — energia, autonomia e etiquetagem",
+          "kind": "reference_only",
+          "scope": "Veículos elétricos a bateria, sem inferência de requisitos de emissões de combustão",
+          "reviewGaps": [
+            "Íntegra consolidada do RAC pendente",
+            "Método e edição incorporada não validados por esta revisão",
+            "Configurações e evidências dependem de enquadramento"
+          ],
+          "relatedRecordIds": [
+            "inmetro-169-2023",
+            "ibama-in-11-2014",
+            "mover-002"
+          ],
+          "sourceKeys": [
+            "iq-1692023",
+            "news-pbev-2023"
+          ]
+        }
+      ],
+      "relatedLinks": [
+        {
+          "url": "https://www.gov.br/inmetro/pt-br/centrais-de-conteudo/noticias/inmetro-publica-portaria-com-aperfeicoamentos-do-pbe-veicular",
+          "title": "Inmetro: atualização do PBEV para híbridos e elétricos",
+          "kind": "official_guidance",
+          "sourceKey": "news-pbev-2023"
+        },
+        {
+          "url": "https://www.in.gov.br/en/web/dou/-/portaria-n-169-de-3-de-maio-de-2023-485619287",
+          "title": "Portaria 169/2023 no DOU — link indicado pelo Inmetro",
+          "kind": "primary_source_pending",
+          "reviewStatus": "not_retrieved"
+        }
+      ]
     },
     {
       "id": "inmetro-200-2021",
@@ -598,7 +969,7 @@
       "sourceKey": "faq-qual-a-legislacao-relacionada-ao-registro-1",
       "sourceStatus": "Referência normativa mantida em fonte oficial atual; cadeia integral de alterações não certificada nesta revisão",
       "statusEvidence": [
-        "As principais bases normativas são as Portarias Inmetro que abordam: Concessão de registro ( Portaria Inmetro n° 258, de 6 de agosto de 2020 ); Publicidade aos Requisitos de Avaliação da Conformidade (RAC) específicos do objeto; Classificação de risco de atividades econômicas associadas aos atos de liberação sob responsabilidade do Inmetro no âmbit"
+        "As principais bases normativas são as Portarias Inmetro que abordam: Concessão de registro ( Portaria Inmetro n° 258, de 6 de agosto de 2020 ); Publicidade aos Requisitos de Avaliação da Conformidade (RAC) específicos do objeto; Classificação de risco de atividades econômicas associadas aos atos de liberação sob responsabilidade do Inmetro no âmbito da Avaliação da Conformidade compulsória ( Portaria Inmetro n° 282/2020 ); Requisitos Gerais de Certificação de Produtos ( Portaria Inmetro n° 200/2021 ); Requisitos Gerais de Declaração do Fornecedor de Produtos ( Portaria Inmetro n° 140/2021 ); Requisitos Gerais de Declaração do Fornecedor de Serviços ( Portaria Inmetro n° 278/2021 ). Nota: As Portarias estão sujeitas à alteração e revogação."
       ],
       "subject": "Requisitos Gerais de Certificação de Produtos (RGCP)",
       "catalogRecordIds": [
@@ -647,7 +1018,7 @@
       "sourceKey": "faq-qual-a-legislacao-relacionada-ao-registro-1",
       "sourceStatus": "Referência normativa mantida em fonte oficial atual; cadeia integral de alterações não certificada nesta revisão",
       "statusEvidence": [
-        "As principais bases normativas são as Portarias Inmetro que abordam: Concessão de registro ( Portaria Inmetro n° 258, de 6 de agosto de 2020 ); Publicidade aos Requisitos de Avaliação da Conformidade (RAC) específicos do objeto; Classificação de risco de atividades econômicas associadas aos atos de liberação sob responsabilidade do Inmetro no âmbit"
+        "As principais bases normativas são as Portarias Inmetro que abordam: Concessão de registro ( Portaria Inmetro n° 258, de 6 de agosto de 2020 ); Publicidade aos Requisitos de Avaliação da Conformidade (RAC) específicos do objeto; Classificação de risco de atividades econômicas associadas aos atos de liberação sob responsabilidade do Inmetro no âmbito da Avaliação da Conformidade compulsória ( Portaria Inmetro n° 282/2020 ); Requisitos Gerais de Certificação de Produtos ( Portaria Inmetro n° 200/2021 ); Requisitos Gerais de Declaração do Fornecedor de Produtos ( Portaria Inmetro n° 140/2021 ); Requisitos Gerais de Declaração do Fornecedor de Serviços ( Portaria Inmetro n° 278/2021 ). Nota: As Portarias estão sujeitas à alteração e revogação."
       ],
       "subject": "Registro de objetos",
       "catalogRecordIds": [
@@ -696,7 +1067,7 @@
       "sourceKey": "faq-qual-a-legislacao-relacionada-ao-registro-1",
       "sourceStatus": "Referência normativa mantida em fonte oficial atual; cadeia integral de alterações não certificada nesta revisão",
       "statusEvidence": [
-        "As principais bases normativas são as Portarias Inmetro que abordam: Concessão de registro ( Portaria Inmetro n° 258, de 6 de agosto de 2020 ); Publicidade aos Requisitos de Avaliação da Conformidade (RAC) específicos do objeto; Classificação de risco de atividades econômicas associadas aos atos de liberação sob responsabilidade do Inmetro no âmbit"
+        "As principais bases normativas são as Portarias Inmetro que abordam: Concessão de registro ( Portaria Inmetro n° 258, de 6 de agosto de 2020 ); Publicidade aos Requisitos de Avaliação da Conformidade (RAC) específicos do objeto; Classificação de risco de atividades econômicas associadas aos atos de liberação sob responsabilidade do Inmetro no âmbito da Avaliação da Conformidade compulsória ( Portaria Inmetro n° 282/2020 ); Requisitos Gerais de Certificação de Produtos ( Portaria Inmetro n° 200/2021 ); Requisitos Gerais de Declaração do Fornecedor de Produtos ( Portaria Inmetro n° 140/2021 ); Requisitos Gerais de Declaração do Fornecedor de Serviços ( Portaria Inmetro n° 278/2021 ). Nota: As Portarias estão sujeitas à alteração e revogação."
       ],
       "subject": "Requisitos Gerais de Declaração do Fornecedor de Produtos",
       "catalogRecordIds": [],
@@ -743,7 +1114,7 @@
       "sourceKey": "faq-qual-a-legislacao-relacionada-ao-registro-1",
       "sourceStatus": "Referência normativa mantida em fonte oficial atual; cadeia integral de alterações não certificada nesta revisão",
       "statusEvidence": [
-        "As principais bases normativas são as Portarias Inmetro que abordam: Concessão de registro ( Portaria Inmetro n° 258, de 6 de agosto de 2020 ); Publicidade aos Requisitos de Avaliação da Conformidade (RAC) específicos do objeto; Classificação de risco de atividades econômicas associadas aos atos de liberação sob responsabilidade do Inmetro no âmbit"
+        "As principais bases normativas são as Portarias Inmetro que abordam: Concessão de registro ( Portaria Inmetro n° 258, de 6 de agosto de 2020 ); Publicidade aos Requisitos de Avaliação da Conformidade (RAC) específicos do objeto; Classificação de risco de atividades econômicas associadas aos atos de liberação sob responsabilidade do Inmetro no âmbito da Avaliação da Conformidade compulsória ( Portaria Inmetro n° 282/2020 ); Requisitos Gerais de Certificação de Produtos ( Portaria Inmetro n° 200/2021 ); Requisitos Gerais de Declaração do Fornecedor de Produtos ( Portaria Inmetro n° 140/2021 ); Requisitos Gerais de Declaração do Fornecedor de Serviços ( Portaria Inmetro n° 278/2021 ). Nota: As Portarias estão sujeitas à alteração e revogação."
       ],
       "subject": "Requisitos Gerais de Declaração do Fornecedor de Serviços",
       "catalogRecordIds": [],
@@ -857,7 +1228,7 @@
       "sourceKey": "faq-como-obter-informacoes-sobre-o-certificado-de-componentes-de-gnvcagn",
       "sourceStatus": "Referência normativa mantida em fonte oficial atual; cadeia integral de alterações não certificada nesta revisão",
       "statusEvidence": [
-        "Atualmente, os requisitos técnicos dos componentes do sistema ( kit ) de GNV são os estabelecidos na Portaria Inmetro n° 111, de 2022 , que devem ser atendidos pelos fabricantes/importadores desse produto. Essa Portaria também contém os requisitos de avaliação da conformidade obrigatória, que os organismos de certificação devem seguir para certific"
+        "Atualmente, os requisitos técnicos dos componentes do sistema ( kit ) de GNV são os estabelecidos na Portaria Inmetro n° 111, de 2022 , que devem ser atendidos pelos fabricantes/importadores desse produto. Essa Portaria também contém os requisitos de avaliação da conformidade obrigatória, que os organismos de certificação devem seguir para certificar esses componentes. Nota :  Especificamente, a válvula de cilindro pode também ser certificada de acordo com a Portaria Inmetro n.º 328, de 24 de agosto de 2010 ."
       ],
       "subject": "Componentes do sistema GNV",
       "catalogRecordIds": [],
@@ -906,7 +1277,7 @@
         }
       ],
       "notes": [
-        "GNV é escopo/configuração específica; ilustração do tanque de combustível líquido não comprova que veículo possuiGNV.",
+        "GNV é escopo/configuração específica; ilustração do tanque de combustível líquido não comprova que veículo possui GNV.",
         "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento."
       ],
       "relationships": [],
@@ -1111,7 +1482,7 @@
       "sourceKey": "faq-a-solicitacao-dos-selos-pode-ser-feita-em-qualquer-grafica-que-atenda-os-padroes-estabelecidos-na-portaria-inmetro-no-230-de-18-de-maio-de-2021",
       "sourceStatus": "Referência normativa mantida em fonte oficial atual; cadeia integral de alterações não certificada nesta revisão",
       "statusEvidence": [
-        "Sim, desde que a gráfica possua capacidade técnica para fabricar os selos em conformidade com os padrões estabelecidos na Portaria Inmetro nº 230, de 18 de maio de 2021. O arquivo com as especificações preconizadas na Portaria deve ser solicitado ao Inmetro através do canal selos.dconf@inmetro.gov.br . Nota: Não existe avaliação, homologação, liber"
+        "Sim, desde que a gráfica possua capacidade técnica para fabricar os selos em conformidade com os padrões estabelecidos na Portaria Inmetro nº 230, de 18 de maio de 2021. O arquivo com as especificações preconizadas na Portaria deve ser solicitado ao Inmetro através do canal selos.dconf@inmetro.gov.br . Nota: Não existe avaliação, homologação, liberação, licitação ou qualquer outro tipo de autorização do Inmetro para uma gráfica imprimir os selos do Inmetro."
       ],
       "subject": "Confecção de selos de identificação da conformidade",
       "catalogRecordIds": [],
@@ -1141,7 +1512,7 @@
         }
       ],
       "notes": [
-        "Aplicar apenas aos modelos de selos sujeitos à portaria e ao regime específico do objeto. Para modelos transferidos ao INMPAM/CMB, verificar314/2025.",
+        "Aplicar apenas aos modelos de selos sujeitos à portaria e ao regime específico do objeto. Para modelos transferidos ao INMPAM/CMB, verificar 314/2025.",
         "Referência e orientação oficiais consultadas; o inteiro teor consolidado do RTQ/RAC e a cadeia integral de alterações não foram revisados nesta coleta. A obrigação depende do produto, destinação e exclusões do regulamento."
       ],
       "relationships": [],
@@ -1231,14 +1602,14 @@
     }
   ],
   "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/avaliacao-da-conformidade",
-  "scopeNote": "Escopos, mecanismos e orientações oficiais por produto. A íntegra consolidada de RTQ/RAC e parte das exceções continuam pendentes; não há exigência universal para toda peça.",
+  "scopeNote": "Referências por produto, escopo e orientações oficiais. Há revisão pontual da retificação da 145/2022 de 11/12/2024 e do Ofício 5/2026; a íntegra consolidada dos 18 RTQ/RAC e suas cadeias não foi revisada. A consulta não determina uma exigência universal para toda peça.",
   "publicationPolicy": "Somente referências atuais localizadas no Portal IQ e orientações oficiais Inmetro; os cartões distinguem confirmação de referência de revisão integral. Atos sem confirmação mínima ficam na pesquisa, fora da consulta ativa.",
   "limits": [
-    "Pesquisa dirigida por produto e referências atuais no PortalIQ/FAQs Inmetro; não é declaração de cobertura de todo o universo regulado.",
-    "PDFs sistema-sil.inmetro.gov.br e www.inmetro.gov.br retornaram503; DOU direto403. Cadeia integral, exclusõesOEM e retificações145/2022 permanecem pendentes.",
-    "Portaria110/2022 baixo volume não teve íntegra validada; conservar em pesquisa pendente, não nova exigência confirmada.",
-    "A Portaria845/2025 altera379/2021; íntegra e retificação2026 não lidas diretamente, mas FAQ oficial reproduz prazos atuais do art15 e apontaDOU.",
-    "Etiquetas de veículo, selos de produto, marcações permanentes eVIN são categorias distintas. VIN permaneceCONTRAN/SENATRAN, não certificação Inmetro.",
+    "Pesquisa dirigida por produto e referências atuais no Portal IQ/FAQs Inmetro; não é declaração de cobertura de todo o universo regulado.",
+    "Em 19/10/2026, os dois endereços oficiais de cada PDF RTAC002960 (145/2022) e RTAC003000 (169/2023) retornaram HTTP 503. A retificação da 145/2022 de 11/12/2024 foi conferida pontualmente; cadeia integral, demais retificações e exceções OEM permanecem pendentes.",
+    "Portaria 110/2022 baixo volume não teve íntegra validada; conservar em pesquisa pendente, não nova exigência confirmada.",
+    "A Portaria 845/2025 altera a 379/2021; íntegra e retificação de 2026 não lidas diretamente, mas FAQ oficial reproduz prazos atuais do art. 15 e aponta o DOU.",
+    "Etiquetas de veículo, selos de produto, marcações permanentes e VIN são categorias distintas. VIN permanece CONTRAN/SENATRAN, não certificação Inmetro.",
     "Extintores, metrologia legal de cronotacógrafos, componentes de motos, inspeções especiais e GNV instalação/requalificação precisam recortes próprios."
   ],
   "sourceGaps": [
@@ -1254,7 +1625,7 @@
       "catalogRecordIds": [
         "inmetro-051"
       ],
-      "reason": "Alteração reconhecida no catálogo; DOU integral403. Prazos da retificação2026 reproduzidos pelaFAQ379."
+      "reason": "Alteração reconhecida no catálogo; DOU integral403. Prazos da retificação de 2026 reproduzidos pela FAQ da 379/2021."
     }
   ]
 }

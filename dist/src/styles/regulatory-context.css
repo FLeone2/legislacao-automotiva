@@ -1,0 +1,74 @@
+.regulatory-state-grid small {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+.regulatory-consultation,
+.regulatory-timeline {
+  margin-block: 1.25rem;
+}
+.regulatory-consultation details {
+  margin-block: 0.65rem;
+}
+.regulatory-timeline > ul {
+  display: grid;
+  gap: 0.85rem;
+  padding: 0;
+  list-style: none;
+}
+.regulatory-timeline > ul > li {
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.regulatory-timeline li > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.regulatory-timeline time {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+.temporal-state {
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+.temporal-state.upcoming,
+.temporal-state.today {
+  color: var(--accent-ink);
+  background: var(--accent-soft);
+}
+.historical-search {
+  padding: 1rem;
+  margin-block: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.regulatory-consultation blockquote,
+.regulatory-timeline a {
+  overflow-wrap: anywhere;
+}
+/* Official excerpts may contain long dotted placeholders or unbroken URLs. */
+.regulatory-history,
+.regulatory-procedure-guide {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+html[data-theme]
+  #app
+  :is(
+    .regulatory-history,
+    .regulatory-timeline,
+    .regulatory-consultation,
+    .regulatory-procedure-guide
+  )
+  a:not(.btn) {
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}

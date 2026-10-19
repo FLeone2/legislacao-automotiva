@@ -147,6 +147,45 @@ def plain_relations(record, indexed):
                 )
 
 
+def apply_reviewed_effects(rows, reviews, as_of):
+    """Apply only explicit editorial effects, including changes to a base's repeal list.
+
+    Mentioning an act is never sufficient. A reviewed indirect repeal carries the
+    amending clause, the base act and the date on which that wording took effect.
+    Kept separate from index parsing so the transition can be tested at its boundary.
+    """
+    indexed = {record["id"]: record for record in rows}
+    as_of = dt.date.fromisoformat(str(as_of))
+    for effect in reviews["effects"]:
+        source, target = indexed[effect["sourceId"]], indexed[effect["targetId"]]
+        effective_date = dt.date.fromisoformat(effect["effectiveDate"])
+        evidence = {**effect, "sourceUrl": source["officialUrl"], "reviewed": True}
+        if evidence not in target["incomingEffects"]:
+            target["incomingEffects"].append(evidence)
+        relation = {
+            "number": target["number"],
+            "year": target["year"],
+            "label": f"{target['number']}/{target['year']}",
+            "kind": effect["kind"],
+            "url": target["officialUrl"],
+            "evidence": effect["evidence"],
+            "effectiveDate": effect["effectiveDate"],
+            "reviewed": True,
+        }
+        for key in ("clause", "viaActId", "viaClause", "chain", "sourceSha256"):
+            if key in effect:
+                relation[key] = effect[key]
+        if relation not in source["relationships"]:
+            source["relationships"].append(relation)
+        if effect["kind"] == "revoga" and effective_date <= as_of:
+            target["status"] = "revogada"
+            if effect["evidence"] not in target["statusEvidence"]:
+                target["statusEvidence"].append(effect["evidence"])
+            if effect["calculation"] not in target["notes"]:
+                target["notes"].append(effect["calculation"])
+    return rows
+
+
 def main():
     base = json.loads((OUT / "inventory.json").read_text())
     metadata = base["metadata"]
@@ -188,25 +227,7 @@ def main():
         plain_relations(r, indexed)
     cross_reference(rows, as_of)
     reviews = json.loads((OUT / "reviewed-effects.json").read_text())
-    for effect in reviews["effects"]:
-        source, target = indexed[effect["sourceId"]], indexed[effect["targetId"]]
-        evidence = {**effect, "sourceUrl": source["officialUrl"], "reviewed": True}
-        target["incomingEffects"].append(evidence)
-        source["relationships"].append(
-            {
-                "number": target["number"],
-                "year": target["year"],
-                "label": f"{target['number']}/{target['year']}",
-                "kind": effect["kind"],
-                "url": target["officialUrl"],
-                "evidence": effect["evidence"],
-                "reviewed": True,
-            }
-        )
-        if effect["kind"] == "revoga" and effect["effectiveDate"] <= metadata["asOf"]:
-            target["status"] = "revogada"
-            target["statusEvidence"].append(effect["evidence"])
-            target["notes"].append(effect["calculation"])
+    apply_reviewed_effects(rows, reviews, metadata["asOf"])
     catalogue = json.loads((ROOT / "catalog.json").read_text())
     existing = {}
     for c in catalogue["records"]:

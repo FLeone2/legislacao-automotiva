@@ -1,0 +1,32 @@
+[
+  {
+    "url": "https://www.inmetro.gov.br/legislacao/rtac/pdf/RTAC002960.pdf",
+    "error": "HTTP Error 503: Service Unavailable",
+    "retrievedAt": "2026-10-19"
+  },
+  {
+    "url": "https://sistema-sil.inmetro.gov.br/rtac/RTAC002960.pdf",
+    "error": "HTTP Error 503: Service Unavailable",
+    "retrievedAt": "2026-10-19"
+  },
+  {
+    "url": "https://www.inmetro.gov.br/legislacao/rtac/pdf/RTAC003000.pdf",
+    "error": "HTTP Error 503: Service Unavailable",
+    "retrievedAt": "2026-10-19"
+  },
+  {
+    "url": "https://sistema-sil.inmetro.gov.br/rtac/RTAC003000.pdf",
+    "error": "HTTP Error 503: Service Unavailable",
+    "retrievedAt": "2026-10-19"
+  },
+  {
+    "url": "https://www.in.gov.br/en/web/dou/-/portaria-n-169-de-3-de-maio-de-2023-485619287",
+    "error": "HTTP Error 403: Forbidden",
+    "retrievedAt": "2026-10-19"
+  },
+  {
+    "url": "https://www.in.gov.br/web/dou/-/portaria-n-169-de-3-de-maio-de-2023-485619287",
+    "error": "HTTP Error 403: Forbidden",
+    "retrievedAt": "2026-10-19"
+  }
+]

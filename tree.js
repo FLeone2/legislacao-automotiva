@@ -1,18 +1,22 @@
 'use strict';
 const treeUI = {
   tree: {
-    path: ['root', 'seguranca', 'seg-freios'],
-    selected: 'seg-freios',
+    path: ['root'],
+    selected: 'root',
     zoom: 1,
     tab: 'summary',
     fit: true,
+    presentation: 'graph',
+    focusBranch: true,
   },
   mover: {
-    path: ['mover-root', 'mover/requisitos'],
-    selected: 'mover/requisitos',
+    path: ['mover-root'],
+    selected: 'mover-root',
     zoom: 1,
     tab: 'summary',
     fit: true,
+    presentation: 'graph',
+    focusBranch: true,
   },
 };
 let treeModels = {};
@@ -41,8 +45,26 @@ const facetCopy = {
 function uniqueIds(ids) {
   return [...new Set(ids)];
 }
+function treeCatalogRecords() {
+  return typeof catalogRecords === 'function' ? catalogRecords(catalog) : catalog.records;
+}
+function treeCatalogRecord(id) {
+  return typeof catalogRecord === 'function'
+    ? catalogRecord(catalog, id)
+    : catalog.records.find((record) => record.id === id || record.regulatoryId === id);
+}
+function treeNodeRecords(node) {
+  const records = new Map();
+  for (const id of node.recordIds || []) {
+    const record = treeCatalogRecord(id);
+    if (record) records.set(record.regulatoryId || record.id, record);
+  }
+  return [...records.values()];
+}
 function recordIdsFor(filter) {
-  return catalog.records.filter(filter).map((r) => r.id);
+  return treeCatalogRecords()
+    .filter(filter)
+    .map((r) => r.id);
 }
 function taxonomyIds(key) {
   return recordIdsFor((r) => componentMatches(r, key));
@@ -126,7 +148,7 @@ function buildTreeModels() {
     'Visão geral',
   );
   const covered = new Set(root.recordIds);
-  const missing = catalog.records.filter((r) => !covered.has(r.id));
+  const missing = treeCatalogRecords().filter((r) => !covered.has(r.id));
   if (missing.length) {
     const extra = {
       id: 'revisar',
@@ -142,6 +164,11 @@ function buildTreeModels() {
   }
   treeModels.tree = indexTree(root);
   const spec = catalog.metadata.moverTree;
+  const publishedIds = new Set(treeCatalogRecords().map((record) => record.id));
+  const moverRecordIds = (ids) =>
+    uniqueIds(
+      (ids || []).map((id) => treeCatalogRecord(id)?.id).filter((id) => publishedIds.has(id)),
+    );
   const moverNode = (g) => ({
     id: g.id,
     label: g.label,
@@ -149,13 +176,16 @@ function buildTreeModels() {
     icon: g.icon || '◈',
     kind: g.kind,
     text: g.description,
-    recordIds: g.recordIds,
+    recordIds: moverRecordIds(g.recordIds),
     children: g.children
       ? g.children.map(moverNode)
-      : g.recordIds.map((id) => {
-          const r = catalog.records.find((x) => x.id === id);
+      : moverRecordIds(g.recordIds).map((id) => {
+          const r = treeCatalogRecord(id);
           return {
             id: g.id + '-' + id,
+            aliases: (r.catalogEntryIds || r.aliases || [])
+              .filter((alias) => typeof alias === 'string' && alias !== id)
+              .map((alias) => g.id + '-' + alias),
             label: r.title,
             subtitle: r.issuer || r.agency,
             icon: '▤',
@@ -179,25 +209,30 @@ function buildTreeModels() {
   );
 }
 function indexTree(root) {
-  const nodes = {};
+  const nodes = Object.create(null),
+    aliases = Object.create(null);
   function visit(n, parent) {
     n.parent = parent;
     nodes[n.id] = n;
+    for (const alias of n.aliases || []) if (alias !== n.id) aliases[alias] = n.id;
     (n.children || []).forEach((c) => visit(c, n.id));
   }
   visit(root, null);
-  return { root, nodes };
+  return { root, nodes, aliases };
 }
 function activeTree() {
-  return treeModels[
+  const mode =
     state.view === 'vehicle'
       ? 'vehicle'
       : state.view === 'flow'
         ? 'flow'
         : state.view === 'mover'
           ? 'mover'
-          : 'tree'
-  ];
+          : 'tree';
+  // Opening a lazily loaded document invalidates these models. Rebuild before
+  // the next node interaction, retaining the selected branch and presentation.
+  if (['tree', 'mover'].includes(mode) && !treeModels[mode]) buildTreeModels();
+  return treeModels[mode];
 }
 function activeTreeUI() {
   return treeUI[
@@ -213,13 +248,58 @@ function activeTreeUI() {
 function nodeTrail(id, model = activeTree()) {
   const chain = [];
   let n = model.nodes[id];
-  while (n) {
+  const seen = new Set();
+  while (n && !seen.has(n.id)) {
+    seen.add(n.id);
     chain.unshift(n.id);
     n = model.nodes[n.parent];
   }
   return chain;
 }
+function regulatoryTreeRoute(mode, ui) {
+  const params = new URLSearchParams();
+  if (ui.selected) params.set('node', ui.selected);
+  if (ui.tab === 'documents') params.set('tab', 'documents');
+  if (ui.presentation === 'list') params.set('presentation', 'list');
+  return '#' + mode + (params.size ? '?' + params : '');
+}
+function restoreRegulatoryTreeRoute(mode, hash = location.hash) {
+  if (!['tree', 'mover'].includes(mode)) return;
+  if (!treeModels.tree) buildTreeModels();
+  const model = treeModels[mode],
+    ui = treeUI[mode],
+    params = new URLSearchParams(hash.split('?')[1] || ''),
+    requested = params.get('node'),
+    resolved = model.nodes[requested] ? requested : model.aliases?.[requested],
+    selected = resolved || model.root.id;
+  if (ui.selected !== selected) ui.fit = true;
+  ui.selected = selected;
+  ui.path = nodeTrail(selected, model);
+  ui.tab = params.get('tab') === 'documents' ? 'documents' : 'summary';
+  ui.presentation = params.get('presentation') === 'list' ? 'list' : 'graph';
+  ui.invalidNode = Boolean(requested && !resolved);
+  if (requested && resolved && requested !== resolved)
+    history.replaceState(null, '', regulatoryTreeRoute(mode, ui));
+}
+function persistRegulatoryTreeRoute(replace = false) {
+  if (!['tree', 'mover'].includes(state.view)) return;
+  const route = regulatoryTreeRoute(state.view, activeTreeUI());
+  if (location.hash !== route) history[replace ? 'replaceState' : 'pushState'](null, '', route);
+  const main = $('#main');
+  if (main) main.dataset.renderedRoute = location.hash;
+  const permalink = document.querySelector('.tree-permalink');
+  if (permalink) permalink.setAttribute('href', route);
+}
 function treeColumns(model, ui) {
+  // Ancestors remain available in the breadcrumb. Drawing only the chosen
+  // branch keeps text legible without shrinking a complete, tall tree.
+  if (ui.focusBranch) {
+    const selected = model.nodes[ui.selected] || model.root;
+    return [
+      [selected],
+      ...(selected.children?.length && ui.path.includes(selected.id) ? [selected.children] : []),
+    ];
+  }
   const cols = [[model.root]];
   for (const id of ui.path) {
     const n = model.nodes[id];
@@ -229,7 +309,7 @@ function treeColumns(model, ui) {
   }
   return cols;
 }
-function selectTreeNode(id, toggle = false) {
+function selectTreeNode(id, toggle = false, focus = true) {
   const model = activeTree(),
     ui = activeTreeUI(),
     node = model.nodes[id];
@@ -239,37 +319,47 @@ function selectTreeNode(id, toggle = false) {
   ui.path = toggle && expanded ? trail.slice(0, -1) : trail;
   ui.selected = id;
   ui.tab = 'summary';
-  ui.fit = true;
+  ui.invalidNode = false;
+  ui.fit = ui.focusBranch ? ui.fit : true;
+  ui.center = true;
   if (state.view === 'vehicle') {
     const laneNode = trail[1];
     if (laneNode) vehicleUI.lane = laneNode.split(':')[2];
   }
   if (state.view === 'flow') persistFlowNode();
+  persistRegulatoryTreeRoute();
   renderTree(state.view);
-  const btn = document.querySelector(`.node-main[data-tree-node="${id}"]`);
-  if (btn) btn.focus({ preventScroll: true });
+  const selector = ui.presentation === 'list' ? '[data-tree-list] [data-tree-node]' : '.node-main';
+  const btn = [...document.querySelectorAll(selector)].find(
+    (button) => button.dataset.treeNode === id,
+  );
+  if (focus && btn) btn.focus({ preventScroll: true });
 }
 function graphMarkup(model, ui) {
   const columns = treeColumns(model, ui),
-    pitch = 210,
-    nodeW = 176,
-    nodeH = 70,
-    gapY = 90;
+    pitch = ui.focusBranch ? 264 : 210,
+    nodeW = ui.focusBranch ? 232 : 176,
+    nodeH = ui.focusBranch ? 104 : 70,
+    gapY = ui.focusBranch ? 124 : 90;
   const height = Math.max(490, ...columns.map((c) => c.length * gapY + 35)),
     width = columns.length * pitch + 22;
   const pos = {};
   columns.forEach((col, i) =>
     col.forEach(
-      (n, j) => (pos[n.id] = { x: 20 + i * pitch, y: (height - col.length * gapY) / 2 + j * gapY }),
+      (n, j) =>
+        (pos[n.id] = {
+          x: 20 + i * pitch,
+          y: ui.focusBranch ? 24 + j * gapY : (height - col.length * gapY) / 2 + j * gapY,
+        }),
     ),
   );
   let paths = '';
   for (let i = 1; i < columns.length; i++) {
-    const parent = model.nodes[ui.path[i - 1]],
-      p = pos[parent.id];
     for (const n of columns[i]) {
-      const q = pos[n.id],
+      const p = pos[n.parent],
+        q = pos[n.id],
         active = ui.path.includes(n.id) || ui.selected === n.id;
+      if (!p) continue;
       paths += `<path class="${active ? 'chosen' : ''}" d="M ${p.x + nodeW} ${p.y + nodeH / 2} C ${p.x + nodeW + 22} ${p.y + nodeH / 2}, ${q.x - 24} ${q.y + nodeH / 2}, ${q.x} ${q.y + nodeH / 2}"/>`;
     }
   }
@@ -280,7 +370,7 @@ function graphMarkup(model, ui) {
         selected = ui.selected === n.id,
         onPath = ui.path.includes(n.id),
         expanded = onPath && Boolean(n.children?.length);
-      return `<article class="graph-node ${selected ? 'selected' : ''} ${onPath ? 'on-path' : ''} ${n.id === model.root.id ? 'root-node' : ''}" style="left:${p.x}px;top:${p.y}px;width:${nodeW}px;height:${nodeH}px"><button class="node-main" data-tree-node="${n.id}" aria-current="${selected ? 'true' : 'false'}" title="${esc(n.label)}"><span class="node-copy"><strong>${esc(n.label)}</strong><small>${esc(n.subtitle || n.kind || '')}</small></span></button>${n.children?.length ? `<button class="node-toggle" data-tree-toggle="${n.id}" aria-label="${expanded ? 'Recolher' : 'Expandir'} ${esc(n.label)}" aria-expanded="${expanded}">${expanded ? '−' : '+'}</button>` : ''}</article>`;
+      return `<article class="graph-node ${selected ? 'selected' : ''} ${onPath ? 'on-path' : ''} ${n.id === model.root.id ? 'root-node' : ''}" style="left:${p.x}px;top:${p.y}px;width:${nodeW}px;height:${nodeH}px"><button class="node-main" data-tree-node="${esc(n.id)}" aria-current="${selected ? 'true' : 'false'}" title="${esc(n.label)}"><span class="node-copy"><strong>${esc(n.label)}</strong><small>${esc(n.subtitle || n.kind || '')}</small></span></button>${n.children?.length ? `<button class="node-toggle" data-tree-toggle="${esc(n.id)}" aria-label="${expanded ? 'Recolher' : 'Expandir'} ${esc(n.label)}" aria-expanded="${expanded}">${expanded ? '−' : '+'}</button>` : ''}</article>`;
     })
     .join('');
   const mini = `<svg viewBox="0 0 ${width} ${height}" aria-hidden="true">${paths}${columns
@@ -290,7 +380,12 @@ function graphMarkup(model, ui) {
       return `<rect x="${p.x}" y="${p.y}" width="${nodeW}" height="${nodeH}" rx="9" fill="${ui.selected === n.id ? 'var(--accent)' : ui.path.includes(n.id) ? '#77777e' : '#34373a'}"/>`;
     })
     .join('')}</svg>`;
-  return `<div class="graph-viewport" id="graphViewport" tabindex="0" aria-label="Árvore navegável. Use os botões para expandir e a rolagem para explorar."><div class="graph-space" id="graphSpace" style="width:${width}px;height:${height}px"><div class="graph-world" id="graphWorld" style="width:${width}px;height:${height}px"><svg class="graph-links" width="${width}" height="${height}" aria-hidden="true">${paths}</svg>${nodes}</div></div></div><div class="graph-controls"><button data-graph-action="out" aria-label="Diminuir zoom">−</button><output id="graphZoom">100%</output><button data-graph-action="in" aria-label="Aumentar zoom">+</button><span></span><button data-graph-action="fit" aria-label="Ajustar árvore à tela">⛶</button><button data-graph-action="back" aria-label="Voltar um nível">↶</button></div><div class="graph-mini" title="Visão geral da árvore">${mini}<span>Visão geral</span></div>`;
+  return `<div class="graph-viewport" id="graphViewport" tabindex="0" aria-label="Árvore navegável. Use os botões para expandir e a rolagem para explorar."><div class="graph-space" id="graphSpace" style="width:${width}px;height:${height}px"><div class="graph-world" id="graphWorld" style="width:${width}px;height:${height}px"><svg class="graph-links" width="${width}" height="${height}" aria-hidden="true">${paths}</svg>${nodes}</div></div></div><div class="graph-controls"><button data-graph-action="out" aria-label="Diminuir zoom">−</button><output id="graphZoom">100%</output><button data-graph-action="in" aria-label="Aumentar zoom">+</button><span></span><button data-graph-action="fit" aria-label="${ui.focusBranch ? 'Enquadrar ramo selecionado' : 'Ajustar árvore à tela'}">⛶</button><button data-graph-action="back" aria-label="Voltar um nível">↶</button></div><div class="graph-mini" title="Visão geral da árvore">${mini}<span>Visão geral</span></div>`;
+}
+function treeListMarkup(model, ui) {
+  const node = model.nodes[ui.selected],
+    records = treeNodeRecords(node);
+  return `<section class="tree-text-list" data-tree-list aria-label="Assuntos e referências em lista"><header><h2>${esc(node.label)}</h2>${node.parent ? `<button class="btn" data-tree-node="${esc(node.parent)}">← Um nível acima</button>` : ''}</header><button class="tree-list-current" data-tree-node="${esc(node.id)}" aria-current="true">${esc(node.label)}<small>${esc(node.kind || 'Assunto selecionado')}</small></button>${node.children?.length ? `<ul>${node.children.map((child) => `<li><button data-tree-node="${esc(child.id)}"><span>${esc(child.label)}</span><small>${esc(child.subtitle || child.kind || '')}</small><span aria-hidden="true">→</span></button></li>`).join('')}</ul>` : '<p class="scope-note">Último nível deste ramo.</p>'}<div class="tree-list-documents"><h3>Referências deste ramo</h3>${records.slice(0, 3).map(treeDocument).join('') || '<p class="notice">Nenhuma referência cadastrada neste ramo. Isso não indica isenção de obrigação.</p>'}${records.length > 3 ? `<button class="btn" data-tree-tab="documents">Ver as ${records.length} referências</button>` : ''}</div></section>`;
 }
 function renderTree(mode) {
   if (mode === 'flow') {
@@ -311,16 +406,20 @@ function renderTree(mode) {
   }
   const selected = model.nodes[ui.selected];
   $('#main').innerHTML =
-    `<div class="tree-page-head"><div class="eyebrow">${mover ? 'Políticas automotivas · MOVER' : 'Árvore regulatória · Brasil'}</div><h1>${mover ? 'MOVER' : 'Legislação por assunto'}</h1><p class="subtitle">${mover ? 'Explore requisitos, incentivos e procedimentos em seus próprios ramos.' : ''}</p><div class="tree-context"><span>🇧🇷 Brasil</span><span>Âmbito federal</span><span>${mover ? '13 referências temáticas' : catalog.records.length + ' entradas documentais'}</span><span class="context-note">Consulta temática · aplicabilidade a verificar</span></div></div><div class="tree-breadcrumb" aria-label="Caminho selecionado">${nodeTrail(
+    `<div class="tree-page-head"><div class="eyebrow">${mover ? 'Políticas automotivas · MOVER' : 'Árvore regulatória · Brasil'}</div><h1>${mover ? 'MOVER' : 'Legislação por assunto'}</h1><div class="tree-context"><span>🇧🇷 Brasil</span><span>Âmbito federal</span><span>${model.root.recordIds.length} referências</span><span class="context-note">Aplicabilidade a verificar na fonte</span></div></div>${ui.invalidNode ? '<p class="notice" role="status">Ramo não encontrado. Escolha um assunto na visão geral.</p>' : ''}<nav class="tree-breadcrumb" aria-label="Caminho selecionado">${nodeTrail(
       selected.id,
       model,
     )
-      .map((id) => `<button data-tree-node="${id}">${esc(model.nodes[id].label)}</button>`)
+      .map(
+        (id) =>
+          `<button data-tree-node="${esc(id)}" ${id === selected.id ? 'aria-current="location"' : ''}>${esc(model.nodes[id].label)}</button>`,
+      )
       .join(
         '<span>›</span>',
-      )}</div><section class="graph-shell" aria-label="${mover ? 'Árvore de políticas automotivas MOVER' : 'Árvore de consulta regulatória'}">${graphMarkup(model, ui)}</section><div class="tree-footer"><span>ⓘ</span><span>Use + para expandir os assuntos.</span><button data-graph-action="reset">Recomeçar</button></div>${mover ? '<p class="tree-caveat">Recorte temático: 13 registros, incluindo referência do CNPE. Grupos podem compartilhar atos. A Portaria 277/2026 permanece como referência pendente, sem virar uma 14ª entrada.</p>' : ''}`;
+      )}</nav><div class="tree-presentation" role="group" aria-label="Apresentação dos assuntos"><button class="btn" data-tree-presentation="graph" aria-pressed="${ui.presentation !== 'list'}">Diagrama</button><button class="btn" data-tree-presentation="list" aria-pressed="${ui.presentation === 'list'}">Lista</button><a class="tree-permalink" href="${esc(regulatoryTreeRoute(mode, ui))}">Link deste ramo ↗</a></div>${ui.presentation === 'list' ? treeListMarkup(model, ui) : `<section class="graph-shell focused-tree" aria-label="${mover ? 'Árvore de políticas automotivas MOVER' : 'Árvore de consulta regulatória'}">${graphMarkup(model, ui)}</section>`}<div class="tree-footer"><button data-graph-action="reset">Visão geral</button></div>`;
   renderTreeDetails();
-  setupGraph();
+  if (ui.presentation !== 'list') setupGraph();
+  $('#main').dataset.renderedRoute = location.hash;
 }
 function treeDocument(r) {
   return `<button class="tree-doc" data-open="${r.id}"><span class="tag">${esc(r.issuer || r.agency)}</span><strong>${esc(r.title)}</strong><small>${esc(r.status)}</small><span class="doc-arrow">›</span></button>`;
@@ -331,7 +430,7 @@ function renderTreeDetails() {
   const model = activeTree(),
     ui = activeTreeUI(),
     n = model.nodes[ui.selected];
-  const records = n.recordIds.map((id) => catalog.records.find((r) => r.id === id)).filter(Boolean);
+  const records = treeNodeRecords(n);
   const one = n.recordId ? records[0] : null;
   const trail = nodeTrail(n.id, model)
     .slice(1, -1)
@@ -339,8 +438,16 @@ function renderTreeDetails() {
   const text =
     n.text ||
     `${n.label} reúne ${records.length} referências para consulta. Expanda os ramos ou abra os documentos para verificar objeto, condições, datas e alterações.`;
-  const tabs = `<div class="detail-tabs" role="tablist" aria-label="Detalhes"><button role="tab" aria-selected="${ui.tab === 'summary'}" data-tree-tab="summary" class="${ui.tab === 'summary' ? 'active' : ''}">Resumo</button><button role="tab" aria-selected="${ui.tab === 'documents'}" data-tree-tab="documents" class="${ui.tab === 'documents' ? 'active' : ''}">Documentos <span>${records.length}</span></button></div>`;
-  detailPanel.innerHTML = `<div class="tree-detail-top"><small>${esc(trail.join(' / ') || 'Visão geral')}</small><span class="pill">${esc(n.kind || 'Tema selecionado')}</span><h2>${esc(n.label)}</h2></div>${tabs}<div class="detail-scroll">${ui.tab === 'documents' ? `<p class="detail-intro">${records.length} referências associadas. Abra cada registro para ver a rastreabilidade.</p>${records.map(treeDocument).join('') || '<p class="notice">Nenhuma referência classificada neste ramo.</p>'}` : `<p class="detail-intro">${esc(text)}</p><details class="tree-accordion" open><summary>▤ Aplicabilidade</summary><p>${state.view === 'mover' ? 'Confirmar objeto, sujeitos alcançados, datas, condições de enquadramento e anexos. Incentivos e obrigações empresariais não são requisitos universais de cada veículo.' : 'Confirmar categoria, configuração, datas, exceções e anexos. O portal organiza referências por assunto; não determina automaticamente o enquadramento de um veículo específico.'}</p></details><details class="tree-accordion" open><summary>▱ Base documental</summary><p>${one ? 'Consulte o ato e os seus modificadores na fonte.' : 'As referências abaixo são pontos de partida para a revisão técnica.'}</p>${records.slice(0, 3).map(treeDocument).join('')}${records.length > 3 ? `<button class="text-button" data-tree-tab="documents">Ver as ${records.length} referências →</button>` : ''}</details><details class="tree-accordion" open><summary>◷ Vigência e alterações</summary><div class="tree-warning">! ${esc(one?.status || 'Validação normativa pendente')}</div><p>Leia a redação atual, retificações e regras de transição. A organização do catálogo não certifica vigência.</p></details>${state.view === 'mover' ? `<details class="tree-accordion"><summary>◇ Ressalva do recorte MOVER</summary><p>Requisitos, incentivos e habilitação são instrumentos distintos. O vínculo temático não implica elegibilidade nem benefício automático.</p><p>Portaria GM/MDIC 277/2026: inteiro teor e efeitos ainda pendentes de conferência.</p><button class="text-button" data-route="updates">Consultar ressalvas →</button></details>` : ''}`}</div><div class="tree-detail-footer"><small>Acervo de referência de 18/10/2026. Confira o nível de revisão e o enquadramento em cada referência.</small>${one ? `<button class="btn primary" data-open="${one.id}" data-requirement="${esc(n.requirementId || '')}">Abrir detalhes da referência ↗</button>` : `<button class="btn primary" data-tree-tab="documents">Consultar documentos ↗</button>`}</div>`;
+  const tabs = `<div class="detail-tabs" role="tablist" aria-label="Detalhes">${[
+    ['summary', 'Resumo'],
+    ['documents', 'Documentos'],
+  ]
+    .map(
+      ([id, label]) =>
+        `<button id="tree-tab-${id}" role="tab" aria-selected="${ui.tab === id}" aria-controls="tree-detail-content" tabindex="${ui.tab === id ? 0 : -1}" data-tree-tab="${id}" class="${ui.tab === id ? 'active' : ''}">${label}${id === 'documents' ? ` <span>${records.length}</span>` : ''}</button>`,
+    )
+    .join('')}</div>`;
+  detailPanel.innerHTML = `<div class="tree-detail-top"><small>${esc(trail.join(' / ') || 'Visão geral')}</small><span class="pill">${esc(n.kind || 'Tema selecionado')}</span><h2>${esc(n.label)}</h2></div>${tabs}<div class="detail-scroll" id="tree-detail-content" role="tabpanel" aria-labelledby="tree-tab-${ui.tab}" tabindex="0">${ui.tab === 'documents' ? `<p class="detail-intro">${records.length} referências associadas.</p>${records.map(treeDocument).join('') || '<p class="notice">Nenhuma referência cadastrada neste ramo. Isso não indica isenção de obrigação.</p>'}` : `<p class="detail-intro">${esc(text)}</p><details class="tree-accordion" open><summary>Aplicabilidade</summary><p>${state.view === 'mover' ? 'Confirme objeto, sujeitos alcançados, datas, condições de enquadramento e anexos. Incentivos e obrigações empresariais não se aplicam automaticamente a cada veículo.' : 'Confirme categoria, configuração, datas, exceções e anexos na fonte.'}</p></details><details class="tree-accordion" open><summary>Referências</summary>${records.slice(0, 3).map(treeDocument).join('') || '<p class="notice">Nenhuma referência cadastrada neste ramo. Isso não indica isenção de obrigação.</p>'}${records.length > 3 ? `<button class="text-button" data-tree-tab="documents">Ver as ${records.length} referências →</button>` : ''}</details>${one ? `<details class="tree-accordion" open><summary>Vigência e alterações</summary><div class="tree-warning">${esc(one.status || 'Situação jurídica não informada')}</div><p>Confira a redação atual, as retificações e as transições na fonte.</p></details>` : ''}`}</div><div class="tree-detail-footer"><small>Confira a fonte, o nível de revisão e as condições de cada referência.</small>${one ? `<button class="btn primary" data-open="${one.id}" data-requirement="${esc(n.requirementId || '')}">Abrir referência ↗</button>` : `<button class="btn primary" data-tree-tab="documents">Consultar documentos ↗</button>`}</div>`;
 }
 function applyGraphZoom(fit = false) {
   const ui = activeTreeUI(),
@@ -350,7 +457,8 @@ function applyGraphZoom(fit = false) {
   if (!v || !w) return;
   const width = parseFloat(w.style.width),
     height = parseFloat(w.style.height);
-  if (fit)
+  if (fit && ui.focusBranch) ui.zoom = Math.max(0.9, Math.min(1, (v.clientWidth - 24) / width));
+  else if (fit)
     ui.zoom = Math.max(
       0.35,
       Math.min(1, (v.clientWidth - 16) / width, (v.clientHeight - 16) / height),
@@ -373,7 +481,16 @@ function setupGraph() {
     // Ignore work scheduled by a graph that navigation has since removed.
     if (!v.isConnected || $('#graphViewport') !== v || activeTreeUI() !== ui) return;
     const viewport = v;
-    if (ui.fit && viewport.clientWidth < 540) {
+    if (ui.focusBranch) {
+      applyGraphZoom(ui.fit);
+      if (ui.center || ui.fit) {
+        viewport.scrollLeft = 0;
+        // The selected branch is always the first column. Keep its label at
+        // reading size and scroll tall child columns rather than scaling down.
+        viewport.scrollTop = 0;
+      }
+      ui.center = false;
+    } else if (ui.fit && viewport.clientWidth < 540) {
       ui.zoom = 0.9;
       applyGraphZoom(false);
       const node = document.querySelector(
@@ -409,6 +526,14 @@ function setupGraph() {
 document.addEventListener('click', (e) => {
   const b = e.target.closest('button');
   if (!b) return;
+  if (b.dataset.treePresentation && ['tree', 'mover'].includes(state.view)) {
+    const ui = activeTreeUI();
+    ui.presentation = b.dataset.treePresentation === 'list' ? 'list' : 'graph';
+    persistRegulatoryTreeRoute(true);
+    renderTree(state.view);
+    document.querySelector(`[data-tree-presentation="${ui.presentation}"]`)?.focus();
+    return;
+  }
   if (b.dataset.treeNode) {
     selectTreeNode(b.dataset.treeNode);
     return;
@@ -418,9 +543,11 @@ document.addEventListener('click', (e) => {
     return;
   }
   if (b.dataset.treeTab) {
-    activeTreeUI().tab = b.dataset.treeTab;
+    activeTreeUI().tab = b.dataset.treeTab === 'documents' ? 'documents' : 'summary';
+    persistRegulatoryTreeRoute(true);
     renderTreeDetails();
     if (state.view === 'flow') renderFlowActivityContext();
+    document.querySelector('.detail-tabs [aria-selected="true"]')?.focus({ preventScroll: true });
     return;
   }
   if (b.dataset.graphAction) {
@@ -438,8 +565,11 @@ document.addEventListener('click', (e) => {
       ui.selected = activeTree().root.id;
       ui.tab = 'summary';
       ui.fit = true;
+      ui.invalidNode = false;
       if (state.view === 'flow') persistFlowNode();
+      persistRegulatoryTreeRoute();
       renderTree(state.view);
+      document.querySelector('[data-graph-action="reset"]')?.focus({ preventScroll: true });
     }
   }
 });
@@ -448,6 +578,7 @@ document.addEventListener('keydown', (e) => {
   if (tab && ['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) {
     e.preventDefault();
     activeTreeUI().tab = ['Home', 'ArrowLeft'].includes(e.key) ? 'summary' : 'documents';
+    persistRegulatoryTreeRoute(true);
     renderTreeDetails();
     if (state.view === 'flow') renderFlowActivityContext();
     document.querySelector('.detail-tabs button.active')?.focus();
@@ -455,13 +586,30 @@ document.addEventListener('keydown', (e) => {
   }
   const b = e.target.closest('[data-tree-node]');
   if (!b) return;
-  const n = activeTree().nodes[b.dataset.treeNode];
+  const model = activeTree(),
+    n = model.nodes[b.dataset.treeNode];
+  if (!n) return;
   if (e.key === 'ArrowRight' && n.children?.length) {
     e.preventDefault();
-    selectTreeNode(n.id);
+    selectTreeNode(activeTreeUI().path.includes(n.id) ? n.children[0].id : n.id);
   }
   if (e.key === 'ArrowLeft') {
     e.preventDefault();
     selectTreeNode(n.parent || n.id);
+  }
+  if (['ArrowUp', 'ArrowDown', 'Home', 'End'].includes(e.key)) {
+    const siblings = model.nodes[n.parent]?.children || [model.root],
+      current = siblings.findIndex((node) => node.id === n.id),
+      index =
+        e.key === 'Home'
+          ? 0
+          : e.key === 'End'
+            ? siblings.length - 1
+            : Math.max(
+                0,
+                Math.min(siblings.length - 1, current + (e.key === 'ArrowDown' ? 1 : -1)),
+              );
+    e.preventDefault();
+    selectTreeNode(siblings[index].id);
   }
 });

@@ -29,6 +29,7 @@ def write(path, data):
 def main():
     # Remove stale generated records so excluded acts cannot remain published.
     shutil.rmtree(SITE / "records", ignore_errors=True)
+    shutil.rmtree(SITE / "history", ignore_errors=True)
     flow = json.loads(
         subprocess.check_output(
             [
@@ -84,6 +85,7 @@ def main():
         "applicability",
         "publication",
         "incomingEffects",
+        "consultationTopics",
     ]
     for agency in AGENCIES:
         data = read(f"data/{agency}/active.json")
@@ -107,10 +109,19 @@ def main():
                     )
                 q["actId"] = record["id"]
                 q["agency"] = agency
+                evidence_kind = (
+                    q.get("evidenceKind")
+                    or q.get("provision", {}).get("kind")
+                    or (
+                        "official_guidance"
+                        if record.get("fullTextReviewed") is False
+                        else "public_text_excerpt"
+                    )
+                )
+                if evidence_kind not in {"official_guidance", "public_text_excerpt"}:
+                    raise ValueError("Unknown requirement evidence kind: " + q["id"])
                 q["provision"] = {
-                    "kind": "official_guidance"
-                    if record.get("fullTextReviewed") is False
-                    else "public_text_excerpt",
+                    "kind": evidence_kind,
                     "reference": q["clause"],
                     "sourceUrl": q.get("sourceUrl", record["officialUrl"]),
                 }
@@ -129,13 +140,16 @@ def main():
                     "url": evidence_url,
                     "sourceKey": source_key,
                     "documentSha256": document_hash,
-                    "documentKind": "official_guidance_snapshot"
-                    if record.get("fullTextReviewed") is False
-                    else "official_text_snapshot",
+                    "documentKind": q.get("documentKind")
+                    or (
+                        "official_guidance_snapshot"
+                        if evidence_kind == "official_guidance"
+                        else "official_text_snapshot"
+                    ),
                 }
                 q["verification"] = {
                     "state": "directed_review"
-                    if record.get("fullTextReviewed") is not False
+                    if evidence_kind == "public_text_excerpt"
                     else "official_guidance_only",
                     "applicability": "requires_assessment",
                 }
@@ -170,6 +184,11 @@ def main():
                 k: record["reviewStatus"][k]
                 for k in ["state", "fullTextReviewed", "amendmentChainReviewed"]
             }
+            # The collection date is only a compact default. Preserve each
+            # different review date and restore the default in the store.
+            reviewed_at = record["reviewStatus"].get("reviewedAt")
+            if reviewed_at != data["metadata"].get("asOf"):
+                summary["reviewStatus"]["reviewedAt"] = reviewed_at
             summary["legalStatus"] = {
                 k: record["legalStatus"][k] for k in ["state", "asOf"]
             }
@@ -200,7 +219,37 @@ def main():
             summary["_summary"] = True
             summaries.append(summary)
         regulations[agency] = {"metadata": data["metadata"], "records": summaries}
+    history = []
+    for agency in AGENCIES:
+        history_path = ROOT / f"data/{agency}/historical.json"
+        if not history_path.exists():
+            continue
+        historical = read(f"data/{agency}/historical.json")
+        for record in historical.get("records", []):
+            if record.get("publication", {}).get("included") is not False:
+                raise ValueError("Historical record must be outside current collection")
+            write(SITE / "history" / agency / (record["id"] + ".json"), record)
+            history.append(
+                {
+                    "id": record["id"],
+                    "agency": agency,
+                    "title": record.get("title")
+                    or f"Resolução CONTRAN nº {record['number']}/{record['year']}",
+                    "statusLabel": record.get("statusLabel", "Registro histórico"),
+                }
+            )
     base = read("catalog.json")
+    for record in base["records"]:
+        if record.get("publication", {}).get("included") is False:
+            history.append(
+                {
+                    "id": record["id"],
+                    "agency": "mover",
+                    "title": record["title"],
+                    "statusLabel": record.get("status", "Registro histórico"),
+                }
+            )
+            write(SITE / "history" / "mover" / (record["id"] + ".json"), record)
     all_original = {
         id
         for d in regulations.values()
@@ -212,11 +261,17 @@ def main():
     base["records"] = [
         {
             "id": r["id"],
-            "title": r["title"],
-            "agency": r["agency"],
             "stages": r.get("stages", []),
         }
         if r["id"] in all_original
+        else {
+            "id": r["id"],
+            "title": r["title"],
+            "agency": r["agency"],
+            "publication": {"included": False},
+            "_historical": True,
+        }
+        if r.get("publication", {}).get("included") is False
         else r
         for r in base["records"]
     ]
@@ -227,6 +282,7 @@ def main():
             "base": base,
             "regulations": regulations,
             "requirementCount": len(requirements),
+            "historicalReferences": history,
         },
     )
     write(

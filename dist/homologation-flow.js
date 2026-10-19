@@ -9,7 +9,7 @@ function flowRoute(stage, node, powertrain = flowUI.powertrain) {
   return '#flow' + (q.size ? '?' + q : '');
 }
 function flowActivityRecords(activity) {
-  const primary = HomologationFlow.references(activity, catalog.records, flowUI.powertrain),
+  const primary = HomologationFlow.references(activity, catalogRecords(catalog), flowUI.powertrain),
     ids = new Set(primary.map((r) => r.regulatoryId).filter(Boolean));
   const indexed = new Map(
     Object.values(regulatoryData).flatMap((d) => (d?.records || []).map((r) => [r.id, r])),
@@ -24,7 +24,7 @@ function flowActivityRecords(activity) {
     }
   return [
     ...new Map(
-      [...primary, ...catalog.records.filter((r) => ids.has(r.regulatoryId))].map((r) => [
+      [...primary, ...catalogRecords(catalog).filter((r) => ids.has(r.regulatoryId))].map((r) => [
         r.regulatoryId || r.id,
         r,
       ]),
@@ -35,15 +35,12 @@ function flowStageTree(stage) {
   const children = HomologationFlow.activities(stage, flowUI.powertrain).map((activity) => {
     const id = `flow:${stage.id}:${activity.id}`,
       records = flowActivityRecords(activity);
-    const requested = (activity.refs || []).filter(
-      (ref) =>
-        !activity.referencePowertrains?.[ref] ||
-        flowUI.powertrain === 'todos' ||
-        activity.referencePowertrains[ref].includes(flowUI.powertrain),
+    const requested = (activity.refs || []).filter((ref) =>
+      HomologationFlow.matchesPowertrain(activity.referencePowertrains?.[ref], flowUI.powertrain),
     );
     const missing = [
-      ...requested.filter((ref) => !catalog.records.some((r) => r.regulatoryId === ref)),
-      ...(activity.recordIds || []).filter((ref) => !catalog.records.some((r) => r.id === ref)),
+      ...requested.filter((ref) => !catalogRecord(catalog, ref)),
+      ...(activity.recordIds || []).filter((ref) => !catalogRecord(catalog, ref)),
     ];
     const leaves = records.map((record) => ({
       id: `${id}:law:${record.regulatoryId || record.id}`,
@@ -209,6 +206,13 @@ function renderFlowActivityContext() {
   if (!activity) return;
   const links = [
     activity.route ? `<a class="btn" href="${esc(activity.route)}">Explorar o assunto →</a>` : '',
+    ...(activity.consultationLinks || []).map(
+      (link) => `<a class="btn" href="${esc(link.route)}">${esc(link.label)} →</a>`,
+    ),
+    ...(activity.officialLinks || []).map(
+      (link) =>
+        `<a class="btn" href="${esc(link.url)}" target="_blank" rel="noopener noreferrer">${esc(link.label)} ↗</a>`,
+    ),
     activity.vehicleComponent
       ? `<a class="btn" href="#vehicle?component=${esc(activity.vehicleComponent)}">Ver no veículo →</a>`
       : '',

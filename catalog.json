@@ -2,7 +2,7 @@
   "metadata": {
     "catalogVersion": "0.1-prototype",
     "reviewDate": "2026-10-13",
-    "recordCount": 124,
+    "recordCount": 125,
     "applicabilityDisclaimer": "Consulta assistida e protótipo visual. Não emite certificado, diagnóstico jurídico nem decisão automática de aplicabilidade. Confirmar categoria, massa, combustível/propulsão, fabricação/importação, novo projeto, volume, datas, exceções, anexos e atos modificadores.",
     "components": [
       {
@@ -102,7 +102,7 @@
     ],
     "stageCaveat": "Etapas são grupos de consulta. O desenho do fluxo não estabelece uma sequência universal nem implica que toda etapa se aplique a todo projeto.",
     "source": "Catálogo temático de legislação automotiva brasileira com referências oficiais",
-    "countCaveat": "124 entradas documentais, incluindo retificações e referências relacionadas. Não são 124 normas com vigência ou aplicabilidade certificadas.",
+    "countCaveat": "125 entradas documentais, incluindo uma referência histórica MOVER. A consulta atual exclui históricos e reúne aliases; a contagem de entradas não é de normas com vigência certificada.",
     "pendingReviews": [
       {
         "title": "Portaria GM/MDIC 277/2026",
@@ -116,7 +116,7 @@
       {
         "title": "Retificações da Portaria Inmetro 145/2022 em 2024",
         "officialUrl": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=11%2F12%2F2024&jornal=515&pagina=68",
-        "note": "Retificações de 2024 requerem conferência do inteiro teor. Não tratar o texto-base de 2022 como consolidação atual."
+        "note": "Os trechos dos arts. 14/15 e do Anexo F, tabela 2, da retificação de 11/12/2024 foram incorporados à consulta. A íntegra consolidada e as demais retificações permanecem pendentes de revisão."
       }
     ],
     "hierarchy": [
@@ -457,7 +457,7 @@
           "kind": "Incentivos e processos",
           "description": "Explore os temas e consulte os instrumentos e condições nas fontes relacionadas.",
           "recordIds": [
-            "mover-009",
+            "mover-014",
             "mover-011",
             "mover-003",
             "mover-004",
@@ -469,9 +469,9 @@
               "id": "mover/habilitacao",
               "label": "Incentivos e habilitação",
               "kind": "Incentivos e processos",
-              "description": "Habilitação e compromissos das empresas, regime de incentivos e FNDIT. Não classificar como requisito técnico universal de todo veículo.",
+              "description": "Incentivos, habilitação e compromissos empresariais. A Portaria 68/2026 sucede a 43/2024 segundo o índice MDIC; consultar a íntegra e as transições. Estes assuntos não são requisitos técnicos universais do veículo.",
               "recordIds": [
-                "mover-009",
+                "mover-014",
                 "mover-011"
               ]
             },
@@ -498,9 +498,10 @@
               "id": "mover/pesquisa-desenvolvimento",
               "label": "Pesquisa e desenvolvimento",
               "kind": "P&D e prestação de informações",
-              "description": "Dispêndios de empresas habilitadas: elegibilidade, prestação de informações e análise. Relação documental com a Portaria 43/2024 indicada no catálogo.",
+              "description": "Dispêndios de empresas habilitadas, informações e análise. A 192/2025 tem relação histórica com a 43/2024; consultar a 68/2026 e suas transições antes de usar o procedimento.",
               "recordIds": [
-                "mover-013"
+                "mover-013",
+                "mover-014"
               ]
             }
           ]
@@ -782,9 +783,9 @@
       "id": "mover-009",
       "title": "Portaria GM-MDIC 43-2024 - Habilitação e compromissos",
       "agency": "MOVER",
-      "officialUrl": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/programa-mover-1/legislacao-programa-mover",
-      "reviewDate": "2026-10-13",
-      "status": "Indexado; conferência normativa pendente",
+      "officialUrl": "https://www.in.gov.br/en/web/dou/-/portaria-gm/mdic-n-43-de-26-de-marco-de-2024-550380816",
+      "reviewDate": "2026-10-19",
+      "status": "Histórico — revogação indicada no índice oficial MDIC",
       "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
       "verifiedCurrent": false,
       "components": [
@@ -803,15 +804,142 @@
         "Portaria 192/2025"
       ],
       "documentType": "ato-ou-texto-base",
-      "summary": "Empresas habilitadas aos incentivos. Ler em conjunto com atos posteriores, incluindo Portaria 192/2025.",
-      "availability": "Referência oficial para consulta",
+      "summary": "Referência histórica. O índice oficial MDIC de 2026 informa que a Portaria GM/MDIC 68, de 17 de março de 2026, revoga a Portaria MDIC/GM 43, de 26 de março de 2024. Consulte a sucessora; artigo, data de efeito e transições ainda dependem da íntegra.",
+      "availability": "Ficha histórica, fora da consulta atual.",
       "uncertaintyNotes": [
-        "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."
+        "O índice oficial confirma a relação 68/2026 → 43/2024. A íntegra do DOU não pôde ser recuperada nesta revisão; artigo revogador, entrada em vigor, transições e procedimentos não foram inferidos."
       ],
       "taxonomy": [
         "corporativo/mover"
       ],
-      "issuer": "GM/MDIC"
+      "issuer": "GM/MDIC",
+      "legalStatus": {
+        "state": "revoked",
+        "asOf": "2026-10-19",
+        "basis": "Revogação expressamente indicada no índice oficial do MDIC; dispositivo e data de efeito ainda não revisados.",
+        "evidence": [
+          "PORTARIA GM/MDIC Nº 68, DE 17 DE MARÇO DE 2026 (Revoga a PORTARIA MDIC/GM Nº 43, DE 26 DE MARÇO DE 2024)"
+        ]
+      },
+      "reviewStatus": {
+        "state": "index_review",
+        "fullTextReviewed": false,
+        "amendmentChainReviewed": false,
+        "reviewedAt": "2026-10-19",
+        "gaps": [
+          "O índice oficial confirma a relação 68/2026 → 43/2024. A íntegra do DOU não pôde ser recuperada nesta revisão; artigo revogador, entrada em vigor, transições e procedimentos não foram inferidos."
+        ]
+      },
+      "publication": {
+        "included": false,
+        "reason": "revoked_by_successor",
+        "reviewedAt": "2026-10-19",
+        "policySource": "data/mover/reviewed-map.json"
+      },
+      "replacedBy": {
+        "id": "mover-014",
+        "title": "Portaria GM/MDIC nº 68/2026",
+        "officialUrl": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-68-de-17-de-marco-de-2026-694449850"
+      },
+      "sources": [
+        {
+          "url": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2026",
+          "clause": "Entrada Portaria GM/MDIC 68, de 17 de março de 2026",
+          "excerpt": "PORTARIA GM/MDIC Nº 68, DE 17 DE MARÇO DE 2026 (Revoga a PORTARIA MDIC/GM Nº 43, DE 26 DE MARÇO DE 2024)",
+          "sha256": "9d21b192f676d2a34efbe8741f5c36b5dc8b064bcb33b6b195843e308d0a29bc",
+          "sourceKind": "official_index",
+          "reviewedAt": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "id": "mover-014",
+      "title": "Portaria GM/MDIC nº 68/2026 — Incentivos, pesquisa e desenvolvimento MOVER",
+      "agency": "MOVER",
+      "officialUrl": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-68-de-17-de-marco-de-2026-694449850",
+      "reviewDate": "2026-10-19",
+      "status": "Referência atual indicada no índice oficial; íntegra pendente",
+      "legalApplicability": "Depende de categoria, projeto, combustível, volume, datas, exceções e anexos. Não avaliada para um veículo específico.",
+      "verifiedCurrent": false,
+      "components": [
+        "veiculo-completo"
+      ],
+      "componentLabels": [
+        "Veículo completo e processo"
+      ],
+      "topic": "Veículo completo e processo",
+      "stages": [
+        "enquadramento",
+        "mover"
+      ],
+      "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
+      "amendingRefs": [
+        "Revoga Portaria MDIC/GM 43/2024 — relação indicada no índice MDIC"
+      ],
+      "documentType": "ato-ou-texto-base",
+      "summary": "Normas complementares à Lei 14.902/2024 sobre incentivos à pesquisa e desenvolvimento e à produção tecnológica do MOVER. O índice MDIC registra a revogação da Portaria 43/2024. Incentivos empresariais são distintos dos requisitos técnicos de eficiência e segurança do veículo. Artigo, data de efeito e regras de transição ainda não foram conferidos na íntegra.",
+      "availability": "Índice oficial consultado; abrir a fonte do DOU para conferir o procedimento.",
+      "uncertaintyNotes": [
+        "O índice oficial confirma a relação 68/2026 → 43/2024. A íntegra do DOU não pôde ser recuperada nesta revisão; artigo revogador, entrada em vigor, transições e procedimentos não foram inferidos."
+      ],
+      "taxonomy": [
+        "corporativo/mover"
+      ],
+      "issuer": "GM/MDIC",
+      "legalStatus": {
+        "state": "indicated_current",
+        "asOf": "2026-10-19",
+        "basis": "Ato relacionado no índice oficial MDIC de 2026; vigência integral e cadeia de alterações ainda não certificadas.",
+        "evidence": [
+          "PORTARIA GM/MDIC Nº 68, DE 17 DE MARÇO DE 2026 (Revoga a PORTARIA MDIC/GM Nº 43, DE 26 DE MARÇO DE 2024)"
+        ]
+      },
+      "reviewStatus": {
+        "state": "index_review",
+        "fullTextReviewed": false,
+        "amendmentChainReviewed": false,
+        "reviewedAt": "2026-10-19",
+        "gaps": [
+          "O índice oficial confirma a relação 68/2026 → 43/2024. A íntegra do DOU não pôde ser recuperada nesta revisão; artigo revogador, entrada em vigor, transições e procedimentos não foram inferidos."
+        ]
+      },
+      "publication": {
+        "included": true,
+        "reason": "included_in_reviewed_collection",
+        "reviewedAt": "2026-10-19",
+        "policySource": "data/mover/reviewed-map.json"
+      },
+      "historicalAliases": [
+        "mover-009",
+        "Portaria MDIC/GM 43/2024",
+        "Portaria 43-2024"
+      ],
+      "historicalReferences": [
+        {
+          "id": "mover-009",
+          "label": "Portaria 43/2024 — histórica",
+          "route": "#history?agency=mover&record=mover-009"
+        }
+      ],
+      "sourceIndexUrl": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2026",
+      "applicability": {
+        "state": "requires_assessment",
+        "vehicleSpecific": false,
+        "basis": "Incentivos empresariais; enquadramento, habilitação e transições dependem da íntegra e do caso.",
+        "conditions": [
+          "Não é requisito técnico universal de cada veículo ou componente."
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2026",
+          "clause": "Entrada Portaria GM/MDIC 68, de 17 de março de 2026",
+          "excerpt": "PORTARIA GM/MDIC Nº 68, DE 17 DE MARÇO DE 2026 (Revoga a PORTARIA MDIC/GM Nº 43, DE 26 DE MARÇO DE 2024)",
+          "sha256": "9d21b192f676d2a34efbe8741f5c36b5dc8b064bcb33b6b195843e308d0a29bc",
+          "sourceKind": "official_index",
+          "reviewedAt": "2026-10-19"
+        }
+      ]
     },
     {
       "id": "mover-010",
@@ -935,7 +1063,7 @@
       "classificationBasis": "Associação temática para navegação, baseada no título e resumo do catálogo. Não determina obrigação ou aplicabilidade ao veículo ilustrado.",
       "amendingRefs": [],
       "documentType": "ato-ou-texto-base",
-      "summary": "Dispêndios em pesquisa e desenvolvimento. Elegibilidade, prestação de informações e análise dos dispêndios das empresas habilitadas.",
+      "summary": "Dispêndios em pesquisa e desenvolvimento. Elegibilidade, prestação de informações e análise dos dispêndios das empresas habilitadas. Relação histórica com a Portaria 43/2024, revogada pela 68/2026 segundo o índice MDIC; verificar a sucessora e as transições antes de usar procedimentos.",
       "availability": "Referência oficial para consulta",
       "uncertaintyNotes": [
         "Registro temático para consulta. Confirmar o texto integral, atos modificadores, datas de transição e aplicabilidade ao projeto nas fontes oficiais."

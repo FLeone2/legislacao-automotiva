@@ -86,9 +86,9 @@ async def main(base):
         await expect(page.locator(".document-context").first).to_contain_text(
             "Contexto do veículo"
         )
-        assert await page.locator(".document [data-open]").evaluate_all(
-            "elements=>elements.every(element=>!element.dataset.open.includes('inmetro-145'))"
-        )
+        await expect(
+            page.locator('[data-catalog-act="inmetro-145-2022"]')
+        ).to_have_count(0)
         await page.locator("#agencyFilter").select_option("ANATEL")
         await expect(page.locator(".document")).to_have_count(0)
         await page.get_by_role("link", name="Remover filtro de conjunto").click()
@@ -141,10 +141,29 @@ async def main(base):
             assert "145" in await page.locator(".document h3").inner_text()
         await page.goto(base + "#library?q=bateria+de+tração")
         await wait_for_route(page)
-        await expect(page.locator(".document")).to_have_count(2)
-        assert await page.locator(".document [data-open]").evaluate_all(
-            "elements=>elements.every(element=>!element.dataset.open.includes('inmetro-145'))"
+        # General text search also finds a negative scope statement in req:11.
+        # Finding that wording must not create a curated traction-battery link.
+        assert set(
+            await page.locator("[data-catalog-act]").evaluate_all(
+                "nodes=>nodes.map(node=>node.dataset.catalogAct)"
+            )
+        ) == {"ibama-in-3-2023", "contran-749-2018", "inmetro-145-2022"}
+        rule = await page.evaluate(
+            "catalogRecord(catalog,'inmetro-145-2022').requirements.find(item=>item.id==='inmetro-145-2022:req:11').rule"
         )
+        assert "baterias chumbo-ácido importadas" in rule
+        assert "não é regra universal de bateria de tração" in rule
+        for part in (TRACTION_BATTERY, "peca_25_motor_eletrico_inversor_cabos"):
+            await page.goto(base + "#library?part=" + part)
+            await wait_for_route(page)
+            assert set(
+                await page.locator("[data-catalog-act]").evaluate_all(
+                    "nodes=>nodes.map(node=>node.dataset.catalogAct)"
+                )
+            ) == {"ibama-in-3-2023", "contran-749-2018"}
+            await expect(
+                page.locator('[data-catalog-act="inmetro-145-2022"]')
+            ).to_have_count(0)
         await page.goto(base + "#library?q=radiador")
         await wait_for_route(page)
         await expect(page.locator(".document")).to_have_count(0)
