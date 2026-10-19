@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["id", "schemaVersion", "legalStatus", "reviewStatus", "applicability", "publication"],
+  "properties": {
+    "id": {"type":"string", "pattern":"^[a-z0-9-]+$"},
+    "schemaVersion": {"const":2},
+    "legalStatus": {"type":"object", "required":["state","asOf","basis"], "properties":{"state":{"enum":["official_current_reference","partially_repealed","indicated_current"]}, "asOf":{"type":"string"},"basis":{"type":"string","minLength":1}}},
+    "reviewStatus": {"type":"object", "required":["state","fullTextReviewed","amendmentChainReviewed"], "properties":{"state":{"enum":["reference_only","directed_text_review","index_review"]}, "fullTextReviewed":{"type":["boolean","null"]}, "amendmentChainReviewed":{"type":"boolean"}}},
+    "applicability": {"type":"object", "required":["state","vehicleSpecific"], "properties":{"state":{"const":"requires_assessment"},"vehicleSpecific":{"const":false}}},
+    "publication": {"type":"object", "required":["included","reason","policySource"],"properties":{"included":{"type":"boolean"},"reason":{"type":"string"},"policySource":{"type":"string"}}}
+  }
+}

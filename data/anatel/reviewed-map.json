@@ -1,0 +1,1151 @@
+{
+  "reviewDate": "2026-10-18",
+  "records": [
+    {
+      "id": "anatel-res715",
+      "title": "Resolução ANATEL 715/2019",
+      "number": 715,
+      "year": 2019,
+      "issuer": "ANATEL",
+      "officialUrl": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2019/1350-resolucao-715",
+      "sourceKey": "res715",
+      "sourceStatus": "Texto oficial localizado e consultado com alterações indicadas; recorte automotivo condicionado ao enquadramento do produto.",
+      "statusEvidence": [
+        "RESOLVE: Art. 1º Aprovar o Regulamento de Avaliação da Conformidade e de Homologação de Produtos para Telecomunicações, na forma do Anexo a esta Resolução. Parágrafo único. O Regulamento a que se refere o caput entrará em vigor no prazo de 180 (cento e oitenta) dias a contar da data da publicação desta Resolução, exceto em relação às obrigações con"
+      ],
+      "subject": "Avaliação da conformidade e homologação de produtos para telecomunicações",
+      "vehicleLinks": [
+        {
+          "componentId": "eletrica",
+          "systemId": "eletronica",
+          "subsystemId": "eletronica/imagens",
+          "basis": "Enquadramento pela função de telecomunicações do equipamento, sujeito à configuração real."
+        },
+        {
+          "componentId": "identificacao",
+          "systemId": "identificacao",
+          "subsystemId": "identificacao/rotulagem",
+          "basis": "Identificação da homologação Anatel; não substitui ETA ou VIN do veículo."
+        }
+      ],
+      "generalCategories": [],
+      "requirements": [
+        {
+          "title": "Homologação antes do uso/comercialização",
+          "rule": "Produtos abrangidos pelo regulamento precisam estar homologados para utilização e comercialização no Brasil.",
+          "clause": "Anexo, art.55",
+          "scope": "Multimídia, módulos sem fio e terminais abrangidos; não estender indiscriminadamente a receptores puros.",
+          "evidence": "Art. 55. A homologação é pré-requisito obrigatório para a utilização e a comercialização, no País, dos produtos abrangidos por este Regulamento. Parágrafo único. A Anatel poderá estabelecer, por meio de Procedimentos Operacionais, os casos em que haverá a necessidade de homologação prévia à importação de produtos para telecomunicações. § 1º A Anatel poderá estabelecer, por meio de Procedimentos Operacionais, os casos em que haverá a necessidade de homologação prévia à importação de produtos para telecomunicações. (Redação dada pela Resolução Anatel nº 780, de 1º de agosto de 2025) § 2º As plataformas intermediadoras de comércio eletrônico ( marketplaces ) e as demais plataformas digitais que estejam envolvidas no processo de comercialização, ainda que somente realizando atividades de divulgação e propaganda, responsabilizam-se solidariame",
+          "topics": [
+            "certificacao",
+            "multimidia",
+            "radio"
+          ],
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2019/1350-resolucao-715",
+          "id": "anatel-res715:req:01"
+        },
+        {
+          "title": "Identificação da homologação",
+          "rule": "Produto homologado deve conter a identificação nos termos do procedimento operacional.",
+          "clause": "Anexo, art.63, caput",
+          "scope": "Produtos homologados",
+          "evidence": "Art. 63. Os produtos homologados devem conter a identificação da homologação, conforme estabelecido no correspondente Procedimento Operacional. Parágrafo único. No caso de produtos para telecomunicações importados destinados à comercialização, a identificação da homologação deve ser realizada antes da entrada do produto no País, ressalvados os casos e situações definidos no Procedimento Operacional mencionado no caput . (Revogado pela Resolução Anatel nº 780, de 1º de agosto de 2025) CAPÍTULO II DOS DIREITOS DECORRENTES DA HOMOLOGAÇÃO Art. 64. O Certificado de Homologação, emitido pela Anatel, confere ao titular: I - o direito de uso do produto de telecomunicações pelo próprio titular, na hipótese de homologação de Declaração de Conformidade; e, II - o direito de utilizar e/ou comercializar o produto de telecomunicações em todo o País, no",
+          "topics": [
+            "etiquetas"
+          ],
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2019/1350-resolucao-715",
+          "id": "anatel-res715:req:02"
+        }
+      ],
+      "topics": [
+        "multimidia",
+        "radio",
+        "certificacao",
+        "etiquetas"
+      ],
+      "notes": [
+        "Ler com as Resoluções 779/2025 e 780/2025. O parágrafo único antigo do art.63 foi revogado; não reproduzi-lo como obrigação vigente.",
+        "Rádio AM/FM exclusivamente receptor não deve ser tratado automaticamente como transceptor Wi-Fi/Bluetooth/celular: verificar funções, lista de referência e enquadramento com OCD/Anatel. Não foi localizada nesta coleta norma específica que imponha homologação indiscriminada a todo receptor AM/FM puro.",
+        "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável.",
+        "A homologação de um módulo não foi tratada como dispensa automática para todo equipamento final; a integração deve ser conferida segundo a configuração e o procedimento aplicável."
+      ],
+      "relationships": [],
+      "catalogRecordIds": []
+    },
+    {
+      "id": "anatel-res779",
+      "title": "Resolução ANATEL 779/2025",
+      "number": 779,
+      "year": 2025,
+      "issuer": "ANATEL",
+      "officialUrl": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2025/2029-resolucao-779",
+      "sourceKey": "res779",
+      "sourceStatus": "Texto oficial localizado e consultado com alterações indicadas; recorte automotivo condicionado ao enquadramento do produto.",
+      "statusEvidence": [
+        "RESOLVE: Art. 1º Aprovar o Glossário aplicável ao Setor de Telecomunicações, na forma do Anexo a esta Resolução. Art. 2º Revogar, na data da entrada em vigor desta Resolução: I - o Capítulo II (“Das Definições”) do Título I (“Das Disposições Gerais”) do Regulamento de Separação e Alocação de Contas, aprovado pela Resolução nº 396, de 31 de março de"
+      ],
+      "subject": "Regulamento de definições e conceitos; substitui capítulos de definições de normas setoriais",
+      "vehicleLinks": [],
+      "generalCategories": [
+        "homologacao"
+      ],
+      "requirements": [],
+      "topics": [
+        "certificacao"
+      ],
+      "notes": [
+        "Art.2º revoga apenas os capítulos de definições das Resoluções 715/2019 e 680/2017, não o conjunto integral das duas resoluções.",
+        "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
+      ],
+      "relationships": [
+        {
+          "targetId": "anatel-res715",
+          "kind": "altera",
+          "url": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2019/1350-resolucao-715",
+          "label": "Resolução ANATEL 715/2019",
+          "evidence": "Regulamento de definições e conceitos; substitui capítulos de definições de normas setoriais"
+        },
+        {
+          "targetId": "anatel-res680",
+          "kind": "altera",
+          "url": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2017/936-resolucao-680",
+          "label": "Resolução ANATEL 680/2017",
+          "evidence": "Regulamento de definições e conceitos; substitui capítulos de definições de normas setoriais"
+        }
+      ],
+      "catalogRecordIds": []
+    },
+    {
+      "id": "anatel-res780",
+      "title": "Resolução ANATEL 780/2025",
+      "number": 780,
+      "year": 2025,
+      "issuer": "ANATEL",
+      "officialUrl": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2025/2054-resolucao-anatel-780",
+      "sourceKey": "res780",
+      "sourceStatus": "Texto oficial localizado e consultado com alterações indicadas; recorte automotivo condicionado ao enquadramento do produto.",
+      "statusEvidence": [
+        "RESOLVE: Art. 1º Revogar o § 2º do art. 20 e o parágrafo único do art. 63 , do Regulamento de Avaliação da Conformidade e de Homologação de Produtos para Telecomunicações, aprovado pela Resolução nº 715, de 23 de outubro de 2019 , publicada no Diário Oficial da União - D.O.U. de 25 de outubro de 2019. Art. 2º Alterar o parágrafo único do art. 55 pa"
+      ],
+      "subject": "Atualiza homologação, identificação, responsabilidade e anúncios eletrônicos",
+      "vehicleLinks": [
+        {
+          "componentId": "eletrica",
+          "systemId": "eletronica",
+          "subsystemId": "eletronica/imagens",
+          "basis": "Enquadramento pela função de telecomunicações do equipamento, sujeito à configuração real."
+        },
+        {
+          "componentId": "identificacao",
+          "systemId": "identificacao",
+          "subsystemId": "identificacao/rotulagem",
+          "basis": "Identificação da homologação Anatel; não substitui ETA ou VIN do veículo."
+        }
+      ],
+      "generalCategories": [],
+      "requirements": [
+        {
+          "title": "Código em anúncios e regularidade",
+          "rule": "Anúncios eletrônicos e plataformas devem divulgar o código e verificar regularidade; infrações incluem uso de código de outro equipamento.",
+          "clause": "Arts.2º e 3º",
+          "scope": "Comercialização eletrônica de produtos sujeitos à homologação",
+          "evidence": "Art. 2º Alterar o parágrafo único do art. 55 para § 1º do mesmo artigo e acrescentar o § 2º ao art. 55 do Regulamento de Avaliação da Conformidade e de Homologação de Produtos para Telecomunicações, aprovado pela Resolução nº 715, de 2019 , publicada no D.O.U. de 25 de outubro de 2019: “ Art. 55 ........................................................................................................................................................ ................................................................................................................................................................... § 2º As plataformas intermediadoras de comércio eletrônico (marketplaces) e as demais plataformas digitais que estejam envolvidas no processo de comercialização, ainda que somente realizando atividades de divulgação e propaganda, respon",
+          "topics": [
+            "certificacao",
+            "multimidia",
+            "radio"
+          ],
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2025/2054-resolucao-anatel-780",
+          "id": "anatel-res780:req:01"
+        }
+      ],
+      "topics": [
+        "certificacao",
+        "etiquetas"
+      ],
+      "notes": [
+        "Art.1º revoga o parágrafo único do art.63 da 715; o caput identificador permanece.",
+        "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
+      ],
+      "relationships": [
+        {
+          "targetId": "anatel-res715",
+          "kind": "altera",
+          "url": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2019/1350-resolucao-715",
+          "label": "Resolução ANATEL 715/2019",
+          "evidence": "Atualiza homologação, identificação, responsabilidade e anúncios eletrônicos"
+        }
+      ],
+      "catalogRecordIds": []
+    },
+    {
+      "id": "anatel-res680",
+      "title": "Resolução ANATEL 680/2017",
+      "number": 680,
+      "year": 2017,
+      "issuer": "ANATEL",
+      "officialUrl": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2017/936-resolucao-680",
+      "sourceKey": "res680",
+      "sourceStatus": "Texto oficial localizado e consultado com alterações indicadas; recorte automotivo condicionado ao enquadramento do produto.",
+      "statusEvidence": [
+        "RESOLVE: Art. 1º Aprovar o Regulamento sobre Equipamentos de Radiocomunicação de Radiação Restrita, na forma do Anexo a esta Resolução. Art. 2º Revogar a Resolução nº 506, de 1º de julho de 2008 , publicada no Diário Oficial da União de 7 de julho de 2008. (Revogado pela Resolução nº 769, de 30 de setembro de 2024) Art. 3º O Regulamento dos Serviço"
+      ],
+      "subject": "Equipamentos de radiocomunicação de radiação restrita",
+      "vehicleLinks": [
+        {
+          "componentId": "eletrica",
+          "systemId": "eletronica",
+          "subsystemId": "eletronica/imagens",
+          "basis": "Enquadramento pela função de telecomunicações do equipamento, sujeito à configuração real."
+        }
+      ],
+      "generalCategories": [],
+      "requirements": [
+        {
+          "title": "Radiação restrita não é dispensa de homologação",
+          "rule": "Aplicar classificação e limites/requisitos técnicos da Anatel; não confundir dispensa de licença de estação com dispensa de conformidade do equipamento.",
+          "clause": "Anexo, arts.5º e 10",
+          "scope": "Wi-Fi/Bluetooth, controles RF, sensores e radares conforme tecnologia/faixa",
+          "evidence": "Art. 10. Alternativamente aos limites de emissão constantes do art. 8º, a Agência estabelecerá especificações mínimas para que equipamentos de radiocomunicação operando em faixas de frequências específicas, conforme indicadas no Anexo I, sejam classificados como sendo de radiação restrita. § 1º As especificações mínimas e, quando necessário, os procedimentos de ensaio laboratoriais, serão estabelecidos por meio dos Requisitos Técnicos e dos Procedimentos para a Certificação de Produtos para Telecomunicações . § 2º Os requisitos técnicos também poderão estabelecer os limites alternativos para emissões fora de faixa, espúrios e estabilidade de frequência. § 3º Dispositivos de operação periódica operando acima de 900 MHz devem atender as especificações mínimas definidas pela Anatel. § 4º Os Requisitos Técnicos para Bloqueadores de Sinais de ",
+          "topics": [
+            "certificacao",
+            "multimidia",
+            "radio"
+          ],
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2017/936-resolucao-680",
+          "id": "anatel-res680:req:01"
+        }
+      ],
+      "topics": [
+        "multimidia",
+        "radio",
+        "certificacao"
+      ],
+      "notes": [
+        "Definições atualizadas pela 779/2025. Há dispositivos acessórios de outras normas revogados; consultar apenas o recorte de radiação restrita aplicável.",
+        "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
+      ],
+      "relationships": [],
+      "catalogRecordIds": []
+    },
+    {
+      "id": "anatel-ato7280-2020",
+      "title": "Ato ANATEL 7280/2020",
+      "number": 7280,
+      "year": 2020,
+      "issuer": "ANATEL",
+      "officialUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1493-ato-7280",
+      "sourceKey": "ato7280-2020",
+      "sourceStatus": "Texto oficial localizado e consultado com alterações indicadas; recorte automotivo condicionado ao enquadramento do produto.",
+      "statusEvidence": [
+        "RESOLVE: Art. 1º Aprovar a atualização da Lista de Referência de Produtos para Telecomunicações, na forma do Anexo a este Ato, após 180 (cento e oitenta) dias da data de sua publicação. I - Os Produtos homologados por Certificação baseada em Ensaio de Tipo com Avaliação Periódica, conforme estabelecidos na Lista de Referência, aprovada pelo Ato nº "
+      ],
+      "subject": "Lista de referência e modelos de avaliação da conformidade",
+      "vehicleLinks": [
+        {
+          "componentId": "eletrica",
+          "systemId": "eletronica",
+          "subsystemId": "eletronica/imagens",
+          "basis": "Enquadramento pela função de telecomunicações do equipamento, sujeito à configuração real."
+        }
+      ],
+      "generalCategories": [],
+      "requirements": [
+        {
+          "title": "Certificação do rádio/módulo",
+          "rule": "A lista contempla equipamentos e transceptores de radiação restrita, com avaliação periódica e gestão fabril conforme categoria.",
+          "clause": "Anexo, família Equipamentos de RF",
+          "scope": "Classificar o modelo exato e verificar requisitos técnicos específicos",
+          "evidence": "Transceptor de radiação restrita) Certificação baseada em Ensaio de Tipo com Avaliação Periódica do Produto e do Sistema de Gestão Fabril a cada 2 (dois) anos Transceptor de Radiação Restrita Certificação baseada em Ensaio de Tipo com Avaliação Periódica do Produto e do Sistema de Gestão Fabril a cada 2 (dois) anos Transceptor Analógico Troncalizado  – Base Certificação baseada em Ensaio de Tipo com Avaliação Periódica do Produto e do Sistema de Gestão Fabril a cada 3 (três) anos Transceptor Analógico Troncalizado (móvel e portátil) Certificação baseada em Ensaio de Tipo com Avaliação Periódica do Produto e do Sistema de Gestão Fabril a cada 2 (dois) anos Transmissor e Transceptor Digital Certificação baseada em Ensaio de Tipo com Avaliação Periódica do Produto e do Sistema de Gestão Fabril a cada 3 (três) anos Transceptor Digital Troncal",
+          "topics": [
+            "certificacao",
+            "multimidia",
+            "radio"
+          ],
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1493-ato-7280",
+          "id": "anatel-ato7280-2020:req:01"
+        }
+      ],
+      "topics": [
+        "multimidia",
+        "radio",
+        "certificacao"
+      ],
+      "notes": [
+        "Texto da lista atualizado em 28/04/2026. Famílias de baterias estacionárias e telas educacionais não tornam essas normas automaticamente aplicáveis a baterias de tração ou a telas automotivas.",
+        "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
+      ],
+      "relationships": [],
+      "catalogRecordIds": []
+    },
+    {
+      "id": "anatel-ato4088-2020",
+      "title": "Ato ANATEL 4088/2020",
+      "number": 4088,
+      "year": 2020,
+      "issuer": "ANATEL",
+      "officialUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1451-ato-4088",
+      "sourceKey": "ato4088-2020",
+      "sourceStatus": "Texto oficial localizado e consultado com alterações indicadas; recorte automotivo condicionado ao enquadramento do produto.",
+      "statusEvidence": [
+        "RESOLVE : Art. 1º Aprovar, na forma do anexo a este Ato, o Procedimento Operacional para Marcação da Identificação da Homologação Anatel em Produtos para Telecomunicações. Parágrafo único. As disposições do Ato nº 2221, de 20 de abril de 2020 , poderão ser utilizadas por um prazo de 180 (cento e oitenta) dias da publicação deste ato. Art. 2º As obr"
+      ],
+      "subject": "Marcação da identificação da homologação: selo, texto, e-label e QR Code",
+      "vehicleLinks": [
+        {
+          "componentId": "eletrica",
+          "systemId": "eletronica",
+          "subsystemId": "eletronica/imagens",
+          "basis": "Enquadramento pela função de telecomunicações do equipamento, sujeito à configuração real."
+        },
+        {
+          "componentId": "identificacao",
+          "systemId": "identificacao",
+          "subsystemId": "identificacao/rotulagem",
+          "basis": "Identificação da homologação Anatel; não substitui ETA ou VIN do veículo."
+        }
+      ],
+      "generalCategories": [],
+      "requirements": [
+        {
+          "title": "Marca legível e durável",
+          "rule": "Identificação legível e indelével, durando a vida útil e sem desprendimento em uso normal.",
+          "clause": "Anexo 5.1,5.3 e 5.4",
+          "scope": "Produto sujeito à homologação",
+          "evidence": "5.3. A responsabilidade da identificação no produto é: I - do fabricante nacional do produto para telecomunicações, independente da localização das unidades fabris do produto; II - do representante legal do fabricante no caso de produto importado; e III - do usuário, no caso de produto importado diretamente para uso próprio, ou utilizado com a finalidade de prestação de serviço de telecomunicações, ou no caso de produtos artesanais sem fins comerciais. 5.4. As informações contidas na identificação da homologação devem ser legíveis e indeléveis, ou seja, devem durar por toda a vida útil do produto e, uma vez afixadas, não devem se desprender  durante o manuseio deste em condições normais de uso. 5.4.1. O solicitante da homologação para uso próprio deverá afixar a identificação da homologação no corpo do produto, a partir da impressão da ma",
+          "topics": [
+            "etiquetas"
+          ],
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1451-ato-4088",
+          "id": "anatel-ato4088-2020:req:01"
+        },
+        {
+          "title": "Formatos de identificação",
+          "rule": "Selo Anatel, expressão ANATEL+código, identificação eletrônica ou QR Code, observados critérios próprios; exceções de espaço não são gerais.",
+          "clause": "Anexo 5.5 e 5.5.1",
+          "scope": "Produto sujeito à homologação",
+          "evidence": "5.5. A identificação da homologação Anatel no produto deve ser praticada utilizando ao menos um dos seguintes formatos: I - Selo Anatel, conforme critérios descritos no item 8 deste Procedimento; II - expressão \"ANATEL\" seguida pelo código de homologação (\"ANATEL HHHHH-AA-FFFFF\" ou \"ANATEL: HHHHH-AA-FFFFF\"); III - identificação eletrônica ( e-label ), conforme critérios descritos no item 6 deste Procedimento; ou IV - QR Code , conforme critérios descritos no item 7 deste procedimento. 5.5.1. É dispensável a obrigatoriedade de afixar a identificação da homologação em produtos que não disponham, comprovadamente, de espaço suficiente, e que não exibam marcas de identificação de órgãos certificadores internacionais, ou em produtos que ofereçam dificuldades técnicas para implementar a identificação. I - Nas condições descritas no caput, a iden",
+          "topics": [
+            "etiquetas"
+          ],
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1451-ato-4088",
+          "id": "anatel-ato4088-2020:req:02"
+        },
+        {
+          "title": "E-label acessível",
+          "rule": "E-label admite tela integrada ou equipamento conjunto com tela; acesso sem senha/acessórios especiais, preferencialmente em até três etapas; integridade de fábrica e após reset.",
+          "clause": "Anexo 6.1 a 6.5",
+          "scope": "Centrais multimídia e dispositivos com implementação de e-label admissível",
+          "evidence": "6.1. A identificação eletrônica da homologação aplica-se a dispositivos com tela eletrônica integrada ou a dispositivos que operam em conjunto com equipamento que tenha tela eletrônica integrada. 6.2. A identificação eletrônica da homologação deve ser apresentada em conformidade com os critérios descritos a seguir. 6.3. O acesso à identificação eletrônica da Anatel deve considerar que: I - o produto deve permitir o acesso à identificação eletrônica sem a necessidade de códigos, senhas ou permissões específicas; II - o produto deve permitir o acesso à identificação eletrônica sem a necessidade de plug-ins ou acessórios especiais e suplementares; e III - a identificação eletrônica deve ser de fácil acesso ao usuário e, preferencialmente, acessível em até três etapas a partir do menu principal ou inicial do produto. 6.3.1. As instruções para",
+          "topics": [
+            "etiquetas"
+          ],
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1451-ato-4088",
+          "id": "anatel-ato4088-2020:req:03"
+        },
+        {
+          "title": "Embalagem e instruções",
+          "rule": "E-label de produto destinado ao consumidor exige também identificação na embalagem, com as ressalvas do procedimento; orientar acesso no manual/guia ou meios permitidos.",
+          "clause": "Anexo 6.3 e 6.6",
+          "scope": "Dispositivos destinados ao usuário final",
+          "evidence": "6.6. Quando a identificação eletrônica da homologação for aplicável a produtos destinados aos usuários finais e consumidores de serviços de telecomunicações, faz-se também necessária a identificação na embalagem do produto, conforme um dos formatos previstos no item 5.5 , ressalvados os casos descritos neste Procedimento. 7. DA IDENTIFICAÇÃO POR QR CODE 7.1. A consulta ao QR Code do produto deve mostrar, no mínimo, as seguintes informações: I - código de homologação; II - nome do modelo e do nome comercial (quando houver) do produto homologado; III - número de lote; IV - número de série; V - versão de software, quando aplicável; VI - identificação e endereço da unidade fabril; e VII - identificação e endereço do fornecedor. 7.2. A consulta ao QR Code do produto deve ser acessível por meio de qualquer dispositivo com tal capacidade, sem a ",
+          "topics": [
+            "etiquetas"
+          ],
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1451-ato-4088",
+          "id": "anatel-ato4088-2020:req:04"
+        }
+      ],
+      "topics": [
+        "multimidia",
+        "radio",
+        "etiquetas",
+        "certificacao"
+      ],
+      "notes": [
+        "Ler a marcação/importação em conjunto com Res 780/2025 e procedimento de importação 18.086/2025; não considerar automaticamente vigente obrigação antiga de marcação prévia à entrada no País sem a regra atual.",
+        "Ato 5.701/2021 altera transição e acrescenta regramento. Ato 2.221/2020 revogado não é a base ativa.",
+        "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
+      ],
+      "relationships": [],
+      "catalogRecordIds": []
+    },
+    {
+      "id": "anatel-ato5701-2021",
+      "title": "Ato ANATEL 5701/2021",
+      "number": 5701,
+      "year": 2021,
+      "issuer": "ANATEL",
+      "officialUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2021/1576-ato-5701",
+      "sourceKey": "ato5701-2021",
+      "sourceStatus": "Texto oficial localizado e consultado com alterações indicadas; recorte automotivo condicionado ao enquadramento do produto.",
+      "statusEvidence": [
+        "RESOLVE : Art. 1° Alterar a redação do Art. 2º do Ato n° 4088, que passará a vigorar com a seguinte redação: \"Art. 2º As obrigações estabelecidas no item 5.2.1 deste Procedimento passarão a ser obrigatórias após 730 (setecentos e trinta) dias da publicação deste Ato.\" Art. 2º Incluir  inciso IV  no item 5.2.1 do Anexo ao Ato n° 4088/2020, que passa"
+      ],
+      "subject": "Altera o procedimento de identificação da homologação",
+      "vehicleLinks": [
+        {
+          "componentId": "eletrica",
+          "systemId": "eletronica",
+          "subsystemId": "eletronica/imagens",
+          "basis": "Enquadramento pela função de telecomunicações do equipamento, sujeito à configuração real."
+        },
+        {
+          "componentId": "identificacao",
+          "systemId": "identificacao",
+          "subsystemId": "identificacao/rotulagem",
+          "basis": "Identificação da homologação Anatel; não substitui ETA ou VIN do veículo."
+        }
+      ],
+      "generalCategories": [],
+      "requirements": [],
+      "topics": [
+        "etiquetas",
+        "certificacao"
+      ],
+      "notes": [
+        "Prorrogação histórica do art.2º do 4088 já esgotada; conservar as alterações de conteúdo aplicáveis e consultar a redação atual do procedimento.",
+        "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
+      ],
+      "relationships": [
+        {
+          "targetId": "anatel-ato4088-2020",
+          "kind": "altera",
+          "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1451-ato-4088",
+          "label": "Ato ANATEL 4088/2020",
+          "evidence": "Altera o procedimento de identificação da homologação"
+        }
+      ],
+      "catalogRecordIds": []
+    },
+    {
+      "id": "anatel-ato14448-2017",
+      "title": "Ato ANATEL 14448/2017",
+      "number": 14448,
+      "year": 2017,
+      "issuer": "ANATEL",
+      "officialUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2017/1139-ato-14448",
+      "sourceKey": "ato14448-2017",
+      "sourceStatus": "Texto oficial localizado e consultado com alterações indicadas; recorte automotivo condicionado ao enquadramento do produto.",
+      "statusEvidence": [
+        "RESOLVE: Art. 1º Revogar o Art. 1º do Ato nº 11.542, de 23 de agosto de 2017, publicado no DOU de 28/08/2017, tornando sem efeito seu Anexo I. Art. 2º Revogar o Ato nº 12.927, de 10 de outubro de 2017, publicado no DOU de 01/11/2017 . Art. 3º Aprovar os Requisitos Técnicos para a Avaliação da Conformidade de Equipamentos de Radiocomunicação de Radi"
+      ],
+      "subject": "Requisitos de radiação restrita: multimídia sem fio, chaves RF, TPMS e radares conforme enquadramento",
+      "vehicleLinks": [
+        {
+          "componentId": "eletrica",
+          "systemId": "eletronica",
+          "subsystemId": "eletronica/imagens",
+          "basis": "Enquadramento pela função de telecomunicações do equipamento, sujeito à configuração real."
+        },
+        {
+          "componentId": "eletrica",
+          "systemId": "eletronica",
+          "subsystemId": "eletronica/comandos",
+          "basis": "Enquadramento pela função de telecomunicações do equipamento, sujeito à configuração real."
+        }
+      ],
+      "generalCategories": [],
+      "requirements": [
+        {
+          "title": "Requisitos da tecnologia e da banda",
+          "rule": "Aplicar limites de emissão, potência, largura de banda, antena, espúrios e condições de operação da seção correspondente; não existe limite único para todos os módulos sem fio.",
+          "clause": "AnexoI, seções aplicáveis",
+          "scope": "Bluetooth/Wi-Fi, controle remoto RF, TPMS e radar apenas quando suas características os enquadrarem",
+          "evidence": "Art. 3º Aprovar os Requisitos Técnicos para a Avaliação da Conformidade de Equipamentos de Radiocomunicação de Radiação Restrita, na forma do Anexo I deste Ato. § 1º Entrarão em vigor 90 (noventa) dias após a publicação deste Ato, os seguintes requisitos contidos no Anexo I: I - O subitem 4.1.6 , que determina a aplicabilidade dos requisitos técnicos de Compatibilidade Eletromagnética; II - Os limites de emissões fora da faixa ou espúrios paras as faixas de frequências 72-73 MHz, 74,6-74,8 MHz e 75,2-76 MHz contidas na tabela XV do item 20; e III - A alteração das faixa de frequências de uso restrito para microfones sem fio de 614-806 MHz para 614-698 MHz na tabela XV do item 20 . § 2º Até a entrada em vigor dos requisitos listados nos incisos I a III do parágrafo anterior, os seguintes requisitos deverão ser observados: I - A avaliação d",
+          "topics": [
+            "certificacao",
+            "multimidia",
+            "radio"
+          ],
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2017/1139-ato-14448",
+          "id": "anatel-ato14448-2017:req:01"
+        }
+      ],
+      "topics": [
+        "multimidia",
+        "radio",
+        "certificacao"
+      ],
+      "notes": [
+        "Texto base não incorpora toda atualização de 2025/2026: leitura obrigatória com 14.158/2025 e 4.746/2026.",
+        "Não inferir frequência de chave ouTPMS sem especificação do fabricante. Não tratar receptor puro como emissor.",
+        "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
+      ],
+      "relationships": [],
+      "catalogRecordIds": []
+    },
+    {
+      "id": "anatel-ato4776-2020",
+      "title": "Ato ANATEL 4776/2020",
+      "number": 4776,
+      "year": 2020,
+      "issuer": "ANATEL",
+      "officialUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1467-ato-4776",
+      "sourceKey": "ato4776-2020",
+      "sourceStatus": "Texto oficial localizado e consultado com alterações indicadas; recorte automotivo condicionado ao enquadramento do produto.",
+      "statusEvidence": [
+        "RESOLVE: Art. 1º  Alterar os seguintes itens do Anexo I do Ato nº 14.448, de 04 de dezembro de 2017, que aprovou os Requisitos Técnicos para a Avaliação da Conformidade de Equipamentos de Radiocomunicação de Radiação Restrita, que passam a vigorar com a seguinte redação: \"2. REFERÊNCIAS NORMATIVAS\" \"2.1. Regulamento de Avaliação da Conformidade e d"
+      ],
+      "subject": "Atualiza radiação restrita e sistemas de comunicação veicular",
+      "vehicleLinks": [
+        {
+          "componentId": "eletrica",
+          "systemId": "eletronica",
+          "subsystemId": "eletronica/comandos",
+          "basis": "Enquadramento pela função de telecomunicações do equipamento, sujeito à configuração real."
+        }
+      ],
+      "generalCategories": [],
+      "requirements": [],
+      "topics": [
+        "radio",
+        "certificacao"
+      ],
+      "notes": [
+        "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
+      ],
+      "relationships": [
+        {
+          "targetId": "anatel-ato14448-2017",
+          "kind": "altera",
+          "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2017/1139-ato-14448",
+          "label": "Ato ANATEL 14448/2017",
+          "evidence": "Atualiza radiação restrita e sistemas de comunicação veicular"
+        }
+      ],
+      "catalogRecordIds": []
+    },
+    {
+      "id": "anatel-ato1306-2021",
+      "title": "Ato ANATEL 1306/2021",
+      "number": 1306,
+      "year": 2021,
+      "issuer": "ANATEL",
+      "officialUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2021/1510-ato-1306",
+      "sourceKey": "ato1306-2021",
+      "sourceStatus": "Texto oficial localizado e consultado com alterações indicadas; recorte automotivo condicionado ao enquadramento do produto.",
+      "statusEvidence": [
+        "RESOLVE: Art. 1º Alterar os seguintes itens do Anexo I ao Ato nº 14.448, de 4 de dezembro de 2017, publicado no Boletim de Serviço Eletrônico em 2 de janeiro de 2018, que aprovou os Requisitos Técnicos para a Avaliação da Conformidade de Equipamentos de Radiocomunicação de Radiação Restrita, que passam a vigorar com a seguinte redação: \" 3. DEFINIÇ"
+      ],
+      "subject": "Atualiza condições técnicas de equipamentos de radiação restrita, incluindo faixa de 6 GHz",
+      "vehicleLinks": [
+        {
+          "componentId": "eletrica",
+          "systemId": "eletronica",
+          "subsystemId": "eletronica/imagens",
+          "basis": "Enquadramento pela função de telecomunicações do equipamento, sujeito à configuração real."
+        }
+      ],
+      "generalCategories": [],
+      "requirements": [],
+      "topics": [
+        "multimidia",
+        "radio",
+        "certificacao"
+      ],
+      "notes": [
+        "A existência de regulamentação de 6 GHz não autoriza toda forma de instalação automotiva. Verificar classe, banda, potência e restrições de uso na redação vigente.",
+        "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
+      ],
+      "relationships": [
+        {
+          "targetId": "anatel-ato14448-2017",
+          "kind": "altera",
+          "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2017/1139-ato-14448",
+          "label": "Ato ANATEL 14448/2017",
+          "evidence": "Atualiza condições técnicas de equipamentos de radiação restrita, incluindo faixa de 6 GHz"
+        }
+      ],
+      "catalogRecordIds": []
+    },
+    {
+      "id": "anatel-ato423-2022",
+      "title": "Ato ANATEL 423/2022",
+      "number": 423,
+      "year": 2022,
+      "issuer": "ANATEL",
+      "officialUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2022/1633-ato-423",
+      "sourceKey": "ato423-2022",
+      "sourceStatus": "Texto oficial localizado e consultado com alterações indicadas; recorte automotivo condicionado ao enquadramento do produto.",
+      "statusEvidence": [
+        "RESOLVE: Art. 1º Alterar os seguintes itens e seus respectivos subitens do Anexo I do Ato nº 14.448, de 4 de dezembro de 2017, que aprovou os Requisitos Técnicos para a Avaliação da Conformidade de Equipamentos de Radiocomunicação de Radiação Restrita, que passam a vigorar com a seguinte redação: \"2. REFERÊNCIAS NORMATIVAS [...] 2.4. Requisitos téc"
+      ],
+      "subject": "Atualiza itens e subitens dos requisitos de radiação restrita",
+      "vehicleLinks": [
+        {
+          "componentId": "eletrica",
+          "systemId": "eletronica",
+          "subsystemId": "eletronica/imagens",
+          "basis": "Enquadramento pela função de telecomunicações do equipamento, sujeito à configuração real."
+        }
+      ],
+      "generalCategories": [],
+      "requirements": [],
+      "topics": [
+        "multimidia",
+        "radio",
+        "certificacao"
+      ],
+      "notes": [
+        "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
+      ],
+      "relationships": [
+        {
+          "targetId": "anatel-ato14448-2017",
+          "kind": "altera",
+          "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2017/1139-ato-14448",
+          "label": "Ato ANATEL 14448/2017",
+          "evidence": "Atualiza itens e subitens dos requisitos de radiação restrita"
+        }
+      ],
+      "catalogRecordIds": []
+    },
+    {
+      "id": "anatel-ato237-2022",
+      "title": "Ato ANATEL 237/2022",
+      "number": 237,
+      "year": 2022,
+      "issuer": "ANATEL",
+      "officialUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2022/1629-ato-237",
+      "sourceKey": "ato237-2022",
+      "sourceStatus": "Texto oficial localizado e consultado com alterações indicadas; recorte automotivo condicionado ao enquadramento do produto.",
+      "statusEvidence": [
+        "RESOLVE: Art. 1º Aprovar os Procedimentos de Ensaio para Avaliação da Conformidade de Equipamentos de Radiocomunicação de Radiação Restrita, na forma do Anexo a este Ato, para efeitos de avaliação da conformidade técnica junto à Agência Nacional de Telecomunicações. Art. 2º Os laboratórios de ensaio habilitados pela Anatel para execução dos procedi"
+      ],
+      "subject": "Procedimentos de ensaio para radiação restrita",
+      "vehicleLinks": [
+        {
+          "componentId": "eletrica",
+          "systemId": "eletronica",
+          "subsystemId": "eletronica/imagens",
+          "basis": "Enquadramento pela função de telecomunicações do equipamento, sujeito à configuração real."
+        }
+      ],
+      "generalCategories": [],
+      "requirements": [],
+      "topics": [
+        "multimidia",
+        "radio",
+        "certificacao"
+      ],
+      "notes": [
+        "Ler com alterações do 14.158/2025; os procedimentos dependem da tecnologia e faixa efetivamente empregadas.",
+        "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
+      ],
+      "relationships": [],
+      "catalogRecordIds": []
+    },
+    {
+      "id": "anatel-ato14158-2025",
+      "title": "Ato ANATEL 14158/2025",
+      "number": 14158,
+      "year": 2025,
+      "issuer": "ANATEL",
+      "officialUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2025/2070-ato-14158",
+      "sourceKey": "ato14158-2025",
+      "sourceStatus": "Texto oficial localizado e consultado com alterações indicadas; recorte automotivo condicionado ao enquadramento do produto.",
+      "statusEvidence": [
+        "RESOLVE: Art. 1º Incluir o item 2.27 no Anexo I ao Ato nº 14.448, de 4 de dezembro de 2017 , com a seguinte redação: \" 2.27. ETSI EN 300 422-1 V 2.2.1 (2021-11) - Wireless Microphones; Audio PMSE up to 3 GHz; Part 1: Audio PMSE Equipment up to 3 GHz; Harmonised Standard for access to radio spectrum.\" Art. 2º Incluir o item 3.1.49 no Anexo I ao Ato n"
+      ],
+      "subject": "Atualiza radiação restrita, definição de radar veicular e procedimentos de ensaios",
+      "vehicleLinks": [
+        {
+          "componentId": "eletrica",
+          "systemId": "eletronica",
+          "subsystemId": "eletronica/imagens",
+          "basis": "Enquadramento pela função de telecomunicações do equipamento, sujeito à configuração real."
+        },
+        {
+          "componentId": "eletrica",
+          "systemId": "eletronica",
+          "subsystemId": "eletronica/comandos",
+          "basis": "Enquadramento pela função de telecomunicações do equipamento, sujeito à configuração real."
+        }
+      ],
+      "generalCategories": [],
+      "requirements": [
+        {
+          "title": "Atualização de requisitos e transição",
+          "rule": "Revisar novos requisitos e ensaios; regra geral mandatória desde 06/04/2026 e incisoIII doart.11 desde 06/10/2026, preservadas hipóteses de manutenção de produtos já homologados.",
+          "clause": "Arts.19 e 20 comAto 4.746/2026",
+          "scope": "Novas certificações e manutenções conforme hipóteses legais",
+          "evidence": "Art. 20 Este Ato entra em vigor na data de sua publicação no Boletim de Serviço Eletrônico da Anatel, sendo mandatória sua aplicação a partir de 06/04/2026. Parágrafo único. O inciso III do art. 11 será mandatório a partir de 6 de outubro de 2026. (Incluído pelo Ato nº 4746, de 02 de abril de 2026) VINÍCIUS OLIVEIRA CARAM GUIMARÃES Superintendente de Outorga e Recursos à Prestação",
+          "topics": [
+            "certificacao",
+            "multimidia",
+            "radio"
+          ],
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2025/2070-ato-14158",
+          "id": "anatel-ato14158-2025:req:01"
+        }
+      ],
+      "topics": [
+        "multimidia",
+        "radio",
+        "certificacao"
+      ],
+      "notes": [
+        "Envolve radares/sensores, redes de dados e procedimentos; aplicar apenas a seção pertinente ao produto.",
+        "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
+      ],
+      "relationships": [
+        {
+          "targetId": "anatel-ato14448-2017",
+          "kind": "altera",
+          "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2017/1139-ato-14448",
+          "label": "Ato ANATEL 14448/2017",
+          "evidence": "Atualiza radiação restrita, definição de radar veicular e procedimentos de ensaios"
+        },
+        {
+          "targetId": "anatel-ato237-2022",
+          "kind": "altera",
+          "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2022/1629-ato-237",
+          "label": "Ato ANATEL 237/2022",
+          "evidence": "Atualiza radiação restrita, definição de radar veicular e procedimentos de ensaios"
+        }
+      ],
+      "catalogRecordIds": []
+    },
+    {
+      "id": "anatel-ato4746-2026",
+      "title": "Ato ANATEL 4746/2026",
+      "number": 4746,
+      "year": 2026,
+      "issuer": "ANATEL",
+      "officialUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2026/2132-ato-4746",
+      "sourceKey": "ato4746-2026",
+      "sourceStatus": "Texto oficial localizado e consultado com alterações indicadas; recorte automotivo condicionado ao enquadramento do produto.",
+      "statusEvidence": [
+        "RESOLVE: Art. 1º Alterar o texto do Art. 19 do Ato nº 14.158, de 01 de outubro de 2025 , que passa a vigorar com a seguinte redação: \"Art. 19 O produto homologado até a data em que esses requisitos se tornem mandatórios não necessitará comprovar conformidade com as alterações introduzidas pelos artigos 7º, 8º, 11 (inciso III), 12, 13, 15 e 16 deste"
+      ],
+      "subject": "Ajusta transição e manutenção das certificações de radiação restrita",
+      "vehicleLinks": [
+        {
+          "componentId": "eletrica",
+          "systemId": "eletronica",
+          "subsystemId": "eletronica/imagens",
+          "basis": "Enquadramento pela função de telecomunicações do equipamento, sujeito à configuração real."
+        }
+      ],
+      "generalCategories": [],
+      "requirements": [],
+      "topics": [
+        "multimidia",
+        "radio",
+        "certificacao"
+      ],
+      "notes": [
+        "Art.2º fixa 06/10/2026 para incisoIII doart.11; data já passada no recorte 18/10/2026. Não apresentar essa exigência como futura.",
+        "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
+      ],
+      "relationships": [
+        {
+          "targetId": "anatel-ato14158-2025",
+          "kind": "altera",
+          "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2025/2070-ato-14158",
+          "label": "Ato ANATEL 14158/2025",
+          "evidence": "Ajusta transição e manutenção das certificações de radiação restrita"
+        }
+      ],
+      "catalogRecordIds": []
+    },
+    {
+      "id": "anatel-ato3151-2020",
+      "title": "Ato ANATEL 3151/2020",
+      "number": 3151,
+      "year": 2020,
+      "issuer": "ANATEL",
+      "officialUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1429-ato-3151",
+      "sourceKey": "ato3151-2020",
+      "sourceStatus": "Texto oficial localizado e consultado com alterações indicadas; recorte automotivo condicionado ao enquadramento do produto.",
+      "statusEvidence": [
+        "RESOLVE: Art. 1°  Aprovar a atualização dos requisitos técnicos para avaliação da conformidade de Estação Terminal de Acesso na forma do Anexo a este Ato. Art. 2° Este Ato entra em vigor na data de sua publicação no Boletim de Serviço Eletrônico da Anatel. VINICIUS OLIVEIRA CARAM GUIMARÃES Superintendente de Outorga e Recursos à Prestação ANEXO AO "
+      ],
+      "subject": "Requisitos técnicos de estação terminal de acesso: módulos celulares/telemática",
+      "vehicleLinks": [
+        {
+          "componentId": "eletrica",
+          "systemId": "eletronica",
+          "subsystemId": "eletronica/imagens",
+          "basis": "Enquadramento pela função de telecomunicações do equipamento, sujeito à configuração real."
+        },
+        {
+          "componentId": "eletrica",
+          "systemId": "eletronica",
+          "subsystemId": "eletronica/comandos",
+          "basis": "Enquadramento pela função de telecomunicações do equipamento, sujeito à configuração real."
+        }
+      ],
+      "generalCategories": [],
+      "requirements": [],
+      "topics": [
+        "multimidia",
+        "radio",
+        "certificacao"
+      ],
+      "notes": [
+        "Aplicação depende de funcionar como estação terminal de acesso. Considerar atualizações 14.430/2024 e 2.105/2025 e requisitos referenciados deEMC, segurança elétrica e exposição humana.",
+        "A referência histórica ao Ato 950/2018 deve ser lida com sua revogação pelo Ato 17.087/2022; este último contém a base atual de segurança elétrica.",
+        "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
+      ],
+      "relationships": [],
+      "catalogRecordIds": []
+    },
+    {
+      "id": "anatel-ato14430-2024",
+      "title": "Ato ANATEL 14430/2024",
+      "number": 14430,
+      "year": 2024,
+      "issuer": "ANATEL",
+      "officialUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2024/1980-ato-14430",
+      "sourceKey": "ato14430-2024",
+      "sourceStatus": "Texto oficial localizado e consultado com alterações indicadas; recorte automotivo condicionado ao enquadramento do produto.",
+      "statusEvidence": [
+        "RESOLVE: Art. 1º Incluir novos subitens com numeração 4.4 e 4.5 ao Anexo ao Ato nº 3151, de 12 de junho de 2020 , com a seguinte redação: \"4.4. Não é permitida a certificação de módulos ou produtos finais classificados como Estação Terminal de Acesso do Serviço Móvel Pessoal que sejam compatíveis somente com tecnologias 3 G ou inferiores. 4.5. Os mó"
+      ],
+      "subject": "Impede novas certificações somente 3 G ou inferiores e exigeVoLTE quando há voz",
+      "vehicleLinks": [
+        {
+          "componentId": "eletrica",
+          "systemId": "eletronica",
+          "subsystemId": "eletronica/imagens",
+          "basis": "Enquadramento pela função de telecomunicações do equipamento, sujeito à configuração real."
+        }
+      ],
+      "generalCategories": [],
+      "requirements": [
+        {
+          "title": "Módulos celulares atuais",
+          "rule": "Não certificar novos módulos/produtosETA somente 3 G ou inferiores; modelos comvoz devem suportarVoLTE, chamadas de emergência eSMS sobreIMS.",
+          "clause": "Art.1º, itens 4.4 e 4.5;arts.3º e 4º",
+          "scope": "Módulos/produtosETA doSMP; exceção de manutenção para homologados anteriormente conformeart.3º",
+          "evidence": "Art. 1º Incluir novos subitens com numeração 4.4 e 4.5 ao Anexo ao Ato nº 3151, de 12 de junho de 2020 , com a seguinte redação: \"4.4. Não é permitida a certificação de módulos ou produtos finais classificados como Estação Terminal de Acesso do Serviço Móvel Pessoal que sejam compatíveis somente com tecnologias 3G ou inferiores. 4.5. Os módulos ou produtos finais classificados como Estação Terminal de Acesso do Serviço Móvel Pessoal com capacidade para estabelecimento de chamadas de voz devem ter suporte e estar habilitados para operação com a tecnologia VoLTE ( Voice over LTE ), incluindo chamadas de emergência, e para troca de SMS sobre IMS ( IP Multimedia Subsystem ).\" Art. 2º Incluir novos subitens com numeração 4.5 e 4.6 ao Anexo ao Ato nº 3152, de 12 de junho de 2020 , com a seguinte redação: \"4.5. Não é permitida a certificação de ",
+          "topics": [
+            "certificacao",
+            "multimidia",
+            "radio"
+          ],
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2024/1980-ato-14430",
+          "id": "anatel-ato14430-2024:req:01"
+        }
+      ],
+      "topics": [
+        "multimidia",
+        "radio",
+        "certificacao"
+      ],
+      "notes": [
+        "Em vigor desde 06/04/2025. Não transformar regra de nova certificação em obrigação universal de substituir todas as unidades antigas.",
+        "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
+      ],
+      "relationships": [
+        {
+          "targetId": "anatel-ato3151-2020",
+          "kind": "altera",
+          "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1429-ato-3151",
+          "label": "Ato ANATEL 3151/2020",
+          "evidence": "Impede novas certificações somente 3 G ou inferiores e exigeVoLTE quando há voz"
+        }
+      ],
+      "catalogRecordIds": []
+    },
+    {
+      "id": "anatel-ato2105-2025",
+      "title": "Ato ANATEL 2105/2025",
+      "number": 2105,
+      "year": 2025,
+      "issuer": "ANATEL",
+      "officialUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2025/2010-ato-2105",
+      "sourceKey": "ato2105-2025",
+      "sourceStatus": "Texto oficial localizado e consultado com alterações indicadas; recorte automotivo condicionado ao enquadramento do produto.",
+      "statusEvidence": [
+        "RESOLVE: Art. 1º Atualizar o Anexo ao Ato nº 3151, de 12 de junho de 2020 , que aprova os requisitos técnicos para avaliação da conformidade de Estação Terminal de Acesso, na forma do Anexo I a este Ato. Art. 2º Atualizar o Anexo ao Ato nº 3152, de 12 de junho de 2020 , que aprova os requisitos técnicos para avaliação da conformidade de Telefone Mó"
+      ],
+      "subject": "Atualiza ensaios de estações terminais de acesso e celularesLTE/NR",
+      "vehicleLinks": [
+        {
+          "componentId": "eletrica",
+          "systemId": "eletronica",
+          "subsystemId": "eletronica/imagens",
+          "basis": "Enquadramento pela função de telecomunicações do equipamento, sujeito à configuração real."
+        }
+      ],
+      "generalCategories": [],
+      "requirements": [],
+      "topics": [
+        "multimidia",
+        "radio",
+        "certificacao"
+      ],
+      "notes": [
+        "Aplicação mandatória desde 13/08/2025; verificar a tecnologia suportada pelo módulo automotivo.",
+        "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
+      ],
+      "relationships": [
+        {
+          "targetId": "anatel-ato3151-2020",
+          "kind": "altera",
+          "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1429-ato-3151",
+          "label": "Ato ANATEL 3151/2020",
+          "evidence": "Atualiza ensaios de estações terminais de acesso e celularesLTE/NR"
+        }
+      ],
+      "catalogRecordIds": []
+    },
+    {
+      "id": "anatel-ato5155-2024",
+      "title": "Ato ANATEL 5155/2024",
+      "number": 5155,
+      "year": 2024,
+      "issuer": "ANATEL",
+      "officialUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2024/1947-ato-5155",
+      "sourceKey": "ato5155-2024",
+      "sourceStatus": "Texto oficial localizado e consultado com alterações indicadas; recorte automotivo condicionado ao enquadramento do produto.",
+      "statusEvidence": [
+        "RESOLVE: Art. 1º Aprovar os Requisitos Técnicos e Procedimentos de Ensaio para Avaliação da Conformidade de Carregador Utilizado em Telefone Móvel Celular, na forma do anexo a este Ato. Art. 2º Revogar o Ato nº 5159, de 8 de abril de 2022 . Art. 3º  Revogar o Ato nº 3481, de 31 de maio de 2019 , em 14 de outubro de 2024. Art. 4º  Este Ato entra em "
+      ],
+      "subject": "Carregadores de telefone celular: veiculares, indutivos eUSB conforme escopo",
+      "vehicleLinks": [
+        {
+          "componentId": "eletrica",
+          "systemId": "eletronica",
+          "subsystemId": "eletronica/imagens",
+          "basis": "Enquadramento pela função de telecomunicações do equipamento, sujeito à configuração real."
+        }
+      ],
+      "generalCategories": [],
+      "requirements": [
+        {
+          "title": "Escopo de carregadores veiculares eUSB",
+          "rule": "Abrange carregadores de corrente contínua, indutivos eUSB apenas alimentação/sem dados. ExcluiUSB integrado ao projeto elétrico/eletrônico de equipamento como central multimídia.",
+          "clause": "Anexo 2.1 b a 2.1 d e 2.2",
+          "scope": "Carregadores de telefone celular; não toda tomada ou toda portaUSB do veículo",
+          "evidence": "2. ABRANGÊNCIA 2.1. Os requisitos definidos neste documento são aplicáveis aos seguintes carregadores para telefones celulares: a) carregadores portáteis cuja a alimentação elétrica seja a rede de energia elétrica de corrente alternada (Ex.: carregador residencial). b) carregadores portáteis cuja a alimentação elétrica seja uma fonte de corrente contínua (Ex.: carregador veicular). c) carregadores indutivos, independentemente do tipo da fonte de alimentação elétrica (corrente alternada ou corrente contínua). d) interfaces (portas) USB de propósito específico para alimentação elétrica de dispositivos eletrônicos, sem funcionalidade de transmissão de dados, independentemente do tipo da fonte de alimentação elétrica. 2.2. Interfaces USB que integram o projeto elétrico/eletrônico de um equipamento (Ex.: TV, computador, central multimídia, etc",
+          "topics": [
+            "certificacao",
+            "multimidia",
+            "radio"
+          ],
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2024/1947-ato-5155",
+          "id": "anatel-ato5155-2024:req:01"
+        }
+      ],
+      "topics": [
+        "multimidia",
+        "certificacao",
+        "etiquetas"
+      ],
+      "notes": [
+        "Mandatório desde 14/10/2024. Revoga 5.159/2022 e 3.481/2019; estes não integrarão o acervo ativo.",
+        "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
+      ],
+      "relationships": [],
+      "catalogRecordIds": []
+    },
+    {
+      "id": "anatel-ato18086-2025",
+      "title": "Ato ANATEL 18086/2025",
+      "number": 18086,
+      "year": 2025,
+      "issuer": "ANATEL",
+      "officialUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2025/2077-ato-18086",
+      "sourceKey": "ato18086-2025",
+      "sourceStatus": "Texto oficial localizado e consultado com alterações indicadas; recorte automotivo condicionado ao enquadramento do produto.",
+      "statusEvidence": [
+        "RESOLVE: Art. 1º Aprovar o Procedimento Operacional para Tratamento Administrativo no Sistema de Comércio Exterior das Operações de Importação de Mercadorias Passíveis de Homologação pela Anatel, nos termos do Anexo a este Ato. Art. 2º Revogar o Ato nº 4.521, de 21 de junho de 2021 . Art. 3º Este Ato entra em vigor no dia 25 de maio de 2026. VINÍCI"
+      ],
+      "subject": "Procedimento de importação de mercadorias passíveis de homologação",
+      "vehicleLinks": [],
+      "generalCategories": [
+        "homologacao"
+      ],
+      "requirements": [],
+      "topics": [
+        "certificacao",
+        "etiquetas"
+      ],
+      "notes": [
+        "Vigente desde 25/05/2026; revogaAto 4.521/2021. Aplicação por finalidade e modalidade de importação, não copiar procedimento anterior.",
+        "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
+      ],
+      "relationships": [],
+      "catalogRecordIds": []
+    },
+    {
+      "id": "anatel-ato3114-2026",
+      "title": "Ato ANATEL 3114/2026",
+      "number": 3114,
+      "year": 2026,
+      "issuer": "ANATEL",
+      "officialUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2026/2147-ato-3114",
+      "sourceKey": "ato3114-2026",
+      "sourceStatus": "Texto oficial localizado e consultado com alterações indicadas; recorte automotivo condicionado ao enquadramento do produto.",
+      "statusEvidence": [
+        "RESOLVE: Art. 1º Retificar o item 10.3 do Anexo ao Ato nº 18.086, de 25 de novembro de 2025 (SEI nº 14809500), nos seguintes termos: Onde se lê : 10.3. Para fins de monitoramento, a Anatel acessará os seguintes dados constantes da DUIMP (Declaração Única de Importação), conforme Anexo II da Instrução Normativa SRF nº 680, de 2 de outubro de 2006, o"
+      ],
+      "subject": "Retifica referência daDUIMP no procedimento de importação",
+      "vehicleLinks": [],
+      "generalCategories": [
+        "homologacao"
+      ],
+      "requirements": [],
+      "topics": [
+        "certificacao"
+      ],
+      "notes": [
+        "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
+      ],
+      "relationships": [
+        {
+          "targetId": "anatel-ato18086-2025",
+          "kind": "altera",
+          "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2025/2077-ato-18086",
+          "label": "Ato ANATEL 18086/2025",
+          "evidence": "Retifica referência daDUIMP no procedimento de importação"
+        }
+      ],
+      "catalogRecordIds": []
+    },
+    {
+      "id": "anatel-ato1120-2018",
+      "title": "Ato ANATEL 1120/2018",
+      "number": 1120,
+      "year": 2018,
+      "issuer": "ANATEL",
+      "officialUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2018/1181-ato-1120",
+      "sourceKey": "ato1120-2018",
+      "sourceStatus": "Texto oficial localizado e consultado com alterações indicadas; recorte automotivo condicionado ao enquadramento do produto.",
+      "statusEvidence": [
+        "RESOLVE: Art. 1º  Aprovar os requisitos técnicos de Compatibilidade Eletromagnética para a avaliação da conformidade de produtos para telecomunicações, conforme o Anexo I deste Ato. Art. 2º Revogar o Ato nº 952, de 08 de fevereiro de 2018 . Art. 3º  Este Ato entra em vigor na data de sua publicação no Boletim de Serviço Eletrônico da Anatel. VITOR ELISIO GOES DE OLIVEIRA MENEZES Superintendente de Outorga e Recursos à Prestação ANEXO I REQUISITOS TÉCNICOS DE COMPATIBILIDADE ELETROMAGNÉTICA PARA "
+      ],
+      "subject": "Compatibilidade eletromagnética de produtos para telecomunicações",
+      "vehicleLinks": [
+        {
+          "componentId": "eletrica",
+          "systemId": "eletronica",
+          "subsystemId": "eletronica/imagens",
+          "basis": "Enquadramento pela função de telecomunicações do equipamento, sujeito à configuração real."
+        }
+      ],
+      "generalCategories": [],
+      "requirements": [
+        {
+          "title": "Compatibilidade eletromagnética de produtos para telecomunicações",
+          "rule": "Avaliar emissão, imunidade e resistibilidade conforme abrangência, tipo de produto, portas e configuração; observar regras de emissão específica de rádio quando houver.",
+          "clause": "Anexo, itens 3.1 a 3.1.3 e 5.1",
+          "scope": "Produto para telecomunicações sujeito a homologação, conforme escopo técnico e exceções.",
+          "evidence": "3.1. As disposições a seguir são aplicadas aos equipamentos para telecomunicações. Demais equipamentos que possam desempenhar funções de terminais de telecomunicações ou oferecer acessos a serviços de valor adicionado, incluindo Internet, serão objeto de regulamentação específica. 3.1.1. Os Requisitos de Emissão de Perturbações Eletromagnéticas aplicam-se aos equipamentos passíveis de homologação compulsória. No caso de equipamentos que utilizam o espectro radioelétrico, os requisitos de emissão de perturbações eletromagnéticas radiadas descritos neste documento são aplicáveis somente na ausência de requisitos de emissão intencional de radiofrequência ou de emissão de espúrios dispostos em regulamentação específica sobre o produto. 3.1.2. Os Requisitos de Imunidade a Perturbações Eletromagnéticas aplicam-se aos equipamentos classificados como Produtos para Telecomunicações da Categoria I e Categoria II, desde que destinados ao uso do público em geral (ver item 10 ). 3.1.3. Os Requisitos de Resistibilidade a Perturbações Eletromagnéticas aplicam-se aos Produtos para Telecomunicações de Categoria I e Categoria II, desde que destinados ao uso do público em geral (ver item 10 ). 4. DAS DEFINIÇÕES 4.1. Para fins deste documento, são adotadas as seguintes definições: 4.1.1. Antena integrada: antena utilizada por um equipamento de radiocomunicação que não pode ser desligada ou removid",
+          "topics": [
+            "certificacao",
+            "multimidia",
+            "radio"
+          ],
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2018/1181-ato-1120",
+          "id": "anatel-ato1120-2018:req:01"
+        }
+      ],
+      "topics": [
+        "multimidia",
+        "radio",
+        "certificacao"
+      ],
+      "notes": [
+        "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
+      ],
+      "relationships": [],
+      "catalogRecordIds": []
+    },
+    {
+      "id": "anatel-ato17087-2022",
+      "title": "Ato ANATEL 17087/2022",
+      "number": 17087,
+      "year": 2022,
+      "issuer": "ANATEL",
+      "officialUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2022/1823-ato-17087",
+      "sourceKey": "ato17087-2022",
+      "sourceStatus": "Texto oficial localizado e consultado com alterações indicadas; recorte automotivo condicionado ao enquadramento do produto.",
+      "statusEvidence": [
+        "RESOLVE: Art. 1º Aprovar os requisitos técnicos de segurança elétrica para avaliação da conformidade de produtos para telecomunicações, na forma do anexo a este Ato. Art. 2º Revogar o Ato nº 950, de 08 de fevereiro de 2018 , 1 (um) ano após a data de publicação deste Ato. Art. 3º Este Ato entra em vigor na data de sua publicação no Boletim de Serviços Eletrônico da Anatel, sendo mandatória a aplicação do seu anexo , 1 (um) ano após a data de sua entrada em vigor. TAWFIC AWWAD JÚNIOR Superintende"
+      ],
+      "subject": "Segurança elétrica de produtos para telecomunicações",
+      "vehicleLinks": [
+        {
+          "componentId": "eletrica",
+          "systemId": "eletronica",
+          "subsystemId": "eletronica/imagens",
+          "basis": "Enquadramento pela função de telecomunicações do equipamento, sujeito à configuração real."
+        }
+      ],
+      "generalCategories": [],
+      "requirements": [
+        {
+          "title": "Segurança elétrica de produtos para telecomunicações",
+          "rule": "Aplicar proteção contra riscos elétricos, aquecimento e demais critérios conforme abrangência e configuração do produto; não aplicar requisitos de um tipo de alimentação a todos os produtos indistintamente.",
+          "clause": "Anexo, item 4.1 e seções técnicas aplicáveis",
+          "scope": "Produto para telecomunicações sujeito a homologação, conforme escopo técnico e exceções.",
+          "evidence": "4.1. As disposições a seguir são aplicadas aos equipamentos destinados à instalação e uso no ambiente do usuário final e consumidor de serviço de telecomunicação (Público em Geral) e àqueles equipamentos cujos requisitos específicos publicados pela Anatel indicarem sua aplicação. 4.1.1. Os Requisitos de Proteção Contra Choque Acústico são aplicados aos equipamentos para telecomunicações que possuem dispositivo auricular e porta externa para telecomunicações. 4.1.2. Os Requisitos de Proteção Contra Risco de Incêndio são aplicados aos equipamentos para telecomunicações que possuem porta externa para telecomunicações. 4.1.3. Os Requisitos de Proteção Contra Choque Elétrico são aplicados aos equipamentos para telecomunicações de Classes I e II. 4.1.4. Os Requisitos de Proteção Contra Aquecimento Excessivo são aplicados aos equipamentos para telecomunicações, com exceção dos equipamentos Classe III com tensão de alimentação inferior ou igual a 9 Vcc, alimentados exclusivamente por pilhas ou baterias sendo estas recarregáveis ou não. 4.1.5. Conforme estabelecido no artigo 2º do documento referenciado no item 2.1.6 , os aparelhos elétricos e eletrônicos, com carcaça metálica comercializados no País, enquadrados na Classe I, em conformidade com as normas técnicas brasileiras pertinentes, deverão dispor de condutor terra de proteção. Em qualquer caso, os equipamentos devem dispor do plu",
+          "topics": [
+            "certificacao",
+            "multimidia",
+            "radio"
+          ],
+          "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2022/1823-ato-17087",
+          "id": "anatel-ato17087-2022:req:01"
+        }
+      ],
+      "topics": [
+        "multimidia",
+        "radio",
+        "certificacao"
+      ],
+      "notes": [
+        "Aplicação mandatória após um ano da publicação em 27/12/2022; revoga o Ato 950/2018 após o mesmo prazo.",
+        "A certificação avalia a conformidade técnica; a homologação é o reconhecimento pela Anatel. Funções RF, bandas, potência, instalação e configuração final definem o conjunto de requisitos aplicável."
+      ],
+      "relationships": [],
+      "catalogRecordIds": []
+    }
+  ],
+  "sourceUrl": "https://informacoes.anatel.gov.br/legislacao/",
+  "scopeNote": "Multimídia, Bluetooth/Wi-Fi, terminais celulares e dispositivos RF: enquadrar pela função real. Recepção AM/FM pura não implica exigência universal de homologação.",
+  "publicationPolicy": "Consulta dirigida aos atos atuais localizados nas fontes oficiais, com alterações vinculadas; referências revogadas ficam somente na auditoria. Não afirma que todo equipamento de áudio precise de homologação.",
+  "limits": [
+    "Recorte automotivo ANATEL com 22 atos selecionados por fontes oficiais; não é inventário exaustivo de todos os atos ou certificação de cada produto.",
+    "Receptor AM/FM puro: não foi localizada imposição universal de homologação; requer enquadramento funcional separado de produtos com transmissão.",
+    "Não validado protocolo completo deintegração de cada módulo homologado aomodelo final automotivo; consultarOCD/Anatel antes de afirmar dispensa ou cobertura automática.",
+    "Detalhamento de exposição humana/SAR e outros requisitos depende da instalação e distância ao corpo; não conferido integralmente neste recorte.",
+    "As normas complementares de produto, ensaios e frequências devem ser definidas com base na configuração efetiva, incluindo eventuais requisitos de exposição humana."
+  ],
+  "inactiveReferences": [
+    {
+      "title": "Ato 2221/2020",
+      "reason": "Revogado peloAto 4088/2020 após transição"
+    },
+    {
+      "title": "Ato 2222/2020",
+      "reason": "Revogado peloAto 7280/2020 após transição"
+    },
+    {
+      "title": "Ato 5159/2022",
+      "reason": "Revogado peloAto 5155/2024"
+    },
+    {
+      "title": "Ato 3481/2019",
+      "reason": "Revogado peloAto 5155/2024 desde 14/10/2024"
+    },
+    {
+      "title": "Ato 4521/2021",
+      "reason": "Revogado peloAto 18086/2025 desde 25/05/2026"
+    },
+    {
+      "title": "Ato ANATEL 950/2018",
+      "reason": "Revogado pelo Ato 17.087/2022 após um ano da publicação de 27/12/2022."
+    }
+  ],
+  "sourceGaps": [
+    "Receptor AM/FM puro: não foi localizada imposição universal de homologação; requer enquadramento funcional separado de produtos com transmissão.",
+    "Não validado protocolo completo deintegração de cada módulo homologado aomodelo final automotivo; consultarOCD/Anatel antes de afirmar dispensa ou cobertura automática.",
+    "Detalhamento de exposição humana/SAR e outros requisitos depende da instalação e distância ao corpo; não conferido integralmente neste recorte."
+  ]
+}

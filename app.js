@@ -1,55 +1,225 @@
 'use strict';
-let catalog={metadata:{components:[],pendingReviews:[],stages:[]},records:[]};
-const state={component:'freios',query:'',agency:'',filterComponent:'',stage:'',view:'tree'};
-const labels={freios:'Freios',vidros:'Vidros',iluminacao:'Iluminação',emissoes:'Emissões',bateria:'Bateria'};
-const descriptions={freios:'Frenagem, estabilidade e componentes de reposição.',vidros:'Vidros de segurança, transparência e visibilidade.',iluminacao:'Dispositivos de iluminação e sinalização.',emissoes:'Emissões, ruído, fases do PROCONVE e processo ambiental.',bateria:'Propulsão elétrica e componentes de armazenamento de energia.'};
-const $=s=>document.querySelector(s);const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const norm=s=>String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
-function safeLink(url,label,cls=''){try{const u=new URL(url);if(!['https:','http:'].includes(u.protocol))return '';return `<a class="${cls}" href="${esc(u.href)}" target="_blank" rel="noopener noreferrer">${label} ↗</a>`;}catch{return '';}}
-function componentMatches(r,id){if(!id)return true;if(id==='bateria')id='propulsao/eletrica';if(id==='emissoes')id='propulsao/emissoes';return (r.taxonomy||[]).some(t=>t===id||t.startsWith(id+'/'));}
-function related(){return catalog.records.filter(r=>componentMatches(r,state.component)).sort((a,b)=>Number(Boolean(b.officialAudit))-Number(Boolean(a.officialAudit)));}
-function renderRelated(){const a=related();$('#relatedNorms').innerHTML=a.slice(0,3).map(r=>`<button class="related-card" data-open="${r.id}"><span class="tag">${esc(r.issuer||r.agency)}</span><strong>${esc(r.title)}</strong><small>${esc(r.status)}</small></button>`).join('')||'<p class="scope-note">Nenhum documento associado a este componente.</p>';}
-function flowStrip(){return `<section class="flow-strip"><div class="section-heading"><h2>Fluxo de homologação</h2><span class="pill">Mapa de consulta</span></div><div class="steps">${[
-['Perfil do veículo','Categoria, motorização, configuração e uso pretendido.','PERFIL','enquadramento'],['Requisitos e ensaios','Consulte segurança, emissões e conformidade de componentes.','IBAMA · INMETRO','componentes'],['Homologação','Procedimentos e documentos do processo de homologação.','SENATRAN','homologacao-cat'],['Eficiência e incentivos','Enquadramento nos requisitos e instrumentos do programa.','MOVER / MDIC','mover']].map((s,i)=>`<button class="step" data-flow="${s[3]}"><b><span class="number">${i+1}</span>${s[0]}</b><p>${s[1]}</p><span class="tag ${i===3?'purple':''}">${s[2]}</span></button>`).join('')}</div></section>`;}
-const mapRegions=[
-{id:'carroceria',label:'Carroceria e portas',d:'M565 166 L661 84 Q988 -4 1330 64 L1464 171 L1500 410 L1458 445 L1340 438 Q1310 313 1200 355 L1140 490 L850 551 L816 322 L724 309 L688 354 L595 329 Z'},
-{id:'vidros',label:'Para-brisa e vidros',d:'M364 203 L685 249 L594 353 L289 296 Z M753 160 L866 118 L854 252 L701 281 Z M891 113 L1018 106 L1034 219 L881 249 Z M1044 106 L1170 101 L1224 181 L1065 216 Z M1191 101 L1277 124 L1344 173 L1263 190 Z'},
-{id:'ocupantes',label:'Bancos e proteção dos ocupantes',d:'M652 362 Q678 312 700 354 L707 396 Q745 422 711 475 L647 467 L620 436 Z'},
-{id:'retrovisores',label:'Retrovisor',d:'M811 274 Q808 238 854 239 L883 260 L880 280 L841 294 Z'},
-{id:'eletronica',label:'Região de comandos do habitáculo',d:'M636 263 L793 290 L813 330 L740 354 L706 320 L607 316 Z'},
-{id:'propulsao',label:'Conjunto do motor e propulsão',d:'M264 470 L445 437 L644 470 L665 555 L606 659 L477 689 L292 620 L228 558 Z'},
-{id:'propulsao/emissoes',label:'Escapamento e emissões',d:'M1111 449 L1260 431 L1422 465 L1468 482 L1457 522 L1392 509 L1294 503 L1229 520 L1105 505 Z'},
-{id:'propulsao/eletrica',label:'Bateria e propulsão elétrica',d:'M752 626 L943 569 L1141 620 L1174 694 L1005 759 L763 710 Z'},
-{id:'chassi',label:'Suspensão e direção',d:'M493 568 L580 544 L637 601 L611 677 L551 708 L492 674 Z M1138 545 L1214 534 L1256 593 L1230 666 L1166 674 Z'},
-{id:'pneus-rodas',label:'Pneus e rodas',d:'M555 774 C552 652 705 652 754 750 C815 876 677 1000 582 909 Z M1302 620 C1369 527 1512 558 1507 687 C1501 814 1378 847 1310 760 Z'},
-{id:'freios',label:'Disco de freio e estabilidade',d:'M444 740 C469 704 520 728 528 773 C533 818 476 850 449 815 C432 795 431 765 444 740 Z M596 766 C610 724 671 717 704 754 C748 810 710 885 654 900 C603 904 573 832 596 766 Z'},
-{id:'iluminacao',label:'Faróis e iluminação',d:'M259 610 L419 634 L389 670 L262 650 Z M41 588 L139 611 L140 652 L77 641 Z'},
-{id:'identificacao',label:'Área de identificação do veículo',d:'M100 669 L205 692 L206 731 L99 707 Z'}
-];
-function groupFor(id){return catalog.metadata.hierarchy.find(g=>g.id===id.split('/')[0]);}
-function systemLabel(id){const g=groupFor(id);return g?.children.find(c=>c.id===id)?.label||g?.label||id;}
-function systemCount(id){return catalog.records.filter(r=>componentMatches(r,id)).length;}
-function vehicleMap(){return `<div class="vehicle-stage interactive-map"><svg viewBox="0 0 1536 1024" aria-label="Mapa interativo ilustrativo dos sistemas do veículo" role="group"><image href="vehicle.png" width="1536" height="1024" aria-hidden="true"/>${mapRegions.map((r,i)=>`<path d="${r.d}" class="vehicle-part ${state.component===r.id||(!state.component.includes('/')&&r.id.startsWith(state.component+'/'))?'selected':''}" data-part="${r.id}" role="button" tabindex="0" aria-pressed="${state.component===r.id}" aria-label="${r.label}: ${systemCount(r.id)} referências"><title>${r.label} · ${systemCount(r.id)} referências</title></path>`).join('')}</svg><div class="map-key"><span></span>Selecione uma região do desenho ou use a lista abaixo.</div></div>`;}
-function selectSystem(id,fromKeyboard=false){state.component=id;renderVehicle();renderRelated();if(fromKeyboard){const el=document.querySelector(`[data-part="${id}"]`);if(el)el.focus();}}
-function renderVehicle(){const h=catalog.metadata.hierarchy;const g=groupFor(state.component)||h[0];const docs=related();$('#main').innerHTML=`<div class="eyebrow">Consulta técnica · Brasil</div><h1>Explore o veículo, sistema por sistema</h1><p class="subtitle">Toque nas peças do desenho para abrir os sistemas e seus subsistemas.<br>As referências também podem ser exploradas pela lista acessível.</p>${vehicleMap()}<div class="map-toolbar"><label for="systemSelect">Sistema selecionado</label><select id="systemSelect">${h.map(x=>`<option value="${x.id}"${g.id===x.id?' selected':''}>${esc(x.label)} (${systemCount(x.id)})</option>`).join('')}</select><span class="pill">11 sistemas no desenho</span></div><section class="system-detail"><div class="component-top"><div><div class="eyebrow">${g.physical?'Sistema do veículo':'Fora do mapa físico'}</div><h2 id="selectedSystemTitle">${esc(systemLabel(state.component))}</h2></div><span class="pill">${docs.length} entradas</span></div><p class="subtitle">${g.physical?'Região ilustrativa de consulta. O desenho não identifica peças de um modelo real.':'Tema de processo ou obrigação geral, sem correspondência obrigatória a uma peça.'} Associação temática, sem decisão automática de aplicabilidade.</p><div class="subsystem-heading">Divisões e subsistemas</div><div class="subsystem-list">${g.children.map(c=>`<button class="subsystem ${state.component===c.id?'active':''}" data-select-system="${c.id}"><span>${esc(c.label)}</span><b>${systemCount(c.id)}</b></button>`).join('')}</div><div class="actions"><button class="btn primary" data-component-library="${state.component}">▤ Ver ${docs.length} documentos relacionados</button><button class="btn" data-select-system="${g.id}">Ver todo o sistema</button></div></section><section class="system-directory"><div class="section-heading"><h2>Todos os sistemas</h2><span class="pill">Seleção por lista</span></div><div class="system-grid">${h.filter(x=>x.physical).map(x=>`<button class="system-item ${g.id===x.id?'active':''}" data-select-system="${x.id}"><span>${esc(x.label)}</span><b>${systemCount(x.id)}</b></button>`).join('')}</div><h3 class="outside-title">Além das peças: processo, empresa e regras gerais</h3><p class="scope-note">Estes temas não foram colocados artificialmente no carro. Abra cada divisão para consultar seus assuntos.</p><div class="system-grid">${h.filter(x=>!x.physical).map(x=>`<button class="system-item ${g.id===x.id?'active':''}" data-select-system="${x.id}"><span>${esc(x.label)}</span><b>${systemCount(x.id)}</b></button>`).join('')}</div></section><p class="scope-note coverage">124/124 entradas classificadas para navegação · ${systemCount('classificar')} aguardam classificação. Contagens se sobrepõem quando um documento pertence a mais de um tema.</p>${flowStrip()}<p class="scope-note">${esc(catalog.metadata.taxonomyNote)} ${esc(catalog.metadata.stageCaveat)}</p>`;$('#systemSelect').addEventListener('change',e=>selectSystem(e.target.value));}
+let catalog = { metadata: { components: [], pendingReviews: [], stages: [] }, records: [] };
+const state = {
+  component: 'freios',
+  query: '',
+  agency: '',
+  filterComponent: '',
+  stage: '',
+  review: '',
+  view: 'tree',
+};
+const labels = {
+  freios: 'Freios',
+  vidros: 'Vidros',
+  iluminacao: 'Iluminação',
+  emissoes: 'Emissões',
+  bateria: 'Bateria',
+};
+const descriptions = {
+  freios: 'Frenagem, estabilidade e componentes de reposição.',
+  vidros: 'Vidros de segurança, transparência e visibilidade.',
+  iluminacao: 'Dispositivos de iluminação e sinalização.',
+  emissoes: 'Emissões, ruído, fases do PROCONVE e processo ambiental.',
+  bateria: 'Propulsão elétrica e componentes de armazenamento de energia.',
+};
+function componentMatches(r, id) {
+  if (!id) return true;
+  if (id === 'bateria') id = 'propulsao/eletrica';
+  if (id === 'emissoes') id = 'propulsao/emissoes';
+  return (r.taxonomy || []).some((t) => t === id || t.startsWith(id + '/'));
+}
+function related() {
+  if (state.view === 'library') return filters();
+  return catalog.records
+    .filter((r) => componentMatches(r, state.component))
+    .sort((a, b) => Number(Boolean(b.officialAudit)) - Number(Boolean(a.officialAudit)));
+}
+function renderRelated() {
+  if (!$('#relatedNorms')) return;
+  const a = related();
+  $('#relatedNorms').innerHTML =
+    a
+      .slice(0, 3)
+      .map(
+        (r) =>
+          `<button class="related-card" data-open="${r.id}"><span class="tag">${esc(r.issuer || r.agency)}</span><strong>${esc(r.title)}</strong><small>${esc(r.status)}</small></button>`,
+      )
+      .join('') || '<p class="scope-note">Nenhum documento associado a este componente.</p>';
+}
+function flowStrip() {
+  return `<section class="flow-strip"><div class="section-heading"><h2>Fluxo de homologação</h2><span class="pill">Mapa de consulta</span></div><div class="steps">${[
+    [
+      'Perfil do veículo',
+      'Categoria, motorização, configuração e uso pretendido.',
+      'PERFIL',
+      'enquadramento',
+    ],
+    [
+      'Requisitos e ensaios',
+      'Consulte segurança, emissões e conformidade de componentes.',
+      'IBAMA · INMETRO',
+      'componentes',
+    ],
+    [
+      'Homologação',
+      'Procedimentos e documentos do processo de homologação.',
+      'SENATRAN',
+      'homologacao-cat',
+    ],
+    [
+      'Eficiência e incentivos',
+      'Enquadramento nos requisitos e instrumentos do programa.',
+      'MOVER / MDIC',
+      'mover',
+    ],
+  ]
+    .map(
+      (s, i) =>
+        `<button class="step" data-flow="${s[3]}"><b><span class="number">${i + 1}</span>${s[0]}</b><p>${s[1]}</p><span class="tag ${i === 3 ? 'purple' : ''}">${s[2]}</span></button>`,
+    )
+    .join('')}</div></section>`;
+}
+function groupFor(id) {
+  return catalog.metadata.hierarchy.find((g) => g.id === id.split('/')[0]);
+}
+function systemLabel(id) {
+  const g = groupFor(id);
+  return g?.children.find((c) => c.id === id)?.label || g?.label || id;
+}
+function systemCount(id) {
+  return catalog.records.filter((r) => componentMatches(r, id)).length;
+}
 
-function filters(){return catalog.records.filter(r=>(!state.agency||r.agency===state.agency)&&componentMatches(r,state.filterComponent)&&(!state.stage||(r.stages||[]).includes(state.stage))&&norm([r.title,r.summary,r.agency,...(r.componentLabels||[]),...(r.taxonomy||[]).map(systemLabel),...(r.amendingRefs||[])].join(' ')).includes(norm(state.query)));}
-function documentCard(r){return `<article class="document"><div class="row"><span class="tag">${esc(r.issuer||r.agency)}</span><span class="status">${esc(r.status)}</span></div><h3>${esc(r.title)}</h3><p>${esc(r.summary)}</p><div class="links"><button data-open="${r.id}">Detalhes e rastreabilidade →</button>${safeLink(r.officialUrl,'Fonte oficial')}</div></article>`;}
-function updateList(){const rows=filters();$('#resultCount').textContent=`${rows.length} de ${catalog.records.length} entradas documentais · referências oficiais para consulta`;$('#documents').innerHTML=rows.map(documentCard).join('')||'<div class="empty"><h3>Nenhum resultado com estes filtros</h3><p>Tente outro termo ou limpe os filtros.</p><button class="btn" id="clearEmpty">Limpar filtros</button></div>';}
-function renderLibrary(){const selected=s=>s?' selected':'';$('#main').innerHTML=`<div class="eyebrow">Acervo de referência</div><h1>Biblioteca de legislação</h1><p class="subtitle">Referências de legislação automotiva organizadas por assunto. Vigência e aplicabilidade precisam ser confirmadas no texto oficial atualizado.</p><div class="library-toolbar"><input id="librarySearch" aria-label="Pesquisar na biblioteca" placeholder="Nome, número da norma ou assunto…" value="${esc(state.query)}"><select id="agencyFilter" aria-label="Filtrar órgão ou programa"><option value="">Órgãos e programas</option>${['SENATRAN','IBAMA','INMETRO','MOVER'].map(a=>`<option${selected(state.agency===a)}>${a}</option>`).join('')}</select><select id="componentFilter" aria-label="Filtrar componente"><option value="">Todos os componentes</option>${catalog.metadata.hierarchy.map(g=>`<optgroup label="${esc(g.label)}"><option value="${g.id}"${selected(state.filterComponent===g.id)}>Todo o sistema / tema</option>${g.children.map(c=>`<option value="${c.id}"${selected(state.filterComponent===c.id)}>${esc(c.label)}</option>`).join('')}</optgroup>`).join('')}</select><select id="stageFilter" aria-label="Filtrar etapa"><option value="">Todas as etapas</option>${catalog.metadata.stages.map(c=>`<option value="${c.id}"${selected(state.stage===c.id)}>${esc(c.label)}</option>`).join('')}</select><button class="btn" id="clearFilters">Limpar</button></div><div class="count-line" id="resultCount"></div><div class="document-list" id="documents"></div><p class="scope-note">A organização do catálogo é de 13/10/2026. Essa data não certifica a vigência das normas. Links levam somente a fontes oficiais.</p>`;updateList();$('#librarySearch').addEventListener('input',e=>{state.query=e.target.value;updateList();});$('#agencyFilter').addEventListener('change',e=>{state.agency=e.target.value;updateList();});$('#componentFilter').addEventListener('change',e=>{state.filterComponent=e.target.value;updateList();});$('#stageFilter').addEventListener('change',e=>{state.stage=e.target.value;updateList();});}
-function renderFlow(){const steps=[['1','Enquadramento do projeto','Defina categoria regulamentar, massa, uso, propulsão, fabricação ou importação e datas do projeto. O seletor SUV é uma descrição visual, não uma categoria jurídica.','enquadramento','Perfil e datas'],['2','Requisitos e ensaios','Explore os caminhos ambientais e técnicos em paralelo, conforme o projeto. IBAMA: emissões e processo ambiental; Inmetro: produtos e requisitos cobertos pelos respectivos atos; CONTRAN: segurança veicular.','componentes','IBAMA · INMETRO · CONTRAN'],['3','Homologação e registro','Consulte procedimentos da SENATRAN, identificação e emissão de CAT, quando cabíveis. Os documentos exigidos variam por enquadramento.','homologacao-cat','SENATRAN'],['4','Eficiência, produção e incentivos','Consulte os requisitos MOVER, elegibilidade e atos modificadores. Incentivos e certificações não se aplicam automaticamente a todo veículo ou fabricante.','mover','MDIC · MOVER']];$('#main').innerHTML=`<div class="eyebrow">Do projeto à consulta documental</div><h1>Fluxo de homologação</h1><p class="subtitle">Um mapa de navegação por assuntos e órgãos. As frentes podem ser paralelas e condicionadas ao projeto.</p><div class="notice">${esc(catalog.metadata.stageCaveat)}</div><div class="flow-detail">${steps.map(s=>`<section class="flow-card"><span class="tag">ETAPA ${s[0]} · ${s[4]}</span><h2>${s[1]}</h2><p>${s[2]}</p><button class="btn primary" data-stage-library="${s[3]}">Consultar documentos desta etapa →</button></section>`).join('')}</div>`;}
-function renderUpdates(){$('#main').innerHTML=`<div class="eyebrow">Rastreabilidade e controle</div><h1>Atualizações e ressalvas</h1><p class="subtitle">Pendências conhecidas no catálogo e referências a alterações. Esta página não é um monitor automático do Diário Oficial.</p><div class="notice">Última organização: 13/10/2026. O acervo reúne 124 entradas documentais, incluindo retificações. A vigência e a aplicação a um projeto exigem leitura das fontes e dos atos modificadores.</div>${catalog.metadata.pendingReviews.map(r=>`<article class="update-card"><span class="tag">CONFERÊNCIA PENDENTE</span><h3>${esc(r.title)}</h3><p>${esc(r.note)}</p><div class="actions">${safeLink(r.officialUrl,'Consultar referência oficial','btn')}</div></article>`).join('')}<article class="update-card"><span class="tag">CADEIA DOCUMENTAL</span><h3>Consulte também os atos modificadores</h3><p>As referências a alterações, revogações, anexos e transições estão registradas nos detalhes de cada entrada. Uma cópia arquivada pode não conter a redação consolidada.</p><button class="btn" data-route="library">Abrir biblioteca</button></article>`;}
-function renderAI(){$('#main').innerHTML=`<div class="eyebrow">Visão de produto</div><h1>Consulta com fontes, em uma conversa</h1><p class="subtitle">Uma prévia visual do assistente que poderá apoiar a consulta normativa.</p><div class="wide-ai"><span class="pill">Somente demonstração visual</span><div class="bubble question">O que preciso verificar para homologar este veículo?</div><div class="bubble answer"><strong>O fluxo ideal do assistente</strong><p>1. Entender o perfil técnico e as datas do projeto.</p><p>2. Localizar documentos e atos modificadores no acervo.</p><p>3. Apresentar os trechos de referência e as incertezas.</p><p>4. Encaminhar decisões de aplicabilidade à revisão técnica.</p></div><div class="notice">Não há modelo de IA conectado. Nenhuma mensagem é enviada, nenhuma resposta jurídica é gerada e não há cobrança por consultas.</div><button class="btn primary" data-route="library">Explorar as fontes disponíveis →</button></div>`;}
-function navigate(view){if(location.hash==='#'+view)render();else location.hash=view;}
-function render(){state.view=location.hash.slice(1)||'tree';if(!['tree','mover','vehicle','library','flow','updates','ai'].includes(state.view))state.view='tree';document.querySelectorAll('[data-nav]').forEach(a=>a.classList.toggle('active',a.dataset.nav===state.view));$('#app').classList.toggle('tree-mode',['tree','mover'].includes(state.view));if(['tree','mover'].includes(state.view)){renderTree(state.view);return;}restoreAssistantPanel();({vehicle:renderVehicle,library:renderLibrary,flow:renderFlow,updates:renderUpdates,ai:renderAI})[state.view]();renderRelated();}
-function clearFilters(){state.query='';state.agency='';state.filterComponent='';state.stage='';$('#globalSearch').value='';renderLibrary();}
-function openNorm(id){const r=catalog.records.find(x=>x.id===id);if(!r)return;$('#dialogContent').innerHTML=`<span class="tag">${esc(r.issuer||r.agency)}</span><h2>${esc(r.title)}</h2><div class="notice">${esc(r.status)}<br>${esc(r.legalApplicability)}</div><p>${esc(r.summary)}</p><dl><dt>Disponibilidade</dt><dd>${esc(r.availability)}</dd><dt>Origem e conferência do registro</dt><dd>Registro organizado em ${esc(r.reviewDate)} · referência oficial abaixo</dd><dt>Associação temática</dt><dd>${esc((r.taxonomy||[]).map(systemLabel).join(' · '))}<br>${esc(r.classificationBasis)}</dd><dt>Alterações referenciadas</dt><dd>${esc((r.amendingRefs||[]).join(' · ')||'Nenhuma referência extraída deste registro. Isso não comprova ausência de alterações.')}</dd><dt>Limites de verificação</dt><dd>${esc((r.uncertaintyNotes||[]).join(' '))}</dd></dl><div class="actions">${safeLink(r.officialUrl,'Fonte oficial','btn primary')}</div><p class="scope-note">Abertura da fonte oficial em nova aba. Alguns portais podem exigir navegação ou verificação adicional.</p>`;$('#normDialog').showModal();}
-document.addEventListener('click',e=>{const part=e.target.closest('[data-part]');if(part){selectSystem(part.dataset.part);return;}const b=e.target.closest('button');if(!b)return;if(b.dataset.selectSystem){selectSystem(b.dataset.selectSystem);return;}if(b.dataset.component){state.component=b.dataset.component;renderVehicle();renderRelated();}if(b.dataset.open)openNorm(b.dataset.open);if(b.dataset.route)navigate(b.dataset.route);if(b.dataset.componentLibrary){state.filterComponent=b.dataset.componentLibrary;state.query='';state.agency='';state.stage='';navigate('library');}if(b.dataset.flow){state.stage=b.dataset.flow;navigate('flow');}if(b.dataset.stageLibrary){clearState();state.stage=b.dataset.stageLibrary;navigate('library');}if(['clearFilters','clearEmpty'].includes(b.id))clearFilters();});
-function clearState(){state.query='';state.agency='';state.filterComponent='';state.stage='';$('#globalSearch').value='';}
-const originalAssistantMarkup=$('#aiPanel').innerHTML;
-function restoreAssistantPanel(){$('#aiPanel').setAttribute('aria-label','Conceito visual do assistente');$('#aiPanel').innerHTML=originalAssistantMarkup;$('#relatedLibrary').onclick=()=>{clearState();state.filterComponent=state.component;navigate('library');};}
-$('#relatedLibrary').onclick=()=>{clearState();state.filterComponent=state.component;navigate('library');};$('#closeDialog').onclick=()=>$('#normDialog').close();$('#normDialog').addEventListener('click',e=>{if(e.target===$('#normDialog')){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)e.target.close();}});
-$('#globalSearch').addEventListener('input',e=>{state.query=e.target.value;state.agency='';state.filterComponent='';state.stage='';navigate('library');});document.addEventListener('keydown',e=>{const part=e.target.closest('[data-part]');if(part&&['Enter',' '].includes(e.key)){e.preventDefault();selectSystem(part.dataset.part,true);return;}if(e.key==='/'&&!['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName)){e.preventDefault();$('#globalSearch').focus();}});
-for(const id of ['vehicleType','powertrain'])$('#'+id).onchange=()=>{const t=$('#toast');t.textContent='Perfil visual atualizado. O catálogo não foi filtrado por aplicabilidade.';t.style.display='block';clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.style.display='none',4500);};
-window.addEventListener('hashchange',()=>{render();window.scrollTo({top:0,behavior:'instant'});});
-fetch('catalog.json').then(r=>{if(!r.ok)throw Error('Catálogo indisponível');return r.json();}).then(data=>{catalog=data;render();}).catch(()=>{$('#main').innerHTML='<h1>Não foi possível carregar o acervo</h1><p>Recarregue a página. Se estiver abrindo o arquivo localmente, utilize um servidor HTTP.</p><button class="btn" onclick="location.reload()">Tentar novamente</button>';});
+function renderUpdates() {
+  $('#main').innerHTML =
+    `<div class="eyebrow">Rastreabilidade e controle</div><h1>Atualizações e ressalvas</h1><p><a class="btn" href="#contran">Consultar levantamento oficial CONTRAN →</a></p><p class="subtitle">Pendências conhecidas no catálogo e referências a alterações. Esta página não é um monitor automático do Diário Oficial.</p><div class="notice">Consulta CONTRAN, PROCONVE, Inmetro e Anatel revisada em 18/10/2026. O acervo reúne ${catalog.records.length} entradas documentais. A vigência e a aplicação a um projeto exigem leitura das fontes e dos atos modificadores.</div>${consultationSources()}${catalog.metadata.pendingReviews.map((r) => `<article class="update-card"><span class="tag">CONFERÊNCIA PENDENTE</span><h3>${esc(r.title)}</h3><p>${esc(r.note)}</p><div class="actions">${safeLink(r.officialUrl, 'Consultar referência oficial', 'btn')}</div></article>`).join('')}<article class="update-card"><span class="tag">CADEIA DOCUMENTAL</span><h3>Consulte também os atos modificadores</h3><p>As referências a alterações, revogações, anexos e transições estão registradas nos detalhes de cada entrada. Uma cópia arquivada pode não conter a redação consolidada.</p><button class="btn" data-route="library">Abrir biblioteca</button></article>`;
+}
+function renderAI() {
+  $('#main').innerHTML =
+    `<div class="eyebrow">Visão de produto</div><h1>Consulta com fontes, em uma conversa</h1><p class="subtitle">Uma prévia visual do assistente que poderá apoiar a consulta normativa.</p><div class="wide-ai"><span class="pill">Somente demonstração visual</span><div class="bubble question">O que preciso verificar para homologar este veículo?</div><div class="bubble answer"><strong>O fluxo ideal do assistente</strong><p>1. Entender o perfil técnico e as datas do projeto.</p><p>2. Localizar documentos e atos modificadores no acervo.</p><p>3. Apresentar os trechos de referência e as incertezas.</p><p>4. Encaminhar decisões de aplicabilidade à revisão técnica.</p></div><div class="notice">Não há modelo de IA conectado. Nenhuma mensagem é enviada, nenhuma resposta jurídica é gerada e não há cobrança por consultas.</div><button class="btn primary" data-route="library">Explorar as fontes disponíveis →</button></div>`;
+}
+
+function clearFilters() {
+  state.query = '';
+  state.agency = '';
+  state.filterComponent = '';
+  state.stage = '';
+  state.review = '';
+  $('#globalSearch').value = '';
+  navigate('library');
+}
+
+document.addEventListener('click', (e) => {
+  const part = e.target.closest('[data-part]');
+  if (part) {
+    selectSystem(part.dataset.part);
+    return;
+  }
+  const b = e.target.closest('button');
+  if (!b) return;
+  if (b.dataset.selectSystem) {
+    selectSystem(b.dataset.selectSystem);
+    return;
+  }
+  if (b.dataset.component) {
+    state.component = b.dataset.component;
+    renderVehicle();
+    renderRelated();
+  }
+  if (b.dataset.open) openNorm(b.dataset.open, b.dataset.requirement || null);
+  if (b.dataset.route) navigate(b.dataset.route);
+  if (b.dataset.componentLibrary) {
+    state.filterComponent = b.dataset.componentLibrary;
+    state.query = '';
+    state.agency = '';
+    state.stage = '';
+    navigate(libraryRoute({ component: state.filterComponent }).slice(1));
+  }
+  if (b.dataset.flow) {
+    state.stage = b.dataset.flow;
+    navigate('flow');
+  }
+  if (b.dataset.stageLibrary) {
+    clearState();
+    state.stage = b.dataset.stageLibrary;
+    navigate(libraryRoute({ stage: state.stage }).slice(1));
+  }
+  if (['clearFilters', 'clearEmpty'].includes(b.id)) clearFilters();
+});
+function clearState() {
+  state.query = '';
+  state.agency = '';
+  state.filterComponent = '';
+  state.stage = '';
+  state.review = '';
+  $('#globalSearch').value = '';
+}
+const originalAssistantMarkup = $('#aiPanel').innerHTML;
+function restoreAssistantPanel() {
+  $('#aiPanel').setAttribute('aria-label', 'Orientações de consulta');
+  $('#aiPanel').innerHTML = originalAssistantMarkup;
+  if (state.view === 'library')
+    $('#aiPanel .related-head h3').textContent = 'Referências desta consulta';
+  $('#relatedLibrary').onclick = () => {
+    navigate((state.view === 'library' ? libraryRoute(libraryValues()) : '#library').slice(1));
+  };
+}
+$('#relatedLibrary').onclick = () => {
+  clearState();
+  state.filterComponent = state.component;
+  navigate(libraryRoute({ component: state.filterComponent }).slice(1));
+};
+$('#closeDialog').onclick = () => $('#normDialog').close();
+$('#normDialog').addEventListener('click', (e) => {
+  if (e.target === $('#normDialog')) {
+    const r = e.target.getBoundingClientRect();
+    if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom)
+      e.target.close();
+  }
+});
+$('#globalSearch').addEventListener('input', (e) => {
+  state.query = e.target.value;
+  state.agency = '';
+  state.filterComponent = '';
+  state.stage = '';
+  navigate(libraryRoute({ q: state.query }).slice(1));
+});
+document.addEventListener('keydown', (e) => {
+  const part = e.target.closest('[data-part]');
+  if (part && ['Enter', ' '].includes(e.key)) {
+    e.preventDefault();
+    selectSystem(part.dataset.part, true);
+    return;
+  }
+  if (e.key === '/' && !['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) {
+    e.preventDefault();
+    $('#globalSearch').focus();
+  }
+});
+for (const id of ['vehicleType', 'powertrain'])
+  $('#' + id).onchange = () => {
+    if (state.view === 'vehicle') {
+      saveVehicleRoute();
+      renderVehicle();
+    }
+    const t = $('#toast');
+    t.textContent = 'Perfil visual atualizado. O catálogo não foi filtrado por aplicabilidade.';
+    t.style.display = 'block';
+    clearTimeout(window.toastTimer);
+    window.toastTimer = setTimeout(() => (t.style.display = 'none'), 4500);
+  };
+window.addEventListener('hashchange', () => {
+  render();
+  window.scrollTo({ top: 0, behavior: 'instant' });
+});
+initializeRegulatoryStore()
+  .then((index) => {
+    regulatoryBaseCatalog = index.base;
+    catalog = installActiveRegulations(index.base);
+    render();
+  })
+  .catch(() => {
+    $('#main').innerHTML =
+      '<h1>Não foi possível carregar o acervo</h1><p role="alert">O índice de consulta não está disponível. Recarregue a página para tentar novamente.</p><button class="btn" onclick="location.reload()">Tentar novamente</button>';
+  });
