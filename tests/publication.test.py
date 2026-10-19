@@ -5,6 +5,7 @@ import importlib.util
 import json
 import re
 import tempfile
+import tomllib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,6 +14,14 @@ spec = importlib.util.spec_from_file_location(
 )
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
+
+config = tomllib.loads((ROOT / "wrangler.toml").read_text())
+assert config["name"] == "legislacao-automotiva"
+assert config["pages_build_output_dir"] == "./dist"
+assert (
+    json.loads((ROOT / "package.json").read_text())["scripts"]["postinstall"]
+    == "python scripts/build_static.py"
+)
 
 with tempfile.TemporaryDirectory() as directory:
     target = Path(directory) / "dist"
