@@ -34,9 +34,14 @@ async def main(base):
             ("inmetro?record=inmetro-145-2022", ".contran-record"),
             ("markings", "#markings-vin"),
         ]
-        for route, ready in routes:
+        for theme, route, ready in [
+            (theme, route, ready)
+            for theme in ("dark", "light", "aurora")
+            for route, ready in routes
+        ]:
             await page.goto(base + "#" + route)
             await page.locator(ready).first.wait_for()
+            await page.get_by_label("Tema", exact=True).select_option(theme)
             await page.add_script_tag(
                 path=str(ROOT / "node_modules/axe-core/axe.min.js")
             )
@@ -47,6 +52,7 @@ async def main(base):
                 findings.append(
                     {
                         "route": route,
+                        "theme": theme,
                         "id": violation["id"],
                         "impact": violation["impact"],
                         "nodes": [

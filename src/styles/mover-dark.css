@@ -1,26 +1,5 @@
-/* Theme adapted from FLeone2/mover-saas: themes.css, Escuro OLED / Cobre. */
-:root,
-[data-theme='dark'] {
-  color-scheme: dark;
-  --bg: #050607;
-  --surface: #111315;
-  --surface-2: #17191b;
-  --surface-3: #1e2023;
-  --border: rgba(255, 255, 255, 0.1);
-  --field-border: rgba(255, 255, 255, 0.38);
-  --ink: #f5f5f7;
-  --ink-2: #a1a1a6;
-  --muted: #8b8b92;
-  --accent: #f47721;
-  --accent-soft: rgba(244, 119, 33, 0.16);
-  --on-accent: #1a0d03;
-  --blue: var(--accent);
-  --teal: var(--accent);
-  --line: var(--border);
-  --good: #30d158;
-  --warning: #ffb020;
-}
-html[data-theme='dark'] body {
+/* Shared MOVER layout and states; palettes live in theme-tokens.css. */
+html[data-theme] body {
   background: var(--bg);
   color: var(--ink);
   font-family:
@@ -30,35 +9,35 @@ html[data-theme='dark'] body {
     'Segoe UI',
     sans-serif;
 }
-html[data-theme='dark'] body::before,
-html[data-theme='dark'] body::after {
+html[data-theme] body::before,
+html[data-theme] body::after {
   display: none;
 }
-html[data-theme='dark'] #app :is(.sidebar, .topbar, .ai-panel) {
-  background: #0a0b0c;
+html[data-theme] #app :is(.sidebar, .topbar, .ai-panel) {
+  background: var(--drawer-bg);
   color: var(--ink);
   border-color: var(--border);
   box-shadow: none;
   backdrop-filter: none;
 }
-html[data-theme='dark'] #app .sidebar {
+html[data-theme] #app .sidebar {
   inset: 0 auto 0 0;
   width: var(--sidebar);
   border: 0;
   border-right: 1px solid var(--border);
   border-radius: 0;
 }
-html[data-theme='dark'] #app .topbar {
+html[data-theme] #app .topbar {
   border-bottom: 1px solid var(--border);
 }
-html[data-theme='dark'] #app .brand {
+html[data-theme] #app .brand {
   color: var(--ink);
 }
-html[data-theme='dark'] #app .aurora-logo {
-  color: var(--accent);
+html[data-theme] #app .aurora-logo {
+  color: var(--accent-ink);
   filter: none;
 }
-html[data-theme='dark']
+html[data-theme]
   #app
   :is(
     .brand-pill,
@@ -80,40 +59,40 @@ html[data-theme='dark']
   ) {
   display: none;
 }
-html[data-theme='dark'] #app .profile-control {
+html[data-theme] #app .profile-control {
   display: none;
 }
-html[data-theme='dark'] #app .sidebar .main-nav a {
+html[data-theme] #app .sidebar .main-nav a {
   color: var(--ink-2);
   background: transparent;
   border: 1px solid transparent;
   border-radius: 12px;
   box-shadow: none;
 }
-html[data-theme='dark'] #app .sidebar .main-nav a:hover {
+html[data-theme] #app .sidebar .main-nav a:hover {
   background: var(--surface-2);
   color: var(--ink);
 }
-html[data-theme='dark'] #app .sidebar .main-nav a.active {
+html[data-theme] #app .sidebar .main-nav a.active {
   background: var(--accent-soft);
-  color: var(--accent);
+  color: var(--accent-ink);
   border-color: transparent;
 }
-html[data-theme='dark'] #app :is(.aurora-icon, .nav-group-label, .nav-source-group summary) {
+html[data-theme] #app :is(.aurora-icon, .nav-group-label, .nav-source-group summary) {
   color: var(--ink-2);
 }
-html[data-theme='dark'] #app .active .aurora-icon {
-  color: var(--accent);
+html[data-theme] #app .active .aurora-icon {
+  color: var(--accent-ink);
 }
-html[data-theme='dark'] #app :is(h1, h2, h3, h4, strong) {
+html[data-theme] #app :is(h1, h2, h3, h4, strong) {
   color: var(--ink);
 }
-html[data-theme='dark'] #app h1 {
+html[data-theme] #app h1 {
   font-size: 28px;
   letter-spacing: -0.03em;
   line-height: 1.25;
 }
-html[data-theme='dark']
+html[data-theme]
   #app
   :is(
     p,
@@ -142,10 +121,10 @@ html[data-theme='dark']
   ) {
   color: var(--ink-2);
 }
-html[data-theme='dark'] #app a {
-  color: var(--accent);
+html[data-theme] #app a {
+  color: var(--accent-ink);
 }
-html[data-theme='dark']
+html[data-theme]
   #app
   :is(
     .aurora-explorer,
@@ -181,7 +160,7 @@ html[data-theme='dark']
   box-shadow: none;
   backdrop-filter: none;
 }
-html[data-theme='dark']
+html[data-theme]
   #app
   :is(
     .aurora-heading p,
@@ -194,7 +173,7 @@ html[data-theme='dark']
   ) {
   display: none;
 }
-html[data-theme='dark']
+html[data-theme]
   #app
   :is(
     .aurora-subsystem,
@@ -223,7 +202,7 @@ html[data-theme='dark']
   box-shadow: none;
   filter: none;
 }
-html[data-theme='dark']
+html[data-theme]
   #app
   :is(
     .aurora-subsystem:hover,
@@ -238,15 +217,15 @@ html[data-theme='dark']
   background: var(--surface-3);
   border-color: var(--field-border);
 }
-html[data-theme='dark'] #app :is(.aurora-subsystem.emphasis, .aurora-subsystem) {
+html[data-theme] #app :is(.aurora-subsystem.emphasis, .aurora-subsystem) {
   min-height: 64px;
   border-radius: 12px;
   background: var(--surface-2);
 }
-html[data-theme='dark'] #app :is(.aurora-system-card.selected, .subsystem-card.active) {
-  border-color: var(--accent);
+html[data-theme] #app :is(.aurora-system-card.selected, .subsystem-card.active) {
+  border-color: var(--accent-ink);
 }
-html[data-theme='dark']
+html[data-theme]
   #app
   :is(.aurora-primary, .btn.primary, .detail-tabs button.active, .component-lanes a.active) {
   background: var(--accent);
@@ -254,14 +233,14 @@ html[data-theme='dark']
   border: 1px solid var(--accent);
   box-shadow: none;
 }
-html[data-theme='dark'] #app .aurora-primary {
+html[data-theme] #app .aurora-primary {
   margin-top: 16px;
   border-radius: 12px;
 }
-html[data-theme='dark'] #app .aurora-primary svg {
+html[data-theme] #app .aurora-primary svg {
   color: inherit;
 }
-html[data-theme='dark']
+html[data-theme]
   #app
   :is(
     .global-search,
@@ -278,78 +257,74 @@ html[data-theme='dark']
   box-shadow: none;
   border-radius: 12px;
 }
-html[data-theme='dark'] #app .global-search :is(input, span) {
+html[data-theme] #app .global-search :is(input, span) {
   background: transparent;
   color: var(--ink);
 }
-html[data-theme='dark'] #app input::placeholder {
+html[data-theme] #app input::placeholder {
   color: var(--ink-2);
 }
-html[data-theme='dark'] :is(select option, optgroup) {
+html[data-theme] :is(select option, optgroup) {
   background: var(--surface);
   color: var(--ink);
 }
-html[data-theme='dark'] :is(button, a, input, select, summary):focus-visible {
-  outline: 2px solid var(--accent);
+html[data-theme] :is(button, a, input, select, summary):focus-visible {
+  outline: 2px solid var(--focus-ring);
   outline-offset: 3px;
 }
-html[data-theme='dark'] #app :is(.graph-node, .homologation-step) {
+html[data-theme] #app :is(.graph-node, .homologation-step) {
   background: var(--surface-2);
   border: 1px solid var(--field-border);
   color: var(--ink);
   box-shadow: none;
   border-radius: 12px;
 }
-html[data-theme='dark'] #app :is(.graph-node.selected, .homologation-step.selected) {
+html[data-theme] #app :is(.graph-node.selected, .homologation-step.selected) {
   background: var(--accent-soft);
-  border-color: var(--accent);
+  border-color: var(--accent-ink);
   box-shadow: none;
 }
-html[data-theme='dark']
-  #app
-  :is(.graph-node strong, .homologation-step strong, .node-icon, .node-toggle) {
+html[data-theme] #app :is(.graph-node strong, .homologation-step strong, .node-icon, .node-toggle) {
   color: var(--ink);
 }
-html[data-theme='dark']
-  #app
-  :is(.graph-node small, .homologation-step small, .homologation-step-open) {
+html[data-theme] #app :is(.graph-node small, .homologation-step small, .homologation-step-open) {
   color: var(--ink-2);
 }
-html[data-theme='dark'] #app .node-icon {
+html[data-theme] #app .node-icon {
   background: var(--surface-3);
   font-size: 14px;
 }
-html[data-theme='dark'] #app .node-toggle {
+html[data-theme] #app .node-toggle {
   background: var(--surface-3);
   border: 1px solid var(--field-border);
 }
-html[data-theme='dark'] #app :is(.graph-edge, .flow-connection) {
+html[data-theme] #app :is(.graph-edge, .flow-connection) {
   stroke: #77777e;
 }
-html[data-theme='dark'] #app .homologation-connectors text {
+html[data-theme] #app .homologation-connectors text {
   fill: var(--ink-2);
 }
-html[data-theme='dark'] #app :is(.graph-tools, .graph-toolbar, .detail-tabs, .tree-breadcrumb) {
+html[data-theme] #app :is(.graph-tools, .graph-toolbar, .detail-tabs, .tree-breadcrumb) {
   background: transparent;
 }
-html[data-theme='dark'] #app :is(.notice, .tree-warning, .tree-caveat, .contran-temporal) {
-  background: #211a0e;
-  color: #ffcb79;
-  border: 1px solid #6e552d;
+html[data-theme] #app :is(.notice, .tree-warning, .tree-caveat, .contran-temporal) {
+  background: var(--warning-soft);
+  color: var(--warning);
+  border: 1px solid var(--warning-line);
   box-shadow: none;
 }
-html[data-theme='dark']
+html[data-theme]
   #app
   :is(.tag, .pill, .status, .contran-tags span, .contran-status, .context-note, .subsystem-parent) {
   color: var(--ink-2);
   background: var(--surface-2);
   border-color: var(--border);
 }
-html[data-theme='dark'] #app .contran-status.pending {
-  color: #ffcb79;
-  background: #211a0e;
+html[data-theme] #app .contran-status.pending {
+  color: var(--warning);
+  background: var(--warning-soft);
 }
-html[data-theme='dark']
+html[data-theme]
   #app
   :is(
     .aurora-car-glass,
@@ -365,30 +340,26 @@ html[data-theme='dark']
   border: 1px solid var(--border);
   box-shadow: none;
 }
-html[data-theme='dark'] #app .aurora-car-glass {
+html[data-theme] #app .aurora-car-glass {
   padding: 8px;
   border-radius: 14px;
 }
-html[data-theme='dark'] #app #vehicleDrawing image {
+html[data-theme] #app #vehicleDrawing image {
   mix-blend-mode: normal;
 }
-html[data-theme='dark'] #app .catalog-stage .component-region {
+html[data-theme] #app .catalog-stage .component-region {
   fill: transparent;
   stroke: transparent;
   filter: none;
   stroke-width: 2;
 }
-html[data-theme='dark']
-  #app
-  .catalog-stage
-  a:is(:hover, :focus-visible, .is-hovered)
-  .component-region {
+html[data-theme] #app .catalog-stage a:is(:hover, :focus-visible, .is-hovered) .component-region {
   fill: #f4772124;
   stroke: #a34508;
   filter: none;
   stroke-width: 2;
 }
-html[data-theme='dark']
+html[data-theme]
   #app
   .catalog-stage
   a:focus:not(:focus-visible):not(:hover):not(.is-hovered)
@@ -396,152 +367,152 @@ html[data-theme='dark']
   fill: transparent;
   stroke: transparent;
 }
-html[data-theme='dark'] #app .subsystem-region {
+html[data-theme] #app .subsystem-region {
   fill: transparent;
   stroke: transparent;
 }
-html[data-theme='dark'] #app a:is(:hover, :focus-visible) .subsystem-region {
+html[data-theme] #app a:is(:hover, :focus-visible) .subsystem-region {
   fill: #f4772124;
   stroke: #a34508;
 }
-html[data-theme='dark'] #app .subsystem-region.selected {
+html[data-theme] #app .subsystem-region.selected {
   stroke: #a34508;
 }
-html[data-theme='dark'] #app :is(.vehicle-drawing-tools, .component-hover) {
-  background: #111315;
+html[data-theme] #app :is(.vehicle-drawing-tools, .component-hover) {
+  background: var(--surface);
   color: var(--ink);
   border: 1px solid var(--field-border);
   box-shadow: none;
 }
-html[data-theme='dark'] #app .vehicle-drawing-tools button {
+html[data-theme] #app .vehicle-drawing-tools button {
   color: var(--ink);
   background: transparent;
 }
-html[data-theme='dark'] #app .aurora-explorer {
+html[data-theme] #app .aurora-explorer {
   align-self: start;
 }
-html[data-theme='dark'] #app .aurora-directory {
+html[data-theme] #app .aurora-directory {
   border-top: 1px solid var(--border);
 }
-html[data-theme='dark'] #app .aurora-explorer-heading {
+html[data-theme] #app .aurora-explorer-heading {
   margin-bottom: 16px;
 }
-html[data-theme='dark'] #app .aurora-overview-grid {
+html[data-theme] #app .aurora-overview-grid {
   align-items: start;
 }
-html[data-theme='dark'] #app .aurora-heading {
+html[data-theme] #app .aurora-heading {
   margin-bottom: 16px;
 }
-html[data-theme='dark'] #app .aurora-library-link {
+html[data-theme] #app .aurora-library-link {
   display: block;
   padding: 12px 0;
   font-size: 13px;
 }
-html[data-theme='dark'] #app .consultation-query-actions span {
+html[data-theme] #app .consultation-query-actions span {
   color: var(--ink-2);
 }
-html[data-theme='dark'] dialog {
+html[data-theme] dialog {
   background: var(--surface);
   color: var(--ink);
   border: 1px solid var(--field-border);
   border-radius: 20px;
-  box-shadow: 0 8px 24px #0008;
+  box-shadow: var(--shadow-pop);
 }
-html[data-theme='dark'] dialog :is(h2, h3, h4, strong) {
+html[data-theme] dialog :is(h2, h3, h4, strong) {
   color: var(--ink);
 }
-html[data-theme='dark'] dialog :is(p, small, dd, dt, summary) {
+html[data-theme] dialog :is(p, small, dd, dt, summary) {
   color: var(--ink-2);
 }
-html[data-theme='dark'] dialog :is(a, .close) {
-  color: var(--accent);
+html[data-theme] dialog :is(a, .close) {
+  color: var(--accent-ink);
 }
-html[data-theme='dark'] dialog :is(.notice, .regulatory-requirements, .regulatory-state-grid) {
+html[data-theme] dialog :is(.notice, .regulatory-requirements, .regulatory-state-grid) {
   background: var(--surface-2);
   border-color: var(--border);
 }
-html[data-theme='dark'] dialog .btn {
+html[data-theme] dialog .btn {
   background: var(--surface-2);
   border: 1px solid var(--border);
   color: var(--ink);
 }
-html[data-theme='dark'] dialog::backdrop {
-  background: #000a;
+html[data-theme] dialog::backdrop {
+  background: var(--backdrop);
   backdrop-filter: none;
 }
 @media (max-width: 700px) {
-  html[data-theme='dark'] #app .sidebar {
+  html[data-theme] #app .sidebar {
     position: sticky;
     inset: auto;
     width: 100%;
     border: 0;
     border-bottom: 1px solid var(--border);
   }
-  html[data-theme='dark'] #app .profile-control {
+  html[data-theme] #app .profile-control {
     display: none;
   }
-  html[data-theme='dark'] #app .aurora-explorer {
+  html[data-theme] #app .aurora-explorer {
     display: block;
   }
 }
-html[data-theme='dark'] #app .aurora-car-glass .catalog-stage {
+html[data-theme] #app .aurora-car-glass .catalog-stage {
   padding: 0;
 }
-html[data-theme='dark'] #app:not(.tree-mode) #aiPanel {
+html[data-theme] #app:not(.tree-mode) #aiPanel {
   display: none;
 }
-html[data-theme='dark'] #app:not(.tree-mode) .body-layout {
+html[data-theme] #app:not(.tree-mode) .body-layout {
   grid-template-columns: minmax(0, 1fr);
 }
-html[data-theme='dark'] #app .aurora-subsystem strong {
+html[data-theme] #app .aurora-subsystem strong {
   font-size: 13px;
   line-height: 1.4;
 }
-html[data-theme='dark'] #app .node-copy {
+html[data-theme] #app .node-copy {
   padding-left: 10px;
 }
-html[data-theme='dark'] #app .consultation-sources > p {
+html[data-theme] #app .consultation-sources > p {
   font-size: 12px;
 }
-html[data-theme='dark'] #app .nav-source-group {
+html[data-theme] #app .nav-source-group {
   border: 0;
   background: transparent;
 }
-html[data-theme='dark'] #app .eyebrow {
+html[data-theme] #app .eyebrow {
   display: none;
 }
-html[data-theme='dark'] #app .document .links button {
-  color: var(--accent);
+html[data-theme] #app .document .links button {
+  color: var(--accent-ink);
 }
-html[data-theme='dark'] #app .consultation-sources > summary {
+html[data-theme] #app .consultation-sources > summary {
   font-size: 13px;
 }
-html[data-theme='dark'] #app .aurora-directory-grid {
+html[data-theme] #app .aurora-directory-grid {
   grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 @media (max-width: 1100px) {
-  html[data-theme='dark'] #app .aurora-directory-grid {
+  html[data-theme] #app .aurora-directory-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 @media (max-width: 700px) {
-  html[data-theme='dark'] #app .aurora-directory-grid {
+  html[data-theme] #app .aurora-directory-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 @media (max-width: 700px) {
-  html[data-theme='dark'] #app .sidebar {
+  html[data-theme] #app .sidebar {
     margin: 0;
     left: 0;
     right: 0;
   }
 }
-html[data-theme='dark']
+html[data-theme]
   #app
   :is(main, .body-layout, .homologation-explorer, .homologation-explorer-heading, .tree-page-head) {
   background: var(--bg);
 }
-html[data-theme='dark']
+html[data-theme]
   #app
   :is(
     .homologation-detail,
@@ -554,7 +525,7 @@ html[data-theme='dark']
   background: var(--surface);
   border-color: var(--border);
 }
-html[data-theme='dark']
+html[data-theme]
   #app
   :is(
     label,
@@ -567,71 +538,145 @@ html[data-theme='dark']
   ) {
   color: var(--ink-2);
 }
-html[data-theme='dark'] #app .homologation-step-kicker b {
+html[data-theme] #app .homologation-step-kicker b {
   background: var(--surface-3);
   color: var(--ink);
 }
-html[data-theme='dark'] #app .homologation-step.selected {
-  outline-color: var(--accent);
+html[data-theme] #app .homologation-step.selected {
+  outline-color: var(--accent-ink);
 }
-html[data-theme='dark'] #app .scope-note a {
+html[data-theme] #app .scope-note a {
   text-decoration: underline;
 }
-html[data-theme='dark'] #app .scope-note {
+html[data-theme] #app .scope-note {
   background: transparent;
 }
-html[data-theme='dark'] #app :is(.graph-mini, .contran-method, .contran-evidence blockquote) {
+html[data-theme] #app :is(.graph-mini, .contran-method, .contran-evidence blockquote) {
   background: var(--surface-2);
   border-color: var(--border);
 }
-html[data-theme='dark'] #app :is([data-graph-action], .contran-pagination span) {
+html[data-theme] #app :is([data-graph-action], .contran-pagination span) {
   color: var(--ink-2);
 }
-html[data-theme='dark'] #app .homologation-map-viewport {
+html[data-theme] #app .homologation-map-viewport {
   background: var(--surface);
 }
-html[data-theme='dark'] #app .homologation-step-kicker > span {
+html[data-theme] #app .homologation-step-kicker > span {
   display: none;
 }
-html[data-theme='dark'] #app .component-flow-heading {
+html[data-theme] #app .component-flow-heading {
   background: var(--surface);
   border-color: var(--border);
 }
-html[data-theme='dark'] #app :is(.tree-context > span, .regulatory-phases a) {
+html[data-theme] #app :is(.tree-context > span, .regulatory-phases a) {
   background: var(--surface-2);
   color: var(--ink-2);
   border-color: var(--border);
 }
-html[data-theme='dark'] #app .regulatory-phases a.selected {
+html[data-theme] #app .regulatory-phases a.selected {
   background: var(--accent-soft);
-  color: var(--accent);
-  border-color: var(--accent);
+  color: var(--accent-ink);
+  border-color: var(--accent-ink);
 }
-html[data-theme='dark'] #app .vehicle-kicker {
+html[data-theme] #app .vehicle-kicker {
   display: none;
 }
-html[data-theme='dark'] #app .graph-controls {
+html[data-theme] #app .graph-controls {
   background: var(--surface-2);
   border-color: var(--field-border);
   box-shadow: none;
 }
-html[data-theme='dark'] #app .graph-controls :is(button, output) {
+html[data-theme] #app .graph-controls :is(button, output) {
   color: var(--ink-2);
 }
-html[data-theme='dark'] #app .graph-controls button:hover {
+html[data-theme] #app .graph-controls button:hover {
   background: var(--surface-3);
 }
-html[data-theme='dark'] #app .graph-links path {
+html[data-theme] #app .graph-links path {
   stroke: #77777e;
 }
-html[data-theme='dark'] #app .graph-links path.chosen {
+html[data-theme] #app .graph-links path.chosen {
   stroke: var(--accent);
 }
-html[data-theme='dark'] #app .detail-tabs button span {
+html[data-theme] #app .detail-tabs button span {
   background: var(--surface-3);
   color: var(--ink);
 }
-html[data-theme='dark'] #app .detail-tabs button.active span {
-  background: var(--on-accent);
+html[data-theme] #app .detail-tabs button.active span {
+  background: var(--surface);
   color: var(--ink);
+}
+html[data-theme] #app :is(.subsystem-explorer summary span, .regulatory-category span) {
+  color: var(--ink-2);
+}
+
+html[data-theme] #app .theme-picker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  font-size: 12px;
+}
+html[data-theme] #app .theme-picker select {
+  height: 43px;
+  padding: 0 10px;
+  max-width: 150px;
+  border: 1px solid var(--field-border);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Aurora uses the original MOVER glass material without changing hit regions. */
+html[data-theme='aurora'] body {
+  background-color: var(--bg);
+  background-image: var(--app-wash);
+  background-attachment: fixed;
+}
+html[data-theme='aurora'] #app :is(main, .body-layout) {
+  background: transparent;
+}
+html[data-theme='aurora'] #app :is(.sidebar, .topbar) {
+  background: var(--liquid-sidebar-glass);
+  box-shadow: var(--liquid-sidebar-shadow);
+}
+html[data-theme='aurora'] #app :is(.aurora-explorer, .document, .homologation-profile) {
+  background: var(--liquid-glass);
+  box-shadow: var(--liquid-glass-shadow);
+}
+@media (max-width: 700px) {
+  html[data-theme] #app .topbar {
+    flex-wrap: nowrap;
+    gap: 8px;
+    padding: 10px 12px;
+  }
+  html[data-theme] #app .global-search {
+    order: 0;
+    flex: 1;
+    min-width: 0;
+    padding: 0 8px;
+    gap: 5px;
+  }
+  html[data-theme] #app .global-search > :is(kbd, span) {
+    display: none;
+  }
+  html[data-theme] #app .theme-picker {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+    font-size: 11px;
+  }
+  html[data-theme] #app .theme-picker select {
+    height: 42px;
+    max-width: 132px;
+  }
+  html[data-theme] #app .theme-picker > label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
 }

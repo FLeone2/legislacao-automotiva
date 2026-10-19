@@ -8,10 +8,12 @@
       name="description"
     />
     <title>Legislação Automotiva</title>
+    <script src="src/core/theme.js?v=20261019-themes"></script>
     <link href="styles.css?v=20261019-dark" rel="stylesheet" />
     <link href="src/styles/navigation.css?v=20261019-dark" rel="stylesheet" />
     <link href="src/styles/aurora.css?v=20261019-dark" rel="stylesheet" />
-    <link href="src/styles/mover-dark.css?v=20261019-dark" rel="stylesheet" />
+    <link href="src/styles/theme-tokens.css?v=20261019-themes" rel="stylesheet" />
+    <link href="src/styles/mover-dark.css?v=20261019-themes" rel="stylesheet" />
   </head>
   <body>
     <a class="skip-link" href="#main">Ir para o conteúdo</a>
@@ -99,6 +101,14 @@
               spellcheck="false"
             /><kbd>/</kbd></label
           >
+          <div class="theme-picker">
+            <label for="themeSelect">Tema</label>
+            <select id="themeSelect">
+              <option value="dark">Escuro MOVER</option>
+              <option value="light">Claro</option>
+              <option value="aurora">Aurora</option>
+            </select>
+          </div>
         </header>
         <div class="body-layout">
           <main id="main" tabindex="-1"></main>

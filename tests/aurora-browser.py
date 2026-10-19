@@ -89,7 +89,7 @@ async def main():
         await page.goto(BASE + "#vehicle")
         await page.locator(".aurora-explorer").wait_for()
         await expect(page.locator("html")).to_have_attribute("data-theme", "dark")
-        assert await page.locator("[data-aurora-theme]").count() == 0
+        await expect(page.get_by_label("Tema", exact=True)).to_be_visible()
         await page.locator("#globalSearch").fill("951")
         await page.locator("#globalSearch").press("Enter")
         await page.locator(".document").first.wait_for()

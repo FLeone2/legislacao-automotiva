@@ -493,16 +493,19 @@ Diário Oficial automaticamente.
 
 ## Tema escuro e revisão de navegação
 
-O tema atual usa os tokens Escuro OLED / Cobre de
-`FLeone2/mover-saas/src/mover/web/static/themes.css`, adaptados em
-`src/styles/mover-dark.css`. O arquivo `aurora.css` mantém o layout responsivo,
-sem a pintura Liquid Glass. As imagens originais não foram alteradas.
+O padrão é Escuro MOVER. O seletor **Tema**, no cabeçalho, também oferece Claro e
+Aurora; a preferência é salva neste navegador e aplicada antes da primeira
+pintura. As três paletas vêm de
+`FLeone2/mover-saas/src/mover/web/static/themes.css`, em `src/styles/theme-tokens.css`.
+`src/styles/mover-dark.css` aplica os estados compartilhados e os materiais de vidro
+somente ao tema Aurora. `src/core/theme.js` controla a escolha, inclusive quando
+o armazenamento está bloqueado. As imagens originais não foram alteradas.
 
 Os realces do veículo são transitórios (mouse ou teclado), com uma única cor.
 A seleção continua no painel e nos cartões. O tanque usa contornos extraídos da
 imagem exibida em vez de um retângulo sobre a prancha. Os seletores visuais de
-perfil, que não filtravam a legislação, e o controle decorativo de tema foram
-retirados da interface; URLs anteriores continuam compatíveis.
+perfil, que não filtravam a legislação, foram retirados da interface; URLs
+anteriores continuam compatíveis. Trocar o tema preserva rota, zoom e seleção.
 
 `tests/checkup-browser.py` percorre todos os menus em computador e celular,
 os 14 acessos ao veículo, seus subsistemas, as atividades do fluxo, os detalhes
@@ -515,10 +518,19 @@ No Cloudflare Pages, a configuração esperada é comando `npm run build` e
 diretório de saída `dist`. A raiz do repositório contém pesquisas e inventários
 que não fazem parte do artefato estático.
 
+O build gera versões por conteúdo para os scripts e estilos, regras `_headers`
+para revalidar a página e `version.json` com o commit de origem e as revisões dos
+arquivos. O endereço estável é `https://legislacao-automotiva.pages.dev/`; os links
+com prefixo de implantação são fotografias de uma publicação e não acompanham
+novos commits. A entrega precisa ser conferida nesse endereço estável, com
+`version.json` e teste no navegador; um check de deploy sozinho não comprova a UI.
+
 Resultado da checagem de 19/10/2026: 11 menus, 14 acessos ao veículo,
 30 subsistemas, 37 atividades, 273 atos e 298 documentos percorridos sem erros
-JavaScript. As nove suítes funcionais, os testes de dados/modelos e a auditoria
-axe nas rotas principais e detalhes passaram. Na verificação externa de 814
+JavaScript. As dez suítes funcionais incluem persistência e troca de tema, estados
+do desenho, teclado, celular e armazenamento bloqueado. A auditoria axe cobre 14
+rotas e detalhes em cada uma das três paletas, além da navegação móvel.
+Na verificação externa de 814
 endereços de fontes: 65 responderam HTTP 200, 696 retornaram 403 e 53 retornaram
 503. Os 749 casos sem confirmação permanecem como acesso não verificado; nenhum
 404/410 foi confirmado nessa rodada. Isso não altera a revisão normativa.

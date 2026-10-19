@@ -1,0 +1,129 @@
+/* Palettes from FLeone2/mover-saas/src/mover/web/static/themes.css. */
+
+:root,
+[data-theme='dark'] {
+  --scheme: dark;
+  --bg: #050607;
+  --surface: #111315;
+  --surface-2: #17191b;
+  --surface-3: #1e2023;
+  --sidebar-bg: rgba(10, 11, 12, 0.82);
+  --appbar-bg: rgba(10, 11, 12, 0.9);
+  --drawer-bg: #0a0b0c;
+  --border: rgba(255, 255, 255, 0.1);
+  --field-border: rgba(255, 255, 255, 0.38);
+  --ink: #f5f5f7;
+  --ink-2: #a1a1a6;
+  --muted: #8b8b92;
+  --accent: #f47721;
+  --accent-soft: rgba(244, 119, 33, 0.16);
+  --on-accent: #1a0d03;
+  --accent-ink: var(--accent);
+  --focus-ring: var(--accent);
+  --good: #30d158;
+  --warning: #ffb020;
+  --warning-soft: rgba(255, 176, 32, 0.15);
+  --warning-line: rgba(255, 176, 32, 0.45);
+  --shadow-pop: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --backdrop: rgba(0, 0, 0, 0.62);
+  --app-wash: radial-gradient(760px 420px at 92% -12%, rgba(244, 119, 33, 0.05), transparent 62%);
+}
+
+[data-theme='light'] {
+  --scheme: light;
+  --bg: #f4f6f8;
+  --surface: #ffffff;
+  --surface-2: #f8fafb;
+  --surface-3: #eef2f6;
+  --sidebar-bg: rgba(250, 251, 252, 0.86);
+  --appbar-bg: rgba(250, 251, 252, 0.92);
+  --drawer-bg: #fafbfc;
+  --border: #d9e0e7;
+  --field-border: #7d8d9f;
+  --ink: #17243a;
+  --ink-2: #46566a;
+  --muted: #5f7086;
+  --accent: #e96414;
+  --accent-soft: rgba(233, 100, 20, 0.12);
+  --on-accent: #2a1002;
+  --accent-ink: #a8460a;
+  --good: #0e6b4d;
+  --warning: #8a5300;
+  --warning-soft: rgba(138, 83, 0, 0.12);
+  --warning-line: rgba(138, 83, 0, 0.5);
+  --shadow-pop: 0 8px 24px rgba(23, 36, 58, 0.14);
+  --backdrop: rgba(23, 36, 58, 0.38);
+  --app-wash: radial-gradient(760px 420px at 92% -12%, rgba(233, 100, 20, 0.05), transparent 62%);
+}
+
+[data-theme='aurora'] {
+  --scheme: dark;
+  --bg: #080f19;
+  --surface: #151e29;
+  --surface-2: #1b2839;
+  --surface-3: #26374b;
+  --sidebar-bg: rgba(19, 32, 48, 0.88);
+  --appbar-bg: rgba(16, 30, 47, 0.94);
+  --drawer-bg: #111f30;
+  --border: rgba(158, 194, 232, 0.22);
+  --field-border: #6987a9;
+  --ink: #f4f7fc;
+  --ink-2: #c0cad9;
+  --muted: #a5b4c8;
+  --accent: #f47721;
+  --accent-soft: rgba(244, 119, 33, 0.16);
+  --on-accent: #1a0d03;
+  --accent-ink: var(--accent);
+  --focus-ring: var(--accent);
+  --good: #32df74;
+  --warning: #ffc04d;
+  --warning-soft: rgba(255, 176, 32, 0.15);
+  --warning-line: rgba(255, 176, 32, 0.45);
+  --shadow-pop: 0 16px 48px rgba(0, 4, 14, 0.65), inset 0 1px 0 rgba(217, 235, 255, 0.13);
+  --backdrop: rgba(3, 9, 18, 0.76);
+  --app-wash:
+    radial-gradient(ellipse 270px 190px at 81% -2%, rgba(78, 162, 255, 0.85), transparent 62%),
+    radial-gradient(ellipse 580px 430px at 87% 2%, rgba(35, 91, 183, 0.46), transparent 72%),
+    radial-gradient(ellipse 270px 300px at 0% 93%, rgba(41, 142, 255, 0.74), transparent 70%),
+    radial-gradient(ellipse 580px 420px at 3% 100%, rgba(45, 78, 168, 0.38), transparent 75%),
+    linear-gradient(125deg, #102132, #080e17 40%, #0a1422);
+  --liquid-glass:
+    radial-gradient(ellipse at 0% 0%, rgba(135, 183, 232, 0.16), transparent 42%),
+    radial-gradient(ellipse at 100% 100%, rgba(97, 147, 204, 0.11), transparent 42%),
+    linear-gradient(
+      128deg,
+      rgba(180, 205, 231, 0.035),
+      transparent 34%,
+      rgba(121, 158, 198, 0.025) 70%,
+      transparent
+    ),
+    linear-gradient(
+      145deg,
+      rgba(24, 34, 45, 0.86),
+      rgba(10, 18, 28, 0.94) 64%,
+      rgba(21, 31, 43, 0.87)
+    );
+  --liquid-glass-shadow:
+    inset 0 1px 1px rgba(220, 238, 255, 0.24), inset 0 -1px 2px rgba(127, 185, 255, 0.15),
+    inset 1px 0 3px rgba(112, 177, 249, 0.12), 0 3px 16px rgba(0, 5, 16, 0.3),
+    0 0 8px rgba(67, 134, 229, 0.06);
+  --liquid-sidebar-glass:
+    radial-gradient(ellipse 120% 30% at 0% 100%, rgba(63, 134, 234, 0.38), transparent 85%),
+    radial-gradient(ellipse at 0% 0%, rgba(139, 191, 246, 0.18), transparent 38%),
+    linear-gradient(
+      145deg,
+      rgba(24, 36, 50, 0.89),
+      rgba(10, 18, 29, 0.92) 60%,
+      rgba(20, 39, 66, 0.86)
+    );
+  --liquid-sidebar-shadow:
+    inset 0 1px 2px rgba(207, 231, 255, 0.36), inset 1px 0 3px rgba(115, 182, 255, 0.22),
+    inset 0 -1px 3px rgba(124, 202, 255, 0.65), 0 3px 20px rgba(0, 4, 16, 0.36);
+}
+
+html[data-theme] {
+  color-scheme: var(--scheme);
+  --blue: var(--accent-ink);
+  --teal: var(--accent-ink);
+  --line: var(--border);
+}
