@@ -24,7 +24,7 @@ async def main():
         await page.reload()
         await expect(page.locator("#vehicleType")).to_have_value("Comercial leve")
         await expect(page.locator("#powertrain")).to_have_value("Elétrico")
-        await page.goto(BASE + "#vehicle")
+        await page.goto(BASE + "#vehicle?vista=2d")
         await page.locator(".aurora-explorer").wait_for()
         assert (
             await page.locator(".aurora-explorer h2").inner_text()

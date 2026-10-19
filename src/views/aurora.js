@@ -22,18 +22,30 @@ renderVehicle = function () {
   if (query.has('component')) return originalVehicleRenderer();
   renderAuroraOverview(query);
 };
-function auroraFocusLink(component) {
+function auroraFocusLink(component, view) {
+  const current = new URLSearchParams(location.hash.split('?')[1] || '');
+  const vista = view || (Vehicle3D.mode(current) === '2d' ? '2d' : null);
   return (
     '#vehicle?' +
     new URLSearchParams({
       focus: component.id,
       type: $('#vehicleType').value,
       powertrain: $('#powertrain').value,
-      ...(new URLSearchParams(location.hash.split('?')[1] || '').get('all') === '1'
-        ? { all: '1' }
-        : {}),
+      ...(current.get('all') === '1' ? { all: '1' } : {}),
+      ...(vista ? { vista } : {}),
     })
   );
+}
+function auroraModeSwitch(component, mode) {
+  return `<div class="vehicle-mode-switch" role="group" aria-label="Forma de visualização">${[
+    ['3d', 'Modelo 3D'],
+    ['2d', 'Ilustração'],
+  ]
+    .map(
+      ([id, label]) =>
+        `<a href="${esc(auroraFocusLink(component, id))}"${mode === id ? ' aria-current="true"' : ''}>${label}</a>`,
+    )
+    .join('')}</div>`;
 }
 function auroraPanel(component) {
   const subsystems = ComponentFlow.subsystems(component, catalog.metadata.hierarchy);
@@ -73,14 +85,16 @@ function renderAuroraOverview(query) {
   const focusLabel = ComponentFlow.topics(component, catalog.metadata.hierarchy)
     .map((l) => l.label)
     .join(' · ');
+  const mode = Vehicle3D.mode(query);
+  const coverage = ComponentFlow.coverage(catalog.metadata.hierarchy);
   $('#main').innerHTML =
     `<div class="aurora-overview-grid"><section class="aurora-vehicle-column" aria-label="Exploração visual do veículo">
-    <header class="aurora-heading"><h1>Sistemas do veículo</h1></header>
+    <header class="aurora-heading"><h1>Sistemas do veículo</h1>${auroraModeSwitch(component, mode)}</header>
     <nav class="aurora-breadcrumb" aria-label="Seleção atual">${auroraIcon('home')}<span>Veículo</span><span>›</span><strong>${esc(component.label)}</strong></nav>
-    <div class="aurora-car-glass">${vehicleMap()}<div class="aurora-selection-caption">${auroraIcon('shield')}<div><strong>${esc(component.label)}</strong><small>${esc(focusLabel)}</small></div><span>Selecionado</span></div></div>
-    <p class="aurora-original-note">Ilustração conceitual · selecione no desenho ou nos cartões</p>
+    <div class="aurora-car-glass ${mode === '3d' ? 'is-model' : ''}">${mode === '3d' ? Vehicle3D.markup(component.id, auroraFocusLink) : vehicleMap()}<div class="aurora-selection-caption">${auroraIcon('shield')}<div><strong>${esc(component.label)}</strong><small>${esc(focusLabel)}</small></div><a href="${esc(vehicleLink(component))}">Ver referências →</a></div></div>
+    <p class="aurora-original-note">${mode === '3d' ? 'Modelo 3D genérico e ilustrativo · não representa um veículo real, dimensões ou requisitos' : 'Ilustração conceitual · selecione no desenho ou nos cartões'}</p>
   </section>${auroraPanel(component)}</div>
-  <section class="aurora-directory" aria-labelledby="auroraDirectory"><header><div><h2 id="auroraDirectory">Sistemas</h2><span>11 sistemas · 30 subsistemas</span></div><a href="${esc('#vehicle?' + directoryLink)}">${all ? 'Mostrar principais' : 'Ver todos os sistemas'} →</a></header><div class="aurora-directory-grid ${all ? 'expanded' : ''}">${directory
+  <section class="aurora-directory" aria-labelledby="auroraDirectory"><header><div><h2 id="auroraDirectory">Sistemas</h2><span>${vehicleComponents.length} componentes · ${coverage.systems} sistemas · ${coverage.covered} subsistemas</span></div><a href="${esc('#vehicle?' + directoryLink)}">${all ? 'Mostrar principais' : 'Ver todos os sistemas'} →</a></header><div class="aurora-directory-grid ${all ? 'expanded' : ''}">${directory
     .map(
       (c) =>
         `<a data-aurora-component="${esc(c.id)}" class="aurora-system-card ${component.id === c.id ? 'selected' : ''}" href="${esc(auroraFocusLink(c))}"><div class="aurora-system-art">${componentArt(c)}</div><strong>${esc(c.label)}</strong><small>${esc(
@@ -100,7 +114,18 @@ function renderAuroraOverview(query) {
       link.classList.toggle('aurora-selected', c.id === component.id);
       link.setAttribute('aria-current', c.id === component.id ? 'true' : 'false');
     });
-  setupComponentHover();
+  if (mode === '3d')
+    Vehicle3D.mount($('.aurora-vehicle-column'), {
+      selected: component.id,
+      explicit: query.has('focus'),
+      link: auroraFocusLink,
+      open: (c) => vehicleLink(c),
+      navigate(url) {
+        history.pushState(null, '', url);
+        render();
+      },
+    });
+  else setupComponentHover();
 }
 // Keep all original routes and regulatory data; add the theme shell before bootstrap.
 if (!location.hash) history.replaceState(null, '', '#vehicle?focus=bancos');

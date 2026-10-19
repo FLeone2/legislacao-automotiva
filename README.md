@@ -259,6 +259,25 @@ Desenho e cards compartilham os mesmos identificadores. O realce acompanha mouse
 e foco de teclado. A transição de tela respeita preferência por movimento
 reduzido. O fluxograma tem controles próprios de zoom e enquadramento.
 
+### Modelo 3D e vista explodida
+
+`#vehicle` abre por padrão um **modelo 3D interativo** (three.js r180 em
+`src/vendor/three`, carregado só nessa tela). A escolha **Modelo 3D / Ilustração**
+fica na URL (`vista=3d` ou `vista=2d`) e é lembrada no navegador; sem WebGL, a
+ilustração é usada automaticamente.
+
+- O SUV é procedural, genérico e ilustrativo (`src/views/vehicle-3d-scene.mjs`):
+  não representa veículo real, dimensões, limites ou requisitos.
+- Cada grupo 3D usa o mesmo `id` de `vehicleComponents`; peça 3D, região da
+  ilustração, lista de componentes e cartões abrem a mesma rota.
+- Arrastar gira, roda/pinça aproxima no cursor, botão direito ou dois dedos movem.
+  Há ângulos prontos, enquadramento, controle de vista explodida e Raio-X.
+- Clique seleciona o sistema e enquadra a câmera; clique duplo ou Enter abre o
+  fluxograma de referências. Sistemas internos tornam a carroceria translúcida.
+- Teclado: a lista de componentes abaixo do modelo é a alternativa textual; no
+  canvas, setas giram, `+`/`−` aproximam e `0` enquadra.
+- A ilustração 2D ganhou zoom no cursor (roda/pinça) e arrasto quando ampliada.
+
 ## Arquivos e origem dos recursos
 
 - `catalog.json`: acervo e taxonomia preexistentes, mantidos nesta implementação.

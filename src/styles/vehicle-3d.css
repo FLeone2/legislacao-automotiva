@@ -1,0 +1,375 @@
+/* Vehicle overview: 3D model stage, view switch and shared selection states. */
+
+html[data-theme] #app .aurora-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+html[data-theme] #app .vehicle-mode-switch {
+  display: inline-flex;
+  padding: 3px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-2);
+}
+html[data-theme] #app .vehicle-mode-switch a {
+  padding: 7px 14px;
+  border-radius: 999px;
+  color: var(--ink-2);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background 0.18s,
+    color 0.18s;
+}
+html[data-theme] #app .vehicle-mode-switch a:hover {
+  color: var(--ink);
+}
+html[data-theme] #app .vehicle-mode-switch a[aria-current='true'] {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+html[data-theme] #app .aurora-car-glass.is-model {
+  padding: 0;
+  background:
+    radial-gradient(120% 90% at 50% 18%, var(--surface-3), transparent 70%),
+    linear-gradient(180deg, var(--surface-2), var(--surface));
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+html[data-theme='light'] #app .aurora-car-glass.is-model {
+  background:
+    radial-gradient(120% 90% at 50% 18%, #ffffff, transparent 70%),
+    linear-gradient(180deg, #f1f4f7, #e3e8ee);
+}
+
+.model-stage {
+  container-type: inline-size;
+  position: relative;
+  aspect-ratio: 16 / 10;
+  min-height: 340px;
+  max-height: 72vh;
+  width: 100%;
+  overflow: hidden;
+  isolation: isolate;
+}
+.model-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+  cursor: grab;
+  outline: none;
+}
+.model-canvas:active {
+  cursor: grabbing;
+}
+.model-stage:has(.model-canvas:focus-visible)::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border: 2px solid var(--focus-ring, var(--accent));
+  border-radius: 13px;
+  pointer-events: none;
+}
+.model-loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 12px;
+  color: var(--ink-2);
+  font-size: 13px;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.model-stage.is-ready .model-loading {
+  opacity: 0;
+}
+.model-spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: model-spin 0.9s linear infinite;
+}
+@keyframes model-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.model-toolbar {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  pointer-events: none;
+}
+.model-toolbar > div,
+.model-dock {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--surface) 82%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+}
+html[data-theme] #app .model-stage button {
+  min-height: 32px;
+  min-width: 32px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: none;
+}
+html[data-theme] #app .model-stage button:hover {
+  background: var(--accent-soft);
+}
+html[data-theme] #app .model-stage button:focus-visible,
+html[data-theme] #app .model-parts a:focus-visible,
+html[data-theme] #app .vehicle-mode-switch a:focus-visible {
+  outline: 2px solid var(--focus-ring, var(--accent));
+  outline-offset: 2px;
+}
+html[data-theme] #app .model-zoom button {
+  font-size: 16px;
+  padding: 0;
+}
+html[data-theme] #app .model-xray[aria-pressed='true'] {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.model-dock {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  gap: 4px;
+  padding: 4px 4px 4px 12px;
+}
+.model-explode {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.model-explode input {
+  width: clamp(90px, 14vw, 170px);
+  accent-color: var(--accent);
+  margin: 0;
+}
+.model-explode output {
+  min-width: 56px;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+
+.model-help {
+  position: absolute;
+  right: 14px;
+  bottom: 16px;
+  max-width: 46%;
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.4;
+  text-align: right;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+.model-stage.has-interacted .model-help {
+  opacity: 0;
+}
+
+.model-tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+}
+html[data-theme] #app .model-callout {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: grid;
+  gap: 2px;
+  padding: 8px 12px 8px 14px;
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 1.3;
+  max-width: 220px;
+}
+.model-callout[hidden],
+.model-tooltip[hidden] {
+  display: none !important;
+}
+html[data-theme] #app .model-callout span {
+  color: var(--accent-ink);
+  font-weight: 600;
+  font-size: 11px;
+}
+html[data-theme] #app .model-callout:hover strong {
+  text-decoration: underline;
+}
+
+.model-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 14px;
+  padding: 24px;
+  text-align: center;
+  color: var(--ink);
+}
+
+html[data-theme] #app .model-parts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 12px;
+  border-top: 1px solid var(--border);
+}
+html[data-theme] #app .model-parts a {
+  padding: 6px 11px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--ink-2);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    border-color 0.15s,
+    color 0.15s,
+    background 0.15s;
+}
+html[data-theme] #app .model-parts a:is(:hover, .is-hovered) {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+html[data-theme] #app .model-parts a.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+
+/* Selection caption below the stage instead of over the drawing. */
+html[data-theme] #app .aurora-car-glass.is-model .aurora-selection-caption {
+  position: static;
+  margin: 0;
+  border-radius: 0;
+  border-top: 1px solid var(--border);
+  background: transparent;
+  color: var(--ink);
+}
+html[data-theme] #app .aurora-selection-caption {
+  display: flex;
+}
+html[data-theme] #app .aurora-selection-caption small {
+  color: var(--ink-2);
+}
+html[data-theme] #app .aurora-selection-caption > a {
+  margin-left: auto;
+  color: var(--accent-ink);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+}
+html[data-theme] #app .aurora-selection-caption > a:hover {
+  text-decoration: underline;
+}
+html[data-theme] #app .aurora-system-card.is-hovered {
+  border-color: var(--accent);
+}
+
+html[data-theme] #app #vehicleDrawing {
+  touch-action: pan-y;
+}
+html[data-theme] #app #vehicleDrawing.is-zoomed {
+  touch-action: none;
+  cursor: grab;
+}
+html[data-theme] #app #vehicleDrawing.is-panning {
+  cursor: grabbing;
+}
+
+@container (max-width: 860px) {
+  .model-help {
+    display: none;
+  }
+}
+@media (max-width: 720px) {
+  .model-stage {
+    aspect-ratio: 4 / 5;
+    min-height: 360px;
+  }
+  .model-views button:not([data-model-view='perspectiva']):not([data-model-view='lateral']) {
+    display: none;
+  }
+  .model-help {
+    display: none;
+  }
+  .model-dock {
+    right: 12px;
+    justify-content: space-between;
+  }
+  .model-explode input {
+    width: 100%;
+    flex: 1;
+  }
+  .model-explode {
+    flex: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .model-spinner {
+    animation: none;
+  }
+  .model-loading,
+  .model-help {
+    transition: none;
+  }
+}

@@ -1,5 +1,5 @@
 'use strict';
-const vehicleUI = { component: null, lane: null, subsystem: null, zoom: 1 };
+const vehicleUI = { component: null, lane: null, subsystem: null, zoom: 1, panX: 0, panY: 0 };
 function vehicleContext() {
   return `${$('#vehicleType').value} · ${$('#powertrain').value}`;
 }
@@ -236,9 +236,115 @@ function renderVehicleFlow() {
   renderTreeDetails();
   setupGraph();
 }
+// Zoom keeps the SVG point under the cursor fixed; panning is clamped to the drawing.
+function setVehicleZoom(value, anchor) {
+  const layer = $('#vehicleLayer');
+  if (!layer) return;
+  const previous = vehicleUI.zoom;
+  const zoom = Math.max(1, Math.min(3, Math.round(value * 100) / 100));
+  if (anchor && zoom !== previous) {
+    const k = zoom / previous;
+    vehicleUI.panX = (anchor.x - 768) * (1 - k) + vehicleUI.panX * k;
+    vehicleUI.panY = (anchor.y - 512) * (1 - k) + vehicleUI.panY * k;
+  }
+  vehicleUI.zoom = zoom;
+  panVehicle(0, 0);
+}
+function panVehicle(dx, dy) {
+  const layer = $('#vehicleLayer');
+  if (!layer) return;
+  const limitX = 768 * (vehicleUI.zoom - 1),
+    limitY = 512 * (vehicleUI.zoom - 1);
+  vehicleUI.panX = Math.max(-limitX, Math.min(limitX, vehicleUI.panX + dx));
+  vehicleUI.panY = Math.max(-limitY, Math.min(limitY, vehicleUI.panY + dy));
+  if (vehicleUI.zoom === 1) vehicleUI.panX = vehicleUI.panY = 0;
+  layer.setAttribute(
+    'transform',
+    `translate(${768 + vehicleUI.panX} ${512 + vehicleUI.panY}) scale(${vehicleUI.zoom}) translate(-768 -512)`,
+  );
+  $('#vehicleDrawing').classList.toggle('is-zoomed', vehicleUI.zoom > 1);
+  $('#vehicleImageZoom').textContent = Math.round(vehicleUI.zoom * 100) + '%';
+}
+function setupVehicleGestures() {
+  const svg = $('#vehicleDrawing');
+  if (!svg) return;
+  vehicleUI.panX = vehicleUI.panY = 0;
+  const toSvg = (x, y) => {
+    const point = svg.createSVGPoint();
+    point.x = x;
+    point.y = y;
+    return point.matrixTransform(svg.getScreenCTM().inverse());
+  };
+  const pointers = new Map();
+  let drag = null,
+    pinch = null,
+    moved = false;
+  svg.addEventListener(
+    'wheel',
+    (event) => {
+      if (vehicleUI.zoom === 1 && event.deltaY > 0) return;
+      event.preventDefault();
+      setVehicleZoom(
+        vehicleUI.zoom * Math.exp(-event.deltaY * 0.0015),
+        toSvg(event.clientX, event.clientY),
+      );
+    },
+    { passive: false },
+  );
+  svg.addEventListener('pointerdown', (event) => {
+    pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+    moved = false;
+    if (pointers.size === 2) {
+      const [a, b] = [...pointers.values()];
+      pinch = { distance: Math.hypot(a.x - b.x, a.y - b.y), zoom: vehicleUI.zoom };
+      drag = null;
+    } else if (vehicleUI.zoom > 1) drag = { x: event.clientX, y: event.clientY };
+  });
+  svg.addEventListener('pointermove', (event) => {
+    if (!pointers.has(event.pointerId)) return;
+    pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+    if (pinch && pointers.size === 2) {
+      const [a, b] = [...pointers.values()];
+      const center = toSvg((a.x + b.x) / 2, (a.y + b.y) / 2);
+      setVehicleZoom((pinch.zoom * Math.hypot(a.x - b.x, a.y - b.y)) / pinch.distance, center);
+      moved = true;
+      return;
+    }
+    if (!drag) return;
+    const dx = event.clientX - drag.x,
+      dy = event.clientY - drag.y;
+    if (!moved && Math.hypot(dx, dy) < 5) return;
+    if (!moved) svg.setPointerCapture(event.pointerId);
+    moved = true;
+    const scale = 1536 / svg.getBoundingClientRect().width;
+    panVehicle(dx * scale, dy * scale);
+    drag = { x: event.clientX, y: event.clientY };
+    svg.classList.add('is-panning');
+  });
+  const end = (event) => {
+    pointers.delete(event.pointerId);
+    if (pointers.size < 2) pinch = null;
+    if (!pointers.size) drag = null;
+    svg.classList.remove('is-panning');
+  };
+  svg.addEventListener('pointerup', end);
+  svg.addEventListener('pointercancel', end);
+  // A pan or pinch must not also open the hotspot under the pointer.
+  svg.addEventListener(
+    'click',
+    (event) => {
+      if (!moved) return;
+      moved = false;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+    },
+    true,
+  );
+}
 function setupComponentHover() {
   const main = $('#main');
   if (!$('.catalog-stage')) return;
+  setupVehicleGestures();
   const show = (id) => {
     main
       .querySelectorAll('[data-component-link]')
@@ -261,23 +367,8 @@ if (typeof document !== 'undefined') {
   document.addEventListener('click', (e) => {
     const zoom = e.target.closest('[data-vehicle-zoom]');
     if (zoom) {
-      vehicleUI.zoom =
-        zoom.dataset.vehicleZoom === 'reset'
-          ? 1
-          : Math.max(
-              1,
-              Math.min(
-                2.4,
-                Math.round(
-                  (vehicleUI.zoom + (zoom.dataset.vehicleZoom === 'in' ? 0.2 : -0.2)) * 10,
-                ) / 10,
-              ),
-            );
-      $('#vehicleLayer').setAttribute(
-        'transform',
-        `translate(768 512) scale(${vehicleUI.zoom}) translate(-768 -512)`,
-      );
-      $('#vehicleImageZoom').textContent = Math.round(vehicleUI.zoom * 100) + '%';
+      if (zoom.dataset.vehicleZoom === 'reset') setVehicleZoom(1);
+      else setVehicleZoom(vehicleUI.zoom + (zoom.dataset.vehicleZoom === 'in' ? 0.2 : -0.2));
       return;
     }
     const link = e.target.closest('[data-component-link],[data-vehicle-back]');

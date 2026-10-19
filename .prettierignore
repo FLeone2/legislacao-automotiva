@@ -4,3 +4,4 @@ dist/
 data/
 assets/
 tests/artifacts/
+src/vendor/

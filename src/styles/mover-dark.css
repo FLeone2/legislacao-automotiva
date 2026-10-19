@@ -680,3 +680,42 @@ html[data-theme='aurora'] #app :is(.aurora-explorer, .document, .homologation-pr
     clip-path: inset(50%);
   }
 }
+
+/* Detail panel and breadcrumb spacing for the bordered theme surfaces. */
+html[data-theme] #app .tree-detail-top {
+  padding: 16px 18px 18px;
+}
+html[data-theme] #app .tree-detail-top small {
+  margin-bottom: 10px;
+}
+html[data-theme] #app .detail-tabs {
+  gap: 6px;
+  border-bottom: 0;
+}
+html[data-theme] #app .detail-tabs button {
+  padding: 8px 14px;
+  border-radius: 9px;
+}
+html[data-theme] #app .tree-accordion {
+  margin: 0 0 8px;
+  padding: 12px 14px;
+  border-radius: 12px;
+}
+html[data-theme] #app .tree-accordion p {
+  margin-bottom: 4px;
+}
+html[data-theme] #app .tree-breadcrumb button {
+  padding: 4px 8px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ink-2);
+}
+html[data-theme] #app .tree-breadcrumb button:hover {
+  background: var(--surface-2);
+  color: var(--ink);
+}
+html[data-theme] #app .tree-breadcrumb button:last-of-type {
+  color: var(--accent-ink);
+  font-weight: 600;
+}

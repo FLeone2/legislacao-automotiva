@@ -30,7 +30,7 @@ async def point(page, xy):
 
 
 async def overview(page):
-    await page.goto(BASE + "#vehicle?all=1")
+    await page.goto(BASE + "#vehicle?all=1&vista=2d")
     await page.locator("#vehicleDrawing").wait_for()
     await page.evaluate("document.fonts.ready")
     await page.wait_for_timeout(150)

@@ -16,7 +16,7 @@ async def main():
         errors = []
         page.on("request", lambda r: requests.append(r.url))
         page.on("pageerror", lambda e: errors.append(str(e)))
-        await page.goto(BASE + "#vehicle")
+        await page.goto(BASE + "#vehicle?vista=2d")
         await page.locator("#vehicleDrawing").wait_for()
         data_requests = [
             url for url in requests if "/data/" in url or url.endswith("catalog.json")
@@ -102,7 +102,7 @@ async def main():
             "**/data/site/index.json",
             lambda r: r.fulfill(status=503, body="unavailable"),
         )
-        await other.goto(BASE + "#vehicle")
+        await other.goto(BASE + "#vehicle?vista=2d")
         await other.locator("#main [role=alert]").wait_for()
         assert not await other.locator("#vehicleDrawing").count()
         await other.unroute("**/data/site/index.json")

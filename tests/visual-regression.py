@@ -38,9 +38,9 @@ async def main(base):
     changed.paste("red", (20, 20, 80, 80))
     assert mismatch(sample, changed) > 0.01
     cases = [
-        ("vehicle-wheel", "vehicle", (1440, 1000), "#vehicleDrawing"),
+        ("vehicle-wheel", "vehicle?vista=2d", (1440, 1000), "#vehicleDrawing"),
         ("flow-overview", "flow", (1440, 1050), ".homologation-map"),
-        ("vehicle-mobile", "vehicle", (390, 844), "#main"),
+        ("vehicle-mobile", "vehicle?vista=2d", (390, 844), "#main"),
     ]
     results = []
     async with async_playwright() as p:
