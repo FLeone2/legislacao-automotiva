@@ -48,7 +48,13 @@ function catalogSearchResults(query) {
   return { records: records.length, entries: [...acts, ...parts, ...systems] };
 }
 
-const catalogSearchUI = { entries: [], selected: 0, opener: null, loading: false };
+const catalogSearchUI = {
+  entries: [],
+  selected: 0,
+  opener: null,
+  loading: false,
+  loadingStandards: false,
+};
 function selectCatalogSearchResult(index) {
   const options = [...document.querySelectorAll('[data-search-result]')];
   if (!options.length) {
@@ -65,14 +71,17 @@ function selectCatalogSearchResult(index) {
   $('#searchResults').setAttribute('aria-activedescendant', selected.id);
   selected.scrollIntoView({ block: 'nearest' });
 }
-function renderCatalogSearchResults() {
+function renderCatalogSearchResults(preserveSelection = false) {
+  const previous = preserveSelection ? catalogSearchUI.entries[catalogSearchUI.selected] : null;
   const query = $('#globalSearch').value;
   const results = catalogSearchResults(query);
   catalogSearchUI.entries = results.entries.slice(0, 12);
   $('#searchTechnicalStatus').innerHTML = technicalStandardsNotice();
-  $('#searchStatus').textContent = results.entries.length
-    ? `${results.records} referências${results.entries.length > results.records ? ` · ${results.entries.length - results.records} conjuntos ou sistemas` : ''}${results.entries.length > 12 ? ' · primeiros 12 resultados' : ''}`
-    : 'Nenhum resultado. Tente outro número ou assunto.';
+  $('#searchStatus').textContent = catalogSearchUI.loadingStandards
+    ? `Carregando citações de normas técnicas… ${results.records} referências do acervo disponíveis.`
+    : results.entries.length
+      ? `${results.records} referências${results.entries.length > results.records ? ` · ${results.entries.length - results.records} conjuntos ou sistemas` : ''}${results.entries.length > 12 ? ' · primeiros 12 resultados' : ''}`
+      : 'Nenhum resultado. Tente outro número ou assunto.';
   $('#searchResults').innerHTML = catalogSearchUI.entries
     .map(
       (entry, index) =>
@@ -81,7 +90,12 @@ function renderCatalogSearchResults() {
     .join('');
   $('#searchAllResults').href = libraryRoute({ q: query });
   $('#searchAllResults').textContent = `Ver ${results.records} referências na biblioteca →`;
-  selectCatalogSearchResult(0);
+  const selected = previous
+    ? catalogSearchUI.entries.findIndex(
+        (entry) => entry.id === previous.id && entry.kind === previous.kind,
+      )
+    : -1;
+  selectCatalogSearchResult(selected >= 0 ? selected : 0);
 }
 async function openCatalogSearch(keyboard = false, query = null) {
   const dialog = $('#searchDialog');
@@ -111,10 +125,13 @@ async function openCatalogSearch(keyboard = false, query = null) {
       catalogSearchUI.loading = false;
     }
   }
-  catalogSearchUI.loading = true;
+  if (!dialog.open) return;
+  // Existing catalog results and keyboard input remain live while citations load.
+  catalogSearchUI.loadingStandards = true;
+  renderCatalogSearchResults();
   await loadTechnicalStandards();
-  catalogSearchUI.loading = false;
-  if (dialog.open) renderCatalogSearchResults();
+  catalogSearchUI.loadingStandards = false;
+  if (dialog.open) renderCatalogSearchResults(true);
 }
 function closeCatalogSearch() {
   $('#searchDialog').close();
