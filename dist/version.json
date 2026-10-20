@@ -26,12 +26,12 @@
     "src/views/history.js": "f8071cecc2a17887",
     "src/views/library.js": "a22ef1d85a5d260b",
     "src/views/markings.js": "ab5ad74a8ab35fe5",
-    "src/views/obsidian-search.js": "984e93feff44a394",
+    "src/views/obsidian-search.js": "a520f13fc3a98c7a",
     "src/views/regulations.js": "afc0d4b46ac36681",
     "styles.css": "c791fe18ff9cc9bb",
     "tree.js": "1280466942cf43dc",
     "vehicle-data.js": "09123227fe4f6446",
     "vehicle-navigation.js": "8a450ec0542a1544"
   },
-  "revision": "4f91f87b88cf0bcb794f5205f61356f3a5680c592ac4adb491aad1c1229acf6a"
+  "revision": "6b8b51669f2a5b10549f841d166b33f1f44297f1708624d38f85e65f9380c8a7"
 }
