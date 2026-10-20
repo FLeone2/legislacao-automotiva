@@ -3,12 +3,18 @@
 import asyncio
 from pathlib import Path
 from playwright.async_api import async_playwright, expect
-from browser_support import TestServer, launch_options, wait_for_route
+from browser_support import (
+    TestServer,
+    launch_options,
+    wait_for_route,
+    open_preferences,
+    select_theme,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 KEY = "legislacao-automotiva.theme"
 PALETTES = {
-    "dark": ("rgb(5, 6, 7)", "rgb(17, 19, 21)"),
+    "dark": ("rgb(11, 12, 15)", "rgb(23, 25, 30)"),
     "light": ("rgb(244, 246, 248)", "rgb(255, 255, 255)"),
     "aurora": ("rgb(8, 15, 25)", "rgb(21, 30, 41)"),
 }
@@ -28,6 +34,7 @@ async def main(base):
         picker = page.get_by_label("Tema", exact=True)
         await expect(picker).to_have_value("dark")
         # The control is keyboard operable and does not replace the current view.
+        await open_preferences(page)
         await picker.focus()
         await page.keyboard.press("ArrowDown")
         await page.keyboard.press("Enter")
@@ -36,7 +43,7 @@ async def main(base):
         zoom = await page.locator("#vehicleImageZoom").inner_text()
         selected_url = page.url
         for theme in PALETTES:
-            await picker.select_option(theme)
+            await select_theme(page, theme)
             assert page.url == selected_url
             await expect(page.locator("#vehicleImageZoom")).to_have_text(zoom)
             await expect(page.locator(".aurora-explorer h2")).to_have_text(
@@ -51,7 +58,7 @@ async def main(base):
         await page.locator("[data-vehicle-zoom=reset]").click()
 
         for theme, (background, surface) in PALETTES.items():
-            await picker.select_option(theme)
+            await select_theme(page, theme)
             assert (
                 await page.evaluate("getComputedStyle(document.body).backgroundColor")
                 == background
@@ -100,7 +107,11 @@ async def main(base):
             await page.mouse.move(**point)
             assert (
                 await seat.evaluate("e=>getComputedStyle(e).stroke")
-                == "rgb(163, 69, 8)"
+                == {
+                    "dark": "rgb(255, 178, 135)",
+                    "light": "rgb(168, 70, 10)",
+                    "aurora": "rgb(244, 119, 33)",
+                }[theme]
             )
             await page.mouse.move(10, 10)
             assert (
@@ -121,15 +132,18 @@ async def main(base):
         other = await context.new_page()
         await other.goto(base + "#library")
         await wait_for_route(other)
-        await picker.select_option("light")
+        await select_theme(page, "light")
         await expect(other.get_by_label("Tema", exact=True)).to_have_value("light")
         await other.close()
 
         for width in [320, 390, 860]:
             await page.set_viewport_size({"width": width, "height": 844})
             for theme in PALETTES:
-                await picker.select_option(theme)
+                await select_theme(page, theme)
+                await open_preferences(page)
                 await expect(picker).to_be_visible()
+                await page.locator("#navigationToggle").click()
+                await page.locator("#searchTrigger").click()
                 assert await page.evaluate(
                     "document.documentElement.scrollWidth<=innerWidth"
                 ), (theme, width)
@@ -139,6 +153,7 @@ async def main(base):
                     )
                     > 90
                 )
+                await page.keyboard.press("Escape")
 
         # Invalid persisted values fall back before the application starts.
         await page.evaluate("key=>localStorage.setItem(key,'unknown-theme')", KEY)
@@ -155,7 +170,7 @@ async def main(base):
         page.on("pageerror", lambda error: errors.append(str(error)))
         await page.goto(base + "#vehicle")
         await wait_for_route(page)
-        await page.get_by_label("Tema", exact=True).select_option("light")
+        await select_theme(page, "light")
         await page.goto(base + "#flow")
         await wait_for_route(page)
         await expect(page.get_by_label("Tema", exact=True)).to_have_value("light")

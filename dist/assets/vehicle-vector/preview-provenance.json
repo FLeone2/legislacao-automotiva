@@ -23,7 +23,7 @@
     ],
     "partMaxDimension": 768,
     "partSizing": "Scale the SVG viewport to a longest edge of 768 px; preserve aspect ratio",
-    "background": "Preserve source transparency; no added background or trim",
+    "background": "Parts retain source transparency; main preview omits only rect#fundo_branco; no trim",
     "encoding": [
       "magick",
       "rendered.png",
@@ -52,12 +52,12 @@
         ]
       },
       "output": "assets/vehicle-vector/previews/vehicle.webp",
-      "outputSha256": "f44b1dae89ead340ee0b3b03a62d04629329a6da3c4611732ca4aff84192c220",
+      "outputSha256": "523b2e8dff9dc9008b24d8c918e5aff9a1a051d8357689a82e1cdd0aba269caf",
       "dimensions": {
         "width": 3072,
         "height": 2048,
-        "hasTransparency": false,
-        "rgbaSha256": "47b723d6c9f52efc88448439a9266f7fbfeace92b692745bcc4e879f2f745264"
+        "hasTransparency": true,
+        "rgbaSha256": "b59a376d3e65d63d18a7b3b4a40c70b1238de2fb980742998c2ab99eff1ce5d1"
       }
     },
     {

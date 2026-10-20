@@ -8,8 +8,11 @@ let renderSequence = 0;
 async function render() {
   const renderId = ++renderSequence;
   const main = $('#main');
+  const previousView = main.dataset.view;
+  const previousRoute = main.dataset.renderedRoute;
   main.setAttribute('aria-busy', 'true');
   try {
+    if (typeof preserveVisualProfile === 'function') preserveVisualProfile();
     $('#app').classList.remove('homologation-flow-mode', 'aurora-home');
     for (const handler of [
       'onpointerover',
@@ -42,6 +45,7 @@ async function render() {
       ].includes(state.view)
     )
       state.view = 'tree';
+    main.dataset.view = state.view;
     $('#app').classList.toggle(
       'contran-mode',
       ['contran', 'proconve', 'inmetro', 'anatel', 'markings'].includes(state.view),
@@ -89,6 +93,23 @@ async function render() {
     if (renderId === renderSequence) {
       main.dataset.renderedRoute = location.hash;
       main.setAttribute('aria-busy', 'false');
+      if (
+        previousView &&
+        typeof main.animate === 'function' &&
+        document.documentElement.dataset.input !== 'keyboard' &&
+        !matchMedia('(prefers-reduced-motion: reduce)').matches
+      ) {
+        const changedView = previousView !== state.view;
+        const target = changedView ? main : main.querySelector('.aurora-explorer');
+        if (target && (changedView || previousRoute !== location.hash))
+          target.animate(
+            [
+              { opacity: 0, transform: 'translateY(8px)' },
+              { opacity: 1, transform: 'none' },
+            ],
+            { duration: changedView ? 320 : 220, easing: 'cubic-bezier(.22,1,.36,1)' },
+          );
+      }
     }
   }
 }

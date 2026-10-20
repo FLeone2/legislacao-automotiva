@@ -128,7 +128,9 @@ async def main(base):
 
         await page.goto(base + "#library?part=" + BATTERY_12V)
         await wait_for_route(page)
+        await page.locator("#searchTrigger").click()
         await page.locator("#globalSearch").fill("rádio")
+        await page.locator("#searchAllResults").click()
         await wait_for_route(page)
         assert "part" not in route_query(page)
         await expect(page.locator("#librarySearch")).to_have_value("rádio")
