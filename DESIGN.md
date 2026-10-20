@@ -170,6 +170,16 @@ O inspetor de veículo tem altura (578px), preenchimento (26px) e rolagem intern
 
 A navegação inferior respeita `safe-area-inset-bottom`, tem largura máxima disponível e reserva espaço no fim da página. Os acessos secundários e preferências continuam no menu. No celular, controles da composição recebem alvo mínimo (44px); controles próprios da árvore também têm regras específicas.
 
+O veículo abre sem sistema pré-selecionado. O inspetor inicial mostra a seleção
+textual; o marcador e as referências aparecem após uma escolha explícita.
+Limpar a escolha retorna ao estado neutro. Os controles de zoom ficam em uma
+faixa abaixo do desenho: diminuir, restaurar (100%) e ampliar. No celular,
+os alvos continuam com pelo menos (44px).
+
+O menu de sistemas usa seis colunas iguais no desktop, três até (1250px) e duas
+até (650px), com textos centralizados. Os itens móveis têm altura mínima
+(56px) para acomodar nomes em duas linhas sem desalinhamento.
+
 O mapa de homologação conserva a composição (1456 × 680), com zoom, ajuste e rolagem. O painel de etapa sai da sobreposição até (900px). Isso não impõe rolagem horizontal ao texto de consulta.
 
 ## Elevation & Depth
