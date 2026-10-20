@@ -58,20 +58,23 @@ function libraryPartSearchTerms(record) {
   ].join(' ');
 }
 function librarySearchMatch(r, query) {
-  return norm(
-    [
-      r.title,
-      r.summary,
-      r.agency,
-      r.issuer,
-      libraryPartSearchTerms(r),
-      ...(r.componentLabels || []),
-      ...(r.taxonomy || []).map(systemLabel),
-      ...(r.amendingRefs || []),
-      ...(r.topics || []),
-      ...(r.requirements || []).map((x) => x.title + ' ' + x.rule),
-    ].join(' '),
-  ).includes(norm(query));
+  return (
+    recordTechnicalStandards(r, query).length > 0 ||
+    norm(
+      [
+        r.title,
+        r.summary,
+        r.agency,
+        r.issuer,
+        libraryPartSearchTerms(r),
+        ...(r.componentLabels || []),
+        ...(r.taxonomy || []).map(systemLabel),
+        ...(r.amendingRefs || []),
+        ...(r.topics || []),
+        ...(r.requirements || []).map((x) => x.title + ' ' + x.rule + ' ' + x.clause),
+      ].join(' '),
+    ).includes(norm(query))
+  );
 }
 function filters() {
   const records = catalogRecords(catalog);
@@ -86,6 +89,13 @@ function filters() {
   );
 }
 function documentCard(r) {
+  const citations = state.query ? recordTechnicalStandards(r, state.query) : [];
+  const citationContext = citations.length
+    ? `<p class="document-context">${citations
+        .slice(0, 2)
+        .map((entry) => esc(technicalCitationSummary(entry)))
+        .join('<br>')}<br>Citação documental · conferência de aplicação pendente</p>`
+    : '';
   const themes = [...new Set((r.taxonomy || []).map(systemLabel))];
   const relations = state.libraryPart
     ? [
@@ -95,7 +105,7 @@ function documentCard(r) {
           'Contexto do veículo',
       ].filter(Boolean)
     : [];
-  return `<article class="document" data-catalog-act="${esc(catalogIdentity(r))}"><div class="row"><span class="tag">${esc(r.issuer || r.agency)}</span><span class="status">${esc(r.status)}</span></div><h3>${esc(r.title)}</h3><p>${esc(r.summary)}</p><p class="document-context">${relations.length ? `<strong>${esc(relations.join(' · '))}</strong><br>` : ''}${esc(themes.slice(0, 3).join(' · ') || 'Assunto transversal')}<br>Revisão do registro: ${esc(r.reviewDate || 'não informada')} · ${esc(libraryReviewLabels[libraryReview(r)])}</p><div class="links"><button data-open="${esc(r.id)}">Resumo, escopo e alterações →</button>${safeLink(r.officialUrl, 'Fonte oficial')}</div></article>`;
+  return `<article class="document" data-catalog-act="${esc(catalogIdentity(r))}"><div class="row"><span class="tag">${esc(r.issuer || r.agency)}</span><span class="status">${esc(r.status)}</span></div><h3>${esc(r.title)}</h3><p>${esc(r.summary)}</p>${citationContext}<p class="document-context">${relations.length ? `<strong>${esc(relations.join(' · '))}</strong><br>` : ''}${esc(themes.slice(0, 3).join(' · ') || 'Assunto transversal')}<br>Revisão do registro: ${esc(r.reviewDate || 'não informada')} · ${esc(libraryReviewLabels[libraryReview(r)])}</p><div class="links"><button data-open="${esc(r.id)}">Resumo, escopo e alterações →</button>${safeLink(r.officialUrl, 'Fonte oficial')}</div></article>`;
 }
 function libraryPartContext() {
   if (!state.libraryPart) return '';
@@ -122,7 +132,8 @@ function updateList() {
   $('#libraryPartContext').innerHTML = libraryPartContext();
   $('#libraryPartContext').className = state.libraryPart ? 'consultation-query-actions' : '';
   $('#libraryHistoricalLinks').innerHTML =
-    typeof historicalSearchLinks === 'function' ? historicalSearchLinks(state.query) : '';
+    technicalStandardsNotice() +
+    (typeof historicalSearchLinks === 'function' ? historicalSearchLinks(state.query) : '');
   $('#documents').innerHTML =
     visible.map(documentCard).join('') ||
     '<div class="empty"><h3>Nenhum resultado com estes filtros</h3><p>Tente outro termo ou limpe os filtros.</p><button class="btn" id="clearEmpty">Limpar filtros</button></div>';
@@ -155,7 +166,10 @@ function consultationSources() {
       '',
     )}<a class="btn" href="#mover">MOVER e assuntos relacionados →</a><a class="btn" href="#markings">Etiquetas, selos e VIN →</a></div><details><summary>Como interpretar a revisão e a vigência</summary><p>Revisão dirigida examina trechos do texto; referência ou índice identifica uma fonte com revisão limitada. Nenhuma das duas equivale a revisão integral. Vigência, publicação no acervo e aplicação ao veículo são informações distintas. As datas informam a conferência registrada, não um monitoramento em tempo real.</p><p>As 55 resoluções CONTRAN excluídas por orientação editorial permanecem fora da consulta ativa. Essa exclusão não comprova, por si só, um ato revogador. Consulte as ressalvas e os atos modificadores de cada referência.</p></details></details>`;
 }
-function renderLibrary() {
+async function renderLibrary() {
+  const route = location.hash;
+  await loadTechnicalStandards();
+  if (location.hash !== route || state.view !== 'library') return;
   const q = new URLSearchParams(location.hash.split('?')[1] || '');
   state.query = q.get('q') || '';
   state.libraryPart = q.get('part') || '';

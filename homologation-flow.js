@@ -52,7 +52,16 @@ function flowStageTree(stage) {
       kind: 'Referência da atividade',
       recordIds: [record.id],
       recordId: record.id,
-      children: requirementNodesForRecord(record, `${id}:law:${record.regulatoryId || record.id}`),
+      children: requirementNodesForRecord(
+        activity.requirementRefs
+          ? {
+              ...record,
+              activityRequirementIds: activity.requirementRefs[catalogIdentity(record)] || [],
+            }
+          : record,
+        `${id}:law:${record.regulatoryId || record.id}`,
+      ),
+      requirementId: activity.requirementRefs?.[catalogIdentity(record)]?.[0] || null,
       text: record.summary,
     }));
     [
@@ -157,6 +166,13 @@ function flowMap() {
   ];
   return `<div class="homologation-map-toolbar"><span><i class="flow-dot"></i>Visão geral do processo</span><div class="flow-map-tools glass"><button data-flow-map-zoom="out" aria-label="Diminuir mapa">−</button><button data-flow-map-size aria-label="Tamanho original do mapa"><output id="flowMapZoom">100%</output></button><button data-flow-map-zoom="in" aria-label="Ampliar mapa">+</button><button data-flow-map-fit>Ajustar</button></div></div><div class="homologation-map-viewport" tabindex="0" aria-label="Mapa de homologação. Role horizontalmente para explorar ou escolha uma etapa abaixo."><div class="homologation-map"><svg viewBox="0 0 1456 680" class="homologation-connectors" aria-hidden="true"><defs><marker id="flowArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="currentColor"/></marker></defs>${links.map(([path, kind]) => `<path d="${path}" class="flow-connection ${kind}" marker-end="url(#flowArrow)"/>`).join('')}<text x="600" y="60">Ambiental e eficiência</text><text x="600" y="235">Frentes técnicas em paralelo</text><text x="24" y="550" class="flow-feedback-label">Desvios e mudanças</text><text x="24" y="570" class="flow-feedback-label">retornam ao projeto</text><text x="24" y="590" class="flow-feedback-label">e às aprovações pertinentes.</text></svg>${homologationFlowSpec.stages.map((stage) => `<button class="homologation-step ${stage.tone} ${selected === stage.id ? 'selected' : ''}" style="--flow-x:${flowPresentation[stage.id]?.[0] ?? stage.x};--flow-y:${flowPresentation[stage.id]?.[1] ?? stage.y};--flow-w:${flowPresentation[stage.id]?.[2] ?? stage.w};--flow-h:${flowPresentation[stage.id]?.[3] ?? stage.h}" data-flow-stage="${stage.id}" aria-expanded="${selected === stage.id}" aria-controls="flowExplorer"><span class="homologation-step-kicker"><b>${stage.number}</b><span aria-hidden="true">${stage.icon}</span></span><strong>${stage.label}</strong><small>${stage.short}</small><span class="homologation-step-open">${selected === stage.id ? 'Etapa selecionada' : 'Ver atividades'} <span aria-hidden="true">${selected === stage.id ? '−' : '+'}</span></span></button>`).join('')}</div></div>`;
 }
+function flowRequirementForRecord(node, record) {
+  if (node.requirementId) return node.requirementId;
+  const activity = nodeTrail(node.id, treeModels.flow)
+    .map((id) => treeModels.flow.nodes[id])
+    .find((ancestor) => ancestor.flowActivity)?.flowActivity;
+  return activity?.requirementRefs?.[catalogIdentity(record)]?.[0] || '';
+}
 function flowContextPanel(stage) {
   if (!stage) return '';
   const model = treeModels.flow;
@@ -167,7 +183,7 @@ function flowContextPanel(stage) {
       .slice(0, 3)
       .map(
         (record) =>
-          `<button class="inspector-reference" data-open="${esc(record.id)}"><strong>${esc(record.title)}</strong>${auroraIcon('arrow')}</button>`,
+          `<button class="inspector-reference" data-open="${esc(record.id)}" data-requirement="${esc(flowRequirementForRecord(node, record))}"><strong>${esc(record.title)}</strong>${auroraIcon('arrow')}</button>`,
       )
       .join('') ||
     '<p class="scope-note">Nenhuma referência associada neste recorte. Confira as lacunas da atividade.</p>'

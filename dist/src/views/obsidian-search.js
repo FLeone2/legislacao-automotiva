@@ -9,6 +9,10 @@ function catalogSearchResults(query) {
     id: record.id,
     title: record.title,
     description:
+      recordTechnicalStandards(record, query)
+        .slice(0, 1)
+        .map((entry) => `${technicalCitationSummary(entry)} · em revisão`)
+        .join('') ||
       (record.taxonomy || []).map(systemLabel).slice(0, 2).join(' · ') ||
       record.issuer ||
       record.agency,
@@ -65,6 +69,7 @@ function renderCatalogSearchResults() {
   const query = $('#globalSearch').value;
   const results = catalogSearchResults(query);
   catalogSearchUI.entries = results.entries.slice(0, 12);
+  $('#searchTechnicalStatus').innerHTML = technicalStandardsNotice();
   $('#searchStatus').textContent = results.entries.length
     ? `${results.records} referências${results.entries.length > results.records ? ` · ${results.entries.length - results.records} conjuntos ou sistemas` : ''}${results.entries.length > 12 ? ' · primeiros 12 resultados' : ''}`
     : 'Nenhum resultado. Tente outro número ou assunto.';
@@ -106,6 +111,9 @@ async function openCatalogSearch(keyboard = false, query = null) {
       catalogSearchUI.loading = false;
     }
   }
+  catalogSearchUI.loading = true;
+  await loadTechnicalStandards();
+  catalogSearchUI.loading = false;
   if (dialog.open) renderCatalogSearchResults();
 }
 function closeCatalogSearch() {

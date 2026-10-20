@@ -1,0 +1,158 @@
+{
+  "date": "2026-10-20",
+  "scope": "Auditoria técnica do pacote e amostra documental; não validação jurídica integral nem teste do site atual.",
+  "counts": {
+    "acts": 294,
+    "edges": 570,
+    "standards": 235,
+    "rules": 23,
+    "graph_edges": 47,
+    "requirements": 97,
+    "acts_with_requirements": 42
+  },
+  "missing_act_ids_before": 257,
+  "resolved_act_ids": 0,
+  "missing_act_ids_after": 257,
+  "verification_missing_before": 23,
+  "duplicate_edge_ids": 0,
+  "dangling_act_ids": [],
+  "catalog_count_differences": [],
+  "workbook_reconciliation": [
+    {
+      "sheet": "Vinculos_NBR",
+      "excel_rows": 570,
+      "json_rows": 570,
+      "cell_differences": [],
+      "counts_match": true
+    },
+    {
+      "sheet": "Catalogo_NBR",
+      "excel_rows": 235,
+      "json_rows": 235,
+      "cell_differences": [],
+      "counts_match": true
+    },
+    {
+      "sheet": "Lacunas",
+      "excel_rows": 48,
+      "json_rows": 48,
+      "cell_differences": [],
+      "counts_match": true
+    },
+    {
+      "sheet": "Aplicabilidade",
+      "excel_rows": 23,
+      "json_rows": 23,
+      "cell_differences": [],
+      "counts_match": true
+    },
+    {
+      "sheet": "Ligacoes",
+      "excel_rows": 47,
+      "json_rows": 47,
+      "cell_differences": [],
+      "counts_match": true
+    },
+    {
+      "sheet": "Outras_normas",
+      "excel_rows": 30,
+      "json_rows": 30,
+      "cell_differences": [],
+      "counts_match": true
+    },
+    {
+      "sheet": "Inventario_site",
+      "excel_rows": 294,
+      "json_rows": 294,
+      "cell_differences": [],
+      "counts_match": true
+    }
+  ],
+  "csv_reconciliation": [
+    {
+      "file": "catalogo_nbr_referenciadas.csv",
+      "rows": 235,
+      "json_rows": 235,
+      "cell_differences": 0
+    },
+    {
+      "file": "lacunas.csv",
+      "rows": 48,
+      "json_rows": 48,
+      "cell_differences": 0
+    },
+    {
+      "file": "inventario_site.csv",
+      "rows": 294,
+      "json_rows": 294,
+      "cell_differences": 0
+    },
+    {
+      "file": "vinculos_nbr.csv",
+      "rows": 570,
+      "json_rows": 570,
+      "cell_differences": 0
+    },
+    {
+      "file": "outras_normas.csv",
+      "rows": 30,
+      "json_rows": 30,
+      "cell_differences": 0
+    },
+    {
+      "file": "fontes_com_clausulas_pendentes.csv",
+      "rows": 12,
+      "json_rows": 0,
+      "cell_differences": 0
+    },
+    {
+      "file": "corpus_consultado.csv",
+      "rows": 372,
+      "json_rows": 372,
+      "cell_differences": 0
+    }
+  ],
+  "original_rule_coverage": 12,
+  "rule_coverage_after": 23,
+  "predicate_tests_passed": 96,
+  "predicate_tests_total": 96,
+  "original_proposal_edges_equal": true,
+  "source_class_counts": {
+    "texto_normativo_verificado": 56,
+    "Texto oficial": 328,
+    "reproducao_pdf_oficial_em_certificadora": 60,
+    "texto_normativo": 26,
+    "texto_primario_indexado": 8,
+    "transcricao_juridica_secundaria": 37,
+    "reproducao_pdf_em_plataforma_publica_por_terceiro": 3,
+    "texto_primario_verificado_revisor_independente": 7,
+    "reproducao_pdf_oficial_em_documento_municipal": 1,
+    "reproducao_documento_oficial_em_editor_juridico": 4,
+    "reproducao_pdf_oficial_em_fornecedor": 5,
+    "texto_primario_reproduzido_espelho_nao_oficial": 7,
+    "texto_primario_DOU_HTML": 28
+  },
+  "legal_state_count": 22,
+  "verification_state_count": 14,
+  "search_16567_edges": 20,
+  "external_checks": [
+    {
+      "source": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9492022R.pdf",
+      "result": "Retificação recuperada: art.5 I(a) 2020 e II(a) 2026; compatível com os cortes indicados no pacote."
+    },
+    {
+      "source": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9102022R.pdf",
+      "result": "Retificação recuperada: art.5 corte 2024; compatível com exemplos."
+    },
+    {
+      "source": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-277-de-25-de-setembro-de-2026-735356486",
+      "result": "Não recuperada nesta sessão; verificação declarada na origem não foi elevada a confirmação independente."
+    }
+  ],
+  "limitations": [
+    "URLs dos 570 vínculos não foram todas acessadas.",
+    "Estados de vigência não foram todos reconfirmados.",
+    "Busca e navegação relatadas no dossiê são achados da captura original, não reproduções novas no site.",
+    "Não há motor final nem migração pronta para o repositório."
+  ]
+}

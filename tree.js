@@ -422,7 +422,9 @@ function renderTree(mode) {
   $('#main').dataset.renderedRoute = location.hash;
 }
 function treeDocument(r) {
-  return `<button class="tree-doc" data-open="${r.id}"><span class="tag">${esc(r.issuer || r.agency)}</span><strong>${esc(r.title)}</strong><small>${esc(r.status)}</small><span class="doc-arrow">›</span></button>`;
+  const node = state.view === 'flow' ? treeModels.flow.nodes[treeUI.flow.selected] : null;
+  const requirementId = node ? flowRequirementForRecord(node, r) : '';
+  return `<button class="tree-doc" data-open="${r.id}" data-requirement="${esc(requirementId)}"><span class="tag">${esc(r.issuer || r.agency)}</span><strong>${esc(r.title)}</strong><small>${esc(r.status)}</small><span class="doc-arrow">›</span></button>`;
 }
 function renderTreeDetails() {
   const detailPanel = state.view === 'flow' ? $('#flowDetailPanel') : $('#aiPanel');

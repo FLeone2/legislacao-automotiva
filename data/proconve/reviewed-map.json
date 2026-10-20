@@ -818,7 +818,7 @@
         8,
         9
       ],
-      "reviewedAt": "2026-10-19",
+      "reviewedAt": "2026-10-20",
       "requirements": [
         {
           "id": "ibama-in-3-2023:req:01",
@@ -839,6 +839,28 @@
             "state": "directed_review",
             "reviewedAt": "2026-10-19",
             "scope": "Dispositivo citado; aplicabilidade depende da configuração."
+          }
+        },
+        {
+          "id": "ibama-in-3-2023:req:02",
+          "title": "Método de comprovação de emissões de HEV e PHEV",
+          "rule": "O art. 2º remete à ABNT NBR 16.567 em sua versão mais recente para a comprovação de emissão de híbridos com ou sem recarga externa. A edição técnica e o procedimento integral devem ser conferidos antes de definir o ensaio.",
+          "clause": "Art. 2º",
+          "scope": "Veículos híbridos, recarregáveis por fonte externa de energia ou não, no atendimento do art. 5º da CONAMA 492/2018.",
+          "evidence": "Art. 2º Para atendimento do Art. 5º da Resolução CONAMA Nº 492, de 20 de dezembro de 2018, a comprovação da emissão de veículos híbridos, recarregáveis por fonte externa de energia ou não, será feita por meio de homologação conforme procedimento estabelecido pela norma ABNT NBR 16.567 em sua versão mais recente.",
+          "sourceUrl": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139279",
+          "sourceKey": "139279",
+          "topics": [
+            "hibridos",
+            "emissoes",
+            "NBR 16567"
+          ],
+          "evidenceKind": "public_text_excerpt",
+          "documentKind": "official_text_snapshot",
+          "reviewStatus": {
+            "state": "directed_review",
+            "reviewedAt": "2026-10-20",
+            "scope": "Art. 2º no snapshot oficial arquivado; não certifica cadeia atual nem leitura integral da NBR."
           }
         }
       ],

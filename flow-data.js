@@ -227,6 +227,7 @@ const homologationFlowSpec = {
           label: 'HEV e PHEV: métodos específicos',
           text: 'A IN 3/2023 referencia a NBR 16567 para HEV/PHEV. Conferir modos elétrico/combustão e condições de carga no método aplicável, sem presumir uma edição não revisada.',
           refs: ['ibama-in-3-2023', 'ibama-in-11-2014', 'inmetro-169-2023'],
+          requirementRefs: { 'ibama-in-3-2023': ['ibama-in-3-2023:req:02'] },
           powertrains: ['hibrido'],
           gaps: [
             'Métodos técnicos integrais e parâmetros de preparação ainda precisam de conferência.',
@@ -237,6 +238,7 @@ const homologationFlowSpec = {
           label: 'HEV: híbrido sem recarga externa',
           text: 'Consultar a IN 3/2023 e a referência NBR 16567 para o híbrido não recarregável externamente. O ramo térmico continua disponível; preparação, carga e método devem corresponder à configuração HEV.',
           refs: ['ibama-in-3-2023', 'ibama-in-11-2014', 'inmetro-169-2023'],
+          requirementRefs: { 'ibama-in-3-2023': ['ibama-in-3-2023:req:02'] },
           powertrains: ['hev'],
           gaps: [
             'Método integral e edição aplicável ainda precisam de revisão; não reutilizar automaticamente o protocolo de carga de PHEV.',
@@ -247,6 +249,7 @@ const homologationFlowSpec = {
           label: 'PHEV: híbrido com recarga externa',
           text: 'Consultar a IN 3/2023 e a referência NBR 16567 para o híbrido recarregável externamente. O ramo térmico continua disponível; modos e condições de carga dependem do método específico de PHEV.',
           refs: ['ibama-in-3-2023', 'ibama-in-11-2014', 'inmetro-169-2023'],
+          requirementRefs: { 'ibama-in-3-2023': ['ibama-in-3-2023:req:02'] },
           powertrains: ['phev'],
           gaps: [
             'Método integral, edição e condições de carga ainda precisam de revisão; não presumir equivalência com HEV ou BEV.',
