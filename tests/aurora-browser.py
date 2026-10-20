@@ -25,16 +25,11 @@ async def main(base):
         await expect(page.locator("#powertrain")).to_have_value("Elétrico")
         await page.goto(base + "#vehicle")
         await page.locator(".aurora-explorer").wait_for()
-        assert (
-            await page.locator(".aurora-explorer h2").inner_text()
-            == "Bancos e ocupantes"
+        await expect(page.locator(".aurora-explorer h2")).to_have_text(
+            "Selecione um sistema"
         )
-        assert (
-            await page.locator("#vehicleDrawing .aurora-selected").first.get_attribute(
-                "data-component-link"
-            )
-            == "bancos"
-        )
+        await expect(page.locator("#vehicleDrawing .aurora-selected")).to_have_count(0)
+        await expect(page.locator(".vehicle-selection-label")).to_have_count(0)
         await page.locator("[data-vehicle-zoom=in]").click()
         assert await page.locator("#vehicleImageZoom").inner_text() == "120%"
         await page.locator("[data-vehicle-zoom=reset]").click()

@@ -25,7 +25,18 @@ function auroraFocusLink(component, partId) {
     })
   );
 }
+function vehiclePartPicker(selectedPart) {
+  return `<div class="vehicle-part-picker"><label class="sr-only" for="vehiclePartSelect">Selecionar conjunto</label><select id="vehiclePartSelect"><option value="">Selecionar conjunto</option>${vehicleComponents
+    .filter((c) => c.mapParts.length)
+    .map(
+      (c) =>
+        `<optgroup label="${esc(c.label)}">${c.mapParts.map((part) => `<option value="${esc(part.id)}" ${selectedPart?.id === part.id ? 'selected' : ''}>${esc(part.label)}</option>`).join('')}</optgroup>`,
+    )
+    .join('')}</select></div>`;
+}
 function auroraPanel(component, selectedPart) {
+  if (!component)
+    return `<aside class="aurora-explorer aurora-explorer-empty glass" aria-label="Seleção de sistema"><div class="inspector-meta"><span role="status">Nenhum sistema selecionado</span></div><header class="aurora-explorer-heading"><h2>Selecione um sistema</h2></header>${vehiclePartPicker(null)}</aside>`;
   const subsystems = ComponentFlow.subsystems(component, catalog.metadata.hierarchy);
   const records = selectedPart
     ? VehicleLegislation.records(selectedPart.id, catalog.records)
@@ -53,13 +64,7 @@ function auroraPanel(component, selectedPart) {
           `<button class="inspector-reference" data-open="${esc(record.id)}"><strong>${esc(record.title)}</strong>${auroraIcon('arrow')}<small>${esc((record.taxonomy || []).map(systemLabel).slice(0, 2).join(' · ') || record.issuer || record.agency)}</small></button>`,
       )
       .join('')}</div>
-    <div class="vehicle-part-picker"><label class="sr-only" for="vehiclePartSelect">Selecionar conjunto</label><select id="vehiclePartSelect"><option value="">Selecionar conjunto</option>${vehicleComponents
-      .filter((c) => c.mapParts.length)
-      .map(
-        (c) =>
-          `<optgroup label="${esc(c.label)}">${c.mapParts.map((part) => `<option value="${esc(part.id)}" ${selectedPart?.id === part.id ? 'selected' : ''}>${esc(part.label)}</option>`).join('')}</optgroup>`,
-      )
-      .join('')}</select></div>
+    ${vehiclePartPicker(selectedPart)}
     <details class="inspector-topics" open><summary>Subsistemas e assuntos</summary>${selectedPart ? auroraPartTopics(component, selectedPart) : `<div class="aurora-subsystem-list">${subsystems.map((sub) => `<a class="aurora-subsystem" href="${esc(vehicleLink(component, null, sub.id))}"><span class="aurora-subsystem-art">${subsystemArt(sub)}</span><strong>${esc(sub.label)}</strong></a>`).join('')}</div>`}</details>
     <a class="aurora-library-link" href="${esc(libraryRoute(selectedPart ? { part: selectedPart.id } : { component: component.taxonomy }))}">${selectedPart ? 'Biblioteca deste conjunto' : 'Biblioteca do sistema'} →</a>
     </div><footer class="inspector-footer"><p>Confira âmbito, alterações e profundidade de revisão na ficha de cada ato.</p><a class="aurora-primary" href="${esc(vehicleLink(component))}">Abrir referências ${auroraIcon('arrow')}</a></footer>
@@ -95,20 +100,20 @@ function renderAuroraOverview(query) {
   }
   const component =
     ComponentFlow.component(query.get('focus')) ||
-    ComponentFlow.component(VehicleLegislation.part(query.get('part'))?.componentId) ||
-    ComponentFlow.component('bancos');
+    ComponentFlow.component(VehicleLegislation.part(query.get('part'))?.componentId);
   const selectedPart = vehicleVector.parts.find(
-    (part) => part.id === query.get('part') && part.componentId === component.id,
+    (part) => part.id === query.get('part') && part.componentId === component?.id,
   );
   if (query.has('part') && !selectedPart) return renderInvalidVehiclePart();
   vehicleUI.component = null;
+  vehicleUI.part = selectedPart?.id || null;
   vehicleUI.lane = null;
   vehicleUI.subsystem = null;
   vehicleUI.zoom = 1;
   $('#app').classList.add('aurora-home', 'vehicle-overview-mode');
   $('#app').classList.remove('tree-mode', 'vehicle-flow-mode', 'contran-mode');
   const all = query.get('all') === '1';
-  const directoryLink = new URLSearchParams(auroraFocusLink(component).split('?')[1]);
+  const directoryLink = new URLSearchParams(query);
   if (all) directoryLink.delete('all');
   else directoryLink.set('all', '1');
   const directory = all
@@ -119,16 +124,17 @@ function renderAuroraOverview(query) {
   $('#main').innerHTML =
     `<header class="obsidian-page-head"><div><h1 tabindex="-1">Explore o veículo.</h1><p>Selecione um sistema. Consulte suas referências.</p></div><span class="view-switch">Veículo genérico · Vista explodida</span></header><div id="vehicleProfileMount"></div>
     <div class="aurora-overview-grid"><section class="aurora-vehicle-column" aria-label="Exploração visual do veículo">
-    <div class="aurora-car-glass">${vehicleMap()}<div class="vehicle-selection-label glass" aria-hidden="true"><span class="selection-pin"></span><span>${esc(selectedPart?.label || component.label)}</span></div></div>
+    <div class="aurora-car-glass">${vehicleMap()}${component?.mapParts.length ? `<div class="vehicle-selection-label glass" aria-hidden="true"><span class="selection-pin"></span><span>${esc(selectedPart?.label || component.label)}</span></div>` : ''}</div>
   </section>${auroraPanel(component, selectedPart)}</div>
   <section class="aurora-directory" aria-labelledby="auroraDirectory"><header><h2 id="auroraDirectory" class="sr-only">Sistemas</h2><a href="${esc('#vehicle?' + directoryLink)}">${all ? 'Principais' : 'Todos'}</a></header><div class="aurora-directory-grid ${all ? 'expanded' : ''}">${directory
     .map(
       (c) =>
-        `<a data-aurora-component="${esc(c.id)}" class="aurora-system-card ${component.id === c.id ? 'selected' : ''}" href="${esc(auroraFocusLink(c))}" ${component.id === c.id ? 'aria-current="true"' : ''}>${esc(c.label)}</a>`,
+        `<a data-aurora-component="${esc(c.id)}" class="aurora-system-card ${component?.id === c.id ? 'selected' : ''}" href="${esc(auroraFocusLink(c))}" ${component?.id === c.id ? 'aria-current="true"' : ''}>${esc(c.label)}</a>`,
     )
     .join(
       '',
     )}</div><a class="vehicle-flow-shortcut" href="#flow">Ver fluxo de homologação ${auroraIcon('arrow')}</a></section><footer class="transversal"><span>Além dos componentes</span><a href="#mover">MOVER</a><a href="#flow?stage=cop">Conformidade de produção</a><a href="#proconve?guide=importacao-lpco">Importação e registro</a><details class="vehicle-other-topics"><summary>Outros assuntos</summary><nav aria-label="Assuntos sem região própria na ilustração"><a href="#vehicle?component=eletrica&subsystem=eletronica/imagens">Rádio e multimídia</a><a href="#markings">Etiquetas e VIN</a><a href="#tree">Árvore regulatória</a><a href="#library">Todo o acervo</a></nav></details><a class="transversal-last" href="#updates">Fontes e revisões</a></footer>`;
+  document.querySelector('.aurora-car-glass').after(document.querySelector('.vehicle-drawing-bar'));
   mountVisualProfile();
   $('#main')
     .querySelectorAll('#vehicleDrawing [data-component-link]')
@@ -137,15 +143,23 @@ function renderAuroraOverview(query) {
       link.setAttribute('href', auroraFocusLink(c, link.dataset.mapPart));
       const selected = selectedPart
         ? link.dataset.mapPart === selectedPart.id
-        : c.id === component.id;
+        : c.id === component?.id;
       link.classList.toggle('aurora-selected', selected);
       link.setAttribute('aria-current', selected ? 'true' : 'false');
     });
   setupComponentHover();
-  setupVehicleSelectionPin(selectedPart || component.mapParts[0]);
+  setupVehicleSelectionPin(selectedPart || component?.mapParts[0]);
   $('#vehiclePartSelect').addEventListener('change', (event) => {
     const part = vehicleVector.parts.find((item) => item.id === event.target.value);
-    if (!part) return;
+    if (!part) {
+      if (event.target.value) return;
+      const next = new URLSearchParams(location.hash.split('?')[1] || '');
+      next.delete('focus');
+      next.delete('part');
+      goVehicle('#vehicle' + (next.size ? '?' + next : ''));
+      $('#vehiclePartSelect')?.focus({ preventScroll: true });
+      return;
+    }
     goVehicle(auroraFocusLink(ComponentFlow.component(part.componentId), part.id));
     $('#vehiclePartSelect')?.focus({ preventScroll: true });
   });
@@ -166,6 +180,7 @@ function updateVehicleSelectionPin() {
 function setupVehicleSelectionPin(part) {
   vehicleSelectionObserver?.disconnect();
   vehicleSelectionPoint = part?.testPoint;
+  if (!part) return;
   const stage = document.querySelector('.aurora-car-glass');
   vehicleSelectionObserver = new ResizeObserver(updateVehicleSelectionPin);
   vehicleSelectionObserver.observe(stage);

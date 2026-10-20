@@ -17,11 +17,11 @@
     "src/regulations/store.js": "2ee0f0576d280739",
     "src/regulations/technical-standards.js": "99bf9d7d99103fc4",
     "src/styles/navigation.css": "1b993dacafdaa1d2",
-    "src/styles/obsidian.css": "8a874b1929667db0",
+    "src/styles/obsidian.css": "64b451186470b284",
     "src/styles/regulatory-context.css": "7809503fdf796251",
     "src/styles/theme-tokens.css": "324e23552f497674",
     "src/styles/tree-navigation.css": "5359462e4ee3180d",
-    "src/views/aurora.js": "45f7c79278940eb5",
+    "src/views/aurora.js": "fe92b381b73edfb8",
     "src/views/document.js": "ba32210a1f344e2c",
     "src/views/history.js": "f8071cecc2a17887",
     "src/views/library.js": "a22ef1d85a5d260b",
@@ -31,7 +31,7 @@
     "styles.css": "c791fe18ff9cc9bb",
     "tree.js": "1280466942cf43dc",
     "vehicle-data.js": "09123227fe4f6446",
-    "vehicle-navigation.js": "8a450ec0542a1544"
+    "vehicle-navigation.js": "8d8e1918808770f8"
   },
-  "revision": "6b8b51669f2a5b10549f841d166b33f1f44297f1708624d38f85e65f9380c8a7"
+  "revision": "c9b0d5981fb3b2c95cf50db47809d911e35b0c31dee1038ff47d94b3fa1584b9"
 }
