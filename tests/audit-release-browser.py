@@ -80,12 +80,26 @@ async def main(base):
             page.locator('#main a[href="#contran?record=contran-997-2023"]')
         ).to_be_visible()
         for part in ("peca_08_banco_traseiro", "peca_09_bancos_dianteiros_console"):
-            await visit(page, base, "#vehicle?component=bancos&part=" + part)
+            await visit(page, base, "#vehicle?focus=bancos&part=" + part)
+            await page.locator('[data-part-topic="component:bancos-ancoragem"]').click()
+            await wait_for_route(page)
             assert not await page.evaluate(
                 "Object.values(treeModels.vehicle.nodes).some(node=>node.recordId&&catalogRecord(catalog,node.recordId)?.regulatoryId==='contran-220-2007')"
             )
+            # N02: two act links share one explanation. Keep both documents,
+            # but render that explanation only once in the selected topic.
+            note = await page.evaluate(
+                "id=>VehicleLegislationData.parts.find(part=>part.id===id).topics.find(topic=>topic.id==='bancos-ancoragem').links[0].note",
+                part,
+            )
+            await expect(page.locator("#aiPanel .detail-intro")).to_have_text(note)
+            act_ids = await page.evaluate(
+                "treeNodeRecords(treeModels.vehicle.nodes[treeUI.vehicle.selected]).map(record=>record.regulatoryId||record.id)"
+            )
+            assert set(act_ids) == {"contran-951-2022", "contran-997-2023"}
+            await expect(page.locator("#aiPanel .tree-doc")).to_have_count(2)
         passed(
-            "T01: historical 220 with documented 951/997 chain; no current seat/export leak"
+            "T01/N02: historical 220, both 951/997 documents and one seat explanation; no current/export leak"
         )
 
         # T02: the successor can be consulted without promoting an index review.
@@ -139,6 +153,19 @@ async def main(base):
             assert record["id"] == record_id and record["requirements"]
             assert record["reviewStatus"]["amendmentChainReviewed"] is False
             assert record["applicability"]["vehicleSpecific"] is False
+            if record_id == "ibama-in-6-2025":
+                rule = next(
+                    item["rule"]
+                    for item in record["requirements"]
+                    if item["id"] == "ibama-in-6-2025:req:02"
+                )
+                assert "embarque prévio" not in rule
+                assert "licença prévia ao embarque" in rule
+                assert "justificativa fundamentada" in rule
+                assert "flex" in rule and "Impedimento" in rule
+                await expect(page.locator(".regulatory-requirements")).to_contain_text(
+                    rule
+                )
         # All five service scenarios have their own URL and preserved source scope.
         for guide_id in (
             "lcvm-regular",

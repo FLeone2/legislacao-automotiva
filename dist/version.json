@@ -25,11 +25,11 @@
     "src/views/history.js": "f8071cecc2a17887",
     "src/views/library.js": "b221fa7a331d4992",
     "src/views/markings.js": "ab5ad74a8ab35fe5",
-    "src/views/regulations.js": "691392a6c6dad77f",
+    "src/views/regulations.js": "afc0d4b46ac36681",
     "styles.css": "c791fe18ff9cc9bb",
     "tree.js": "a82e9d9e028a1150",
     "vehicle-data.js": "09123227fe4f6446",
-    "vehicle-navigation.js": "787ebdcd2bd9dff9"
+    "vehicle-navigation.js": "ef6210e13893c879"
   },
-  "revision": "49e7abac959b0d6695018496846eb394079b97f31c6c3862d647d9d4c7a57d2e"
+  "revision": "524babd6e335ab84fa00788bb07bfb2a8ecbeaec052318a23d9f81a57027c5be"
 }

@@ -49,7 +49,19 @@ function regulatoryExportPayload(data, q, context) {
     : contranFiltered(data, q);
   if (context.recordIds && selected.length !== new Set(context.recordIds).size)
     throw new Error('A consulta mudou de versão. Recarregue a página.');
-  const records = canonicalCatalogRecords(selected);
+  const records = canonicalCatalogRecords(selected).map((record) => ({
+    ...record,
+    // Raw sources carry requirements; compact records also carry their IDs.
+    // Normalize once so JSON and CSV share the same traceable references.
+    requirementIds: [
+      ...new Set(
+        [
+          ...(record.requirementIds || []),
+          ...(record.requirements || []).map((requirement) => requirement.id),
+        ].filter(Boolean),
+      ),
+    ],
+  }));
   return {
     schemaVersion: 1,
     query: {

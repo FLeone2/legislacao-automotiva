@@ -22,6 +22,19 @@ function viewModel() {
   return context;
 }
 
+function parseExportCsv(csv) {
+  return JSON.parse(
+    execFileSync(
+      'python',
+      [
+        '-c',
+        'import csv,io,json,sys; print(json.dumps(list(csv.DictReader(io.StringIO(sys.stdin.read().lstrip("\\ufeff"))))))',
+      ],
+      { input: csv, encoding: 'utf8' },
+    ),
+  );
+}
+
 test('canonical acts retain aliases and every legacy association without merging titles', () => {
   const entries = [
     {
@@ -221,16 +234,7 @@ test('CSV has exactly the filtered references, escaped fields and reproducible q
     exportContext,
   );
   const csv = model.regulatoryExportCsv(payload);
-  const parsed = JSON.parse(
-    execFileSync(
-      'python',
-      [
-        '-c',
-        'import csv,io,json,sys; print(json.dumps(list(csv.DictReader(io.StringIO(sys.stdin.read().lstrip("\\ufeff"))))))',
-      ],
-      { input: csv, encoding: 'utf8' },
-    ),
-  );
+  const parsed = parseExportCsv(csv);
   assert.equal(parsed.length, 1);
   assert.equal(parsed[0].id, 'act-1');
   assert.equal(parsed[0].subject, exportFixture().records[1].subject);
@@ -238,6 +242,140 @@ test('CSV has exactly the filtered references, escaped fields and reproducible q
   assert.equal(parsed[0].datasetSha256, exportContext.datasetSha256);
   assert.equal(parsed[0].sourceUrl, exportContext.sourceUrl);
   assert.equal(JSON.parse(parsed[0].queryFilters).record, 'act-1');
+});
+
+test('exports reconcile direct and nested requirement IDs once without changing source records', () => {
+  const model = viewModel();
+  const data = exportFixture();
+  data.records[0].requirementIds = ['act-0:req:01', 'act-0:req:01'];
+  data.records[0].requirements = [{ id: 'act-0:req:01' }, { id: 'act-0:req:02' }];
+  data.records[1].requirementIds = ['act-1:req:01'];
+  const before = JSON.stringify(data);
+  const payload = model.regulatoryExportPayload(data, new URLSearchParams(), exportContext);
+  const json = JSON.parse(JSON.stringify(payload));
+  const csv = parseExportCsv(model.regulatoryExportCsv(payload));
+  assert.deepEqual(json.records[0].requirementIds, ['act-0:req:01', 'act-0:req:02']);
+  assert.deepEqual(json.records[1].requirementIds, ['act-1:req:01']);
+  assert.deepEqual(json.records[2].requirementIds, []);
+  for (const [index, record] of json.records.entries())
+    assert.deepEqual(JSON.parse(csv[index].requirementIds), record.requirementIds);
+  assert.equal(payload.query.resultCount, data.records.length);
+  assert.equal(JSON.stringify(data), before);
+});
+
+test('raw and compact sources export the same requirement IDs for every published agency act', () => {
+  const model = viewModel();
+  const index = JSON.parse(fs.readFileSync('data/site/index.json', 'utf8'));
+  for (const agency of ['contran', 'proconve', 'inmetro', 'anatel']) {
+    const data = JSON.parse(fs.readFileSync(`data/${agency}/active.json`, 'utf8'));
+    const recordIds = data.records.map((record) => record.id);
+    const before = JSON.stringify(data);
+    const payload = model.regulatoryExportPayload(data, new URLSearchParams(), {
+      ...exportContext,
+      recordIds,
+    });
+    const compact = model.regulatoryExportPayload(
+      index.regulations[agency],
+      new URLSearchParams(),
+      { ...exportContext, recordIds },
+    );
+    const csv = parseExportCsv(model.regulatoryExportCsv(payload));
+    assert.deepEqual(
+      Array.from(payload.records, (record) => record.id),
+      recordIds,
+      agency,
+    );
+    assert.equal(payload.query.resultCount, recordIds.length, agency);
+    for (const [position, record] of payload.records.entries()) {
+      const expected = (data.records[position].requirements || []).map(
+        (requirement) => requirement.id,
+      );
+      assert.deepEqual(Array.from(record.requirementIds), expected, record.id);
+      assert.deepEqual(Array.from(compact.records[position].requirementIds), expected, record.id);
+      assert.deepEqual(JSON.parse(csv[position].requirementIds), expected, record.id);
+    }
+    assert.equal(JSON.stringify(data), before, agency);
+  }
+});
+
+test('CSV and JSON keep PBEV requirements before and after a lazy detail load', async () => {
+  const source = fs.readFileSync('data/inmetro/active.json');
+  const index = JSON.parse(fs.readFileSync('data/site/index.json', 'utf8'));
+  const detail = JSON.parse(
+    fs.readFileSync('data/site/records/inmetro/inmetro-169-2023.json', 'utf8'),
+  );
+  const downloads = [];
+  const requests = [];
+  const status = {};
+  class DownloadUrl extends URL {
+    static createObjectURL(blob) {
+      downloads.push(blob);
+      return 'blob:export';
+    }
+  }
+  const context = vm.createContext({
+    canonicalCatalogRecords,
+    URLSearchParams,
+    URL: DownloadUrl,
+    Blob,
+    TextDecoder,
+    crypto: require('node:crypto').webcrypto,
+    location: { href: 'https://example.test/#inmetro?q=PBE+Veicular' },
+    document: { addEventListener() {}, createElement: () => ({ click() {} }) },
+    $: () => status,
+    norm: (text) => String(text || '').toLowerCase(),
+    setTimeout() {},
+    async fetch(url) {
+      requests.push(String(url));
+      if (String(url).endsWith('data/inmetro/active.json'))
+        return { ok: true, arrayBuffer: async () => Uint8Array.from(source).buffer };
+      if (url === 'data/site/index.json') return { ok: true, json: async () => index };
+      if (url === 'data/site/records/inmetro/inmetro-169-2023.json')
+        return { ok: true, json: async () => detail };
+      throw new Error('Unexpected source: ' + url);
+    },
+  });
+  for (const file of ['src/regulations/store.js', 'src/views/regulations.js'])
+    vm.runInContext(fs.readFileSync(file, 'utf8'), context);
+  await context.loadRegulations('inmetro');
+  assert.equal(
+    vm.runInContext(
+      'regulatoryData.inmetro.records.find(r=>r.id==="inmetro-169-2023")._summary',
+      context,
+    ),
+    true,
+  );
+  const expected = ['inmetro-169-2023:req:01', 'inmetro-169-2023:req:02'];
+  for (const phase of ['compact', 'detail']) {
+    if (phase === 'detail') await context.loadRegulationRecord('inmetro', detail.id);
+    for (const format of ['csv', 'json', 'csv']) {
+      const button = { disabled: false };
+      await context.exportRegulatoryQuery('inmetro', 'q=PBE Veicular', format, button);
+      const body = await downloads.at(-1).text();
+      const records = format === 'csv' ? parseExportCsv(body) : JSON.parse(body).records;
+      assert.deepEqual(
+        records.map((record) => record.id),
+        [detail.id],
+        phase + '/' + format,
+      );
+      assert.deepEqual(
+        format === 'csv' ? JSON.parse(records[0].requirementIds) : records[0].requirementIds,
+        expected,
+        phase + '/' + format,
+      );
+      assert.equal(button.disabled, false);
+      assert.equal(status.textContent, '1 referências exportadas.');
+    }
+  }
+  assert.equal(
+    vm.runInContext(
+      'regulatoryData.inmetro.records.find(r=>r.id==="inmetro-169-2023")._summary',
+      context,
+    ),
+    false,
+  );
+  assert.equal(requests.filter((url) => url.endsWith('data/inmetro/active.json')).length, 6);
+  assert.equal(requests.filter((url) => url.endsWith('/inmetro-169-2023.json')).length, 1);
 });
 
 test('agency searches preserve the component and subsystem until explicitly removed', () => {

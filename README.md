@@ -709,3 +709,8 @@ Os marcos temporais preservam dispositivo, categoria e condições e são
 comparados à data da consulta. Uma data passada não transforma todo o ato
 em revogado nem indica irregularidade universal. O portal mantém distintas
 a publicação, a indicação legal, a profundidade de revisão e a aplicabilidade.
+
+O [retorno do reteste, em 20/10/2026](docs/retest-implementation-2026-10-20.md)
+registra a correção da síntese de licença e embarque da IN 6/2025, das notas
+repetidas e dos IDs de requisitos nas exportações. LCVM, plano ambiental e PBEV
+mantêm os limites de revisão; o portal continua consultivo.

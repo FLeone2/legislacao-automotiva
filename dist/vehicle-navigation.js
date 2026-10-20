@@ -63,6 +63,9 @@ function vehicleTopicRecords(topic) {
     ? VehicleLegislation.recordsForTopic(topic, catalog.records)
     : ComponentFlow.records(topic, catalog.records);
 }
+function vehicleMappingNotes(links = []) {
+  return [...new Set(links.map((link) => link.note?.trim()).filter(Boolean))].join(' ');
+}
 function componentArt(c, cls = '') {
   const asset = c.overviewAsset || c.asset;
   return asset
@@ -186,11 +189,7 @@ function initializeComponentTree(c, q) {
           recordId: r.id,
           children: requirementNodesForRecord(r, `${id}:record:${r.id}`),
           recordIds: [r.id],
-          text:
-            r.vehicleMappingLinks
-              ?.map((link) => link.note)
-              .filter(Boolean)
-              .join(' ') || r.summary,
+          text: vehicleMappingNotes(r.vehicleMappingLinks) || r.summary,
         }));
         (t.gaps || []).forEach((gap, i) =>
           leaves.push({
@@ -232,10 +231,7 @@ function initializeComponentTree(c, q) {
           kind: 'Assunto do componente',
           recordIds: records.map((r) => r.id),
           text:
-            t.links
-              ?.map((link) => link.note)
-              .filter(Boolean)
-              .join(' ') ||
+            vehicleMappingNotes(t.links) ||
             t.text ||
             t.gaps?.join(' ') ||
             'Associação temática já registrada no acervo. Verifique o objeto, as condições e os anexos nas fontes.',

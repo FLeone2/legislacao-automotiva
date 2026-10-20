@@ -66,14 +66,30 @@ async def main():
             )
         assert len(identities) == len(set(identities)) == count
 
-        await agency(page, "#inmetro?record=inmetro-169-2023")
+        # N03: query exports must contain the same requirement IDs before any
+        # lazy detail is opened and after JSON/detail reads, with no cache effect.
+        await agency(page, "#inmetro?q=169%2F2023")
         await expect(page.locator(".contran-record")).to_have_count(1)
+        await expect(
+            page.locator('[data-lazy-record="inmetro-169-2023"]')
+        ).to_have_count(1)
         csv_rows = list(csv.DictReader(io.StringIO(await downloaded(page, "csv"))))
         assert [record["id"] for record in csv_rows] == ["inmetro-169-2023"]
-        assert json.loads(csv_rows[0]["queryFilters"]) == {"record": "inmetro-169-2023"}
+        assert json.loads(csv_rows[0]["queryFilters"]) == {"q": "169/2023"}
+        expected_ids = ["inmetro-169-2023:req:01", "inmetro-169-2023:req:02"]
+        assert json.loads(csv_rows[0]["requirementIds"]) == expected_ids
         payload = json.loads(await downloaded(page, "json"))
         assert payload["query"]["resultCount"] == len(payload["records"]) == 1
-        assert len(payload["records"][0]["requirements"]) > 0
+        exported_record = payload["records"][0]
+        assert exported_record["requirementIds"] == expected_ids
+        assert [item["id"] for item in exported_record["requirements"]] == expected_ids
+        after_json = list(csv.DictReader(io.StringIO(await downloaded(page, "csv"))))
+        assert json.loads(after_json[0]["requirementIds"]) == expected_ids
+        await page.locator('[data-lazy-record="inmetro-169-2023"] summary').click()
+        await expect(page.locator(".regulatory-requirements")).to_be_visible()
+        after_detail = list(csv.DictReader(io.StringIO(await downloaded(page, "csv"))))
+        assert [record["id"] for record in after_detail] == ["inmetro-169-2023"]
+        assert json.loads(after_detail[0]["requirementIds"]) == expected_ids
         source = await page.request.get(BASE + "data/inmetro/active.json")
         assert (
             payload["query"]["datasetSha256"]
