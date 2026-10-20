@@ -57,6 +57,22 @@ function libraryPartSearchTerms(record) {
     ),
   ].join(' ');
 }
+function librarySearchMatch(r, query) {
+  return norm(
+    [
+      r.title,
+      r.summary,
+      r.agency,
+      r.issuer,
+      libraryPartSearchTerms(r),
+      ...(r.componentLabels || []),
+      ...(r.taxonomy || []).map(systemLabel),
+      ...(r.amendingRefs || []),
+      ...(r.topics || []),
+      ...(r.requirements || []).map((x) => x.title + ' ' + x.rule),
+    ].join(' '),
+  ).includes(norm(query));
+}
 function filters() {
   const records = catalogRecords(catalog);
   return records.filter(
@@ -66,20 +82,7 @@ function filters() {
       (!state.libraryPart || VehicleLegislation.matchesRecord(state.libraryPart, r)) &&
       (!state.stage || (r.stages || []).includes(state.stage)) &&
       (!state.review || libraryReview(r) === state.review) &&
-      norm(
-        [
-          r.title,
-          r.summary,
-          r.agency,
-          r.issuer,
-          libraryPartSearchTerms(r),
-          ...(r.componentLabels || []),
-          ...(r.taxonomy || []).map(systemLabel),
-          ...(r.amendingRefs || []),
-          ...(r.topics || []),
-          ...(r.requirements || []).map((x) => x.title + ' ' + x.rule),
-        ].join(' '),
-      ).includes(norm(state.query)),
+      librarySearchMatch(r, state.query),
   );
 }
 function documentCard(r) {

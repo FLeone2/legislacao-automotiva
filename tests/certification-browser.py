@@ -1,7 +1,7 @@
 import asyncio, os, json
 from pathlib import Path
 from playwright.async_api import async_playwright
-from browser_support import launch_options, wait_for_route
+from browser_support import click_navigation, launch_options, wait_for_route
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = os.environ.get("VEHICLE_TEST_URL", "http://127.0.0.1:8000/").rstrip("/") + "/"
@@ -151,13 +151,13 @@ async def main():
         await page.set_viewport_size({"width": 1024, "height": 700})
         await page.goto(BASE + "#vehicle")
         await page.locator("#vehicleDrawing").wait_for()
-        await page.locator('[data-nav="markings"]').click()
+        await click_navigation(page, "markings")
         await page.locator("#markings-vin").wait_for()
         await page.set_viewport_size({"width": 390, "height": 844})
         await page.locator("#navigationToggle").click()
         if await page.locator(".nav-source-group").get_attribute("open") is None:
             await page.locator(".nav-source-group summary").click()
-        await page.locator('[data-nav="anatel"]').click()
+        await click_navigation(page, "anatel")
         await ready(page)
         assert "#anatel" in page.url
         # Sources that fail do not restore unverified original Inmetro entries.

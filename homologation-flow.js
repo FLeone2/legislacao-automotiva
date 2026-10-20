@@ -120,26 +120,58 @@ function flowStageTree(stage) {
     outputs: stage.outputs,
   });
 }
+// Presentation coordinates from the approved Obsidian comp. Canonical stages,
+// activities and relationships continue to come exclusively from flow-data.js.
+const flowPresentation = {
+  enquadramento: [20, 226, 155, 139],
+  construcao: [202, 226, 155, 139],
+  preparacao: [384, 226, 155, 139],
+  coastdown: [600, 75, 140, 130],
+  laboratorio: [756, 75, 140, 130],
+  aprovacoes: [912, 75, 140, 130],
+  seguranca: [600, 242, 452, 122],
+  componentes: [600, 399, 452, 122],
+  dossie: [1080, 226, 155, 139],
+  cat: [1262, 226, 155, 139],
+  producao: [1262, 399, 155, 118],
+  cop: [600, 568, 817, 94],
+};
 function flowMap() {
   const selected = flowUI.stage;
   const links = [
-    ['M165 300H185', 'reading'],
-    ['M330 300H350', 'reading'],
-    ['M495 300H515V115H540', 'parallel'],
-    ['M515 300H540', 'parallel'],
-    ['M515 300V480H540', 'parallel'],
-    ['M690 115H710', 'reading'],
-    ['M860 115H880', 'reading'],
-    ['M1030 115H1045V300H1060', 'converge'],
-    ['M1030 300H1060', 'converge'],
-    ['M1030 480H1045V300', 'converge'],
-    ['M1205 300H1225', 'reading'],
-    ['M1297 370V410', 'reading'],
-    ['M1297 550V580', 'production'],
-    ['M540 632H257V370', 'feedback'],
-    ['M1132 580V370', 'feedback'],
+    ['M175 290H202', 'reading'],
+    ['M357 290H384', 'reading'],
+    ['M539 290H574V130H600', 'environment'],
+    ['M539 290H600', 'safety'],
+    ['M574 290V452H600', 'components'],
+    ['M740 130H756', 'environment'],
+    ['M896 130H912', 'environment'],
+    ['M1052 130H1067V290H1080', 'environment'],
+    ['M1052 290H1080', 'safety'],
+    ['M1052 452H1067V290H1080', 'components'],
+    ['M1235 290H1262', 'reading'],
+    ['M1339 364V399', 'reading'],
+    ['M1339 517V568', 'production'],
+    ['M600 622H280V365', 'feedback'],
+    ['M1158 568V365', 'feedback'],
   ];
-  return `<div class="homologation-map-toolbar"><span><i class="flow-dot environment"></i> Ambiental e eficiência <i class="flow-dot safety"></i> Segurança <i class="flow-dot components"></i> Conformidade</span><div class="flow-map-tools"><button data-flow-map-fit>Ajustar mapa</button><output id="flowMapZoom">100%</output><button data-flow-map-size>Tamanho original</button></div></div><div class="homologation-map-viewport" tabindex="0" aria-label="Mapa de homologação. Role horizontalmente para explorar ou escolha uma etapa abaixo."><div class="homologation-map"><svg viewBox="0 0 1400 720" class="homologation-connectors" aria-hidden="true"><defs><marker id="flowArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="currentColor"/></marker></defs>${links.map(([path, kind]) => `<path d="${path}" class="flow-connection ${kind}" marker-end="url(#flowArrow)"/>`).join('')}<text x="540" y="23">AMBIENTAL E EFICIÊNCIA</text><text x="540" y="208">FRENTES TÉCNICAS EM PARALELO</text><text x="28" y="632" class="flow-feedback-label">Desvios e mudanças</text><text x="28" y="652" class="flow-feedback-label">retornam ao projeto</text><text x="28" y="672" class="flow-feedback-label">e às aprovações pertinentes.</text></svg>${homologationFlowSpec.stages.map((stage) => `<button class="homologation-step ${stage.tone} ${selected === stage.id ? 'selected' : ''}" style="--flow-x:${stage.x};--flow-y:${stage.y};--flow-w:${stage.w};--flow-h:${stage.h}" data-flow-stage="${stage.id}" aria-expanded="${selected === stage.id}" aria-controls="flowExplorer"><span class="homologation-step-kicker"><b>${stage.number}</b><span aria-hidden="true">${stage.icon}</span></span><strong>${stage.label}</strong><small>${stage.short}</small><span class="homologation-step-open">${selected === stage.id ? 'Etapa selecionada' : 'Ver atividades'} <span aria-hidden="true">${selected === stage.id ? '−' : '+'}</span></span></button>`).join('')}</div></div>`;
+  return `<div class="homologation-map-toolbar"><span><i class="flow-dot"></i>Visão geral do processo</span><div class="flow-map-tools glass"><button data-flow-map-zoom="out" aria-label="Diminuir mapa">−</button><button data-flow-map-size aria-label="Tamanho original do mapa"><output id="flowMapZoom">100%</output></button><button data-flow-map-zoom="in" aria-label="Ampliar mapa">+</button><button data-flow-map-fit>Ajustar</button></div></div><div class="homologation-map-viewport" tabindex="0" aria-label="Mapa de homologação. Role horizontalmente para explorar ou escolha uma etapa abaixo."><div class="homologation-map"><svg viewBox="0 0 1456 680" class="homologation-connectors" aria-hidden="true"><defs><marker id="flowArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="currentColor"/></marker></defs>${links.map(([path, kind]) => `<path d="${path}" class="flow-connection ${kind}" marker-end="url(#flowArrow)"/>`).join('')}<text x="600" y="60">Ambiental e eficiência</text><text x="600" y="235">Frentes técnicas em paralelo</text><text x="24" y="550" class="flow-feedback-label">Desvios e mudanças</text><text x="24" y="570" class="flow-feedback-label">retornam ao projeto</text><text x="24" y="590" class="flow-feedback-label">e às aprovações pertinentes.</text></svg>${homologationFlowSpec.stages.map((stage) => `<button class="homologation-step ${stage.tone} ${selected === stage.id ? 'selected' : ''}" style="--flow-x:${flowPresentation[stage.id]?.[0] ?? stage.x};--flow-y:${flowPresentation[stage.id]?.[1] ?? stage.y};--flow-w:${flowPresentation[stage.id]?.[2] ?? stage.w};--flow-h:${flowPresentation[stage.id]?.[3] ?? stage.h}" data-flow-stage="${stage.id}" aria-expanded="${selected === stage.id}" aria-controls="flowExplorer"><span class="homologation-step-kicker"><b>${stage.number}</b><span aria-hidden="true">${stage.icon}</span></span><strong>${stage.label}</strong><small>${stage.short}</small><span class="homologation-step-open">${selected === stage.id ? 'Etapa selecionada' : 'Ver atividades'} <span aria-hidden="true">${selected === stage.id ? '−' : '+'}</span></span></button>`).join('')}</div></div>`;
+}
+function flowContextPanel(stage) {
+  if (!stage) return '';
+  const model = treeModels.flow;
+  const node = model.nodes[treeUI.flow.selected] || model.root;
+  const records = treeNodeRecords(node);
+  return `<aside class="flow-context-panel glass" data-entering="${flowUI.entering}" aria-label="Etapa selecionada"><div class="inspector-meta"><span>Etapa selecionada</span><button class="icon-action" data-flow-close aria-label="Fechar painel da etapa">${auroraIcon('close')}</button></div><h2>${esc(stage.label)}</h2><p class="flow-context-subtitle">${esc(stage.short)}</p><div class="flow-context-scroll"><h3>Atividades</h3><nav aria-label="Atividades de ${esc(stage.label)}">${model.root.children.map((activity) => `<button data-flow-activity="${esc(activity.id)}" aria-current="${nodeTrail(node.id, model).includes(activity.id) ? 'true' : 'false'}">${esc(activity.label)}<span aria-hidden="true">${nodeTrail(node.id, model).includes(activity.id) ? '−' : '+'}</span></button>`).join('')}</nav>${node.id !== model.root.id ? `<section class="flow-context-summary"><h3>${esc(node.label)}</h3><p>${esc(node.text || '')}</p></section>` : ''}<h3>Referências de consulta${records.length > 3 ? ` · 3 de ${records.length}` : ''}</h3><div class="inspector-references">${
+    records
+      .slice(0, 3)
+      .map(
+        (record) =>
+          `<button class="inspector-reference" data-open="${esc(record.id)}"><strong>${esc(record.title)}</strong>${auroraIcon('arrow')}</button>`,
+      )
+      .join('') ||
+    '<p class="scope-note">Nenhuma referência associada neste recorte. Confira as lacunas da atividade.</p>'
+  }</div></div><button class="btn primary" data-flow-tree>Explorar a árvore ${auroraIcon('arrow')}</button></aside>`;
 }
 function renderFlow() {
   const mapViewport = document.querySelector('.homologation-map-viewport');
@@ -159,6 +191,7 @@ function renderFlow() {
     ? q.get('powertrain')
     : 'todos';
   const stage = HomologationFlow.stage(q.get('stage'));
+  flowUI.entering = Boolean(stage && flowUI.stage !== stage.id);
   flowUI.stage = stage?.id || null;
   if (stage) {
     const sameTree = treeModels.flow?.root.id === `flow:${stage.id}`;
@@ -175,7 +208,7 @@ function renderFlow() {
     ui.selected = node;
   }
   $('#main').innerHTML =
-    `<header class="homologation-heading"><div><p class="eyebrow">Do projeto à produção</p><h1>Fluxo de homologação</h1><p>Entenda as etapas e explore os assuntos e as fontes oficiais relacionados a cada atividade.</p></div><div class="homologation-guide"><span>01 · Escolha a etapa</span><span>02 · Expanda a atividade</span><span>03 · Consulte a fonte</span></div></header><div class="homologation-profile"><label>Recorte de powertrain<select id="flowPowertrain">${homologationFlowSpec.powertrains.map((p) => `<option value="${p.id}" ${p.id === flowUI.powertrain ? 'selected' : ''}>${esc(p.label)}</option>`).join('')}</select></label><label>Ir para uma etapa<select id="flowStagePicker"><option value="">Escolha no mapa ou nesta lista</option>${homologationFlowSpec.stages.map((s) => `<option value="${s.id}" ${stage?.id === s.id ? 'selected' : ''}>${s.number} · ${esc(s.label)}</option>`).join('')}</select></label><p>Organiza as atividades mapeadas. Categoria, fase, combustível e datas ainda precisam ser confirmados.</p><a href="#vehicle">Explorar por sistema do veículo →</a></div>${q.has('stage') && !stage ? '<p class="notice" role="status">Etapa não encontrada. Escolha uma etapa no mapa.</p>' : ''}<section class="homologation-map-shell" aria-label="Fluxo visual de homologação">${flowMap()}</section><p class="homologation-reading-note">As setas organizam a leitura do processo; as frentes podem avançar em paralelo. COP é planejada desde a engenharia e executada na produção. Coastdown e amaciamento são atividades distintas.</p><section id="flowExplorer" class="homologation-explorer" aria-label="Árvore da etapa selecionada" tabindex="-1">${
+    `<header class="homologation-heading"><div><h1>Homologação.</h1><p>Do enquadramento à produção. Com cada frente no seu lugar.</p></div><div class="view-heading-actions"><button class="btn" data-flow-close>Mapa completo</button><button class="btn" data-flow-find>${auroraIcon('search')} Encontrar uma etapa</button></div></header><div class="homologation-profile"><label><span class="sr-only">Recorte de powertrain</span><select id="flowPowertrain">${homologationFlowSpec.powertrains.map((p) => `<option value="${p.id}" ${p.id === flowUI.powertrain ? 'selected' : ''}>${esc(p.label)}</option>`).join('')}</select></label><label><span class="sr-only">Ir para uma etapa</span><select id="flowStagePicker"><option value="">Ir para uma etapa</option>${homologationFlowSpec.stages.map((s) => `<option value="${s.id}" ${stage?.id === s.id ? 'selected' : ''}>${s.number} · ${esc(s.label)}</option>`).join('')}</select></label><p>Etapa → atividade → referência</p></div>${q.has('stage') && !stage ? '<p class="notice" role="status">Etapa não encontrada. Escolha uma etapa no mapa.</p>' : ''}<section id="flowExplorer" tabindex="-1" class="homologation-map-shell ${stage ? 'inspecting' : ''}" aria-label="Fluxo visual de homologação">${flowMap()}${flowContextPanel(stage)}</section><p class="homologation-reading-note">As setas organizam a consulta; não determinam precedência legal universal. As frentes podem avançar em paralelo. COP é planejada desde o projeto e executada na produção.</p><section id="flowTreeExplorer" class="homologation-explorer" aria-label="Árvore da etapa selecionada" tabindex="-1">${
       stage
         ? `<header class="homologation-explorer-heading"><div><span class="eyebrow">Etapa ${stage.number} · ${esc(stage.short)}</span><h2>${esc(stage.label)}</h2><p>${esc(stage.purpose)}</p></div><button class="btn" data-flow-overview>Voltar ao mapa ↑</button></header><div class="homologation-outputs"><strong>Assuntos e documentos da etapa</strong>${stage.outputs.map((o) => `<span>${esc(o)}</span>`).join('')}</div><div class="tree-breadcrumb" aria-label="Caminho da atividade">${nodeTrail(
             treeUI.flow.selected,
@@ -188,7 +221,7 @@ function renderFlow() {
             .join(
               '<span>›</span>',
             )}</div><div class="homologation-explorer-layout"><div><section class="graph-shell" aria-label="Etapa, atividades e legislações">${graphMarkup(treeModels.flow, treeUI.flow)}</section><div class="tree-footer"><span>Expanda uma atividade pelo + ou pelo título para ver as normas e as lacunas.</span><button data-graph-action="reset">Recolher árvore</button></div></div><aside id="flowDetailPanel" class="homologation-detail" aria-label="Detalhes da atividade"></aside></div>`
-        : '<div class="homologation-empty"><span aria-hidden="true">↖</span><h2>Por qual etapa você quer começar?</h2><p>Selecione no mapa para expandir atividades, referências e pontos ainda pendentes de conferência.</p></div>'
+        : '<p class="homologation-empty">Selecione uma etapa para explorar as atividades e suas referências.</p>'
     }</section><p class="scope-note">Referências e lacunas do acervo disponível. A relação de documentos não é exaustiva; confirme o enquadramento e as exigências nas fontes oficiais.</p>`;
   $('#flowPowertrain').onchange = (e) => goFlow(stage?.id, null, e.target.value, false);
   $('#flowStagePicker').onchange = (e) => goFlow(e.target.value || null);
@@ -229,19 +262,45 @@ function goFlow(stage, node = null, powertrain = flowUI.powertrain, scroll = tru
   renderFlow();
   const target = scroll ? $('#flowExplorer') : $('#flowPowertrain');
   target?.focus({ preventScroll: true });
-  if (scroll)
-    requestAnimationFrame(() => {
-      if (!target?.isConnected) return;
-      target.scrollIntoView({
-        block: 'start',
-        behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
-      });
-    });
+  // Focus the selected context without scrolling the overview out of view.
 }
 function persistFlowNode() {
   history.replaceState(null, '', flowRoute(flowUI.stage, treeUI.flow.selected));
 }
 document.addEventListener('click', (e) => {
+  if (e.target.closest('[data-flow-close]')) {
+    const selectedStage = flowUI.stage;
+    goFlow(null, null, flowUI.powertrain, false);
+    document.querySelector(`[data-flow-stage="${selectedStage}"]`)?.focus({ preventScroll: true });
+    return;
+  }
+  if (e.target.closest('[data-flow-find]')) {
+    $('#flowStagePicker').focus();
+    return;
+  }
+  if (e.target.closest('[data-flow-tree]')) {
+    $('#flowTreeExplorer').focus({ preventScroll: true });
+    $('#flowTreeExplorer').scrollIntoView({
+      block: 'start',
+      behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+    });
+    return;
+  }
+  const activity = e.target.closest('[data-flow-activity]');
+  if (activity) {
+    const model = activeTree();
+    const collapse = nodeTrail(treeUI.flow.selected, model).includes(activity.dataset.flowActivity);
+    goFlow(
+      flowUI.stage,
+      collapse ? model.root.id : activity.dataset.flowActivity,
+      flowUI.powertrain,
+      false,
+    );
+    document
+      .querySelector(`[data-flow-activity="${activity.dataset.flowActivity}"]`)
+      ?.focus({ preventScroll: true });
+    return;
+  }
   const stage = e.target.closest('[data-flow-stage]');
   if (stage) {
     goFlow(stage.dataset.flowStage);
@@ -261,7 +320,7 @@ function setupFlowMap(savedState = null) {
   flowMapObserver?.disconnect();
   const viewport = document.querySelector('.homologation-map-viewport');
   let lastWidth = viewport.clientWidth;
-  const defaultScale = (width) => (width >= 850 ? Math.min(1, width / 1400) : 0.95);
+  const defaultScale = (width) => (width >= 850 ? Math.min(1, width / 1456) : 0.95);
   setFlowMapScale(savedState?.scale || defaultScale(lastWidth));
   if (savedState) {
     viewport.scrollLeft = savedState.left;
@@ -282,9 +341,19 @@ function setFlowMapScale(scale) {
   $('#flowMapZoom').textContent = Math.round(scale * 100) + '%';
 }
 document.addEventListener('click', (e) => {
+  const zoom = e.target.closest('[data-flow-map-zoom]');
+  if (zoom) {
+    const current =
+      parseFloat(
+        document.querySelector('.homologation-map').style.getPropertyValue('--flow-scale'),
+      ) || 1;
+    setFlowMapScale(
+      Math.max(0.2, Math.min(1.5, current + (zoom.dataset.flowMapZoom === 'in' ? 0.1 : -0.1))),
+    );
+  }
   if (e.target.closest('[data-flow-map-fit]'))
     setFlowMapScale(
-      Math.max(0.2, document.querySelector('.homologation-map-viewport').clientWidth / 1400),
+      Math.max(0.2, document.querySelector('.homologation-map-viewport').clientWidth / 1456),
     );
   if (e.target.closest('[data-flow-map-size]')) setFlowMapScale(1);
 });

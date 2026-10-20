@@ -6,7 +6,13 @@ from urllib.parse import parse_qs, urlparse
 import xml.etree.ElementTree as ET
 
 from playwright.async_api import async_playwright, expect
-from browser_support import TestServer, launch_options, wait_for_route
+from browser_support import (
+    open_preferences,
+    select_theme,
+    TestServer,
+    launch_options,
+    wait_for_route,
+)
 
 SYSTEMS = {
     "bancos",
@@ -286,7 +292,7 @@ async def main():
         )
         for theme in ["dark", "light", "aurora"]:
             await overview(page, "#vehicle?focus=bancos&part=" + selected["id"])
-            await page.get_by_label("Tema", exact=True).select_option(theme)
+            await select_theme(page, theme)
             path = page.locator("#" + selected["id"] + " path")
             await page.mouse.move(0, 0)
             assert (
@@ -306,6 +312,7 @@ async def main():
             await page.locator("#" + selected["id"]).focus()
             await page.keyboard.press("Enter")
             await assert_selection(page, selected)
+            await open_preferences(page)
             await page.get_by_label("Tema", exact=True).focus()
             await page.mouse.move(0, 0)
             assert (

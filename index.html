@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="dark">
+
+<html data-theme="dark" lang="pt-BR">
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width,initial-scale=1" name="viewport" />
@@ -11,107 +12,101 @@
     <script src="src/core/theme.js?v=20261019-themes"></script>
     <link href="styles.css?v=20261019-dark" rel="stylesheet" />
     <link href="src/styles/navigation.css?v=20261019-dark" rel="stylesheet" />
-    <link href="src/styles/aurora.css?v=20261019-dark" rel="stylesheet" />
+
     <link href="src/styles/theme-tokens.css?v=20261019-themes" rel="stylesheet" />
-    <link href="src/styles/mover-dark.css?v=20261019-themes" rel="stylesheet" />
+
     <link href="src/styles/tree-navigation.css" rel="stylesheet" />
     <link href="src/styles/regulatory-context.css" rel="stylesheet" />
+    <meta content="#0b0c0f" name="theme-color" />
+    <link href="src/styles/obsidian.css" rel="stylesheet" />
   </head>
   <body>
     <a class="skip-link" href="#main">Ir para o conteúdo</a>
     <div id="app">
-      <aside class="sidebar">
-        <a class="brand" href="#tree"
-          ><span class="flag">🇧🇷</span><strong>Legislação<br />Automotiva</strong></a
-        ><span class="pill brand-pill">Protótipo navegável</span
-        ><button
-          aria-controls="mainNavigation"
-          aria-expanded="false"
-          class="navigation-toggle"
-          id="navigationToggle"
-        >
-          Menu
-        </button>
-        <nav aria-label="Navegação principal" class="main-nav" id="mainNavigation">
-          <div class="nav-group" data-navigation-group="explorar">
-            <p class="nav-group-label">Explorar</p>
-            <a data-nav="vehicle" href="#vehicle"
-              ><span aria-hidden="true">▱</span>Veículo e sistemas</a
-            ><a data-nav="flow" href="#flow"
-              ><span aria-hidden="true">♧</span>Fluxo de homologação</a
-            ><a data-nav="tree" href="#tree"><span aria-hidden="true">◇</span>Árvore regulatória</a>
+      <div class="workspace">
+        <header class="topbar">
+          <a class="brand" href="#vehicle"
+            ><span class="brand-mark" data-icon="car"></span
+            ><strong>Legislação <span>Automotiva</span></strong></a
+          >
+          <nav aria-label="Navegação principal" class="primary-nav main-nav glass">
+            <span aria-hidden="true" class="nav-indicator"></span
+            ><a data-nav="vehicle" href="#vehicle"><span data-icon="car"></span>Veículo</a
+            ><a data-nav="flow" href="#flow"><span data-icon="flow"></span>Homologação</a
+            ><a data-nav="library" href="#library"><span data-icon="book"></span>Biblioteca</a>
+          </nav>
+          <div class="toolbar">
+            <span class="country">Brasil</span
+            ><button
+              aria-controls="searchDialog"
+              aria-haspopup="dialog"
+              class="search-trigger"
+              id="searchTrigger"
+              aria-label="Buscar referências e sistemas"
+            >
+              <span data-icon="search"></span><span>Buscar</span><kbd>⌘ K</kbd></button
+            ><button aria-label="Consulta assistida" class="icon-action" data-assistant="">
+              <span data-icon="chat"></span></button
+            ><button
+              aria-controls="mainNavigation"
+              aria-expanded="false"
+              aria-label="Mais acessos e preferências"
+              class="navigation-toggle icon-action"
+              id="navigationToggle"
+            >
+              <span data-icon="menu"></span>
+            </button>
           </div>
-          <div class="nav-group" data-navigation-group="acervo">
-            <p class="nav-group-label">Acervo normativo</p>
-            <a data-nav="library" href="#library"><span aria-hidden="true">▤</span>Biblioteca</a
+        </header>
+        <aside aria-label="Mais acessos e preferências" class="sidebar glass">
+          <nav aria-label="Outras consultas" class="secondary-nav" id="mainNavigation">
+            <a data-nav="tree" href="#tree"><span data-icon="tree"></span>Árvore regulatória</a
             ><a data-nav="markings" href="#markings"
-              ><span aria-hidden="true">▥</span>Etiquetas e VIN</a
+              ><span data-icon="tag"></span>Etiquetas e VIN</a
             >
             <details class="nav-source-group">
               <summary>Consultar por órgão</summary>
-              <a data-nav="contran" href="#contran">CONTRAN</a
+              <a data-nav="contran" href="#contran">CONTRAN / SENATRAN</a
               ><a data-nav="proconve" href="#proconve">PROCONVE / IBAMA</a
               ><a data-nav="inmetro" href="#inmetro">Inmetro</a
               ><a data-nav="anatel" href="#anatel">Anatel</a>
             </details>
-          </div>
-          <div class="nav-group" data-navigation-group="programas">
-            <p class="nav-group-label">Programas e acompanhamento</p>
-            <a data-nav="mover" href="#mover"><span aria-hidden="true">◈</span>MOVER</a
-            ><a data-nav="updates" href="#updates"><span aria-hidden="true">◷</span>Atualizações</a
-            ><a data-nav="ai" href="#ai"
-              ><span aria-hidden="true">✧</span>Assistente · demonstração</a
+            <a data-nav="mover" href="#mover"><span data-icon="chart"></span>MOVER</a
+            ><a data-nav="updates" href="#updates"
+              ><span data-icon="clock"></span>Fontes e revisões</a
             >
-          </div>
-        </nav>
-        <div class="sidebar-foot">
-          <div class="road"></div>
-          <p>Conhecimento que<br />move o amanhã.</p>
-          <small>Brasil · Acervo federal</small>
-          <div class="teal-line"></div>
-        </div>
-      </aside>
-      <div class="workspace">
-        <header class="topbar">
-          <a class="topbrand" href="#tree">Legislação</a><span class="fixed-filter">🇧🇷 Brasil</span
-          ><span class="fixed-filter" title="Este acervo abrange apenas normas federais"
-            >⚖ Âmbito federal</span
-          ><label class="profile-control"
-            ><span class="sr-only">Categoria visual</span
-            ><select id="vehicleType">
-              <option>SUV / passeio</option>
-              <option>Comercial leve</option>
-              <option>Ônibus</option>
-              <option>Caminhão</option>
-              <option>Motocicleta</option>
-            </select></label
-          ><label class="profile-control"
-            ><span class="sr-only">Motorização visual</span
-            ><select id="powertrain">
-              <option>Híbrido</option>
-              <option>Combustão</option>
-              <option>Elétrico</option>
-            </select></label
-          ><label class="global-search"
-            ><span>⌕</span
-            ><input
-              aria-label="Buscar norma ou componente"
-              autocomplete="off"
-              id="globalSearch"
-              name="busca"
-              placeholder="Buscar norma ou componente"
-              spellcheck="false"
-            /><kbd>/</kbd></label
-          >
+          </nav>
           <div class="theme-picker">
-            <label for="themeSelect">Tema</label>
-            <select id="themeSelect">
-              <option value="dark">Escuro MOVER</option>
+            <label for="themeSelect">Tema</label
+            ><select id="themeSelect">
+              <option value="dark">Obsidian</option>
               <option value="light">Claro</option>
               <option value="aurora">Aurora</option>
             </select>
           </div>
-        </header>
+          <div id="contextProfiles">
+            <div class="visual-profile" id="visualProfileControls">
+              <span class="country-filter">Brasil</span
+              ><label class="profile-control"
+                ><span class="sr-only">Motorização visual</span
+                ><select id="powertrain">
+                  <option>Híbrido</option>
+                  <option>Combustão</option>
+                  <option>Elétrico</option>
+                </select></label
+              ><label class="profile-control"
+                ><span class="sr-only">Categoria visual</span
+                ><select id="vehicleType">
+                  <option>SUV / passeio</option>
+                  <option>Comercial leve</option>
+                  <option>Ônibus</option>
+                  <option>Caminhão</option>
+                  <option>Motocicleta</option>
+                </select></label
+              ><span class="profile-hint">Perfil de consulta</span>
+            </div>
+          </div>
+        </aside>
         <div class="body-layout">
           <main id="main" tabindex="-1"></main>
           <aside aria-label="Orientações de consulta" class="ai-panel" id="aiPanel">
@@ -133,7 +128,9 @@
             </p>
             <div class="related-head">
               <h3>Fontes relacionadas</h3>
-              <button class="text-button" id="relatedLibrary">Ver todas ↗</button>
+              <button class="text-button" id="relatedLibrary">
+                Ver todas <span data-icon="arrow"></span>
+              </button>
             </div>
             <div id="relatedNorms"></div>
             <div class="consultation-shortcuts">
@@ -150,6 +147,7 @@
     </dialog>
     <div id="toast" role="status"></div>
     <script src="src/core/dom.js?v=20261019-dark"></script>
+    <script src="src/core/icons.js"></script>
     <script src="src/core/requirements.js?v=20261019-dark"></script>
     <script src="tree.js?v=20261019-dark"></script>
     <script src="src/core/vehicle-vector.js?v=20261019-vector"></script>
@@ -171,5 +169,50 @@
     <script src="src/core/navigation.js?v=20261019-dark"></script>
     <script src="src/views/aurora.js?v=20261019-dark"></script>
     <script src="app.js?v=20261019-dark"></script>
+    <dialog aria-label="Buscar no acervo" class="search-dialog" id="searchDialog">
+      <div class="search-head">
+        <span data-icon="search"></span
+        ><label class="sr-only" for="globalSearch">Buscar norma ou componente</label
+        ><input
+          aria-autocomplete="list"
+          aria-controls="searchResults"
+          aria-expanded="true"
+          autocomplete="off"
+          id="globalSearch"
+          name="busca"
+          placeholder="Buscar norma ou componente…"
+          role="combobox"
+          spellcheck="false"
+          type="search"
+        /><button aria-label="Fechar busca" class="icon-action" id="closeSearch">
+          <span data-icon="close"></span></button
+        ><kbd>esc</kbd>
+      </div>
+      <div class="search-body">
+        <p aria-live="polite" id="searchStatus" role="status"></p>
+        <div
+          aria-label="Referências encontradas"
+          id="searchResults"
+          role="listbox"
+          tabindex="0"
+        ></div>
+      </div>
+      <footer class="search-foot">
+        <span>↑ ↓ navegar · Enter abrir · Esc fechar</span
+        ><a href="#library" id="searchAllResults">Ver na biblioteca →</a>
+      </footer>
+    </dialog>
+    <dialog aria-labelledby="assistantTitle" class="assistant-dialog" id="assistantDialog">
+      <button aria-label="Fechar consulta assistida" class="close" data-assistant-close="">
+        <span data-icon="close"></span>
+      </button>
+      <h2 id="assistantTitle">Consulta assistida</h2>
+      <p>
+        Nenhum assistente de IA está conectado. Consulte as referências e as fontes oficiais do
+        acervo.
+      </p>
+      <button class="btn primary" data-open-search="">Buscar no acervo</button>
+    </dialog>
+    <script src="src/views/obsidian-search.js"></script>
   </body>
 </html>

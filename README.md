@@ -527,21 +527,24 @@ de avaliação, sem transformar referências ou lacunas em confirmação jurídi
 O build usa uma lista explícita de arquivos; inventários históricos, snapshots,
 políticas editoriais e pesquisas brutas ficam fora de `dist`.
 
-## Tema anterior · Liquid Aurora
+## Design Obsidian
 
-O tema anterior foi implementado em `src/styles/aurora.css` e `src/views/aurora.js`.
-A entrada padrão abre o veículo com o painel de sistemas e subsistemas. O botão
-**Explorar fluxograma** abre a árvore do componente; todas as rotas anteriores
-continuam disponíveis. O controle **Liquid Aurora** suaviza os reflexos.
+O design aprovado no pacote Obsidian está em `src/styles/obsidian.css`.
+`src/views/aurora.js` mantém seu nome histórico e compõe a visão geral do veículo.
+A navegação principal reúne Veículo, Homologação e Biblioteca; **Mais acessos e
+preferências** preserva as consultas por órgão, árvores, etiquetas/VIN e temas.
+No celular, a navegação principal fica na base da tela.
 
-Os temas compartilham a vista vetorial atual fornecida no ZIP e os mesmos 37
-contornos de interação. As pranchas anteriores permanecem nos detalhes dos
-subsistemas. Os dados normativos, requisitos e ressalvas permanecem os mesmos.
+A vista usa os 37 contornos originais, sem alterar coordenadas. A prévia WebP
+omite somente o retângulo branco do fundo; o SVG fornecido permanece intacto.
+Seleção visual e controles textuais consultam o mesmo mapa de relacionamentos.
+O mapa de homologação adota a composição aprovada e mantém as árvores expansíveis
+de etapas, atividades e referências do acervo real. A busca por Ctrl/Cmd+K abre
+uma consulta contextual sem abandonar a seleção ou os filtros da página.
 
-O tema também cobre biblioteca, consultas por órgão, etiquetas/VIN, árvores,
-fluxo de homologação e diálogos. A suíte `tests/aurora-browser.py` verifica seleção
-por imagem, 14 entradas, subsistemas, fontes, busca e navegação móvel. Os baselines
-visuais foram revisados para o tema aprovado.
+Veja [o registro de implementação](docs/obsidian-implementation.md),
+[as decisões de produto](PRODUCT.md) e [o sistema visual](DESIGN.md).
+O redesenho não altera legislação, estados de revisão ou dados editoriais.
 
 ## Portal consultivo
 
@@ -571,22 +574,18 @@ Diário Oficial automaticamente.
 
 ## Tema escuro e revisão de navegação
 
-O padrão é Escuro MOVER. O seletor **Tema**, no cabeçalho, também oferece Claro e
-Aurora; a preferência é salva neste navegador e aplicada antes da primeira
-pintura. As três paletas vêm de
-`FLeone2/mover-saas/src/mover/web/static/themes.css`, em `src/styles/theme-tokens.css`.
-`src/styles/mover-dark.css` aplica os estados compartilhados e os materiais de vidro
-somente ao tema Aurora. `src/core/theme.js` controla a escolha, inclusive quando
-o armazenamento está bloqueado. A escolha da paleta é independente da vista
-vetorial atual.
+O padrão é **Obsidian**. O seletor **Tema**, em **Mais acessos e preferências**,
+também oferece Claro e Aurora. A preferência é aplicada antes da primeira
+pintura e salva neste navegador; o funcionamento com armazenamento bloqueado
+continua coberto por testes. As paletas alternativas preservam sua origem no
+MOVER, enquanto o padrão usa os valores aprovados no pacote Obsidian.
+`src/core/theme.js` mantém a escolha independente da seleção e do zoom.
 
-Os realces do veículo são transitórios (mouse ou teclado), com uma única cor.
-A seleção continua no painel e nos cartões. Tanque, baterias, bancos, rodas e
-demais conjuntos usam as silhuetas fornecidas com a mesma vista vetorial, sem
-montagens intermediárias. Posicionamento e contornos compartilham as coordenadas
-do SVG e o zoom. Os seletores visuais de
-perfil, que não filtravam a legislação, foram retirados da interface; URLs
-anteriores continuam compatíveis. Trocar o tema preserva rota, zoom e seleção.
+Os realces transitórios usam a cor de destaque do tema. Tanque, baterias,
+bancos e rodas compartilham a mesma vista e a mesma transformação dos contornos.
+Os controles de categoria e powertrain indicam perfil de consulta; sua seleção
+não comprova aplicabilidade de uma norma. No celular, a categoria fica nas
+preferências para manter a imagem e a seleção acessíveis.
 
 `tests/checkup-browser.py` percorre todos os menus em computador e celular,
 os 14 acessos ao veículo, seus subsistemas, as atividades do fluxo, os detalhes

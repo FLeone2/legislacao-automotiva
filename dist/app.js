@@ -178,13 +178,6 @@ $('#normDialog').addEventListener('click', (e) => {
       e.target.close();
   }
 });
-$('#globalSearch').addEventListener('input', (e) => {
-  state.query = e.target.value;
-  state.agency = '';
-  state.filterComponent = '';
-  state.stage = '';
-  navigate(libraryRoute({ q: state.query }).slice(1));
-});
 document.addEventListener('keydown', (e) => {
   const part = e.target.closest('[data-part]');
   if (part && ['Enter', ' '].includes(e.key)) {
@@ -194,7 +187,7 @@ document.addEventListener('keydown', (e) => {
   }
   if (e.key === '/' && !['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) {
     e.preventDefault();
-    $('#globalSearch').focus();
+    openCatalogSearch(true);
   }
 });
 for (const id of ['vehicleType', 'powertrain'])

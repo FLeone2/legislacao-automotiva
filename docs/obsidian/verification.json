@@ -1,0 +1,52 @@
+{
+  "viewports": [
+    1600,
+    1440,
+    1024,
+    768,
+    430,
+    390,
+    375
+  ],
+  "errors": [],
+  "search": "canonical catalog, empty state, keyboard, focus, part selection, library and browser return",
+  "flow": "contextual stage panel, reversible activity selection and original expandable tree",
+  "routes": 11,
+  "preferences": "mobile category, reduced motion, keyboard-instant palette and honest unavailable assistant",
+  "accessibility": "six WCAG A/AA checks: stage inspector and search in three palettes",
+  "unitTests": {
+    "javascript": 56,
+    "python": 71
+  },
+  "browserSuites": 19,
+  "axeCases": 82,
+  "visualBaselines": [
+    {
+      "name": "vehicle-wheel",
+      "mismatchRatio": 0.0
+    },
+    {
+      "name": "vehicle-tank",
+      "mismatchRatio": 0.0
+    },
+    {
+      "name": "vehicle-batteries",
+      "mismatchRatio": 0.0
+    },
+    {
+      "name": "flow-overview",
+      "mismatchRatio": 0.0
+    },
+    {
+      "name": "vehicle-mobile",
+      "mismatchRatio": 0.0
+    }
+  ],
+  "editorialDataChanged": false,
+  "previewDerivativesVerified": 38,
+  "independentReview": {
+    "initialFixesResolved": 4,
+    "finalVerdict": "ship",
+    "finalScope": "Correção da reserva de espaço para a seta; não é uma nova auditoria completa."
+  }
+}

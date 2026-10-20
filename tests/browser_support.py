@@ -49,3 +49,26 @@ async def wait_for_route(page):
         const main=document.querySelector('#main');
         return main?.dataset.renderedRoute===location.hash && main.getAttribute('aria-busy')==='false';
     }""")
+
+
+async def open_preferences(page):
+    """Secondary routes and theme controls share the approved compact menu."""
+    toggle = page.locator("#navigationToggle")
+    if await toggle.get_attribute("aria-expanded") != "true":
+        await toggle.click()
+
+
+async def select_theme(page, theme):
+    await open_preferences(page)
+    await page.get_by_label("Tema", exact=True).select_option(theme)
+    await page.locator("#navigationToggle").click()
+
+
+async def click_navigation(page, view):
+    link = page.locator(f'[data-nav="{view}"]')
+    if not await link.is_visible():
+        await open_preferences(page)
+    group = link.locator("xpath=ancestor::details")
+    if await group.count() and await group.get_attribute("open") is None:
+        await group.locator("summary").click()
+    await link.click()

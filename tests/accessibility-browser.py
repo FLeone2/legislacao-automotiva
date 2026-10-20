@@ -4,7 +4,7 @@ import asyncio
 import json
 from pathlib import Path
 from playwright.async_api import async_playwright
-from browser_support import launch_options, TestServer
+from browser_support import launch_options, TestServer, select_theme
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "tests/artifacts"
@@ -61,7 +61,7 @@ async def main(base):
         ]:
             await page.goto(base + "#" + route)
             await page.locator(ready).first.wait_for()
-            await page.get_by_label("Tema", exact=True).select_option(theme)
+            await select_theme(page, theme)
             await page.add_script_tag(
                 path=str(ROOT / "node_modules/axe-core/axe.min.js")
             )
@@ -82,6 +82,9 @@ async def main(base):
                     }
                 )
         await page.goto(base + "#vehicle")
+        # A fresh document starts the tab sequence; changing a hash deliberately
+        # retains the compact preference trigger's keyboard focus.
+        await page.reload()
         await page.locator("#vehicleDrawing").wait_for()
         await page.keyboard.press("Tab")
         assert await page.locator(".skip-link").evaluate(

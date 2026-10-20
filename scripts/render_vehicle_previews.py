@@ -223,6 +223,26 @@ def image_details(path):
     }
 
 
+def transparent_vehicle_source(payload):
+    """Omit the supplied canvas, preserving every painted part and coordinate.
+
+    This is a render input only: never rewrite the original SVG or its geometry.
+    """
+    root = ET.fromstring(payload)
+    backgrounds = [child for child in root if child.get("id") == "fundo_branco"]
+    require(len(backgrounds) == 1, "Expected the single supplied white canvas")
+    background = backgrounds[0]
+    require(
+        background.tag == "{http://www.w3.org/2000/svg}rect"
+        and background.get("fill") == "#ffffff"
+        and background.get("width") == root.get("width")
+        and background.get("height") == root.get("height"),
+        "Do not remove an unexpected drawing object",
+    )
+    root.remove(background)
+    return ET.tostring(root, encoding="utf-8", xml_declaration=True)
+
+
 def lossless_webp(path):
     payload = path.read_bytes()
     require(
@@ -251,7 +271,7 @@ def recipe():
         "mainDimensions": list(MAIN_DIMENSIONS),
         "partMaxDimension": PART_MAX_DIMENSION,
         "partSizing": "Scale the SVG viewport to a longest edge of 768 px; preserve aspect ratio",
-        "background": "Preserve source transparency; no added background or trim",
+        "background": "Parts retain source transparency; main preview omits only rect#fundo_branco; no trim",
         "encoding": [
             "magick",
             "rendered.png",
@@ -291,7 +311,13 @@ def generate():
             geometry = source_geometry(source)
             width, height = dimensions(asset_id, geometry)
             png, webp = temporary / f"{asset_id}.png", temporary / f"{asset_id}.webp"
-            renderer.render(source, png, width, height)
+            render_source = source
+            if asset_id == "vehicle":
+                render_source = temporary / "vehicle-transparent.svg"
+                render_source.write_bytes(
+                    transparent_vehicle_source(source.read_bytes())
+                )
+            renderer.render(render_source, png, width, height)
             subprocess.run(
                 [
                     magick,
@@ -317,8 +343,7 @@ def generate():
                     digest(rendered.convert("RGBA").tobytes()) == image["rgbaSha256"],
                     f"WebP changed source PNG pixels: {asset_id}",
                 )
-            if asset_id != "vehicle":
-                require(image["hasTransparency"], f"Part lost transparency: {asset_id}")
+            require(image["hasTransparency"], f"Preview lost transparency: {asset_id}")
             output = output_directory / webp.name
             # Each image appears only after the complete renderer/encoder checks.
             output.write_bytes(webp.read_bytes())
@@ -396,8 +421,7 @@ def check():
             (image["width"], image["height"]) == dimensions(asset_id, geometry),
             f"Wrong preview dimensions: {asset_id}",
         )
-        if asset_id != "vehicle":
-            require(image["hasTransparency"], f"Opaque part preview: {asset_id}")
+        require(image["hasTransparency"], f"Opaque preview: {asset_id}")
         outputs.add(expected_output)
     require(outputs == set((ROOT / OUTPUT).glob("*.webp")), "Unexpected preview assets")
     print(

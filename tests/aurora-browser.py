@@ -1,7 +1,7 @@
 import asyncio
 from pathlib import Path
 from playwright.async_api import async_playwright, expect
-from browser_support import TestServer, launch_options
+from browser_support import open_preferences, TestServer, launch_options
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -94,9 +94,12 @@ async def main(base):
         await page.goto(base + "#vehicle")
         await page.locator(".aurora-explorer").wait_for()
         await expect(page.locator("html")).to_have_attribute("data-theme", "dark")
+        await open_preferences(page)
         await expect(page.get_by_label("Tema", exact=True)).to_be_visible()
+        await page.locator("#navigationToggle").click()
+        await page.locator("#searchTrigger").click()
         await page.locator("#globalSearch").fill("951")
-        await page.locator("#globalSearch").press("Enter")
+        await page.locator("#searchAllResults").click()
         await page.locator(".document").first.wait_for()
         assert "951" in await page.locator("#main").inner_text()
         await page.set_viewport_size({"width": 390, "height": 844})

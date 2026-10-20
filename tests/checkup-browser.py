@@ -4,7 +4,7 @@ import asyncio
 import json
 from pathlib import Path
 from playwright.async_api import async_playwright, expect
-from browser_support import TestServer, launch_options, wait_for_route
+from browser_support import click_navigation, TestServer, launch_options, wait_for_route
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -144,11 +144,11 @@ async def main():
             report["partGaps"].append(part)
         # Every primary route uses actual sidebar links, followed by mobile navigation.
         await route("#vehicle")
-        links = await page.locator(".main-nav [data-nav]").evaluate_all(
+        links = await page.locator("[data-nav]").evaluate_all(
             'els=>els.filter(e=>getComputedStyle(e).display!=="none").map(e=>({id:e.dataset.nav,href:e.getAttribute("href")}))'
         )
         for link in links:
-            await page.locator(f'.main-nav [data-nav="{link["id"]}"]').click()
+            await click_navigation(page, link["id"])
             await wait_for_route(page)
             assert await page.locator("#main h1").count() == 1, link
             assert not await page.evaluate(
@@ -158,7 +158,7 @@ async def main():
         await page.set_viewport_size({"width": 390, "height": 844})
         for link in links:
             await page.locator("#navigationToggle").click()
-            await page.locator(f'.main-nav [data-nav="{link["id"]}"]').click()
+            await click_navigation(page, link["id"])
             await wait_for_route(page)
             assert (
                 await page.locator("#navigationToggle").get_attribute("aria-expanded")
@@ -168,7 +168,7 @@ async def main():
                 "document.documentElement.scrollWidth>innerWidth"
             ), link
         await page.locator("#navigationToggle").click()
-        await page.locator(".sidebar .brand").click()
+        await page.locator(".brand").click()
         await wait_for_route(page)
         assert (
             await page.locator("#navigationToggle").get_attribute("aria-expanded")

@@ -112,7 +112,7 @@ function vehicleMap() {
       return `<a id="${esc(part.id)}" href="#vehicle?${esc(q)}" data-component-link="${component.id}" data-map-part="${esc(part.id)}" data-map-label="${esc(part.label)}" aria-label="${esc(part.label)}"><path id="${esc(part.contourId)}" class="component-region" d="${part.path}" fill-rule="evenodd" pointer-events="all"><title>${esc(part.label)}</title></path></a>`;
     })
     .join('');
-  return `<div class="catalog-stage"><svg id="vehicleDrawing" viewBox="${vehicleVector.viewBox}" role="group" aria-label="Vista explodida do veículo híbrido: selecione um conjunto"><g id="vehicleLayer"><image id="vehicleVectorArt" href="${vehicleVector.displayAsset || vehicleVector.asset}" width="${vehicleVector.width}" height="${vehicleVector.height}"/>${hotspots}</g></svg><div class="vehicle-drawing-bar"><output id="componentHover" class="component-hover" aria-live="polite">Selecione um conjunto</output><div class="vehicle-drawing-tools"><button data-vehicle-zoom="out" aria-label="Diminuir imagem do veículo">−</button><button data-vehicle-zoom="reset" aria-label="Restaurar imagem do veículo"><output id="vehicleImageZoom">100%</output></button><button data-vehicle-zoom="in" aria-label="Ampliar imagem do veículo">+</button></div></div></div>`;
+  return `<div class="catalog-stage"><svg id="vehicleDrawing" viewBox="${vehicleVector.viewBox}" role="group" aria-label="Vista explodida do veículo híbrido: selecione um conjunto"><g id="vehicleLayer"><image id="vehicleVectorArt" href="${vehicleVector.displayAsset || vehicleVector.asset}" width="${vehicleVector.width}" height="${vehicleVector.height}"/>${hotspots}</g></svg><div class="vehicle-drawing-bar"><output id="componentHover" class="component-hover" aria-live="polite">Explore pela imagem ou escolha um sistema abaixo.</output><div class="vehicle-drawing-tools glass"><button data-vehicle-zoom="out" aria-label="Diminuir imagem do veículo">−</button><button data-vehicle-zoom="reset" aria-label="Restaurar imagem do veículo"><output id="vehicleImageZoom">100%</output></button><button data-vehicle-zoom="in" aria-label="Ampliar imagem do veículo">+</button><button data-vehicle-fit aria-label="Ajustar imagem do veículo">Ajustar</button></div></div></div>`;
 }
 
 function renderVehicle() {
@@ -369,10 +369,10 @@ function setupComponentHover() {
 }
 if (typeof document !== 'undefined') {
   document.addEventListener('click', (e) => {
-    const zoom = e.target.closest('[data-vehicle-zoom]');
+    const zoom = e.target.closest('[data-vehicle-zoom], [data-vehicle-fit]');
     if (zoom) {
       vehicleUI.zoom =
-        zoom.dataset.vehicleZoom === 'reset'
+        zoom.dataset.vehicleZoom === 'reset' || zoom.hasAttribute('data-vehicle-fit')
           ? 1
           : Math.max(
               1,
@@ -392,6 +392,7 @@ if (typeof document !== 'undefined') {
         `translate(${anchor[0]} ${anchor[1]}) scale(${vehicleUI.zoom}) translate(${-anchor[0]} ${-anchor[1]})`,
       );
       $('#vehicleImageZoom').textContent = Math.round(vehicleUI.zoom * 100) + '%';
+      if (typeof updateVehicleSelectionPin === 'function') updateVehicleSelectionPin();
       return;
     }
     const link = e.target.closest('[data-component-link],[data-vehicle-back]');
