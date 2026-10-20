@@ -1,59 +1,62 @@
-/* Palettes from FLeone2/mover-saas/src/mover/web/static/themes.css. */
+/* Warm palettes (dark is the default, light is the paper variant); Aurora is kept as before. */
 
 :root,
 [data-theme='dark'] {
   --scheme: dark;
-  --bg: #050607;
-  --surface: #111315;
-  --surface-2: #17191b;
-  --surface-3: #1e2023;
-  --sidebar-bg: rgba(10, 11, 12, 0.82);
-  --appbar-bg: rgba(10, 11, 12, 0.9);
-  --drawer-bg: #0a0b0c;
-  --border: rgba(255, 255, 255, 0.1);
-  --field-border: rgba(255, 255, 255, 0.38);
-  --ink: #f5f5f7;
-  --ink-2: #a1a1a6;
-  --muted: #8b8b92;
-  --accent: #f47721;
-  --accent-soft: rgba(244, 119, 33, 0.16);
-  --on-accent: #1a0d03;
-  --accent-ink: var(--accent);
-  --focus-ring: var(--accent);
-  --good: #30d158;
-  --warning: #ffb020;
-  --warning-soft: rgba(255, 176, 32, 0.15);
-  --warning-line: rgba(255, 176, 32, 0.45);
-  --shadow-pop: 0 8px 24px rgba(0, 0, 0, 0.5);
-  --backdrop: rgba(0, 0, 0, 0.62);
-  --app-wash: radial-gradient(760px 420px at 92% -12%, rgba(244, 119, 33, 0.05), transparent 62%);
+  --bg: #181411;
+  --surface: #211c17;
+  --surface-2: #2a241e;
+  --surface-3: #342d26;
+  --sidebar-bg: #1c1713;
+  --appbar-bg: rgba(24, 20, 17, 0.92);
+  --drawer-bg: #1c1713;
+  --border: rgba(255, 232, 205, 0.11);
+  --field-border: rgba(255, 232, 205, 0.34);
+  --ink: #f4ece1;
+  --ink-2: #cdbfae;
+  --muted: #a99b8a;
+  --accent: #f08a4b;
+  --accent-soft: rgba(240, 138, 75, 0.15);
+  --on-accent: #1f0f05;
+  --accent-ink: #f59a5f;
+  --focus-ring: #f6b17f;
+  --good: #7fd18f;
+  --warning: #f2b84b;
+  --warning-soft: rgba(242, 184, 75, 0.13);
+  --warning-line: rgba(242, 184, 75, 0.4);
+  --shadow-pop: 0 10px 30px rgba(0, 0, 0, 0.45);
+  --backdrop: rgba(10, 7, 4, 0.62);
+  --stage: #efe8dc;
+  --app-wash: radial-gradient(900px 480px at 88% -10%, rgba(240, 138, 75, 0.07), transparent 62%);
 }
 
 [data-theme='light'] {
   --scheme: light;
-  --bg: #f4f6f8;
-  --surface: #ffffff;
-  --surface-2: #f8fafb;
-  --surface-3: #eef2f6;
-  --sidebar-bg: rgba(250, 251, 252, 0.86);
-  --appbar-bg: rgba(250, 251, 252, 0.92);
-  --drawer-bg: #fafbfc;
-  --border: #d9e0e7;
-  --field-border: #7d8d9f;
-  --ink: #17243a;
-  --ink-2: #46566a;
-  --muted: #5f7086;
-  --accent: #e96414;
-  --accent-soft: rgba(233, 100, 20, 0.12);
-  --on-accent: #2a1002;
-  --accent-ink: #a8460a;
-  --good: #0e6b4d;
-  --warning: #8a5300;
-  --warning-soft: rgba(138, 83, 0, 0.12);
-  --warning-line: rgba(138, 83, 0, 0.5);
-  --shadow-pop: 0 8px 24px rgba(23, 36, 58, 0.14);
-  --backdrop: rgba(23, 36, 58, 0.38);
-  --app-wash: radial-gradient(760px 420px at 92% -12%, rgba(233, 100, 20, 0.05), transparent 62%);
+  --bg: #f5efe4;
+  --surface: #fffaf1;
+  --surface-2: #faf3e6;
+  --surface-3: #f0e7d6;
+  --sidebar-bg: #efe6d6;
+  --appbar-bg: rgba(245, 239, 228, 0.92);
+  --drawer-bg: #f0e8d9;
+  --border: #e0d3bc;
+  --field-border: #8f7f69;
+  --ink: #2c241b;
+  --ink-2: #54473a;
+  --muted: #6f6052;
+  --accent: #b9470f;
+  --accent-soft: rgba(185, 71, 15, 0.1);
+  --on-accent: #fff8f0;
+  --accent-ink: #8f3709;
+  --focus-ring: #b9470f;
+  --good: #1f6b45;
+  --warning: #7a4a00;
+  --warning-soft: rgba(122, 74, 0, 0.1);
+  --warning-line: rgba(122, 74, 0, 0.45);
+  --shadow-pop: 0 10px 30px rgba(74, 52, 24, 0.16);
+  --backdrop: rgba(44, 36, 27, 0.4);
+  --stage: #fffaf1;
+  --app-wash: radial-gradient(900px 480px at 88% -10%, rgba(185, 71, 15, 0.06), transparent 62%);
 }
 
 [data-theme='aurora'] {
@@ -126,4 +129,13 @@ html[data-theme] {
   --blue: var(--accent-ink);
   --teal: var(--accent-ink);
   --line: var(--border);
+}
+
+:root {
+  --font-body: Figtree, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: Fraunces, Georgia, 'Times New Roman', serif;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --stage: #f4f4f5;
 }

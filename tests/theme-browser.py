@@ -10,8 +10,8 @@ BASE = os.environ.get("VEHICLE_TEST_URL", "http://127.0.0.1:8000/").rstrip("/") 
 ROOT = Path(__file__).resolve().parents[1]
 KEY = "legislacao-automotiva.theme"
 PALETTES = {
-    "dark": ("rgb(5, 6, 7)", "rgb(17, 19, 21)"),
-    "light": ("rgb(244, 246, 248)", "rgb(255, 255, 255)"),
+    "dark": ("rgb(24, 20, 17)", "rgb(33, 28, 23)"),
+    "light": ("rgb(245, 239, 228)", "rgb(255, 250, 241)"),
     "aurora": ("rgb(8, 15, 25)", "rgb(21, 30, 41)"),
 }
 

@@ -311,7 +311,7 @@ function renderTree(mode) {
   }
   const selected = model.nodes[ui.selected];
   $('#main').innerHTML =
-    `<div class="tree-page-head"><div class="eyebrow">${mover ? 'Políticas automotivas · MOVER' : 'Árvore regulatória · Brasil'}</div><h1>${mover ? 'MOVER' : 'Legislação por assunto'}</h1><p class="subtitle">${mover ? 'Explore requisitos, incentivos e procedimentos em seus próprios ramos.' : ''}</p><div class="tree-context"><span>🇧🇷 Brasil</span><span>Âmbito federal</span><span>${mover ? '13 referências temáticas' : catalog.records.length + ' entradas documentais'}</span><span class="context-note">Consulta temática · aplicabilidade a verificar</span></div></div><div class="tree-breadcrumb" aria-label="Caminho selecionado">${nodeTrail(
+    `<div class="tree-page-head"><h1>${mover ? 'MOVER' : 'Legislação por assunto'}</h1><p class="subtitle">${mover ? 'Explore requisitos, incentivos e procedimentos em seus próprios ramos.' : ''}</p><p class="tree-context">Âmbito federal · ${mover ? '13 referências temáticas' : catalog.records.length + ' entradas documentais'} · consulta temática; aplicabilidade a verificar</p></div><div class="tree-breadcrumb" aria-label="Caminho selecionado">${nodeTrail(
       selected.id,
       model,
     )

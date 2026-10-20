@@ -9,6 +9,9 @@ async function render() {
   const renderId = ++renderSequence;
   const main = $('#main');
   main.setAttribute('aria-busy', 'true');
+  main.classList.remove('is-entering');
+  void main.offsetWidth;
+  main.classList.add('is-entering');
   try {
     $('#app').classList.remove('homologation-flow-mode', 'aurora-home');
     for (const handler of [
@@ -68,7 +71,6 @@ async function render() {
       library: renderLibrary,
       flow: renderFlow,
       updates: renderUpdates,
-      ai: renderAI,
       contran: renderContran,
       proconve: renderProconve,
       inmetro: renderInmetro,

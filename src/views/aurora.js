@@ -169,7 +169,6 @@ document.documentElement.classList.add('liquid-aurora');
 $('.brand').innerHTML =
   '<svg class="aurora-logo" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 5 5 40h17l6-11M28 13l15 27H27l-7-12" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Legislação<br> Automotiva</strong>';
 $('.brand').setAttribute('href', '#vehicle');
-$('.brand-pill').textContent = 'Legislação';
 const navIconMap = {
   vehicle: 'car',
   flow: 'flow',

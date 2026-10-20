@@ -45,9 +45,14 @@ function filters() {
       ).includes(norm(state.query)),
   );
 }
+const libraryDate = new Intl.DateTimeFormat('pt-BR', { dateStyle: 'medium', timeZone: 'UTC' });
+function libraryDateText(value) {
+  const date = value ? new Date(value + 'T00:00:00Z') : null;
+  return date && !Number.isNaN(date.getTime()) ? libraryDate.format(date) : 'não informada';
+}
 function documentCard(r) {
-  const themes = [...new Set((r.taxonomy || []).map(systemLabel))];
-  return `<article class="document"><div class="row"><span class="tag">${esc(r.issuer || r.agency)}</span><span class="status">${esc(r.status)}</span></div><h3>${esc(r.title)}</h3><p>${esc(r.summary)}</p><p class="document-context">${esc(themes.slice(0, 3).join(' · ') || 'Assunto transversal')}<br>Revisão do registro: ${esc(r.reviewDate || 'não informada')} · ${esc(libraryReviewLabels[libraryReview(r)])}</p><div class="links"><button data-open="${esc(r.id)}">Resumo, escopo e alterações →</button>${safeLink(r.officialUrl, 'Fonte oficial')}</div></article>`;
+  const themes = [...new Set((r.taxonomy || []).map(systemLabel))].slice(0, 3);
+  return `<article class="document"><header class="document-top"><span class="tag">${esc(r.issuer || r.agency)}</span><span class="status">${esc(r.status)}</span></header><h3>${esc(r.title)}</h3><p class="document-summary">${esc(r.summary)}</p><ul class="document-themes" aria-label="Assuntos">${(themes.length ? themes : ['Assunto transversal']).map((t) => `<li>${esc(t)}</li>`).join('')}</ul><p class="document-context">Registro revisado em ${esc(libraryDateText(r.reviewDate))} · ${esc(libraryReviewLabels[libraryReview(r)])}</p><div class="links"><button data-open="${esc(r.id)}">Ver resumo, escopo e alterações</button>${safeLink(r.officialUrl, 'Fonte oficial')}</div></article>`;
 }
 function updateList() {
   const rows = filters();
@@ -59,24 +64,30 @@ function updateList() {
     pages > 1
       ? `<a class="btn" href="${esc(libraryRoute({ ...libraryValues(), page: state.libraryPage > 1 ? state.libraryPage - 1 : pages }))}">${state.libraryPage > 1 ? '← Anterior' : 'Última página'}</a><span>Página ${state.libraryPage} de ${pages}</span><a class="btn" href="${esc(libraryRoute({ ...libraryValues(), page: state.libraryPage < pages ? state.libraryPage + 1 : '' }))}">${state.libraryPage < pages ? 'Próxima →' : 'Primeira página'}</a>`
       : '';
+  const total = catalog.records.length;
   $('#resultCount').textContent =
-    `${rows.length} de ${catalog.records.length} entradas documentais · associações temáticas para consulta`;
+    (rows.length === total ? `${total} referências` : `${rows.length} de ${total} referências`) +
+    (pages > 1 ? ` · página ${state.libraryPage} de ${pages}` : '');
   $('#documents').innerHTML =
     visible.map(documentCard).join('') ||
     '<div class="empty"><h3>Nenhum resultado com estes filtros</h3><p>Tente outro termo ou limpe os filtros.</p><button class="btn" id="clearEmpty">Limpar filtros</button></div>';
   if (state.view === 'library' && $('#relatedNorms')) renderRelated();
   const url = libraryRoute(libraryValues());
   $('#libraryPermalink').href = url;
-  $('#libraryQuerySummary').textContent =
-    [
-      state.query && `Busca: ${state.query}`,
-      state.agency,
-      state.filterComponent && systemLabel(state.filterComponent),
-      state.stage && catalog.metadata.stages.find((s) => s.id === state.stage)?.label,
-      libraryReviewLabels[state.review],
-    ]
-      .filter(Boolean)
-      .join(' · ') || 'Exibindo todo o acervo. Escolha um assunto ou combine os filtros.';
+  const chips = [
+    [state.query && `Busca: ${state.query}`, 'query'],
+    [state.agency, 'agency'],
+    [state.filterComponent && systemLabel(state.filterComponent), 'filterComponent'],
+    [state.stage && catalog.metadata.stages.find((x) => x.id === state.stage)?.label, 'stage'],
+    [state.review && libraryReviewLabels[state.review], 'review'],
+  ].filter(([label]) => label);
+  $('#libraryChips').innerHTML = chips
+    .map(
+      ([label, key]) =>
+        `<button class="chip" type="button" data-clear-filter="${key}" aria-label="Remover filtro: ${esc(label)}">${esc(label)}<span aria-hidden="true">×</span></button>`,
+    )
+    .join('');
+  $('#clearFilters').hidden = !chips.length;
 }
 function consultationSources() {
   return `<details class="consultation-sources"><summary id="consultationSourcesTitle">Fontes e revisão</summary><p>Os recortes abaixo reúnem referências por órgão. As contagens não representam cobertura integral da legislação nem confirmação de aplicação ao veículo.</p><div class="consultation-source-grid">${Object.entries(
@@ -107,17 +118,20 @@ function renderLibrary() {
   state.review = Object.hasOwn(libraryReviewLabels, q.get('review')) ? q.get('review') : '';
   $('#globalSearch').value = state.query;
   const selected = (s) => (s ? ' selected' : '');
+  const field = (label, control) =>
+    `<label class="filter-field"><span>${label}</span>${control}</label>`;
   $('#main').innerHTML =
-    `<div class="eyebrow">Portal consultivo · acervo de referência</div><h1>Biblioteca de legislação</h1><p class="subtitle">Busque por norma ou assunto.</p><details class="consultation-help"><summary>Como encontrar a legislação pertinente</summary><p>Pesquise o número da norma ou termos como bancos, emissões, rádio e VIN. Combine os filtros para delimitar o assunto. Categorias transversais reúnem temas que não pertencem a uma peça do veículo.</p><p>Os filtros organizam informações; não determinam automaticamente quais obrigações se aplicam a um veículo. Confira categoria, datas, configuração e exceções no texto oficial.</p></details><div class="library-toolbar"><input id="librarySearch" aria-label="Pesquisar na biblioteca" placeholder="Nome, número da norma ou assunto…" value="${esc(state.query)}"><select id="agencyFilter" aria-label="Filtrar órgão ou programa"><option value="">Órgãos e programas</option>${['SENATRAN', 'IBAMA', 'INMETRO', 'ANATEL', 'MOVER'].map((a) => `<option${selected(state.agency === a)}>${a}</option>`).join('')}</select><select id="componentFilter" aria-label="Filtrar componente"><option value="">Todos os componentes e temas</option>${catalog.metadata.hierarchy.map((g) => `<optgroup label="${esc(g.label)}"><option value="${g.id}"${selected(state.filterComponent === g.id)}>${esc(g.label)} · todos os assuntos</option>${g.children.map((c) => `<option value="${c.id}"${selected(state.filterComponent === c.id)}>${esc(c.label)}</option>`).join('')}</optgroup>`).join('')}</select><select id="stageFilter" aria-label="Filtrar etapa"><option value="">Todas as etapas</option>${catalog.metadata.stages.map((c) => `<option value="${c.id}"${selected(state.stage === c.id)}>${esc(c.label)}</option>`).join('')}</select><select id="reviewFilter" aria-label="Filtrar profundidade da revisão"><option value="">Todos os níveis de revisão</option>${Object.entries(
-      libraryReviewLabels,
-    )
-      .map(
-        ([id, label]) =>
-          `<option value="${id}"${selected(state.review === id)}>${esc(label)}</option>`,
+    `<header class="page-head"><h1>Biblioteca de legislação</h1><p class="subtitle">Pesquise por número, tema ou órgão e combine os filtros para chegar à norma certa.</p></header><section class="filter-panel" aria-label="Pesquisa e filtros"><div class="filter-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg><input id="librarySearch" type="search" aria-label="Pesquisar na biblioteca" placeholder="Nome, número da norma ou assunto…" autocomplete="off" spellcheck="false" value="${esc(state.query)}"></div><div class="filter-row">${field('Órgão ou programa', `<select id="agencyFilter"><option value="">Todos</option>${['SENATRAN', 'IBAMA', 'INMETRO', 'ANATEL', 'MOVER'].map((a) => `<option${selected(state.agency === a)}>${a}</option>`).join('')}</select>`)}${field('Componente ou tema', `<select id="componentFilter"><option value="">Todos</option>${catalog.metadata.hierarchy.map((g) => `<optgroup label="${esc(g.label)}"><option value="${g.id}"${selected(state.filterComponent === g.id)}>${esc(g.label)} · todos os assuntos</option>${g.children.map((c) => `<option value="${c.id}"${selected(state.filterComponent === c.id)}>${esc(c.label)}</option>`).join('')}</optgroup>`).join('')}</select>`)}${field('Etapa da homologação', `<select id="stageFilter"><option value="">Todas</option>${catalog.metadata.stages.map((c) => `<option value="${c.id}"${selected(state.stage === c.id)}>${esc(c.label)}</option>`).join('')}</select>`)}${field(
+      'Profundidade da revisão',
+      `<select id="reviewFilter"><option value="">Todas</option>${Object.entries(
+        libraryReviewLabels,
       )
-      .join(
-        '',
-      )}</select><button class="btn" id="clearFilters">Limpar</button></div><p class="library-query-summary" id="libraryQuerySummary"></p><div class="consultation-query-actions"><a class="btn" id="libraryPermalink" href="#library">Link desta consulta</a><button class="btn" id="copyLibraryLink">Copiar link</button><span id="libraryCopyStatus" role="status"></span></div><div class="count-line" id="resultCount" role="status" aria-live="polite"></div><div class="document-list" id="documents"></div><nav id="libraryPagination" class="consultation-query-actions" aria-label="Páginas da biblioteca"></nav>${consultationSources()}<p class="scope-note">CONTRAN, PROCONVE, Inmetro e Anatel: conferência registrada em 18/10/2026, com profundidades distintas. Consulte os detalhes de cada referência e as <a href="#updates">pendências de atualização</a>.</p>`;
+        .map(
+          ([id, label]) =>
+            `<option value="${id}"${selected(state.review === id)}>${esc(label)}</option>`,
+        )
+        .join('')}</select>`,
+    )}</div><div class="filter-foot"><div class="filter-chips" id="libraryChips"></div><button class="btn quiet" id="clearFilters" type="button">Limpar filtros</button></div></section><div class="results-head"><p class="count-line" id="resultCount" role="status" aria-live="polite"></p><div class="results-actions"><a id="libraryPermalink" href="#library">Abrir este link</a><button class="btn quiet" id="copyLibraryLink" type="button">Copiar link</button><span id="libraryCopyStatus" role="status"></span></div></div><div class="document-list" id="documents"></div><nav id="libraryPagination" class="pagination" aria-label="Páginas da biblioteca"></nav><details class="consultation-help"><summary>Como interpretar os resultados</summary><p>Pesquise o número da norma ou termos como bancos, emissões, rádio e VIN. Categorias transversais reúnem temas que não pertencem a uma peça do veículo.</p><p>Os filtros organizam informações; não determinam quais obrigações se aplicam a um veículo. Confira categoria, datas, configuração e exceções no texto oficial.</p></details>${consultationSources()}<p class="scope-note">CONTRAN, PROCONVE, Inmetro e Anatel: conferência registrada em 18/10/2026, com profundidades distintas. Consulte os detalhes de cada referência e as <a href="#updates">pendências de atualização</a>.</p>`;
   updateList();
   $('#librarySearch').addEventListener('input', (e) => {
     state.query = e.target.value;
@@ -139,6 +153,17 @@ function renderLibrary() {
       updateList();
     });
   }
+  $('#libraryChips').addEventListener('click', (e) => {
+    const chip = e.target.closest('[data-clear-filter]');
+    if (!chip) return;
+    const key = chip.dataset.clearFilter === 'query' ? 'query' : chip.dataset.clearFilter;
+    state[key] = '';
+    if (key === 'query') $('#globalSearch').value = '';
+    state.libraryPage = 1;
+    history.pushState(null, '', libraryRoute(libraryValues()));
+    renderLibrary();
+    $('#librarySearch').focus({ preventScroll: true });
+  });
   $('#copyLibraryLink').onclick = async () => {
     const url = new URL(libraryRoute(libraryValues()), location.href).href;
     try {

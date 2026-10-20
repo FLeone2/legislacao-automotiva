@@ -9,6 +9,13 @@
     />
     <title>Legislação Automotiva</title>
     <link
+      href="src/fonts/figtree-latin-wght-normal.woff2"
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath d='M24 5 5 40h17l6-11M28 13l15 27H27l-7-12' fill='none' stroke='%23f47721' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"
       rel="icon"
     />
@@ -18,14 +25,14 @@
     <link href="src/styles/aurora.css?v=20261019-dark" rel="stylesheet" />
     <link href="src/styles/theme-tokens.css?v=20261019-themes" rel="stylesheet" />
     <link href="src/styles/mover-dark.css?v=20261019-themes" rel="stylesheet" />
+    <link href="src/styles/cozy.css?v=20261020-cozy" rel="stylesheet" />
   </head>
   <body>
     <a class="skip-link" href="#main">Ir para o conteúdo</a>
     <div id="app">
       <aside class="sidebar">
-        <a class="brand" href="#tree"
-          ><span class="flag">🇧🇷</span><strong>Legislação<br />Automotiva</strong></a
-        ><span class="pill brand-pill">Protótipo navegável</span
+        <a class="brand" href="#vehicle"
+          ><strong>Legislação<br />Automotiva</strong></a
         ><button
           aria-controls="mainNavigation"
           aria-expanded="false"
@@ -60,24 +67,13 @@
           <div class="nav-group" data-navigation-group="programas">
             <p class="nav-group-label">Programas e acompanhamento</p>
             <a data-nav="mover" href="#mover"><span aria-hidden="true">◈</span>MOVER</a
-            ><a data-nav="updates" href="#updates"><span aria-hidden="true">◷</span>Atualizações</a
-            ><a data-nav="ai" href="#ai"
-              ><span aria-hidden="true">✧</span>Assistente · demonstração</a
-            >
+            ><a data-nav="updates" href="#updates"><span aria-hidden="true">◷</span>Atualizações</a>
           </div>
         </nav>
-        <div class="sidebar-foot">
-          <div class="road"></div>
-          <p>Conhecimento que<br />move o amanhã.</p>
-          <small>Brasil · Acervo federal</small>
-          <div class="teal-line"></div>
-        </div>
       </aside>
       <div class="workspace">
         <header class="topbar">
-          <a class="topbrand" href="#tree">Legislação</a><span class="fixed-filter">🇧🇷 Brasil</span
-          ><span class="fixed-filter" title="Este acervo abrange apenas normas federais"
-            >⚖ Âmbito federal</span
+          <a class="topbrand" href="#tree">Legislação</a
           ><label class="profile-control"
             ><span class="sr-only">Categoria visual</span
             ><select id="vehicleType">
@@ -108,7 +104,7 @@
           <div class="theme-picker">
             <label for="themeSelect">Tema</label>
             <select id="themeSelect">
-              <option value="dark">Escuro MOVER</option>
+              <option value="dark">Escuro</option>
               <option value="light">Claro</option>
               <option value="aurora">Aurora</option>
             </select>

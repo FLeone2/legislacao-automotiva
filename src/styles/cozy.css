@@ -1,0 +1,1041 @@
+/* Warm, calm reading surface. Loaded last: type, spacing, controls and cards share these rules.
+   Palettes live in theme-tokens.css; no rule here depends on a specific theme colour. */
+
+@font-face {
+  font-family: Fraunces;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../fonts/fraunces-latin-wght-normal.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: Figtree;
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+  src: url('../fonts/figtree-latin-wght-normal.woff2') format('woff2-variations');
+}
+
+html[data-theme] body {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+html[data-theme] #app {
+  background: var(--app-wash), var(--bg);
+}
+html[data-theme] ::selection {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+html[data-theme] {
+  scrollbar-color: var(--surface-3) transparent;
+  scrollbar-width: thin;
+}
+html[data-theme] #app :is(h1, .page-head h1) {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(28px, 2.6vw, 38px);
+  line-height: 1.14;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+}
+html[data-theme] #app h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  text-wrap: balance;
+}
+html[data-theme] #app h3 {
+  font-weight: 650;
+  letter-spacing: -0.005em;
+  text-wrap: pretty;
+}
+html[data-theme] #app p {
+  text-wrap: pretty;
+}
+html[data-theme] #app .subtitle {
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 62ch;
+  color: var(--ink-2);
+  margin: 10px 0 0;
+}
+html[data-theme] #app .page-head {
+  margin: 0 0 28px;
+}
+html[data-theme] #app :is(small, .count-line, .scope-note, .document-context) {
+  font-size: 13px;
+  line-height: 1.5;
+}
+html[data-theme] #app .scope-note {
+  max-width: 78ch;
+  color: var(--muted);
+  margin: 28px 0 0;
+}
+
+/* ---------- Shell ---------- */
+html[data-theme] #app .sidebar {
+  background: var(--sidebar-bg);
+}
+html[data-theme] #app .brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 20px 14px;
+}
+html[data-theme] #app .brand strong {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+}
+html[data-theme] #app .aurora-logo {
+  width: 38px;
+  height: 38px;
+  flex: none;
+}
+html[data-theme] #app .sidebar .main-nav {
+  gap: 22px;
+  margin-top: 16px;
+  padding: 0 12px 24px;
+}
+html[data-theme] #app .nav-group-label {
+  margin: 0 10px 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--muted);
+}
+html[data-theme] #app .sidebar .main-nav a {
+  margin: 0;
+  justify-content: flex-start;
+  text-align: left;
+  min-height: 42px;
+  padding: 9px 12px;
+  gap: 12px;
+  font-size: 14.5px;
+  font-weight: 500;
+  border-radius: 12px;
+  transition:
+    background-color 0.18s var(--ease-out),
+    color 0.18s var(--ease-out);
+}
+html[data-theme] #app .sidebar .main-nav a.active {
+  font-weight: 650;
+}
+html[data-theme] #app .sidebar .main-nav a:active {
+  background: var(--surface-3);
+}
+html[data-theme] #app .aurora-icon {
+  width: 20px;
+  height: 20px;
+  stroke-width: 1.6;
+}
+html[data-theme] #app .sidebar .main-nav .nav-source-group {
+  margin: 4px 0 0;
+  border: 0;
+  border-radius: 12px;
+}
+html[data-theme] #app .nav-source-group summary {
+  padding: 9px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-2);
+  border-radius: 12px;
+  cursor: pointer;
+}
+html[data-theme] #app .nav-source-group summary:hover {
+  background: var(--surface-2);
+  color: var(--ink);
+}
+html[data-theme] #app .sidebar .main-nav .nav-source-group a {
+  font-size: 14px;
+  min-height: 38px;
+  margin: 0;
+  padding: 7px 12px 7px 44px;
+}
+html[data-theme] #app .sidebar .main-nav .nav-source-group a::before {
+  left: 24px;
+  top: 16px;
+  background: var(--muted);
+}
+html[data-theme] #app .sidebar .main-nav .nav-source-group a.active::before {
+  background: var(--accent);
+}
+html[data-theme] #app [hidden] {
+  display: none !important;
+}
+
+html[data-theme] #app .topbar {
+  background: var(--appbar-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  gap: 16px;
+}
+html[data-theme] #app .global-search {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 999px;
+  min-height: 46px;
+  padding: 0 16px;
+  transition:
+    border-color 0.18s var(--ease-out),
+    box-shadow 0.18s var(--ease-out);
+}
+html[data-theme] #app .global-search:hover {
+  border-color: var(--field-border);
+}
+html[data-theme] #app .global-search:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+html[data-theme] #app .global-search input {
+  font-size: 15px;
+  color: var(--ink);
+  outline: none;
+}
+html[data-theme] #app .global-search input::placeholder {
+  color: var(--muted);
+}
+html[data-theme] #app .global-search kbd {
+  font: 600 12px var(--font-body);
+  color: var(--muted);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1px 7px;
+}
+html[data-theme] #app .theme-picker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+html[data-theme] #app .theme-picker label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ---------- Controls ---------- */
+html[data-theme] #app :is(.btn, button.btn, a.btn) {
+  min-height: 42px;
+  padding: 9px 18px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  transition:
+    background-color 0.18s var(--ease-out),
+    border-color 0.18s var(--ease-out),
+    transform 0.12s var(--ease-out);
+}
+html[data-theme] #app :is(.btn, button.btn):active {
+  transform: scale(0.97);
+}
+html[data-theme] #app :is(.btn.quiet, button.quiet) {
+  background: transparent;
+  border-color: transparent;
+  color: var(--accent-ink);
+  padding-inline: 12px;
+}
+html[data-theme] #app :is(.btn.quiet, button.quiet):hover {
+  background: var(--accent-soft);
+}
+html[data-theme] #app :is(.btn.primary, .aurora-primary):hover {
+  filter: brightness(1.06);
+}
+html[data-theme] #app :is(.btn, button, a, select, input, summary):focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+html[data-theme] #app :is(select, input[type='search'], input[type='text']) {
+  min-height: 44px;
+  border: 1px solid var(--field-border);
+  border-radius: 12px;
+  background-color: var(--surface);
+  color: var(--ink);
+  font-size: 15px;
+  padding: 8px 14px;
+  transition:
+    border-color 0.18s var(--ease-out),
+    box-shadow 0.18s var(--ease-out);
+}
+html[data-theme] #app select {
+  padding-right: 34px;
+  text-overflow: ellipsis;
+}
+html[data-theme] #app :is(select, input):hover {
+  border-color: var(--accent-ink);
+}
+html[data-theme] #app :is(select, input[type='search'], input[type='text']):focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+html[data-theme] #app :is(.tag, .status, .pill) {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  padding: 4px 11px;
+  border-radius: 999px;
+  line-height: 1.3;
+  color: var(--ink-2);
+  background: var(--surface-3);
+  border: 0;
+}
+html[data-theme] #app .status {
+  font-weight: 500;
+  color: var(--muted);
+  background: transparent;
+  padding-inline: 0;
+}
+
+/* ---------- Filter panel (library) ---------- */
+html[data-theme] #app .filter-panel {
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+html[data-theme] #app .filter-search {
+  position: relative;
+}
+html[data-theme] #app .filter-search svg {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  transform: translateY(-50%);
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+html[data-theme] #app .filter-search input {
+  width: 100%;
+  min-height: 52px;
+  padding-left: 46px;
+  font-size: 16px;
+  border-radius: 14px;
+  background: var(--bg);
+}
+html[data-theme] #app .filter-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+html[data-theme] #app .filter-field {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+html[data-theme] #app .filter-field > span {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+html[data-theme] #app .filter-field select {
+  width: 100%;
+}
+html[data-theme] #app .filter-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 36px;
+}
+html[data-theme] #app .filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+html[data-theme] #app .chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 4px 8px 4px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  font-size: 13.5px;
+  font-weight: 600;
+  transition: background-color 0.18s var(--ease-out);
+}
+html[data-theme] #app .chip span {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 16px;
+  line-height: 1;
+}
+html[data-theme] #app .chip:hover span {
+  background: var(--accent-soft);
+}
+html[data-theme] #app .results-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 26px 0 14px;
+}
+html[data-theme] #app .results-head .count-line {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+}
+html[data-theme] #app .results-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+}
+html[data-theme] #app .results-actions a {
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+html[data-theme] #app .results-actions a:hover {
+  background: var(--accent-soft);
+}
+html[data-theme] #app #libraryCopyStatus {
+  color: var(--good);
+  font-size: 13px;
+}
+
+/* ---------- Cards ---------- */
+html[data-theme] #app .document-list {
+  display: grid;
+  gap: 14px;
+}
+html[data-theme] #app :is(.document, .contran-record, .update-card) {
+  padding: 22px 24px;
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition:
+    border-color 0.2s var(--ease-out),
+    background-color 0.2s var(--ease-out);
+}
+html[data-theme] #app :is(.document, .contran-record):hover {
+  border-color: var(--field-border);
+}
+html[data-theme] #app .document-top {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin-bottom: 10px;
+}
+html[data-theme] #app .document h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  line-height: 1.3;
+}
+html[data-theme] #app .document-summary {
+  font-size: 15px;
+  margin: 0 0 14px;
+  color: var(--ink-2);
+  max-width: 78ch;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+html[data-theme] #app .document-themes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 12px;
+  padding: 0;
+  list-style: none;
+}
+html[data-theme] #app .document-themes li {
+  font-size: 13px;
+  padding: 3px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--ink-2);
+}
+html[data-theme] #app .document-context {
+  margin: 0 0 14px;
+  color: var(--muted);
+}
+html[data-theme] #app .document .links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+html[data-theme] #app .document .links :is(button, a) {
+  min-height: 40px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 0;
+  background: transparent;
+  color: var(--accent-ink);
+  font-size: 14px;
+  font-weight: 650;
+  text-decoration: none;
+  transition: background-color 0.18s var(--ease-out);
+}
+html[data-theme] #app .document .links :is(button, a):hover {
+  background: var(--accent-soft);
+}
+html[data-theme] #app .document .links button {
+  margin-left: -14px;
+}
+html[data-theme] #app .empty {
+  padding: 44px 24px;
+  text-align: center;
+  border: 1px dashed var(--field-border);
+  border-radius: 20px;
+  color: var(--ink-2);
+}
+html[data-theme] #app .empty h3,
+html[data-theme] #app .empty h2 {
+  margin: 0 0 6px;
+}
+html[data-theme] #app .empty .btn {
+  margin-top: 14px;
+}
+html[data-theme] #app :is(.pagination, .contran-pagination, #libraryPagination) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 24px 0 8px;
+  color: var(--ink-2);
+}
+
+/* ---------- Disclosures ---------- */
+html[data-theme] #app details:is(.consultation-help, .consultation-sources, .contran-method) {
+  margin: 28px 0 0;
+  padding: 4px 20px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+html[data-theme] #app details > summary {
+  cursor: pointer;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 15px;
+  list-style-position: inside;
+}
+html[data-theme] #app details[open] > summary {
+  margin-bottom: 6px;
+}
+html[data-theme] #app details p {
+  max-width: 78ch;
+  color: var(--ink-2);
+}
+
+/* ---------- Agency pages ---------- */
+html[data-theme] #app .contran-source {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 22px;
+  margin: 22px 0 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+html[data-theme] #app .contran-source > div {
+  display: grid;
+  gap: 4px;
+}
+html[data-theme] #app .contran-counts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 0 20px;
+}
+html[data-theme] #app .contran-counts > div {
+  padding: 18px 20px;
+  border-radius: 18px;
+}
+html[data-theme] #app .contran-counts strong {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+html[data-theme] #app .contran-counts span {
+  color: var(--ink-2);
+  font-size: 14px;
+}
+html[data-theme] #app .contran-filters {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(0, 1fr));
+  align-items: end;
+  gap: 14px;
+  padding: 20px;
+  border-radius: 20px;
+}
+html[data-theme] #app .contran-filters label {
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-2);
+  min-width: 0;
+}
+html[data-theme] #app .contran-filters :is(input, select) {
+  width: 100%;
+}
+html[data-theme] #app .contran-filters .regulatory-filter-note {
+  grid-column: 1 / -1;
+  margin: 0;
+  order: 5;
+  color: var(--muted);
+  font-size: 13px;
+}
+html[data-theme] #app .contran-filters .btn {
+  justify-self: start;
+}
+html[data-theme] #app .contran-results-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 24px 0 14px;
+}
+html[data-theme] #app .contran-results-heading p {
+  margin: 0;
+  font-weight: 600;
+  color: var(--ink);
+}
+html[data-theme] #app .contran-results-heading a {
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+html[data-theme] #app .contran-results-heading a:hover {
+  background: var(--accent-soft);
+}
+html[data-theme] #app .contran-records {
+  display: grid;
+  gap: 14px;
+}
+html[data-theme] #app .contran-record h2 {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 650;
+  line-height: 1.3;
+}
+html[data-theme] #app .contran-status {
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+html[data-theme] #app .contran-tags span,
+html[data-theme] #app .regulatory-system-links a {
+  font-size: 13px;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+html[data-theme] #app .regulatory-categories > div {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 10px;
+}
+html[data-theme] #app .regulatory-category {
+  padding: 14px 16px;
+  border-radius: 14px;
+  display: grid;
+  gap: 2px;
+  transition: border-color 0.18s var(--ease-out);
+}
+html[data-theme] #app .regulatory-category:hover,
+html[data-theme] #app .regulatory-category.selected {
+  border-color: var(--accent);
+}
+
+@media (max-width: 960px) {
+  html[data-theme] #app .filter-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  html[data-theme] #app .contran-counts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  html[data-theme] #app .contran-filters {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 640px) {
+  html[data-theme] #app .filter-panel {
+    padding: 14px;
+    border-radius: 18px;
+  }
+  html[data-theme] #app .filter-row,
+  html[data-theme] #app .contran-filters {
+    grid-template-columns: 1fr;
+  }
+  html[data-theme] #app .results-head,
+  html[data-theme] #app .contran-source,
+  html[data-theme] #app .contran-results-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  html[data-theme] #app :is(.document, .contran-record, .update-card) {
+    padding: 18px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-theme] #app * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+html[data-theme] #app .nav-source-group summary {
+  list-style: none;
+  justify-content: space-between;
+}
+html[data-theme] #app .nav-source-group summary::-webkit-details-marker {
+  display: none;
+}
+html[data-theme] #app .nav-source-group summary::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  margin-right: 4px;
+  border-right: 1.8px solid currentColor;
+  border-bottom: 1.8px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.2s var(--ease-out);
+}
+html[data-theme] #app .nav-source-group[open] summary::after {
+  transform: rotate(225deg) translate(-1px, -1px);
+}
+
+/* ---------- Disclosure marker, notices ---------- */
+html[data-theme] #app details:not(.nav-source-group) > summary {
+  list-style: none;
+  justify-content: space-between;
+  gap: 12px;
+}
+html[data-theme] #app details:not(.nav-source-group) > summary::-webkit-details-marker {
+  display: none;
+}
+html[data-theme] #app details:not(.nav-source-group) > summary::after {
+  content: '';
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-right: 1.8px solid var(--muted);
+  border-bottom: 1.8px solid var(--muted);
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.2s var(--ease-out);
+}
+html[data-theme] #app details[open]:not(.nav-source-group) > summary::after {
+  transform: rotate(225deg) translate(-1px, -1px);
+}
+html[data-theme] #app :is(.notice, .tree-warning, .tree-caveat, .contran-temporal) {
+  font-size: 14px;
+  line-height: 1.55;
+  padding: 14px 18px;
+  border-radius: 14px;
+  max-width: 90ch;
+}
+
+/* ---------- Agency filter row ---------- */
+html[data-theme] #app .contran-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 14px;
+}
+html[data-theme] #app .contran-filters label {
+  flex: 1 1 200px;
+}
+html[data-theme] #app .contran-filters label:first-child {
+  flex: 2 1 280px;
+}
+html[data-theme] #app .contran-filters .btn {
+  flex: none;
+}
+html[data-theme] #app .contran-filters .regulatory-filter-note {
+  flex: 1 0 100%;
+  order: 9;
+}
+
+/* ---------- Vehicle overview ---------- */
+html[data-theme] #app :is(.aurora-car-glass, .catalog-stage) {
+  background: var(--stage);
+  border-color: var(--border);
+}
+html[data-theme] #app #vehicleDrawing > g > image:first-of-type {
+  mix-blend-mode: multiply;
+}
+html[data-theme] #app .selection-fade {
+  fill: var(--stage);
+}
+html[data-theme] #app .aurora-system-card strong {
+  font-size: 14.5px;
+  line-height: 1.3;
+}
+html[data-theme] #app .aurora-system-card small {
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+html[data-theme] #app .aurora-directory header h2 {
+  font-size: 24px;
+}
+html[data-theme] #app .aurora-directory header span {
+  font-size: 13.5px;
+  color: var(--muted);
+}
+html[data-theme] #app .aurora-directory header a {
+  font-size: 14px;
+  font-weight: 600;
+}
+html[data-theme] #app .aurora-explorer-heading h2 {
+  font-size: 24px;
+}
+html[data-theme] #app .aurora-subsystem strong {
+  font-size: 15px;
+  font-weight: 600;
+}
+html[data-theme] #app .aurora-primary {
+  min-height: 48px;
+  font-size: 15px;
+  font-weight: 650;
+}
+html[data-theme] #app .aurora-library-link {
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-block;
+  padding: 8px 2px;
+}
+html[data-theme] #app .component-hover {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ---------- Flow map: larger type inside the fixed-size steps ---------- */
+html[data-theme] #app .homologation-step {
+  padding: 10px 12px;
+  gap: 3px;
+  border-radius: 14px;
+}
+html[data-theme] #app .homologation-step-kicker b {
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+}
+html[data-theme] #app .homologation-step > strong {
+  font-size: 15.5px;
+}
+html[data-theme] #app .homologation-step:is(.safety, .components, .production) > strong {
+  font-size: 18px;
+}
+html[data-theme] #app .homologation-step.production {
+  padding-block: 8px;
+  gap: 2px;
+}
+html[data-theme] #app .homologation-step > small {
+  font-size: 11.5px;
+  line-height: 1.3;
+  flex: 0 1 auto;
+  min-height: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+html[data-theme] #app .homologation-step > strong,
+html[data-theme] #app .homologation-step-kicker {
+  flex: none;
+}
+html[data-theme] #app .homologation-step-open {
+  flex: none;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+html[data-theme] #app .homologation-profile label,
+html[data-theme] #app .homologation-profile p {
+  font-size: 13.5px;
+}
+html[data-theme] #app .homologation-connectors text {
+  font-size: 13px;
+}
+
+/* ---------- Tree and detail panel ---------- */
+html[data-theme] #app p.tree-context {
+  display: block;
+  margin: 8px 0 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 14px;
+  min-height: 0;
+}
+html[data-theme] #app .tree-page-head h1 {
+  margin: 0;
+}
+html[data-theme] #app .tree-breadcrumb {
+  margin: 12px 0 10px;
+  font-size: 13px;
+}
+html[data-theme] #app .tree-breadcrumb button {
+  font-size: 13px;
+}
+html[data-theme] #app :is(.tree-accordion p, .detail-intro, .tree-doc small) {
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+html[data-theme] #app .tree-doc strong {
+  font-size: 14.5px;
+  line-height: 1.35;
+}
+html[data-theme] #app .tree-doc .tag {
+  font-size: 12px;
+}
+html[data-theme] #app .tree-accordion summary {
+  font-size: 15px;
+}
+html[data-theme] #app .detail-tabs button {
+  font-size: 14px;
+}
+html[data-theme] #app .tree-detail-top h2 {
+  font-size: 26px;
+  line-height: 1.15;
+}
+html[data-theme] #app .graph-node strong {
+  font-size: 13px;
+  line-height: 1.25;
+}
+html[data-theme] #app .graph-node small {
+  font-size: 11.5px;
+}
+html[data-theme] #app .tree-footer {
+  font-size: 13px;
+}
+
+/* ---------- Requirement blocks inside records: no card in a card ---------- */
+html[data-theme] #app section.regulatory-requirements {
+  background: none;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  margin: 18px 0 0;
+}
+html[data-theme] #app .regulatory-requirements h3 {
+  margin: 0 0 4px;
+  font-size: 15px;
+  color: var(--ink-2);
+}
+html[data-theme] #app section.regulatory-requirements > article {
+  padding: 16px 0 6px;
+  border: 0;
+  border-top: 1px solid var(--border);
+  background: none;
+  border-radius: 0;
+}
+html[data-theme] #app .regulatory-requirements > article h4 {
+  margin: 0 0 4px;
+  font-size: 16px;
+}
+html[data-theme] #app .regulatory-requirements :is(p, small, summary) {
+  font-size: 14px;
+}
+html[data-theme] #app :is(section.markings-section, section.markings-group) {
+  background: none;
+  border: 0;
+  padding: 0;
+  box-shadow: none;
+}
+html[data-theme] #app .markings-group > h2 {
+  margin: 40px 0 8px;
+  font-size: 26px;
+}
+html[data-theme] #app .marking-record {
+  padding: 22px 24px;
+}
+html[data-theme] #app .contran-evidence summary,
+html[data-theme] #app .regulatory-mechanism,
+html[data-theme] #app .regulatory-state-grid {
+  font-size: 14px;
+}
+html[data-theme] #app .contran-subject {
+  font-size: 15px;
+  color: var(--ink-2);
+  max-width: 78ch;
+}
+
+html[data-theme] #app .filter-foot:has(.filter-chips:empty) {
+  display: none;
+}
+@media (max-width: 640px) {
+  html[data-theme] #app .filter-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  html[data-theme] #app .filter-field > span {
+    font-size: 12.5px;
+  }
+  html[data-theme] #app .filter-field select {
+    padding-inline: 10px 26px;
+    font-size: 14px;
+  }
+}
+
+/* ---------- Stage, page actions, route entrance ---------- */
+html[data-theme] #app .aurora-car-glass .catalog-stage {
+  border: 0;
+  background: transparent;
+}
+html[data-theme] #app .page-actions {
+  margin: 18px 0 8px;
+}
+html[data-theme] #app .notice + .page-actions {
+  margin-top: 16px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  html[data-theme] #main.is-entering {
+    animation: route-enter 0.22s var(--ease-out);
+  }
+  @keyframes route-enter {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+html[data-theme] #app .contran-source .btn {
+  flex: none;
+  white-space: nowrap;
+}
