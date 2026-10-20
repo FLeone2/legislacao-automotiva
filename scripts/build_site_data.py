@@ -52,6 +52,15 @@ def main():
                         "stageLabel": stage["label"],
                         "activityLabel": activity["label"],
                         "relation": "activity_consults_act",
+                        **(
+                            {
+                                "requirementIds": activity["requirementRefs"].get(
+                                    act_id, []
+                                )
+                            }
+                            if "requirementRefs" in activity
+                            else {}
+                        ),
                     }
                 )
     requirements = {}
@@ -155,7 +164,12 @@ def main():
                 }
                 q["context"] = {
                     "vehicleLinks": record["vehicleLinks"],
-                    "activities": contexts.get(record["id"], []),
+                    "activities": [
+                        link
+                        for link in contexts.get(record["id"], [])
+                        if link.get("requirementIds") is None
+                        or q["id"] in link["requirementIds"]
+                    ],
                     "relation": "act_context_only",
                     "note": "O sistema/atividade consulta este ato; a aplicação deste requisito ainda exige avaliação específica.",
                 }
@@ -285,6 +299,18 @@ def main():
             "historicalReferences": history,
         },
     )
+    for stage in flow["stages"]:
+        for activity in stage["activities"]:
+            for act_id, ids in activity.get("requirementRefs", {}).items():
+                if act_id not in activity.get("refs", []):
+                    raise ValueError(
+                        "Provision target outside activity acts: " + act_id
+                    )
+                for requirement_id in ids:
+                    if requirements.get(requirement_id, {}).get("actId") != act_id:
+                        raise ValueError(
+                            "Invalid activity provision: " + requirement_id
+                        )
     write(
         ROOT / "data/requirements/catalog.json",
         {

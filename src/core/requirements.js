@@ -3,8 +3,10 @@ function requirementNodesForRecord(record, parentId) {
   return (record.requirements || [])
     .filter(
       (requirement) =>
-        record.vehicleRequirementIds === undefined ||
-        record.vehicleRequirementIds.includes(requirement.id),
+        (record.activityRequirementIds === undefined ||
+          record.activityRequirementIds.includes(requirement.id)) &&
+        (record.vehicleRequirementIds === undefined ||
+          record.vehicleRequirementIds.includes(requirement.id)),
     )
     .map((requirement) => ({
       id: parentId + ':requirement:' + requirement.id,
