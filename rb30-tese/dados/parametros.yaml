@@ -1,0 +1,487 @@
+# Parâmetros do projeto RB-30 + PEM.
+#
+# Campos obrigatórios em cada parâmetro (o teste testes/test_parametros.py cobra):
+#   valor, unidade (texto que o pint entende), fonte, tag, condicao.
+# Tags: M medido, DF datasheet/manual, L literatura, C calculado, E estimativa,
+#       H hipótese, ? pendente.
+# verificado_no_pdf: true só depois que a página foi lida no PDF original.
+#
+# ATENÇÃO (23/10/2026): os PDFs do manual RB-30 (1190408) e do catálogo RB30-S4 PLUS
+# (1185669) NÃO estão no repositório nem no Google Drive do pesquisador. Os dados do
+# veículo abaixo foram transcritos do enunciado do pesquisador, com a página que ele
+# indicou, e ficam com verificado_no_pdf: false até a leitura (pendência P-01).
+
+veiculo:
+  massa_sem_carga_com_bateria:
+    valor: 780
+    unidade: kg
+    condicao: sem carga, com bateria
+    fonte: Manual RB-30, ed. 03/2011, cód. 1190408, p. 14
+    tag: DF
+    verificado_no_pdf: false
+  carga_rebocada_max:
+    valor: 3000
+    unidade: kg
+    condicao: piso seco e plano, bateria totalmente carregada, 0,22 m/s por 30 s
+    fonte: Manual RB-30, p. 14
+    tag: DF
+    verificado_no_pdf: false
+  velocidade_ensaio_carga_max:
+    valor: 0.22
+    unidade: m/s
+    condicao: duração de 30 s, na condição de carga rebocada máxima
+    fonte: Manual RB-30, p. 14
+    tag: DF
+    verificado_no_pdf: false
+  carga_cacamba_max:
+    valor: 25
+    unidade: kg
+    condicao: caçamba útil 350 × 835 mm
+    fonte: Manual RB-30, p. 14
+    tag: DF
+    verificado_no_pdf: false
+  cacamba_comprimento:
+    valor: 835
+    unidade: mm
+    condicao: dimensão útil
+    fonte: Manual RB-30, p. 14
+    tag: DF
+    verificado_no_pdf: false
+  cacamba_largura:
+    valor: 350
+    unidade: mm
+    condicao: dimensão útil
+    fonte: Manual RB-30, p. 14
+    tag: DF
+    verificado_no_pdf: false
+  velocidade_cruzeiro_sem_carga:
+    valor: 17
+    unidade: km/h
+    condicao: sem carga na barra; reduz com carga, terreno e topografia
+    fonte: Manual RB-30, p. 16
+    tag: DF
+    verificado_no_pdf: false
+  forca_barra_max_sem_carga:
+    valor: 280
+    unidade: kgf
+    condicao: sem carga; 280 kgf = 2 746 N (× 9,80665 m/s²)
+    fonte: Manual RB-30, p. 16
+    tag: DF
+    verificado_no_pdf: false
+  aclive_max_com_carga:
+    valor: 10
+    unidade: percent
+    condicao: aclive e declive, com carga
+    fonte: Manual RB-30, p. 26
+    tag: DF
+    verificado_no_pdf: false
+  aclive_max_sem_carga:
+    valor: 20
+    unidade: percent
+    condicao: aclive e declive, sem carga
+    fonte: Manual RB-30, p. 26
+    tag: DF
+    verificado_no_pdf: false
+  raio_giro_interno:
+    valor: 415
+    unidade: mm
+    condicao: ''
+    fonte: Manual RB-30, p. 14-15
+    tag: DF
+    verificado_no_pdf: false
+  l1:
+    valor: 2200
+    unidade: mm
+    condicao: cota L1 do desenho do manual (definição a conferir no PDF)
+    fonte: Manual RB-30, p. 14-15
+    tag: DF
+    verificado_no_pdf: false
+  largura_max:
+    valor: 885
+    unidade: mm
+    condicao: ''
+    fonte: Manual RB-30, p. 14-15
+    tag: DF
+    verificado_no_pdf: false
+  altura_min_solo:
+    valor: 120
+    unidade: mm
+    condicao: ''
+    fonte: Manual RB-30, p. 14-15
+    tag: DF
+    verificado_no_pdf: false
+  ruido_operador:
+    valor: 68
+    unidade: dB
+    condicao: dB(A) na posição do operador; condição de medição a conferir
+    fonte: Manual RB-30, p. 16
+    tag: DF
+    verificado_no_pdf: false
+  pneu_padrao:
+    valor: 4.00 x 8 superelástico
+    unidade: ''
+    condicao: opcional pneumático 3.75 x 8 ou 5.00 x 8 a 60 psi
+    fonte: Manual RB-30, p. 16
+    tag: DF
+    verificado_no_pdf: false
+  freios:
+    valor: serviço hidráulico; estacionamento mecânico
+    unidade: ''
+    condicao: ''
+    fonte: Manual RB-30, p. 16 e 47-49
+    tag: DF
+    verificado_no_pdf: false
+
+motor_controle:
+  potencia_motor:
+    valor: 2.6
+    unidade: kW
+    condicao: 3,5 HP declarados; excitação independente (SEPEX); regime não informado
+    fonte: Manual RB-30, p. 16
+    tag: DF
+    verificado_no_pdf: false
+  controlador:
+    valor: Curtis 1243 (DC SEPEX)
+    unidade: ''
+    condicao: ''
+    fonte: Manual RB-30, p. 16 e 55-57
+    tag: DF
+    verificado_no_pdf: false
+  corte_termico_controlador_alto:
+    valor: 85
+    unidade: degC
+    condicao: corte acima deste valor
+    fonte: Manual RB-30, p. 57
+    tag: DF
+    verificado_no_pdf: false
+  corte_termico_controlador_baixo:
+    valor: -25
+    unidade: degC
+    condicao: corte abaixo deste valor
+    fonte: Manual RB-30, p. 57
+    tag: DF
+    verificado_no_pdf: false
+  intertravamentos:
+    valor: homem-morto, SRO, HPD, anti-tiedown, reversão de emergência
+    unidade: ''
+    condicao: requisitos de segurança do projeto; a célula não pode contorná-los
+    fonte: Manual RB-30, p. 55-58
+    tag: DF
+    verificado_no_pdf: false
+
+bateria_original:
+  tensao_nominal:
+    valor: 36
+    unidade: V
+    condicao: ''
+    fonte: Manual RB-30, p. 16
+    tag: DF
+    verificado_no_pdf: false
+  capacidade_nominal:
+    valor: 252
+    unidade: A*h
+    condicao: regime de 8 h (C8)
+    fonte: Manual RB-30, p. 16
+    tag: DF
+    verificado_no_pdf: false
+  massa_saturnia:
+    valor: 350
+    unidade: kg
+    condicao: bateria Saturnia
+    fonte: Manual RB-30, p. 16
+    tag: DF
+    verificado_no_pdf: false
+  massa_moura:
+    valor: 408
+    unidade: kg
+    condicao: bateria Moura
+    fonte: Manual RB-30, p. 16
+    tag: DF
+    verificado_no_pdf: false
+  energia_nominal:
+    valor: 9.072
+    unidade: kW*h
+    condicao: 36 V × 252 Ah, nominal; não é energia útil (profundidade de descarga e regime entram na fase D)
+    fonte: cálculo, conferência (f) do item 5
+    tag: C
+    formula: tensao_nominal * capacidade_nominal
+  energia_especifica_saturnia:
+    valor: 25.92
+    unidade: W*h/kg
+    condicao: nominal / massa Saturnia
+    fonte: cálculo
+    tag: C
+    formula: energia_nominal / massa_saturnia
+  energia_especifica_moura:
+    valor: 22.24
+    unidade: W*h/kg
+    condicao: nominal / massa Moura
+    fonte: cálculo
+    tag: C
+    formula: energia_nominal / massa_moura
+
+eletrica:
+  carregador:
+    valor: 36 V / 45 A
+    unidade: ''
+    condicao: monofásico 220 V ou trifásico 220/380/440/460 V
+    fonte: Catálogo RB30-S4 PLUS, cód. 1185669, p. 58-59 (catálogo de 40 páginas; numeração a conferir)
+    tag: DF
+    verificado_no_pdf: false
+  fusivel_principal:
+    valor: 125
+    unidade: A
+    condicao: circuito principal
+    fonte: Manual RB-30, p. 59 e 68
+    tag: DF
+    verificado_no_pdf: false
+  fusivel_36v:
+    valor: 15
+    unidade: A
+    condicao: sistema 36 V
+    fonte: Manual RB-30, p. 59 e 68
+    tag: DF
+    verificado_no_pdf: false
+  fusivel_12v:
+    valor: 10
+    unidade: A
+    condicao: sistema 12 V
+    fonte: Manual RB-30, p. 59 e 68
+    tag: DF
+    verificado_no_pdf: false
+  fusivel_conversor_36_12:
+    valor: 15
+    unidade: A
+    condicao: conversor DC/DC 36/12 V
+    fonte: Manual RB-30, p. 59 e 68
+    tag: DF
+    verificado_no_pdf: false
+
+pecas_catalogo:
+  conversor_dcdc_36_12:
+    valor: '956672'
+    unidade: ''
+    condicao: conversor DC/DC 36/12 V nacional
+    fonte: Catálogo RB30-S4 PLUS (página a conferir)
+    tag: DF
+    verificado_no_pdf: false
+  kit_suporte_troca_baterias:
+    valor: '357201'
+    unidade: ''
+    condicao: ''
+    fonte: Catálogo RB30-S4 PLUS (página a conferir)
+    tag: DF
+    verificado_no_pdf: false
+  carregador_36v_45a:
+    valor: 1229936 a 1229940
+    unidade: ''
+    condicao: variantes por tensão de rede
+    fonte: Catálogo RB30-S4 PLUS (página a conferir)
+    tag: DF
+    verificado_no_pdf: false
+
+# Stack Ballard: detalhes, conflitos e lacunas em celula/ficha_ballard.md.
+stack:
+  n_celulas:
+    valor: 56
+    unidade: ''
+    condicao: P/N 5127058 (v2.1) ou 5133808 (v2.2)
+    fonte: SPC5103429-0E, p. 4, Tab. 1
+    tag: DF
+    verificado_no_pdf: true
+  corrente_nominal:
+    valor: 65.3
+    unidade: A
+    condicao: BOL; condições da Tab. 3
+    fonte: SPC5103429-0E, p. 6, Tab. 2
+    tag: DF
+    verificado_no_pdf: true
+  tensao_celula_nominal_minima:
+    valor: 0.63
+    unidade: V
+    condicao: 65,3 A, BOL, "greater than"
+    fonte: SPC5103429-0E, p. 6, Tab. 2
+    tag: DF
+    verificado_no_pdf: true
+  tensao_celula_nominal_tipica:
+    valor: 0.66
+    unidade: V
+    condicao: 65,3 A, BOL, típica
+    fonte: SPC5103429-0E, p. 6, Tab. 2
+    tag: DF
+    verificado_no_pdf: true
+  potencia_nominal_minima:
+    valor: 2301.6
+    unidade: W
+    condicao: 56 × 41,1 W; potência bruta do stack, BOL
+    fonte: cálculo sobre SPC5103429-0E, p. 6
+    tag: C
+    formula: n_celulas * 41.1 W
+  potencia_nominal_tipica:
+    valor: 2413.6
+    unidade: W
+    condicao: 56 × 43,1 W; potência bruta do stack, BOL
+    fonte: cálculo sobre SPC5103429-0E, p. 6
+    tag: C
+    formula: n_celulas * 43.1 W
+  massa:
+    valor: 11.0
+    unidade: kg
+    condicao: seca; SPC dá 2,1 + 0,16·N = 11,06 kg
+    fonte: DS SPC510559-01H, p. 2; SPC5103429-0E, p. 10
+    tag: DF
+    verificado_no_pdf: true
+  comprimento:
+    valor: 363
+    unidade: mm
+    condicao: 55,4 + 5,5·N
+    fonte: SPC5103429-0E, p. 10; DS p. 2
+    tag: DF
+    verificado_no_pdf: true
+  dimensao_103:
+    valor: 103
+    unidade: mm
+    condicao: DS chama de largura; SPC chama de altura (conflito, achado 13)
+    fonte: DS p. 2; SPC p. 10
+    tag: DF
+    verificado_no_pdf: true
+  dimensao_351:
+    valor: 351
+    unidade: mm
+    condicao: DS chama de altura; SPC chama de largura (conflito, achado 13)
+    fonte: DS p. 2; SPC p. 10
+    tag: DF
+    verificado_no_pdf: true
+  massa_termica_por_celula:
+    valor: 100
+    unidade: J/K
+    condicao: por célula
+    fonte: SPC5103429-0E, p. 10, Tab. 10
+    tag: DF
+    verificado_no_pdf: true
+  pressao_h2_otima:
+    valor: 136
+    unidade: kPa
+    condicao: absoluta, operação
+    fonte: SPC5103429-0E, p. 7
+    tag: DF
+    verificado_no_pdf: true
+  pressao_h2_min:
+    valor: 116
+    unidade: kPa
+    condicao: absoluta, operação
+    fonte: SPC5103429-0E, p. 7
+    tag: DF
+    verificado_no_pdf: true
+  pressao_h2_max_operacao:
+    valor: 156
+    unidade: kPa
+    condicao: absoluta, operação
+    fonte: SPC5103429-0E, p. 7
+    tag: DF
+    verificado_no_pdf: true
+  pressao_h2_max_seguranca:
+    valor: 200
+    unidade: kPa
+    condicao: absoluta, limite de segurança
+    fonte: SPC5103429-0E, p. 7
+    tag: DF
+    verificado_no_pdf: true
+  estequiometria_h2:
+    valor: 1.07
+    unidade: ''
+    condicao: ótimo, operação sem saída
+    fonte: SPC5103429-0E, p. 7
+    tag: DF
+    verificado_no_pdf: true
+  pureza_h2:
+    valor: 99.95
+    unidade: percent
+    condicao: mínimo; contaminantes na Tab. 6
+    fonte: SPC5103429-0E, p. 8
+    tag: DF
+    verificado_no_pdf: true
+  volume_purga_por_celula:
+    valor: 20
+    unidade: cm**3
+    condicao: recomendado por purga (~6 slpm/célula); cm³ padrão a 0 °C e 1 atm
+    fonte: SPC5103429-0E, p. 9, Tab. 7
+    tag: DF
+    verificado_no_pdf: true
+  vazamento_externo_bol:
+    valor: 5
+    unidade: cm**3/min
+    condicao: máximo por célula, a 36 kPa g, BOL
+    fonte: SPC5103429-0E, p. 9, Tab. 7
+    tag: DF
+    verificado_no_pdf: true
+  vazamento_externo_1500h:
+    valor: 12
+    unidade: cm**3/min
+    condicao: por célula, a 36 kPa g, após 1 500 h e 1 000 ciclos
+    fonte: SPC5103429-0E, p. 10, Tab. 11
+    tag: DF
+    verificado_no_pdf: true
+  vazao_ar_nominal_por_celula:
+    valor: 50
+    unidade: L/min
+    condicao: slpm (0 °C, 1 atm) por célula, na potência nominal; ar de oxidação + arrefecimento
+    fonte: DS SPC510559-01H, p. 2
+    tag: DF
+    verificado_no_pdf: true
+  estequiometria_ar_min:
+    valor: 20
+    unidade: ''
+    condicao: regime permanente
+    fonte: SPC5103429-0E, p. 6, Tab. 3
+    tag: DF
+    verificado_no_pdf: true
+  degradacao_por_ciclo:
+    valor: 30
+    unidade: microvolt
+    condicao: por ciclo liga-desliga (partida ar-ar), por célula
+    fonte: SPC5103429-0E, p. 10, Tab. 11 (µ em fonte Symbol)
+    tag: DF
+    verificado_no_pdf: true
+  degradacao_regime:
+    valor: 12
+    unidade: microvolt/hour
+    condicao: por célula, a 65,3 A
+    fonte: SPC5103429-0E, p. 10, Tab. 11
+    tag: DF
+    verificado_no_pdf: true
+  temperatura_ambiente_operacao_min:
+    valor: -40
+    unidade: degC
+    condicao: ambiente (não é a temperatura do stack)
+    fonte: SPC5103429-0E, p. 7, Tab. 4
+    tag: DF
+    verificado_no_pdf: true
+  temperatura_ambiente_operacao_max:
+    valor: 52
+    unidade: degC
+    condicao: ambiente
+    fonte: SPC5103429-0E, p. 7, Tab. 4
+    tag: DF
+    verificado_no_pdf: true
+  temperatura_ambiente_partida_min:
+    valor: -10
+    unidade: degC
+    condicao: standby e partida; número de partidas abaixo de zero pode ser limitado
+    fonte: SPC5103429-0E, p. 7, Tab. 4
+    tag: DF
+    verificado_no_pdf: true
+  t_recomendada_inclinacao:
+    valor: 0.5314
+    unidade: K/A
+    condicao: ajuste linear dos 7 pontos da Tab. 3 (R² = 0,9996); o dossiê usa 0,56 (não confirmado)
+    fonte: cálculo sobre SPC5103429-0E, p. 6
+    tag: C
+    formula: ajuste_linear(CORRENTE_TABELA_A, T_RECOMENDADA_C)
+  t_recomendada_intercepto:
+    valor: 26.0
+    unidade: degC
+    condicao: idem
+    fonte: cálculo sobre SPC5103429-0E, p. 6
+    tag: C
+    formula: ajuste_linear(CORRENTE_TABELA_A, T_RECOMENDADA_C)
