@@ -1,0 +1,5 @@
+.venv/
+__pycache__/
+.pytest_cache/
+# PDFs de terceiros ficam fora do git (DEC-003); o hash está em revisao/fontes_usadas.md
+*.pdf
