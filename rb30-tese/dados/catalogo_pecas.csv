@@ -1,0 +1,235 @@
+pagina_pdf,pagina_impressa,desenho,conjunto,ref,codigo,descricao,qtd,origem
+1,44,EV9-343,Kit - Cinto de Segurança 2 Pontos Retrátil,00,1147775,Kit - Cinto de Segurança 2 Pontos Retrátil,1,leitura visual
+1,44,EV9-343,Kit - Cinto de Segurança 2 Pontos Retrátil,01,102102,Fecho Haste Rígida do Cinto de Segurança,1,OCR
+1,44,EV9-343,Kit - Cinto de Segurança 2 Pontos Retrátil,02,102110,"Cinto Retrátil Dois Pontos 30""LD",1,OCR
+1,44,EV9-343,Kit - Cinto de Segurança 2 Pontos Retrátil,03,912725,"Parafuso Ø 7/16"" - 20 UNF x 1""",2,OCR
+1,44,EV9-343,Kit - Cinto de Segurança 2 Pontos Retrátil,04,912998,"Arruela de pressão 7/16""",2,OCR
+1,44,EV9-343,Kit - Cinto de Segurança 2 Pontos Retrátil,05,912782,"Porca 7/16"" - 20 UNF",2,OCR
+2,45,EV9-389,Pneu SE/PR 4.00-8 completo,00,1154162,Pneu SE/PR 4.00-8 completo,1,leitura visual
+2,45,EV9-389,Pneu SE/PR 4.00-8 completo,01,392696,Pneu Maciço 4.00 x 8(3),1,OCR
+2,45,EV9-389,Pneu SE/PR 4.00-8 completo,02,158402,Porca M10,5,OCR
+2,45,EV9-389,Pneu SE/PR 4.00-8 completo,03,1211969,"Parafuso cabeça chata com sextavado interno M10 x 1,5x 25",5,OCR
+2,45,EV9-389,Pneu SE/PR 4.00-8 completo,04,1154160,"Roda BP 3,00 x8""- 5 furos",1,OCR
+3,46,EV9-389,Pneu SE/BR 4.00-8 completo,00,1182469,Pneu SE/BR 4.00-8 completo,1,leitura visual
+3,46,EV9-389,Pneu SE/BR 4.00-8 completo,01,064162,Pneu Soft Shoe Rib Branco,1,OCR
+3,46,EV9-389,Pneu SE/BR 4.00-8 completo,02,158402,Porca M10,5,OCR
+3,46,EV9-389,Pneu SE/BR 4.00-8 completo,03,1211969,"Parafuso cabeça chata com sextavado interno M10 x 1,5x 25",5,OCR
+3,46,EV9-389,Pneu SE/BR 4.00-8 completo,04,1154160,"Roda BP 3,00 x8""- 5 furos",1,OCR
+4,47,EV9-455,"Pneu PN 5.00 x 8"" completo",00,1182470,"Pneu PN 5.00 x 8"" completo",1,leitura visual
+4,47,EV9-455,"Pneu PN 5.00 x 8"" completo",01,1154160,"Roda BP 3,00 x8""- 5 furos",1,OCR
+4,47,EV9-455,"Pneu PN 5.00 x 8"" completo",02,1211969,"Parafuso cabeça chata com sextavado interno M10 x 1,5x 25",5,OCR
+4,47,EV9-455,"Pneu PN 5.00 x 8"" completo",03,158402,Porca M10,5,OCR
+4,47,EV9-455,"Pneu PN 5.00 x 8"" completo",04,594473,Protetor da Câmara 500 x 8,1,OCR
+4,47,EV9-455,"Pneu PN 5.00 x 8"" completo",05,506949,"Câmara de Ar 5,00 - 8",1,OCR
+4,47,EV9-455,"Pneu PN 5.00 x 8"" completo",06,508192,Pneu com Câmara - 1000 Kg,1,OCR
+5,48,EV9-360,Torre da direção completa,00,1188606,Torre da direção completa,1,leitura visual
+5,48,EV9-360,Torre da direção completa,01,013607,Torre da direção,1,OCR
+5,48,EV9-360,Torre da direção completa,02,845396,Rolamento fixo c/ 1 carreira esferas,2,OCR
+5,48,EV9-360,Torre da direção completa,03,845412,Anel de retenção para furo Ø 35,2,OCR
+5,48,EV9-360,Torre da direção completa,04,433481,Coluna da Direção,1,OCR
+5,48,EV9-360,Torre da direção completa,05,910851,Anel de retenção para eixo Ø 15,2,OCR
+6,49,EV9-354,Motor completo,00,974907,Motor completo,1,leitura visual
+6,49,EV9-354,Motor completo,01,974774,Armadura para motor,1,OCR corrigido na imagem
+6,49,EV9-354,Motor completo,02,368779,Carcaça e Enrolamento de Campo,1,OCR
+6,49,EV9-354,Motor completo,03,368787,Mola da Escova para Motor AY9-4003A,1,OCR
+6,49,EV9-354,Motor completo,04,974790,Porta escovas,4,OCR
+6,49,EV9-354,Motor completo,05,974808,Jogo de escovas,1,OCR
+6,49,EV9-354,Motor completo,06,974816,Anel elástico,1,OCR
+6,49,EV9-354,Motor completo,07,594390,Rolamento de Esferas,1,OCR
+6,49,EV9-354,Motor completo,08,974832,Tampa traseira,1,OCR
+6,49,EV9-354,Motor completo,09,368795,Conjunto Chapa da Tampa,1,OCR
+6,49,EV9-354,Motor completo,10,413468,"Arruela lisa Ø6,8 X Ø18 X 1,2 aço com tratamento",3,OCR
+6,49,EV9-354,Motor completo,11,918805,"Parafuso sextavado 1/4"" - 20 unc x 1.1/4""",3,OCR
+6,49,EV9-354,Motor completo,12,910117,"Arruela de pressão 1/4""",3,OCR
+6,49,EV9-354,Motor completo,13,368803,Tampa do Motor,1,OCR
+6,49,EV9-354,Motor completo,14,413302,Motor Elétrico,1,OCR
+6,49,EV9-354,Motor completo,15,912758,"Porca sextavada 5/16""",4,OCR
+6,49,EV9-354,Motor completo,16,013433,"Arruela lisa Ø8,4 x Ø16 x 1,6 Aço",4,OCR
+7,50,EV9-361,Mancal do pinhão completo,00,1188601,Mancal do pinhão completo,1,leitura visual
+7,50,EV9-361,Mancal do pinhão completo,01,1176276,Mancal do pinhão,1,OCR
+7,50,EV9-361,Mancal do pinhão completo,02,845396,Rolamento fixo c/ 1 carreira esferas,1,OCR
+7,50,EV9-361,Mancal do pinhão completo,03,477836,Rolamento,1,OCR
+8,51,EV9-457,Kit carregador monofásico 36V/45A - 220V,00,1180423,Kit carregador monofásico 36V/45A - 220V,1,leitura visual
+8,51,EV9-457,Kit carregador monofásico 36V/45A - 220V,01,1180427,Carregador monofásico 36V/45A - 220V,1,OCR
+8,51,EV9-457,Kit carregador monofásico 36V/45A - 220V,02,857110,Manopla do Conector,1,OCR
+8,51,EV9-457,Kit carregador monofásico 36V/45A - 220V,03,910117,"Arruela de pressão 1/4""",2,OCR
+8,51,EV9-457,Kit carregador monofásico 36V/45A - 220V,04,432210,Etiqueta Seleção Voltagem Carregador.,2,OCR
+8,51,EV9-457,Kit carregador monofásico 36V/45A - 220V,05,918805,"Parafuso sextavado 1/4"" - 20 unc x 1.1/4""",2,OCR
+8,51,EV9-457,Kit carregador monofásico 36V/45A - 220V,06,912741,"Porca sextavada 1/4"" - 20 UNC",2,OCR
+9,52,EV9-370,Kit carregador trifásico 36V/45A - 440V,00,1180426,Kit carregador trifásico 36V/45A - 440V,1,leitura visual
+9,52,EV9-370,Kit carregador trifásico 36V/45A - 440V,01,1180428,Carregador trifásico 36V/45A - 440V,1,OCR
+9,52,EV9-370,Kit carregador trifásico 36V/45A - 440V,02,857110,Manopla do Conector,1,OCR
+9,52,EV9-370,Kit carregador trifásico 36V/45A - 440V,03,910117,"Arruela de pressão 1/4""",2,OCR
+9,52,EV9-370,Kit carregador trifásico 36V/45A - 440V,04,432210,Etiqueta Seleção Voltagem Carregador.,2,OCR
+9,52,EV9-370,Kit carregador trifásico 36V/45A - 440V,05,918805,"Parafuso sextavado 1/4"" - 20 unc x 1.1/4""",2,OCR
+9,52,EV9-370,Kit carregador trifásico 36V/45A - 440V,06,912741,"Porca sextavada 1/4"" - 20 UNC",2,OCR
+10,53,EV9-370,Kit carregador trifásico 36V/45A - 460V,00,1180424,Kit carregador trifásico 36V/45A - 460V,1,leitura visual
+10,53,EV9-370,Kit carregador trifásico 36V/45A - 460V,01,1179821,Carregador trifásico 36V/45A - 460V,1,OCR
+10,53,EV9-370,Kit carregador trifásico 36V/45A - 460V,02,857110,Manopla do Conector,1,OCR
+10,53,EV9-370,Kit carregador trifásico 36V/45A - 460V,03,910117,"Arruela de pressão 1/4""",2,OCR
+10,53,EV9-370,Kit carregador trifásico 36V/45A - 460V,04,432210,Etiqueta Seleção Voltagem Carregador.,2,OCR
+10,53,EV9-370,Kit carregador trifásico 36V/45A - 460V,05,918805,"Parafuso sextavado 1/4"" - 20 unc x 1.1/4""",2,OCR
+10,53,EV9-370,Kit carregador trifásico 36V/45A - 460V,06,912741,"Porca sextavada 1/4"" - 20 UNC",2,OCR
+11,54,EV9-372,Kit de fechamento de lona com acabamento preto RB30,00,687731,Kit de fechamento de lona com acabamento preto RB30,1,leitura visual
+11,54,EV9-372,Kit de fechamento de lona com acabamento preto RB30,01,1165046,Fechamento lateral de lona,1,OCR
+11,54,EV9-372,Kit de fechamento de lona com acabamento preto RB30,02,551754,"Rebite ""POP"" - 0,40 x 12,8",60,OCR
+12,55,EV9-352,Kit catálogo e manual RB30-S4 PLUS,00,1191264,Kit catálogo e manual RB30-S4 PLUS,1,leitura visual
+12,55,EV9-352,Kit catálogo e manual RB30-S4 PLUS,01,1190408,Manual de instruções (RB30-S4 PLUS),1,OCR
+12,55,EV9-352,Kit catálogo e manual RB30-S4 PLUS,02,1185669,"Catálogo de peças ""RB30-S4 PLUS""",1,OCR
+13,56,EV9-456,Pneu montado 5.00-8 roda com 5 furos,00,011139,Pneu montado 5.00-8 roda com 5 furos,1,leitura visual
+13,56,EV9-456,Pneu montado 5.00-8 roda com 5 furos,01,1182470,"Pneu PN 5.00 x 8"" completo",1,OCR
+14,57,EV9-455,Pneu montado 3.75-8 roda com 5 furos,00,045681,Pneu montado 3.75-8 roda com 5 furos,1,leitura visual
+14,57,EV9-455,Pneu montado 3.75-8 roda com 5 furos,01,1154160,"Roda BP 3,00 x8""- 5 furos",1,OCR
+14,57,EV9-455,Pneu montado 3.75-8 roda com 5 furos,02,1211969,"Parafuso cabeça chata com sextavado interno M10 x 1,5x 25",5,OCR
+14,57,EV9-455,Pneu montado 3.75-8 roda com 5 furos,03,158402,Porca M10,5,OCR
+14,57,EV9-455,Pneu montado 3.75-8 roda com 5 furos,04,1201083,Protetor da câmara 5.00-8,1,OCR
+14,57,EV9-455,Pneu montado 3.75-8 roda com 5 furos,05,020883,"Câmara de Ar 3,75 - 8",1,OCR
+14,57,EV9-455,Pneu montado 3.75-8 roda com 5 furos,06,020073,Pneu 3.75 - 8 Forti 8L,1,OCR
+15,58,EV9-370,Kit carregador trifásico 36V/45A - 220V,00,1229936,Kit carregador trifásico 36V/45A - 220V,1,leitura visual
+15,58,EV9-370,Kit carregador trifásico 36V/45A - 220V,01,1229939,Carregador trifásico 36V/45A 220V (KM),1,OCR
+15,58,EV9-370,Kit carregador trifásico 36V/45A - 220V,02,857110,Manopla do Conector,1,OCR
+15,58,EV9-370,Kit carregador trifásico 36V/45A - 220V,03,910117,"Arruela de pressão 1/4""",2,OCR
+15,58,EV9-370,Kit carregador trifásico 36V/45A - 220V,04,432210,Etiqueta Seleção Voltagem Carregador.,2,OCR
+15,58,EV9-370,Kit carregador trifásico 36V/45A - 220V,05,918805,"Parafuso sextavado 1/4"" - 20 unc x 1.1/4""",2,OCR
+15,58,EV9-370,Kit carregador trifásico 36V/45A - 220V,06,912741,"Porca sextavada 1/4"" - 20 UNC",2,OCR
+16,59,EV9-370,Kit carregador trifásico 36V/45A - 380V,00,1229938,Kit carregador trifásico 36V/45A - 380V,1,leitura visual
+16,59,EV9-370,Kit carregador trifásico 36V/45A - 380V,01,1229940,Carregador trifásico 36V/45A 380V,1,OCR
+16,59,EV9-370,Kit carregador trifásico 36V/45A - 380V,02,857110,Manopla do Conector,1,OCR
+16,59,EV9-370,Kit carregador trifásico 36V/45A - 380V,03,910117,"Arruela de pressão 1/4""",2,OCR
+16,59,EV9-370,Kit carregador trifásico 36V/45A - 380V,04,432210,Etiqueta Seleção Voltagem Carregador.,2,OCR
+16,59,EV9-370,Kit carregador trifásico 36V/45A - 380V,05,918805,"Parafuso sextavado 1/4"" - 20 unc x 1.1/4""",2,OCR
+16,59,EV9-370,Kit carregador trifásico 36V/45A - 380V,06,912741,"Porca sextavada 1/4"" - 20 UNC",2,OCR
+17,60,EV9-271,Kit jogo pneus montados 3.75 e 5.00 rodas com 5 furos,00,045657,Kit jogo pneus montados 3.75 e 5.00 rodas com 5 furos,1,leitura visual
+17,60,EV9-271,Kit jogo pneus montados 3.75 e 5.00 rodas com 5 furos,01,1182470,"Pneu PN 5.00 x 8"" completo",1,OCR
+17,60,EV9-271,Kit jogo pneus montados 3.75 e 5.00 rodas com 5 furos,02,045681,Kit Estepe pneu montado 3.75-8 rodas com 5 furos,1,OCR
+18,61,EV9-246,Kit conversor de voltagem,00,902387,Kit conversor de voltagem,1,leitura visual
+18,61,EV9-246,Kit conversor de voltagem,01,413468,"Arruela lisa Ø6,8 X Ø18 X 1,2 aço com tratamento",4,OCR
+18,61,EV9-246,Kit conversor de voltagem,02,521666,Arruela de pressão Ø6 aço,4,OCR
+18,61,EV9-246,Kit conversor de voltagem,03,754440,"Parafuso allen M6 x 25 x 1,0",4,OCR
+18,61,EV9-246,Kit conversor de voltagem,04,902684,Chicote do conversor,1,OCR
+18,61,EV9-246,Kit conversor de voltagem,05,956672,Conversor DC/DC 36/12 - Nacional,1,OCR
+19,62,EV9-278,Kit suporte troca de baterias,00,357201,Kit suporte troca de baterias,1,leitura visual
+19,62,EV9-278,Kit suporte troca de baterias,01,800375,Suporte das Baterias Montado,1,OCR
+19,62,EV9-278,Kit suporte troca de baterias,02,556357,Coxim da caçamba - 17,2,OCR
+19,62,EV9-278,Kit suporte troca de baterias,03,710061,Pe do Suporte,4,OCR
+19,62,EV9-278,Kit suporte troca de baterias,04,710087,Chapa de Fixação,1,OCR
+19,62,EV9-278,Kit suporte troca de baterias,05,800102,Suporte das Baterias,1,OCR
+19,62,EV9-278,Kit suporte troca de baterias,06,800250,Eixo Roletado (412 MM),4,OCR
+19,62,EV9-278,Kit suporte troca de baterias,07,108761,"Porca sextavado dodi-loc 3/8"" - 16 UNC",2,OCR
+19,62,EV9-278,Kit suporte troca de baterias,08,800755,Trava da Gaveta Pintada,1,OCR
+19,62,EV9-278,Kit suporte troca de baterias,09,910802,Pino elástico 6 x 28,1,OCR
+19,62,EV9-278,Kit suporte troca de baterias,10,825265,"Arruela lisa Ø10,5 x Ø30 x 2,5 aço",2,OCR
+19,62,EV9-278,Kit suporte troca de baterias,11,933689,"Paraf. c/ sext. interno Ø 3/8"" x 1.1/2""",2,OCR
+20,63,EV9-288,Adesivo (Trevo Maior),00,584706,Adesivo (Trevo Maior),1,leitura visual
+21,64,EV9-458,Cubo da roda completo,00,1188408,Cubo da roda completo,1,leitura visual
+21,64,EV9-458,Cubo da roda completo,01,1180340,Cubo da roda,1,OCR
+21,64,EV9-458,Cubo da roda completo,02,503045,"Paraf. Tipo cravo 1/2"" UNF x 1.1/2""",5,OCR
+21,64,EV9-458,Cubo da roda completo,03,1154156,Rolamento de esferas,1,OCR
+21,64,EV9-458,Cubo da roda completo,04,042291,Anel de retenção para furo,1,OCR
+22,65,EV9-456,"Kit estepe PN 3,75 - 8 RD 5F",00,011113,"Kit estepe PN 3,75 - 8 RD 5F",1,leitura visual
+22,65,EV9-456,"Kit estepe PN 3,75 - 8 RD 5F",01,045681,Pneu montado 3.75-8 roda com 5 furos,1,OCR
+23,66,EV9-379,Braço da suspensão prensado,00,1180465,Braço da suspensão prensado,1,leitura visual
+23,66,EV9-379,Braço da suspensão prensado,01,1170592,Braço da suspensão,1,OCR
+23,66,EV9-379,Braço da suspensão prensado,02,1170646,Coxim da suspensão,2,OCR
+24,67,EV9-473,Caçamba completa,00,1201736,Caçamba completa,1,leitura visual
+24,67,EV9-473,Caçamba completa,01,1181903,Caçamba,1,OCR
+24,67,EV9-473,Caçamba completa,02,013433,"Arruela lisa Ø8,4 x Ø16 x 1,6 Aço",4,OCR
+24,67,EV9-473,Caçamba completa,03,519736,Arruela de pressão Ø8,4,OCR
+24,67,EV9-473,Caçamba completa,04,829382,"Parafuso sextavado M8 x 1,25",4,OCR
+25,68,EV9-465,Quadro do para-brisa rebitado,00,1201410,Quadro do para-brisa rebitado,1,leitura visual
+25,68,EV9-465,Quadro do para-brisa rebitado,01,1201406,Quadro do para-brisa,1,OCR
+25,68,EV9-465,Quadro do para-brisa rebitado,02,084078,"Rebite tubular cabeça plana M8 x 1,25",2,OCR
+25,68,EV9-465,Quadro do para-brisa rebitado,03,1196223,Rebite tubular cabeça plana M6 x 1 x 19 aço,4,OCR
+26,69,EV9-466,Suporte traseiro rebitado,00,1201320,Suporte traseiro rebitado,1,leitura visual
+26,69,EV9-466,Suporte traseiro rebitado,01,1201319,Suporte traseiro,1,OCR
+26,69,EV9-466,Suporte traseiro rebitado,02,1196223,Rebite tubular cabeça plana M6 x 1 x 19 aço,4,OCR
+27,70,EV9-468,Cilindro mestre,00,283465,Cilindro mestre,1,leitura visual
+27,70,EV9-468,Cilindro mestre,01,053552,Corpo do cilindro mestre,1,OCR
+27,70,EV9-468,Cilindro mestre,02,754473,Olhal de borracha,2,OCR
+28,71,EV9-470,Impulsor completo,00,1149165,Impulsor completo,1,leitura visual
+28,71,EV9-470,Impulsor completo,01,564880,Ponteira,1,OCR
+28,71,EV9-470,Impulsor completo,02,1200338,Impulsor,1,OCR
+28,71,EV9-470,Impulsor completo,03,912758,"Porca sextavada 5/16""",1,OCR
+29,72,EV9-460,Sinalizador completo,00,1203354,Sinalizador completo,1,leitura visual
+29,72,EV9-460,Sinalizador completo,01,1202828,Suporte do sinalizador,1,OCR
+29,72,EV9-460,Sinalizador completo,02,663401,"Arruela lisa 83 x 250 x 26,5",2,OCR
+29,72,EV9-460,Sinalizador completo,03,678722,"Porca sextavada Parlock M8 x 1,25",2,OCR corrigido na imagem
+29,72,EV9-460,Sinalizador completo,04,1171830,"Parafuso cabeça sextavada flange M8 x 1,25 x 25",2,OCR
+29,72,EV9-460,Sinalizador completo,05,1201889,Sinalizador,1,OCR
+29,72,EV9-460,Sinalizador completo,06,934273,"Parafuso M4 x 15 x 0,7",4,OCR
+29,72,EV9-460,Sinalizador completo,07,508515,"Arruela lisa Ø4,3 x Ø10,2 x 0,8 aço",4,OCR
+29,72,EV9-460,Sinalizador completo,08,520700,"Arruela de pressão Ø4,3 x 7,1x 1",4,OCR
+29,72,EV9-460,Sinalizador completo,09,810606,"Porca sextavada M4 x 0,7 A2-70",4,OCR
+29,72,EV9-460,Sinalizador completo,10,437178,Chave inversora 14201,1,OCR corrigido na imagem
+29,72,EV9-460,Sinalizador completo,11,437194,Capa protetora,1,OCR corrigido na imagem
+30,73,EV9-461,Mancal do garfo completo,00,1203435,Mancal do garfo completo,1,leitura visual
+30,73,EV9-461,Mancal do garfo completo,01,1194581,Mancal do garfo,1,OCR
+30,73,EV9-461,Mancal do garfo completo,02,1200714,Rolamento de rolos cônicos,2,OCR
+30,73,EV9-461,Mancal do garfo completo,03,1200790,Postiço,1,OCR
+31,74,EV9-479,Kit carregador monofásico 36V - 250/400Ah,00,1210587,Kit carregador monofásico 36V - 250/400Ah,1,leitura visual
+31,74,EV9-479,Kit carregador monofásico 36V - 250/400Ah,01,1202149,Carregador monofásico 36V/1Kw,1,OCR
+31,74,EV9-479,Kit carregador monofásico 36V - 250/400Ah,02,986844,Bucha Tubular,2,OCR
+31,74,EV9-479,Kit carregador monofásico 36V - 250/400Ah,03,017251,Contato para Conector Anderson 175A,2,OCR
+31,74,EV9-479,Kit carregador monofásico 36V - 250/400Ah,04,101154,Conector sem contatos - 175A,1,OCR
+31,74,EV9-479,Kit carregador monofásico 36V - 250/400Ah,05,1209928,Cabo de alimentação,1,OCR
+31,74,EV9-479,Kit carregador monofásico 36V - 250/400Ah,06,857110,Manopla do Conector,1,OCR
+31,74,EV9-479,Kit carregador monofásico 36V - 250/400Ah,07,918805,"Parafuso sextavado 1/4"" - 20 unc x 1.1/4""",2,OCR
+31,74,EV9-479,Kit carregador monofásico 36V - 250/400Ah,08,910117,"Arruela de pressão 1/4""",2,OCR
+31,74,EV9-479,Kit carregador monofásico 36V - 250/400Ah,09,912741,"Porca sextavada 1/4"" - 20 UNC",2,OCR
+32,75,EV9-509,Circuito de potência,00,001107,Circuito de potência,1,leitura visual
+32,75,EV9-509,Circuito de potência,01,974907,Motor completo,1,OCR
+32,75,EV9-509,Circuito de potência,02,413302,Motor Elétrico,1,OCR
+32,75,EV9-509,Circuito de potência,03,413468,"Arruela lisa Ø6,8 X Ø18 X 1,2 aço com tratamento",3,OCR
+32,75,EV9-509,Circuito de potência,04,910117,"Arruela de pressão 1/4""",3,OCR
+32,75,EV9-509,Circuito de potência,05,918805,"Parafuso sextavado 1/4"" - 20 unc x 1.1/4""",3,OCR
+32,75,EV9-509,Circuito de potência,06,912758,"Porca sextavada 5/16""",4,OCR
+32,75,EV9-509,Circuito de potência,07,013433,"Arruela lisa Ø8,4 x Ø16 x 1,6 Aço",4,OCR
+32,75,EV9-509,Circuito de potência,08,402966,Diodo com Faston,2,OCR
+32,75,EV9-509,Circuito de potência,09,442434,Receptáculo,4,OCR
+32,75,EV9-509,Circuito de potência,10,442442,Porta-receptáculo 1 fêmea,4,OCR
+32,75,EV9-509,Circuito de potência,11,852269,Base para fusível,1,OCR
+32,75,EV9-509,Circuito de potência,12,080143,Porta fusível de 8 vias lateral,1,OCR
+32,75,EV9-509,Circuito de potência,13,852251,Fusível magnetico retardado,1,OCR corrigido na imagem
+32,75,EV9-509,Circuito de potência,14,061580,Fusível de lâmina - 10A,2,OCR
+32,75,EV9-509,Circuito de potência,15,061598,Fusível de lâmina - 15A,4,OCR
+32,75,EV9-509,Circuito de potência,16,521666,Arruela de pressão Ø6 aço,2,OCR
+32,75,EV9-509,Circuito de potência,17,023234,Parafuso M6,4,OCR
+33,76,EV9-507,Protetor das lanternas RB30,00,040872,Protetor das lanternas RB30,1,leitura visual
+33,76,EV9-507,Protetor das lanternas RB30,01,040872,Protetor para Lanterna RB-30,1,OCR
+34,77,EV9-501,Kit botão de emergência RB30,00,1226002,Kit botão de emergência RB30,1,leitura visual
+34,77,EV9-501,Kit botão de emergência RB30,01,1193656,Botoeira de emergência,1,OCR
+34,77,EV9-501,Kit botão de emergência RB30,02,101170,Cabo de Retorno Botão Emergência,1,OCR
+34,77,EV9-501,Kit botão de emergência RB30,03,520676,Arruela de pressão Ø5,2,OCR
+34,77,EV9-501,Kit botão de emergência RB30,04,811026,"Parafuso c/fenda M5 x 18x 0,8",2,OCR
+34,77,EV9-501,Kit botão de emergência RB30,05,501692,"Arruela lisa Ø95,2 x Ø12 x 1,2 aço",2,OCR
+35,78,EV9-500,Tampa traseira completa,00,1226311,Tampa traseira completa,1,leitura visual
+35,78,EV9-500,Tampa traseira completa,01,1225963,Tampa traseira,1,OCR
+35,78,EV9-500,Tampa traseira completa,02,013433,"Arruela lisa Ø8,4 x Ø16 x 1,6 Aço",4,OCR
+35,78,EV9-500,Tampa traseira completa,03,519736,Arruela de pressão Ø8,4,OCR
+35,78,EV9-500,Tampa traseira completa,04,829382,"Parafuso sextavado M8 x 1,25",4,OCR
+36,79,EV9-499,Kit estepes pneumáticos 3.75 x 8 e 5.00 x 8,00,1223372,Kit estepes pneumáticos 3.75 x 8 e 5.00 x 8,1,leitura visual
+36,79,EV9-499,Kit estepes pneumáticos 3.75 x 8 e 5.00 x 8,01,011113,"Kit estepe PN 3,75 - 8 RD 5F",1,OCR
+36,79,EV9-499,Kit estepes pneumáticos 3.75 x 8 e 5.00 x 8,02,011139,Pneu montado 5.00-8 roda com 5 furos,1,OCR
+37,80,EV9-498,Engate simples completo,00,1225959,Engate simples completo,1,leitura visual
+37,80,EV9-498,Engate simples completo,01,1225924,Engate simples,1,OCR
+37,80,EV9-498,Engate simples completo,02,829432,"Parafuso cabeça sextavada M12 x 1,75 x 40",4,OCR
+37,80,EV9-498,Engate simples completo,03,881227,Arruela lisa 130 x 270 x 30,4,OCR
+37,80,EV9-498,Engate simples completo,04,194142,"Porca sextavada Parlock M12 x 1,75",4,OCR
+37,80,EV9-498,Engate simples completo,05,1225949,Pino do engate,1,OCR
+37,80,EV9-498,Engate simples completo,06,517409,"Contrapino 3/16""",1,OCR
+38,81,EV9-372,Kit de fechamento de lona com acabamento branco RB30,00,1224437,Kit de fechamento de lona com acabamento branco RB30,1,leitura visual
+38,81,EV9-372,Kit de fechamento de lona com acabamento branco RB30,01,1224434,Fechamento de lona com acabamento branco RB30,1,OCR
+38,81,EV9-372,Kit de fechamento de lona com acabamento branco RB30,02,551754,"Rebite ""POP"" - 0,40 x 12,8",60,OCR
+39,82,EV9-504,Kit banco sem apoio de braço,00,1226210,Kit banco sem apoio de braço,1,leitura visual
+39,82,EV9-504,Kit banco sem apoio de braço,01,1173133,Assento com amortecimento,1,OCR
+39,82,EV9-504,Kit banco sem apoio de braço,02,1150750,Trilho do Assento Inferior,1,OCR
+39,82,EV9-504,Kit banco sem apoio de braço,03,829374,"Parafuso sextavado M8 x 20 x 1,25 - CL. 8.8",4,OCR
+39,82,EV9-504,Kit banco sem apoio de braço,04,460121,Arruela espaçadora,6,OCR
+39,82,EV9-504,Kit banco sem apoio de braço,05,678722,"Porca sextavada Parlock M8 x 1,25",4,OCR corrigido na imagem
+39,82,EV9-504,Kit banco sem apoio de braço,06,1147775,Kit - Cinto de Segurança 2 Pontos Retrátil,1,OCR
+40,83,EV9-496,Kit banco com apoio de braço,00,1227990,Kit banco com apoio de braço,1,leitura visual
+40,83,EV9-496,Kit banco com apoio de braço,01,477588,Assento com amortecimento,1,OCR corrigido na imagem
+40,83,EV9-496,Kit banco com apoio de braço,02,1147775,Kit - Cinto de Segurança 2 Pontos Retrátil,1,OCR
+40,83,EV9-496,Kit banco com apoio de braço,03,829374,"Parafuso sextavado M8 x 20 x 1,25 - CL. 8.8",4,OCR
+40,83,EV9-496,Kit banco com apoio de braço,04,460121,Arruela espaçadora,6,OCR
+40,83,EV9-496,Kit banco com apoio de braço,05,678722,"Porca sextavada Parlock M8 x 1,25",4,OCR corrigido na imagem

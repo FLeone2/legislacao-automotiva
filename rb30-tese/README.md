@@ -12,7 +12,7 @@ autonomia por turno, eficiência e custo?
 | Fase | Conteúdo | Estado |
 |---|---|---|
 | Começo 1 | Estrutura, ambiente Python, git | feito |
-| Começo 2 | Leitura dos PDFs do RB-30, índice, parâmetros do veículo | **bloqueado: PDFs ausentes (P-01)**; parâmetros transcritos do enunciado, marcados como não verificados |
+| Começo 2 | Leitura dos PDFs do RB-30, índice, parâmetros do veículo | feito em 24/10/2026: 72 + 40 páginas lidas; dados conferidos no PDF; lista de peças extraída |
 | E0 | Ficha da célula Ballard | feito; **portão aberto** aguardando o pesquisador |
 | A–J | Modelos, controle, comparação, kit | não iniciadas |
 
@@ -21,7 +21,9 @@ autonomia por turno, eficiência e custo?
 - `celula/ficha_ballard.md` — ficha completa do stack, com 14 achados e as lacunas.
 - `celula/perguntas_ao_fabricante.md` — 17 perguntas à Ballard e 3 sobre importação.
 - `celula/conferencias_e0.py` — contas da fase E0 (Faraday, vazões, eficiência, purga).
+- `fontes/RB30_indice.md` — índice do manual e do catálogo, e conferência do enunciado.
 - `dados/parametros.yaml` — todos os parâmetros, com fonte, tag e condição.
+- `dados/catalogo_pecas.csv` — 234 itens do catálogo (gerado por `fontes/extrair_catalogo.py`).
 - `dados/pendencias.md` — o que falta e quem resolve.
 - `hipoteses.md`, `decisoes.md` — hipóteses (H-###) e decisões (DEC-###).
 - `revisao/fontes_usadas.md` — cada fonte, com status de verificação.

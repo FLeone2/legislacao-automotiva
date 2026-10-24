@@ -41,3 +41,17 @@ Cada decisão registra o contexto, a escolha, as alternativas e como desfazê-la
 - **Escolha:** ambiente virtual `rb30-tese/.venv`, versões fixas em `requirements.txt`.
 - **Motivo:** o resultado da tese deve ser reproduzível. Uma versão nova de biblioteca pode
   mudar um número.
+
+## DEC-006 — Lista de peças do catálogo no repositório (24/10/2026)
+
+- **Contexto:** o catálogo traz "Cópia controlada — Proibida a reprodução e distribuição".
+- **Escolha provisória:** o PDF fica fora do git (DEC-003). A tabela `dados/catalogo_pecas.csv`
+  (códigos, descrições e quantidades) entra, porque o enunciado a pede e o modelo precisa dela.
+- **Pendente:** confirmação do pesquisador (P-12). Se o repositório for público, a
+  alternativa é versionar só as linhas usadas no kit.
+
+## DEC-007 — Página citada do catálogo (24/10/2026)
+
+- **Escolha:** citar a página **impressa** do catálogo (44 a 83), não a página do PDF (1 a 40).
+- **Motivo:** é a numeração do documento original, que continua válida se o pesquisador obtiver
+  o catálogo completo. O CSV guarda as duas.
