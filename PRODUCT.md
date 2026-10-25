@@ -10,8 +10,8 @@ web
 
 Portal consultivo e informativo para agregar referências de legislação automotiva
 brasileira e direcionar às fontes pertinentes. A pessoa pode partir do desenho do
-veículo, de uma etapa da homologação ou da biblioteca. O portal não decide a
-aplicabilidade de uma norma a um veículo concreto.
+veículo, de uma etapa da homologação ou da biblioteca. O ambiente de projeto organiza perfis e checklists condicionais sem certificar a
+aplicabilidade final de uma norma a um veículo concreto.
 
 ## Capabilities and Constraints
 
@@ -26,6 +26,8 @@ aplicabilidade de uma norma a um veículo concreto.
   histórico usam o mesmo acervo canônico publicado.
 - Publicação, indicação jurídica, profundidade da revisão e aplicabilidade são
   independentes. As exclusões editoriais e as lacunas documentais permanecem.
+- Guia de projeto com 3D Three.js, árvore sincronizada, fluxo React Flow e checklist
+  local com notas, evidências e backup. O perfil orienta a triagem, sem homologação automática.
 - Não há assistente de IA conectado; a interface informa sua indisponibilidade.
 
 ## Brand Commitments

@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-25",
+  "scopeNote": "Revisão dirigida para o guia de segurança/processos. Independente do catálogo ativo, sem promover vigência, aplicabilidade ou revisão integral.",
+  "records": [
+    {
+      "id": "guide-senatran-990",
+      "agency": "SENATRAN",
+      "title": "Portaria SENATRAN 990/2022 — procedimento CAT e registros de ensaios",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022.pdf/@@display-file/file",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_original_text",
+      "scope": "Procedimento, SGQ/CCT, CS/ITL, relatórios, SISCAT e grupos do Anexo XI.",
+      "limitations": "PDF oficial da publicação original, não consolidação. Referências antigas no Anexo XI exigem atualização; republicação e cadeia integral não revisadas.",
+      "device": "Arts. 2º, 9º, 12–22, 26; Anexos I–XI",
+      "documentSha256": "79c69a01e9622de7d06f7055dcaa1120ffcf05d2d9aa453f6efebd241c607133",
+      "legalStatus": "requires_chain_review"
+    },
+    {
+      "id": "guide-senatran-siscat",
+      "agency": "SENATRAN",
+      "title": "Carta de serviço — SISCAT",
+      "url": "https://www.gov.br/pt-br/servicos/sistema-de-certificacao-de-adequacao-a-legislacao-de-transito",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_guidance",
+      "scope": "Acesso, módulos, envio de documentos, GRU, análise e CAT.",
+      "limitations": "Orientação de serviço, última modificação indicada 15/12/2025. Requisitos efetivos devem ser conferidos no módulo; não há acesso autenticado nesta revisão."
+    },
+    {
+      "id": "guide-senatran-cat",
+      "agency": "SENATRAN",
+      "title": "Carta de serviço — emitir CAT",
+      "url": "https://www.gov.br/pt-br/servicos/emitir-certificado-de-adequacao-a-legislacao-de-transito-cat",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_guidance",
+      "scope": "Público do serviço, finalidade do CAT e canais indicados.",
+      "limitations": "Página menciona SISCAT e SEI. Conferir canal conforme módulo disponibilizado e indisponibilidade; não é autorização universal de uso do SEI."
+    },
+    {
+      "id": "guide-contran-915",
+      "agency": "CONTRAN",
+      "title": "Resolução CONTRAN 915/2022",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9152022.pdf/@@display-file/file",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_original_text",
+      "scope": "Classificação M/N/O/L, desempenho dos freios e ABS/CBS.",
+      "limitations": "Texto original conferido; cadeia modificadora integral não certificada. Exceções exigem configuração e datas reais.",
+      "device": "Arts. 2º e 4º–9º",
+      "documentSha256": "07b53ce129b94e6a5fc9b3cba7039af2c7f6cef5097ab89f74b7e9c85425ebc6",
+      "legalStatus": "requires_chain_review"
+    },
+    {
+      "id": "guide-contran-954",
+      "agency": "CONTRAN",
+      "title": "Resolução CONTRAN 954/2022",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9542022.pdf/@@display-file/file",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_original_text",
+      "scope": "ESC/VSF, categoria, uso urbano/escolar, eixos e cronograma.",
+      "limitations": "Texto original conferido; cadeia modificadora integral não certificada. Exceções exigem configuração e datas reais.",
+      "device": "Arts. 3º–7º",
+      "documentSha256": "56fa725fd66a8943186dcbe62f6e5f8e6fb9145e481117b281b4048288c19897",
+      "legalStatus": "requires_chain_review"
+    },
+    {
+      "id": "guide-contran-939",
+      "agency": "CONTRAN",
+      "title": "Resolução CONTRAN 939/2022 — segurança M2",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9392022.pdf/@@display-file/file",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_original_text",
+      "scope": "Segurança de micro-ônibus M2; estrutura, estabilidade, bancos e emergência.",
+      "limitations": "Corpo do ato localizado; anexos técnicos integrais e cadeia modificadora não consolidados. Consulta pública não equivale a alteração publicada.",
+      "device": "Arts. 1º–5º"
+    },
+    {
+      "id": "guide-contran-959",
+      "agency": "CONTRAN",
+      "title": "Resolução CONTRAN 959/2022 — segurança M3",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9592022.pdf/@@display-file/file",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_original_text",
+      "scope": "Segurança de ônibus/micro-ônibus M3; diferenças de uso e documentação de CAT.",
+      "limitations": "Corpo do ato localizado; anexos técnicos integrais e cadeia modificadora não consolidados.",
+      "device": "Arts. 1º–7º"
+    },
+    {
+      "id": "guide-contran-index",
+      "agency": "CONTRAN",
+      "title": "Índice oficial de resoluções CONTRAN",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_index",
+      "scope": "Localização de atos e indicação de alterações/efeitos no índice.",
+      "limitations": "Índice não prova consolidação de todos os dispositivos; preservar profundidade por registro do acervo."
+    },
+    {
+      "id": "guide-inmetro-145",
+      "agency": "INMETRO",
+      "title": "Portal IQ — Portaria Inmetro 145/2022",
+      "url": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022?layout=norma_detalhe",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_index",
+      "scope": "Objetos regulados e referências técnicas.",
+      "limitations": "Referência atual, íntegra pendente. Não promover RTQ/RAC ou exclusões OEM a revisão integral; não estender bateria chumbo-ácido a tração de íons de lítio."
+    },
+    {
+      "id": "guide-inmetro-led",
+      "agency": "INMETRO",
+      "title": "FAQ — lâmpadas LED automotivas",
+      "url": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/lampadas-e-luminarias-led-portaria-inmetro-no-231-2026-fabricantes-importadores-comerciantes-e-distribuidores/lampadas-led-para-carros-precisam-de-certificacao",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_guidance",
+      "scope": "LED automotivo fora do escopo das Portarias 145/2022 e 231/2026.",
+      "limitations": "Orientação publicada em 13/08/2026. Não autoriza substituição no veículo nem dispensa segurança CONTRAN."
+    },
+    {
+      "id": "guide-inmetro-bateria-importada",
+      "agency": "INMETRO",
+      "title": "Ofício Circular 5/2026 — baterias chumbo-ácido importadas",
+      "url": "https://www.gov.br/inmetro/pt-br/assuntos/acreditacao-reconhecimento-bpl/comunicados/dicor-alerta/2026/oficio-circular-5-2026-dconf-inmetro.pdf",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_guidance",
+      "scope": "Harmonização de entendimento para bateria automotiva chumbo-ácido importada.",
+      "limitations": "Orientação específica; não é regulamento geral de baterias de tração. Detalhes devem ser lidos no original e no requisito do acervo."
+    },
+    {
+      "id": "guide-anatel-base",
+      "agency": "ANATEL",
+      "title": "Base legal de certificação de produtos",
+      "url": "https://www.gov.br/anatel/pt-br/regulado/certificacao-de-produtos/base-legal",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_guidance",
+      "scope": "Localização do regulamento de avaliação da conformidade/homologação.",
+      "limitations": "Página de orientação, não texto consolidado da Resolução 715/2019 e modificadores."
+    },
+    {
+      "id": "guide-anatel-715",
+      "agency": "ANATEL",
+      "title": "Resolução Anatel 715/2019 e modificadores",
+      "url": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2019/1350-resolucao-715",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "repository_directed_review",
+      "scope": "Produtos para telecomunicações; obrigação e identificação conforme acervo dirigido.",
+      "limitations": "Na consulta atual, endereço redirecionou para manutenção. Preservar snapshot e revisão do acervo; não afirmar nova revisão integral de 25/10/2026.",
+      "accessStatus": "maintenance_redirect"
+    },
+    {
+      "id": "guide-anatel-modulos",
+      "agency": "ANATEL",
+      "title": "Ato 4083/2020 — procedimento de avaliação e integração de módulos",
+      "url": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2020/1453-resolucao-729",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_indexed_excerpt",
+      "scope": "Integração de módulo em produto passível de homologação pode exigir nova avaliação.",
+      "limitations": "Trecho localizado no índice de busca oficial; íntegra atual e cadeia de alterações não conferidas nesta rodada. Não fornece dispensa automática.",
+      "device": "Procedimento operacional: certificação de módulos para integração"
+    },
+    {
+      "id": "guide-mdic-mover",
+      "agency": "MDIC",
+      "title": "Programa MOVER — apresentação oficial",
+      "url": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/programa-mover",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_guidance",
+      "scope": "Programa instituído pela Lei 14.902/2024; compromissos/regimes e encaminhamentos.",
+      "limitations": "Página geral ainda menciona 43/2024; o índice 2026 indica sua revogação. Não usar referência antiga isoladamente como regra atual."
+    },
+    {
+      "id": "guide-mdic-2026",
+      "agency": "MDIC",
+      "title": "Índice de Portarias GM/MDIC de 2026",
+      "url": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2026",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_index",
+      "scope": "Índice indica Portaria 68/2026 e revogação da 43/2024.",
+      "limitations": "Confirmação em índice, não íntegra consolidada da 68, dispositivo de revogação ou transição; preservar ressalva existente do acervo."
+    }
+  ]
+}

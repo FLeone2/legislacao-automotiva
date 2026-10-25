@@ -19,18 +19,22 @@
     <link href="src/styles/regulatory-context.css?v=7809503fdf796251" rel="stylesheet" />
     <meta content="#0b0c0f" name="theme-color" />
     <link href="src/styles/obsidian.css?v=64b451186470b284" rel="stylesheet" />
+    <link href="src/styles/guide.css?v=bd7746818e481b5a" rel="stylesheet" />
+    <link href="assets/guide/guide.css?v=77eb229e70c7949e" rel="stylesheet" />
+    <link href="assets/guide/guide.js?v=4944c90edffbcd3a" rel="prefetch" as="script" id="guideBundle" />
   </head>
   <body>
     <a class="skip-link" href="#main">Ir para o conteúdo</a>
     <div id="app">
       <div class="workspace">
         <header class="topbar">
-          <a class="brand" href="#vehicle"
+          <a class="brand" href="#guide"
             ><span class="brand-mark" data-icon="car"></span
             ><strong>Legislação <span>Automotiva</span></strong></a
           >
           <nav aria-label="Navegação principal" class="primary-nav main-nav glass">
             <span aria-hidden="true" class="nav-indicator"></span
+            ><a data-nav="guide" href="#guide"><span data-icon="file"></span>Guia</a
             ><a data-nav="vehicle" href="#vehicle"><span data-icon="car"></span>Veículo</a
             ><a data-nav="flow" href="#flow"><span data-icon="flow"></span>Homologação</a
             ><a data-nav="library" href="#library"><span data-icon="book"></span>Biblioteca</a>
@@ -166,8 +170,9 @@
     <script src="src/views/history.js?v=f8071cecc2a17887"></script>
     <script src="src/views/library.js?v=a22ef1d85a5d260b"></script>
     <script src="src/views/document.js?v=ba32210a1f344e2c"></script>
-    <script src="src/core/router.js?v=48722bf237c5d024"></script>
-    <script src="src/core/navigation.js?v=490c4b4f9d259bb7"></script>
+    <script src="src/guide/bridge.js?v=5f352e18b7168402"></script>
+    <script src="src/core/router.js?v=aa4b37e0202afc3f"></script>
+    <script src="src/core/navigation.js?v=45972f53e17b5312"></script>
     <script src="src/views/aurora.js?v=fe92b381b73edfb8"></script>
     <script src="app.js?v=9686894386165349"></script>
     <dialog aria-label="Buscar no acervo" class="search-dialog" id="searchDialog">

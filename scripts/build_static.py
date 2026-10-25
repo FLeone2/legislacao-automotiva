@@ -27,6 +27,8 @@ def build(destination=None):
         "src",
         "assets",
         "data/site",
+        "data/process",
+        "docs/guide",
         "data/requirements/catalog.json",
     ]
     for agency in ("contran", "proconve", "inmetro", "anatel"):

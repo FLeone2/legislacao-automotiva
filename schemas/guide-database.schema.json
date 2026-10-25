@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Guia de homologação — índice de referências consultivas",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "kind", "scopeNote", "counts", "provenance", "tables"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "kind": {"const": "curated_consultation_reference_index"},
+    "scopeNote": {"type": "string", "minLength": 20},
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sources", "acts", "aliases", "actSources"],
+      "properties": {
+        "sources": {"type": "integer", "minimum": 0},
+        "acts": {"type": "integer", "minimum": 0},
+        "aliases": {"type": "integer", "minimum": 0},
+        "actSources": {"type": "integer", "minimum": 0}
+      }
+    },
+    "provenance": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "sha256"],
+        "properties": {
+          "path": {"type": "string", "minLength": 1},
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+        }
+      }
+    },
+    "tables": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sources", "acts", "aliases", "actSources"],
+      "properties": {
+        "sources": {"type": "array", "items": {"$ref": "#/$defs/source"}},
+        "acts": {"type": "array", "items": {"$ref": "#/$defs/act"}},
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["alias", "actId"],
+            "properties": {
+              "alias": {"$ref": "#/$defs/id"},
+              "actId": {"$ref": "#/$defs/id"}
+            }
+          }
+        },
+        "actSources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["sourceId", "actId", "relation"],
+            "properties": {
+              "sourceId": {"$ref": "#/$defs/id"},
+              "actId": {"$ref": "#/$defs/id"},
+              "relation": {"enum": ["same_canonical_id", "same_official_url"]}
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z0-9-]+$"},
+    "url": {"type": "string", "format": "uri", "pattern": "^https://"},
+    "pointer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "pointer"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "pointer": {"type": "string", "pattern": "^/"}
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": ["id", "agency", "title", "url", "checkedAt", "evidenceType", "scope", "limitations", "provenance"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "agency": {"type": "string", "minLength": 1},
+        "title": {"type": "string", "minLength": 1},
+        "url": {"$ref": "#/$defs/url"},
+        "checkedAt": {"type": "string", "format": "date"},
+        "evidenceType": {"type": "string", "minLength": 1},
+        "scope": {"type": "string", "minLength": 1},
+        "limitations": {"type": "string", "minLength": 1},
+        "device": {"type": "string"},
+        "provenance": {"$ref": "#/$defs/pointer"}
+      }
+    },
+    "act": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "agency", "title", "officialUrl", "statusLabel", "legalStatus", "reviewStatus", "applicability", "publication", "reviewDate", "phases", "requirementIds", "provenance"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "agency": {"type": "string", "minLength": 1},
+        "title": {"type": "string", "minLength": 1},
+        "officialUrl": {"$ref": "#/$defs/url"},
+        "statusLabel": {"type": ["string", "null"]},
+        "legalStatus": {"type": ["object", "null"]},
+        "reviewStatus": {"type": ["object", "null"]},
+        "applicability": {"type": ["object", "null"]},
+        "publication": {"type": ["object", "null"]},
+        "reviewDate": {"type": ["string", "null"]},
+        "phases": {"type": "array", "items": {"type": "string"}},
+        "requirementIds": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "provenance": {"$ref": "#/$defs/pointer"}
+      }
+    }
+  }
+}

@@ -1,0 +1,222 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-25",
+  "note": "Matriz consultiva não exaustiva de frentes de evidência. Os seletores orientam a triagem; conditional e review não declaram obrigação confirmada. Evidências listadas são entregáveis recomendados para verificar incidência, sem inventar método ou limite técnico. Preservar limites de revisão das fontes e conferir anexos/modificadores atuais.",
+  "stage": "seguranca",
+  "rows": [
+    {
+      "id": "report-control-levels",
+      "title": "Definir o grupo e o nível de controle dos registros",
+      "description": "Portaria 990/2022, Anexo XI: distinguir leves com PBT até 3.500 kg, pesados acima de 3.500 kg, rebocados e motos/similares. Nível 1 organiza declaração de conformidade; nível 2, segurança ativa; nível 3, segurança passiva. Os níveis e os itens variam por grupo e tipo de veículo.",
+      "categories": [
+        "M1",
+        "M2",
+        "M3",
+        "N1",
+        "N2",
+        "N3",
+        "O",
+        "L"
+      ],
+      "applicability": "review",
+      "reason": "Triagem documental do Anexo XI original, não pacote universal de ensaios. Um M2 acima de 3.500 kg segue o grupo pesado dessa tabela, sem mudar sua categoria. Rever dispositivos atuais por item antes de decidir obrigação.",
+      "sourceIds": [
+        "guide-senatran-990"
+      ],
+      "evidence": [
+        "Grupo do Anexo XI e estágio de construção justificados",
+        "Índice de declarações e relatórios por nível aplicável",
+        "Referência atual e exclusões de cada item"
+      ]
+    },
+    {
+      "id": "report-braking-mn",
+      "title": "Enquadrar desempenho de frenagem e ABS nas categorias M/N",
+      "description": "Resolução 915/2022, arts. 4º–5º e 7º–9º: separar comprovação de desempenho do sistema de freios da exigência de ABS. M1, M2, M3, N1, N2 e N3 estão no art. 5º; as exceções do art. 7º devem ser verificadas individualmente.",
+      "categories": [
+        "M1",
+        "M2",
+        "M3",
+        "N1",
+        "N2",
+        "N3"
+      ],
+      "applicability": "conditional",
+      "reason": "A categoria seleciona a frente de frenagem; configuração, exceções e método vigente definem a evidência. Dispensa de ABS não significa dispensa geral do desempenho de freios.",
+      "sourceIds": [
+        "guide-contran-915",
+        "guide-senatran-990"
+      ],
+      "evidence": [
+        "Enquadramento do sistema e de ABS com dispositivo",
+        "Relatório de desempenho pertinente à categoria e configuração",
+        "Fundamentação de eventual exceção ou equivalência aceita"
+      ]
+    },
+    {
+      "id": "report-braking-l",
+      "title": "Determinar a subcategoria L e o ramo ABS/CBS",
+      "description": "Resolução 915/2022, arts. 2º e 6º–7º: para L3–L7, cilindrada a partir de 300 cm³ ou potência elétrica a partir de 22 kW conduz ao ramo ABS em todas as rodas; abaixo desses limiares, o ato admite ABS ou CBS, observadas suas condições e exceções. L1/L2 têm enquadramento próprio.",
+      "categories": [
+        "L"
+      ],
+      "applicability": "review",
+      "reason": "O perfil agregado L não informa subcategoria, cilindrada ou potência. Esses dados devem ser obtidos antes de escolher relatório ou sistema; nenhuma potência ou cilindrada foi presumida.",
+      "sourceIds": [
+        "guide-contran-915"
+      ],
+      "evidence": [
+        "Subcategoria L justificada",
+        "Cilindrada ou potência elétrica e velocidade de projeto documentadas",
+        "Decisão de ABS/CBS e evidência de frenagem conforme o ramo confirmado"
+      ]
+    },
+    {
+      "id": "report-stability-mn",
+      "title": "Enquadrar ESC/VSF, datas e configuração M/N",
+      "description": "Resolução 954/2022, arts. 3º–7º: M1/N1 têm ramo ESC, com alternativa VSF nas hipóteses do art. 3º, §2º; M2/N2 e determinados N3 seguem condições próprias de VSF. N3 exige analisar eixos, massa técnica e diâmetro de roda, além das exceções e datas.",
+      "categories": [
+        "M1",
+        "M2",
+        "N1",
+        "N2",
+        "N3"
+      ],
+      "applicability": "conditional",
+      "reason": "Não basta possuir um módulo ABS/ESC. Confirmar funções, enquadramento, marco do primeiro modelo básico e exceções antes de definir a comprovação. O perfil não contém eixos e diâmetro de roda.",
+      "sourceIds": [
+        "guide-contran-954"
+      ],
+      "evidence": [
+        "Matriz ESC/VSF com categoria, massa, eixos e exceções",
+        "Datas do modelo básico e produção/importação",
+        "Relatório de desempenho pelo procedimento admitido no art. 4º, quando incidente"
+      ]
+    },
+    {
+      "id": "report-stability-m3-urban",
+      "title": "Verificar a condição de M3 exclusivamente urbano",
+      "description": "Resolução 954/2022, art. 3º, §5º: a instalação do controle de estabilidade é opcional para M3 de utilização exclusivamente urbana, ressalvado o §6º relativo aos escolares. Essa opção não dispensa estabilidade estrutural ou outros requisitos que incidam por ato próprio.",
+      "categories": [
+        "M3"
+      ],
+      "usage": [
+        "urban"
+      ],
+      "applicability": "review",
+      "reason": "O campo urbano é uma indicação do projeto, não prova de exclusividade de uso. Confirmar destinação e ausência de condição escolar; registrar a decisão específica de ESC/VSF sem dispensar o restante do pacote.",
+      "sourceIds": [
+        "guide-contran-954",
+        "guide-contran-959"
+      ],
+      "evidence": [
+        "Uso exclusivamente urbano demonstrado",
+        "Decisão motivada sobre ESC/VSF e ressalva escolar",
+        "Avaliação separada dos demais requisitos de ônibus"
+      ]
+    },
+    {
+      "id": "report-stability-m3-other",
+      "title": "Definir estabilidade M3 no uso geral ou escolar",
+      "description": "Resolução 954/2022, art. 3º, §§3º, 5º e 6º, e arts. 4º–7º: M3 escolar tem instalação obrigatória de controle de estabilidade; o tratamento opcional previsto para urbano exclusivo não deve ser transferido ao escolar. No uso geral, detalhar a aplicação e revisar exceções e cronograma.",
+      "categories": [
+        "M3"
+      ],
+      "usage": [
+        "general",
+        "school"
+      ],
+      "applicability": "conditional",
+      "reason": "O seletor escolar identifica uma particularidade expressa do §6º. Uso geral ainda precisa ser detalhado; categoria e uso não substituem a avaliação de datas e demais exceções.",
+      "sourceIds": [
+        "guide-contran-954"
+      ],
+      "evidence": [
+        "Uso e configuração M3 documentados",
+        "Enquadramento do art. 3º e cronograma do art. 7º",
+        "Relatório de desempenho pertinente, quando incidente"
+      ]
+    },
+    {
+      "id": "report-bus-m2",
+      "title": "Montar o pacote específico de segurança de micro-ônibus M2",
+      "description": "Resolução 939/2022, art. 2º, §2º, e arts. 4º–5º: separar estabilidade, avaliação estrutural, bancos/ancoragens, cintos e saídas de emergência. Conferir anexos aplicáveis e o cronograma próprio dos cintos, incluindo a data do modelo básico em projetos derivados.",
+      "categories": [
+        "M2"
+      ],
+      "applicability": "conditional",
+      "reason": "M2 tem pacote próprio, mesmo quando o PBT o coloca no grupo leve da tabela da Portaria 990. A revisão localizou o corpo do ato; anexos integrais e cadeia modificadora precisam de conferência antes da contratação de métodos.",
+      "sourceIds": [
+        "guide-contran-939",
+        "guide-senatran-990"
+      ],
+      "evidence": [
+        "Classificação M2 e lotação",
+        "Matriz por anexo, uso e data",
+        "Relatórios e avaliações previstos nos anexos efetivamente incidentes",
+        "Desenhos e evidências de acesso e emergência"
+      ]
+    },
+    {
+      "id": "report-bus-m3",
+      "title": "Montar o pacote específico de segurança de ônibus M3",
+      "description": "Resolução 959/2022, art. 1º, §3º, e arts. 2º–4º: distinguir avaliação estrutural, estabilidade, bancos/ancoragens, cintos e demais anexos. A aplicação do ensaio de estabilidade do Anexo II é delimitada no art. 1º, §3º; não confundir esse ensaio com ESC/VSF.",
+      "categories": [
+        "M3"
+      ],
+      "applicability": "conditional",
+      "reason": "Aplicações rodoviária, intermunicipal, particular, urbana e escolar exigem leitura do recorte correspondente. O corpo do ato prevê informações de atendimento nos pedidos CAT e condições para atualização; anexos e cadeia integral não estão consolidados nesta revisão.",
+      "sourceIds": [
+        "guide-contran-959",
+        "guide-senatran-990"
+      ],
+      "evidence": [
+        "Aplicação do ônibus e estágio de construção",
+        "Matriz de anexos e cronogramas",
+        "Comprovação de estabilidade e estrutura conforme incidência",
+        "Documentos de atualização CAT quando essa for a operação"
+      ]
+    },
+    {
+      "id": "report-impact-m1n1",
+      "title": "Delimitar impactos e proteção dos ocupantes",
+      "description": "Portaria 990/2022, Anexo XI, item 1.5: a tabela original distingue os registros de segurança passiva por tipo de veículo. Para impactos, cintos/ancoragens, bancos e proteção de ocupantes, localizar a resolução atual e seu escopo antes de concluir que um relatório é exigido para o projeto M1/N1.",
+      "categories": [
+        "M1",
+        "N1"
+      ],
+      "applicability": "review",
+      "reason": "O vínculo a M1/N1 é uma frente de análise, não a afirmação de que todo impacto é obrigatório. Massa, geometria, tipo, datas e exceções não foram avaliados por completo; não transportar o pacote de automóvel a toda caminhonete.",
+      "sourceIds": [
+        "guide-senatran-990",
+        "contran-consultation"
+      ],
+      "evidence": [
+        "Ato e dispositivo atuais por modalidade de impacto",
+        "Âmbito, datas, amostra/configuração e exceções justificados",
+        "Plano e relatórios somente dos requisitos cuja incidência foi confirmada"
+      ]
+    },
+    {
+      "id": "report-towed",
+      "title": "Definir a matriz própria do veículo rebocado",
+      "description": "Portaria 990/2022, Anexo XI, item 3, e Resolução 915/2022, arts. 2º, 4º–5º: usar o ramo de reboque/semirreboque. Confirmar O1–O4 e PBT: o art. 4º trata desempenho de freios de rebocados acima de 0,75 t; o art. 5º cita O3/O4 para ABS. Iluminação, proteções e outros temas exigem atos próprios atualizados.",
+      "categories": [
+        "O"
+      ],
+      "applicability": "review",
+      "reason": "A categoria O agregada não define se o rebocado é O1, O2, O3 ou O4. Não herdar relatórios de ocupantes ou impactos de um automóvel; definir subcategoria, uso e configuração antes de detalhar o pacote.",
+      "sourceIds": [
+        "guide-senatran-990",
+        "guide-contran-915",
+        "contran-consultation"
+      ],
+      "evidence": [
+        "Subcategoria O e PBT documentados",
+        "Decisão separada de desempenho de freios e ABS",
+        "Matriz atualizada de iluminação e proteções",
+        "Eixos, acoplamento, uso e exceções necessários à análise"
+      ]
+    }
+  ]
+}

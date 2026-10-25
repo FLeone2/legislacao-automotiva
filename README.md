@@ -6,6 +6,23 @@ Site: https://legislacao-automotiva.pages.dev/#vehicle. A implementação da aud
 19/10/2026 está documentada em [matriz de melhorias e evidências](docs/audit-implementation-2026-10-19.md).
 Esse documento distingue implementação, validação de release e pesquisa ainda pendente.
 
+## Ambiente de projeto e guia profissional
+
+Abra `/#guide` (também é a entrada padrão). O ambiente mantém o design Obsidian e acrescenta:
+
+- Seleção 3D real, por Three.js, sincronizada à árvore e ao inspetor de referências. Geometrias esquemáticas distintas para automóvel, ônibus, caminhão, motociclo e reboque, sem escala ou validade de CAD. O desenho original e seus 37 contornos continuam em `/#vehicle`.
+- Perfil técnico com categoria, propulsão, origem, finalidade, massas, lotação, uso e radiofrequência. LP/LC não são inferidos apenas de M1/N1. Dados ausentes geram pendências; BEV não recebe dispensa ambiental automática.
+- Roteiro em React Flow, checklists por perfil e matriz consultiva de relatórios por categoria/uso. Verificações condicionais não significam obrigação já confirmada. M2 por PBT, M3 urbano/escolar e L têm particularidades próprias.
+- Registro local de status, notas e referência de evidência; exportação Markdown e backup/importação JSON. Não há conta, sincronização entre dispositivos, upload de laudos ou protocolo nos sistemas oficiais. URLs de processos locais precisam do backup no navegador de destino.
+- Mudanças no perfil devolvem verificações a pendentes para revalidação e preservam notas/evidências. O limite de 50 processos não remove processos antigos silenciosamente. Dados locais ilegíveis são preservados em chave de recuperação antes de substituição.
+- [Guia de emissões](docs/guide/emissoes.md), [segurança e SISCAT](docs/guide/seguranca-siscat.md), [órgãos e peças](docs/guide/orgaos-e-componentes.md), [base normativa](docs/guide/banco-normativo.md) e [brief de manutenção](docs/guide/brief-de-manutencao.md).
+
+A base `data/process/knowledge-index.json` reúne as fontes da revisão dirigida e os atos canônicos já publicados com seus estados separados. Gerar com `python scripts/build_guide_database.py`; `--check` confere determinismo e `--sqlite /tmp/base.sqlite` produz uma cópia SQLite local opcional. Novas fontes não são automaticamente promovidas a atos vigentes ou a requisitos confirmados.
+
+O site continua estático. A ilha React do guia carrega sob demanda, com dependências fixadas e empacotadas localmente em `assets/guide`; nenhuma CDN é necessária. `npm run build:guide` recompila a ilha; `npm run build` recompila também o artefato Cloudflare. `postinstall` conserva a publicação estática comprometida. A suíte `tests/guide-browser.py`, descoberta por `npm run test:browser`, verifica fluxo, 3D/árvore, teclado, persistência, backups, celular e axe.
+
+As skills Anatomy, React Flow, Impeccable e webapp-testing não estavam instaladas na sessão. Foram utilizados React Flow e Three.js como bibliotecas, o sistema visual Impeccable já versionado, a skill normativa local e Playwright/axe nas verificações. O guia não é uma certificação de completude jurídica para todo veículo: métodos privados, cadeias integrais e particularidades não revisadas permanecem pendentes.
+
 ## Consulta ativa CONTRAN e PROCONVE
 
 Acervo atualizado com a revisão dirigida de **19/10/2026**. A data e a profundidade
@@ -550,7 +567,8 @@ O redesenho não altera legislação, estados de revisão ou dados editoriais.
 
 O produto agrega referências e direciona às fontes oficiais. Os vínculos entre
 sistemas, subsistemas, etapas e documentos são temáticos; não constituem avaliação
-automática de aplicabilidade nem um checklist operacional de homologação.
+automática de aplicabilidade. O novo guia gera um checklist de trabalho condicional;
+a conclusão por requisito e a comprovação perante o órgão continuam dependentes da revisão técnica.
 
 A biblioteca preserva no endereço os filtros `q`, `agency`, `component`, `stage`
 e `review`, além da página de resultados (`page`). A listagem apresenta até 30

@@ -1,21 +1,25 @@
 {
   "assets": {
     "app.js": "9686894386165349",
+    "assets/guide/guide.css": "77eb229e70c7949e",
+    "assets/guide/guide.js": "4944c90edffbcd3a",
     "flow-data.js": "b7bb692fbb6d4511",
     "homologation-flow.js": "7e795da97f1c054a",
     "src/core/dom.js": "113e73619a8186a5",
     "src/core/icons.js": "eda7ff03c2fe9ab5",
-    "src/core/navigation.js": "490c4b4f9d259bb7",
+    "src/core/navigation.js": "45972f53e17b5312",
     "src/core/requirements.js": "7c00b959d0f08eff",
-    "src/core/router.js": "48722bf237c5d024",
+    "src/core/router.js": "aa4b37e0202afc3f",
     "src/core/theme.js": "34e204846c9f9eaf",
     "src/core/vehicle-legislation-data.js": "09afb72ee08ff99a",
     "src/core/vehicle-legislation.js": "026c87e0ac19f5e6",
     "src/core/vehicle-vector.js": "79611b4391e15157",
+    "src/guide/bridge.js": "5f352e18b7168402",
     "src/regulations/catalog.js": "89795c8359b917f6",
     "src/regulations/status.js": "99904cd4c2cc8166",
     "src/regulations/store.js": "2ee0f0576d280739",
     "src/regulations/technical-standards.js": "99bf9d7d99103fc4",
+    "src/styles/guide.css": "bd7746818e481b5a",
     "src/styles/navigation.css": "1b993dacafdaa1d2",
     "src/styles/obsidian.css": "64b451186470b284",
     "src/styles/regulatory-context.css": "7809503fdf796251",
@@ -33,5 +37,5 @@
     "vehicle-data.js": "09123227fe4f6446",
     "vehicle-navigation.js": "8d8e1918808770f8"
   },
-  "revision": "c9b0d5981fb3b2c95cf50db47809d911e35b0c31dee1038ff47d94b3fa1584b9"
+  "revision": "34f0ee8a99d25f7cc76eb20168ffcca8732d3ecde4fc2f1be9f6b673879b7ef5"
 }
