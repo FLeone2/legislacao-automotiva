@@ -2,7 +2,7 @@ import asyncio
 import os
 import json
 from pathlib import Path
-from playwright.async_api import async_playwright
+from playwright.async_api import async_playwright, expect
 from browser_support import launch_options, wait_for_route
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -72,9 +72,13 @@ async def main():
             assert await page.locator(".contran-record").count() == 0
         await page.goto(BASE + "#contran?record=contran-220-2007")
         await wait_for_route(page)
+        # The source route can finish before its hash redirect has rendered the
+        # historical record. Wait for the destination content, not just the route marker.
+        await expect(page.locator("#main .regulatory-history")).to_contain_text(
+            "Fora da consulta atual"
+        )
         assert "#history?agency=contran&record=contran-220-2007" in page.url
         assert await page.locator(".contran-record").count() == 0
-        assert "Fora da consulta atual" in await page.locator("#main").inner_text()
         await page.goto(BASE + "#contran?scope=current&q=termo-sem-correspondencia-xyz")
         await page.locator(".contran-records .empty").wait_for()
         await page.locator(".empty [data-contran-clear]").click()
