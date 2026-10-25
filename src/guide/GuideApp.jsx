@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { ReactFlow, Background, Controls, MarkerType } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
@@ -724,6 +724,18 @@ function GuideApp({ bridge }) {
   const [treeMode, setTreeMode] = useState(initialRoute.tree);
   const [stage, setStage] = useState(initialRoute.stage);
   const [exploded, setExploded] = useState(false);
+  const projectDisclosure = useRef(null);
+  const treeDisclosure = useRef(null);
+  // Native details owns its toggle state. Mirroring its queued toggle event in
+  // React can leave a fast search hidden behind a recently closed disclosure.
+  const bindProjectDisclosure = useCallback((node) => {
+    projectDisclosure.current = node;
+    if (node) node.open = !window.matchMedia('(max-width: 900px)').matches;
+  }, []);
+  const bindTreeDisclosure = useCallback((node) => {
+    treeDisclosure.current = node;
+    if (node) node.open = !window.matchMedia('(max-width: 650px)').matches;
+  }, []);
   const [partSearch, setPartSearch] = useState('');
   const [editing, setEditing] = useState(null);
   const [notice, setNotice] = useState(
@@ -784,6 +796,22 @@ function GuideApp({ bridge }) {
     setStorageError(error || '');
   }, [projects]);
   useEffect(() => {
+    const projectLayout = window.matchMedia('(max-width: 900px)');
+    const treeLayout = window.matchMedia('(max-width: 650px)');
+    const syncProject = () => {
+      if (projectDisclosure.current) projectDisclosure.current.open = !projectLayout.matches;
+    };
+    const syncTree = () => {
+      if (treeDisclosure.current) treeDisclosure.current.open = !treeLayout.matches;
+    };
+    projectLayout.addEventListener('change', syncProject);
+    treeLayout.addEventListener('change', syncTree);
+    return () => {
+      projectLayout.removeEventListener('change', syncProject);
+      treeLayout.removeEventListener('change', syncTree);
+    };
+  }, []);
+  useEffect(() => {
     const sync = () => {
       const r = readRoute();
       setTab(r.tab);
@@ -830,6 +858,7 @@ function GuideApp({ bridge }) {
   }
   function selectTreeMode(mode) {
     setTreeMode(mode);
+    if (treeDisclosure.current) treeDisclosure.current.open = true;
     setPartSearch('');
     route({ tree: mode });
   }
@@ -949,16 +978,8 @@ function GuideApp({ bridge }) {
     <div className="g-app">
       <header className="g-page-heading">
         <div>
-          <div className="g-eyebrow">
-            <span className="g-live-dot" /> ENGENHARIA E CONFORMIDADE · BRASIL
-          </div>
-          <h1>
-            Homologação, <em>por inteiro.</em>
-          </h1>
-          <p>
-            Do primeiro componente ao dossiê do veículo. Encontre o caminho, entenda as condições e
-            organize suas evidências.
-          </p>
+          <h1>Homologação veicular.</h1>
+          <p>Do componente ao veículo completo. Consulte as regras e organize seu processo.</p>
         </div>
         <button className="g-button g-primary" onClick={() => setEditing('new')}>
           <Icon name="plus" /> Novo processo
@@ -966,132 +987,145 @@ function GuideApp({ bridge }) {
       </header>
       <div className="g-workspace">
         <aside className="g-project-sidebar">
-          <div className="g-sidebar-heading">
-            <Icon name="file" />
-            <span>AMBIENTE DE PROJETO</span>
-          </div>
-          <label className="g-project-label" htmlFor="g-project-select">
-            Processo ativo
-          </label>
-          <select
-            id="g-project-select"
-            aria-label="Processo ativo"
-            value={project?.id || ''}
-            onChange={(e) => {
-              setProjectId(e.target.value || 'demo');
-              route({ project: e.target.value || 'demo' });
-            }}
-          >
-            <option value="">Explorar demonstração</option>
-            {projects.map((p) => (
-              <option value={p.id} key={p.id}>
-                {p.profile.name}
-              </option>
-            ))}
-          </select>
-          <div className="g-profile-summary">
-            <span className="g-tag">{project ? 'PROCESSO LOCAL' : 'DEMONSTRAÇÃO'}</span>
-            <h2>{profile.name}</h2>
-            <dl>
-              <div>
-                <dt>Categoria</dt>
-                <dd>{profile.category}</dd>
+          <details className="g-project-disclosure" ref={bindProjectDisclosure}>
+            <summary>
+              <span>
+                <strong>{profile.name}</strong>
+                <small>
+                  {profile.category} · {POWERTRAINS[profile.powertrain] || profile.powertrain}
+                </small>
+              </span>
+              <span className="g-disclosure-action">Perfil e opções</span>
+            </summary>
+            <div className="g-project-disclosure-body">
+              <div className="g-sidebar-heading">
+                <Icon name="file" />
+                <span>Seu processo</span>
               </div>
-              <div>
-                <dt>Propulsão</dt>
-                <dd>{POWERTRAINS[profile.powertrain] || profile.powertrain}</dd>
-              </div>
-              <div>
-                <dt>PBT / massa máx.</dt>
-                <dd>
-                  {profile.massKg
-                    ? Number(profile.massKg).toLocaleString('pt-BR') + ' kg'
-                    : 'Não informado'}
-                </dd>
-              </div>
-              <div>
-                <dt>Introdução</dt>
-                <dd>{profile.year || 'A definir'}</dd>
-              </div>
-            </dl>
-            <button
-              className="g-button g-full"
-              onClick={() => setEditing(project ? 'edit' : 'new')}
-            >
-              {project ? 'Editar perfil técnico' : 'Definir meu veículo'} <Icon name="arrow" />
-            </button>
-          </div>
-          <div className="g-progress">
-            <div>
-              <span>Organização do dossiê</span>
-              <strong>{progress}%</strong>
-            </div>
-            <progress value={progress} max="100" aria-label="Progresso do checklist" />
-            <small>
-              {done} concluídos · {items.length - done - na} pendentes · {na} não aplicáveis
-            </small>
-          </div>
-          <nav className="g-agencies" aria-label="Consultas por órgão">
-            <span className="g-sidebar-heading">FRENTES REGULATÓRIAS</span>
-            {[
-              ['IBAMA', 'Emissões e ruído', 'proconve'],
-              ['SENATRAN', 'Segurança e CAT', 'contran'],
-              ['Inmetro', 'Componentes e eficiência', 'inmetro'],
-              ['Anatel', 'Radiofrequência', 'anatel'],
-              ['MDIC', 'MOVER e habilitação', 'mover'],
-            ].map(([name, label, route]) => (
-              <a key={name} href={'#' + route}>
-                <span className={'g-agency-dot g-agency-' + name.toLowerCase()} />
-                <div>
-                  <strong>{name}</strong>
-                  <small>{label}</small>
-                </div>
-                <span aria-hidden="true">↗</span>
-              </a>
-            ))}
-          </nav>
-          <div className="g-local-actions">
-            <button className="g-text-button" onClick={exportMarkdown}>
-              <Icon name="export" /> Exportar checklist .md
-            </button>
-            <button
-              className="g-text-button"
-              disabled={!project}
-              onClick={() =>
-                download(
-                  'processo-homologacao.json',
-                  JSON.stringify(project, null, 2),
-                  'application/json',
-                )
-              }
-            >
-              <Icon name="export" /> Backup do processo .json
-            </button>
-            <button className="g-text-button" onClick={() => fileInput.current.click()}>
-              Importar processo .json
-            </button>
-            <input
-              ref={fileInput}
-              type="file"
-              accept=".json,application/json"
-              hidden
-              onChange={importProject}
-            />
-            {initial.raw && (
-              <button
-                className="g-text-button"
-                onClick={() =>
-                  download('processos-recuperacao.json', initial.raw, 'application/json')
-                }
+              <label className="g-project-label" htmlFor="g-project-select">
+                Processo ativo
+              </label>
+              <select
+                id="g-project-select"
+                aria-label="Processo ativo"
+                value={project?.id || ''}
+                onChange={(e) => {
+                  setProjectId(e.target.value || 'demo');
+                  route({ project: e.target.value || 'demo' });
+                }}
               >
-                Baixar dados para recuperação
-              </button>
-            )}
-            <small>
-              Salvo somente neste navegador. Faça um backup JSON para transferir ou conservar o
-              processo.
-            </small>
-          </div>
+                <option value="">Explorar demonstração</option>
+                {projects.map((p) => (
+                  <option value={p.id} key={p.id}>
+                    {p.profile.name}
+                  </option>
+                ))}
+              </select>
+              <div className="g-profile-summary">
+                <span className="g-tag">{project ? 'PROCESSO LOCAL' : 'DEMONSTRAÇÃO'}</span>
+                <h2>{profile.name}</h2>
+                <dl>
+                  <div>
+                    <dt>Categoria</dt>
+                    <dd>{profile.category}</dd>
+                  </div>
+                  <div>
+                    <dt>Propulsão</dt>
+                    <dd>{POWERTRAINS[profile.powertrain] || profile.powertrain}</dd>
+                  </div>
+                  <div>
+                    <dt>PBT / massa máx.</dt>
+                    <dd>
+                      {profile.massKg
+                        ? Number(profile.massKg).toLocaleString('pt-BR') + ' kg'
+                        : 'Não informado'}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>Introdução</dt>
+                    <dd>{profile.year || 'A definir'}</dd>
+                  </div>
+                </dl>
+                <button
+                  className="g-button g-full"
+                  onClick={() => setEditing(project ? 'edit' : 'new')}
+                >
+                  {project ? 'Editar perfil técnico' : 'Definir meu veículo'} <Icon name="arrow" />
+                </button>
+              </div>
+              <div className="g-progress">
+                <div>
+                  <span>Organização do dossiê</span>
+                  <strong>{progress}%</strong>
+                </div>
+                <progress value={progress} max="100" aria-label="Progresso do checklist" />
+                <small>
+                  {done} concluídos · {items.length - done - na} pendentes · {na} não aplicáveis
+                </small>
+              </div>
+              <nav className="g-agencies" aria-label="Consultas por órgão">
+                <span className="g-sidebar-heading">FRENTES REGULATÓRIAS</span>
+                {[
+                  ['IBAMA', 'Emissões e ruído', 'proconve'],
+                  ['SENATRAN', 'Segurança e CAT', 'contran'],
+                  ['Inmetro', 'Componentes e eficiência', 'inmetro'],
+                  ['Anatel', 'Radiofrequência', 'anatel'],
+                  ['MDIC', 'MOVER e habilitação', 'mover'],
+                ].map(([name, label, route]) => (
+                  <a key={name} href={'#' + route}>
+                    <span className={'g-agency-dot g-agency-' + name.toLowerCase()} />
+                    <div>
+                      <strong>{name}</strong>
+                      <small>{label}</small>
+                    </div>
+                    <Icon name="arrow" />
+                  </a>
+                ))}
+              </nav>
+              <div className="g-local-actions">
+                <button className="g-text-button" onClick={exportMarkdown}>
+                  <Icon name="export" /> Exportar checklist .md
+                </button>
+                <button
+                  className="g-text-button"
+                  disabled={!project}
+                  onClick={() =>
+                    download(
+                      'processo-homologacao.json',
+                      JSON.stringify(project, null, 2),
+                      'application/json',
+                    )
+                  }
+                >
+                  <Icon name="export" /> Backup do processo .json
+                </button>
+                <button className="g-text-button" onClick={() => fileInput.current.click()}>
+                  Importar processo .json
+                </button>
+                <input
+                  ref={fileInput}
+                  type="file"
+                  accept=".json,application/json"
+                  hidden
+                  onChange={importProject}
+                />
+                {initial.raw && (
+                  <button
+                    className="g-text-button"
+                    onClick={() =>
+                      download('processos-recuperacao.json', initial.raw, 'application/json')
+                    }
+                  >
+                    Baixar dados para recuperação
+                  </button>
+                )}
+                <small>
+                  Salvo somente neste navegador. Faça um backup JSON para transferir ou conservar o
+                  processo.
+                </small>
+              </div>
+            </div>
+          </details>
         </aside>
         <div className="g-workspace-main">
           {(notice || storageError) && (
@@ -1151,10 +1185,8 @@ function GuideApp({ bridge }) {
                   <section className="g-visual-panel">
                     <div className="g-canvas-header">
                       <div>
-                        <span className="g-eyebrow">ANATOMIA DO VEÍCULO</span>
-                        <h2>Explore cada sistema.</h2>
+                        <h2>Explore o veículo.</h2>
                       </div>
-                      <span className="g-canvas-badge">3D interativo</span>
                     </div>
                     <VehicleScene
                       selectedPart={part.id}
@@ -1229,9 +1261,7 @@ function GuideApp({ bridge }) {
                     </div>
                   </section>
                   <aside className="g-parts-panel">
-                    <div className="g-sidebar-heading">
-                      <Icon name="tree" /> SISTEMAS E SUBSISTEMAS
-                    </div>
+                    <h3 className="g-parts-title">Componentes</h3>
                     <div className="g-tree-modes" role="group" aria-label="Modo da árvore">
                       <button
                         type="button"
@@ -1265,77 +1295,115 @@ function GuideApp({ bridge }) {
                       }
                       type="search"
                       value={partSearch}
-                      onChange={(e) => setPartSearch(e.target.value)}
+                      onChange={(e) => {
+                        setPartSearch(e.target.value);
+                        if (e.target.value && treeDisclosure.current)
+                          treeDisclosure.current.open = true;
+                      }}
                     />
-                    <nav
-                      aria-label={
-                        treeMode === 'subsystems'
-                          ? 'Sistemas e subsistemas'
-                          : 'Sistemas e componentes'
-                      }
-                      className="g-parts-tree"
-                      data-tree-mode={treeMode}
-                    >
-                      {systems.map((system) => (
-                        <details key={system} open={selectedTreeSystem === system || !!partSearch}>
-                          <summary>
-                            {filtered.find((row) => row.system === system)?.systemLabel ||
-                              SYSTEM_LABELS[system] ||
-                              system}
-                            <small>{filtered.filter((row) => row.system === system).length}</small>
-                          </summary>
-                          {filtered
-                            .filter((row) => row.system === system)
-                            .map((row) => (
-                              <button
-                                key={row.id}
-                                type="button"
-                                data-subsystem={treeMode === 'subsystems' ? row.id : undefined}
-                                data-assembly={treeMode === 'subsystems' ? row.assemblyId : row.id}
-                                aria-pressed={
-                                  treeMode === 'subsystems'
-                                    ? subsystemId === row.id
-                                    : part.id === row.id
-                                }
-                                onClick={() =>
-                                  treeMode === 'subsystems'
-                                    ? selectSubsystem(row.id)
-                                    : selectPart(row.id)
-                                }
-                              >
-                                <span className="g-tree-line" />
-                                <span className="g-tree-label">{row.label}</span>
-                                {treeMode === 'subsystems' && !row.canonical && (
-                                  <small className="g-tree-example">Exemplo</small>
-                                )}
-                                <span aria-hidden="true">↗</span>
-                              </button>
-                            ))}
-                        </details>
-                      ))}
-                    </nav>
-                    {!filtered.length && (
-                      <p className="g-note">
-                        Nenhum {treeMode === 'subsystems' ? 'subsistema' : 'conjunto'} encontrado.
-                      </p>
-                    )}
+                    <details className="g-tree-disclosure" ref={bindTreeDisclosure}>
+                      <summary>
+                        <span>
+                          {treeMode === 'subsystems'
+                            ? 'Árvore de subsistemas'
+                            : 'Árvore de conjuntos 3D'}
+                        </span>
+                        <small>{treeRows.length} opções</small>
+                      </summary>
+                      <nav
+                        aria-label={
+                          treeMode === 'subsystems'
+                            ? 'Sistemas e subsistemas'
+                            : 'Sistemas e componentes'
+                        }
+                        className="g-parts-tree"
+                        data-tree-mode={treeMode}
+                      >
+                        {systems.map((system) => (
+                          <details
+                            key={system}
+                            open={selectedTreeSystem === system || !!partSearch}
+                          >
+                            <summary>
+                              {filtered.find((row) => row.system === system)?.systemLabel ||
+                                SYSTEM_LABELS[system] ||
+                                system}
+                              <small>
+                                {filtered.filter((row) => row.system === system).length}
+                              </small>
+                            </summary>
+                            {filtered
+                              .filter((row) => row.system === system)
+                              .map((row) => (
+                                <button
+                                  key={row.id}
+                                  type="button"
+                                  data-subsystem={treeMode === 'subsystems' ? row.id : undefined}
+                                  data-assembly={
+                                    treeMode === 'subsystems' ? row.assemblyId : row.id
+                                  }
+                                  aria-pressed={
+                                    treeMode === 'subsystems'
+                                      ? subsystemId === row.id
+                                      : part.id === row.id
+                                  }
+                                  onClick={() =>
+                                    treeMode === 'subsystems'
+                                      ? selectSubsystem(row.id)
+                                      : selectPart(row.id)
+                                  }
+                                >
+                                  <span className="g-tree-line" />
+                                  <span className="g-tree-label">{row.label}</span>
+                                  {treeMode === 'subsystems' && !row.canonical && (
+                                    <small className="g-tree-example">Exemplo</small>
+                                  )}
+                                  <Icon name="arrow" />
+                                </button>
+                              ))}
+                          </details>
+                        ))}
+                      </nav>
+                      {!filtered.length && (
+                        <p className="g-note">
+                          Nenhum {treeMode === 'subsystems' ? 'subsistema' : 'conjunto'} encontrado.
+                        </p>
+                      )}
+                    </details>
                     {treeMode === 'subsystems' && (
                       <p className="g-tree-scope-note">
                         Identificação e consulta do acervo. O perfil técnico determina quais
                         condições precisam de avaliação.
                       </p>
                     )}
+                    <button
+                      type="button"
+                      className="g-text-button g-selection-jump"
+                      onClick={() => {
+                        const heading = document.getElementById('g-selected-component');
+                        heading?.scrollIntoView({
+                          block: 'start',
+                          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+                            ? 'auto'
+                            : 'smooth',
+                        });
+                        heading?.focus({ preventScroll: true });
+                      }}
+                    >
+                      Ver seleção e referências
+                    </button>
                   </aside>
                 </div>
                 <section className="g-part-inspector" aria-live="polite">
                   <div className="g-inspector-title">
-                    <span className="g-eyebrow">
-                      SELEÇÃO SINCRONIZADA ·{' '}
+                    <p className="g-selection-system">
                       {selectedSubsystem?.systemLabel ||
                         SYSTEM_LABELS[inspectionPart.system] ||
                         inspectionPart.system}
-                    </span>
-                    <h2>{inspectionPart.label}</h2>
+                    </p>
+                    <h2 id="g-selected-component" tabIndex={-1}>
+                      {inspectionPart.label}
+                    </h2>
                     <p>{inspectionPart.description}</p>
                     {selectedSubsystem && (
                       <p className="g-selection-origin">

@@ -2,13 +2,17 @@
 
 Portal consultivo de legislação automotiva, com navegação visual, referências oficiais e limites de revisão por registro.
 
-Site: https://legislacao-automotiva.pages.dev/#vehicle. A implementação da auditoria de
-19/10/2026 está documentada em [matriz de melhorias e evidências](docs/audit-implementation-2026-10-19.md).
-Esse documento distingue implementação, validação de release e pesquisa ainda pendente.
+Site: https://legislacao-automotiva.pages.dev/#guide. O guia de projeto é a entrada
+principal; a consulta pelo desenho original continua em `/#vehicle`.
+O [checkup regulatório de 25/10/2026](docs/guide/checkup-regulatorio.md) registra
+as correções, a profundidade do acervo e as pendências. A auditoria anterior está
+na [matriz de melhorias e evidências](docs/audit-implementation-2026-10-19.md).
 
 ## Ambiente de projeto e guia profissional
 
-Abra `/#guide` (também é a entrada padrão). O ambiente mantém o design Obsidian e acrescenta:
+Abra `/#guide` (também é a entrada padrão). O ambiente usa uma composição minimalista
+inspirada nas referências de design Apple, conserva os temas Obsidian, Claro e
+Aurora e acrescenta:
 
 - Seleção 3D real, por Three.js, sincronizada à árvore e ao inspetor de referências. SUV de referência BMW X5 G05 oficial, sob CC BY 4.0, com geometria e materiais PBR reais em GLB. Vinte e um conjuntos 3D e 33 identificações de subsistemas (30 originais + três complementares) retomam as imagens originais. Um suplemento didático acrescenta motor/transmissão, suspensão dianteira e traseira, motor elétrico/inversor e bateria HV. Ônibus, caminhão, motociclo e reboque conservam modelos esquemáticos; nenhuma vista substitui CAD. O desenho original e seus 37 contornos continuam em `/#vehicle`.
 - Perfil técnico com categoria, propulsão, origem, finalidade, massas, lotação, uso e radiofrequência. LP/LC não são inferidos apenas de M1/N1. Dados ausentes geram pendências; BEV não recebe dispensa ambiental automática.
@@ -32,6 +36,12 @@ A árvore do guia abre em **Subsistemas** e conserva os 30 IDs e títulos físic
 A vista explodida usa faixas de apresentação por conjunto e enquadramento dos volumes visíveis. **Focar conjunto** isola a seleção (ou os três ramos do exemplo híbrido), permitindo examinar detalhes. As quatro pranchas em `assets/models/suv/reference-views` são exportações WebGL do próprio modelo atual, com metadados e hashes. O suplemento mecânico é ilustrativo, não o CAD interno do BMW nem uma especificação para homologação.
 
 Veja [cobertura, exemplos mecânicos e vista explodida](docs/guide/subsistemas-e-explosao.md). A geração das pranchas é deliberada com `python scripts/capture_reference_boards.py`; não é executada na CI nem altera as imagens originais. Os geradores autorais dos componentes ficam em `scripts/models`.
+
+As miniaturas do painel de rastreabilidade são renderizações dos conjuntos 3D
+atuais. Consulte [geração e proveniência](docs/guide/miniaturas-3d.md) e a
+[direção visual e referências de frontend](docs/guide/frontend-apple-e-skills.md).
+Um conjunto relacionado ou ilustrativo conserva sua legenda; sua imagem não
+comprova a aplicabilidade de uma referência normativa.
 
 ## Consulta ativa CONTRAN e PROCONVE
 

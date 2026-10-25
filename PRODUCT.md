@@ -38,6 +38,11 @@ vídeo e manifesto fornecidos são a autoridade visual desta implementação. O
 Figma anterior e a primeira proposta clara não são a referência. O responsável
 pediu expressamente preservar as expansões em árvore.
 
+Para o ambiente `#guide`, a direção solicitada em 25/10/2026 é mais minimalista,
+inspirada no design Apple, com miniaturas derivadas das malhas 3D aprovadas.
+Essa evolução conserva os temas, a acessibilidade e as consultas legadas;
+as referências e decisões estão em `docs/guide/frontend-apple-e-skills.md`.
+
 ## Evidence on Hand
 
 Ativos vetoriais, previews, relações canônicas e qualificações regulatórias já

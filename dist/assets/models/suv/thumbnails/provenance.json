@@ -1,0 +1,4109 @@
+{
+  "adaptations": [
+    "Isolated selection, representative source-mesh subsets, camera framing, studio rendering and WebP encoding",
+    "Independent assemblies may be translated for a readable thumbnail; exact translations and selected mesh IDs are recorded per image",
+    "Supersampled at 2048 × 1536 and downsampled with Lanczos to 1024 × 768; no geometry is created or changed",
+    "Brake preview omits the rear cover, shows the original wheel hub/screws as context and uses a cloned flat-shaded brake-disc material; these export-only choices do not change the interactive model"
+  ],
+  "background": "transparent",
+  "browser": "151.0.7922.34",
+  "images": [
+    {
+      "assemblyIds": [
+        "airbag"
+      ],
+      "camera": {
+        "fov": 35,
+        "position": [
+          -0.5159740230834577,
+          1.1795844424603041,
+          0.6094610365325351
+        ],
+        "target": [
+          -0.375,
+          1.0950000286102295,
+          0.39800000190734863
+        ]
+      },
+      "contextAssemblyIds": [],
+      "displayTranslations": {},
+      "file": "airbag.webp",
+      "height": 768,
+      "id": "airbag",
+      "labels": [
+        "Airbags e retenção"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [],
+      "renderHeight": 1536,
+      "renderWidth": 2048,
+      "selectedMeshIds": [
+        "airbag__airbagModule__mechanical_aluminum",
+        "airbag__airbagModule__mechanical_plastic",
+        "airbag__airbagModule__mechanical_steel",
+        "airbag__airbagModule__mechanical_yellow"
+      ],
+      "selectedMeshes": [
+        {
+          "assemblyId": "airbag",
+          "baseCenter": [
+            -0.3700000047683716,
+            1.0950000286102295,
+            0.39800000190734863
+          ],
+          "flatShading": false,
+          "id": "airbag__airbagModule__mechanical_aluminum",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "airbagModule",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "airbag__airbagModule__mechanical_aluminum"
+        },
+        {
+          "assemblyId": "airbag",
+          "baseCenter": [
+            -0.3449999988079071,
+            1.0950000286102295,
+            0.39800000190734863
+          ],
+          "flatShading": false,
+          "id": "airbag__airbagModule__mechanical_plastic",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "airbagModule",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "airbag__airbagModule__mechanical_plastic"
+        },
+        {
+          "assemblyId": "airbag",
+          "baseCenter": [
+            -0.38499999046325684,
+            1.0949999620206654,
+            0.39800000190734863
+          ],
+          "flatShading": false,
+          "id": "airbag__airbagModule__mechanical_steel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "airbagModule",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "airbag__airbagModule__mechanical_steel"
+        },
+        {
+          "assemblyId": "airbag",
+          "baseCenter": [
+            -0.4050000011920929,
+            1.059999942779541,
+            0.39800000190734863
+          ],
+          "flatShading": false,
+          "id": "airbag__airbagModule__mechanical_yellow",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "airbagModule",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "airbag__airbagModule__mechanical_yellow"
+        }
+      ],
+      "sha256": "f9145a0492bbaef7d2401b378a44e549f551b64234577831f5101ce1f203fde5",
+      "subset": false,
+      "width": 1024
+    },
+    {
+      "assemblyIds": [
+        "battery12v"
+      ],
+      "camera": {
+        "fov": 35,
+        "position": [
+          -1.789486157506225,
+          1.1857528720703825,
+          1.3456321197331214
+        ],
+        "target": [
+          -1.3090647459030151,
+          0.8975000251084566,
+          0.6250000023283064
+        ]
+      },
+      "contextAssemblyIds": [],
+      "displayTranslations": {},
+      "file": "battery12v.webp",
+      "height": 768,
+      "id": "battery12v",
+      "labels": [
+        "Bateria de baixa tensão"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [],
+      "renderHeight": 1536,
+      "renderWidth": 2048,
+      "selectedMeshIds": [
+        "battery12v__auxiliaryBattery__mechanical_cast",
+        "battery12v__auxiliaryBattery__mechanical_darksteel",
+        "battery12v__auxiliaryBattery__mechanical_plastic",
+        "battery12v__auxiliaryBattery__mechanical_red",
+        "battery12v__auxiliaryBattery__mechanical_silver"
+      ],
+      "selectedMeshes": [
+        {
+          "assemblyId": "battery12v",
+          "baseCenter": [
+            -1.2699999844189733,
+            0.8500000238418579,
+            0.7549999952316284
+          ],
+          "flatShading": false,
+          "id": "battery12v__auxiliaryBattery__mechanical_cast",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "auxiliaryBattery",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "battery12v__auxiliaryBattery__mechanical_cast"
+        },
+        {
+          "assemblyId": "battery12v",
+          "baseCenter": [
+            -1.25,
+            1.0099999904632568,
+            0.6200000047683716
+          ],
+          "flatShading": false,
+          "id": "battery12v__auxiliaryBattery__mechanical_darksteel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "auxiliaryBattery",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "battery12v__auxiliaryBattery__mechanical_darksteel"
+        },
+        {
+          "assemblyId": "battery12v",
+          "baseCenter": [
+            -1.180882640182972,
+            0.8975000232458115,
+            0.6200000047683716
+          ],
+          "flatShading": false,
+          "id": "battery12v__auxiliaryBattery__mechanical_plastic",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "auxiliaryBattery",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "battery12v__auxiliaryBattery__mechanical_plastic"
+        },
+        {
+          "assemblyId": "battery12v",
+          "baseCenter": [
+            -1.481932122260332,
+            0.974354350939393,
+            0.6600724942982197
+          ],
+          "flatShading": false,
+          "id": "battery12v__auxiliaryBattery__mechanical_red",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "auxiliaryBattery",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "battery12v__auxiliaryBattery__mechanical_red"
+        },
+        {
+          "assemblyId": "battery12v",
+          "baseCenter": [
+            -1.2499999962747097,
+            1.0399999618530273,
+            0.6199999911787437
+          ],
+          "flatShading": false,
+          "id": "battery12v__auxiliaryBattery__mechanical_silver",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "auxiliaryBattery",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "battery12v__auxiliaryBattery__mechanical_silver"
+        }
+      ],
+      "sha256": "5401e9a57e58f8249b33daff7453f4033ab8fe011c66d5ce9209ebf30f611d26",
+      "subset": false,
+      "width": 1024
+    },
+    {
+      "assemblyIds": [
+        "batteryHV"
+      ],
+      "camera": {
+        "fov": 35,
+        "position": [
+          -1.445456804350526,
+          1.4017740779276258,
+          2.678185211890207
+        ],
+        "target": [
+          0.3400000035762787,
+          0.3304999931715429,
+          0
+        ]
+      },
+      "contextAssemblyIds": [],
+      "displayTranslations": {},
+      "file": "batteryHV.webp",
+      "height": 768,
+      "id": "batteryHV",
+      "labels": [
+        "Bateria de tração"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [
+        "Módulos e conexões da bateria didática, com a tampa omitida para inspeção; não é a arquitetura certificada do BMW."
+      ],
+      "renderHeight": 1536,
+      "renderWidth": 2048,
+      "selectedMeshIds": [
+        "batteryHV__tractionBattery__mechanical_aluminum",
+        "batteryHV__tractionBattery__mechanical_cast",
+        "batteryHV__tractionBattery__mechanical_copper",
+        "batteryHV__tractionBattery__mechanical_darksteel",
+        "batteryHV__tractionBattery__mechanical_rubber",
+        "batteryHV__tractionBattery__mechanical_silver",
+        "batteryHV__tractionBattery__mechanical_steel"
+      ],
+      "selectedMeshes": [
+        {
+          "assemblyId": "batteryHV",
+          "baseCenter": [
+            0.3400000035762787,
+            0.25999999046325684,
+            0
+          ],
+          "flatShading": false,
+          "id": "batteryHV__tractionBattery__mechanical_aluminum",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionBattery",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "batteryHV__tractionBattery__mechanical_aluminum"
+        },
+        {
+          "assemblyId": "batteryHV",
+          "baseCenter": [
+            0.33000002801418304,
+            0.4050000011920929,
+            -0.0049999793991446495
+          ],
+          "flatShading": false,
+          "id": "batteryHV__tractionBattery__mechanical_cast",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionBattery",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "batteryHV__tractionBattery__mechanical_cast"
+        },
+        {
+          "assemblyId": "batteryHV",
+          "baseCenter": [
+            0.43999998830258846,
+            0.4749999940395355,
+            0.19499999564141035
+          ],
+          "flatShading": false,
+          "id": "batteryHV__tractionBattery__mechanical_copper",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionBattery",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "batteryHV__tractionBattery__mechanical_copper"
+        },
+        {
+          "assemblyId": "batteryHV",
+          "baseCenter": [
+            0.32999999076128006,
+            0.4050000011920929,
+            -0.004999995231628418
+          ],
+          "flatShading": false,
+          "id": "batteryHV__tractionBattery__mechanical_darksteel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionBattery",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "batteryHV__tractionBattery__mechanical_darksteel"
+        },
+        {
+          "assemblyId": "batteryHV",
+          "baseCenter": [
+            0.3400000035762787,
+            0.3499999940395355,
+            0
+          ],
+          "flatShading": false,
+          "id": "batteryHV__tractionBattery__mechanical_rubber",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionBattery",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "batteryHV__tractionBattery__mechanical_rubber"
+        },
+        {
+          "assemblyId": "batteryHV",
+          "baseCenter": [
+            0.3000000056471136,
+            0.35499998927116394,
+            -1.90152290580059e-08
+          ],
+          "flatShading": false,
+          "id": "batteryHV__tractionBattery__mechanical_silver",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionBattery",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "batteryHV__tractionBattery__mechanical_silver"
+        },
+        {
+          "assemblyId": "batteryHV",
+          "baseCenter": [
+            0.33999999370391604,
+            0.29499998688697815,
+            -3.5046131108273926e-08
+          ],
+          "flatShading": false,
+          "id": "batteryHV__tractionBattery__mechanical_steel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionBattery",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "batteryHV__tractionBattery__mechanical_steel"
+        }
+      ],
+      "sha256": "235b4abe0489520782ffdb697a451a750ff324c9896f8375070d3f50c8c3f45a",
+      "subset": true,
+      "width": 1024
+    },
+    {
+      "assemblyIds": [
+        "batteryHV",
+        "engine",
+        "motorElectric"
+      ],
+      "camera": {
+        "fov": 35,
+        "position": [
+          -2.5836162691587212,
+          1.2496697605750862,
+          3.875424403738082
+        ],
+        "target": [
+          0,
+          -0.30050000092014667,
+          0
+        ]
+      },
+      "contextAssemblyIds": [],
+      "displayTranslations": {
+        "batteryHV": [
+          -0.3400000035762787,
+          -1.2012499479576946,
+          0
+        ],
+        "engine": [
+          0.3713669296354055,
+          -0.7492499846220015,
+          0.016000023371593675
+        ],
+        "motorElectric": [
+          1.1923669461160897,
+          -0.6419418772542955,
+          -0.20580477152430143
+        ]
+      },
+      "file": "batteryHV--engine--motorElectric.webp",
+      "height": 768,
+      "id": "batteryHV--engine--motorElectric",
+      "labels": [
+        "Bateria de tração",
+        "Motor a combustão",
+        "Motor elétrico e inversor"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [
+        "Módulos e conexões da bateria didática, com a tampa omitida para inspeção; não é a arquitetura certificada do BMW."
+      ],
+      "renderHeight": 1536,
+      "renderWidth": 2048,
+      "selectedMeshIds": [
+        "batteryHV__tractionBattery__mechanical_aluminum",
+        "batteryHV__tractionBattery__mechanical_cast",
+        "batteryHV__tractionBattery__mechanical_copper",
+        "batteryHV__tractionBattery__mechanical_darksteel",
+        "batteryHV__tractionBattery__mechanical_rubber",
+        "batteryHV__tractionBattery__mechanical_silver",
+        "batteryHV__tractionBattery__mechanical_steel",
+        "engine__engineExample__mechanical_aluminum",
+        "engine__engineExample__mechanical_cast",
+        "engine__engineExample__mechanical_darksteel",
+        "engine__engineExample__mechanical_plastic",
+        "engine__engineExample__mechanical_rubber",
+        "engine__engineExample__mechanical_steel",
+        "engine__engineExample__mechanical_yellow",
+        "motorElectric__inverter__mechanical_aluminum",
+        "motorElectric__inverter__mechanical_cast",
+        "motorElectric__inverter__mechanical_orange",
+        "motorElectric__inverter__mechanical_silver",
+        "motorElectric__tractionMotor__mechanical_aluminum",
+        "motorElectric__tractionMotor__mechanical_cast",
+        "motorElectric__tractionMotor__mechanical_copper",
+        "motorElectric__tractionMotor__mechanical_silver",
+        "motorElectric__tractionMotor__mechanical_steel"
+      ],
+      "selectedMeshes": [
+        {
+          "assemblyId": "batteryHV",
+          "baseCenter": [
+            0.3400000035762787,
+            0.25999999046325684,
+            0
+          ],
+          "flatShading": false,
+          "id": "batteryHV__tractionBattery__mechanical_aluminum",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionBattery",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "batteryHV__tractionBattery__mechanical_aluminum"
+        },
+        {
+          "assemblyId": "batteryHV",
+          "baseCenter": [
+            0.33000002801418304,
+            0.4050000011920929,
+            -0.0049999793991446495
+          ],
+          "flatShading": false,
+          "id": "batteryHV__tractionBattery__mechanical_cast",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionBattery",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "batteryHV__tractionBattery__mechanical_cast"
+        },
+        {
+          "assemblyId": "batteryHV",
+          "baseCenter": [
+            0.43999998830258846,
+            0.4749999940395355,
+            0.19499999564141035
+          ],
+          "flatShading": false,
+          "id": "batteryHV__tractionBattery__mechanical_copper",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionBattery",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "batteryHV__tractionBattery__mechanical_copper"
+        },
+        {
+          "assemblyId": "batteryHV",
+          "baseCenter": [
+            0.32999999076128006,
+            0.4050000011920929,
+            -0.004999995231628418
+          ],
+          "flatShading": false,
+          "id": "batteryHV__tractionBattery__mechanical_darksteel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionBattery",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "batteryHV__tractionBattery__mechanical_darksteel"
+        },
+        {
+          "assemblyId": "batteryHV",
+          "baseCenter": [
+            0.3400000035762787,
+            0.3499999940395355,
+            0
+          ],
+          "flatShading": false,
+          "id": "batteryHV__tractionBattery__mechanical_rubber",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionBattery",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "batteryHV__tractionBattery__mechanical_rubber"
+        },
+        {
+          "assemblyId": "batteryHV",
+          "baseCenter": [
+            0.3000000056471136,
+            0.35499998927116394,
+            -1.90152290580059e-08
+          ],
+          "flatShading": false,
+          "id": "batteryHV__tractionBattery__mechanical_silver",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionBattery",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "batteryHV__tractionBattery__mechanical_silver"
+        },
+        {
+          "assemblyId": "batteryHV",
+          "baseCenter": [
+            0.33999999370391604,
+            0.29499998688697815,
+            -3.5046131108273926e-08
+          ],
+          "flatShading": false,
+          "id": "batteryHV__tractionBattery__mechanical_steel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionBattery",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "batteryHV__tractionBattery__mechanical_steel"
+        },
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.0802499502897263,
+            0.6752500432729721,
+            -0.030999988317489624
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_aluminum",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_aluminum"
+        },
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.1349999904632568,
+            0.6405000138282776,
+            0.044000014662742615
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_cast",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_cast"
+        },
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.0580000281333923,
+            0.7497499558329582,
+            0.08050000574439764
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_darksteel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_darksteel"
+        },
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.392499953508377,
+            0.7914999882876873,
+            -0.14099999237805605
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_plastic",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_plastic"
+        },
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.4976864755153656,
+            0.7837248194217682,
+            -4.6566128730773926e-09
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_rubber",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_rubber"
+        },
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.095749944448471,
+            0.6941721681743686,
+            -0.023037838564260837
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_steel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_steel"
+        },
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.0399999618530273,
+            1.001000051498413,
+            0.3400000035762787
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_yellow",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_yellow"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.4300000071525574,
+            0.8550000190734863,
+            0.05000000074505806
+          ],
+          "flatShading": false,
+          "id": "motorElectric__inverter__mechanical_aluminum",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "inverter",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "motorElectric__inverter__mechanical_aluminum"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.4300000071525574,
+            0.9340000152587891,
+            0.0500000084284693
+          ],
+          "flatShading": false,
+          "id": "motorElectric__inverter__mechanical_cast",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "inverter",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "motorElectric__inverter__mechanical_cast"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.004680445417761803,
+            0.6039418697430302,
+            0.4283046979263808
+          ],
+          "flatShading": false,
+          "id": "motorElectric__inverter__mechanical_orange",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "inverter",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "motorElectric__inverter__mechanical_orange"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.42999998159624153,
+            0.9399999976158142,
+            0.05000000033446015
+          ],
+          "flatShading": false,
+          "id": "motorElectric__inverter__mechanical_silver",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "inverter",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "motorElectric__inverter__mechanical_silver"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.46000000834465027,
+            0.5899999737739563,
+            0
+          ],
+          "flatShading": false,
+          "id": "motorElectric__tractionMotor__mechanical_aluminum",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionMotor",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "motorElectric__tractionMotor__mechanical_aluminum"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.46000001206994057,
+            0.5899999588727951,
+            7.450580596923828e-09
+          ],
+          "flatShading": false,
+          "id": "motorElectric__tractionMotor__mechanical_cast",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionMotor",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "motorElectric__tractionMotor__mechanical_cast"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.23499999474734068,
+            0.5900000026449561,
+            -7.450580596923828e-09
+          ],
+          "flatShading": false,
+          "id": "motorElectric__tractionMotor__mechanical_copper",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionMotor",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "motorElectric__tractionMotor__mechanical_copper"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.460000017657876,
+            0.5900000408291817,
+            5.587935447692871e-09
+          ],
+          "flatShading": false,
+          "id": "motorElectric__tractionMotor__mechanical_silver",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionMotor",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "motorElectric__tractionMotor__mechanical_silver"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.1599999964237213,
+            0.5899999737739563,
+            0
+          ],
+          "flatShading": false,
+          "id": "motorElectric__tractionMotor__mechanical_steel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionMotor",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "motorElectric__tractionMotor__mechanical_steel"
+        }
+      ],
+      "sha256": "06c326e5a26e41dfcfc880f57b50de2be20af455b871332a110ab0cbb19d1707",
+      "subset": true,
+      "width": 1024
+    },
+    {
+      "assemblyIds": [
+        "batteryHV",
+        "motorElectric"
+      ],
+      "camera": {
+        "fov": 35,
+        "position": [
+          -2.760455538339304,
+          1.6562733230035827,
+          4.140683307508957
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ]
+      },
+      "contextAssemblyIds": [],
+      "displayTranslations": {
+        "batteryHV": [
+          0.3873195830732584,
+          -0.3304999931715429,
+          0
+        ],
+        "motorElectric": [
+          -1.0843194719403981,
+          -0.6419418772542955,
+          -0.20580477152430143
+        ]
+      },
+      "file": "batteryHV--motorElectric.webp",
+      "height": 768,
+      "id": "batteryHV--motorElectric",
+      "labels": [
+        "Bateria de tração",
+        "Motor elétrico e inversor"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [
+        "Módulos e conexões da bateria didática, com a tampa omitida para inspeção; não é a arquitetura certificada do BMW."
+      ],
+      "renderHeight": 1536,
+      "renderWidth": 2048,
+      "selectedMeshIds": [
+        "batteryHV__tractionBattery__mechanical_aluminum",
+        "batteryHV__tractionBattery__mechanical_cast",
+        "batteryHV__tractionBattery__mechanical_copper",
+        "batteryHV__tractionBattery__mechanical_darksteel",
+        "batteryHV__tractionBattery__mechanical_rubber",
+        "batteryHV__tractionBattery__mechanical_silver",
+        "batteryHV__tractionBattery__mechanical_steel",
+        "motorElectric__inverter__mechanical_aluminum",
+        "motorElectric__inverter__mechanical_cast",
+        "motorElectric__inverter__mechanical_orange",
+        "motorElectric__inverter__mechanical_silver",
+        "motorElectric__tractionMotor__mechanical_aluminum",
+        "motorElectric__tractionMotor__mechanical_cast",
+        "motorElectric__tractionMotor__mechanical_copper",
+        "motorElectric__tractionMotor__mechanical_silver",
+        "motorElectric__tractionMotor__mechanical_steel"
+      ],
+      "selectedMeshes": [
+        {
+          "assemblyId": "batteryHV",
+          "baseCenter": [
+            0.3400000035762787,
+            0.25999999046325684,
+            0
+          ],
+          "flatShading": false,
+          "id": "batteryHV__tractionBattery__mechanical_aluminum",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionBattery",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "batteryHV__tractionBattery__mechanical_aluminum"
+        },
+        {
+          "assemblyId": "batteryHV",
+          "baseCenter": [
+            0.33000002801418304,
+            0.4050000011920929,
+            -0.0049999793991446495
+          ],
+          "flatShading": false,
+          "id": "batteryHV__tractionBattery__mechanical_cast",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionBattery",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "batteryHV__tractionBattery__mechanical_cast"
+        },
+        {
+          "assemblyId": "batteryHV",
+          "baseCenter": [
+            0.43999998830258846,
+            0.4749999940395355,
+            0.19499999564141035
+          ],
+          "flatShading": false,
+          "id": "batteryHV__tractionBattery__mechanical_copper",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionBattery",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "batteryHV__tractionBattery__mechanical_copper"
+        },
+        {
+          "assemblyId": "batteryHV",
+          "baseCenter": [
+            0.32999999076128006,
+            0.4050000011920929,
+            -0.004999995231628418
+          ],
+          "flatShading": false,
+          "id": "batteryHV__tractionBattery__mechanical_darksteel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionBattery",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "batteryHV__tractionBattery__mechanical_darksteel"
+        },
+        {
+          "assemblyId": "batteryHV",
+          "baseCenter": [
+            0.3400000035762787,
+            0.3499999940395355,
+            0
+          ],
+          "flatShading": false,
+          "id": "batteryHV__tractionBattery__mechanical_rubber",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionBattery",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "batteryHV__tractionBattery__mechanical_rubber"
+        },
+        {
+          "assemblyId": "batteryHV",
+          "baseCenter": [
+            0.3000000056471136,
+            0.35499998927116394,
+            -1.90152290580059e-08
+          ],
+          "flatShading": false,
+          "id": "batteryHV__tractionBattery__mechanical_silver",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionBattery",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "batteryHV__tractionBattery__mechanical_silver"
+        },
+        {
+          "assemblyId": "batteryHV",
+          "baseCenter": [
+            0.33999999370391604,
+            0.29499998688697815,
+            -3.5046131108273926e-08
+          ],
+          "flatShading": false,
+          "id": "batteryHV__tractionBattery__mechanical_steel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionBattery",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "batteryHV__tractionBattery__mechanical_steel"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.4300000071525574,
+            0.8550000190734863,
+            0.05000000074505806
+          ],
+          "flatShading": false,
+          "id": "motorElectric__inverter__mechanical_aluminum",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "inverter",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "motorElectric__inverter__mechanical_aluminum"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.4300000071525574,
+            0.9340000152587891,
+            0.0500000084284693
+          ],
+          "flatShading": false,
+          "id": "motorElectric__inverter__mechanical_cast",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "inverter",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "motorElectric__inverter__mechanical_cast"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.004680445417761803,
+            0.6039418697430302,
+            0.4283046979263808
+          ],
+          "flatShading": false,
+          "id": "motorElectric__inverter__mechanical_orange",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "inverter",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "motorElectric__inverter__mechanical_orange"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.42999998159624153,
+            0.9399999976158142,
+            0.05000000033446015
+          ],
+          "flatShading": false,
+          "id": "motorElectric__inverter__mechanical_silver",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "inverter",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "motorElectric__inverter__mechanical_silver"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.46000000834465027,
+            0.5899999737739563,
+            0
+          ],
+          "flatShading": false,
+          "id": "motorElectric__tractionMotor__mechanical_aluminum",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionMotor",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "motorElectric__tractionMotor__mechanical_aluminum"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.46000001206994057,
+            0.5899999588727951,
+            7.450580596923828e-09
+          ],
+          "flatShading": false,
+          "id": "motorElectric__tractionMotor__mechanical_cast",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionMotor",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "motorElectric__tractionMotor__mechanical_cast"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.23499999474734068,
+            0.5900000026449561,
+            -7.450580596923828e-09
+          ],
+          "flatShading": false,
+          "id": "motorElectric__tractionMotor__mechanical_copper",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionMotor",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "motorElectric__tractionMotor__mechanical_copper"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.460000017657876,
+            0.5900000408291817,
+            5.587935447692871e-09
+          ],
+          "flatShading": false,
+          "id": "motorElectric__tractionMotor__mechanical_silver",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionMotor",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "motorElectric__tractionMotor__mechanical_silver"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.1599999964237213,
+            0.5899999737739563,
+            0
+          ],
+          "flatShading": false,
+          "id": "motorElectric__tractionMotor__mechanical_steel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionMotor",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "motorElectric__tractionMotor__mechanical_steel"
+        }
+      ],
+      "sha256": "8623138f2f7b704068329bd6706bfe1c78297fe9eb3a6e3053a4b1160454368f",
+      "subset": true,
+      "width": 1024
+    },
+    {
+      "assemblyIds": [
+        "body"
+      ],
+      "camera": {
+        "fov": 35,
+        "position": [
+          -3.659500812548683,
+          3.1408249415895395,
+          5.490291862769028
+        ],
+        "target": [
+          0.0006937164583717959,
+          0.9447082241853068,
+          6.925844497907008e-08
+        ]
+      },
+      "contextAssemblyIds": [],
+      "displayTranslations": {},
+      "file": "body.webp",
+      "height": 768,
+      "id": "body",
+      "labels": [
+        "Carroceria"
+      ],
+      "mechanicalExample": false,
+      "modelSources": [
+        "bmw-x5-g05"
+      ],
+      "notes": [],
+      "renderHeight": 1536,
+      "renderWidth": 2048,
+      "selectedMeshIds": [
+        "body__001_Exterior_Chrome_Matte__094e01_0",
+        "body__001_Exterior_Chrome_Matte__094e01_1",
+        "body__001_Exterior_paint__25ddfb_0",
+        "body__001_Hood_paint__5cdd8f_0",
+        "body__001_Hood_paint__5cdd8f_1",
+        "body__002_ChargingFlap_paint__c6f878_0",
+        "body__002_Emblem_Base__ddc9e5_0",
+        "body__002_Emblem_Base__e18d2e_0",
+        "body__002_Exterior_plastic_grained_black__5cb188_0",
+        "body__003_Exterior_aluminium_light__1183a4_0",
+        "body__004_Exterior_plastic_glossy__866399_0",
+        "body__005_ChargingFlap_Aluminum_matte_black__905771_0",
+        "body__005_Exterior_plastic_mat__065921_0",
+        "body__006_Exterior_Aluminum_matte_black__4f17cb_0",
+        "body__007_Exterior_chrome__129785_0",
+        "body__009_Exterior_Emission__46620e_0",
+        "body__010_Exterior_Gass_1sided__666442_0"
+      ],
+      "selectedMeshes": [
+        {
+          "assemblyId": "body",
+          "baseCenter": [
+            -0.3591199275377406,
+            1.077459765399138,
+            0.45371519767131707
+          ],
+          "flatShading": false,
+          "id": "body__001_Exterior_Chrome_Matte__094e01_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Exterior/O_G05_Exterior_non-Paint.gltf",
+          "sourceMesh": "Exterior_Chrome_Matte_MeshData"
+        },
+        {
+          "assemblyId": "body",
+          "baseCenter": [
+            -0.3591196668891703,
+            1.0774599379329604,
+            -0.45371524828387094
+          ],
+          "flatShading": false,
+          "id": "body__001_Exterior_Chrome_Matte__094e01_1",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Exterior/O_G05_Exterior_non-Paint.gltf",
+          "sourceMesh": "Exterior_Chrome_Matte_MeshData"
+        },
+        {
+          "assemblyId": "body",
+          "baseCenter": [
+            0.004502577152045717,
+            1.0224982938095537,
+            1.917917654137291e-06
+          ],
+          "flatShading": false,
+          "id": "body__001_Exterior_paint__25ddfb_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Exterior/O_G05_Exterior_Paint.gltf",
+          "sourceMesh": "Exterior_paint_MeshData"
+        },
+        {
+          "assemblyId": "body",
+          "baseCenter": [
+            -1.7109277847317657,
+            1.0170686367074588,
+            0.4153854597907805
+          ],
+          "flatShading": false,
+          "id": "body__001_Hood_paint__5cdd8f_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Exterior/O_G05_Hood.gltf",
+          "sourceMesh": "Hood_paint_MeshData"
+        },
+        {
+          "assemblyId": "body",
+          "baseCenter": [
+            -1.7109279357821117,
+            1.0170687255810427,
+            -0.4153854370429427
+          ],
+          "flatShading": false,
+          "id": "body__001_Hood_paint__5cdd8f_1",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Exterior/O_G05_Hood.gltf",
+          "sourceMesh": "Hood_paint_MeshData"
+        },
+        {
+          "assemblyId": "body",
+          "baseCenter": [
+            1.6137936470119314,
+            1.057784475600607,
+            -0.9092859962328272
+          ],
+          "flatShading": false,
+          "id": "body__002_ChargingFlap_paint__c6f878_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Exterior/O_G05_Exterior_Paint.gltf",
+          "sourceMesh": "ChargingFlap_paint_MeshData"
+        },
+        {
+          "assemblyId": "body",
+          "baseCenter": [
+            2.3903245063104066,
+            1.1207452958198765,
+            9.533802983185957e-10
+          ],
+          "flatShading": false,
+          "id": "body__002_Emblem_Base__ddc9e5_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Emblem/O_G05_Emblem.gltf",
+          "sourceMesh": "Emblem_Base_MeshData"
+        },
+        {
+          "assemblyId": "body",
+          "baseCenter": [
+            -2.3390906385536656,
+            0.9667829817471938,
+            9.11428654770674e-10
+          ],
+          "flatShading": false,
+          "id": "body__002_Emblem_Base__e18d2e_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Emblem/O_G05_Emblem.gltf",
+          "sourceMesh": "Emblem_Base_MeshData"
+        },
+        {
+          "assemblyId": "body",
+          "baseCenter": [
+            0.0006937164583717959,
+            0.8914736681378653,
+            6.925844497907008e-08
+          ],
+          "flatShading": false,
+          "id": "body__002_Exterior_plastic_grained_black__5cb188_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Exterior/O_G05_Exterior_non-Paint.gltf",
+          "sourceMesh": "Exterior_plastic_grained_black_MeshData"
+        },
+        {
+          "assemblyId": "body",
+          "baseCenter": [
+            2.1142595719264534,
+            0.33433859118796116,
+            9.543813869949958e-05
+          ],
+          "flatShading": false,
+          "id": "body__003_Exterior_aluminium_light__1183a4_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Exterior/O_G05_Exterior_non-Paint.gltf",
+          "sourceMesh": "Exterior_aluminium_light_MeshData"
+        },
+        {
+          "assemblyId": "body",
+          "baseCenter": [
+            -0.3571579143369661,
+            1.0438045808623166,
+            8.97254495146882e-08
+          ],
+          "flatShading": false,
+          "id": "body__004_Exterior_plastic_glossy__866399_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Exterior/O_G05_Exterior_non-Paint.gltf",
+          "sourceMesh": "Exterior_plastic_glossy_MeshData"
+        },
+        {
+          "assemblyId": "body",
+          "baseCenter": [
+            1.612710120424822,
+            1.0563549922898934,
+            -0.8970482173442116
+          ],
+          "flatShading": false,
+          "id": "body__005_ChargingFlap_Aluminum_matte_black__905771_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Exterior/O_G05_Exterior_Paint.gltf",
+          "sourceMesh": "ChargingFlap_Aluminum_matte_black_MeshData"
+        },
+        {
+          "assemblyId": "body",
+          "baseCenter": [
+            -0.026499428685767157,
+            0.4082427084797304,
+            4.332094571957157e-09
+          ],
+          "flatShading": false,
+          "id": "body__005_Exterior_plastic_mat__065921_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Exterior/O_G05_Exterior_non-Paint.gltf",
+          "sourceMesh": "Exterior_plastic_mat_MeshData"
+        },
+        {
+          "assemblyId": "body",
+          "baseCenter": [
+            0.6124914170170257,
+            1.022083564645,
+            8.680703905694642e-08
+          ],
+          "flatShading": false,
+          "id": "body__006_Exterior_Aluminum_matte_black__4f17cb_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Exterior/O_G05_Exterior_non-Paint.gltf",
+          "sourceMesh": "Exterior_Aluminum_matte_black_MeshData"
+        },
+        {
+          "assemblyId": "body",
+          "baseCenter": [
+            -2.3778543947446096,
+            0.7506696000139048,
+            5.034017397376189e-08
+          ],
+          "flatShading": false,
+          "id": "body__007_Exterior_chrome__129785_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Exterior/O_G05_Exterior_non-Paint.gltf",
+          "sourceMesh": "Exterior_chrome_MeshData"
+        },
+        {
+          "assemblyId": "body",
+          "baseCenter": [
+            -2.2655359768449657,
+            0.6135398677812323,
+            3.191558245463355e-08
+          ],
+          "flatShading": false,
+          "id": "body__009_Exterior_Emission__46620e_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Exterior/O_G05_Exterior_non-Paint.gltf",
+          "sourceMesh": "Exterior_Emission_MeshData"
+        },
+        {
+          "assemblyId": "body",
+          "baseCenter": [
+            0.281668174594607,
+            1.3584812144188043,
+            1.3200503645727224e-07
+          ],
+          "flatShading": false,
+          "id": "body__010_Exterior_Gass_1sided__666442_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Exterior/O_G05_Exterior_non-Paint.gltf",
+          "sourceMesh": "Exterior_Gass_1sided_MeshData"
+        }
+      ],
+      "sha256": "db6f0057051a3276fff61e11a2945ff1fb7fbcc0d3673da2262879091650521e",
+      "subset": true,
+      "width": 1024
+    },
+    {
+      "assemblyIds": [
+        "brakeFluid"
+      ],
+      "camera": {
+        "fov": 35,
+        "position": [
+          -1.8165387901621677,
+          1.2376533038441906,
+          1.8518647010188727
+        ],
+        "target": [
+          -0.9619623180478811,
+          0.7249074205756187,
+          0.5699999928474426
+        ]
+      },
+      "contextAssemblyIds": [],
+      "displayTranslations": {},
+      "file": "brakeFluid.webp",
+      "height": 768,
+      "id": "brakeFluid",
+      "labels": [
+        "Reservatório e fluido de freio"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [
+        "Reservatório, cilindro mestre e circuito didáticos. A imagem não representa composição ou especificação de um fluido."
+      ],
+      "renderHeight": 1536,
+      "renderWidth": 2048,
+      "selectedMeshIds": [
+        "brakeFluid__brakeHydraulics__mechanical_cast",
+        "brakeFluid__brakeHydraulics__mechanical_ivory",
+        "brakeFluid__brakeHydraulics__mechanical_plastic",
+        "brakeFluid__brakeHydraulics__mechanical_silver"
+      ],
+      "selectedMeshes": [
+        {
+          "assemblyId": "brakeFluid",
+          "baseCenter": [
+            -0.8399999737739563,
+            0.8799999952316284,
+            0.5699999928474426
+          ],
+          "flatShading": false,
+          "id": "brakeFluid__brakeHydraulics__mechanical_cast",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "brakeHydraulics",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "brakeFluid__brakeHydraulics__mechanical_cast"
+        },
+        {
+          "assemblyId": "brakeFluid",
+          "baseCenter": [
+            -0.8600000143051147,
+            1.0099999904632568,
+            0.5699999928474426
+          ],
+          "flatShading": false,
+          "id": "brakeFluid__brakeHydraulics__mechanical_ivory",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "brakeHydraulics",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "brakeFluid__brakeHydraulics__mechanical_ivory"
+        },
+        {
+          "assemblyId": "brakeFluid",
+          "baseCenter": [
+            -0.7910000216215849,
+            0.9312500283122063,
+            0.5699999928474426
+          ],
+          "flatShading": false,
+          "id": "brakeFluid__brakeHydraulics__mechanical_plastic",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "brakeHydraulics",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "brakeFluid__brakeHydraulics__mechanical_plastic"
+        },
+        {
+          "assemblyId": "brakeFluid",
+          "baseCenter": [
+            -1.0747840404510498,
+            0.609610378742218,
+            0.5699999928474426
+          ],
+          "flatShading": false,
+          "id": "brakeFluid__brakeHydraulics__mechanical_silver",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "brakeHydraulics",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "brakeFluid__brakeHydraulics__mechanical_silver"
+        }
+      ],
+      "sha256": "c3ea1e6a13e7df00ab95642269b666f97068e2c9c73a705fee344c490ce9b2b3",
+      "subset": false,
+      "width": 1024
+    },
+    {
+      "assemblyIds": [
+        "brakes"
+      ],
+      "camera": {
+        "fov": 35,
+        "position": [
+          -1.6928213158593812,
+          0.4838301093862839,
+          1.4534575918660901
+        ],
+        "target": [
+          -1.5675392010633065,
+          0.376445439561077,
+          0.8091495729148489
+        ]
+      },
+      "contextAssemblyIds": [
+        "wheels"
+      ],
+      "displayTranslations": {},
+      "file": "brakes.webp",
+      "height": 768,
+      "id": "brakes",
+      "labels": [
+        "Freios e estabilidade"
+      ],
+      "mechanicalExample": false,
+      "modelSources": [
+        "bmw-x5-g05"
+      ],
+      "notes": [
+        "Freio dianteiro com cubo e parafusos reais da roda como contexto. A proteção traseira foi omitida para leitura da face do disco. ABS e ESC não possuem controles individuais nesta imagem."
+      ],
+      "renderHeight": 1536,
+      "renderWidth": 2048,
+      "selectedMeshIds": [
+        "brakes__005_Brake_Disk__6c9ae8_0",
+        "brakes__006_Brake_Caliper__b5b655_0",
+        "wheels__003_Wheel_Screws__66cce2_0",
+        "wheels__004_Wheel_Connecter__3565c5_0"
+      ],
+      "selectedMeshes": [
+        {
+          "assemblyId": "brakes",
+          "baseCenter": [
+            -1.5800902891158977,
+            0.376445439561077,
+            0.7966077963062194
+          ],
+          "flatShading": true,
+          "id": "brakes__005_Brake_Disk__6c9ae8_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Wheels/O_G05_Wheels.gltf",
+          "sourceMesh": "Brake_Disk_MeshData"
+        },
+        {
+          "assemblyId": "brakes",
+          "baseCenter": [
+            -1.4227288138276588,
+            0.37669219447107083,
+            0.787752936472291
+          ],
+          "flatShading": false,
+          "id": "brakes__006_Brake_Caliper__b5b655_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Wheels/O_G05_Wheels.gltf",
+          "sourceMesh": "Brake_Caliper_MeshData"
+        },
+        {
+          "assemblyId": "wheels",
+          "baseCenter": [
+            -1.5801431894290463,
+            0.3824035707829874,
+            0.8838817169276709
+          ],
+          "flatShading": false,
+          "id": "wheels__003_Wheel_Screws__66cce2_0",
+          "mechanicalExample": false,
+          "role": "context",
+          "section": null,
+          "sourceFile": "meshes/Wheels/O_G05_Wheels.gltf",
+          "sourceMesh": "Wheel_Screws_MeshData"
+        },
+        {
+          "assemblyId": "wheels",
+          "baseCenter": [
+            -1.580320963854394,
+            0.37599992176257613,
+            0.8265523792016544
+          ],
+          "flatShading": false,
+          "id": "wheels__004_Wheel_Connecter__3565c5_0",
+          "mechanicalExample": false,
+          "role": "context",
+          "section": null,
+          "sourceFile": "meshes/Wheels/O_G05_Wheels.gltf",
+          "sourceMesh": "Wheel_Connecter_MeshData"
+        }
+      ],
+      "sha256": "020fefd3eb49f3b57f92dfb2dcdd053edc9ac9b06f543222e126340ffb65338d",
+      "subset": true,
+      "width": 1024
+    },
+    {
+      "assemblyIds": [
+        "chassis"
+      ],
+      "camera": {
+        "fov": 35,
+        "position": [
+          -2.8768362084006993,
+          1.380661503113955,
+          2.0101506254725567
+        ],
+        "target": [
+          -1.5359149239868783,
+          0.5761087324656623,
+          -0.0012313011481752678
+        ]
+      },
+      "contextAssemblyIds": [],
+      "displayTranslations": {},
+      "file": "chassis.webp",
+      "height": 768,
+      "id": "chassis",
+      "labels": [
+        "Chassi e suspensão"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [
+        "Exemplo didático da suspensão dianteira. Não representa dimensões ou arquitetura interna certificada do BMW."
+      ],
+      "renderHeight": 1536,
+      "renderWidth": 2048,
+      "selectedMeshIds": [
+        "chassis__frontSuspension__mechanical_aluminum",
+        "chassis__frontSuspension__mechanical_cast",
+        "chassis__frontSuspension__mechanical_darksteel",
+        "chassis__frontSuspension__mechanical_rubber",
+        "chassis__frontSuspension__mechanical_silver",
+        "chassis__frontSuspension__mechanical_steel"
+      ],
+      "selectedMeshes": [
+        {
+          "assemblyId": "chassis",
+          "baseCenter": [
+            -1.5845714602859118,
+            0.2686559849680553,
+            0.007445281885422261
+          ],
+          "flatShading": false,
+          "id": "chassis__frontSuspension__mechanical_aluminum",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "frontSuspension",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "chassis__frontSuspension__mechanical_aluminum"
+        },
+        {
+          "assemblyId": "chassis",
+          "baseCenter": [
+            -1.5800000205636024,
+            0.35649994005232977,
+            -6.023678417177436e-08
+          ],
+          "flatShading": false,
+          "id": "chassis__frontSuspension__mechanical_cast",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "frontSuspension",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "chassis__frontSuspension__mechanical_cast"
+        },
+        {
+          "assemblyId": "chassis",
+          "baseCenter": [
+            -1.5800000429153442,
+            0.5898937284946442,
+            1.4901161193847656e-08
+          ],
+          "flatShading": false,
+          "id": "chassis__frontSuspension__mechanical_darksteel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "frontSuspension",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "chassis__frontSuspension__mechanical_darksteel"
+        },
+        {
+          "assemblyId": "chassis",
+          "baseCenter": [
+            -1.5800000354647636,
+            0.6172843407839537,
+            4.470348358154297e-08
+          ],
+          "flatShading": false,
+          "id": "chassis__frontSuspension__mechanical_rubber",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "frontSuspension",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "chassis__frontSuspension__mechanical_rubber"
+        },
+        {
+          "assemblyId": "chassis",
+          "baseCenter": [
+            -1.5800000373274088,
+            0.6366908997297287,
+            7.450580596923828e-08
+          ],
+          "flatShading": false,
+          "id": "chassis__frontSuspension__mechanical_silver",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "frontSuspension",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "chassis__frontSuspension__mechanical_silver"
+        },
+        {
+          "assemblyId": "chassis",
+          "baseCenter": [
+            -1.4999019757018748,
+            0.44192541952413406,
+            -0.001231305667831195
+          ],
+          "flatShading": false,
+          "id": "chassis__frontSuspension__mechanical_steel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "frontSuspension",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "chassis__frontSuspension__mechanical_steel"
+        }
+      ],
+      "sha256": "be1757282cf68797619a290c2b51415f1c8f76c06ff74f22b61b4a8b5e455ac0",
+      "subset": true,
+      "width": 1024
+    },
+    {
+      "assemblyIds": [
+        "chassis",
+        "steering"
+      ],
+      "camera": {
+        "fov": 35,
+        "position": [
+          -2.8768362084006993,
+          1.380661503113955,
+          2.0101506254725567
+        ],
+        "target": [
+          -1.5359149239868783,
+          0.5761087324656623,
+          -0.0012313011481752678
+        ]
+      },
+      "contextAssemblyIds": [],
+      "displayTranslations": {},
+      "file": "chassis--steering.webp",
+      "height": 768,
+      "id": "chassis--steering",
+      "labels": [
+        "Chassi e suspensão",
+        "Direção e comandos"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [
+        "Exemplo didático da suspensão dianteira. Não representa dimensões ou arquitetura interna certificada do BMW.",
+        "Exemplar de direção do modelo; no conjunto de suspensão mostra-se a cremalheira didática."
+      ],
+      "renderHeight": 1536,
+      "renderWidth": 2048,
+      "selectedMeshIds": [
+        "chassis__frontSuspension__mechanical_aluminum",
+        "chassis__frontSuspension__mechanical_cast",
+        "chassis__frontSuspension__mechanical_darksteel",
+        "chassis__frontSuspension__mechanical_rubber",
+        "chassis__frontSuspension__mechanical_silver",
+        "chassis__frontSuspension__mechanical_steel",
+        "steering__steeringRack__mechanical_aluminum",
+        "steering__steeringRack__mechanical_darksteel",
+        "steering__steeringRack__mechanical_rubber",
+        "steering__steeringRack__mechanical_steel"
+      ],
+      "selectedMeshes": [
+        {
+          "assemblyId": "chassis",
+          "baseCenter": [
+            -1.5845714602859118,
+            0.2686559849680553,
+            0.007445281885422261
+          ],
+          "flatShading": false,
+          "id": "chassis__frontSuspension__mechanical_aluminum",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "frontSuspension",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "chassis__frontSuspension__mechanical_aluminum"
+        },
+        {
+          "assemblyId": "chassis",
+          "baseCenter": [
+            -1.5800000205636024,
+            0.35649994005232977,
+            -6.023678417177436e-08
+          ],
+          "flatShading": false,
+          "id": "chassis__frontSuspension__mechanical_cast",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "frontSuspension",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "chassis__frontSuspension__mechanical_cast"
+        },
+        {
+          "assemblyId": "chassis",
+          "baseCenter": [
+            -1.5800000429153442,
+            0.5898937284946442,
+            1.4901161193847656e-08
+          ],
+          "flatShading": false,
+          "id": "chassis__frontSuspension__mechanical_darksteel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "frontSuspension",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "chassis__frontSuspension__mechanical_darksteel"
+        },
+        {
+          "assemblyId": "chassis",
+          "baseCenter": [
+            -1.5800000354647636,
+            0.6172843407839537,
+            4.470348358154297e-08
+          ],
+          "flatShading": false,
+          "id": "chassis__frontSuspension__mechanical_rubber",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "frontSuspension",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "chassis__frontSuspension__mechanical_rubber"
+        },
+        {
+          "assemblyId": "chassis",
+          "baseCenter": [
+            -1.5800000373274088,
+            0.6366908997297287,
+            7.450580596923828e-08
+          ],
+          "flatShading": false,
+          "id": "chassis__frontSuspension__mechanical_silver",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "frontSuspension",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "chassis__frontSuspension__mechanical_silver"
+        },
+        {
+          "assemblyId": "chassis",
+          "baseCenter": [
+            -1.4999019757018748,
+            0.44192541952413406,
+            -0.001231305667831195
+          ],
+          "flatShading": false,
+          "id": "chassis__frontSuspension__mechanical_steel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "frontSuspension",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "chassis__frontSuspension__mechanical_steel"
+        },
+        {
+          "assemblyId": "steering",
+          "baseCenter": [
+            -1.4199999570846558,
+            0.33000001311302185,
+            0
+          ],
+          "flatShading": false,
+          "id": "steering__steeringRack__mechanical_aluminum",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "steeringRack",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "steering__steeringRack__mechanical_aluminum"
+        },
+        {
+          "assemblyId": "steering",
+          "baseCenter": [
+            -1.3799999952316284,
+            0.38999998569488525,
+            0.11999999731779099
+          ],
+          "flatShading": false,
+          "id": "steering__steeringRack__mechanical_darksteel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "steeringRack",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "steering__steeringRack__mechanical_darksteel"
+        },
+        {
+          "assemblyId": "steering",
+          "baseCenter": [
+            -1.4199999570846558,
+            0.3299999515391518,
+            -2.5155396654596984e-09
+          ],
+          "flatShading": false,
+          "id": "steering__steeringRack__mechanical_rubber",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "steeringRack",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "steering__steeringRack__mechanical_rubber"
+        },
+        {
+          "assemblyId": "steering",
+          "baseCenter": [
+            -1.4694351732347855,
+            0.36958161694417135,
+            0.0017508241819715331
+          ],
+          "flatShading": false,
+          "id": "steering__steeringRack__mechanical_steel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "steeringRack",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "steering__steeringRack__mechanical_steel"
+        }
+      ],
+      "sha256": "b72331f8063b5e40ad4a72511fea57e7f0f71919afc42ccce1f6d92c95747e8b",
+      "subset": true,
+      "width": 1024
+    },
+    {
+      "assemblyIds": [
+        "cooling"
+      ],
+      "camera": {
+        "fov": 35,
+        "position": [
+          -3.05471532713423,
+          1.686979746720492,
+          2.1890728825114647
+        ],
+        "target": [
+          -1.5770000498741865,
+          0.8003505803644657,
+          -0.027500033378601074
+        ]
+      },
+      "contextAssemblyIds": [],
+      "displayTranslations": {},
+      "file": "cooling.webp",
+      "height": 768,
+      "id": "cooling",
+      "labels": [
+        "Arrefecimento e radiador"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [],
+      "renderHeight": 1536,
+      "renderWidth": 2048,
+      "selectedMeshIds": [
+        "cooling__coolantReservoir__mechanical_ivory",
+        "cooling__coolantReservoir__mechanical_plastic",
+        "cooling__radiator__mechanical_aluminum",
+        "cooling__radiator__mechanical_darksteel",
+        "cooling__radiator__mechanical_plastic",
+        "cooling__radiator__mechanical_rubber"
+      ],
+      "selectedMeshes": [
+        {
+          "assemblyId": "cooling",
+          "baseCenter": [
+            -1.219999998807907,
+            0.9800000190734863,
+            -0.6000000461935997
+          ],
+          "flatShading": false,
+          "id": "cooling__coolantReservoir__mechanical_ivory",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "coolantReservoir",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "cooling__coolantReservoir__mechanical_ivory"
+        },
+        {
+          "assemblyId": "cooling",
+          "baseCenter": [
+            -1.2200000286102295,
+            1.1200000047683716,
+            -0.6000000238418579
+          ],
+          "flatShading": false,
+          "id": "cooling__coolantReservoir__mechanical_plastic",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "coolantReservoir",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "cooling__coolantReservoir__mechanical_plastic"
+        },
+        {
+          "assemblyId": "cooling",
+          "baseCenter": [
+            -2.0850000381469727,
+            0.7639999941457063,
+            0
+          ],
+          "flatShading": false,
+          "id": "cooling__radiator__mechanical_aluminum",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "radiator",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "cooling__radiator__mechanical_aluminum"
+        },
+        {
+          "assemblyId": "cooling",
+          "baseCenter": [
+            -2.0450000762939453,
+            0.7599999904632568,
+            0
+          ],
+          "flatShading": false,
+          "id": "cooling__radiator__mechanical_darksteel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "radiator",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "cooling__radiator__mechanical_darksteel"
+        },
+        {
+          "assemblyId": "cooling",
+          "baseCenter": [
+            -1.997022233903408,
+            0.7599999904632568,
+            -2.2351741790771484e-08
+          ],
+          "flatShading": false,
+          "id": "cooling__radiator__mechanical_plastic",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "radiator",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "cooling__radiator__mechanical_plastic"
+        },
+        {
+          "assemblyId": "cooling",
+          "baseCenter": [
+            -1.723672866821289,
+            0.7665332406759262,
+            0.0018369853496551514
+          ],
+          "flatShading": false,
+          "id": "cooling__radiator__mechanical_rubber",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "radiator",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "cooling__radiator__mechanical_rubber"
+        }
+      ],
+      "sha256": "3f9df3023ceb37bd2ceee3aecd9d5dcf7226b52d106fd8c720fc962dafcaab59",
+      "subset": false,
+      "width": 1024
+    },
+    {
+      "assemblyIds": [
+        "doors"
+      ],
+      "camera": {
+        "fov": 35,
+        "position": [
+          -1.8738015002959763,
+          1.93468531639423,
+          3.1747338978344075
+        ],
+        "target": [
+          -0.2916221828158463,
+          0.985377725906152,
+          0.8014649216142129
+        ]
+      },
+      "contextAssemblyIds": [],
+      "displayTranslations": {},
+      "file": "doors.webp",
+      "height": 768,
+      "id": "doors",
+      "labels": [
+        "Portas e fechaduras"
+      ],
+      "mechanicalExample": false,
+      "modelSources": [
+        "bmw-x5-g05"
+      ],
+      "notes": [
+        "Exemplar de porta da referência; mecanismos e requisitos específicos continuam sendo consultados no conjunto."
+      ],
+      "renderHeight": 1536,
+      "renderWidth": 2048,
+      "selectedMeshIds": [
+        "doors__001_Door_F_interior__130889_0",
+        "doors__002_Door_F_paint__56c44c_0",
+        "doors__003_Door_F_plastic_glossy__a0cc0e_0",
+        "doors__004_Door_F_plastic_grained__2416c2_0",
+        "doors__005_Door_F_chrome_mat__5ac138_0",
+        "doors__006_Door_F_chrome__6811be_0"
+      ],
+      "selectedMeshes": [
+        {
+          "assemblyId": "doors",
+          "baseCenter": [
+            -0.27915275789314364,
+            1.0361692713978214,
+            0.7450015228528235
+          ],
+          "flatShading": false,
+          "id": "doors__001_Door_F_interior__130889_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Doors/O_G05_Doors_F.gltf",
+          "sourceMesh": "Door_F_interior_MeshData"
+        },
+        {
+          "assemblyId": "doors",
+          "baseCenter": [
+            -0.2995107477029997,
+            0.976591791585357,
+            0.8051538043003907
+          ],
+          "flatShading": false,
+          "id": "doors__002_Door_F_paint__56c44c_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Doors/O_G05_Doors_F.gltf",
+          "sourceMesh": "Door_F_paint_MeshData"
+        },
+        {
+          "assemblyId": "doors",
+          "baseCenter": [
+            -0.27225548021527857,
+            1.3125236082552096,
+            0.797048665880256
+          ],
+          "flatShading": false,
+          "id": "doors__003_Door_F_plastic_glossy__a0cc0e_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Doors/O_G05_Doors_F.gltf",
+          "sourceMesh": "Door_F_plastic_glossy_MeshData"
+        },
+        {
+          "assemblyId": "doors",
+          "baseCenter": [
+            -0.2484903745452982,
+            1.348882136253513,
+            0.8283924776818369
+          ],
+          "flatShading": false,
+          "id": "doors__004_Door_F_plastic_grained__2416c2_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Doors/O_G05_Doors_F.gltf",
+          "sourceMesh": "Door_F_plastic_grained_MeshData"
+        },
+        {
+          "assemblyId": "doors",
+          "baseCenter": [
+            -0.27336635818117117,
+            1.3402517725393412,
+            0.7662734433804154
+          ],
+          "flatShading": false,
+          "id": "doors__005_Door_F_chrome_mat__5ac138_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Doors/O_G05_Doors_F.gltf",
+          "sourceMesh": "Door_F_chrome_mat_MeshData"
+        },
+        {
+          "assemblyId": "doors",
+          "baseCenter": [
+            0.016132040804578196,
+            1.0118977708779457,
+            0.9584976181813291
+          ],
+          "flatShading": false,
+          "id": "doors__006_Door_F_chrome__6811be_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Doors/O_G05_Doors_F.gltf",
+          "sourceMesh": "Door_F_chrome_MeshData"
+        }
+      ],
+      "sha256": "2eed15e7307c68da00bedda7bf87fa165a323611548d8a90e7584b63b68e8d08",
+      "subset": true,
+      "width": 1024
+    },
+    {
+      "assemblyIds": [
+        "electronics"
+      ],
+      "camera": {
+        "fov": 35,
+        "position": [
+          0.31962794971237996,
+          1.4635243696024975,
+          1.5857831685712123
+        ],
+        "target": [
+          -0.7374989397712284,
+          0.8292482359123325,
+          9.283434579943073e-05
+        ]
+      },
+      "contextAssemblyIds": [],
+      "displayTranslations": {},
+      "file": "electronics.webp",
+      "height": 768,
+      "id": "electronics",
+      "labels": [
+        "Eletrônica e conectividade"
+      ],
+      "mechanicalExample": false,
+      "modelSources": [
+        "bmw-x5-g05"
+      ],
+      "notes": [
+        "Painel e módulos do conjunto visual; não representa um produto de telecomunicações homologado ou um circuito certificado."
+      ],
+      "renderHeight": 1536,
+      "renderWidth": 2048,
+      "selectedMeshIds": [
+        "electronics__002_Dashboard_common_general__9658fc_0"
+      ],
+      "selectedMeshes": [
+        {
+          "assemblyId": "electronics",
+          "baseCenter": [
+            -0.7374989397712284,
+            0.8292482359123325,
+            9.283434579948624e-05
+          ],
+          "flatShading": false,
+          "id": "electronics__002_Dashboard_common_general__9658fc_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Interior/O_G05_Interior_Color.gltf",
+          "sourceMesh": "Dashboard_common_general_MeshData"
+        }
+      ],
+      "sha256": "1594ffcb1c89b489cc4b19014e3c66743b7a6b7f2840317d1f266f82c071e050",
+      "subset": true,
+      "width": 1024
+    },
+    {
+      "assemblyIds": [
+        "electronics",
+        "engine"
+      ],
+      "camera": {
+        "fov": 35,
+        "position": [
+          -2.374809958293714,
+          1.4248859749762284,
+          3.562214937440571
+        ],
+        "target": [
+          0,
+          1.1102230246251565e-16,
+          0
+        ]
+      },
+      "contextAssemblyIds": [],
+      "displayTranslations": {
+        "electronics": [
+          2.1894785851240157,
+          -0.964999970048666,
+          0.1375000048428774
+        ],
+        "engine": [
+          0.4783944100141525,
+          -0.7492499846220015,
+          0.016000023371593675
+        ]
+      },
+      "file": "electronics--engine.webp",
+      "height": 768,
+      "id": "electronics--engine",
+      "labels": [
+        "Eletrônica e conectividade",
+        "Motor a combustão"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [
+        "Painel e módulos do conjunto visual; não representa um produto de telecomunicações homologado ou um circuito certificado."
+      ],
+      "renderHeight": 1536,
+      "renderWidth": 2048,
+      "selectedMeshIds": [
+        "electronics__OBDAndHarness__mechanical_aluminum",
+        "electronics__OBDAndHarness__mechanical_cast",
+        "electronics__OBDAndHarness__mechanical_plastic",
+        "engine__engineExample__mechanical_aluminum",
+        "engine__engineExample__mechanical_cast",
+        "engine__engineExample__mechanical_darksteel",
+        "engine__engineExample__mechanical_plastic",
+        "engine__engineExample__mechanical_rubber",
+        "engine__engineExample__mechanical_steel",
+        "engine__engineExample__mechanical_yellow"
+      ],
+      "selectedMeshes": [
+        {
+          "assemblyId": "electronics",
+          "baseCenter": [
+            -0.8799999952316284,
+            0.9100000262260437,
+            -0.5799999833106995
+          ],
+          "flatShading": false,
+          "id": "electronics__OBDAndHarness__mechanical_aluminum",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "OBDAndHarness",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "electronics__OBDAndHarness__mechanical_aluminum"
+        },
+        {
+          "assemblyId": "electronics",
+          "baseCenter": [
+            -0.8799999952316284,
+            0.9430000185966492,
+            -0.569999992614612
+          ],
+          "flatShading": false,
+          "id": "electronics__OBDAndHarness__mechanical_cast",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "OBDAndHarness",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "electronics__OBDAndHarness__mechanical_cast"
+        },
+        {
+          "assemblyId": "electronics",
+          "baseCenter": [
+            -1.1227921098470688,
+            0.964999970048666,
+            -0.1375000048428774
+          ],
+          "flatShading": false,
+          "id": "electronics__OBDAndHarness__mechanical_plastic",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "OBDAndHarness",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "electronics__OBDAndHarness__mechanical_plastic"
+        },
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.0802499502897263,
+            0.6752500432729721,
+            -0.030999988317489624
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_aluminum",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_aluminum"
+        },
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.1349999904632568,
+            0.6405000138282776,
+            0.044000014662742615
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_cast",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_cast"
+        },
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.0580000281333923,
+            0.7497499558329582,
+            0.08050000574439764
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_darksteel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_darksteel"
+        },
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.392499953508377,
+            0.7914999882876873,
+            -0.14099999237805605
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_plastic",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_plastic"
+        },
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.4976864755153656,
+            0.7837248194217682,
+            -4.6566128730773926e-09
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_rubber",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_rubber"
+        },
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.095749944448471,
+            0.6941721681743686,
+            -0.023037838564260837
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_steel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_steel"
+        },
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.0399999618530273,
+            1.001000051498413,
+            0.3400000035762787
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_yellow",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_yellow"
+        }
+      ],
+      "sha256": "dc0e6e8bce703d32946f46616665991f8e5b5641e5f7752535f5ef3152d33493",
+      "subset": true,
+      "width": 1024
+    },
+    {
+      "assemblyIds": [
+        "engine"
+      ],
+      "camera": {
+        "fov": 35,
+        "position": [
+          -2.5643705545606315,
+          1.628660407587415,
+          2.18252603404194
+        ],
+        "target": [
+          -1.0986865162849426,
+          0.7492499846220015,
+          -0.016000023371593675
+        ]
+      },
+      "contextAssemblyIds": [],
+      "displayTranslations": {},
+      "file": "engine.webp",
+      "height": 768,
+      "id": "engine",
+      "labels": [
+        "Motor a combustão"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [],
+      "renderHeight": 1536,
+      "renderWidth": 2048,
+      "selectedMeshIds": [
+        "engine__engineExample__mechanical_aluminum",
+        "engine__engineExample__mechanical_cast",
+        "engine__engineExample__mechanical_darksteel",
+        "engine__engineExample__mechanical_plastic",
+        "engine__engineExample__mechanical_rubber",
+        "engine__engineExample__mechanical_steel",
+        "engine__engineExample__mechanical_yellow"
+      ],
+      "selectedMeshes": [
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.0802499502897263,
+            0.6752500432729721,
+            -0.030999988317489624
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_aluminum",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_aluminum"
+        },
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.1349999904632568,
+            0.6405000138282776,
+            0.044000014662742615
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_cast",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_cast"
+        },
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.0580000281333923,
+            0.7497499558329582,
+            0.08050000574439764
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_darksteel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_darksteel"
+        },
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.392499953508377,
+            0.7914999882876873,
+            -0.14099999237805605
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_plastic",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_plastic"
+        },
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.4976864755153656,
+            0.7837248194217682,
+            -4.6566128730773926e-09
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_rubber",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_rubber"
+        },
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.095749944448471,
+            0.6941721681743686,
+            -0.023037838564260837
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_steel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_steel"
+        },
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.0399999618530273,
+            1.001000051498413,
+            0.3400000035762787
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_yellow",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_yellow"
+        }
+      ],
+      "sha256": "0a4fc0dfaad1dfd50cfb41f5aa01568bb4ad6572ffa60468f39fdcaa67d08251",
+      "subset": false,
+      "width": 1024
+    },
+    {
+      "assemblyIds": [
+        "engine",
+        "exhaust"
+      ],
+      "camera": {
+        "fov": 35,
+        "position": [
+          -4.312913558579024,
+          2.5877481351474145,
+          6.469370337868537
+        ],
+        "target": [
+          0,
+          1.1102230246251565e-16,
+          5.551115123125783e-17
+        ]
+      },
+      "contextAssemblyIds": [],
+      "displayTranslations": {
+        "engine": [
+          -0.8439640641212462,
+          -0.7492499846220015,
+          0.016000023371593675
+        ],
+        "exhaust": [
+          0.6463169693946837,
+          -0.41450946778059006,
+          -0.4775000363588333
+        ]
+      },
+      "file": "engine--exhaust.webp",
+      "height": 768,
+      "id": "engine--exhaust",
+      "labels": [
+        "Motor a combustão",
+        "Escapamento e pós-tratamento"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [],
+      "renderHeight": 1536,
+      "renderWidth": 2048,
+      "selectedMeshIds": [
+        "engine__engineExample__mechanical_aluminum",
+        "engine__engineExample__mechanical_cast",
+        "engine__engineExample__mechanical_darksteel",
+        "engine__engineExample__mechanical_plastic",
+        "engine__engineExample__mechanical_rubber",
+        "engine__engineExample__mechanical_steel",
+        "engine__engineExample__mechanical_yellow",
+        "exhaust__exhaust__mechanical_plastic",
+        "exhaust__exhaust__mechanical_silver",
+        "exhaust__exhaust__mechanical_steel"
+      ],
+      "selectedMeshes": [
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.0802499502897263,
+            0.6752500432729721,
+            -0.030999988317489624
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_aluminum",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_aluminum"
+        },
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.1349999904632568,
+            0.6405000138282776,
+            0.044000014662742615
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_cast",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_cast"
+        },
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.0580000281333923,
+            0.7497499558329582,
+            0.08050000574439764
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_darksteel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_darksteel"
+        },
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.392499953508377,
+            0.7914999882876873,
+            -0.14099999237805605
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_plastic",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_plastic"
+        },
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.4976864755153656,
+            0.7837248194217682,
+            -4.6566128730773926e-09
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_rubber",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_rubber"
+        },
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.095749944448471,
+            0.6941721681743686,
+            -0.023037838564260837
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_steel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_steel"
+        },
+        {
+          "assemblyId": "engine",
+          "baseCenter": [
+            -1.0399999618530273,
+            1.001000051498413,
+            0.3400000035762787
+          ],
+          "flatShading": false,
+          "id": "engine__engineExample__mechanical_yellow",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "engineExample",
+          "sourceFile": "authored/engine_geometry.py",
+          "sourceMesh": "engine__engineExample__mechanical_yellow"
+        },
+        {
+          "assemblyId": "exhaust",
+          "baseCenter": [
+            -0.7354969084262848,
+            0.41981811821460724,
+            0.49591164290905
+          ],
+          "flatShading": false,
+          "id": "exhaust__exhaust__mechanical_plastic",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "exhaust",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "exhaust__exhaust__mechanical_plastic"
+        },
+        {
+          "assemblyId": "exhaust",
+          "baseCenter": [
+            0.4203695058822632,
+            0.41450946778059006,
+            0.434440553188324
+          ],
+          "flatShading": false,
+          "id": "exhaust__exhaust__mechanical_silver",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "exhaust",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "exhaust__exhaust__mechanical_silver"
+        },
+        {
+          "assemblyId": "exhaust",
+          "baseCenter": [
+            0.5479999333620071,
+            0.23500005155801773,
+            0.4800000824034214
+          ],
+          "flatShading": false,
+          "id": "exhaust__exhaust__mechanical_steel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "exhaust",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "exhaust__exhaust__mechanical_steel"
+        }
+      ],
+      "sha256": "cbe3eceee73f04a950d3b6ee37fb761d99c5c44ad3fa0ecba3e75361412e2600",
+      "subset": false,
+      "width": 1024
+    },
+    {
+      "assemblyIds": [
+        "exhaust"
+      ],
+      "camera": {
+        "fov": 35,
+        "position": [
+          -2.286289454890721,
+          2.0385048442443807,
+          4.53748847751831
+        ],
+        "target": [
+          0.4203695058822632,
+          0.41450946778059006,
+          0.4775000363588333
+        ]
+      },
+      "contextAssemblyIds": [],
+      "displayTranslations": {},
+      "file": "exhaust.webp",
+      "height": 768,
+      "id": "exhaust",
+      "labels": [
+        "Escapamento e pós-tratamento"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [],
+      "renderHeight": 1536,
+      "renderWidth": 2048,
+      "selectedMeshIds": [
+        "exhaust__exhaust__mechanical_plastic",
+        "exhaust__exhaust__mechanical_silver",
+        "exhaust__exhaust__mechanical_steel"
+      ],
+      "selectedMeshes": [
+        {
+          "assemblyId": "exhaust",
+          "baseCenter": [
+            -0.7354969084262848,
+            0.41981811821460724,
+            0.49591164290905
+          ],
+          "flatShading": false,
+          "id": "exhaust__exhaust__mechanical_plastic",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "exhaust",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "exhaust__exhaust__mechanical_plastic"
+        },
+        {
+          "assemblyId": "exhaust",
+          "baseCenter": [
+            0.4203695058822632,
+            0.41450946778059006,
+            0.434440553188324
+          ],
+          "flatShading": false,
+          "id": "exhaust__exhaust__mechanical_silver",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "exhaust",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "exhaust__exhaust__mechanical_silver"
+        },
+        {
+          "assemblyId": "exhaust",
+          "baseCenter": [
+            0.5479999333620071,
+            0.23500005155801773,
+            0.4800000824034214
+          ],
+          "flatShading": false,
+          "id": "exhaust__exhaust__mechanical_steel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "exhaust",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "exhaust__exhaust__mechanical_steel"
+        }
+      ],
+      "sha256": "f157c4def7db4593ff8af1216ea0ea3e95d290fc0c5c707ee9321a76ad9055a2",
+      "subset": false,
+      "width": 1024
+    },
+    {
+      "assemblyIds": [
+        "glass"
+      ],
+      "camera": {
+        "fov": 35,
+        "position": [
+          -1.9180898317779895,
+          2.96562888970115,
+          3.9423036095928117
+        ],
+        "target": [
+          0.7101125517403448,
+          1.388707459590149,
+          3.431530970487984e-08
+        ]
+      },
+      "contextAssemblyIds": [],
+      "displayTranslations": {},
+      "file": "glass.webp",
+      "height": 768,
+      "id": "glass",
+      "labels": [
+        "Vidros e visibilidade"
+      ],
+      "mechanicalExample": false,
+      "modelSources": [
+        "bmw-x5-g05"
+      ],
+      "notes": [
+        "Conjunto de vidros da referência. Limpadores, lavadores e mecanismos de acionamento não têm peças individuais reproduzidas nesta miniatura."
+      ],
+      "renderHeight": 1536,
+      "renderWidth": 2048,
+      "selectedMeshIds": [
+        "glass__005_RearWindow_glass__167c86_0",
+        "glass__006_Tailgate_U_glass_paint_black__183710_0",
+        "glass__007_Door_B_glass__8258da_0",
+        "glass__007_Door_B_glass__e7d268_0",
+        "glass__007_Door_F_glass__455c15_0",
+        "glass__007_Door_F_glass__c9ecca_0",
+        "glass__008_Exterior_glass_2sided_dark__cd3754_0"
+      ],
+      "selectedMeshes": [
+        {
+          "assemblyId": "glass",
+          "baseCenter": [
+            2.140554762232199,
+            1.407408667100291,
+            7.500138339827656e-05
+          ],
+          "flatShading": false,
+          "id": "glass__005_RearWindow_glass__167c86_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Doors/O_G05_Tailgate.gltf",
+          "sourceMesh": "RearWindow_glass_MeshData"
+        },
+        {
+          "assemblyId": "glass",
+          "baseCenter": [
+            2.1394782546879014,
+            1.4063199905339308,
+            1.385163310785309e-05
+          ],
+          "flatShading": false,
+          "id": "glass__006_Tailgate_U_glass_paint_black__183710_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Doors/O_G05_Tailgate.gltf",
+          "sourceMesh": "Tailgate_U_glass_paint_black_MeshData"
+        },
+        {
+          "assemblyId": "glass",
+          "baseCenter": [
+            0.7706541151207871,
+            1.3932169796969553,
+            -0.7449928833826184
+          ],
+          "flatShading": false,
+          "id": "glass__007_Door_B_glass__8258da_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Doors/O_G05_Doors_B.gltf",
+          "sourceMesh": "Door_B_glass_MeshData"
+        },
+        {
+          "assemblyId": "glass",
+          "baseCenter": [
+            0.7706539792457505,
+            1.3932170130157575,
+            0.7449928590284322
+          ],
+          "flatShading": false,
+          "id": "glass__007_Door_B_glass__e7d268_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Doors/O_G05_Doors_B.gltf",
+          "sourceMesh": "Door_B_glass_MeshData"
+        },
+        {
+          "assemblyId": "glass",
+          "baseCenter": [
+            -0.28414801187432237,
+            1.354631213396758,
+            -0.7510508833323153
+          ],
+          "flatShading": false,
+          "id": "glass__007_Door_F_glass__455c15_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Doors/O_G05_Doors_F.gltf",
+          "sourceMesh": "Door_F_glass_MeshData"
+        },
+        {
+          "assemblyId": "glass",
+          "baseCenter": [
+            -0.2841481610712826,
+            1.3546312393910336,
+            0.7510508560219362
+          ],
+          "flatShading": false,
+          "id": "glass__007_Door_F_glass__c9ecca_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Doors/O_G05_Doors_F.gltf",
+          "sourceMesh": "Door_F_glass_MeshData"
+        },
+        {
+          "assemblyId": "glass",
+          "baseCenter": [
+            0.4870692091270712,
+            1.6846242105542508,
+            -7.714809700440362e-05
+          ],
+          "flatShading": false,
+          "id": "glass__008_Exterior_glass_2sided_dark__cd3754_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Exterior/O_G05_Exterior_non-Paint.gltf",
+          "sourceMesh": "Exterior_glass_2sided_dark_MeshData"
+        }
+      ],
+      "sha256": "79f767ab04fa38c92ae2efa28de7fa15cc74eb0e1d09f5457ae16b33a9f2f7ad",
+      "subset": false,
+      "width": 1024
+    },
+    {
+      "assemblyIds": [
+        "lights"
+      ],
+      "camera": {
+        "fov": 35,
+        "position": [
+          -3.472504881027796,
+          1.6812180042901934,
+          2.068969510648139
+        ],
+        "target": [
+          -2.089327169977265,
+          0.8513113776598751,
+          -0.005797055927657391
+        ]
+      },
+      "contextAssemblyIds": [],
+      "displayTranslations": {},
+      "file": "lights.webp",
+      "height": 768,
+      "id": "lights",
+      "labels": [
+        "Iluminação e sinalização"
+      ],
+      "mechanicalExample": false,
+      "modelSources": [
+        "bmw-x5-g05"
+      ],
+      "notes": [],
+      "renderHeight": 1536,
+      "renderWidth": 2048,
+      "selectedMeshIds": [
+        "lights__006_Headlights_plastic_black_grained__c45156_0",
+        "lights__007_Headlights_body__808e6e_0",
+        "lights__008_Headlights_glass_glossy__4ee06c_0",
+        "lights__009_Headlights_plastic_black_glossy__faca32_0",
+        "lights__010_Headlights_chrome__b0bab4_0",
+        "lights__011_Headlights_alu_glossy__e4dcfc_0",
+        "lights__012_Headlights_Lens__e32f1c_0"
+      ],
+      "selectedMeshes": [
+        {
+          "assemblyId": "lights",
+          "baseCenter": [
+            -2.081170317437417,
+            0.8513113776598751,
+            -0.005797055927657391
+          ],
+          "flatShading": false,
+          "id": "lights__006_Headlights_plastic_black_grained__c45156_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Exterior/O_G05_Headlights.gltf",
+          "sourceMesh": "Headlights_plastic_black_grained_MeshData"
+        },
+        {
+          "assemblyId": "lights",
+          "baseCenter": [
+            -2.084244991975016,
+            0.8912527876047023,
+            6.922876777393228e-08
+          ],
+          "flatShading": false,
+          "id": "lights__007_Headlights_body__808e6e_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Exterior/O_G05_Headlights.gltf",
+          "sourceMesh": "Headlights_body_MeshData"
+        },
+        {
+          "assemblyId": "lights",
+          "baseCenter": [
+            -2.1576582288594928,
+            0.7974568290703246,
+            5.662645169435265e-08
+          ],
+          "flatShading": false,
+          "id": "lights__008_Headlights_glass_glossy__4ee06c_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Exterior/O_G05_Headlights.gltf",
+          "sourceMesh": "Headlights_glass_glossy_MeshData"
+        },
+        {
+          "assemblyId": "lights",
+          "baseCenter": [
+            -2.0936663784831815,
+            0.8464775826994247,
+            6.32128232536111e-08
+          ],
+          "flatShading": false,
+          "id": "lights__009_Headlights_plastic_black_glossy__faca32_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Exterior/O_G05_Headlights.gltf",
+          "sourceMesh": "Headlights_plastic_black_glossy_MeshData"
+        },
+        {
+          "assemblyId": "lights",
+          "baseCenter": [
+            -2.038263776572112,
+            0.8677677729197706,
+            6.607334845920576e-08
+          ],
+          "flatShading": false,
+          "id": "lights__010_Headlights_chrome__b0bab4_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Exterior/O_G05_Headlights.gltf",
+          "sourceMesh": "Headlights_chrome_MeshData"
+        },
+        {
+          "assemblyId": "lights",
+          "baseCenter": [
+            -2.117633834765094,
+            0.8483916835607903,
+            6.346999958939392e-08
+          ],
+          "flatShading": false,
+          "id": "lights__011_Headlights_alu_glossy__e4dcfc_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Exterior/O_G05_Headlights.gltf",
+          "sourceMesh": "Headlights_alu_glossy_MeshData"
+        },
+        {
+          "assemblyId": "lights",
+          "baseCenter": [
+            -2.108385826243776,
+            0.847264898156262,
+            6.331860602504236e-08
+          ],
+          "flatShading": false,
+          "id": "lights__012_Headlights_Lens__e32f1c_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Exterior/O_G05_Headlights.gltf",
+          "sourceMesh": "Headlights_Lens_MeshData"
+        }
+      ],
+      "sha256": "56880462a66f520f94d465d19e7eb7bae6e87d206fd28755051bc7f7f52972a4",
+      "subset": true,
+      "width": 1024
+    },
+    {
+      "assemblyIds": [
+        "mirrors"
+      ],
+      "camera": {
+        "fov": 35,
+        "position": [
+          -0.841723899016385,
+          1.3296850849393138,
+          1.3175097422376956
+        ],
+        "target": [
+          -0.6299159130594205,
+          1.2026002933651352,
+          0.999797763302249
+        ]
+      },
+      "contextAssemblyIds": [],
+      "displayTranslations": {},
+      "file": "mirrors.webp",
+      "height": 768,
+      "id": "mirrors",
+      "labels": [
+        "Retrovisores e visão indireta"
+      ],
+      "mechanicalExample": false,
+      "modelSources": [
+        "bmw-x5-g05"
+      ],
+      "notes": [],
+      "renderHeight": 1536,
+      "renderWidth": 2048,
+      "selectedMeshIds": [
+        "mirrors__008_SideMirrors_plastic_grained__609290_0",
+        "mirrors__009_SideMirrors_plastic_matte__5f98e8_0",
+        "mirrors__010_SideMirrors_paint__973583_0",
+        "mirrors__011_SideMirrors_chrome__6494c6_0"
+      ],
+      "selectedMeshes": [
+        {
+          "assemblyId": "mirrors",
+          "baseCenter": [
+            -0.63561510879385,
+            1.1486581426479332,
+            1.0016388893183774
+          ],
+          "flatShading": false,
+          "id": "mirrors__008_SideMirrors_plastic_grained__609290_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Doors/O_G05_Doors_F.gltf",
+          "sourceMesh": "SideMirrors_plastic_grained_MeshData"
+        },
+        {
+          "assemblyId": "mirrors",
+          "baseCenter": [
+            -0.6271257291007899,
+            1.202556731397073,
+            0.9997512697007522
+          ],
+          "flatShading": false,
+          "id": "mirrors__009_SideMirrors_plastic_matte__5f98e8_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Doors/O_G05_Doors_F.gltf",
+          "sourceMesh": "SideMirrors_plastic_matte_MeshData"
+        },
+        {
+          "assemblyId": "mirrors",
+          "baseCenter": [
+            -0.6343633922080585,
+            1.2331940926147995,
+            1.0133939679111492
+          ],
+          "flatShading": false,
+          "id": "mirrors__010_SideMirrors_paint__973583_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Doors/O_G05_Doors_F.gltf",
+          "sourceMesh": "SideMirrors_paint_MeshData"
+        },
+        {
+          "assemblyId": "mirrors",
+          "baseCenter": [
+            -0.5862423605688036,
+            1.202105449423006,
+            1.023843450683341
+          ],
+          "flatShading": false,
+          "id": "mirrors__011_SideMirrors_chrome__6494c6_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Doors/O_G05_Doors_F.gltf",
+          "sourceMesh": "SideMirrors_chrome_MeshData"
+        }
+      ],
+      "sha256": "8ce35bfe4d26453470bd9976c87b2da792ce2efb233844cbaf1bbedec2141cf1",
+      "subset": true,
+      "width": 1024
+    },
+    {
+      "assemblyIds": [
+        "motorElectric"
+      ],
+      "camera": {
+        "fov": 35,
+        "position": [
+          -1.1127097474536496,
+          1.2341594432229996,
+          1.6863486864460617
+        ],
+        "target": [
+          -0.1256804708391428,
+          0.6419418772542955,
+          0.20580477152430143
+        ]
+      },
+      "contextAssemblyIds": [],
+      "displayTranslations": {},
+      "file": "motorElectric.webp",
+      "height": 768,
+      "id": "motorElectric",
+      "labels": [
+        "Motor elétrico e inversor"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [],
+      "renderHeight": 1536,
+      "renderWidth": 2048,
+      "selectedMeshIds": [
+        "motorElectric__inverter__mechanical_aluminum",
+        "motorElectric__inverter__mechanical_cast",
+        "motorElectric__inverter__mechanical_orange",
+        "motorElectric__inverter__mechanical_silver",
+        "motorElectric__tractionMotor__mechanical_aluminum",
+        "motorElectric__tractionMotor__mechanical_cast",
+        "motorElectric__tractionMotor__mechanical_copper",
+        "motorElectric__tractionMotor__mechanical_silver",
+        "motorElectric__tractionMotor__mechanical_steel"
+      ],
+      "selectedMeshes": [
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.4300000071525574,
+            0.8550000190734863,
+            0.05000000074505806
+          ],
+          "flatShading": false,
+          "id": "motorElectric__inverter__mechanical_aluminum",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "inverter",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "motorElectric__inverter__mechanical_aluminum"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.4300000071525574,
+            0.9340000152587891,
+            0.0500000084284693
+          ],
+          "flatShading": false,
+          "id": "motorElectric__inverter__mechanical_cast",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "inverter",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "motorElectric__inverter__mechanical_cast"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.004680445417761803,
+            0.6039418697430302,
+            0.4283046979263808
+          ],
+          "flatShading": false,
+          "id": "motorElectric__inverter__mechanical_orange",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "inverter",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "motorElectric__inverter__mechanical_orange"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.42999998159624153,
+            0.9399999976158142,
+            0.05000000033446015
+          ],
+          "flatShading": false,
+          "id": "motorElectric__inverter__mechanical_silver",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "inverter",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "motorElectric__inverter__mechanical_silver"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.46000000834465027,
+            0.5899999737739563,
+            0
+          ],
+          "flatShading": false,
+          "id": "motorElectric__tractionMotor__mechanical_aluminum",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionMotor",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "motorElectric__tractionMotor__mechanical_aluminum"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.46000001206994057,
+            0.5899999588727951,
+            7.450580596923828e-09
+          ],
+          "flatShading": false,
+          "id": "motorElectric__tractionMotor__mechanical_cast",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionMotor",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "motorElectric__tractionMotor__mechanical_cast"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.23499999474734068,
+            0.5900000026449561,
+            -7.450580596923828e-09
+          ],
+          "flatShading": false,
+          "id": "motorElectric__tractionMotor__mechanical_copper",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionMotor",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "motorElectric__tractionMotor__mechanical_copper"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.460000017657876,
+            0.5900000408291817,
+            5.587935447692871e-09
+          ],
+          "flatShading": false,
+          "id": "motorElectric__tractionMotor__mechanical_silver",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionMotor",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "motorElectric__tractionMotor__mechanical_silver"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.1599999964237213,
+            0.5899999737739563,
+            0
+          ],
+          "flatShading": false,
+          "id": "motorElectric__tractionMotor__mechanical_steel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionMotor",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "motorElectric__tractionMotor__mechanical_steel"
+        }
+      ],
+      "sha256": "ac943aa449d4e3d7972a15a5751a4f6015b98387d4e0eb751cf24598894c1986",
+      "subset": false,
+      "width": 1024
+    },
+    {
+      "assemblyIds": [
+        "seats"
+      ],
+      "camera": {
+        "fov": 35,
+        "position": [
+          -1.3574938849034819,
+          2.1040166288543216,
+          2.819375845445286
+        ],
+        "target": [
+          0.5220899724111185,
+          0.9762663144655612,
+          5.947338521661294e-08
+        ]
+      },
+      "contextAssemblyIds": [],
+      "displayTranslations": {},
+      "file": "seats.webp",
+      "height": 768,
+      "id": "seats",
+      "labels": [
+        "Bancos, cintos e ancoragens"
+      ],
+      "mechanicalExample": false,
+      "modelSources": [
+        "bmw-x5-g05"
+      ],
+      "notes": [
+        "Conjunto de bancos da referência; materiais, cintos e ancoragens não são todos representados como peças individuais."
+      ],
+      "renderHeight": 1536,
+      "renderWidth": 2048,
+      "selectedMeshIds": [
+        "seats__001_Seats_B_common_general__d14af6_0",
+        "seats__001_Seats_B_common_general__d14af6_1",
+        "seats__003_Seats_F_common_general__417ef9_0",
+        "seats__003_Seats_F_common_general__d32799_0"
+      ],
+      "selectedMeshes": [
+        {
+          "assemblyId": "seats",
+          "baseCenter": [
+            0.9622016588726723,
+            1.030538860634821,
+            0.3765133442265754
+          ],
+          "flatShading": false,
+          "id": "seats__001_Seats_B_common_general__d14af6_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Interior/O_G05_Seats.gltf",
+          "sourceMesh": "Seats_B_common_general_MeshData"
+        },
+        {
+          "assemblyId": "seats",
+          "baseCenter": [
+            0.9622016521659871,
+            1.030538968050811,
+            -0.376513350466798
+          ],
+          "flatShading": false,
+          "id": "seats__001_Seats_B_common_general__d14af6_1",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Interior/O_G05_Seats.gltf",
+          "sourceMesh": "Seats_B_common_general_MeshData"
+        },
+        {
+          "assemblyId": "seats",
+          "baseCenter": [
+            0.06666155095079063,
+            0.9762663144655612,
+            0.4133654598601272
+          ],
+          "flatShading": false,
+          "id": "seats__003_Seats_F_common_general__417ef9_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Interior/O_G05_Seats.gltf",
+          "sourceMesh": "Seats_F_common_general_MeshData"
+        },
+        {
+          "assemblyId": "seats",
+          "baseCenter": [
+            0.06666155362775922,
+            0.9762663212111679,
+            -0.4133654646163444
+          ],
+          "flatShading": false,
+          "id": "seats__003_Seats_F_common_general__d32799_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Interior/O_G05_Seats.gltf",
+          "sourceMesh": "Seats_F_common_general_MeshData"
+        }
+      ],
+      "sha256": "7cb9fd2d4737f2a3504cb1c00a0b5c355d4537e63cb506d1694c16dbdd85f52b",
+      "subset": true,
+      "width": 1024
+    },
+    {
+      "assemblyIds": [
+        "steering"
+      ],
+      "camera": {
+        "fov": 35,
+        "position": [
+          -0.779547231590326,
+          1.320391383713899,
+          0.9551264950912749
+        ],
+        "target": [
+          -0.40820870403655796,
+          1.0975882671816382,
+          0.39811870376062264
+        ]
+      },
+      "contextAssemblyIds": [],
+      "displayTranslations": {},
+      "file": "steering.webp",
+      "height": 768,
+      "id": "steering",
+      "labels": [
+        "Direção e comandos"
+      ],
+      "mechanicalExample": false,
+      "modelSources": [
+        "bmw-x5-g05"
+      ],
+      "notes": [
+        "Exemplar de direção do modelo; no conjunto de suspensão mostra-se a cremalheira didática."
+      ],
+      "renderHeight": 1536,
+      "renderWidth": 2048,
+      "selectedMeshIds": [
+        "steering__001_SteeringWheel_common_general__e81cfc_0"
+      ],
+      "selectedMeshes": [
+        {
+          "assemblyId": "steering",
+          "baseCenter": [
+            -0.4082087037322329,
+            1.0975882672998583,
+            0.39811870409611494
+          ],
+          "flatShading": false,
+          "id": "steering__001_SteeringWheel_common_general__e81cfc_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Interior/O_G05_SteeringWheel.gltf",
+          "sourceMesh": "SteeringWheel_common_general_MeshData"
+        }
+      ],
+      "sha256": "7a7cb804fa0decc548b61993895b7f5c875e911154fa9cbcb3f08171f43312ab",
+      "subset": true,
+      "width": 1024
+    },
+    {
+      "assemblyIds": [
+        "tank"
+      ],
+      "camera": {
+        "fov": 35,
+        "position": [
+          -0.1358829171689515,
+          1.4277797454957464,
+          1.8013694109368572
+        ],
+        "target": [
+          1.2624999731779099,
+          0.5887500112876296,
+          -0.29620492458343506
+        ]
+      },
+      "contextAssemblyIds": [],
+      "displayTranslations": {},
+      "file": "tank.webp",
+      "height": 768,
+      "id": "tank",
+      "labels": [
+        "Tanque e circuito de combustível"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [],
+      "renderHeight": 1536,
+      "renderWidth": 2048,
+      "selectedMeshIds": [
+        "tank__fuelTank__mechanical_cast",
+        "tank__fuelTank__mechanical_plastic",
+        "tank__fuelTank__mechanical_silver",
+        "tank__fuelTank__mechanical_steel"
+      ],
+      "selectedMeshes": [
+        {
+          "assemblyId": "tank",
+          "baseCenter": [
+            1.0399999618530273,
+            0.5099999904632568,
+            -0.2199999988079071
+          ],
+          "flatShading": false,
+          "id": "tank__fuelTank__mechanical_cast",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "fuelTank",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "tank__fuelTank__mechanical_cast"
+        },
+        {
+          "assemblyId": "tank",
+          "baseCenter": [
+            1.2624999731779099,
+            0.6025000214576721,
+            -0.3062049299478531
+          ],
+          "flatShading": false,
+          "id": "tank__fuelTank__mechanical_plastic",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "fuelTank",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "tank__fuelTank__mechanical_plastic"
+        },
+        {
+          "assemblyId": "tank",
+          "baseCenter": [
+            1.0400000200606871,
+            0.5320000052452087,
+            -0.21999999266886924
+          ],
+          "flatShading": false,
+          "id": "tank__fuelTank__mechanical_silver",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "fuelTank",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "tank__fuelTank__mechanical_silver"
+        },
+        {
+          "assemblyId": "tank",
+          "baseCenter": [
+            1.054999964311719,
+            0.2199999988079071,
+            -0.2199999988079071
+          ],
+          "flatShading": false,
+          "id": "tank__fuelTank__mechanical_steel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "fuelTank",
+          "sourceFile": "authored/build_mechanics.py",
+          "sourceMesh": "tank__fuelTank__mechanical_steel"
+        }
+      ],
+      "sha256": "3e1dd06b06254ef484a92e1c2aa84ffba8109e2d9a3cedf2365cd2ac4710824b",
+      "subset": false,
+      "width": 1024
+    },
+    {
+      "assemblyIds": [
+        "vin"
+      ],
+      "camera": {
+        "fov": 35,
+        "position": [
+          -2.7761279797690457,
+          0.716732691418326,
+          0.5020874241205237
+        ],
+        "target": [
+          -2.4407994903352375,
+          0.515535597758041,
+          -0.0009053100301886496
+        ]
+      },
+      "contextAssemblyIds": [],
+      "displayTranslations": {},
+      "file": "vin.webp",
+      "height": 768,
+      "id": "vin",
+      "labels": [
+        "VIN e identificação"
+      ],
+      "mechanicalExample": false,
+      "modelSources": [
+        "bmw-x5-g05"
+      ],
+      "notes": [
+        "Elementos de identificação visuais do modelo. A miniatura não reproduz gravação VIN nem localização ou dimensões de marcações obrigatórias."
+      ],
+      "renderHeight": 1536,
+      "renderWidth": 2048,
+      "selectedMeshIds": [
+        "body__LicensePlate_F_Frame__72857c_0",
+        "body__LicensePlate_F__eaa44f_0"
+      ],
+      "selectedMeshes": [
+        {
+          "assemblyId": "vin",
+          "baseCenter": [
+            -2.457087404783739,
+            0.51834542540049,
+            -0.0009053096526634441
+          ],
+          "flatShading": false,
+          "id": "body__LicensePlate_F__eaa44f_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/LicensePlates/O_G05_LicensePlates.gltf",
+          "sourceMesh": "LicensePlate_F_MeshData"
+        },
+        {
+          "assemblyId": "vin",
+          "baseCenter": [
+            -2.439799490417194,
+            0.5155355977580411,
+            -0.0009053100301886219
+          ],
+          "flatShading": false,
+          "id": "body__LicensePlate_F_Frame__72857c_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/LicensePlates/O_G05_LicensePlates.gltf",
+          "sourceMesh": "LicensePlate_F_Frame_MeshData"
+        }
+      ],
+      "sha256": "6708843fff19cca8c3f3774e1aca0479cb1c095526b7b96ba32e200d33bb34a6",
+      "subset": true,
+      "width": 1024
+    },
+    {
+      "assemblyIds": [
+        "wheels"
+      ],
+      "camera": {
+        "fov": 35,
+        "position": [
+          -2.334628718977751,
+          0.8296621593725844,
+          1.9429933727485826
+        ],
+        "target": [
+          -1.5800081396121186,
+          0.376889811753205,
+          0.8110625037001342
+        ]
+      },
+      "contextAssemblyIds": [],
+      "displayTranslations": {},
+      "file": "wheels.webp",
+      "height": 768,
+      "id": "wheels",
+      "labels": [
+        "Pneus e rodas"
+      ],
+      "mechanicalExample": false,
+      "modelSources": [
+        "bmw-x5-g05"
+      ],
+      "notes": [
+        "Exemplar dianteiro da roda e do pneu do modelo de referência."
+      ],
+      "renderHeight": 1536,
+      "renderWidth": 2048,
+      "selectedMeshIds": [
+        "wheels__001_Wheel_Tire__7bfa9a_0",
+        "wheels__002_Wheel_Rim__f427ee_0",
+        "wheels__003_Wheel_Screws__66cce2_0",
+        "wheels__004_Wheel_Connecter__3565c5_0"
+      ],
+      "selectedMeshes": [
+        {
+          "assemblyId": "wheels",
+          "baseCenter": [
+            -1.5800081396121186,
+            0.376889811753205,
+            0.8110625037001342
+          ],
+          "flatShading": false,
+          "id": "wheels__001_Wheel_Tire__7bfa9a_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Wheels/O_G05_Wheels.gltf",
+          "sourceMesh": "Wheel_Tire_MeshData"
+        },
+        {
+          "assemblyId": "wheels",
+          "baseCenter": [
+            -1.5800899076461796,
+            0.3768466580102168,
+            0.810878945209726
+          ],
+          "flatShading": false,
+          "id": "wheels__002_Wheel_Rim__f427ee_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Wheels/O_G05_Wheels.gltf",
+          "sourceMesh": "Wheel_Rim_MeshData"
+        },
+        {
+          "assemblyId": "wheels",
+          "baseCenter": [
+            -1.5801431894290463,
+            0.3824035707829874,
+            0.8838817169276709
+          ],
+          "flatShading": false,
+          "id": "wheels__003_Wheel_Screws__66cce2_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Wheels/O_G05_Wheels.gltf",
+          "sourceMesh": "Wheel_Screws_MeshData"
+        },
+        {
+          "assemblyId": "wheels",
+          "baseCenter": [
+            -1.580320963854394,
+            0.37599992176257613,
+            0.8265523792016544
+          ],
+          "flatShading": false,
+          "id": "wheels__004_Wheel_Connecter__3565c5_0",
+          "mechanicalExample": false,
+          "role": "selection",
+          "section": null,
+          "sourceFile": "meshes/Wheels/O_G05_Wheels.gltf",
+          "sourceMesh": "Wheel_Connecter_MeshData"
+        }
+      ],
+      "sha256": "28c7690887672188859bdb3d44983f579dc05fbd1853e59ca66ff861c9e152a0",
+      "subset": true,
+      "width": 1024
+    }
+  ],
+  "indexSha256": "d747f1c14bbd5392e63d98cf84193f66f9137f2a9ad669676b2a540404087461",
+  "inputs": [
+    {
+      "path": "assets/models/suv/bmw-x5.glb",
+      "sha256": "25c74e4411872932dee468a1d2f533ca5d7e7e448ef55244c2c7bb5e152a37e2"
+    },
+    {
+      "path": "assets/models/suv/mechanical-supplement.glb",
+      "sha256": "d5e013b9ae5265ca98a0d78ad4d7089c32bdc9c2dc0dd094af582a4dfea4e213"
+    },
+    {
+      "path": "assets/models/suv/provenance.json",
+      "sha256": "b4de793bedebad768c1d1b420fd5afbeb06132b84a2620896969bfc928a39bc9"
+    },
+    {
+      "path": "assets/models/suv/mechanical-provenance.json",
+      "sha256": "2c6d7b790aba0098da20010e3b337f5aaaaff9b990658bd7c4afb2f38d559a98"
+    },
+    {
+      "path": "src/guide/reference-suv.js",
+      "sha256": "79e588490ec6bed925266089c5c294a7ac6d4b320dfa9615bf6cc0c8cc400d51"
+    },
+    {
+      "path": "src/guide/vehicle-parts.js",
+      "sha256": "615206e91444b2d16160fde254a7fb25d1561dc7ccf12568c205a559013c1e7e"
+    },
+    {
+      "path": "src/guide/subsystem-coverage.js",
+      "sha256": "b5bc95fa233b0bfe598d057c506de41e685af5bc797a8820d46390372aa19eba"
+    },
+    {
+      "path": "src/guide/exploded-layout.js",
+      "sha256": "a358a963bb0309c48b3bb60ea4de119d0fb5f7cd06c3b7d198788635fac22452"
+    },
+    {
+      "path": "scripts/model-thumbnail-harness.js",
+      "sha256": "4d30816c70a3eb46b0bd11e53c52776cf1d701b6c6fa106213c6a2acbbe81343"
+    },
+    {
+      "path": "scripts/capture_model_thumbnails.py",
+      "sha256": "6d420da32646f0bdba5c702eb407992266c1138c102573db2528cd1159307812"
+    }
+  ],
+  "limitations": [
+    "Preview is a navigation example, not a certified installation, dimension or regulatory applicability decision",
+    "Shared subsystems show a related assembly; missing individual components are not silently created",
+    "Current previews are captured from the SUV reference and its authored mechanical supplement"
+  ],
+  "method": "Direct WebGL render of the approved GLB meshes in an export-only studio; no generated photograph, replacement geometry or image generation",
+  "modelSources": {
+    "authored-mechanics": {
+      "creator": "Project-authored 3D illustration",
+      "license": "Authored for this project; based on the original project 2D boards",
+      "notice": "Generic educational mechanical example based on the existing 2D boards. It does not describe actual BMW X5 internal architecture, dimensions, required tests or regulatory conformity.",
+      "title": "Generic didactic hybrid mechanical systems"
+    },
+    "bmw-x5-g05": {
+      "creator": "BMW Car IT / contributors to bmwcarit/digital-car-3d",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "notice": "Manufacturer-published visual reference asset. Geometry or use of a BMW reference does not establish regulatory applicability, homologation or manufacturer endorsement. Adaptations, regrouping, material tuning and geometry optimization must be identified in attribution.",
+      "sourceUrl": "https://github.com/bmwcarit/digital-car-3d",
+      "title": "BMW X5 G05 2018 reference asset"
+    }
+  },
+  "partialExport": false,
+  "schemaVersion": 1
+}

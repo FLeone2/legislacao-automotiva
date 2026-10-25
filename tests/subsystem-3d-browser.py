@@ -126,23 +126,44 @@ async def exercise(base):
             for response in responses
         )
 
+        thumbnail_index = json.loads(
+            (ROOT / "assets/models/suv/thumbnails/index.json").read_text()
+        )
         for row in SOURCE["rows"]:
             checked.append(await select_subsystem(page, row["id"]))
             reference = page.locator(".g-trace-reference")
+            preview = reference.locator(".g-trace-model-preview")
+            expected = thumbnail_index["images"][
+                thumbnail_index["subsystems"][row["id"]]["imageId"]
+            ]
+            assert await preview.get_attribute("data-preview-id") == expected["id"]
+            assert set(
+                (await preview.get_attribute("data-preview-assemblies")).split(",")
+            ) == set(row["assemblyIds"])
+            image = preview.locator("img")
+            assert await image.get_attribute("src") == (
+                expected["asset"] + "?v=" + expected["sha256"][:16]
+            )
+            await image.scroll_into_view_if_needed()
+            assert await image.evaluate(
+                "async img => {await img.decode(); return [img.naturalWidth,img.naturalHeight]}"
+            ) == [1024, 768]
+            archive = reference.locator(".g-trace-archive")
+            assert await archive.get_attribute("open") is None
             art = row.get("referenceArt")
             if art:
                 assert (
-                    await reference.locator("svg image").get_attribute("href")
+                    await archive.locator("svg image").get_attribute("href")
                     == art["asset"]
                 )
                 assert [
                     float(value)
                     for value in (
-                        await reference.locator("svg").get_attribute("viewBox")
+                        await archive.locator("svg").get_attribute("viewBox")
                     ).split()
                 ] == [art["x"], art["y"], art["width"], art["height"]], row["id"]
             else:
-                assert (await reference.locator("img").get_attribute("src")) == row[
+                assert (await archive.locator("img").get_attribute("src")) == row[
                     "referenceAsset"
                 ]
             assert (

@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { modelThumbnail } from './model-thumbnails.js';
+import { sceneKind } from './vehicle-parts.js';
 
 const reviewLabel = (record) =>
   record.reviewStatus?.fullTextReviewed === false
@@ -84,7 +86,10 @@ function TraceRecord({ record, bridge }) {
         )}
         <p className="g-note">
           {record.requirementIds?.length
-            ? record.requirementIds.length + ' requisito(s) individual(is) vinculado(s).'
+            ? record.requirementIds.length +
+              (record.requirementIds.length === 1
+                ? ' requisito individual vinculado.'
+                : ' requisitos individuais vinculados.')
             : 'Vínculo ao ato; não há requisito individual estruturado neste conjunto.'}
         </p>
         {record.mappingEvidence?.map((e, i) => (
@@ -112,6 +117,9 @@ export default function TraceabilityInspector({ part, profile, bridge }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [retry, setRetry] = useState(0);
+  const preview = modelThumbnail(part, sceneKind(profile?.category));
+  const [previewError, setPreviewError] = useState(false);
+  useEffect(() => setPreviewError(false), [preview?.assetUrl]);
   useEffect(() => {
     let active = true;
     setTrace(bridge.traceability(part, profile));
@@ -139,11 +147,12 @@ export default function TraceabilityInspector({ part, profile, bridge }) {
     <section className="g-traceability" aria-label="Rastreabilidade normativa do conjunto">
       <div className="g-trace-heading">
         <div>
-          <span className="g-eyebrow">MODELO → CONJUNTO → DISPOSITIVO → FONTE</span>
-          <h3>Rastreabilidade das referências</h3>
+          <h3>Referências</h3>
         </div>
         <span className="g-tag">
-          {trace.counts.acts} atos · {trace.counts.requirements} requisitos vinculados
+          {trace.counts.acts} {trace.counts.acts === 1 ? 'ato' : 'atos'} ·{' '}
+          {trace.counts.requirements}{' '}
+          {trace.counts.requirements === 1 ? 'requisito vinculado' : 'requisitos vinculados'}
         </span>
       </div>
       <details className="g-trace-conditions">
@@ -170,44 +179,92 @@ export default function TraceabilityInspector({ part, profile, bridge }) {
       </details>
       <div className="g-trace-layout">
         <aside className="g-trace-reference">
-          <a href="#vehicle" aria-label="Abrir prancha original do veículo">
-            {trace.visual.referenceArt || part.referenceArt ? (
-              (() => {
-                const art = trace.visual.referenceArt || part.referenceArt;
-                return (
-                  <svg
-                    className="g-reference-art"
-                    role="img"
-                    aria-label={'Referência 2D original: ' + part.label}
-                    viewBox={[art.x, art.y, art.width, art.height].join(' ')}
-                    preserveAspectRatio="xMidYMid meet"
-                  >
-                    <title>{'Referência 2D original: ' + part.label}</title>
-                    <image
-                      href={art.asset}
-                      width={art.sourceWidth || 1536}
-                      height={art.sourceHeight || 1024}
-                    />
-                  </svg>
-                );
-              })()
-            ) : (
-              <img
-                src={trace.referenceImage}
-                alt={'Referência do site original: ' + part.label}
-                loading="lazy"
-              />
-            )}
-          </a>
-          <span className="g-tag">REFERÊNCIA DO SITE ORIGINAL</span>
-          <p>{part.label}</p>
-          <small>
-            {part.subsystemId
-              ? 'Recorte 2D do subsistema original, ligado às associações disponíveis no acervo.'
-              : 'Conjunto visual ligado às associações revisadas da prancha original.'}
-          </small>
-          <details>
-            <summary>Conjuntos de origem</summary>
+          {preview && !previewError ? (
+            <figure
+              className="g-trace-model-preview"
+              data-preview-id={preview.id}
+              data-preview-assemblies={preview.assemblyIds.join(',')}
+            >
+              <a
+                href={preview.assetUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={'Ampliar imagem 3D de referência: ' + part.label}
+              >
+                <img
+                  src={preview.assetUrl}
+                  alt={preview.caption + ': ' + preview.depictedLabel + '. Seleção: ' + part.label}
+                  width={preview.width}
+                  height={preview.height}
+                  loading="lazy"
+                  decoding="async"
+                  onError={() => setPreviewError(true)}
+                />
+              </a>
+              <figcaption className="g-trace-model-caption">
+                <strong>{preview.caption}</strong>
+                <p>{preview.note}</p>
+                <small className="g-trace-model-credit">
+                  {preview.hasBMWSource && (
+                    <>
+                      <a href={preview.sourceUrl} target="_blank" rel="noopener noreferrer">
+                        BMW Car IT
+                      </a>{' '}
+                      ·{' '}
+                      <a href={preview.licenseUrl} target="_blank" rel="noopener noreferrer">
+                        CC BY 4.0
+                      </a>
+                    </>
+                  )}
+                  {preview.hasBMWSource && preview.authoredExample && ' · '}
+                  {preview.authoredExample && 'Geometria mecânica autoral didática'}
+                </small>
+              </figcaption>
+            </figure>
+          ) : (
+            <p className="g-note g-trace-preview-unavailable" role="status">
+              {previewError
+                ? 'A imagem 3D não carregou. As referências do conjunto continuam disponíveis.'
+                : 'A miniatura deste modelo ainda não foi exportada. Consulte a seleção no modelo 3D.'}
+            </p>
+          )}
+          <details className="g-trace-archive">
+            <summary>Referência histórica 2D</summary>
+            <a href="#vehicle" aria-label="Abrir prancha original do veículo">
+              {trace.visual.referenceArt || part.referenceArt ? (
+                (() => {
+                  const art = trace.visual.referenceArt || part.referenceArt;
+                  return (
+                    <svg
+                      className="g-reference-art"
+                      role="img"
+                      aria-label={'Referência 2D original: ' + part.label}
+                      viewBox={[art.x, art.y, art.width, art.height].join(' ')}
+                      preserveAspectRatio="xMidYMid meet"
+                    >
+                      <title>{'Referência 2D original: ' + part.label}</title>
+                      <image
+                        href={art.asset}
+                        width={art.sourceWidth || 1536}
+                        height={art.sourceHeight || 1024}
+                      />
+                    </svg>
+                  );
+                })()
+              ) : (
+                <img
+                  src={trace.referenceImage}
+                  alt={'Referência do site original: ' + part.label}
+                  loading="lazy"
+                />
+              )}
+            </a>
+            <small>
+              {part.subsystemId
+                ? 'Recorte 2D do subsistema original, ligado às associações disponíveis no acervo.'
+                : 'Conjunto visual ligado às associações revisadas da prancha original.'}
+            </small>
+            <p>Conjuntos de origem no acervo:</p>
             {trace.visual.referenceImages.map((ref) => (
               <a
                 key={ref.legacyPartId}
@@ -249,7 +306,7 @@ export default function TraceabilityInspector({ part, profile, bridge }) {
                     <span>{topic.label}</span>
                     <small>
                       {topic.lane === 'ambiental' ? 'Ambiental' : 'Segurança'} ·{' '}
-                      {topic.records.length} atos
+                      {topic.records.length} {topic.records.length === 1 ? 'ato' : 'atos'}
                     </small>
                   </summary>
                   {topic.records.map((record) => (

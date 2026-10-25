@@ -102,6 +102,12 @@ O Obsidian aprovado organiza a consulta sobre um fundo grafite, com texto claro,
 
 O sistema usa densidade de ferramenta consultiva: títulos amplos introduzem cada vista, enquanto metadados e relações ocupam linhas compactas. O vidro aparece na navegação, nos controles flutuantes e no inspetor; listas de referências também usam superfícies planas e divisórias. Esta documentação registra o código existente, sem definir conteúdo ou critérios regulatórios.
 
+O ambiente `#guide` segue o refinamento minimalista solicitado em 25/10/2026:
+superfícies mais planas, ações azuis, perfil e árvore expansíveis no celular e
+miniaturas dos conjuntos 3D. Essa extensão e suas referências Apple estão em
+[frontend-apple-e-skills.md](docs/guide/frontend-apple-e-skills.md); as regras
+Obsidian abaixo continuam descrevendo as consultas legadas.
+
 A autoridade visual é o pacote Obsidian aprovado e sua implementação em HTML, CSS e JavaScript clássico. Não há uma nova direção criativa neste documento. As adaptações da maquete ao acervo real estão em [obsidian-implementation.md](docs/obsidian-implementation.md); propósito e restrições do produto estão em [PRODUCT.md](PRODUCT.md).
 
 **Key Characteristics:**

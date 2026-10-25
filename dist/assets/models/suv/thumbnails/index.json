@@ -1,0 +1,1081 @@
+{
+  "assemblies": {
+    "airbag": {
+      "assemblyIds": [
+        "airbag"
+      ],
+      "id": "airbag",
+      "imageId": "airbag",
+      "label": "Airbags e retenção"
+    },
+    "battery12v": {
+      "assemblyIds": [
+        "battery12v"
+      ],
+      "id": "battery12v",
+      "imageId": "battery12v",
+      "label": "Bateria de baixa tensão"
+    },
+    "batteryHV": {
+      "assemblyIds": [
+        "batteryHV"
+      ],
+      "id": "batteryHV",
+      "imageId": "batteryHV",
+      "label": "Bateria de tração"
+    },
+    "body": {
+      "assemblyIds": [
+        "body"
+      ],
+      "id": "body",
+      "imageId": "body",
+      "label": "Carroceria"
+    },
+    "brakeFluid": {
+      "assemblyIds": [
+        "brakeFluid"
+      ],
+      "id": "brakeFluid",
+      "imageId": "brakeFluid",
+      "label": "Reservatório e fluido de freio"
+    },
+    "brakes": {
+      "assemblyIds": [
+        "brakes"
+      ],
+      "id": "brakes",
+      "imageId": "brakes",
+      "label": "Freios e estabilidade"
+    },
+    "chassis": {
+      "assemblyIds": [
+        "chassis"
+      ],
+      "id": "chassis",
+      "imageId": "chassis",
+      "label": "Chassi e suspensão"
+    },
+    "cooling": {
+      "assemblyIds": [
+        "cooling"
+      ],
+      "id": "cooling",
+      "imageId": "cooling",
+      "label": "Arrefecimento e radiador"
+    },
+    "doors": {
+      "assemblyIds": [
+        "doors"
+      ],
+      "id": "doors",
+      "imageId": "doors",
+      "label": "Portas e fechaduras"
+    },
+    "electronics": {
+      "assemblyIds": [
+        "electronics"
+      ],
+      "id": "electronics",
+      "imageId": "electronics",
+      "label": "Eletrônica e conectividade"
+    },
+    "engine": {
+      "assemblyIds": [
+        "engine"
+      ],
+      "id": "engine",
+      "imageId": "engine",
+      "label": "Motor a combustão"
+    },
+    "exhaust": {
+      "assemblyIds": [
+        "exhaust"
+      ],
+      "id": "exhaust",
+      "imageId": "exhaust",
+      "label": "Escapamento e pós-tratamento"
+    },
+    "glass": {
+      "assemblyIds": [
+        "glass"
+      ],
+      "id": "glass",
+      "imageId": "glass",
+      "label": "Vidros e visibilidade"
+    },
+    "lights": {
+      "assemblyIds": [
+        "lights"
+      ],
+      "id": "lights",
+      "imageId": "lights",
+      "label": "Iluminação e sinalização"
+    },
+    "mirrors": {
+      "assemblyIds": [
+        "mirrors"
+      ],
+      "id": "mirrors",
+      "imageId": "mirrors",
+      "label": "Retrovisores e visão indireta"
+    },
+    "motorElectric": {
+      "assemblyIds": [
+        "motorElectric"
+      ],
+      "id": "motorElectric",
+      "imageId": "motorElectric",
+      "label": "Motor elétrico e inversor"
+    },
+    "seats": {
+      "assemblyIds": [
+        "seats"
+      ],
+      "id": "seats",
+      "imageId": "seats",
+      "label": "Bancos, cintos e ancoragens"
+    },
+    "steering": {
+      "assemblyIds": [
+        "steering"
+      ],
+      "id": "steering",
+      "imageId": "steering",
+      "label": "Direção e comandos"
+    },
+    "tank": {
+      "assemblyIds": [
+        "tank"
+      ],
+      "id": "tank",
+      "imageId": "tank",
+      "label": "Tanque e circuito de combustível"
+    },
+    "vin": {
+      "assemblyIds": [
+        "vin"
+      ],
+      "id": "vin",
+      "imageId": "vin",
+      "label": "VIN e identificação"
+    },
+    "wheels": {
+      "assemblyIds": [
+        "wheels"
+      ],
+      "id": "wheels",
+      "imageId": "wheels",
+      "label": "Pneus e rodas"
+    }
+  },
+  "images": {
+    "airbag": {
+      "assemblyIds": [
+        "airbag"
+      ],
+      "asset": "assets/models/suv/thumbnails/airbag.webp",
+      "contextAssemblyIds": [],
+      "height": 768,
+      "id": "airbag",
+      "labels": [
+        "Airbags e retenção"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [],
+      "sha256": "f9145a0492bbaef7d2401b378a44e549f551b64234577831f5101ce1f203fde5",
+      "subset": false,
+      "width": 1024
+    },
+    "battery12v": {
+      "assemblyIds": [
+        "battery12v"
+      ],
+      "asset": "assets/models/suv/thumbnails/battery12v.webp",
+      "contextAssemblyIds": [],
+      "height": 768,
+      "id": "battery12v",
+      "labels": [
+        "Bateria de baixa tensão"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [],
+      "sha256": "5401e9a57e58f8249b33daff7453f4033ab8fe011c66d5ce9209ebf30f611d26",
+      "subset": false,
+      "width": 1024
+    },
+    "batteryHV": {
+      "assemblyIds": [
+        "batteryHV"
+      ],
+      "asset": "assets/models/suv/thumbnails/batteryHV.webp",
+      "contextAssemblyIds": [],
+      "height": 768,
+      "id": "batteryHV",
+      "labels": [
+        "Bateria de tração"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [
+        "Módulos e conexões da bateria didática, com a tampa omitida para inspeção; não é a arquitetura certificada do BMW."
+      ],
+      "sha256": "235b4abe0489520782ffdb697a451a750ff324c9896f8375070d3f50c8c3f45a",
+      "subset": true,
+      "width": 1024
+    },
+    "batteryHV--engine--motorElectric": {
+      "assemblyIds": [
+        "batteryHV",
+        "engine",
+        "motorElectric"
+      ],
+      "asset": "assets/models/suv/thumbnails/batteryHV--engine--motorElectric.webp",
+      "contextAssemblyIds": [],
+      "height": 768,
+      "id": "batteryHV--engine--motorElectric",
+      "labels": [
+        "Bateria de tração",
+        "Motor a combustão",
+        "Motor elétrico e inversor"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [
+        "Módulos e conexões da bateria didática, com a tampa omitida para inspeção; não é a arquitetura certificada do BMW."
+      ],
+      "sha256": "06c326e5a26e41dfcfc880f57b50de2be20af455b871332a110ab0cbb19d1707",
+      "subset": true,
+      "width": 1024
+    },
+    "batteryHV--motorElectric": {
+      "assemblyIds": [
+        "batteryHV",
+        "motorElectric"
+      ],
+      "asset": "assets/models/suv/thumbnails/batteryHV--motorElectric.webp",
+      "contextAssemblyIds": [],
+      "height": 768,
+      "id": "batteryHV--motorElectric",
+      "labels": [
+        "Bateria de tração",
+        "Motor elétrico e inversor"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [
+        "Módulos e conexões da bateria didática, com a tampa omitida para inspeção; não é a arquitetura certificada do BMW."
+      ],
+      "sha256": "8623138f2f7b704068329bd6706bfe1c78297fe9eb3a6e3053a4b1160454368f",
+      "subset": true,
+      "width": 1024
+    },
+    "body": {
+      "assemblyIds": [
+        "body"
+      ],
+      "asset": "assets/models/suv/thumbnails/body.webp",
+      "contextAssemblyIds": [],
+      "height": 768,
+      "id": "body",
+      "labels": [
+        "Carroceria"
+      ],
+      "mechanicalExample": false,
+      "modelSources": [
+        "bmw-x5-g05"
+      ],
+      "notes": [],
+      "sha256": "db6f0057051a3276fff61e11a2945ff1fb7fbcc0d3673da2262879091650521e",
+      "subset": true,
+      "width": 1024
+    },
+    "brakeFluid": {
+      "assemblyIds": [
+        "brakeFluid"
+      ],
+      "asset": "assets/models/suv/thumbnails/brakeFluid.webp",
+      "contextAssemblyIds": [],
+      "height": 768,
+      "id": "brakeFluid",
+      "labels": [
+        "Reservatório e fluido de freio"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [
+        "Reservatório, cilindro mestre e circuito didáticos. A imagem não representa composição ou especificação de um fluido."
+      ],
+      "sha256": "c3ea1e6a13e7df00ab95642269b666f97068e2c9c73a705fee344c490ce9b2b3",
+      "subset": false,
+      "width": 1024
+    },
+    "brakes": {
+      "assemblyIds": [
+        "brakes"
+      ],
+      "asset": "assets/models/suv/thumbnails/brakes.webp",
+      "contextAssemblyIds": [
+        "wheels"
+      ],
+      "height": 768,
+      "id": "brakes",
+      "labels": [
+        "Freios e estabilidade"
+      ],
+      "mechanicalExample": false,
+      "modelSources": [
+        "bmw-x5-g05"
+      ],
+      "notes": [
+        "Freio dianteiro com cubo e parafusos reais da roda como contexto. A proteção traseira foi omitida para leitura da face do disco. ABS e ESC não possuem controles individuais nesta imagem."
+      ],
+      "sha256": "020fefd3eb49f3b57f92dfb2dcdd053edc9ac9b06f543222e126340ffb65338d",
+      "subset": true,
+      "width": 1024
+    },
+    "chassis": {
+      "assemblyIds": [
+        "chassis"
+      ],
+      "asset": "assets/models/suv/thumbnails/chassis.webp",
+      "contextAssemblyIds": [],
+      "height": 768,
+      "id": "chassis",
+      "labels": [
+        "Chassi e suspensão"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [
+        "Exemplo didático da suspensão dianteira. Não representa dimensões ou arquitetura interna certificada do BMW."
+      ],
+      "sha256": "be1757282cf68797619a290c2b51415f1c8f76c06ff74f22b61b4a8b5e455ac0",
+      "subset": true,
+      "width": 1024
+    },
+    "chassis--steering": {
+      "assemblyIds": [
+        "chassis",
+        "steering"
+      ],
+      "asset": "assets/models/suv/thumbnails/chassis--steering.webp",
+      "contextAssemblyIds": [],
+      "height": 768,
+      "id": "chassis--steering",
+      "labels": [
+        "Chassi e suspensão",
+        "Direção e comandos"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [
+        "Exemplo didático da suspensão dianteira. Não representa dimensões ou arquitetura interna certificada do BMW.",
+        "Exemplar de direção do modelo; no conjunto de suspensão mostra-se a cremalheira didática."
+      ],
+      "sha256": "b72331f8063b5e40ad4a72511fea57e7f0f71919afc42ccce1f6d92c95747e8b",
+      "subset": true,
+      "width": 1024
+    },
+    "cooling": {
+      "assemblyIds": [
+        "cooling"
+      ],
+      "asset": "assets/models/suv/thumbnails/cooling.webp",
+      "contextAssemblyIds": [],
+      "height": 768,
+      "id": "cooling",
+      "labels": [
+        "Arrefecimento e radiador"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [],
+      "sha256": "3f9df3023ceb37bd2ceee3aecd9d5dcf7226b52d106fd8c720fc962dafcaab59",
+      "subset": false,
+      "width": 1024
+    },
+    "doors": {
+      "assemblyIds": [
+        "doors"
+      ],
+      "asset": "assets/models/suv/thumbnails/doors.webp",
+      "contextAssemblyIds": [],
+      "height": 768,
+      "id": "doors",
+      "labels": [
+        "Portas e fechaduras"
+      ],
+      "mechanicalExample": false,
+      "modelSources": [
+        "bmw-x5-g05"
+      ],
+      "notes": [
+        "Exemplar de porta da referência; mecanismos e requisitos específicos continuam sendo consultados no conjunto."
+      ],
+      "sha256": "2eed15e7307c68da00bedda7bf87fa165a323611548d8a90e7584b63b68e8d08",
+      "subset": true,
+      "width": 1024
+    },
+    "electronics": {
+      "assemblyIds": [
+        "electronics"
+      ],
+      "asset": "assets/models/suv/thumbnails/electronics.webp",
+      "contextAssemblyIds": [],
+      "height": 768,
+      "id": "electronics",
+      "labels": [
+        "Eletrônica e conectividade"
+      ],
+      "mechanicalExample": false,
+      "modelSources": [
+        "bmw-x5-g05"
+      ],
+      "notes": [
+        "Painel e módulos do conjunto visual; não representa um produto de telecomunicações homologado ou um circuito certificado."
+      ],
+      "sha256": "1594ffcb1c89b489cc4b19014e3c66743b7a6b7f2840317d1f266f82c071e050",
+      "subset": true,
+      "width": 1024
+    },
+    "electronics--engine": {
+      "assemblyIds": [
+        "electronics",
+        "engine"
+      ],
+      "asset": "assets/models/suv/thumbnails/electronics--engine.webp",
+      "contextAssemblyIds": [],
+      "height": 768,
+      "id": "electronics--engine",
+      "labels": [
+        "Eletrônica e conectividade",
+        "Motor a combustão"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [
+        "Painel e módulos do conjunto visual; não representa um produto de telecomunicações homologado ou um circuito certificado."
+      ],
+      "sha256": "dc0e6e8bce703d32946f46616665991f8e5b5641e5f7752535f5ef3152d33493",
+      "subset": true,
+      "width": 1024
+    },
+    "engine": {
+      "assemblyIds": [
+        "engine"
+      ],
+      "asset": "assets/models/suv/thumbnails/engine.webp",
+      "contextAssemblyIds": [],
+      "height": 768,
+      "id": "engine",
+      "labels": [
+        "Motor a combustão"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [],
+      "sha256": "0a4fc0dfaad1dfd50cfb41f5aa01568bb4ad6572ffa60468f39fdcaa67d08251",
+      "subset": false,
+      "width": 1024
+    },
+    "engine--exhaust": {
+      "assemblyIds": [
+        "engine",
+        "exhaust"
+      ],
+      "asset": "assets/models/suv/thumbnails/engine--exhaust.webp",
+      "contextAssemblyIds": [],
+      "height": 768,
+      "id": "engine--exhaust",
+      "labels": [
+        "Motor a combustão",
+        "Escapamento e pós-tratamento"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [],
+      "sha256": "cbe3eceee73f04a950d3b6ee37fb761d99c5c44ad3fa0ecba3e75361412e2600",
+      "subset": false,
+      "width": 1024
+    },
+    "exhaust": {
+      "assemblyIds": [
+        "exhaust"
+      ],
+      "asset": "assets/models/suv/thumbnails/exhaust.webp",
+      "contextAssemblyIds": [],
+      "height": 768,
+      "id": "exhaust",
+      "labels": [
+        "Escapamento e pós-tratamento"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [],
+      "sha256": "f157c4def7db4593ff8af1216ea0ea3e95d290fc0c5c707ee9321a76ad9055a2",
+      "subset": false,
+      "width": 1024
+    },
+    "glass": {
+      "assemblyIds": [
+        "glass"
+      ],
+      "asset": "assets/models/suv/thumbnails/glass.webp",
+      "contextAssemblyIds": [],
+      "height": 768,
+      "id": "glass",
+      "labels": [
+        "Vidros e visibilidade"
+      ],
+      "mechanicalExample": false,
+      "modelSources": [
+        "bmw-x5-g05"
+      ],
+      "notes": [
+        "Conjunto de vidros da referência. Limpadores, lavadores e mecanismos de acionamento não têm peças individuais reproduzidas nesta miniatura."
+      ],
+      "sha256": "79f767ab04fa38c92ae2efa28de7fa15cc74eb0e1d09f5457ae16b33a9f2f7ad",
+      "subset": false,
+      "width": 1024
+    },
+    "lights": {
+      "assemblyIds": [
+        "lights"
+      ],
+      "asset": "assets/models/suv/thumbnails/lights.webp",
+      "contextAssemblyIds": [],
+      "height": 768,
+      "id": "lights",
+      "labels": [
+        "Iluminação e sinalização"
+      ],
+      "mechanicalExample": false,
+      "modelSources": [
+        "bmw-x5-g05"
+      ],
+      "notes": [],
+      "sha256": "56880462a66f520f94d465d19e7eb7bae6e87d206fd28755051bc7f7f52972a4",
+      "subset": true,
+      "width": 1024
+    },
+    "mirrors": {
+      "assemblyIds": [
+        "mirrors"
+      ],
+      "asset": "assets/models/suv/thumbnails/mirrors.webp",
+      "contextAssemblyIds": [],
+      "height": 768,
+      "id": "mirrors",
+      "labels": [
+        "Retrovisores e visão indireta"
+      ],
+      "mechanicalExample": false,
+      "modelSources": [
+        "bmw-x5-g05"
+      ],
+      "notes": [],
+      "sha256": "8ce35bfe4d26453470bd9976c87b2da792ce2efb233844cbaf1bbedec2141cf1",
+      "subset": true,
+      "width": 1024
+    },
+    "motorElectric": {
+      "assemblyIds": [
+        "motorElectric"
+      ],
+      "asset": "assets/models/suv/thumbnails/motorElectric.webp",
+      "contextAssemblyIds": [],
+      "height": 768,
+      "id": "motorElectric",
+      "labels": [
+        "Motor elétrico e inversor"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [],
+      "sha256": "ac943aa449d4e3d7972a15a5751a4f6015b98387d4e0eb751cf24598894c1986",
+      "subset": false,
+      "width": 1024
+    },
+    "seats": {
+      "assemblyIds": [
+        "seats"
+      ],
+      "asset": "assets/models/suv/thumbnails/seats.webp",
+      "contextAssemblyIds": [],
+      "height": 768,
+      "id": "seats",
+      "labels": [
+        "Bancos, cintos e ancoragens"
+      ],
+      "mechanicalExample": false,
+      "modelSources": [
+        "bmw-x5-g05"
+      ],
+      "notes": [
+        "Conjunto de bancos da referência; materiais, cintos e ancoragens não são todos representados como peças individuais."
+      ],
+      "sha256": "7cb9fd2d4737f2a3504cb1c00a0b5c355d4537e63cb506d1694c16dbdd85f52b",
+      "subset": true,
+      "width": 1024
+    },
+    "steering": {
+      "assemblyIds": [
+        "steering"
+      ],
+      "asset": "assets/models/suv/thumbnails/steering.webp",
+      "contextAssemblyIds": [],
+      "height": 768,
+      "id": "steering",
+      "labels": [
+        "Direção e comandos"
+      ],
+      "mechanicalExample": false,
+      "modelSources": [
+        "bmw-x5-g05"
+      ],
+      "notes": [
+        "Exemplar de direção do modelo; no conjunto de suspensão mostra-se a cremalheira didática."
+      ],
+      "sha256": "7a7cb804fa0decc548b61993895b7f5c875e911154fa9cbcb3f08171f43312ab",
+      "subset": true,
+      "width": 1024
+    },
+    "tank": {
+      "assemblyIds": [
+        "tank"
+      ],
+      "asset": "assets/models/suv/thumbnails/tank.webp",
+      "contextAssemblyIds": [],
+      "height": 768,
+      "id": "tank",
+      "labels": [
+        "Tanque e circuito de combustível"
+      ],
+      "mechanicalExample": true,
+      "modelSources": [
+        "authored-mechanics"
+      ],
+      "notes": [],
+      "sha256": "3e1dd06b06254ef484a92e1c2aa84ffba8109e2d9a3cedf2365cd2ac4710824b",
+      "subset": false,
+      "width": 1024
+    },
+    "vin": {
+      "assemblyIds": [
+        "vin"
+      ],
+      "asset": "assets/models/suv/thumbnails/vin.webp",
+      "contextAssemblyIds": [],
+      "height": 768,
+      "id": "vin",
+      "labels": [
+        "VIN e identificação"
+      ],
+      "mechanicalExample": false,
+      "modelSources": [
+        "bmw-x5-g05"
+      ],
+      "notes": [
+        "Elementos de identificação visuais do modelo. A miniatura não reproduz gravação VIN nem localização ou dimensões de marcações obrigatórias."
+      ],
+      "sha256": "6708843fff19cca8c3f3774e1aca0479cb1c095526b7b96ba32e200d33bb34a6",
+      "subset": true,
+      "width": 1024
+    },
+    "wheels": {
+      "assemblyIds": [
+        "wheels"
+      ],
+      "asset": "assets/models/suv/thumbnails/wheels.webp",
+      "contextAssemblyIds": [],
+      "height": 768,
+      "id": "wheels",
+      "labels": [
+        "Pneus e rodas"
+      ],
+      "mechanicalExample": false,
+      "modelSources": [
+        "bmw-x5-g05"
+      ],
+      "notes": [
+        "Exemplar dianteiro da roda e do pneu do modelo de referência."
+      ],
+      "sha256": "28c7690887672188859bdb3d44983f579dc05fbd1853e59ca66ff861c9e152a0",
+      "subset": true,
+      "width": 1024
+    }
+  },
+  "kind": "actual_model_mesh_previews",
+  "model": "bmw-x5-g05-and-didactic-mechanics",
+  "sceneKind": "car",
+  "schemaVersion": 1,
+  "subsystems": {
+    "carroceria/acessorios": {
+      "assemblyIds": [
+        "body"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "carroceria/acessorios",
+      "imageId": "body",
+      "label": "Acessórios e proteção externa"
+    },
+    "carroceria/fechaduras": {
+      "assemblyIds": [
+        "doors"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "carroceria/fechaduras",
+      "imageId": "doors",
+      "label": "Portas, dobradiças e fechaduras"
+    },
+    "carroceria/impactos": {
+      "assemblyIds": [
+        "body"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "carroceria/impactos",
+      "imageId": "body",
+      "label": "Impactos e pedestres"
+    },
+    "chassi/componentes": {
+      "assemblyIds": [
+        "chassis",
+        "steering"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "chassi/componentes",
+      "imageId": "chassis--steering",
+      "label": "Componentes de suspensão e direção"
+    },
+    "eletronica/comandos": {
+      "assemblyIds": [
+        "electronics"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "eletronica/comandos",
+      "imageId": "electronics",
+      "label": "Comandos, sinal sonoro e outros"
+    },
+    "eletronica/imagens": {
+      "assemblyIds": [
+        "electronics"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "eletronica/imagens",
+      "imageId": "electronics",
+      "label": "Telas e imagens"
+    },
+    "eletronica/obd": {
+      "assemblyIds": [
+        "electronics",
+        "engine"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "eletronica/obd",
+      "imageId": "electronics--engine",
+      "label": "Diagnóstico e OBD"
+    },
+    "freios/estabilidade": {
+      "assemblyIds": [
+        "brakes"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "freios/estabilidade",
+      "imageId": "brakes",
+      "label": "Controle de estabilidade"
+    },
+    "freios/fluido": {
+      "assemblyIds": [
+        "brakeFluid"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "freios/fluido",
+      "imageId": "brakeFluid",
+      "label": "Fluido de freio"
+    },
+    "freios/frenagem": {
+      "assemblyIds": [
+        "brakes"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "freios/frenagem",
+      "imageId": "brakes",
+      "label": "Frenagem, ABS e componentes"
+    },
+    "identificacao/placas": {
+      "assemblyIds": [
+        "vin"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "identificacao/placas",
+      "imageId": "vin",
+      "label": "Placas de identificação"
+    },
+    "identificacao/rotulagem": {
+      "assemblyIds": [
+        "vin"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "identificacao/rotulagem",
+      "imageId": "vin",
+      "label": "Rotulagem e informação"
+    },
+    "identificacao/vin": {
+      "assemblyIds": [
+        "vin"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "identificacao/vin",
+      "imageId": "vin",
+      "label": "Identificação e marcações"
+    },
+    "iluminacao/componentes": {
+      "assemblyIds": [
+        "lights"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "iluminacao/componentes",
+      "imageId": "lights",
+      "label": "Componentes de iluminação"
+    },
+    "iluminacao/dispositivos": {
+      "assemblyIds": [
+        "lights"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "iluminacao/dispositivos",
+      "imageId": "lights",
+      "label": "Dispositivos e instalação"
+    },
+    "ocupantes/airbag": {
+      "assemblyIds": [
+        "airbag"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "ocupantes/airbag",
+      "imageId": "airbag",
+      "label": "Airbags"
+    },
+    "ocupantes/cintos": {
+      "assemblyIds": [
+        "seats"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "ocupantes/cintos",
+      "imageId": "seats",
+      "label": "Cintos, ancoragem e apoios"
+    },
+    "ocupantes/criancas": {
+      "assemblyIds": [
+        "seats"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "ocupantes/criancas",
+      "imageId": "seats",
+      "label": "Retenção infantil"
+    },
+    "ocupantes/materiais": {
+      "assemblyIds": [
+        "seats"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "ocupantes/materiais",
+      "imageId": "seats",
+      "label": "Materiais do habitáculo"
+    },
+    "pneus-rodas/pneus": {
+      "assemblyIds": [
+        "wheels"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "pneus-rodas/pneus",
+      "imageId": "wheels",
+      "label": "Pneus e estepe"
+    },
+    "pneus-rodas/rodas": {
+      "assemblyIds": [
+        "wheels"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "pneus-rodas/rodas",
+      "imageId": "wheels",
+      "label": "Rodas e requisitos"
+    },
+    "propulsao/combustiveis": {
+      "assemblyIds": [
+        "tank"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "propulsao/combustiveis",
+      "imageId": "tank",
+      "label": "Combustíveis e eficiência"
+    },
+    "propulsao/componentes": {
+      "assemblyIds": [
+        "engine"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "propulsao/componentes",
+      "imageId": "engine",
+      "label": "Componentes do motor"
+    },
+    "propulsao/eletrica": {
+      "assemblyIds": [
+        "batteryHV",
+        "motorElectric"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "propulsao/eletrica",
+      "imageId": "batteryHV--motorElectric",
+      "label": "Propulsão elétrica e bateria"
+    },
+    "propulsao/emissoes": {
+      "assemblyIds": [
+        "engine",
+        "exhaust"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "propulsao/emissoes",
+      "imageId": "engine--exhaust",
+      "label": "Emissões e ensaios"
+    },
+    "retrovisores/espelhos": {
+      "assemblyIds": [
+        "mirrors"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "retrovisores/espelhos",
+      "imageId": "mirrors",
+      "label": "Espelhos e visão indireta"
+    },
+    "retrovisores/monitoramento": {
+      "assemblyIds": [
+        "mirrors"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "retrovisores/monitoramento",
+      "imageId": "mirrors",
+      "label": "Monitoramento traseiro"
+    },
+    "vidros/janelas": {
+      "assemblyIds": [
+        "doors"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "vidros/janelas",
+      "imageId": "doors",
+      "label": "Acionamento de janelas"
+    },
+    "vidros/limpadores": {
+      "assemblyIds": [
+        "glass"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "vidros/limpadores",
+      "imageId": "glass",
+      "label": "Limpadores e lavadores"
+    },
+    "vidros/vidros": {
+      "assemblyIds": [
+        "glass"
+      ],
+      "canonical": true,
+      "exampleOnly": false,
+      "id": "vidros/vidros",
+      "imageId": "glass",
+      "label": "Vidros e transparência"
+    },
+    "visual/arrefecimento": {
+      "assemblyIds": [
+        "cooling"
+      ],
+      "canonical": false,
+      "exampleOnly": true,
+      "id": "visual/arrefecimento",
+      "imageId": "cooling",
+      "label": "Arrefecimento: radiador e ventilador"
+    },
+    "visual/bateria-12v": {
+      "assemblyIds": [
+        "battery12v"
+      ],
+      "canonical": false,
+      "exampleOnly": true,
+      "id": "visual/bateria-12v",
+      "imageId": "battery12v",
+      "label": "Bateria auxiliar de 12 V"
+    },
+    "visual/powertrain-hibrido": {
+      "assemblyIds": [
+        "batteryHV",
+        "engine",
+        "motorElectric"
+      ],
+      "canonical": false,
+      "exampleOnly": true,
+      "id": "visual/powertrain-hibrido",
+      "imageId": "batteryHV--engine--motorElectric",
+      "label": "Powertrain híbrido de exemplo"
+    }
+  }
+}

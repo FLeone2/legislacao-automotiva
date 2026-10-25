@@ -284,6 +284,49 @@ async def exercise(base):
                 await choose_tab(page, tab)
                 await axe_check(page, f"desktop-{theme}-{tab}", findings)
         await page.set_viewport_size({"width": 390, "height": 844})
+        # Compact mobile sections remain operable with a keyboard. Opening the
+        # project exposes its controls without changing the active dossier.
+        project_details = page.locator(".g-project-disclosure")
+        await page.wait_for_function(
+            "() => document.querySelector('.g-project-disclosure')?.open === false"
+        )
+        current_project = await page.get_by_label(
+            "Processo ativo", exact=True
+        ).input_value()
+        project_summary = project_details.locator(":scope > summary")
+        await project_summary.focus()
+        await project_summary.press("Enter")
+        await page.get_by_label("Processo ativo", exact=True).wait_for(state="visible")
+        assert (
+            await page.get_by_label("Processo ativo", exact=True).input_value()
+            == current_project
+        )
+        await axe_check(page, "mobile-project-expanded", findings)
+        await project_summary.press("Enter")
+        await page.get_by_label("Processo ativo", exact=True).wait_for(state="hidden")
+        await choose_tab(page, "explore")
+        await page.get_by_role("button", name=re.compile("^Subsistemas")).click()
+        tree_details = page.locator(".g-tree-disclosure")
+        tree_summary = tree_details.locator(":scope > summary")
+        await tree_summary.focus()
+        await tree_summary.press("Enter")
+        search = page.get_by_label("Buscar componente", exact=True)
+        await search.fill("freios/fluido")
+        selection = page.locator('.g-parts-tree button[data-subsystem="freios/fluido"]')
+        await selection.wait_for(state="visible")
+        await selection.focus()
+        await selection.press("Enter")
+        assert route_values(page)["part"] == ["brakeFluid"]
+        assert (
+            await page.locator(".g-inspector-title h2").inner_text()
+            == "Fluido de freio"
+        )
+        assert (
+            await page.get_by_label("Processo ativo", exact=True).input_value()
+            == current_project
+        )
+        await search.fill("")
+        evidence["mobileCompactKeyboard"] = True
         for theme in ["dark", "light"]:
             await select_theme(page, theme)
             for tab in ["explore", "flow", "checklist", "sources"]:
