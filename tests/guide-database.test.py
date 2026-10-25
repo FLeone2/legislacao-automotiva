@@ -145,6 +145,34 @@ class GuideDatabase(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "never an artifact"):
             BUILDER.write_sqlite(self.database, ROOT / "dist/knowledge.sqlite")
 
+    def test_collection_urls_never_prove_identity_and_pdf_display_routes_are_equivalent(
+        self,
+    ):
+        for source_id in ("guide-contran-index", "guide-mdic-2026", "guide-mdic-mover"):
+            self.assertEqual(
+                BUILDER.identity_targets(
+                    self.sources[source_id], list(self.acts.values())
+                ),
+                set(),
+            )
+        act = {"id": "example-2022", "officialUrl": "https://www.gov.br/example.pdf"}
+        source = {
+            "id": "checked-pdf",
+            "url": act["officialUrl"] + "/@@display-file/file",
+            "evidenceType": "official_original_text",
+        }
+        self.assertEqual(BUILDER.identity_targets(source, [act]), {act["id"]})
+        corrupted = copy.deepcopy(self.database)
+        corrupted["tables"]["actSources"].append(
+            {
+                "sourceId": "guide-contran-index",
+                "actId": "senatran-097",
+                "relation": "same_official_url",
+            }
+        )
+        with self.assertRaisesRegex(ValueError, "identity"):
+            BUILDER.validate_database(corrupted)
+
 
 if __name__ == "__main__":
     unittest.main()

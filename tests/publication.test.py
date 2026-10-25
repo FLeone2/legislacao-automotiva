@@ -46,6 +46,22 @@ with tempfile.TemporaryDirectory() as directory:
     headers = (target / "_headers").read_text()
     assert "/index.html\n  Cache-Control: no-cache" in headers
     assert "/version.json\n  Cache-Control: no-store" in headers
+    manifest = json.loads((ROOT / "knowledge/manifest.json").read_text())
+    assert (target / "knowledge/README.md").is_file()
+    assert (target / "knowledge/manifest.json").is_file()
+    assert set(manifest["artifacts"]) == {
+        str(path.relative_to(target / "knowledge"))
+        for path in (target / "knowledge").rglob("*")
+        if path.is_file() and path.name != "manifest.json"
+    }
+    unregistered = ROOT / "knowledge/.publication-test-private.sqlite"
+    assert not unregistered.exists()
+    try:
+        unregistered.write_text("Local-only test database; never publish")
+        module.build(target)
+        assert not (target / "knowledge" / unregistered.name).exists()
+    finally:
+        unregistered.unlink(missing_ok=True)
     for private in [
         ".git",
         ".agents",

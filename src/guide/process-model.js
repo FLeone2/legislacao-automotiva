@@ -1,5 +1,7 @@
 'use strict';
 
+const { REGULATORY_REVISION, needsRegulatoryReview } = require('./review-state.js');
+
 // Decision support and work planning, not an automatic declaration of compliance.
 // The evidence list identifies what supports each branch and its review limit.
 const BASE_SOURCE_REFERENCES = [
@@ -233,10 +235,13 @@ function environmentalClassification(p) {
       route:
         'Enquadrar a peça e verificar se a alteração afeta a configuração ambiental do veículo.',
       particularities: [
-        'Uma peça nova não recebe LCVM de veículo completo por simples associação temática.',
+        'Uma peça nova não recebe licença ambiental de veículo completo por simples associação temática.',
         'Mudanças em motor, pós-tratamento, OBD, combustível ou calibração podem exigir avaliação da configuração afetada.',
       ],
-      sourceIds: ['ibama-lcvm-service', 'inmetro-components'],
+      sourceIds: [
+        p.category === 'L' ? 'ibama-lcm-service' : 'ibama-lcvm-service',
+        'inmetro-components',
+      ],
     };
   if (p.category === 'O')
     return {
@@ -256,13 +261,17 @@ function environmentalClassification(p) {
   let family = 'pending';
   let label = 'LP / LC ou pesado — enquadramento pendente';
   let phase = 'Confirmar programa, fase e marco do requisito';
-  const sourceIds = ['ibama-lcvm-service'];
+  const sourceIds =
+    p.category === 'L' ? ['ibama-lcm-service', 'conama-493-2019'] : ['ibama-lcvm-service'];
   if (p.category === 'L') {
     family = 'promot';
     label = 'Categoria L — consultar enquadramento PROMOT';
     phase = 'PROMOT — fase e subcategoria a confirmar';
     detail.push(
       'Motociclos e similares seguem seu enquadramento próprio; não aplicar L8 ou P8 por analogia.',
+    );
+    detail.push(
+      'O recorte de atos L8/P8 da biblioteca não esgota PROMOT. Conferir subcategoria, fases M e cronograma próprio de OBD-M1/M2; referências e métodos ainda pendentes de estruturação permanecem lacunas.',
     );
   } else {
     sourceIds.push('conama-492-2018', 'conama-490-2018');
@@ -290,7 +299,7 @@ function environmentalClassification(p) {
       } else if (
         ['N1', 'N2', 'N3'].includes(p.category) &&
         p.payloadKg !== null &&
-        (p.derivedFromPassenger === true || (p.payloadKg <= 1000 && p.seats <= 9))
+        (p.derivedFromPassenger === true || (p.payloadKg <= 1000 && p.seats > 0 && p.seats <= 9))
       ) {
         label = 'LP — veículo de carga fora do recorte LC (triagem)';
       }
@@ -308,6 +317,10 @@ function environmentalClassification(p) {
     detail.push(
       'A condição fora de estrada depende da definição técnica referenciada pelo Ibama; SUV ou tração 4×4 não comprovam essa condição. O art. 36 trata da possibilidade de limites LC, não de classificação LC automática.',
     );
+    if (p.massKg > 3500 && p.massKg < 3856 && family !== 'heavy')
+      detail.push(
+        'Particularidade a verificar: para LC com MTMA superior a 3.500 kg e inferior a 3.856 kg e motor derivado de mestre pesado, o art. 23 da CONAMA 490/2018 prevê alternativa P8 condicionada a justificativa e autorização prévia do Ibama. O perfil não informa essa derivação nem a autorização; nenhuma mudança automática de fase foi realizada.',
+      );
   }
   if (p.powertrain === 'bev') {
     phase = 'BEV — sem ensaios de escapamento de motor térmico';
@@ -424,9 +437,11 @@ function evaluateProfile(input = {}) {
     );
   if (p.category === 'M2')
     safetyDetail.push(
-      p.massKg && p.massKg <= 3500
-        ? 'Na tabela de relatórios do Anexo XI da Portaria 990/2022, este M2 está no grupo até 3.500 kg; a categoria M2 mantém seus requisitos próprios.'
-        : 'Na tabela de relatórios do Anexo XI da Portaria 990/2022, M2 acima de 3.500 kg segue o grupo pesado, embora continue M2. Confirmar PBT e estágio de construção.',
+      !p.massKg
+        ? 'M2 com PBT pendente: informar a massa antes de definir o grupo de registros do Anexo XI da Portaria 990/2022. A categoria isolada não define o grupo pesado dessa tabela.'
+        : p.massKg <= 3500
+          ? 'Na tabela de relatórios do Anexo XI da Portaria 990/2022, este M2 está no grupo até 3.500 kg; a categoria M2 mantém seus requisitos próprios.'
+          : 'Na tabela de relatórios do Anexo XI da Portaria 990/2022, M2 acima de 3.500 kg segue o grupo pesado, embora continue M2. Confirmar PBT e estágio de construção.',
     );
   if (p.category === 'M3')
     safetyDetail.push(
@@ -506,8 +521,8 @@ function evaluateProfile(input = {}) {
       sourceIds: [
         'senatran-990-2022',
         'contran-consultation',
-        ...(p.category === 'M3' ? ['guide-contran-954'] : []),
-        ...(p.category === 'M2' ? ['guide-senatran-990'] : []),
+        ...(p.category === 'M3' ? ['guide-contran-954', 'guide-contran-959'] : []),
+        ...(p.category === 'M2' ? ['guide-senatran-990', 'guide-contran-939'] : []),
       ],
     },
     agencies,
@@ -619,8 +634,8 @@ function buildChecklist(input = {}) {
           ? 'Classificar a alteração para determinar atualização, extensão ou novo pedido da configuração, conforme procedimento aplicável.'
           : 'Confirmar cadastro/habilitação, modalidade regular, dispensa ou outra hipótese efetivamente cabível e o canal indicado pelo Ibama.',
       'conditional',
-      'LCVM, declaração, dispensa e alteração têm fundamentos e condições distintos.',
-      ['ibama-lcvm-service'],
+      `${p.category === 'L' ? 'LCM / PROMOT' : 'LCVM'}, declaração, dispensa e alteração têm fundamentos e condições distintos.`,
+      [p.category === 'L' ? 'ibama-lcm-service' : 'ibama-lcvm-service'],
       ['Modalidade justificada e cadastro do interessado', 'Lista documental oficial atual'],
       ['environment-class'],
     );
@@ -647,8 +662,8 @@ function buildChecklist(input = {}) {
         'Documentar o enquadramento ambiental do BEV',
         'Registrar ausência de motor térmico, declarações pertinentes e tratamento administrativo aplicável. Confirmar documento ambiental ou dispensa fundamentada, quando cabível.',
         'review',
-        'Escapamento nulo não equivale a dispensa automática de LCVM ou anuência de importação.',
-        ['conama-492-2018', 'ibama-lcvm-service'],
+        `Escapamento nulo não equivale a dispensa automática de ${p.category === 'L' ? 'LCM' : 'LCVM'} ou anuência de importação.`,
+        assessment.emissions.sourceIds,
         ['Ficha técnica elétrica', 'Enquadramento ambiental e manifestação pertinente'],
         ['environment-class'],
       );
@@ -664,7 +679,7 @@ function buildChecklist(input = {}) {
         'Registrar modos de operação e condicionamento da bateria segundo o método aplicável; no PHEV, conferir também tratamento da recarga externa.',
         'conditional',
         'Híbrido mantém o ramo térmico e requer tratamento específico; HEV e PHEV não são intercambiáveis.',
-        ['conama-492-2018', 'ibama-lcvm-service'],
+        assessment.emissions.sourceIds,
         ['Configuração híbrida', 'Método e modos de ensaio fundamentados'],
         ['test-plan', 'environment-class'],
       );
@@ -677,7 +692,7 @@ function buildChecklist(input = {}) {
       'Verificar se o projeto altera uma configuração licenciada, emissões, pós-tratamento, OBD, combustível ou calibração; encaminhar somente as alterações efetivamente abrangidas.',
       'review',
       'Peça isolada não herda a licença ou todos os ensaios do veículo completo.',
-      ['ibama-lcvm-service'],
+      [p.category === 'L' ? 'ibama-lcm-service' : 'ibama-lcvm-service'],
       ['Análise de interfaces e impacto', 'Decisão fundamentada sobre alteração de configuração'],
       ['configuration'],
     );
@@ -704,7 +719,7 @@ function buildChecklist(input = {}) {
       'Revisar requisitos aplicáveis à configuração elétrica, interfaces e armazenamento de energia; distinguir bateria auxiliar de bateria de tração.',
       'conditional',
       'Química e função da bateria importam; não aplicar RAC chumbo-ácido à tração por analogia.',
-      ['contran-consultation', 'inmetro-components'],
+      [p.category === 'L' ? 'guide-contran-750' : 'guide-contran-749', 'inmetro-components'],
       ['Configuração HV/armazenamento', 'Requisitos e evidências aplicáveis'],
       ['safety-matrix'],
     );
@@ -772,8 +787,8 @@ function buildChecklist(input = {}) {
       'Separar anuência de importação e aprovações técnicas',
       'Conferir NCM, tratamento administrativo, DUIMP/DI e LPCO/anuências pertinentes à operação. Planejar prazos conforme o procedimento vigente.',
       'conditional',
-      'LCVM, LPCO, CAT e desembaraço têm funções próprias; um documento não substitui os demais.',
-      ['ibama-importation', 'ibama-lcvm-service'],
+      `${p.category === 'L' ? 'LCM' : 'LCVM'}, LPCO, CAT e desembaraço têm funções próprias; um documento não substitui os demais.`,
+      ['ibama-importation', p.category === 'L' ? 'ibama-lcm-service' : 'ibama-lcvm-service'],
       ['Tratamento administrativo consultado', 'Documentos e anuências aplicáveis'],
       ['profile'],
     );
@@ -850,14 +865,19 @@ function buildChecklist(input = {}) {
     'Planejar os controles aplicáveis desde o projeto, responsáveis, amostragem e prazos com base no ato específico. Distinguir produção, ACP e controles em uso; não universalizar procedimentos L8 para P8.',
     'review',
     'Programa, produto e fase determinam controles e métodos; o portal não inventa amostragem nem periodicidade.',
-    ['ibama-lcvm-service', 'conama-492-2018', 'conama-490-2018', 'inmetro-components'],
+    [...new Set([...assessment.emissions.sourceIds, 'inmetro-components'])],
     ['Plano fundamentado de conformidade', 'Responsáveis, calendário e registros'],
     ['legal-matrix'],
   );
   if (p.purpose !== 'component') {
     const matrix = require('../../data/process/report-matrix.json');
     for (const row of matrix.rows) {
-      if (!row.categories.includes(p.category) || (row.usage && !row.usage.includes(p.usage)))
+      if (
+        !row.categories.includes(p.category) ||
+        (row.usage && !row.usage.includes(p.usage)) ||
+        (row.powertrains && !row.powertrains.includes(p.powertrain)) ||
+        (row.purposes && !row.purposes.includes(p.purpose))
+      )
         continue;
       items.push({
         id: row.id,
@@ -989,6 +1009,8 @@ function exportProcessMarkdown(process = {}) {
     '',
     '> Plano consultivo de trabalho. Marcações e justificativas são registros do usuário; não comprovam aprovação de órgão nem substituem a revisão de aplicabilidade.',
     '',
+    `Versão da base de regras e evidências: ${REGULATORY_REVISION}`,
+    '',
     '## Perfil',
     '',
     `- Categoria: ${p.category || 'pendente'}; uso: ${p.usage || 'pendente'}`,
@@ -1023,16 +1045,24 @@ function exportProcessMarkdown(process = {}) {
   for (const item of checklist) {
     const check = checks[item.id] || {};
     const status = Object.hasOwn(statusLabels, check.status) ? check.status : 'pending';
+    const stale = needsRegulatoryReview(check);
     out.push(
       `### ${item.title}`,
       '',
-      `- [${status === 'done' ? 'x' : ' '}] ${statusLabels[status]} · ${item.agency} · ${item.applicability}`,
+      `- [${status === 'done' && !stale ? 'x' : ' '}] ${statusLabels[status]}${stale ? ' — base anterior; revalidar' : ''} · ${item.agency} · ${item.applicability}`,
       '',
       item.description,
       '',
       `Fundamento da tarefa: ${item.reason}`,
       '',
     );
+    if (stale)
+      out.push(
+        'A conclusão ou justificativa registrada precisa de nova conferência na base atual. As evidências anteriores permanecem como histórico de trabalho.',
+        '',
+      );
+    if (check.regulatoryRevision)
+      out.push(`Base registrada na tarefa: ${line(check.regulatoryRevision)}`, '');
     if (item.blockedBy.length) out.push(`Depende de: ${item.blockedBy.join(', ')}`, '');
     if (check.note) out.push(`Registro / justificativa: ${text(check.note)}`, '');
     if (check.evidence)

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "scope": "Complementa as fontes curadas do guia; não é um inventário exaustivo dos órgãos.",
+  "overrides": {
+    "guide-mdic-2026": {
+      "citationPolicy": "mdic_portarias_automotive"
+    }
+  },
+  "additionalSources": [
+    {
+      "id": "monitor-ibama-legislacao",
+      "agency": "IBAMA",
+      "title": "Legislação de emissões — índice oficial",
+      "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/legislacao-emissoes",
+      "evidenceType": "official_index",
+      "verifiedAt": "2026-10-25",
+      "limitations": "Índice Proconve/Promot; localização de mudanças não comprova consolidação."
+    },
+    {
+      "id": "monitor-inmetro-legislacao",
+      "agency": "INMETRO",
+      "title": "Legislação Inmetro — entrada pública do sistema",
+      "url": "https://www.gov.br/inmetro/pt-br/centrais-de-conteudo/sistemas/legislacao",
+      "evidenceType": "official_index",
+      "verifiedAt": "2026-10-25",
+      "limitations": "Página de entrada, não extração completa do sistema. Produtos e serviços regulados redirecionou para login na conferência."
+    },
+    {
+      "id": "monitor-anatel-regulamentacao",
+      "agency": "ANATEL",
+      "title": "Regulamentação da certificação de produtos — índice oficial",
+      "url": "https://www.gov.br/anatel/pt-br/regulado/certificacao-de-produtos/regulamentacao",
+      "evidenceType": "official_index",
+      "verifiedAt": "2026-10-25",
+      "limitations": "Links podem levar a manutenção mesmo com HTTP 200; o monitor preserva a indisponibilidade."
+    },
+    {
+      "id": "monitor-mdic-legislacao-mover",
+      "agency": "MDIC",
+      "title": "Legislação do Programa MOVER — índice oficial",
+      "url": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/programa-mover-1/legislacao-programa-mover",
+      "evidenceType": "official_index",
+      "citationPolicy": "mdic_portarias_automotive",
+      "verifiedAt": "2026-10-25",
+      "limitations": "Citações publicadas e minutas são separadas; vínculos no índice não promovem atos a vigentes."
+    }
+  ]
+}

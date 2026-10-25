@@ -1,0 +1,541 @@
+{
+  "schemaVersion": 1,
+  "kind": "technical_source_health_not_legal_coverage",
+  "observedAt": "2026-10-25T20:14:08+00:00",
+  "status": "partial_observation",
+  "scopeNote": "Todas as URLs selecionadas foram tentadas; disponibilidade de URL não comprova revisão do ato, vigência, aplicabilidade ou cobertura jurídica integral.",
+  "allSelectedSourcesAttempted": true,
+  "counts": {
+    "available": 287,
+    "catalogActSourceUrlsAvailable": 256,
+    "catalogActsSelected": 294,
+    "changedThisRun": 1,
+    "draftOrConsultationCandidates": 0,
+    "missingInventoryCitations": 0,
+    "notAttempted": 0,
+    "pendingContentReviews": 1,
+    "registeredCandidateReviews": 2,
+    "sources": 326,
+    "unavailable": 39
+  },
+  "sourceSelection": {
+    "configuredSources": 326,
+    "includePublishedCatalog": true,
+    "mode": "all_configured",
+    "selectedSources": 326
+  },
+  "rawSnapshots": {
+    "budgetBytes": 20971520,
+    "bytes": 20966542,
+    "saved": 56,
+    "skippedForBudget": 213
+  },
+  "availabilityByAgency": {
+    "ANATEL": {
+      "selectedUrls": 25,
+      "available": 2,
+      "unavailable": 23
+    },
+    "CONTRAN": {
+      "selectedUrls": 229,
+      "available": 227,
+      "unavailable": 2
+    },
+    "IBAMA": {
+      "selectedUrls": 29,
+      "available": 28,
+      "unavailable": 1
+    },
+    "INMETRO": {
+      "selectedUrls": 19,
+      "available": 19,
+      "unavailable": 0
+    },
+    "MDIC": {
+      "selectedUrls": 16,
+      "available": 4,
+      "unavailable": 12
+    },
+    "SENATRAN": {
+      "selectedUrls": 5,
+      "available": 4,
+      "unavailable": 1
+    },
+    "CONAMA / IBAMA": {
+      "selectedUrls": 3,
+      "available": 3,
+      "unavailable": 0
+    }
+  },
+  "unavailableReasonCounts": {
+    "maintenance": 23,
+    "Documento excede o limite de bytes da coleta": 1,
+    "http_404": 1,
+    "http_503": 5,
+    "[Errno -2] Name or service not known": 2,
+    "http_403": 5,
+    "<urlopen error Tunnel connection failed: 403 Forbidden>": 2
+  },
+  "unavailableSources": [
+    {
+      "sourceId": "catalog-act:anatel-ato1120-2018",
+      "agency": "ANATEL",
+      "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2018/1181-ato-1120",
+      "finalUrl": "https://informacoes.anatel.gov.br/aviso/manutencao-sistemas.html",
+      "httpStatus": 200,
+      "reason": "maintenance",
+      "catalogActIds": [
+        "anatel-ato1120-2018"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:anatel-ato1306-2021",
+      "agency": "ANATEL",
+      "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2021/1510-ato-1306",
+      "finalUrl": "https://informacoes.anatel.gov.br/aviso/manutencao-sistemas.html",
+      "httpStatus": 200,
+      "reason": "maintenance",
+      "catalogActIds": [
+        "anatel-ato1306-2021"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:anatel-ato14158-2025",
+      "agency": "ANATEL",
+      "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2025/2070-ato-14158",
+      "finalUrl": "https://informacoes.anatel.gov.br/aviso/manutencao-sistemas.html",
+      "httpStatus": 200,
+      "reason": "maintenance",
+      "catalogActIds": [
+        "anatel-ato14158-2025"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:anatel-ato14430-2024",
+      "agency": "ANATEL",
+      "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2024/1980-ato-14430",
+      "finalUrl": "https://informacoes.anatel.gov.br/aviso/manutencao-sistemas.html",
+      "httpStatus": 200,
+      "reason": "maintenance",
+      "catalogActIds": [
+        "anatel-ato14430-2024"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:anatel-ato14448-2017",
+      "agency": "ANATEL",
+      "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2017/1139-ato-14448",
+      "finalUrl": "https://informacoes.anatel.gov.br/aviso/manutencao-sistemas.html",
+      "httpStatus": 200,
+      "reason": "maintenance",
+      "catalogActIds": [
+        "anatel-ato14448-2017"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:anatel-ato17087-2022",
+      "agency": "ANATEL",
+      "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2022/1823-ato-17087",
+      "finalUrl": "https://informacoes.anatel.gov.br/aviso/manutencao-sistemas.html",
+      "httpStatus": 200,
+      "reason": "maintenance",
+      "catalogActIds": [
+        "anatel-ato17087-2022"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:anatel-ato18086-2025",
+      "agency": "ANATEL",
+      "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2025/2077-ato-18086",
+      "finalUrl": "https://informacoes.anatel.gov.br/aviso/manutencao-sistemas.html",
+      "httpStatus": 200,
+      "reason": "maintenance",
+      "catalogActIds": [
+        "anatel-ato18086-2025"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:anatel-ato2105-2025",
+      "agency": "ANATEL",
+      "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2025/2010-ato-2105",
+      "finalUrl": "https://informacoes.anatel.gov.br/aviso/manutencao-sistemas.html",
+      "httpStatus": 200,
+      "reason": "maintenance",
+      "catalogActIds": [
+        "anatel-ato2105-2025"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:anatel-ato237-2022",
+      "agency": "ANATEL",
+      "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2022/1629-ato-237",
+      "finalUrl": "https://informacoes.anatel.gov.br/aviso/manutencao-sistemas.html",
+      "httpStatus": 200,
+      "reason": "maintenance",
+      "catalogActIds": [
+        "anatel-ato237-2022"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:anatel-ato3114-2026",
+      "agency": "ANATEL",
+      "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2026/2147-ato-3114",
+      "finalUrl": "https://informacoes.anatel.gov.br/aviso/manutencao-sistemas.html",
+      "httpStatus": 200,
+      "reason": "maintenance",
+      "catalogActIds": [
+        "anatel-ato3114-2026"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:anatel-ato3151-2020",
+      "agency": "ANATEL",
+      "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1429-ato-3151",
+      "finalUrl": "https://informacoes.anatel.gov.br/aviso/manutencao-sistemas.html",
+      "httpStatus": 200,
+      "reason": "maintenance",
+      "catalogActIds": [
+        "anatel-ato3151-2020"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:anatel-ato4088-2020",
+      "agency": "ANATEL",
+      "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1451-ato-4088",
+      "finalUrl": "https://informacoes.anatel.gov.br/aviso/manutencao-sistemas.html",
+      "httpStatus": 200,
+      "reason": "maintenance",
+      "catalogActIds": [
+        "anatel-ato4088-2020"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:anatel-ato423-2022",
+      "agency": "ANATEL",
+      "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2022/1633-ato-423",
+      "finalUrl": "https://informacoes.anatel.gov.br/aviso/manutencao-sistemas.html",
+      "httpStatus": 200,
+      "reason": "maintenance",
+      "catalogActIds": [
+        "anatel-ato423-2022"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:anatel-ato4746-2026",
+      "agency": "ANATEL",
+      "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2026/2132-ato-4746",
+      "finalUrl": "https://informacoes.anatel.gov.br/aviso/manutencao-sistemas.html",
+      "httpStatus": 200,
+      "reason": "maintenance",
+      "catalogActIds": [
+        "anatel-ato4746-2026"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:anatel-ato4776-2020",
+      "agency": "ANATEL",
+      "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1467-ato-4776",
+      "finalUrl": "https://informacoes.anatel.gov.br/aviso/manutencao-sistemas.html",
+      "httpStatus": 200,
+      "reason": "maintenance",
+      "catalogActIds": [
+        "anatel-ato4776-2020"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:anatel-ato5155-2024",
+      "agency": "ANATEL",
+      "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2024/1947-ato-5155",
+      "finalUrl": "https://informacoes.anatel.gov.br/aviso/manutencao-sistemas.html",
+      "httpStatus": 200,
+      "reason": "maintenance",
+      "catalogActIds": [
+        "anatel-ato5155-2024"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:anatel-ato5701-2021",
+      "agency": "ANATEL",
+      "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2021/1576-ato-5701",
+      "finalUrl": "https://informacoes.anatel.gov.br/aviso/manutencao-sistemas.html",
+      "httpStatus": 200,
+      "reason": "maintenance",
+      "catalogActIds": [
+        "anatel-ato5701-2021"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:anatel-ato7280-2020",
+      "agency": "ANATEL",
+      "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1493-ato-7280",
+      "finalUrl": "https://informacoes.anatel.gov.br/aviso/manutencao-sistemas.html",
+      "httpStatus": 200,
+      "reason": "maintenance",
+      "catalogActIds": [
+        "anatel-ato7280-2020"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:anatel-res680",
+      "agency": "ANATEL",
+      "url": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2017/936-resolucao-680",
+      "finalUrl": "https://informacoes.anatel.gov.br/aviso/manutencao-sistemas.html",
+      "httpStatus": 200,
+      "reason": "maintenance",
+      "catalogActIds": [
+        "anatel-res680"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:anatel-res779",
+      "agency": "ANATEL",
+      "url": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2025/2029-resolucao-779",
+      "finalUrl": "https://informacoes.anatel.gov.br/aviso/manutencao-sistemas.html",
+      "httpStatus": 200,
+      "reason": "maintenance",
+      "catalogActIds": [
+        "anatel-res779"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:anatel-res780",
+      "agency": "ANATEL",
+      "url": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2025/2054-resolucao-anatel-780",
+      "finalUrl": "https://informacoes.anatel.gov.br/aviso/manutencao-sistemas.html",
+      "httpStatus": 200,
+      "reason": "maintenance",
+      "catalogActIds": [
+        "anatel-res780"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:contran-1012-2024",
+      "agency": "CONTRAN",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10122024.pdf",
+      "reason": "Documento excede o limite de bytes da coleta",
+      "catalogActIds": [
+        "contran-1012-2024"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:contran-140-2002",
+      "agency": "CONTRAN",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao140_02.doc",
+      "finalUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao140_02.doc",
+      "httpStatus": 404,
+      "reason": "http_404",
+      "catalogActIds": [
+        "contran-140-2002"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:ibama-042",
+      "agency": "IBAMA",
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/l8723.htm",
+      "finalUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8723.htm",
+      "httpStatus": 503,
+      "reason": "http_503",
+      "catalogActIds": [
+        "ibama-042"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:mover-001",
+      "agency": "MOVER",
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2024/lei/l14902.htm",
+      "finalUrl": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2024/lei/l14902.htm",
+      "httpStatus": 503,
+      "reason": "http_503",
+      "catalogActIds": [
+        "mover-001"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:mover-002",
+      "agency": "MOVER",
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/decreto/d12435.htm",
+      "reason": "[Errno -2] Name or service not known",
+      "catalogActIds": [
+        "mover-002"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:mover-003",
+      "agency": "MOVER",
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/decreto/d12549.htm",
+      "finalUrl": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/decreto/d12549.htm",
+      "httpStatus": 503,
+      "reason": "http_503",
+      "catalogActIds": [
+        "mover-003"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:mover-004",
+      "agency": "MOVER",
+      "url": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-183-de-11-de-julho-de-2025-641538097",
+      "finalUrl": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-183-de-11-de-julho-de-2025-641538097",
+      "httpStatus": 403,
+      "reason": "http_403",
+      "catalogActIds": [
+        "mover-004"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:mover-005",
+      "agency": "MOVER",
+      "url": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-213-de-18-de-agosto-de-2025-649623434",
+      "finalUrl": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-213-de-18-de-agosto-de-2025-649623434",
+      "httpStatus": 403,
+      "reason": "http_403",
+      "catalogActIds": [
+        "mover-005"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:mover-006",
+      "agency": "MOVER",
+      "url": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-215-de-19-de-agosto-de-2025-650479226",
+      "reason": "[Errno -2] Name or service not known",
+      "catalogActIds": [
+        "mover-006"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:mover-007",
+      "agency": "MOVER",
+      "url": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-19-de-20-de-janeiro-de-2026-682701466",
+      "finalUrl": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-19-de-20-de-janeiro-de-2026-682701466",
+      "httpStatus": 403,
+      "reason": "http_403",
+      "catalogActIds": [
+        "mover-007"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:mover-010",
+      "agency": "MOVER",
+      "url": "https://www.in.gov.br/en/web/dou/-/portaria-gm/mdic-n-86-de-16-de-abril-de-2024-555179133",
+      "finalUrl": "https://www.in.gov.br/en/web/dou/-/portaria-gm/mdic-n-86-de-16-de-abril-de-2024-555179133",
+      "httpStatus": 403,
+      "reason": "http_403",
+      "catalogActIds": [
+        "mover-010"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:mover-011",
+      "agency": "MOVER",
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2024/decreto/d12214.htm",
+      "finalUrl": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2024/decreto/d12214.htm",
+      "httpStatus": 503,
+      "reason": "http_503",
+      "catalogActIds": [
+        "mover-011"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:mover-012",
+      "agency": "MOVER",
+      "url": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-176-de-7-de-julho-de-2025-641610640",
+      "finalUrl": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-176-de-7-de-julho-de-2025-641610640",
+      "httpStatus": 403,
+      "reason": "http_403",
+      "catalogActIds": [
+        "mover-012"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:mover-013",
+      "agency": "MOVER",
+      "url": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-192-de-21-de-julho-de-2025-643869394",
+      "reason": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "catalogActIds": [
+        "mover-013"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:mover-014",
+      "agency": "MOVER",
+      "url": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-68-de-17-de-marco-de-2026-694449850",
+      "reason": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "catalogActIds": [
+        "mover-014"
+      ]
+    },
+    {
+      "sourceId": "catalog-act:senatran-124",
+      "agency": "SENATRAN",
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/l9503compilado.htm",
+      "finalUrl": "https://www.planalto.gov.br/ccivil_03/leis/l9503compilado.htm",
+      "httpStatus": 503,
+      "reason": "http_503",
+      "catalogActIds": [
+        "senatran-124"
+      ]
+    },
+    {
+      "sourceId": "guide-anatel-715",
+      "agency": "ANATEL",
+      "url": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2019/1350-resolucao-715",
+      "finalUrl": "https://informacoes.anatel.gov.br/aviso/manutencao-sistemas.html",
+      "httpStatus": 200,
+      "reason": "maintenance",
+      "catalogActIds": [
+        "anatel-res715"
+      ]
+    },
+    {
+      "sourceId": "guide-anatel-modulos",
+      "agency": "ANATEL",
+      "url": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2020/1453-resolucao-729",
+      "finalUrl": "https://informacoes.anatel.gov.br/aviso/manutencao-sistemas.html",
+      "httpStatus": 200,
+      "reason": "maintenance",
+      "catalogActIds": []
+    }
+  ],
+  "inventoryCandidates": [
+    {
+      "key": "MDIC:portaria:167:2026",
+      "citationLabel": "PORTARIA GM/MDIC Nº 167, DE 18 DE JUNHO DE 2026",
+      "sourceId": "guide-mdic-2026",
+      "sourceUrl": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2026",
+      "url": "https://pesquisa.in.gov.br/imprensa/jsp/visualiza/index.jsp?data=19/06/2026&jornal=602&pagina=5",
+      "originalHref": "http://pesquisa.in.gov.br/imprensa/jsp/visualiza/index.jsp?data=19/06/2026&jornal=602&pagina=5",
+      "linkStatus": "https_variant_not_fetched",
+      "status": "registered_candidate_review_pending",
+      "role": "index_reference",
+      "evidenceType": "official_index_not_full_text",
+      "editorialCandidateId": "mdic-gm-167-2026"
+    },
+    {
+      "key": "MDIC:portaria:76:2026",
+      "citationLabel": "PORTARIA GM/MDIC Nº 76, DE 27 DE MARÇO DE 2026",
+      "sourceId": "guide-mdic-2026",
+      "sourceUrl": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2026",
+      "url": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-76-de-27-de-marco-de-2026-696054503",
+      "originalHref": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-76-de-27-de-marco-de-2026-696054503",
+      "linkStatus": "official_https_reference_not_fetched",
+      "status": "registered_candidate_review_pending",
+      "role": "index_reference",
+      "evidenceType": "official_index_not_full_text",
+      "editorialCandidateId": "mdic-gm-76-2026"
+    }
+  ],
+  "technicalContentReviews": [
+    {
+      "id": "guide-senatran-siscat:835f8e477b71e1c9",
+      "sourceId": "guide-senatran-siscat",
+      "url": "https://www.gov.br/pt-br/servicos/sistema-de-certificacao-de-adequacao-a-legislacao-de-transito",
+      "firstObservedAt": "2026-10-25T20:14:08+00:00",
+      "status": "pending_normative_review"
+    }
+  ],
+  "technicalReviewNote": "Diferença SISCAT observada envolve remoção de links de serviços recomendados; não confirma alteração normativa.",
+  "provenance": {
+    "collector": "scripts/check_regulatory_updates.py",
+    "collectorSha256": "7d0a90b737c04fdab1db5f848483aa3e7f31f690f0903ed64657e14459a039ab",
+    "originalSummarySha256": "6bca92a90b07cb98acdada5b7a3d671c522fafc62d4b00fae467f1237c55cb7d"
+  }
+}

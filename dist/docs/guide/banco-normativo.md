@@ -11,7 +11,7 @@ O arquivo portátil é `data/process/knowledge-index.json`, gerado por `scripts/
 | `sources` | Fontes oficiais de emissões e segurança/processos; data, natureza da evidência, escopo e limitações. Uma orientação de serviço não vira lei revisada. |
 | `acts` | Uma entrada por identidade canônica do acervo consultivo atual, com URL e estados independentes. Fontes novas do guia não importam automaticamente atos para este conjunto. |
 | `aliases` | IDs de entradas antigas apontando para a identidade canônica. Permite conservar bookmarks sem contar a mesma referência várias vezes. |
-| `actSources` | Vínculos por ID canônico idêntico ou URL oficial idêntica. Este vínculo comprova identidade da referência, não incidência de todos os seus requisitos. |
+| `actSources` | Vínculos por ID canônico idêntico ou localizador de documento oficial equivalente. URLs de coleções e serviços não provam identidade de um ato. Rotas Plone de exibição de um mesmo PDF são normalizadas. O vínculo não determina incidência de requisitos. |
 
 Cada fonte e ato tem `provenance.path` e JSON Pointer para sua entrada original. O cabeçalho preserva SHA-256 de todas as entradas do gerador. URLs de fontes e atos precisam usar HTTPS e domínio governamental `.gov.br`, sem credenciais. A validação rejeita IDs duplicados, URLs de fontes duplicadas e referências quebradas.
 
@@ -64,3 +64,11 @@ JOIN sources AS s ON s.id = link.source_id;
 ```
 
 Para manutenção, siga a [skill de revisão normativa](../../.agents/skills/revisao-normativa/SKILL.md), registre evidência e limites no arquivo editorial correto e regenere os dados. Índice, FAQ, ato original e texto consolidado continuam naturezas de evidência distintas.
+
+## Base de conhecimento e auditoria
+
+A base para IA é gerada em `knowledge/`: cartões Markdown, registros, trechos e relações em JSONL, revisão identificada por hash e SQLite FTS5 opcional. Os candidatos não publicados ficam em coleção própria e não se tornam atos ativos. A [arquitetura e os comandos](arquitetura-base-regulatoria.md) distinguem a entrega portátil da evolução PostgreSQL/pgvector e de um serviço remoto.
+
+`data/process/regulatory-coverage.json` descreve o universo auditado, natureza dos itens, profundidade por órgão, vínculos explícitos e pendências. Não é um percentual de conformidade legal. `regulatory-revision.json` identifica os dados e regras usados nos processos: conclusões e justificativas antigas ficam sinalizadas para nova conferência, preservando suas notas e referências. Editar uma nota não renova a revisão normativa da tarefa.
+
+O [monitor de atualizações](atualizacoes-e-operacao.md) mantém observação e fila de revisão separadas da edição das regras. Disponibilidade HTTP, manutenção, hash e alterações de índice são sinais de acompanhamento; não confirmam vigência ou incidência.

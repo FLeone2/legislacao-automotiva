@@ -34,3 +34,7 @@ Não foi realizada varredura exaustiva do DOU, consolidação integral de modifi
 A página geral de PROCONVE ainda contém referências históricas a L7 como fase mais recente; ela foi usada para localizar atos oficiais, não para substituir o cronograma L8. Manuais antigos do Infoserv e páginas LCVM/LCM legadas não prevalecem isoladamente sobre o serviço atual. A eventual divergência continua como tarefa de confirmação junto ao órgão.
 
 Os hashes em `official-sources.json` identificam os documentos previamente arquivados; não representam hash de uma nova coleta desta sessão.
+
+## Adendo da auditoria ampliada — 25/10/2026
+
+A nova coleta em `data/process/emissions-retrieval.json` recuperou os 25 atos do recorte L8/P8 e reencontrou os PDFs das IN 6/2025 e 26/2020 com hashes iguais aos arquivos da revisão anterior. O relato de bloqueio acima pertence à consulta anterior e permanece como histórico. Recuperação bem-sucedida não equivale à revisão integral da cadeia ou dos métodos. A auditoria ampliada e suas pendências estão em `data/process/regulatory-coverage.json`; o guia de emissões registra as particularidades LCM/PROMOT e o art. 23 da CONAMA 490/2018.

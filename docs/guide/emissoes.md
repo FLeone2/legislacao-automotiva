@@ -27,6 +27,12 @@ Não reutilize a definição histórica de até doze passageiros para um projeto
 | Pesado | [CONAMA 490/2018, P8](https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=767): procedimentos e durabilidade próprios. Não herdar o pacote L8. |
 | Motociclo e similares | [CONAMA 493/2019, PROMOT M5](https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=785): novos modelos desde 2023 e todos os modelos desde 2025 no art. 1º, observadas as condições aplicáveis. |
 
+### Particularidades que exigem decisão própria
+
+- **LC entre 3,5 e 3,856 t:** o art. 23 da CONAMA 490/2018 permite, alternativamente, limites P8 para veículo leve comercial com **3.500 < PBT < 3.856 kg**, cujo motor derive de motor mestre homologado para pesado, mediante justificativa e **autorização prévia do Ibama**. A faixa é estrita; massa, categoria de segurança ou nome comercial isolados não comprovam a hipótese. Registre a origem do motor e a decisão, sem trocar automaticamente a classificação ambiental.
+- **PROMOT M5 e OBD têm cronogramas distintos:** o art. 1º da CONAMA 493/2019 trata da fase M5; seu art. 10, §4º, estabelece OBD-M2 para novos modelos desde 2025 e para todos os modelos desde 2027. O §5º impede novas homologações com OBD-M1 desde 2025. Para definir o pacote da subcategoria e o método, revisar também [IN 21/2022](https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139213), [IN 10/2024](https://www.in.gov.br/en/web/dou/-/instrucao-normativa-ibama-n-10-de-23-de-maio-de-2024-562416793) e suas retificações. Esses atos são candidatos de ampliação do acervo; estar fora do recorte L8/P8 não significa estar revogado.
+- **Emissões corporativas e CO₂/eficiência:** não confundir atendimento individual da configuração, limites e créditos corporativos L8 e os controles de eficiência/CO₂ dos programas pertinentes. Sujeito, métrica, ano-base, método e entregas precisam de vínculos próprios.
+
 Combustível, injeção, pós-tratamento, família, massa de ensaio e datas mudam o plano. Evaporativas, abastecimento, OBD, ETR/RDE, durabilidade, ruído e controle em uso precisam de escopo próprio. As normas ABNT não consultadas integralmente permanecem como método pendente.
 
 ## LCVM, LCM, quantidade e dispensa
@@ -55,3 +61,13 @@ A sequência abaixo é uma proposta de organização do trabalho, não reproduç
 Alterar uma peça pode afetar família ou nível homologado. A IN 26/2020 art. 5º §§2º–3º trata de mudança do nível após novos fatores; isso não estabelece um rito geral de extensão para qualquer modificação. Registre o impacto e confirme o procedimento aplicável no Ibama.
 
 Fontes e profundidade de consulta: [registro estruturado](../../data/process/official-sources.json) e [notas de revisão](evidence-review.md).
+
+## Checkup de fontes e limite de cobertura
+
+Em 25/10/2026, os **25 endereços oficiais dos atos já cadastrados no recorte ativo PROCONVE L8/P8** responderam com HTTP 200 e conteúdo de ato. O [manifesto de recuperação](../../data/process/emissions-retrieval.json) registra URL, data, tamanho e SHA-256. Os PDFs da CONAMA 490/2018, CONAMA 492/2018, IN 6/2025 e IN 26/2020 coincidiram com os hashes antes arquivados. Isso comprova recuperação dos documentos cadastrados; não certifica vigência integral, cadeia de modificadores ou cobertura de todo o universo regulatório.
+
+O guia encaminha categoria L ao PROMOT/LCM, mas a base ativa de 25 atos é um recorte L8/P8. A cadeia administrativa da LCM (incluindo IN 17/2002 e o rito simplificado da IN 11/2021), o pacote de OBD da [IN 21/2022](https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139213) com a alteração [IN 10/2024](https://www.in.gov.br/en/web/dou/-/instrucao-normativa-ibama-n-10-de-23-de-maio-de-2024-562416793), subcategorias, transições e retificações ainda exigem revisão específica antes de formar uma matriz completa de obrigações. Para BEV e híbridos, confirmar o ramo ambiental e sua evidência administrativa; a fonte de automóvel leve não substitui a fonte PROMOT ou P8.
+
+Índices oficiais também podem conservar referências históricas. A página geral de legislação de emissões consultada ainda lista IN 19/2021 e IN 22/2022, apesar da revogação expressa pelo art. 28 da IN 5/2024, já tratada no acervo. Atualizações de índice ou de hash devem gerar candidatos para revisão, sem reativação automática.
+
+Na consulta por IA, um trecho arquivado não deve receber validade atual apenas porque o ato está cadastrado: a evidência pode conter redação antiga e nova lado a lado. Conservar dispositivo, natureza da evidência, datas, modificadores e limites de revisão em cada resposta. Métodos privados não consultados integralmente e campos autenticados do Infoserv continuam pendentes.

@@ -1,0 +1,65 @@
+name: Regulatory source monitor
+on:
+  schedule:
+    - cron: '17 9 * * *'
+  workflow_dispatch:
+    inputs:
+      acknowledge_candidates:
+        description: IDs de alterações já revisadas, separados por vírgula
+        required: false
+        type: string
+      review_reference:
+        description: Referência do commit ou registro da revisão normativa
+        required: false
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: regulatory-monitor-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  observe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: ${{ runner.temp }}/regulatory-monitor/state.json
+          key: regulatory-monitor-v1-${{ github.ref_name }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            regulatory-monitor-v1-${{ github.ref_name }}-
+      - name: Observe official sources and reconcile citations
+        env:
+          ACKNOWLEDGE_CANDIDATES: ${{ inputs.acknowledge_candidates }}
+          REVIEW_REFERENCE: ${{ inputs.review_reference }}
+        run: >-
+          python scripts/check_regulatory_updates.py
+          --state "${{ runner.temp }}/regulatory-monitor/state.json"
+          --report "${{ runner.temp }}/regulatory-monitor/report.json"
+          --summary "${{ runner.temp }}/regulatory-monitor/summary.md"
+          --snapshot-dir "${{ runner.temp }}/regulatory-monitor/snapshots"
+          --include-catalog --workers 4 --time-budget 900 --snapshot-budget-mib 20
+          --acknowledge-from-env
+      - name: Keep valid baselines and pending review queue
+        if: always()
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: ${{ runner.temp }}/regulatory-monitor/state.json
+          key: regulatory-monitor-v1-${{ github.ref_name }}-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Publish observation summary
+        if: always()
+        run: |
+          if test -f "${{ runner.temp }}/regulatory-monitor/summary.md"; then
+            cat "${{ runner.temp }}/regulatory-monitor/summary.md" >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Keep reviewable evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: regulatory-observation-${{ github.run_id }}
+          path: ${{ runner.temp }}/regulatory-monitor/
+          retention-days: 14

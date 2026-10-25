@@ -6,7 +6,7 @@
     "postinstall": "python scripts/build_static.py",
     "format": "prettier --write '**/*.{js,jsx,mjs,cjs,css,html,yml}' && python -m ruff format scripts tests",
     "format:check": "prettier --check '**/*.{js,jsx,mjs,cjs,css,html,yml}' && python -m ruff format --check scripts tests",
-    "build:data": "python scripts/build_active_catalogs.py && python scripts/build_proconve_map.py && python scripts/build_certification_maps.py && python scripts/build_site_data.py && python scripts/build_technical_standards.py && python scripts/build_vehicle_legislation.py && python scripts/build_guide_database.py",
+    "build:data": "python scripts/build_active_catalogs.py && python scripts/build_proconve_map.py && python scripts/build_certification_maps.py && python scripts/build_site_data.py && python scripts/build_technical_standards.py && python scripts/build_vehicle_legislation.py && python scripts/build_guide_database.py && python scripts/build_regulatory_knowledge.py && python scripts/build_regulatory_coverage.py",
     "build:vehicle": "python scripts/import_vehicle_vector.py",
     "check": "python scripts/check_project.py && python scripts/render_vehicle_previews.py --check",
     "test": "node --test tests/*.test.cjs && python scripts/run_checks.py unit",
@@ -16,7 +16,10 @@
     "build": "npm run build:guide && python scripts/build_static.py",
     "build:vehicle-map": "python scripts/build_vehicle_legislation.py",
     "build:vehicle-previews": "python scripts/render_vehicle_previews.py",
-    "build:guide": "node scripts/build-guide.mjs"
+    "build:guide": "node scripts/build-guide.mjs",
+    "build:knowledge": "python scripts/build_regulatory_knowledge.py",
+    "check:knowledge": "python scripts/build_regulatory_knowledge.py --check && python scripts/build_regulatory_coverage.py --check",
+    "monitor:regulations": "python scripts/check_regulatory_updates.py --include-catalog"
   },
   "devDependencies": {
     "axe-core": "4.11.1",

@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "checkedAt": "2026-10-25",
-  "note": "Matriz consultiva não exaustiva de frentes de evidência. Os seletores orientam a triagem; conditional e review não declaram obrigação confirmada. Evidências listadas são entregáveis recomendados para verificar incidência, sem inventar método ou limite técnico. Preservar limites de revisão das fontes e conferir anexos/modificadores atuais.",
+  "note": "Matriz consultiva não exaustiva de frentes de evidência, com ligações aos dispositivos revisados. Categorias, uso, propulsão e finalidade selecionam triagem, nunca comprovam por si uma obrigação. Preservar limites de revisão, dados ausentes, retificações e republicações; conferir anexo e cadeia atual antes de decidir. Não há método ou limite inferido de título, imagem ou código de peça.",
   "stage": "seguranca",
   "rows": [
     {
       "id": "report-control-levels",
       "title": "Definir o grupo e o nível de controle dos registros",
-      "description": "Portaria 990/2022, Anexo XI: distinguir leves com PBT até 3.500 kg, pesados acima de 3.500 kg, rebocados e motos/similares. Nível 1 organiza declaração de conformidade; nível 2, segurança ativa; nível 3, segurança passiva. Os níveis e os itens variam por grupo e tipo de veículo.",
+      "description": "Portaria 990/2022, Anexo XI, republicado em 19/08/2022: distinguir leves com PBT até 3.500 kg, pesados acima de 3.500 kg, rebocados e motos/similares. Nível 1 organiza declaração de conformidade; nível 2, segurança ativa; nível 3, segurança passiva. Os níveis e os itens variam por grupo e tipo de veículo.",
       "categories": [
         "M1",
         "M2",
@@ -19,7 +19,7 @@
         "L"
       ],
       "applicability": "review",
-      "reason": "Triagem documental do Anexo XI original, não pacote universal de ensaios. Um M2 acima de 3.500 kg segue o grupo pesado dessa tabela, sem mudar sua categoria. Rever dispositivos atuais por item antes de decidir obrigação.",
+      "reason": "Triagem documental do Anexo XI republicado, não pacote universal de ensaios. Um M2 com PBT acima de 3.500 kg segue o grupo pesado dessa tabela sem mudar sua categoria; PBT não informado mantém o grupo pendente. Conferir o ato atual de cada linha, pois o anexo ainda contém referências históricas.",
       "sourceIds": [
         "guide-senatran-990"
       ],
@@ -85,7 +85,8 @@
       "applicability": "conditional",
       "reason": "Não basta possuir um módulo ABS/ESC. Confirmar funções, enquadramento, marco do primeiro modelo básico e exceções antes de definir a comprovação. O perfil não contém eixos e diâmetro de roda.",
       "sourceIds": [
-        "guide-contran-954"
+        "guide-contran-954",
+        "guide-contran-264"
       ],
       "evidence": [
         "Matriz ESC/VSF com categoria, massa, eixos e exceções",
@@ -107,7 +108,8 @@
       "reason": "O campo urbano é uma indicação do projeto, não prova de exclusividade de uso. Confirmar destinação e ausência de condição escolar; registrar a decisão específica de ESC/VSF sem dispensar o restante do pacote.",
       "sourceIds": [
         "guide-contran-954",
-        "guide-contran-959"
+        "guide-contran-959",
+        "guide-contran-264"
       ],
       "evidence": [
         "Uso exclusivamente urbano demonstrado",
@@ -129,7 +131,8 @@
       "applicability": "conditional",
       "reason": "O seletor escolar identifica uma particularidade expressa do §6º. Uso geral ainda precisa ser detalhado; categoria e uso não substituem a avaliação de datas e demais exceções.",
       "sourceIds": [
-        "guide-contran-954"
+        "guide-contran-954",
+        "guide-contran-264"
       ],
       "evidence": [
         "Uso e configuração M3 documentados",
@@ -140,7 +143,7 @@
     {
       "id": "report-bus-m2",
       "title": "Montar o pacote específico de segurança de micro-ônibus M2",
-      "description": "Resolução 939/2022, art. 2º, §2º, e arts. 4º–5º: separar estabilidade, avaliação estrutural, bancos/ancoragens, cintos e saídas de emergência. Conferir anexos aplicáveis e o cronograma próprio dos cintos, incluindo a data do modelo básico em projetos derivados.",
+      "description": "Resolução 939/2022, art. 2º, §2º, e arts. 4º–5º: separar estabilidade, avaliação estrutural, bancos/ancoragens, cintos e saídas de emergência. Conferir anexos aplicáveis e o cronograma próprio dos cintos, incluindo a data do modelo básico em projetos derivados. O corte do código de projeto no art. 4º, I, foi retificado para 01/01/2023.",
       "categories": [
         "M2"
       ],
@@ -148,7 +151,8 @@
       "reason": "M2 tem pacote próprio, mesmo quando o PBT o coloca no grupo leve da tabela da Portaria 990. A revisão localizou o corpo do ato; anexos integrais e cadeia modificadora precisam de conferência antes da contratação de métodos.",
       "sourceIds": [
         "guide-contran-939",
-        "guide-senatran-990"
+        "guide-senatran-990",
+        "guide-contran-939-retificacao"
       ],
       "evidence": [
         "Classificação M2 e lotação",
@@ -180,16 +184,19 @@
     {
       "id": "report-impact-m1n1",
       "title": "Delimitar impactos e proteção dos ocupantes",
-      "description": "Portaria 990/2022, Anexo XI, item 1.5: a tabela original distingue os registros de segurança passiva por tipo de veículo. Para impactos, cintos/ancoragens, bancos e proteção de ocupantes, localizar a resolução atual e seu escopo antes de concluir que um relatório é exigido para o projeto M1/N1.",
+      "description": "Resoluções 910/2022 e 949/2022, com suas retificações: separar impacto frontal, traseiro, lateral contra barreira e poste. Na 910, o art. 4º usa tipo e PBT inferior a 2.500 kg; exatamente 2.500 kg não é inferior. Na 949, tipo, ponto R, exceções, derivação e código do modelo básico condicionam cada ramo e cronograma.",
       "categories": [
         "M1",
         "N1"
       ],
       "applicability": "review",
-      "reason": "O vínculo a M1/N1 é uma frente de análise, não a afirmação de que todo impacto é obrigatório. Massa, geometria, tipo, datas e exceções não foram avaliados por completo; não transportar o pacote de automóvel a toda caminhonete.",
+      "reason": "Frente consultiva para M1/N1, sem transportar o pacote de automóvel a toda caminhonete. A 910 tem dispositivos com prazo encerrado sem revogação integral; o poste da 949 distingue novos projetos abrangidos em 2026 e marco geral em 2030. Categoria e ano isolados não resolvem todas as condições.",
       "sourceIds": [
         "guide-senatran-990",
-        "contran-consultation"
+        "guide-contran-910",
+        "guide-contran-910-retificacao",
+        "guide-contran-949",
+        "guide-contran-949-retificacao"
       ],
       "evidence": [
         "Ato e dispositivo atuais por modalidade de impacto",
@@ -217,6 +224,175 @@
         "Matriz atualizada de iluminação e proteções",
         "Eixos, acoplamento, uso e exceções necessários à análise"
       ]
+    },
+    {
+      "id": "report-general-construction",
+      "title": "Reconciliar equipamentos e requisitos gerais de construção",
+      "description": "Resolução 993/2023, arts. 2º–7º: confrontar o tipo de veículo com o Anexo I, as notas e o Anexo II, além das regulamentações específicas. Veículo inacabado/incompleto exige disciplina própria; o índice de construção não é lista universal de relatórios.",
+      "categories": [
+        "M1",
+        "M2",
+        "M3",
+        "N1",
+        "N2",
+        "N3",
+        "O",
+        "L"
+      ],
+      "reason": "A navegação física com 30 subsistemas não comprova cobertura de todo o veículo. Inventariar também iluminação, visibilidade, comandos, proteções, acessibilidade e equipamentos transversais, com ato atual por assunto.",
+      "sourceIds": [
+        "guide-contran-993",
+        "guide-senatran-990"
+      ],
+      "evidence": [
+        "Tipo, carroçaria e estágio de construção documentados",
+        "Matriz de equipamentos, notas e regulamentações específicas",
+        "Pendências por sistema sem correspondência física ou revisão suficiente"
+      ],
+      "applicability": "review"
+    },
+    {
+      "id": "report-restraints",
+      "title": "Enquadrar cintos, ancoragens e apoios de cabeça",
+      "description": "Resolução 951/2022, arts. 1º–3º e anexos, com a alteração da 997/2023: identificar posições, categorias, sistemas de retenção e marcos aplicáveis. Para M2/M3, conciliar os atos próprios de ônibus; não reativar a Resolução 220/2007 citada em tabelas antigas.",
+      "categories": [
+        "M1",
+        "M2",
+        "M3",
+        "N1",
+        "N2",
+        "N3"
+      ],
+      "reason": "A categoria orienta a consulta, mas não torna idênticos os ensaios de todos os bancos ou assentos. Os anexos, os modificadores e a configuração efetiva continuam sujeitos a avaliação.",
+      "sourceIds": [
+        "guide-contran-951",
+        "guide-contran-997",
+        "guide-senatran-990"
+      ],
+      "evidence": [
+        "Mapa de posições e sistemas de retenção",
+        "Dispositivo e anexo efetivamente incidente",
+        "Relatórios, ancoragens e identificação de configuração conforme o caso"
+      ],
+      "applicability": "review"
+    },
+    {
+      "id": "report-electric-mn",
+      "title": "Enquadrar a segurança híbrida/elétrica dos tipos M/N",
+      "description": "Resolução 749/2018, arts. 1º–3º: os tipos enumerados abrangem automóveis e determinados veículos de carga/coletivos híbridos, plug-in e elétricos. O art. 1º, §2º, remete os capítulos de pós-colisão ao escopo das normas de impacto; não universalizar todo capítulo para toda categoria.",
+      "categories": [
+        "M1",
+        "M2",
+        "M3",
+        "N1",
+        "N2",
+        "N3"
+      ],
+      "powertrains": [
+        "hev",
+        "phev",
+        "bev"
+      ],
+      "reason": "O perfil de propulsão seleciona uma frente de avaliação. Tipo, data de produção/importação e escopo de cada capítulo/anexo precisam ser documentados; RAC de bateria chumbo-ácido não comprova sistema de tração.",
+      "sourceIds": [
+        "guide-contran-749",
+        "guide-contran-910",
+        "guide-contran-949"
+      ],
+      "evidence": [
+        "Arquitetura elétrica e armazenamento de energia",
+        "Enquadramento do tipo e dos capítulos/anexos pertinentes",
+        "Plano de comprovação do sistema e pós-colisão somente conforme incidência"
+      ],
+      "applicability": "review"
+    },
+    {
+      "id": "report-electric-l",
+      "title": "Enquadrar a segurança híbrida/elétrica da categoria L",
+      "description": "Resolução 750/2018, arts. 1º–3º: ciclomotores, motocicletas, motonetas, triciclos e quadriciclos híbridos, plug-in e elétricos têm pacote próprio. O corpo do ato prevê marco em 01/01/2022 e referência de comprovação específica; não herdar o pacote M/N da 749.",
+      "categories": [
+        "L"
+      ],
+      "powertrains": [
+        "hev",
+        "phev",
+        "bev"
+      ],
+      "reason": "A categoria L agregada não identifica o tipo nem resolve todos os anexos. A configuração e a cadeia posterior devem ser confirmadas antes de definir ensaios.",
+      "sourceIds": [
+        "guide-contran-750"
+      ],
+      "evidence": [
+        "Tipo/subcategoria L e arquitetura elétrica",
+        "Data e enquadramento por anexo",
+        "Evidência técnica pelo procedimento efetivamente incidente"
+      ],
+      "applicability": "review"
+    },
+    {
+      "id": "report-electric-towed-review",
+      "title": "Inventariar possível eixo elétrico auxiliar no semirreboque",
+      "description": "Resolução 956/2022, arts. 1º–2º: semirreboque com eixo elétrico auxiliar, ainda que opcional, tem tratamento específico de produção e instalação. A instalação em veículo anteriormente homologado sem esse eixo é tratada como modificação sujeita a homologação compulsória.",
+      "categories": [
+        "O"
+      ],
+      "reason": "Esta é uma pergunta de triagem para todo perfil O, não uma obrigação automática. Categoria O, ilustração ou seletor BEV/HEV não comprovam que seja semirreboque nem que exista eixo elétrico auxiliar; registrar presença ou ausência antes de prosseguir.",
+      "sourceIds": [
+        "guide-contran-956",
+        "guide-senatran-990"
+      ],
+      "evidence": [
+        "Identificação do tipo rebocado e inventário de eixos auxiliares",
+        "Se presente: configuração, CAT e responsável pela instalação/produção",
+        "Se ausente: justificativa de não incidência da frente específica"
+      ],
+      "applicability": "review"
+    },
+    {
+      "id": "report-auxiliary-motor-modification",
+      "title": "Verificar se a modificação envolve motor elétrico auxiliar em caminhão",
+      "description": "Resolução 1.021/2026, arts. 3º–6º: para caminhão/caminhão-trator, a instalação de motor elétrico auxiliar tem CAT para o instalador e avaliação dos requisitos impactados; art. 3º, §3º, cita 749, 915, 954 e 968. O art. 5º delimita veículos produzidos desde 01/01/2014.",
+      "categories": [
+        "N2",
+        "N3"
+      ],
+      "purposes": [
+        "modification"
+      ],
+      "reason": "Triagem de uma modalidade específica, não declaração de que toda modificação N2/N3 instala esse dispositivo. Confirmar tipo, natureza da alteração e data real; anexo, retificação e cadeia posterior permanecem em revisão.",
+      "sourceIds": [
+        "guide-contran-1021",
+        "guide-contran-916",
+        "guide-contran-749",
+        "guide-contran-915",
+        "guide-contran-954",
+        "guide-senatran-990"
+      ],
+      "evidence": [
+        "Descrição da modificação e tipo caminhão/caminhão-trator",
+        "Data de produção e configuração anterior/posterior",
+        "Matriz de requisitos de segurança impactados, identificação e avaliação ambiental"
+      ],
+      "applicability": "review"
+    },
+    {
+      "id": "report-cab-n2n3",
+      "title": "Planejar a proteção de cabine N2/N3 e seus marcos próprios",
+      "description": "Resolução 765/2018, arts. 1º–4º: proteção dos ocupantes de cabine N2/N3 possui anexo, dispensas e cronograma próprios. O art. 3º do texto consultado prevê 01/01/2028 para novos projetos e 01/01/2030 para todos em produção, facultada antecipação.",
+      "categories": [
+        "N2",
+        "N3"
+      ],
+      "reason": "Norma cadastrada ou indicação de vigência não significa ensaio já obrigatório para todo projeto em 2026. Conferir código do modelo, exceções e cadeia modificadora antes da decisão; não usar os bancos do SUV como prova desse sistema.",
+      "sourceIds": [
+        "guide-contran-765"
+      ],
+      "evidence": [
+        "Categoria e configuração de cabine",
+        "Data/código do projeto e decisão sobre cronograma/exceções",
+        "Plano ou evidência da proteção da cabine quando incidente"
+      ],
+      "applicability": "review"
     }
   ]
 }

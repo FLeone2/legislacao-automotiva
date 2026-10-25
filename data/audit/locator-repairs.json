@@ -1,0 +1,71 @@
+{
+  "asOf": "2026-10-25",
+  "note": "Identidade/localizador; estados e datas de revisão normativa preservados. DOU MDIC indisponível na leitura direta; vínculos conferidos nos índices oficiais.",
+  "repairs": [
+    {
+      "recordId": "mover-005",
+      "officialUrl": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-213-de-18-de-agosto-de-2025-649623434",
+      "locatedFrom": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/programa-mover-1/legislacao-programa-mover",
+      "previousUrl": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/programa-mover-1/legislacao-programa-mover",
+      "checkedAt": "2026-10-25",
+      "reviewPromotion": false
+    },
+    {
+      "recordId": "mover-006",
+      "officialUrl": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-215-de-19-de-agosto-de-2025-650479226",
+      "locatedFrom": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/programa-mover-1/legislacao-programa-mover",
+      "previousUrl": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/programa-mover-1/legislacao-programa-mover",
+      "checkedAt": "2026-10-25",
+      "reviewPromotion": false
+    },
+    {
+      "recordId": "mover-007",
+      "officialUrl": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-19-de-20-de-janeiro-de-2026-682701466",
+      "locatedFrom": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2026",
+      "previousUrl": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2026",
+      "checkedAt": "2026-10-25",
+      "reviewPromotion": false
+    },
+    {
+      "recordId": "mover-010",
+      "officialUrl": "https://www.in.gov.br/en/web/dou/-/portaria-gm/mdic-n-86-de-16-de-abril-de-2024-555179133",
+      "locatedFrom": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/programa-mover-1/legislacao-programa-mover",
+      "previousUrl": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/programa-mover-1/legislacao-programa-mover",
+      "checkedAt": "2026-10-25",
+      "reviewPromotion": false
+    },
+    {
+      "recordId": "mover-012",
+      "officialUrl": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-176-de-7-de-julho-de-2025-641610640",
+      "locatedFrom": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2025",
+      "previousUrl": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2025",
+      "checkedAt": "2026-10-25",
+      "reviewPromotion": false
+    },
+    {
+      "recordId": "mover-013",
+      "officialUrl": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-192-de-21-de-julho-de-2025-643869394",
+      "locatedFrom": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2025",
+      "previousUrl": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2025",
+      "checkedAt": "2026-10-25",
+      "reviewPromotion": false
+    },
+    {
+      "recordId": "senatran-095",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf/@@display-file/file",
+      "locatedFrom": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf/@@display-file/file",
+      "previousUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/portarias-2022",
+      "checkedAt": "2026-10-25",
+      "reviewPromotion": false
+    },
+    {
+      "recordId": "senatran-097",
+      "previousUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "officialUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/deliberacoes/Deliberacao2642022.pdf/@@display-file/file",
+      "locatedFrom": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/deliberacoes/Deliberacao2642022.pdf/@@display-file/file",
+      "checkedAt": "2026-10-25",
+      "documentSha256": "44d9936d4d571c468a91ac72e89e5427dec9072017622a25e98e7b671b8223cd",
+      "reviewPromotion": false
+    }
+  ]
+}

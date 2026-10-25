@@ -4,6 +4,8 @@ import { ReactFlow, Background, Controls, MarkerType } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import VehicleScene from './VehicleScene.jsx';
 import TraceabilityInspector from './TraceabilityInspector.jsx';
+import RegulatoryCoverage from './RegulatoryCoverage.jsx';
+import { needsRegulatoryReview, recordCheckReview } from './review-state.js';
 import { PARTS, visibleParts, sceneKind } from './vehicle-parts.js';
 import {
   DEFAULT_PROFILE,
@@ -47,6 +49,7 @@ const TABS = [
   ['flow', 'Fluxo do processo'],
   ['checklist', 'Checklist'],
   ['sources', 'Guia e fontes'],
+  ['coverage', 'Cobertura regulatória'],
 ];
 const CATEGORIES = {
   M1: 'M1 · Passageiros até 8 + motorista',
@@ -424,7 +427,10 @@ function Checklist({ items, checks, onChange, project }) {
   const visible = items.filter(
     (x) =>
       (agency === 'all' || x.agency === agency) &&
-      (filter === 'all' || (checks[x.id]?.status || 'pending') === filter),
+      (filter === 'all' ||
+        (filter === 'review'
+          ? needsRegulatoryReview(checks[x.id])
+          : (checks[x.id]?.status || 'pending') === filter)),
   );
   return (
     <section className="g-checklist">
@@ -448,6 +454,7 @@ function Checklist({ items, checks, onChange, project }) {
           </label>
           <select id="g-status-filter" value={filter} onChange={(e) => setFilter(e.target.value)}>
             <option value="all">Todos os status</option>
+            <option value="review">Revalidar base normativa</option>
             {Object.entries(STATUS).map(([v, l]) => (
               <option key={v} value={v}>
                 {l}
@@ -466,8 +473,12 @@ function Checklist({ items, checks, onChange, project }) {
       </p>
       {visible.map((item, i) => {
         const check = checks[item.id] || { status: 'pending', note: '', evidence: '' };
+        const stale = needsRegulatoryReview(check);
         return (
-          <article key={item.id} className={'g-check-item g-status-' + check.status}>
+          <article
+            key={item.id}
+            className={'g-check-item g-status-' + (stale ? 'review' : check.status)}
+          >
             <details>
               <summary>
                 <span className="g-item-index">{String(i + 1).padStart(2, '0')}</span>
@@ -483,9 +494,30 @@ function Checklist({ items, checks, onChange, project }) {
                   <h3>{item.title}</h3>
                   <span className="g-muted">{item.reason}</span>
                 </div>
-                <span className="g-status-label">{STATUS[check.status]}</span>
+                <span className="g-status-label">
+                  {stale ? 'Revalidar base' : STATUS[check.status]}
+                </span>
               </summary>
               <div className="g-check-body">
+                {stale && (
+                  <div className="g-note" role="status">
+                    <p>
+                      A conclusão foi registrada em uma base anterior ou sem versão. Confira fontes,
+                      condições e evidências nesta revisão antes de considerá-la atual.
+                    </p>
+                    <button
+                      type="button"
+                      className="g-text-button"
+                      disabled={!project}
+                      onClick={() => onChange(item.id, check, true)}
+                    >
+                      Registrar nova conferência desta tarefa
+                    </button>
+                    <small>
+                      Registro manual de trabalho; não constitui aprovação de conformidade.
+                    </small>
+                  </div>
+                )}
                 <p>{item.description}</p>
                 {item.evidence?.length > 0 && (
                   <>
@@ -504,7 +536,9 @@ function Checklist({ items, checks, onChange, project }) {
                     <select
                       disabled={!project}
                       value={check.status}
-                      onChange={(e) => onChange(item.id, { ...check, status: e.target.value })}
+                      onChange={(e) =>
+                        onChange(item.id, { ...check, status: e.target.value }, true)
+                      }
                     >
                       {Object.entries(STATUS).map(([v, l]) => (
                         <option key={v} value={v}>
@@ -525,9 +559,12 @@ function Checklist({ items, checks, onChange, project }) {
                   </label>
                 </div>
                 <label>
-                  Notas e justificativa
-                  {check.status === 'na' ? ' · obrigatória para não aplicável' : ''}
+                  <span id={'g-note-label-' + item.id}>
+                    Notas e justificativa
+                    {check.status === 'na' ? ' · obrigatória para não aplicável' : ''}
+                  </span>
                   <textarea
+                    aria-labelledby={'g-note-label-' + item.id}
                     disabled={!project}
                     maxLength={10000}
                     rows={3}
@@ -729,8 +766,13 @@ function GuideApp({ bridge }) {
         ALL_SUBSYSTEMS.find((row) => row.assemblyId === part.id)?.system
       : part.system;
   const coverage = coverageReport();
-  const done = items.filter((x) => checks[x.id]?.status === 'done').length;
-  const na = items.filter((x) => checks[x.id]?.status === 'na').length;
+  const done = items.filter(
+    (x) => checks[x.id]?.status === 'done' && !needsRegulatoryReview(checks[x.id]),
+  ).length;
+  const na = items.filter(
+    (x) => checks[x.id]?.status === 'na' && !needsRegulatoryReview(checks[x.id]),
+  ).length;
+  const staleCount = items.filter((x) => needsRegulatoryReview(checks[x.id])).length;
   const activeCount = items.length - na;
   const progress = activeCount ? Math.round((done / activeCount) * 100) : 0;
   useEffect(() => {
@@ -791,7 +833,7 @@ function GuideApp({ bridge }) {
     setPartSearch('');
     route({ tree: mode });
   }
-  function updateCheck(id, next) {
+  function updateCheck(id, next, confirmed = false) {
     if (!project) return;
     if (next.status === 'na' && !next.note?.trim()) {
       setNotice('Antes de marcar como não aplicável, escreva a justificativa nas notas do item.');
@@ -800,7 +842,11 @@ function GuideApp({ bridge }) {
     setProjects((old) =>
       old.map((p) =>
         p.id === projectId
-          ? { ...p, updatedAt: new Date().toISOString(), checks: { ...p.checks, [id]: next } }
+          ? {
+              ...p,
+              updatedAt: new Date().toISOString(),
+              checks: { ...p.checks, [id]: recordCheckReview(p.checks[id], next, confirmed) },
+            }
           : p,
       ),
     );
@@ -1087,6 +1133,12 @@ function GuideApp({ bridge }) {
               </button>
             ))}
           </div>
+          {staleCount > 0 && (
+            <p className="g-note" role="status">
+              {staleCount} conclusão(ões) precisam de revalidação após atualização da base
+              normativa. As notas e referências de evidência foram preservadas.
+            </p>
+          )}
           <div
             role="tabpanel"
             id={'g-panel-' + tab}
@@ -1322,6 +1374,7 @@ function GuideApp({ bridge }) {
               <Checklist items={items} checks={checks} project={project} onChange={updateCheck} />
             )}{' '}
             {tab === 'sources' && <SourcesPanel evaluation={evaluation} />}
+            {tab === 'coverage' && <RegulatoryCoverage />}
           </div>
           <div className="g-context-strip">
             <div>

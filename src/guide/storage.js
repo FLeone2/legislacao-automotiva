@@ -73,6 +73,18 @@ function validateProject(value) {
   if (Object.keys(value.checks).length > 200) throw new Error('Limite de itens excedido.');
   for (const entry of Object.values(value.checks)) {
     if (
+      entry?.regulatoryRevision !== undefined &&
+      (typeof entry.regulatoryRevision !== 'string' ||
+        !/^[a-f0-9]{64}$/.test(entry.regulatoryRevision))
+    )
+      throw new Error('Versão da base normativa inválida.');
+    if (
+      entry?.regulatoryReviewedAt !== undefined &&
+      (typeof entry.regulatoryReviewedAt !== 'string' ||
+        !Number.isFinite(Date.parse(entry.regulatoryReviewedAt)))
+    )
+      throw new Error('Data de conferência normativa inválida.');
+    if (
       !entry ||
       !STATUSES.includes(entry.status) ||
       (entry.note !== undefined && (typeof entry.note !== 'string' || entry.note.length > 10000))

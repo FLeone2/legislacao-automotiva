@@ -741,3 +741,11 @@ O [retorno do reteste, em 20/10/2026](docs/retest-implementation-2026-10-20.md)
 registra a correção da síntese de licença e embarque da IN 6/2025, das notas
 repetidas e dos IDs de requisitos nas exportações. LCVM, plano ambiental e PBEV
 mantêm os limites de revisão; o portal continua consultivo.
+
+### Auditoria e base para IA
+
+A aba **Cobertura regulatória** separa cadastro, trechos normativos, orientações, revisão e pendências. O diagnóstico é reproduzível com `python scripts/build_regulatory_coverage.py` e não certifica cobertura universal.
+
+`npm run build:data` também gera `knowledge/`: Markdown por ato/fonte, JSONL, relações e candidatos separados. `npm run check:knowledge` verifica os artefatos. Crie um SQLite FTS5 com `python scripts/build_regulatory_knowledge.py --sqlite /tmp/homologacao.sqlite` e consulte com `python scripts/query_regulatory_knowledge.py --database /tmp/homologacao.sqlite --query "LCM PROMOT"`. Os detalhes de arquitetura, fontes e atualização estão em `docs/guide/arquitetura-base-regulatoria.md` e `docs/guide/atualizacoes-e-operacao.md`.
+
+O monitor diário observa fontes/índices e mantém fila de revisão; sua agenda só passa a executar após o workflow integrar o ramo padrão. A revisão humana dos efeitos e da aplicabilidade continua separada da coleta. Conclusões de processos salvos em outra versão da base são sinalizadas para nova conferência, com notas e referências preservadas.

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Manifesto da base regulatória citável para IA",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "kind", "scopeNote", "revision", "fullTextIncluded", "automaticApplicability", "counts", "provenance", "artifacts"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "kind": {"const": "cited_regulatory_consultation_knowledge"},
+    "scopeNote": {"type": "string", "minLength": 20},
+    "revision": {"$ref": "#/$defs/hash"},
+    "fullTextIncluded": {"const": false},
+    "automaticApplicability": {"const": false},
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["acts", "requirements", "normativeExcerpts", "officialGuidanceItems", "chunks", "relations", "sources", "sourceCards", "aliases", "actSources", "candidates", "candidateSources", "sourceContexts", "recordedRelations", "recordedLegalRelations", "recordedDocumentLinks"],
+      "properties": {
+        "acts": {"type": "integer", "minimum": 0},
+        "requirements": {"type": "integer", "minimum": 0},
+        "normativeExcerpts": {"type": "integer", "minimum": 0},
+        "officialGuidanceItems": {"type": "integer", "minimum": 0},
+        "chunks": {"type": "integer", "minimum": 0},
+        "relations": {"type": "integer", "minimum": 0},
+        "sources": {"type": "integer", "minimum": 0},
+        "sourceCards": {"type": "integer", "minimum": 0},
+        "aliases": {"type": "integer", "minimum": 0},
+        "actSources": {"type": "integer", "minimum": 0},
+        "candidates": {"type": "integer", "minimum": 0},
+        "candidateSources": {"type": "integer", "minimum": 0},
+        "sourceContexts": {"type": "integer", "minimum": 0},
+        "recordedRelations": {"type": "integer", "minimum": 0},
+        "recordedLegalRelations": {"type": "integer", "minimum": 0},
+        "recordedDocumentLinks": {"type": "integer", "minimum": 0}
+      }
+    },
+    "provenance": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "sha256"],
+        "properties": {
+          "path": {"type": "string", "minLength": 1},
+          "sha256": {"$ref": "#/$defs/hash"}
+        }
+      }
+    },
+    "artifacts": {
+      "type": "object",
+      "minProperties": 6,
+      "propertyNames": {"pattern": "^((acts|sources|candidates)/[a-z0-9-]+\\.md|README\\.md|(records|chunks|relations|sources|aliases|candidates|candidate-sources|source-contexts|recorded-relations)\\.jsonl)$"},
+      "additionalProperties": {"$ref": "#/$defs/hash"}
+    }
+  },
+  "$defs": {"hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}
+}

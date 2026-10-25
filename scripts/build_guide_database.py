@@ -49,15 +49,28 @@ def official_url(value):
 
 def url_identity(value):
     parsed = urlsplit(value)
+    path = parsed.path.rstrip("/").removesuffix("/@@display-file/file")
     return urlunsplit(
         (
             parsed.scheme,
             parsed.netloc.lower(),
-            parsed.path.rstrip("/"),
+            path,
             urlencode(sorted(parse_qsl(parsed.query, keep_blank_values=True))),
             "",
         )
     )
+
+
+def identity_targets(source, acts):
+    """An official collection/service URL is not the identity of an act."""
+    targets = {source["id"]} & {act["id"] for act in acts}
+    if source["evidenceType"] not in {"official_index", "official_guidance"}:
+        targets |= {
+            act["id"]
+            for act in acts
+            if url_identity(act["officialUrl"]) == url_identity(source["url"])
+        }
+    return targets
 
 
 def unique_by_id(rows, label):
@@ -202,17 +215,12 @@ def build_database(root=ROOT):
         )
         acts.append(act)
         aliases[record["id"]] = record["id"]
-    by_id = unique_by_id(acts, "act")
+    unique_by_id(acts, "act")
     source_links = []
     for source in sources:
         # Exact canonical ID and exact official URL are identity links only.
         # No title similarity or taxonomy association establishes legal coverage.
-        targets = {source["id"]} & by_id.keys()
-        targets |= {
-            act["id"]
-            for act in acts
-            if url_identity(act["officialUrl"]) == url_identity(source["url"])
-        }
+        targets = identity_targets(source, acts)
         for target in sorted(targets):
             if target in blocked:
                 raise ValueError("Source link would reactivate an excluded act")
@@ -279,6 +287,12 @@ def validate_database(database, blocked=frozenset()):
     for row in tables["actSources"]:
         if row["sourceId"] not in sources or row["actId"] not in acts:
             raise ValueError("Source-to-act reference is broken")
+        if row["actId"] not in identity_targets(
+            sources[row["sourceId"]], list(acts.values())
+        ):
+            raise ValueError(
+                "Source-to-act identity is not supported by a document reference"
+            )
     if len(serialize(database)) > MAX_BYTES:
         raise ValueError(f"Knowledge index exceeds {MAX_BYTES} byte budget")
 

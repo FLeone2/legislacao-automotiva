@@ -18,6 +18,97 @@ test('missing environmental mass prevents false M1→LP equivalence', () => {
   assert.ok(result.missing.some((value) => /ordem de marcha/.test(value)));
 });
 
+test('PROMOT routes and environmental evidence use LCM without inheriting L8/P8 licensing', () => {
+  for (const powertrain of ['ice', 'hev', 'phev', 'bev']) {
+    const profile = { ...DEFAULT_PROFILE, category: 'L', origin: 'imported', powertrain };
+    const assessment = evaluateProfile(profile);
+    assert.deepEqual(assessment.emissions.sourceIds, ['ibama-lcm-service', 'conama-493-2019']);
+    for (const item of buildChecklist(profile).filter((row) =>
+      [
+        'environment-route',
+        'electric-environment',
+        'hybrid-evidence',
+        'thermal-evidence',
+        'cop-plan',
+        'importation',
+      ].includes(row.id),
+    )) {
+      assert.ok(item.sourceIds.includes('ibama-lcm-service'), item.id);
+      assert.ok(
+        !item.sourceIds.some((id) =>
+          ['ibama-lcvm-service', 'conama-492-2018', 'conama-490-2018'].includes(id),
+        ),
+        item.id,
+      );
+    }
+  }
+});
+
+test('unknown M2 mass leaves the Annex XI group pending', () => {
+  const result = evaluateProfile({ ...DEFAULT_PROFILE, category: 'M2', massKg: null, seats: 15 });
+  assert.ok(result.safety.particularities.some((text) => /PBT pendente/.test(text)));
+  assert.ok(!result.safety.particularities.some((text) => /segue o grupo pesado/.test(text)));
+  assert.ok(result.safety.sourceIds.includes('guide-contran-939'));
+  assert.ok(
+    evaluateProfile({ ...DEFAULT_PROFILE, category: 'M3' }).safety.sourceIds.includes(
+      'guide-contran-959',
+    ),
+  );
+});
+
+test('report fronts respect powertrain and purpose while a towed auxiliary axle stays under review', () => {
+  const ids = (profile) => buildChecklist({ ...DEFAULT_PROFILE, ...profile }).map((row) => row.id);
+  assert.ok(!ids({ category: 'M1', powertrain: 'ice' }).includes('report-electric-mn'));
+  assert.ok(
+    ids({ category: 'M1', powertrain: 'bev', fuel: 'electric' }).includes('report-electric-mn'),
+  );
+  assert.ok(
+    ids({ category: 'L', powertrain: 'bev', fuel: 'electric' }).includes('report-electric-l'),
+  );
+  assert.ok(
+    !ids({ category: 'L', powertrain: 'bev', fuel: 'electric' }).includes('report-electric-mn'),
+  );
+  assert.ok(
+    ids({ category: 'N3', purpose: 'modification' }).includes(
+      'report-auxiliary-motor-modification',
+    ),
+  );
+  assert.ok(
+    !ids({ category: 'N3', purpose: 'series' }).includes('report-auxiliary-motor-modification'),
+  );
+  const towed = buildChecklist({ ...DEFAULT_PROFILE, category: 'O', powertrain: 'ice' }).find(
+    (row) => row.id === 'report-electric-towed-review',
+  );
+  assert.equal(towed.applicability, 'review');
+  assert.ok(!ids({ purpose: 'component' }).some((id) => id.startsWith('report-')));
+});
+
+test('electric safety follows M/N or L acts and a conditional LC alternative never selects P8', () => {
+  const electric = (category) =>
+    buildChecklist({ ...DEFAULT_PROFILE, category, powertrain: 'bev', fuel: 'electric' }).find(
+      (row) => row.id === 'electric-safety',
+    );
+  assert.ok(electric('M1').sourceIds.includes('guide-contran-749'));
+  assert.ok(electric('L').sourceIds.includes('guide-contran-750'));
+  assert.ok(!electric('L').sourceIds.includes('guide-contran-749'));
+  const lc = evaluateProfile({
+    ...DEFAULT_PROFILE,
+    category: 'N2',
+    massKg: 3800,
+    massRunningKg: 2300,
+    payloadKg: 1300,
+    derivedFromPassenger: false,
+    seats: 3,
+  });
+  assert.equal(lc.emissions.family, 'light');
+  assert.match(lc.emissions.phase, /L7\/L8/);
+  assert.ok(
+    lc.emissions.particularities.some(
+      (text) => /art\. 23/.test(text) && /autorização prévia/.test(text),
+    ),
+  );
+});
+
 test('LP/LC triage uses both mass limits, capacity and derivation', () => {
   const lp = { ...DEFAULT_PROFILE, massKg: 2500, massRunningKg: 1800, seats: 5 };
   assert.match(evaluateProfile(lp).emissions.label, /^LP/);
@@ -36,6 +127,10 @@ test('LP/LC triage uses both mass limits, capacity and derivation', () => {
   );
   assert.match(evaluateProfile({ ...lc, payloadKg: 1000, seats: 2 }).emissions.label, /^LP/);
   assert.match(evaluateProfile({ ...lc, derivedFromPassenger: true }).emissions.label, /^LP/);
+  assert.match(
+    evaluateProfile({ ...lc, payloadKg: 900, seats: null }).emissions.label,
+    /a confirmar/,
+  );
   // N2 with MTMA 3,800 kg may remain in the environmental light scope.
   assert.equal(evaluateProfile({ ...lc, category: 'N2', massKg: 3800 }).emissions.family, 'light');
   assert.equal(evaluateProfile({ ...lp, massRunningKg: 2721 }).emissions.family, 'heavy');
