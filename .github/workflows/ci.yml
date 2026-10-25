@@ -32,7 +32,8 @@ jobs:
       - name: Regenerate and require committed reproducible data
         run: |
           npm run build:data
-          git diff --exit-code -- data src/core/vehicle-legislation-data.js
+          git diff --exit-code -- data knowledge src/core/vehicle-legislation-data.js
+          test -z "$(git ls-files --others --exclude-standard -- knowledge)"
       - run: npm run check
       - run: npm test
       - run: npm run format:check

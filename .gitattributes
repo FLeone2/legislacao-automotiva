@@ -1,3 +1,4 @@
 dist/** linguist-generated=true
+knowledge/** linguist-generated=true
 # Official evidence snapshots retain their exact bytes and source hashes.
 data/*/sources/** -text -diff

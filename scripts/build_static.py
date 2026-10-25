@@ -10,6 +10,25 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def copy_knowledge(target):
+    source = ROOT / "knowledge"
+    manifest = json.loads((source / "manifest.json").read_text())
+    for name, expected in manifest["artifacts"].items():
+        path = (source / name).resolve()
+        if not path.is_relative_to(source.resolve()) or path.suffix not in {
+            ".md",
+            ".json",
+            ".jsonl",
+        }:
+            raise ValueError("Knowledge publication path is not allowed: " + name)
+        if hashlib.sha256(path.read_bytes()).hexdigest() != expected:
+            raise ValueError("Stale knowledge artifact: " + name)
+        output = target / "knowledge" / name
+        output.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(path, output)
+    shutil.copy2(source / "manifest.json", target / "knowledge/manifest.json")
+
+
 def build(destination=None):
     target = Path(destination) if destination else ROOT / "dist"
     if target.exists():
@@ -27,6 +46,8 @@ def build(destination=None):
         "src",
         "assets",
         "data/site",
+        "data/process",
+        "docs/guide",
         "data/requirements/catalog.json",
     ]
     for agency in ("contran", "proconve", "inmetro", "anatel"):
@@ -38,6 +59,7 @@ def build(destination=None):
             shutil.copytree(source, output)
         else:
             shutil.copy2(source, output)
+    copy_knowledge(target)
     # Each script and stylesheet URL follows its actual bytes. A new release
     # cannot accidentally retain an old hand-written cache version.
     index = target / "index.html"

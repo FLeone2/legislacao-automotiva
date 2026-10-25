@@ -1,0 +1,348 @@
+{
+  "auditDate": "2026-10-25",
+  "scope": [
+    "INMETRO",
+    "ANATEL",
+    "MDIC/MOVER"
+  ],
+  "universalCoverageConfirmed": false,
+  "assessment": "Base consultiva com salvaguardas importantes corretas, mas sem respaldo para declarar cobertura legal universal nem checklists integralmente revisados. Auditoria dirigida; não substitui revisão de íntegra e modificadores por configuração.",
+  "inventoryFacts": {
+    "inmetro": {
+      "acts": 18,
+      "fullTextReviewedTrue": 0,
+      "amendmentChainReviewedTrue": 0,
+      "requirements": 42,
+      "requirementsWithConditions": 1
+    },
+    "anatel": {
+      "acts": 22,
+      "fullTextReviewedTrue": 0,
+      "amendmentChainReviewedTrue": 0,
+      "requirements": 15,
+      "requirementsWithConditions": 0
+    },
+    "mover": {
+      "catalogRecords": 14,
+      "published": 13,
+      "historicalExcluded": 1,
+      "fullTextReviewedTrue": 0,
+      "amendmentChainReviewedTrue": 0,
+      "recordsWithUnknownReviewStatus": 12
+    }
+  },
+  "findings": [
+    {
+      "id": "agency-audit-01",
+      "severity": "high",
+      "title": "MOVER pesado: modificador 167/2026 ausente do inventário ativo",
+      "paths": [
+        "catalog.json#/records",
+        "data/mover/reviewed-map.json#/candidates"
+      ],
+      "detail": "Portaria 176/2025 está cadastrada como mover-012, mas o modificador 167/2026 e sua relação não estavam representados. O índice tem o mesmo hash da coleta de 19/10: é uma lacuna de conciliação de inventário, não nova publicação desde então.",
+      "evidence": [
+        {
+          "url": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2026",
+          "device": "Entrada Portaria GM/MDIC 167, de 18/06/2026 e ementa imediatamente seguinte",
+          "excerpt": "Altera a PORTARIA GM/MDIC Nº 176, DE 7 DE JULHO DE 2025",
+          "checkedAt": "2026-10-25",
+          "evidenceKind": "official_index",
+          "archivePath": "data/mover/sources/index-2026-10-25.html",
+          "sha256": "9d21b192f676d2a34efbe8741f5c36b5dc8b064bcb33b6b195843e308d0a29bc"
+        },
+        {
+          "url": "https://pesquisa.in.gov.br/imprensa/jsp/visualiza/index.jsp?data=19/06/2026&jornal=602&pagina=5",
+          "status": 403,
+          "checkedAt": "2026-10-25"
+        }
+      ],
+      "safeAction": "Registrar candidato não publicado com reviewStatus index_review, legalStatus null e relação index_reported → mover-012; obter e revisar íntegra, dispositivo e data antes de gerar obrigação.",
+      "status": "candidate_recorded_pending_primary_review"
+    },
+    {
+      "id": "agency-audit-02",
+      "severity": "high",
+      "title": "URL de coleção não comprova identidade de um ato",
+      "paths": [
+        "scripts/build_guide_database.py",
+        "data/process/knowledge-index.json#/tables/actSources",
+        "catalog.json#/records"
+      ],
+      "detail": "Gerador liga guide-mdic-2026 a mover-007 e guide-contran-index a senatran-097 como same_official_url. As duas URLs são índices com vários atos. O contrato documenta esse vínculo como identidade, o que é forte demais para fonte de coleção.",
+      "evidence": [
+        {
+          "url": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2026",
+          "device": "Índice contém várias portarias distintas, incluindo 19/2026, 68/2026 e 167/2026",
+          "checkedAt": "2026-10-25",
+          "evidenceKind": "official_index"
+        },
+        {
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+          "device": "Coleção referenciada em guide-contran-index; demonstração estrutural de URL compartilhada",
+          "checkedAt": "2026-10-25",
+          "evidenceKind": "repository_structural_review"
+        }
+      ],
+      "safeAction": "Tipar fonte como act/collection/service/guidance. Inferir identidade só por ID canônico ou URL de ato individual confirmado; índices devem ter relação collection_mentions/contextual_reference e lista de IDs localizada, não identidade automática.",
+      "status": "open"
+    },
+    {
+      "id": "agency-audit-03",
+      "severity": "high",
+      "title": "18 referências Inmetro ainda não sustentam um checklist técnico integral",
+      "paths": [
+        "data/inmetro/reviewed-map.json",
+        "data/inmetro/active.json",
+        "data/inmetro/sources/retrieval-attempts-2026-10-19.json"
+      ],
+      "detail": "Os 18 registros têm fullTextReviewed false e amendmentChainReviewed false. Isso está corretamente qualificado na base, mas impede afirmar que todos os anexos, exceções OEM/reposição, métodos, transições e modificadores foram cobertos. Nova coleta aos PDFs 145 e 169 pelos dois hosts oficiais retornou503.",
+      "evidence": [
+        {
+          "url": "https://www.inmetro.gov.br/legislacao/rtac/pdf/RTAC002960.pdf",
+          "status": 503,
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "url": "https://sistema-sil.inmetro.gov.br/rtac/RTAC002960.pdf",
+          "status": 503,
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "url": "https://www.inmetro.gov.br/legislacao/rtac/pdf/RTAC003000.pdf",
+          "status": 503,
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "url": "https://sistema-sil.inmetro.gov.br/rtac/RTAC003000.pdf",
+          "status": 503,
+          "checkedAt": "2026-10-25"
+        }
+      ],
+      "safeAction": "Manter estados atuais e exibir pendência de íntegra/cadeia no painel e no pacote IA. Priorizar145,169,379+845,501,456,34 por função do projeto; não elevar FAQ/PortalIQ a texto integral.",
+      "status": "open"
+    },
+    {
+      "id": "agency-audit-04",
+      "severity": "high",
+      "title": "Manutenção Anatel responde200 e precisa ser classificada por conteúdo/redirect",
+      "paths": [
+        "data/process/safety-sources.json#/records/guide-anatel-715",
+        "data/process/safety-sources.json#/records/guide-anatel-modulos",
+        "data/anatel/sources/evidence.json.gz"
+      ],
+      "detail": "As URLs de715 e4083 responderam200 após redirecionar à mesma página de manutenção, de 3890 bytes. Não são novas leituras dos atos. Uma atualização automática que aceita apenas status200 produziria frescor enganoso.",
+      "evidence": [
+        {
+          "url": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2019/1350-resolucao-715",
+          "finalUrl": "https://informacoes.anatel.gov.br/aviso/manutencao-sistemas.html",
+          "status": 200,
+          "sha256": "f26ed3f1c16ae60b5e65340bcaaae8e97be91b8d711c035b6ae41ac970d6a21f",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "url": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2020/1453-resolucao-729",
+          "finalUrl": "https://informacoes.anatel.gov.br/aviso/manutencao-sistemas.html",
+          "status": 200,
+          "sha256": "f26ed3f1c16ae60b5e65340bcaaae8e97be91b8d711c035b6ae41ac970d6a21f",
+          "checkedAt": "2026-10-25"
+        }
+      ],
+      "safeAction": "Classificar maintenance_redirect/content_unavailable, preservar snapshot de 18/10 e data da revisão real. Não revalidar legalStatus nem reviewStatus por sucesso HTTP.",
+      "status": "open"
+    },
+    {
+      "id": "agency-audit-05",
+      "severity": "medium",
+      "title": "Localizadores MOVER individuais ainda apontam a páginas de coleção",
+      "paths": [
+        "catalog.json#/records/mover-005",
+        "catalog.json#/records/mover-006",
+        "catalog.json#/records/mover-007",
+        "catalog.json#/records/mover-010",
+        "catalog.json#/records/mover-012",
+        "catalog.json#/records/mover-013"
+      ],
+      "detail": "Existem links individuais oficiais localizados nas páginas MDIC para esses atos; o catálogo usa páginas genéricas. Corrigir apenas localizador melhora citação e consulta IA, sem promover revisão ou vigência.",
+      "evidence": [
+        {
+          "url": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/programa-mover-1/legislacao-programa-mover",
+          "checkedAt": "2026-10-25",
+          "evidenceKind": "official_index",
+          "device": "Entradas86/2024,192/2025,213/2025 e215/2025"
+        },
+        {
+          "url": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2026",
+          "checkedAt": "2026-10-25",
+          "evidenceKind": "official_index",
+          "device": "Entrada19/2026"
+        },
+        {
+          "url": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2025",
+          "checkedAt": "2026-10-25",
+          "evidenceKind": "official_index",
+          "device": "Entrada176/2025"
+        }
+      ],
+      "safeAction": "Atualizar officialUrl nas entradas editoriais conforme directLocators deste relatório; preservar reviewStatus/legalStatus e registrar relação located_in_index.",
+      "status": "open"
+    },
+    {
+      "id": "agency-audit-06",
+      "severity": "medium",
+      "title": "Requisitos por produto precisam de condições próprias, além de links por ato",
+      "paths": [
+        "data/inmetro/reviewed-map.json#/records/inmetro-145-2022/requirements",
+        "data/anatel/reviewed-map.json#/records",
+        "src/guide/traceability.js"
+      ],
+      "detail": "O recorte contém 42 itens Inmetro e 15 Anatel, mas apenas 1 requisito Inmetro explicita conditions e nenhum Anatel tem condições estruturadas. Muitos vínculos são do ato inteiro ao subsistema e continuam consultivos. Por exemplo, associação 145/2022 a motor não torna as regras de bateria e lâmpadas aplicáveis a esse motor.",
+      "evidence": [
+        {
+          "url": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022",
+          "device": "Objeto: vários componentes diferentes, incluindo bateria chumbo-ácido, lâmpada, freio e pistão",
+          "checkedAt": "2026-10-25",
+          "evidenceKind": "official_index"
+        },
+        {
+          "url": "https://www.gov.br/anatel/pt-br/regulado/certificacao-de-produtos/base-legal",
+          "device": "LGT art.162§2 e regulamento de produtos; enquadramento de equipamento",
+          "checkedAt": "2026-10-25",
+          "evidenceKind": "official_guidance"
+        }
+      ],
+      "safeAction": "Criar relações requisito→produto/configuração com evidência/dispositivo. Filtros por química, funçãoRF, categoria, OEM/reposição, uso e datas só podem se tornar regras após revisão; até lá manter requires_assessment/context_only.",
+      "status": "open"
+    },
+    {
+      "id": "agency-audit-07",
+      "severity": "high",
+      "title": "MOVER tem índice e obrigações gerais, mas não matriz de obrigações comerciais revisadas",
+      "paths": [
+        "catalog.json#/records/mover-*",
+        "src/guide/process-model.js#buildChecklist",
+        "data/mover/reviewed-map.json"
+      ],
+      "detail": "Dos 14 registros MOVER no catálogo, 13 são publicados e 1 histórico; nenhum possui fullTextReviewed true nem cadeia integral. Doze não possuem estados de revisão jurídica estruturados (null deve permanecer null). O portal oficial separa requisitos obrigatórios para comercialização/importação de veículos novos desde 01/06/2025 de incentivos empresariais. O checklist atual pede enquadramento genérico e não demonstra cobertura completa dessas condições.",
+      "evidence": [
+        {
+          "url": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/programa-mover",
+          "device": "Seção 1. Requisitos Obrigatórios para Comercialização e Importação de Veículos Novos",
+          "excerpt": "A partir de 1º de junho de 2025, a comercialização e a importação de veículos novos no País ficam condicionadas ao cumprimento de requisitos obrigatórios.",
+          "checkedAt": "2026-10-25",
+          "evidenceKind": "official_guidance"
+        },
+        {
+          "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/decreto/d12435.htm",
+          "checkedAt": "2026-10-25",
+          "evidenceKind": "official_text_retrieved_not_integrally_reviewed",
+          "sha256": "037abbe72ef8160aa09c3b041695e4538da542faf9b23d84325fbabd237fdc4c"
+        }
+      ],
+      "safeAction": "Publicar a lacuna e separar compromissos/requisitos obrigatórios, PBEV voluntário, incentivos/habilitação/P&D e atos por empresa; revisar dispositivos doDecreto 12.435/2025 e atos leves/pesados antes de prometer checklists completos.",
+      "status": "open"
+    },
+    {
+      "id": "agency-audit-08",
+      "severity": "medium",
+      "title": "Consulta pública sobre167/2026 não pode entrar como regra ativa",
+      "paths": [
+        "future_monitor_source_classification",
+        "data/mover/reviewed-map.json#/candidates"
+      ],
+      "detail": "Busca oficial também localiza minuta para estabelecer ciclo de condução do Grupo 01 e alterar 167/2026. Proposta/minuta e ato publicado devem ter estados e tipos distintos.",
+      "evidence": [
+        {
+          "url": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/consultas-publicas",
+          "device": "Objeto da consulta sobre ciclo de condução Grupo01 e alteração 167/2026",
+          "checkedAt": "2026-10-25",
+          "evidenceKind": "official_search_index_excerpt"
+        }
+      ],
+      "safeAction": "Rastrear como proposal/consultation; só registrar efeito normativo após localizar publicação oficial final e revisar dispositivo. Não atribuir vigência a minuta.",
+      "status": "open"
+    }
+  ],
+  "correctSafeguards": [
+    {
+      "id": "preserve-inmetro-169-voluntary",
+      "source": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1692023",
+      "checkedAt": "2026-10-25",
+      "finding": "PortalIQ confirma natureza voluntária. A base e o checklist não convertem PBEV em obrigação universal e separam regimes MOVER."
+    },
+    {
+      "id": "preserve-inmetro-145-battery-chemistry",
+      "source": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022",
+      "checkedAt": "2026-10-25",
+      "finding": "Objeto expresso é bateria chumbo-ácido. Base mantém restrição e não confirma homologação universal de bateriaHV."
+    },
+    {
+      "id": "preserve-anatel-product-scope",
+      "source": "https://www.gov.br/anatel/pt-br/regulado/certificacao-de-produtos/base-legal",
+      "checkedAt": "2026-10-25",
+      "finding": "Página confirma foco em produtos de telecom e LGT art. 162, § 2º para equipamentos emissores. Não há justificativa para homologar o veículo inteiro indiscriminadamente."
+    },
+    {
+      "id": "preserve-anatel-4083-odd-slug",
+      "source": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2020/1453-resolucao-729",
+      "checkedAt": "2026-10-25",
+      "finding": "Busca indexa corretamente o título Ato 4083/2020 nesse URL de slug estranho. Não corrigir URL por adivinhação. Conteúdo direto atual é manutenção, e guia declara official_indexed_excerpt/íntegra pendente."
+    },
+    {
+      "id": "preserve-mover-43-history",
+      "source": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2026",
+      "checkedAt": "2026-10-25",
+      "finding": "Índice mantém indicação de que 68/2026 revoga 43/2024. Base preserva 43/2024 histórica e não inventa dispositivo/data efetiva."
+    }
+  ],
+  "directLocators": [
+    {
+      "recordId": "mover-005",
+      "officialUrl": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-213-de-18-de-agosto-de-2025-649623434",
+      "locatedFrom": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/programa-mover-1/legislacao-programa-mover"
+    },
+    {
+      "recordId": "mover-006",
+      "officialUrl": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-215-de-19-de-agosto-de-2025-650479226",
+      "locatedFrom": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/programa-mover-1/legislacao-programa-mover"
+    },
+    {
+      "recordId": "mover-007",
+      "officialUrl": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-19-de-20-de-janeiro-de-2026-682701466",
+      "locatedFrom": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2026"
+    },
+    {
+      "recordId": "mover-010",
+      "officialUrl": "https://www.in.gov.br/en/web/dou/-/portaria-gm/mdic-n-86-de-16-de-abril-de-2024-555179133",
+      "locatedFrom": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/programa-mover-1/legislacao-programa-mover"
+    },
+    {
+      "recordId": "mover-012",
+      "officialUrl": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-176-de-7-de-julho-de-2025-641610640",
+      "locatedFrom": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2025"
+    },
+    {
+      "recordId": "mover-013",
+      "officialUrl": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-192-de-21-de-julho-de-2025-643869394",
+      "locatedFrom": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2025"
+    }
+  ],
+  "retrievalManifest": "/workspace/audit-agencies-sources/fetch.json",
+  "editsMade": [
+    "data/mover/reviewed-map.json",
+    "data/mover/sources/index-2026-10-25.html",
+    "data/mover/sources/retrieval-2026-10-25.json"
+  ],
+  "testsRun": [
+    {
+      "command": "node --test tests/flow-audit-model.test.cjs",
+      "result": "5 passed, 0 failed; effects and historical 43/2024 preserved"
+    }
+  ],
+  "editorialChangesNotMade": [
+    "No active catalog or generated files edited",
+    "No INMETRO/ANATEL states elevated",
+    "No private standard contents inferred",
+    "No new legal obligation generated from167/2026 candidate"
+  ]
+}

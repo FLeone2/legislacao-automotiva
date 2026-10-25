@@ -8,6 +8,7 @@ let renderSequence = 0;
 async function render() {
   const renderId = ++renderSequence;
   const main = $('#main');
+  if (typeof disposeGuide === 'function') disposeGuide();
   const previousView = main.dataset.view;
   const previousRoute = main.dataset.renderedRoute;
   main.setAttribute('aria-busy', 'true');
@@ -22,13 +23,14 @@ async function render() {
       'onfocusout',
     ])
       main[handler] = null;
-    state.view = location.hash.slice(1).split('?')[0] || 'tree';
+    state.view = location.hash.slice(1).split('?')[0] || 'guide';
     if (state.view === 'ai') {
       history.replaceState(null, '', '#library');
       state.view = 'library';
     }
     if (
       ![
+        'guide',
         'tree',
         'mover',
         'vehicle',
@@ -44,7 +46,7 @@ async function render() {
         'history',
       ].includes(state.view)
     )
-      state.view = 'tree';
+      state.view = 'guide';
     main.dataset.view = state.view;
     $('#app').classList.toggle(
       'contran-mode',
@@ -64,6 +66,10 @@ async function render() {
     if (['tree', 'mover'].includes(state.view)) {
       restoreRegulatoryTreeRoute(state.view);
       renderTree(state.view);
+      return;
+    }
+    if (state.view === 'guide') {
+      await renderGuide();
       return;
     }
     if (state.view === 'vehicle') {

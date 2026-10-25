@@ -1,0 +1,996 @@
+import bpy, math, pathlib, json, hashlib, sys
+from mathutils import Vector, Matrix
+import argparse
+
+args = argparse.ArgumentParser()
+args.add_argument(
+    "--output",
+    type=pathlib.Path,
+    default=pathlib.Path("/tmp/homologacao-mechanical-export"),
+)
+options = args.parse_args(
+    sys.argv[sys.argv.index("--") + 1 :] if "--" in sys.argv else []
+)
+OUT = options.output.resolve()
+OUT.mkdir(parents=True, exist_ok=True)
+bpy.ops.object.select_all(action="SELECT")
+bpy.ops.object.delete(use_global=False)
+MATS = {}
+COLORS = {
+    "aluminum": (0.32, 0.37, 0.41, 1),
+    "cast": (0.19, 0.22, 0.24, 1),
+    "steel": (0.12, 0.145, 0.17, 1),
+    "darksteel": (0.033, 0.043, 0.053, 1),
+    "rubber": (0.009, 0.013, 0.018, 1),
+    "plastic": (0.018, 0.026, 0.036, 1),
+    "orange": (0.92, 0.17, 0.018, 1),
+    "copper": (0.49, 0.16, 0.055, 1),
+    "silver": (0.52, 0.58, 0.62, 1),
+    "blue": (0.025, 0.11, 0.24, 1),
+    "red": (0.56, 0.018, 0.012, 1),
+    "ivory": (0.51, 0.56, 0.49, 1),
+    "yellow": (0.75, 0.54, 0.015, 1),
+}
+for name, color in COLORS.items():
+    mat = bpy.data.materials.new("mechanical_" + name)
+    mat.use_nodes = True
+    b = mat.node_tree.nodes.get("Principled BSDF")
+    b.inputs["Base Color"].default_value = color
+    b.inputs["Metallic"].default_value = (
+        0.76
+        if name in ["aluminum", "cast", "steel", "darksteel", "copper", "silver"]
+        else 0.02
+    )
+    b.inputs["Roughness"].default_value = (
+        0.37
+        if name in ["cast", "steel"]
+        else 0.24
+        if name in ["aluminum", "silver", "copper"]
+        else 0.67
+        if name == "rubber"
+        else 0.45
+    )
+    MATS[name] = mat
+OBJECTS = []
+SECTION = "main"
+
+
+def cv(v):
+    return Vector((v[0], -v[2], v[1]))
+
+
+def attach(o, part, name, mat):
+    o.name = f"{part}__{SECTION}__{name}"
+    o.data.materials.append(MATS[mat])
+    o["partId"] = part
+    o["section"] = SECTION
+    o["mechanicalExample"] = True
+    o["referenceBoard"] = {
+        "engine": "assets/motor.webp",
+        "chassis": "assets/chassi.webp",
+        "steering": "assets/chassi.webp",
+        "motorElectric": "assets/bateria.webp",
+        "batteryHV": "assets/bateria.webp",
+        "cooling": "assets/vehicle-exploded.webp",
+        "exhaust": "assets/escapamento.webp",
+        "tank": "assets/tanque.webp",
+        "battery12v": "assets/vehicle-vector/previews/peca_27_bateria_12v.webp",
+        "brakeFluid": "assets/freios.webp",
+        "electronics": "assets/eletrica.webp",
+        "airbag": "assets/ocupantes.webp",
+    }.get(part, "assets/vehicle-exploded.webp")
+    OBJECTS.append(o)
+    return o
+
+
+def apply(o):
+    bpy.context.view_layer.objects.active = o
+    o.select_set(True)
+    for mod in list(o.modifiers):
+        bpy.ops.object.modifier_apply(modifier=mod.name)
+    o.select_set(False)
+
+
+def box(part, name, center, size, mat, bevel=0.01):
+    bpy.ops.mesh.primitive_cube_add(size=1, location=cv(center))
+    o = bpy.context.object
+    o.scale = (size[0], size[2], size[1])
+    bpy.ops.object.transform_apply(location=False, rotation=False, scale=True)
+    if bevel:
+        mod = o.modifiers.new("Machined edges", "BEVEL")
+        mod.width = min(bevel, min(size) * 0.42)
+        mod.segments = 3
+        mod = o.modifiers.new("Surface normals", "WEIGHTED_NORMAL")
+        mod.keep_sharp = True
+    apply(o)
+    return attach(o, part, name, mat)
+
+
+def cyl(part, name, center, radius, depth, mat, axisThree=(0, 1, 0), vertices=32):
+    bpy.ops.mesh.primitive_cylinder_add(
+        vertices=vertices, radius=radius, depth=depth, location=cv(center)
+    )
+    o = bpy.context.object
+    o.rotation_euler = cv(axisThree).to_track_quat("Z", "Y").to_euler()
+    mod = o.modifiers.new("Turned edge", "BEVEL")
+    mod.width = min(radius * 0.09, 0.008, depth * 0.18)
+    mod.segments = 2
+    apply(o)
+    for p in o.data.polygons:
+        p.use_smooth = len(p.vertices) == 4
+    return attach(o, part, name, mat)
+
+
+def pipe(part, name, points, radius, mat):
+    curve = bpy.data.curves.new(name, "CURVE")
+    curve.dimensions = "3D"
+    curve.resolution_u = 12
+    curve.bevel_depth = radius
+    curve.bevel_resolution = 3
+    curve.resolution_u = 12
+    poly = curve.splines.new("BEZIER")
+    poly.bezier_points.add(len(points) - 1)
+    for p, co in zip(poly.bezier_points, points):
+        p.co = cv(co)
+        p.handle_left_type = "AUTO"
+        p.handle_right_type = "AUTO"
+    o = bpy.data.objects.new(name, curve)
+    bpy.context.collection.objects.link(o)
+    bpy.context.view_layer.objects.active = o
+    o.select_set(True)
+    bpy.ops.object.convert(target="MESH")
+    o.select_set(False)
+    for p in o.data.polygons:
+        p.use_smooth = True
+    return attach(o, part, name, mat)
+
+
+def rod(part, name, a, b, radius, mat):
+    a, b = Vector(a), Vector(b)
+    delta = b - a
+    return cyl(part, name, (a + b) / 2, radius, delta.length, mat, delta)
+
+
+def torus(part, name, center, major, minor, mat, axisThree=(0, 1, 0)):
+    bpy.ops.mesh.primitive_torus_add(
+        major_radius=major,
+        minor_radius=minor,
+        major_segments=40,
+        minor_segments=8,
+        location=cv(center),
+    )
+    o = bpy.context.object
+    o.rotation_euler = cv(axisThree).to_track_quat("Z", "Y").to_euler()
+    for p in o.data.polygons:
+        p.use_smooth = True
+    return attach(o, part, name, mat)
+
+
+def sphere(part, name, center, scale, mat):
+    bpy.ops.mesh.primitive_uv_sphere_add(
+        segments=24, ring_count=12, radius=1, location=cv(center)
+    )
+    o = bpy.context.object
+    o.scale = (scale[0], scale[2], scale[1])
+    bpy.ops.object.transform_apply(location=False, rotation=False, scale=True)
+    for p in o.data.polygons:
+        p.use_smooth = True
+    return attach(o, part, name, mat)
+
+
+def bolt(part, name, center, radius, depth, mat, axisThree=(0, 1, 0)):
+    return cyl(part, name, center, radius, depth, mat, axisThree, 6)
+
+
+def helix(part, name, start, end, radius, turns, tube, mat):
+    a = Vector(start)
+    b = Vector(end)
+    axis = (b - a).normalized()
+    u = axis.cross(Vector((0, 0, 1)))
+    if u.length < 0.1:
+        u = axis.cross(Vector((1, 0, 0)))
+    u.normalize()
+    v = axis.cross(u)
+    points = []
+    for i in range(int(turns * 22) + 1):
+        t = i / (turns * 22)
+        theta = t * turns * 2 * math.pi
+        points.append(
+            a + (b - a) * t + (u * math.cos(theta) + v * math.sin(theta)) * radius
+        )
+    return pipe(part, name, points, tube, mat)
+
+
+# Four-corner mechanical suspension assemblies, all within the supplied wheel footprint.
+for axle, label in [(-1.58, "frontSuspension"), (1.416, "rearSuspension")]:
+    SECTION = label
+    part = "chassis"
+    for z in [-0.40, 0.40]:
+        box(
+            part,
+            "formed_subframe_rail",
+            (axle, 0.25, z),
+            (0.70, 0.095, 0.09),
+            "darksteel",
+            0.028,
+        )
+    for dx in [-0.27, 0.27]:
+        pipe(
+            part,
+            "subframe_crossmember",
+            [
+                (axle + dx, 0.26, -0.5),
+                (axle + dx * 0.75, 0.22, 0),
+                (axle + dx, 0.26, 0.5),
+            ],
+            0.045,
+            "darksteel",
+        )
+    for side in [-1, 1]:
+        hub = (axle, 0.38, side * 0.79)
+        for dx in [-0.25, 0.25]:
+            rod(
+                part,
+                "lower_wishbone",
+                (axle + dx, 0.24, side * 0.39),
+                (axle - 0.02, 0.28, side * 0.78),
+                0.034,
+                "aluminum",
+            )
+        rod(
+            part,
+            "wishbone_brace",
+            (axle - 0.25, 0.24, side * 0.39),
+            (axle + 0.25, 0.24, side * 0.39),
+            0.023,
+            "aluminum",
+        )
+        for dx in [-0.25, 0.25]:
+            cyl(
+                part,
+                "rubber_mount",
+                (axle + dx, 0.25, side * 0.39),
+                0.058,
+                0.095,
+                "rubber",
+                (1, 0, 0),
+            )
+            cyl(
+                part,
+                "mount_sleeve",
+                (axle + dx, 0.25, side * 0.39),
+                0.025,
+                0.105,
+                "silver",
+                (1, 0, 0),
+            )
+        for dx in [-0.18, 0.18]:
+            rod(
+                part,
+                "upper_link",
+                (axle + dx, 0.45, side * 0.40),
+                (axle + 0.01, 0.48, side * 0.77),
+                0.022,
+                "steel",
+            )
+        cyl(part, "bearing_carrier", hub, 0.113, 0.11, "cast", (0, 0, 1))
+        cyl(part, "hub_bore", hub, 0.055, 0.115, "darksteel", (0, 0, 1))
+        for angle in range(0, 360, 90):
+            a = math.radians(angle)
+            bolt(
+                part,
+                "carrier_fastener",
+                (axle + math.cos(a) * 0.079, 0.38 + math.sin(a) * 0.079, side * 0.858),
+                0.012,
+                0.015,
+                "silver",
+                (0, 0, 1),
+            )
+        bottom = (axle + 0.015, 0.41, side * 0.72)
+        top = (axle + 0.10, 1.005, side * 0.67)
+        rod(
+            part,
+            "damper_body",
+            bottom,
+            (axle + 0.06, 0.76, side * 0.695),
+            0.043,
+            "darksteel",
+        )
+        rod(
+            part,
+            "polished_damper_rod",
+            (axle + 0.06, 0.70, side * 0.70),
+            top,
+            0.022,
+            "silver",
+        )
+        helix(
+            part,
+            "coil_spring",
+            (axle + 0.055, 0.63, side * 0.70),
+            (axle + 0.095, 0.98, side * 0.673),
+            0.096,
+            6.4,
+            0.0125,
+            "darksteel",
+        )
+        axis = Vector(top) - Vector(bottom)
+        cyl(
+            part,
+            "spring_lower_seat",
+            (axle + 0.055, 0.61, side * 0.70),
+            0.12,
+            0.027,
+            "steel",
+            axis,
+        )
+        cyl(part, "upper_mount", top, 0.122, 0.038, "rubber", axis)
+        bolt(
+            part,
+            "top_nut",
+            (axle + 0.10, 1.035, side * 0.668),
+            0.024,
+            0.02,
+            "silver",
+            axis,
+        )
+        rod(
+            part,
+            "antiroll_drop_link",
+            (axle + 0.23, 0.29, side * 0.57),
+            (axle + 0.15, 0.60, side * 0.73),
+            0.012,
+            "steel",
+        )
+        # CV boot and halfshaft toward the differential; not a claimed manufacturer architecture.
+        rod(
+            part,
+            "halfshaft",
+            (axle, 0.36, side * 0.13),
+            (axle, 0.36, side * 0.72),
+            0.022,
+            "steel",
+        )
+        for depth in range(6):
+            torus(
+                part,
+                "cv_boot_rib",
+                (axle, 0.36, side * (0.61 + depth * 0.016)),
+                0.041 + depth * 0.0015,
+                0.005,
+                "rubber",
+                (0, 0, 1),
+            )
+    pipe(
+        part,
+        "antiroll_bar",
+        [
+            (axle + 0.24, 0.28, -0.66),
+            (axle + 0.33, 0.24, -0.4),
+            (axle + 0.33, 0.24, 0.4),
+            (axle + 0.24, 0.28, 0.66),
+        ],
+        0.017,
+        "steel",
+    )
+    sphere(part, "differential", (axle, 0.35, 0), (0.15, 0.13, 0.17), "cast")
+    if label == "frontSuspension":
+        SECTION = "steeringRack"
+        rod(
+            "steering",
+            "rack_housing",
+            (axle + 0.16, 0.33, -0.42),
+            (axle + 0.16, 0.33, 0.42),
+            0.039,
+            "aluminum",
+        )
+        for side in [-1, 1]:
+            rod(
+                "steering",
+                "tie_rod",
+                (axle + 0.16, 0.33, side * 0.4),
+                (axle + 0.11, 0.37, side * 0.8),
+                0.013,
+                "steel",
+            )
+            for index in range(8):
+                torus(
+                    "steering",
+                    "rack_boot",
+                    (axle + 0.16, 0.33, side * (0.40 + index * 0.013)),
+                    0.031,
+                    0.005,
+                    "rubber",
+                    (0, 0, 1),
+                )
+        cyl(
+            "steering",
+            "assist_motor",
+            (axle + 0.20, 0.39, 0.12),
+            0.07,
+            0.19,
+            "darksteel",
+            (1, 0, 0),
+        )
+
+SECTION = "tractionMotor"
+cyl(
+    "motorElectric",
+    "ribbed_motor_casing",
+    (-0.46, 0.59, 0),
+    0.196,
+    0.43,
+    "aluminum",
+    (1, 0, 0),
+    48,
+)
+for x in [-0.63, -0.58, -0.53, -0.48, -0.43, -0.38, -0.33, -0.28]:
+    torus("motorElectric", "cooling_rib", (x, 0.59, 0), 0.198, 0.007, "cast", (1, 0, 0))
+for x in [-0.69, -0.23]:
+    cyl("motorElectric", "end_cap", (x, 0.59, 0), 0.205, 0.024, "cast", (1, 0, 0), 48)
+    for index in range(8):
+        a = index * math.pi / 4
+        bolt(
+            "motorElectric",
+            "motor_through_bolt",
+            (x, 0.59 + math.sin(a) * 0.173, math.cos(a) * 0.173),
+            0.011,
+            0.026,
+            "silver",
+            (1, 0, 0),
+        )
+cyl("motorElectric", "output_shaft", (-0.16, 0.59, 0), 0.051, 0.14, "steel", (1, 0, 0))
+# A short winding band expresses the electric-machine example without a fake transparent housing.
+for i in range(18):
+    a = math.pi * 2 * i / 18
+    sphere(
+        "motorElectric",
+        "winding_end",
+        (-0.235, 0.59 + math.cos(a) * 0.146, math.sin(a) * 0.146),
+        (0.025, 0.023, 0.023),
+        "copper",
+    )
+SECTION = "inverter"
+box(
+    "motorElectric",
+    "inverter_body",
+    (-0.43, 0.855, 0.05),
+    (0.42, 0.14, 0.43),
+    "aluminum",
+    0.025,
+)
+for z in [-0.15, -0.10, -0.05, 0, 0.05, 0.10, 0.15]:
+    box(
+        "motorElectric",
+        "inverter_top_rib",
+        (-0.43, 0.934, 0.05 + z),
+        (0.35, 0.012, 0.008),
+        "cast",
+        0.003,
+    )
+for x in [-0.59, -0.27]:
+    for z in [-0.11, 0.21]:
+        bolt("motorElectric", "inverter_lid_bolt", (x, 0.94, z), 0.009, 0.014, "silver")
+for z in [-0.10, 0.10]:
+    cyl(
+        "motorElectric",
+        "hv_socket",
+        (-0.43, 0.84, 0.285 + z * 0.10),
+        0.031,
+        0.07,
+        "orange",
+        (0, 0, 1),
+    )
+    pipe(
+        "motorElectric",
+        "orange_hv_cable",
+        [
+            (-0.43, 0.84, 0.29 + z * 0.10),
+            (-0.18, 0.63, 0.41 + z),
+            (0, 0.40, 0.49 + z),
+            (0.45, 0.36, 0.48 + z),
+        ],
+        0.018,
+        "orange",
+    )
+
+SECTION = "tractionBattery"
+box(
+    "batteryHV",
+    "cast_lower_tray",
+    (0.34, 0.26, 0),
+    (1.95, 0.16, 1.23),
+    "aluminum",
+    0.042,
+)
+box(
+    "batteryHV", "perimeter_seal", (0.34, 0.35, 0), (2.01, 0.025, 1.27), "rubber", 0.035
+)
+# Open module bank, visible in the exploded technical view.
+for row in range(2):
+    for column in range(5):
+        x = -0.41 + column * 0.37
+        z = -0.31 + row * 0.61
+        box(
+            "batteryHV",
+            "cell_module",
+            (x, 0.405, z),
+            (0.33, 0.12, 0.53),
+            "darksteel",
+            0.016,
+        )
+        for fin in [-0.21, -0.14, -0.07, 0, 0.07, 0.14, 0.21]:
+            box(
+                "batteryHV",
+                "module_cooling_fin",
+                (x, 0.405, z + fin),
+                (0.338, 0.085, 0.009),
+                "cast",
+                0.003,
+            )
+        box(
+            "batteryHV",
+            "busbar_terminal",
+            (x + 0.11, 0.475, z + 0.20),
+            (0.04, 0.012, 0.05),
+            "copper",
+            0.003,
+        )
+for x in [-0.66, 1.34]:
+    for z in [-0.61, 0.61]:
+        box(
+            "batteryHV",
+            "mount_tab",
+            (x, 0.27, z),
+            (0.12, 0.035, 0.18),
+            "aluminum",
+            0.015,
+        )
+        bolt("batteryHV", "tray_fixing", (x, 0.295, z), 0.015, 0.025, "steel")
+for x in [-0.60, -0.25, 0.1, 0.45, 0.8, 1.20]:
+    for z in [-0.64, 0.64]:
+        bolt("batteryHV", "tray_perimeter_bolt", (x, 0.355, z), 0.009, 0.016, "silver")
+SECTION = "batteryCover"
+box("batteryHV", "stamped_lid", (0.34, 0.53, 0), (2.01, 0.035, 1.27), "aluminum", 0.028)
+for x in [-0.37, 0.02, 0.41, 0.8, 1.19]:
+    box("batteryHV", "lid_pressing", (x, 0.553, 0), (0.03, 0.015, 1.05), "cast", 0.007)
+for z in [-0.53, 0.53]:
+    box(
+        "batteryHV",
+        "lid_long_rib",
+        (0.34, 0.554, z),
+        (1.78, 0.015, 0.027),
+        "cast",
+        0.007,
+    )
+box(
+    "batteryHV",
+    "hv_disconnect",
+    (0.91, 0.58, 0.44),
+    (0.15, 0.06, 0.11),
+    "orange",
+    0.012,
+)
+
+SECTION = "radiator"
+box(
+    "cooling",
+    "radiator_core",
+    (-2.045, 0.76, 0),
+    (0.065, 0.49, 1.17),
+    "darksteel",
+    0.012,
+)
+for y in range(27):
+    box(
+        "cooling",
+        "radiator_fin",
+        (-2.085, 0.53 + y * 0.018, 0),
+        (0.018, 0.006, 1.12),
+        "aluminum",
+        0.002,
+    )
+for z in [-0.63, 0.63]:
+    box("cooling", "side_tank", (-2.04, 0.76, z), (0.09, 0.55, 0.09), "plastic", 0.018)
+for z in [-0.31, 0.31]:
+    torus("cooling", "fan_shroud", (-1.97, 0.76, z), 0.23, 0.021, "plastic", (1, 0, 0))
+    cyl("cooling", "fan_hub", (-1.96, 0.76, z), 0.054, 0.075, "plastic", (1, 0, 0))
+    for blade in range(7):
+        a = blade * math.pi * 2 / 7
+        pipe(
+            "cooling",
+            "fan_blade",
+            [
+                (-1.955, 0.76, z),
+                (-1.94, 0.76 + math.cos(a + 0.1) * 0.11, z + math.sin(a + 0.1) * 0.11),
+                (
+                    -1.935,
+                    0.76 + math.cos(a + 0.35) * 0.205,
+                    z + math.sin(a + 0.35) * 0.205,
+                ),
+            ],
+            0.026,
+            "plastic",
+        )
+pipe(
+    "cooling",
+    "upper_coolant_hose",
+    [(-2.02, 0.99, 0.56), (-1.81, 1.04, 0.54), (-1.55, 0.98, 0.38)],
+    0.028,
+    "rubber",
+)
+pipe(
+    "cooling",
+    "lower_coolant_hose",
+    [(-2.02, 0.54, -0.56), (-1.75, 0.49, -0.49), (-1.43, 0.57, -0.37)],
+    0.025,
+    "rubber",
+)
+SECTION = "coolantReservoir"
+sphere("cooling", "expansion_tank", (-1.22, 0.98, -0.60), (0.16, 0.14, 0.13), "ivory")
+cyl("cooling", "reservoir_cap", (-1.22, 1.12, -0.60), 0.062, 0.029, "plastic")
+
+SECTION = "exhaust"
+pipe(
+    "exhaust",
+    "stainless_exhaust_run",
+    [
+        (-1.35, 0.70, 0.39),
+        (-1.04, 0.42, 0.37),
+        (-0.55, 0.22, 0.38),
+        (0.4, 0.20, 0.44),
+        (1.35, 0.21, 0.48),
+        (2.21, 0.27, 0.53),
+    ],
+    0.034,
+    "silver",
+)
+for x, depth, radius in [(-0.59, 0.38, 0.095), (1.46, 0.55, 0.12)]:
+    cyl(
+        "exhaust",
+        "catalyst_or_muffler",
+        (x, 0.23, 0.43),
+        radius,
+        depth,
+        "steel",
+        (1, 0, 0),
+        40,
+    )
+    for dx in [-depth * 0.48, depth * 0.48]:
+        torus(
+            "exhaust",
+            "rolled_case_seam",
+            (x + dx, 0.23, 0.43),
+            radius,
+            0.005,
+            "silver",
+            (1, 0, 0),
+        )
+rod("exhaust", "oxygen_sensor", (-0.8, 0.28, 0.43), (-0.8, 0.36, 0.43), 0.016, "steel")
+pipe(
+    "exhaust",
+    "sensor_lead",
+    [(-0.8, 0.36, 0.43), (-0.74, 0.42, 0.53), (-0.67, 0.48, 0.56)],
+    0.006,
+    "plastic",
+)
+for x in [0.1, 1.9]:
+    pipe(
+        "exhaust",
+        "isolated_exhaust_hanger",
+        [(x, 0.21, 0.43), (x, 0.30, 0.54), (x, 0.30, 0.65)],
+        0.012,
+        "steel",
+    )
+
+SECTION = "fuelTank"
+box(
+    "tank",
+    "moulded_fuel_tank",
+    (1.06, 0.36, -0.22),
+    (0.68, 0.26, 0.82),
+    "plastic",
+    0.09,
+)
+for x in [0.81, 1.3]:
+    box(
+        "tank",
+        "retaining_strap",
+        (x, 0.22, -0.22),
+        (0.055, 0.035, 0.86),
+        "steel",
+        0.014,
+    )
+cyl("tank", "pump_access", (1.04, 0.51, -0.22), 0.12, 0.028, "cast")
+for i in range(6):
+    a = i * math.pi / 3
+    bolt(
+        "tank",
+        "access_fastener",
+        (1.04 + math.cos(a) * 0.09, 0.532, -0.22 + math.sin(a) * 0.09),
+        0.009,
+        0.013,
+        "silver",
+    )
+pipe(
+    "tank",
+    "filler_neck",
+    [(1.32, 0.43, -0.53), (1.64, 0.58, -0.65), (1.75, 0.91, -0.77)],
+    0.035,
+    "plastic",
+)
+cyl("tank", "fuel_cap", (1.75, 0.92, -0.77), 0.055, 0.028, "plastic", (0, 0, 1))
+
+SECTION = "auxiliaryBattery"
+box(
+    "battery12v",
+    "battery_case",
+    (-1.25, 0.86, 0.62),
+    (0.28, 0.28, 0.25),
+    "plastic",
+    0.02,
+)
+box(
+    "battery12v",
+    "battery_top",
+    (-1.25, 1.01, 0.62),
+    (0.29, 0.035, 0.26),
+    "darksteel",
+    0.013,
+)
+for x in [-1.34, -1.16]:
+    cyl("battery12v", "terminal", (x, 1.04, 0.62), 0.018, 0.04, "silver")
+    box(
+        "battery12v",
+        "terminal_cover",
+        (x, 1.062, 0.62),
+        (0.045, 0.026, 0.045),
+        "red" if x < -1.2 else "plastic",
+        0.006,
+    )
+for x in [-1.36, -1.30, -1.24, -1.18]:
+    box(
+        "battery12v",
+        "moulded_rib",
+        (x, 0.85, 0.755),
+        (0.015, 0.23, 0.01),
+        "cast",
+        0.003,
+    )
+pipe(
+    "battery12v",
+    "positive_lead",
+    [(-1.34, 1.06, 0.62), (-1.48, 1.05, 0.71), (-1.64, 0.88, 0.66)],
+    0.009,
+    "red",
+)
+pipe(
+    "battery12v",
+    "ground_lead",
+    [(-1.16, 1.06, 0.62), (-1.07, 1.01, 0.70), (-0.98, 0.80, 0.66)],
+    0.009,
+    "plastic",
+)
+
+SECTION = "brakeHydraulics"
+cyl(
+    "brakeFluid",
+    "vacuum_booster",
+    (-0.73, 0.88, 0.57),
+    0.13,
+    0.10,
+    "plastic",
+    (1, 0, 0),
+)
+cyl(
+    "brakeFluid", "master_cylinder", (-0.84, 0.88, 0.57), 0.035, 0.19, "cast", (1, 0, 0)
+)
+box(
+    "brakeFluid",
+    "fluid_reservoir",
+    (-0.86, 1.01, 0.57),
+    (0.17, 0.15, 0.16),
+    "ivory",
+    0.035,
+)
+cyl("brakeFluid", "reservoir_cap", (-0.85, 1.10, 0.57), 0.052, 0.025, "plastic")
+for z in [0.53, 0.61]:
+    pipe(
+        "brakeFluid",
+        "hard_brake_line",
+        [(-0.91, 0.88, z), (-0.98, 0.72, z), (-1.24, 0.34, z)],
+        0.005,
+        "silver",
+    )
+
+SECTION = "OBDAndHarness"
+box(
+    "electronics",
+    "ECU_housing",
+    (-0.88, 0.91, -0.58),
+    (0.23, 0.055, 0.15),
+    "aluminum",
+    0.009,
+)
+for z in [-0.63, -0.57, -0.51]:
+    box("electronics", "ECU_rib", (-0.88, 0.943, z), (0.2, 0.008, 0.008), "cast", 0.002)
+for x in [-0.96, -0.84]:
+    box(
+        "electronics",
+        "connector",
+        (x, 0.90, -0.68),
+        (0.06, 0.045, 0.07),
+        "plastic",
+        0.004,
+    )
+pipe(
+    "electronics",
+    "engine_harness",
+    [(-0.9, 0.91, -0.70), (-1.18, 1.02, -0.48), (-1.59, 1.03, -0.40)],
+    0.016,
+    "plastic",
+)
+box(
+    "electronics",
+    "OBD_diagnostic_socket",
+    (-0.68, 1.04, 0.40),
+    (0.055, 0.025, 0.08),
+    "plastic",
+    0.004,
+)
+
+SECTION = "airbagModule"
+cyl(
+    "airbag",
+    "folded_airbag_carrier",
+    (-0.37, 1.095, 0.398),
+    0.070,
+    0.032,
+    "aluminum",
+    (1, 0, 0),
+)
+box(
+    "airbag",
+    "retention_module_cover",
+    (-0.345, 1.095, 0.398),
+    (0.025, 0.125, 0.13),
+    "plastic",
+    0.022,
+)
+for y in [1.045, 1.145]:
+    bolt(
+        "airbag", "module_fixing", (-0.385, y, 0.398), 0.008, 0.016, "steel", (1, 0, 0)
+    )
+box(
+    "airbag",
+    "squib_connector",
+    (-0.405, 1.06, 0.398),
+    (0.025, 0.025, 0.035),
+    "yellow",
+    0.004,
+)
+
+# Engine authored separately for parallel modelling, using the same helpers and materials.
+SECTION = "engineExample"
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from engine_geometry import build_engine
+
+build_engine(
+    dict(box=box, cyl=cyl, pipe=pipe, torus=torus, sphere=sphere, bolt=bolt, rod=rod)
+)
+
+# Consolidate by part/section/material to keep the web renderer fast while preserving semantic sections.
+clusters = {}
+for o in OBJECTS:
+    clusters.setdefault(
+        (o["partId"], o["section"], o.data.materials[0].name), []
+    ).append(o)
+for key, items in clusters.items():
+    bpy.ops.object.select_all(action="DESELECT")
+    for o in items:
+        o.select_set(True)
+    bpy.context.view_layer.objects.active = items[0]
+    if len(items) > 1:
+        bpy.ops.object.join()
+    o = bpy.context.object
+    o.name = "__".join(key)
+    o["partId"] = key[0]
+    o["section"] = key[1]
+    o["mechanicalExample"] = True
+bpy.ops.object.select_all(action="SELECT")
+bpy.ops.export_scene.gltf(
+    filepath=str(OUT / "mechanical-supplement.glb"),
+    export_format="GLB",
+    use_selection=True,
+    export_extras=True,
+    export_yup=True,
+    export_normals=True,
+    export_materials="EXPORT",
+    export_animations=False,
+)
+# Derive bounds in target Three.js Y-up coordinates.
+bounds = {}
+for o in bpy.context.scene.objects:
+    if o.type != "MESH":
+        continue
+    pts = [o.matrix_world @ Vector(corner) for corner in o.bound_box]
+    p = o["partId"]
+    row = bounds.setdefault(p, {"min": [1e9] * 3, "max": [-1e9] * 3})
+    for v in pts:
+        values = [v.x, v.z, -v.y]
+        for axis in range(3):
+            row["min"][axis] = min(row["min"][axis], values[axis])
+            row["max"][axis] = max(row["max"][axis], values[axis])
+(OUT / "bounds.json").write_text(json.dumps(bounds, indent=2))
+refs = [
+    "assets/motor.webp",
+    "assets/chassi.webp",
+    "assets/bateria.webp",
+    "assets/escapamento.webp",
+    "assets/tanque.webp",
+    "assets/vehicle-vector/previews/vehicle.webp",
+]
+repo = pathlib.Path(__file__).resolve().parents[2]
+provenance = {
+    "title": "Generic didactic hybrid mechanical systems",
+    "creator": "Project-authored 3D illustration",
+    "license": "Project-authored illustration; original 2D references retained under their existing provenance",
+    "notice": "Generic educational mechanical example based on the existing 2D boards. It does not describe actual BMW X5 internal architecture, dimensions, required tests or regulatory conformity.",
+    "coordinateSystem": "Three.js Y up, front negative X, visual proportional scale",
+    "parts": sorted(bounds),
+    "bounds": bounds,
+    "referenceImages": [
+        {"path": p, "sha256": hashlib.sha256((repo / p).read_bytes()).hexdigest()}
+        for p in refs
+    ],
+    "method": "Authored Blender geometry; beveled cast parts, tubular manifolds, coil springs, modular battery and hybrid drive; no external 3D asset.",
+    "sourceScript": "build_mechanics.py and engine_geometry.py",
+}
+(OUT / "provenance.json").write_text(json.dumps(provenance, indent=2))
+bpy.ops.wm.save_as_mainfile(filepath=str(OUT / "mechanical-supplement.blend"))
+# Thumbnail: the complete mechanical base under a neutral studio light.
+scene = bpy.context.scene
+scene.render.engine = "CYCLES"
+scene.cycles.samples = 12
+scene.cycles.use_denoising = False
+world = bpy.data.worlds.new("Studio")
+world.use_nodes = True
+world.node_tree.nodes["Background"].inputs[0].default_value = (0.2, 0.23, 0.26, 1)
+world.node_tree.nodes["Background"].inputs[1].default_value = 0.7
+scene.world = world
+bpy.ops.mesh.primitive_plane_add(size=200, location=(0, 0, 0.04))
+floor = bpy.context.object
+floor.name = "StudioFloor"
+floor.data.materials.append(MATS["rubber"])
+
+
+def area(loc, power, size, color):
+    bpy.ops.object.light_add(type="AREA", location=loc)
+    o = bpy.context.object
+    o.data.energy = power
+    o.data.shape = "DISK"
+    o.data.size = size
+    o.data.color = color
+    o.rotation_euler = (
+        (Vector((0, 0, 0.6)) - o.location).to_track_quat("-Z", "Y").to_euler()
+    )
+
+
+area((-3, -4, 6), 1300, 5, (1, 0.94, 0.86))
+area((3, 3, 4), 1500, 4, (0.82, 0.91, 1))
+area((-4, 4, 2.8), 800, 4, (1, 1, 1))
+bpy.ops.object.camera_add(location=(-5.2, -5.5, 4))
+cam = bpy.context.object
+cam.rotation_euler = (
+    (Vector((-0.1, 0, 0.5)) - cam.location).to_track_quat("-Z", "Y").to_euler()
+)
+cam.data.lens = 55
+scene.camera = cam
+scene.render.resolution_x = 1200
+scene.render.resolution_y = 800
+scene.render.resolution_percentage = 100
+scene.render.image_settings.file_format = "PNG"
+scene.render.filepath = str(OUT / "mechanical-preview.png")
+scene.view_settings.view_transform = "AgX"
+bpy.ops.render.render(write_still=True)
+print("MECHANICS_DONE", flush=True)

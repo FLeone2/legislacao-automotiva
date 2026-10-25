@@ -2,9 +2,46 @@
 
 Portal consultivo de legislação automotiva, com navegação visual, referências oficiais e limites de revisão por registro.
 
-Site: https://legislacao-automotiva.pages.dev/#vehicle. A implementação da auditoria de
-19/10/2026 está documentada em [matriz de melhorias e evidências](docs/audit-implementation-2026-10-19.md).
-Esse documento distingue implementação, validação de release e pesquisa ainda pendente.
+Site: https://legislacao-automotiva.pages.dev/#guide. O guia de projeto é a entrada
+principal; a consulta pelo desenho original continua em `/#vehicle`.
+O [checkup regulatório de 25/10/2026](docs/guide/checkup-regulatorio.md) registra
+as correções, a profundidade do acervo e as pendências. A auditoria anterior está
+na [matriz de melhorias e evidências](docs/audit-implementation-2026-10-19.md).
+
+## Ambiente de projeto e guia profissional
+
+Abra `/#guide` (também é a entrada padrão). O ambiente usa uma composição minimalista
+inspirada nas referências de design Apple, conserva os temas Obsidian, Claro e
+Aurora e acrescenta:
+
+- Seleção 3D real, por Three.js, sincronizada à árvore e ao inspetor de referências. SUV de referência BMW X5 G05 oficial, sob CC BY 4.0, com geometria e materiais PBR reais em GLB. Vinte e um conjuntos 3D e 33 identificações de subsistemas (30 originais + três complementares) retomam as imagens originais. Um suplemento didático acrescenta motor/transmissão, suspensão dianteira e traseira, motor elétrico/inversor e bateria HV. Ônibus, caminhão, motociclo e reboque conservam modelos esquemáticos; nenhuma vista substitui CAD. O desenho original e seus 37 contornos continuam em `/#vehicle`.
+- Perfil técnico com categoria, propulsão, origem, finalidade, massas, lotação, uso e radiofrequência. LP/LC não são inferidos apenas de M1/N1. Dados ausentes geram pendências; BEV não recebe dispensa ambiental automática.
+- Roteiro em React Flow, checklists por perfil e matriz consultiva de relatórios por categoria/uso. Verificações condicionais não significam obrigação já confirmada. M2 por PBT, M3 urbano/escolar e L têm particularidades próprias.
+- Registro local de status, notas e referência de evidência; exportação Markdown e backup/importação JSON. Não há conta, sincronização entre dispositivos, upload de laudos ou protocolo nos sistemas oficiais. URLs de processos locais precisam do backup no navegador de destino.
+- Mudanças no perfil devolvem verificações a pendentes para revalidação e preservam notas/evidências. O limite de 50 processos não remove processos antigos silenciosamente. Dados locais ilegíveis são preservados em chave de recuperação antes de substituição.
+- [Guia de emissões](docs/guide/emissoes.md), [segurança e SISCAT](docs/guide/seguranca-siscat.md), [órgãos e peças](docs/guide/orgaos-e-componentes.md), [base normativa](docs/guide/banco-normativo.md) e [brief de manutenção](docs/guide/brief-de-manutencao.md).
+
+Veja também [a origem do SUV e a cadeia de rastreabilidade](docs/guide/modelo-suv-e-rastreabilidade.md). A seleção mostra vínculos específicos do conjunto e contexto do veículo, dispositivos, âmbito, fontes e limites; o perfil técnico permanece independente do modelo visual.
+
+A base `data/process/knowledge-index.json` reúne as fontes da revisão dirigida e os atos canônicos já publicados com seus estados separados. Gerar com `python scripts/build_guide_database.py`; `--check` confere determinismo e `--sqlite /tmp/base.sqlite` produz uma cópia SQLite local opcional. Novas fontes não são automaticamente promovidas a atos vigentes ou a requisitos confirmados.
+
+O site continua estático. A ilha React do guia carrega sob demanda, com dependências fixadas e empacotadas localmente em `assets/guide`; nenhuma CDN é necessária. `npm run build:guide` recompila a ilha; `npm run build` recompila também o artefato Cloudflare. `postinstall` conserva a publicação estática comprometida. A suíte `tests/guide-browser.py`, descoberta por `npm run test:browser`, verifica fluxo, 3D/árvore, teclado, persistência, backups, celular e axe.
+
+As skills Anatomy, React Flow, Impeccable e webapp-testing não estavam instaladas na sessão. Foram utilizados React Flow e Three.js como bibliotecas, o sistema visual Impeccable já versionado, a skill normativa local e Playwright/axe nas verificações. O guia não é uma certificação de completude jurídica para todo veículo: métodos privados, cadeias integrais e particularidades não revisadas permanecem pendentes.
+
+### Subsistemas e referências 2D do modelo atual
+
+A árvore do guia abre em **Subsistemas** e conserva os 30 IDs e títulos físicos do catálogo anterior. Arrefecimento, bateria auxiliar e powertrain híbrido são complementos identificados separadamente. O modo **Conjuntos 3D** mantém a seleção direta por malha. Endereços preservam `subsystem`, `part` e `tree`; todos os itens têm legenda ancorada e correspondência com geometria real carregada.
+
+A vista explodida usa faixas de apresentação por conjunto e enquadramento dos volumes visíveis. **Focar conjunto** isola a seleção (ou os três ramos do exemplo híbrido), permitindo examinar detalhes. As quatro pranchas em `assets/models/suv/reference-views` são exportações WebGL do próprio modelo atual, com metadados e hashes. O suplemento mecânico é ilustrativo, não o CAD interno do BMW nem uma especificação para homologação.
+
+Veja [cobertura, exemplos mecânicos e vista explodida](docs/guide/subsistemas-e-explosao.md). A geração das pranchas é deliberada com `python scripts/capture_reference_boards.py`; não é executada na CI nem altera as imagens originais. Os geradores autorais dos componentes ficam em `scripts/models`.
+
+As miniaturas do painel de rastreabilidade são renderizações dos conjuntos 3D
+atuais. Consulte [geração e proveniência](docs/guide/miniaturas-3d.md) e a
+[direção visual e referências de frontend](docs/guide/frontend-apple-e-skills.md).
+Um conjunto relacionado ou ilustrativo conserva sua legenda; sua imagem não
+comprova a aplicabilidade de uma referência normativa.
 
 ## Consulta ativa CONTRAN e PROCONVE
 
@@ -550,7 +587,8 @@ O redesenho não altera legislação, estados de revisão ou dados editoriais.
 
 O produto agrega referências e direciona às fontes oficiais. Os vínculos entre
 sistemas, subsistemas, etapas e documentos são temáticos; não constituem avaliação
-automática de aplicabilidade nem um checklist operacional de homologação.
+automática de aplicabilidade. O novo guia gera um checklist de trabalho condicional;
+a conclusão por requisito e a comprovação perante o órgão continuam dependentes da revisão técnica.
 
 A biblioteca preserva no endereço os filtros `q`, `agency`, `component`, `stage`
 e `review`, além da página de resultados (`page`). A listagem apresenta até 30
@@ -713,3 +751,11 @@ O [retorno do reteste, em 20/10/2026](docs/retest-implementation-2026-10-20.md)
 registra a correção da síntese de licença e embarque da IN 6/2025, das notas
 repetidas e dos IDs de requisitos nas exportações. LCVM, plano ambiental e PBEV
 mantêm os limites de revisão; o portal continua consultivo.
+
+### Auditoria e base para IA
+
+A aba **Cobertura regulatória** separa cadastro, trechos normativos, orientações, revisão e pendências. O diagnóstico é reproduzível com `python scripts/build_regulatory_coverage.py` e não certifica cobertura universal.
+
+`npm run build:data` também gera `knowledge/`: Markdown por ato/fonte, JSONL, relações e candidatos separados. `npm run check:knowledge` verifica os artefatos. Crie um SQLite FTS5 com `python scripts/build_regulatory_knowledge.py --sqlite /tmp/homologacao.sqlite` e consulte com `python scripts/query_regulatory_knowledge.py --database /tmp/homologacao.sqlite --query "LCM PROMOT"`. Os detalhes de arquitetura, fontes e atualização estão em `docs/guide/arquitetura-base-regulatoria.md` e `docs/guide/atualizacoes-e-operacao.md`.
+
+O monitor diário observa fontes/índices e mantém fila de revisão; sua agenda só passa a executar após o workflow integrar o ramo padrão. A revisão humana dos efeitos e da aplicabilidade continua separada da coleta. Conclusões de processos salvos em outra versão da base são sinalizadas para nova conferência, com notas e referências preservadas.

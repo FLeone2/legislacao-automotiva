@@ -4,21 +4,32 @@
   "version": "0.1.0",
   "scripts": {
     "postinstall": "python scripts/build_static.py",
-    "format": "prettier --write '**/*.{js,cjs,css,html,yml}' && python -m ruff format scripts tests",
-    "format:check": "prettier --check '**/*.{js,cjs,css,html,yml}' && python -m ruff format --check scripts tests",
-    "build:data": "python scripts/build_active_catalogs.py && python scripts/build_proconve_map.py && python scripts/build_certification_maps.py && python scripts/build_site_data.py && python scripts/build_technical_standards.py && python scripts/build_vehicle_legislation.py",
+    "format": "prettier --write '**/*.{js,jsx,mjs,cjs,css,html,yml}' && python -m ruff format scripts tests",
+    "format:check": "prettier --check '**/*.{js,jsx,mjs,cjs,css,html,yml}' && python -m ruff format --check scripts tests",
+    "build:data": "python scripts/build_active_catalogs.py && python scripts/build_proconve_map.py && python scripts/build_certification_maps.py && python scripts/build_site_data.py && python scripts/build_technical_standards.py && python scripts/build_vehicle_legislation.py && python scripts/build_guide_database.py && python scripts/build_regulatory_knowledge.py && python scripts/build_regulatory_coverage.py",
     "build:vehicle": "python scripts/import_vehicle_vector.py",
     "check": "python scripts/check_project.py && python scripts/render_vehicle_previews.py --check",
     "test": "node --test tests/*.test.cjs && python scripts/run_checks.py unit",
     "test:browser": "python scripts/run_checks.py browser",
     "test:visual": "python tests/visual-regression.py",
     "test:a11y": "python tests/accessibility-browser.py",
-    "build": "python scripts/build_static.py",
+    "build": "npm run build:guide && python scripts/build_static.py",
     "build:vehicle-map": "python scripts/build_vehicle_legislation.py",
-    "build:vehicle-previews": "python scripts/render_vehicle_previews.py"
+    "build:vehicle-previews": "python scripts/render_vehicle_previews.py",
+    "build:guide": "node scripts/build-guide.mjs",
+    "build:knowledge": "python scripts/build_regulatory_knowledge.py",
+    "check:knowledge": "python scripts/build_regulatory_knowledge.py --check && python scripts/build_regulatory_coverage.py --check",
+    "monitor:regulations": "python scripts/check_regulatory_updates.py --include-catalog"
   },
   "devDependencies": {
     "axe-core": "4.11.1",
+    "esbuild": "0.25.11",
     "prettier": "3.8.5"
+  },
+  "dependencies": {
+    "@xyflow/react": "12.9.3",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "three": "0.180.0"
   }
 }

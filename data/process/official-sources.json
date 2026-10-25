@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-25",
+  "scope": "emissions",
+  "note": "Registro de fontes para triagem e planejamento. checkedAt não certifica vigência integral ou aplicabilidade. Evidências arquivadas conservam sua data original.",
+  "records": [
+    {
+      "id": "conama-492-2018",
+      "agency": "CONAMA / IBAMA",
+      "title": "Resolução CONAMA 492/2018 — L7, L8 e classificação LP/LC",
+      "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_act_targeted_review",
+      "scope": "Arts. 4º a 7º, 35 e 36: nível L8, híbridos, emissão zero e classificação ambiental a partir de L7. Anexo distingue níveis e metas corporativas por categoria.",
+      "limitations": "Leitura dirigida do PDF oficial; não certifica consolidação integral de alterações nem métodos privados ABNT. Não equiparar LP/LC a M1/N1.",
+      "device": "Arts. 4º–7º, 35–36 e Anexo",
+      "checkOutcome": "readable",
+      "archive": {
+        "path": "data/proconve/sources/evidence.json.gz",
+        "sourceKey": "conama492",
+        "retrievedAt": "2026-10-18",
+        "sha256": "6145893406a02142fc3f7d78ec4cd188e6669e35dcfe903f8ebb05107ff088e2"
+      },
+      "retrieval": {
+        "checkedAt": "2026-10-25",
+        "httpStatus": 200,
+        "sha256": "6145893406a02142fc3f7d78ec4cd188e6669e35dcfe903f8ebb05107ff088e2",
+        "bytes": 267802,
+        "meaning": "Acesso atual e hash do documento; não comprova revisão integral ou consolidação.",
+        "sameHashAsArchivedDocument": true
+      }
+    },
+    {
+      "id": "conama-490-2018",
+      "agency": "CONAMA / IBAMA",
+      "title": "Resolução CONAMA 490/2018 — PROCONVE P8",
+      "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=767",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_act_targeted_review",
+      "scope": "Veículos pesados novos rodoviários; cronograma, durabilidade e procedimentos próprios. Art. 23: alternativa P8 para LC com 3,500 < PBT < 3,856 t, motor derivado de mestre pesado e justificativa/autorização prévia do Ibama.",
+      "limitations": "Não transferir requisitos P8 para leves L8. Veículo especial depende de decisão justificada do Ibama. Revisão integral da cadeia e método de ensaio pendentes.",
+      "device": "Arts. 1º, 6º–8º e 23",
+      "checkOutcome": "readable",
+      "archive": {
+        "path": "data/proconve/sources/evidence.json.gz",
+        "sourceKey": "conama490",
+        "retrievedAt": "2026-10-18",
+        "sha256": "8166b042a05234fa7f968aa281addc2be33c9dee6525b755852523c523dc0a7d"
+      },
+      "retrieval": {
+        "checkedAt": "2026-10-25",
+        "httpStatus": 200,
+        "sha256": "8166b042a05234fa7f968aa281addc2be33c9dee6525b755852523c523dc0a7d",
+        "bytes": 606152,
+        "meaning": "Acesso atual e hash do documento; não comprova revisão integral ou consolidação.",
+        "sameHashAsArchivedDocument": true
+      }
+    },
+    {
+      "id": "conama-493-2019",
+      "agency": "CONAMA / IBAMA",
+      "title": "Resolução CONAMA 493/2019 — PROMOT M5",
+      "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=785",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_act_targeted_review",
+      "scope": "Motociclos, ciclomotores, triciclos e quadriciclos: fase M5 para novos modelos desde 2023 e todos os modelos desde 2025 (art. 1º). O art. 10 separa OBD-M2 para novos modelos desde 2025 e todos desde 2027; §5º impede novas homologações com OBD-M1 desde 2025.",
+      "limitations": "Leitura dirigida dos dispositivos indicados no PDF oficial. Não incorpora automaticamente o ato ao acervo ativo L8/P8 nem certifica a cadeia completa. IN 21/2022, IN 10/2024 e retificações precisam de revisão própria; métodos e particularidades por subcategoria permanecem pendentes.",
+      "device": "Arts. 1º–10, especialmente art. 10 §§4º–6º",
+      "checkOutcome": "readable",
+      "retrieval": {
+        "checkedAt": "2026-10-25",
+        "httpStatus": 200,
+        "sha256": "3db3278d3654a2fd5137c6a24ae495e2c99b9719136f750d4e45c54c334c0cf9",
+        "bytes": 242359,
+        "meaning": "Acesso atual e hash do documento; não comprova revisão integral ou consolidação."
+      }
+    },
+    {
+      "id": "ibama-lcvm-service",
+      "agency": "IBAMA",
+      "title": "Serviço oficial LCVM — veículos, motores e máquinas",
+      "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-para-veiculos-motores-ou-maquinas-lcvm-proconve",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_guidance",
+      "scope": "Infoserv 2 para leves/pesados; modalidades de quantidade; documentos e cadastro conforme sujeito; pedido de dispensa depende da hipótese.",
+      "limitations": "Orientação de serviço atualizada em 24/08/2026, não checklist integral nem consolidação das portarias. Página antiga LCVM/LCM tem canais e volumes diferentes. Não conceder dispensa automática a BEV nem simplificação só pelo volume.",
+      "device": "Quem deve solicitar; requisitos; como solicitar; dispensa; observações",
+      "checkOutcome": "readable",
+      "retrieval": {
+        "checkedAt": "2026-10-25",
+        "httpStatus": 200,
+        "sha256": "b587065f2a97ca89e0e3ed77b276366f7d59ab6c140023e1c17b3628e6a4abea",
+        "bytes": 288875,
+        "meaning": "Acesso atual e hash do documento; não comprova revisão integral ou consolidação."
+      }
+    },
+    {
+      "id": "ibama-lcm-service",
+      "agency": "IBAMA",
+      "title": "Serviço oficial LCM — ciclomotores, motociclos e similares",
+      "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-para-ciclomotores-motociclos-e-similares-lcm-promot",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_guidance",
+      "scope": "LCM / PROMOT, acesso via Infoserv e modalidades limitadas ou ilimitadas, com pedido específico de dispensa.",
+      "limitations": "Orientação de serviço, não relação integral de ensaios. Não usar o formulário LCVM leves como se fosse LCM.",
+      "device": "Como solicitar a LCM; casos dispensados",
+      "checkOutcome": "readable",
+      "retrieval": {
+        "checkedAt": "2026-10-25",
+        "httpStatus": 200,
+        "sha256": "5fee1fddd47f9e5ae60ae602d4439449a499309ba0c129e844fea1ae90294e2d",
+        "bytes": 285394,
+        "meaning": "Acesso atual e hash do documento; não comprova revisão integral ou consolidação."
+      }
+    },
+    {
+      "id": "ibama-hybrid-energy-guidance",
+      "agency": "IBAMA",
+      "title": "Cálculo de eficiência energética de veículos híbridos",
+      "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/calculo-de-eficiencia-energetica-de-veiculos-hibridos",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_guidance",
+      "scope": "Dados de carga sustentada e redução de carga, urbano/estrada, ferramenta para dados no Infoserv e outros programas.",
+      "limitations": "A página remete a NBR 16567:2016; conferir referência normativa atual e sucedâneas na cadeia aplicável. Planilha e íntegra da norma não foram reexecutadas/reproduzidas.",
+      "device": "Texto de apresentação da ferramenta",
+      "checkOutcome": "readable"
+    },
+    {
+      "id": "ibama-import-service",
+      "agency": "IBAMA",
+      "title": "Serviço oficial de licença de importação de veículos, motos e máquinas",
+      "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-de-importacao-para-veiculos-leves-e-pesados-motos-e-maquinas",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_guidance",
+      "scope": "Anuência ambiental de importação; conferir NCM, atributos, operação e cronograma vigente no Portal Único.",
+      "limitations": "Página de serviço não substitui IN 6/2025; textos antigos que mencionam LI não autorizam dispensar o tratamento LPCO atual. LCVM/LCM e anuência de importação são controles distintos.",
+      "checkOutcome": "readable"
+    },
+    {
+      "id": "ibama-in-6-2025",
+      "agency": "IBAMA",
+      "title": "IN IBAMA 6/2025 — licenciamento de importação",
+      "url": "https://www.ibama.gov.br/sophia/cnia/legislacao/IBAMA/2025/IN0006-30052025.pdf",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_act_archived_targeted_review",
+      "scope": "Importação e LPCO, conforme revisão dirigida já arquivada no repositório em 19/10/2026 e reteste de 20/10/2026.",
+      "limitations": "Documento recuperado em 25/10/2026 com HTTP 200 e SHA-256 igual ao da evidência arquivada. A revisão dirigida e sua data original são preservadas; esta conferência de acesso não certifica consolidação integral da cadeia nem métodos privados. Tratamento depende da operação, NCM e cronograma; não substitui homologação técnica.",
+      "checkOutcome": "readable_same_archived_document",
+      "archive": {
+        "path": "data/proconve/sources/evidence.json.gz",
+        "sourceKey": "in6-2025-certified",
+        "retrievedAt": "2026-10-19",
+        "sha256": "d92df418c638df91581b7c50a9f0fd85a506234f8b31cb94498fae1ee586b2c3"
+      },
+      "retrieval": {
+        "checkedAt": "2026-10-25",
+        "httpStatus": 200,
+        "sha256": "d92df418c638df91581b7c50a9f0fd85a506234f8b31cb94498fae1ee586b2c3",
+        "bytes": 4498750,
+        "meaning": "Acesso atual e hash do documento; não comprova revisão integral ou consolidação.",
+        "sameHashAsArchivedDocument": true,
+        "previousCheckOutcome": "blocked_new_fetch_archived_evidence_available",
+        "previousCheckedAt": "2026-10-25"
+      }
+    },
+    {
+      "id": "ibama-in-26-2020",
+      "agency": "IBAMA",
+      "title": "IN IBAMA 26/2020 — fatores de deterioração, evaporativas e alterações",
+      "url": "https://www.ibama.gov.br/sophia/cnia/legislacao/IBAMA/2020/IN0026-18122020.pdf",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_act_archived_targeted_review",
+      "scope": "Art. 5º §§2º–3º, mudança do nível após aplicação de novos fatores. Texto original e alteração IN 3/2023 analisados no acervo existente.",
+      "limitations": "Documento recuperado em 25/10/2026 com HTTP 200 e SHA-256 igual ao da evidência arquivada. A revisão dirigida e sua data original são preservadas; esta conferência de acesso não certifica consolidação integral da cadeia nem métodos privados. O art. 5º §§2º–3º não estabelece rito geral de extensão para qualquer alteração.",
+      "device": "Art. 5º §§2º–3º",
+      "checkOutcome": "readable_same_archived_document",
+      "archive": {
+        "path": "data/proconve/sources/evidence.json.gz",
+        "sourceKey": "in26-2020-certified",
+        "retrievedAt": "2026-10-19",
+        "sha256": "42a3c3004bdf7831e66988ddbe0f44b886a309931febeec6d61fa25d368a912b"
+      },
+      "retrieval": {
+        "checkedAt": "2026-10-25",
+        "httpStatus": 200,
+        "sha256": "42a3c3004bdf7831e66988ddbe0f44b886a309931febeec6d61fa25d368a912b",
+        "bytes": 404452,
+        "meaning": "Acesso atual e hash do documento; não comprova revisão integral ou consolidação.",
+        "sameHashAsArchivedDocument": true,
+        "previousCheckOutcome": "archived_evidence_prior_review",
+        "previousCheckedAt": "2026-10-19"
+      }
+    }
+  ],
+  "retrievalAudit": {
+    "path": "data/process/emissions-retrieval.json",
+    "checkedAt": "2026-10-25",
+    "knownActCount": 25,
+    "http200Count": 25,
+    "fullTextReviewCertified": false,
+    "universalCoverageCertified": false
+  }
+}

@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-25",
+  "scope": "Auditoria dirigida de segurança/SENATRAN-CONTRAN e preparação SISCAT; não é certificação de completude de todo o direito veicular.",
+  "verdict": "targeted_gaps_fixed_remaining_review_required",
+  "summary": {
+    "findings": 12,
+    "fixed": 10,
+    "requiresReview": 2,
+    "safetySources": 31,
+    "reportFronts": 17,
+    "liveOfficialPdfRetrievals": 22,
+    "excludedContranActsReactivated": 0
+  },
+  "sourceEvidence": "data/process/review-evidence/safety-2026-10-25.json",
+  "rawRetrievalDirectory": "/workspace/audit-safety-evidence",
+  "findings": [
+    {
+      "id": "safety-990-republication",
+      "severity": "high",
+      "status": "fixed",
+      "title": "Usar a republicação da Portaria 990, preservando a publicação original",
+      "paths": [
+        "data/process/safety-sources.json",
+        "data/process/report-matrix.json",
+        "docs/guide/seguranca-siscat.md"
+      ],
+      "sourceId": "guide-senatran-990",
+      "sourceIds": [
+        "guide-senatran-990"
+      ],
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf/@@display-file/file",
+      "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+      "device": "Republicação de 19/08/2022; Anexo XI, itens 1–4",
+      "checkedAt": "2026-10-25",
+      "problem": "A fonte primária do guia era o PDF original de 25 páginas. A republicação oficial tem 27 páginas e mudanças materiais em colunas/referências do Anexo XI.",
+      "fix": "URL/hash primários passaram à republicação; originalUrl e originalDocumentSha256 foram preservados. A matriz e o guia agora identificam expressamente essa edição.",
+      "remainingReview": "A comparação não certifica toda a cadeia posterior nem transforma referências históricas do Anexo XI em obrigações atuais."
+    },
+    {
+      "id": "safety-m2-unknown-pbt",
+      "severity": "high",
+      "status": "fixed",
+      "title": "PBT M2 ausente deve manter o grupo documental pendente",
+      "paths": [
+        "src/guide/process-model.js"
+      ],
+      "sourceId": "guide-senatran-990",
+      "sourceIds": [
+        "guide-senatran-990"
+      ],
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf/@@display-file/file",
+      "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+      "device": "Anexo XI, grupos de leves até 3.500 kg e pesados acima de 3.500 kg",
+      "checkedAt": "2026-10-25",
+      "problem": "O ramo M2 tratava a condição else como grupo pesado mesmo com massKg nulo.",
+      "fix": "Root adicionou ramo explícito PBT pendente; cenário real avaliado pelo módulo confirmou a saída sem classificação por massa presumida.",
+      "remainingReview": "Tipo, estágio, documentos e anexos do projeto permanecem sujeitos à verificação."
+    },
+    {
+      "id": "safety-electric-mn-l",
+      "severity": "high",
+      "status": "fixed",
+      "title": "Distinguir os pacotes híbrido/elétrico M/N e L",
+      "paths": [
+        "data/process/safety-sources.json",
+        "data/process/report-matrix.json",
+        "src/guide/process-model.js"
+      ],
+      "sourceId": "guide-contran-749",
+      "sourceIds": [
+        "guide-contran-749",
+        "guide-contran-750"
+      ],
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7492018.pdf/@@display-file/file",
+      "documentSha256": "630d21b7ce3df8bedbae8ad93da15ba8c97fe3c2941b08b472f809422a82ba30",
+      "device": "749/2018, arts. 1º–3º; 750/2018, arts. 1º–3º",
+      "checkedAt": "2026-10-25",
+      "problem": "electric-safety apontava apenas ao índice CONTRAN e contexto Inmetro, sem a fonte específica do ramo.",
+      "fix": "Novas fontes 749/750, linhas report-electric-mn/l com seleção de propulsão e vínculo específico da tarefa electric-safety; categoria L não recebe o pacote M/N.",
+      "remainingReview": "Anexos integrais, capítulos de pós-colisão e cadeia posterior exigem enquadramento próprio; não inferir método/edição/limite da referência UN/FMVSS."
+    },
+    {
+      "id": "safety-towed-auxiliary-axis",
+      "severity": "high",
+      "status": "fixed",
+      "title": "Inventariar eixo elétrico auxiliar sem inferi-lo do perfil O",
+      "paths": [
+        "data/process/report-matrix.json",
+        "data/process/safety-sources.json"
+      ],
+      "sourceId": "guide-contran-956",
+      "sourceIds": [
+        "guide-contran-956"
+      ],
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9562022.pdf/@@display-file/file",
+      "documentSha256": "583274c4c9dc9477902d6934abdc4eec24622bc11ef028e53039f6dc33368d05",
+      "device": "Arts. 1º–2º",
+      "checkedAt": "2026-10-25",
+      "problem": "A categoria O não tinha frente dedicada ao semirreboque com eixo elétrico auxiliar. Ao mesmo tempo, herdar a segurança de veículo trator seria incorreto.",
+      "fix": "Adicionada report-electric-towed-review para todos os perfis O, em review, com presença/ausência a documentar; não depende de BEV/HEV nem afirma existência do eixo.",
+      "remainingReview": "Apenas a confirmação de semirreboque e do equipamento habilita a análise específica dos requisitos e da modalidade de CAT."
+    },
+    {
+      "id": "safety-heavy-auxiliary-motor",
+      "severity": "high",
+      "status": "fixed",
+      "title": "Vincular a modalidade específica de motor elétrico auxiliar em caminhão",
+      "paths": [
+        "data/process/report-matrix.json",
+        "data/process/safety-sources.json"
+      ],
+      "sourceId": "guide-contran-1021",
+      "sourceIds": [
+        "guide-contran-1021",
+        "guide-contran-916",
+        "guide-contran-749",
+        "guide-contran-915",
+        "guide-contran-954"
+      ],
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10212026.pdf/@@display-file/file",
+      "documentSha256": "066b2d37c42826a88da8605c347ceb1647a8f182110dc759d43e02b1af5fe9de",
+      "device": "1.021/2026, arts. 3º–6º, especialmente art. 3º, §§1º–4º e art. 5º",
+      "checkedAt": "2026-10-25",
+      "problem": "O fluxo genérico de modificação não destacava a modalidade de caminhão/caminhão-trator com motor elétrico auxiliar nem seus requisitos impactados.",
+      "fix": "Adicionada triagem report-auxiliary-motor-modification para N2/N3 com purpose modification; data de produção desde 01/01/2014 e natureza real da alteração são condições a conferir.",
+      "remainingReview": "A linha não presume que toda modificação seja instalação de motor auxiliar. Anexo e retificação da 1.021 ainda precisam de revisão integral."
+    },
+    {
+      "id": "safety-impact-direct-bindings",
+      "severity": "medium",
+      "status": "fixed",
+      "title": "Conectar o pacote de impactos às fontes específicas e retificações",
+      "paths": [
+        "data/process/report-matrix.json",
+        "data/process/safety-sources.json"
+      ],
+      "sourceId": "guide-contran-910",
+      "sourceIds": [
+        "guide-contran-910",
+        "guide-contran-910-retificacao",
+        "guide-contran-949",
+        "guide-contran-949-retificacao"
+      ],
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9102022.pdf/@@display-file/file",
+      "documentSha256": "734d98a11036edb2d6b9a0b3e9b8f749d5afa7b632ade8818fa7b603cc2888af",
+      "device": "910/2022, arts. 1º–6º e retificação; 949/2022, arts. 2º–5º e retificação",
+      "checkedAt": "2026-10-25",
+      "problem": "report-impact-m1n1 apontava somente à Portaria 990 e a um índice, embora o acervo já contivesse dispositivos dirigidos de 910 e 949.",
+      "fix": "Fontes e ligações específicas foram adicionadas preservando review: PBT inferior a 2.500 kg, tipo, ponto R, derivação, código e cronogramas distintos.",
+      "remainingReview": "Não universalizar relatório M1 para todo N1; ato vigente e dispositivo cujo prazo encerrou são estados diferentes."
+    },
+    {
+      "id": "safety-stability-and-m2-modifiers",
+      "severity": "medium",
+      "status": "fixed",
+      "title": "Exibir os modificadores dos cronogramas ESC/VSF e M2",
+      "paths": [
+        "data/process/safety-sources.json",
+        "data/process/report-matrix.json",
+        "docs/guide/seguranca-siscat.md"
+      ],
+      "sourceId": "guide-contran-264",
+      "sourceIds": [
+        "guide-contran-264",
+        "guide-contran-939-retificacao"
+      ],
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/deliberacoes/Deliberacao2642022.pdf/@@display-file/file",
+      "documentSha256": "44d9936d4d571c468a91ac72e89e5427dec9072017622a25e98e7b671b8223cd",
+      "device": "Deliberação 264/2022, art. 2º; retificação 939/2022 de 27/05/2022",
+      "checkedAt": "2026-10-25",
+      "problem": "O fluxo referenciava o texto original sem ligação direta ao modificador do art. 7º da 954 ou ao corte retificado do art. 4º da 939.",
+      "fix": "Fonte 264 ligada às três linhas de estabilidade; retificação 939 ligada ao pacote M2; guia esclarece cortes 01/01/2020, 01/07/2023 e 01/01/2023 conforme cada ramo.",
+      "remainingReview": "Os cortes não substituem o exame de exceções, data do primeiro modelo básico e cadeia posterior."
+    },
+    {
+      "id": "safety-profile-bus-sources",
+      "severity": "medium",
+      "status": "fixed",
+      "title": "Conectar a avaliação do perfil aos atos próprios de M2/M3",
+      "paths": [
+        "src/guide/process-model.js"
+      ],
+      "sourceId": "guide-contran-939",
+      "sourceIds": [
+        "guide-contran-939",
+        "guide-contran-959"
+      ],
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9392022.pdf/@@display-file/file",
+      "documentSha256": "a1e7da37e6b9e6daa45e862b3fbbd19eb1513ad3213b9be8e0305b6c0a144d57",
+      "device": "939/2022, art. 2º; 959/2022, arts. 1º–2º",
+      "checkedAt": "2026-10-25",
+      "problem": "A avaliação safety.sourceIds não apontava diretamente à 939 em M2 nem à 959 em M3, embora a matriz documental tivesse essas fontes.",
+      "fix": "Root incluiu as fontes específicas por categoria; a navegação do perfil passou a acompanhar os atos próprios.",
+      "remainingReview": "Anexos, aplicação de ônibus e nível de prova não foram automaticamente confirmados."
+    },
+    {
+      "id": "safety-restraints-current-pair",
+      "severity": "medium",
+      "status": "fixed",
+      "title": "Ligar retenção a 951/997 sem reativar 220/2007",
+      "paths": [
+        "data/process/report-matrix.json",
+        "data/process/safety-sources.json"
+      ],
+      "sourceId": "guide-contran-951",
+      "sourceIds": [
+        "guide-contran-951",
+        "guide-contran-997"
+      ],
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9512022.pdf/@@display-file/file",
+      "documentSha256": "a41b468b4fadc5428cf6a8eb73994c24e057f5293277781bea06845388504369",
+      "device": "951/2022, arts. 1º–3º; 997/2023, arts. 1º–3º",
+      "checkedAt": "2026-10-25",
+      "problem": "O quadro de processo precisava de frente explícita para retenção, e o Anexo XI da 990 ainda cita a 220/2007.",
+      "fix": "Adicionada report-restraints com fontes 951/997 e ressalva explícita de posição, categoria, anexo e atos de ônibus; a 220 permanece histórica.",
+      "remainingReview": "Não tratar alterações de referências de ensaio como consolidação de todas as regras de banco/carroceria."
+    },
+    {
+      "id": "safety-heavy-cab-milestones",
+      "severity": "medium",
+      "status": "fixed",
+      "title": "Separar cadastro de ato e incidência temporal da proteção de cabine",
+      "paths": [
+        "data/process/report-matrix.json",
+        "data/process/safety-sources.json"
+      ],
+      "sourceId": "guide-contran-765",
+      "sourceIds": [
+        "guide-contran-765"
+      ],
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7652018.pdf/@@display-file/file",
+      "documentSha256": "1a3badae62feac3c7fd9a8d7b6dfbb5dd70de07c6444e46312394348f02ffdbe",
+      "device": "765/2018, arts. 1º–4º",
+      "checkedAt": "2026-10-25",
+      "problem": "A proteção da cabine N2/N3 não tinha frente própria e não deve ser inferida dos bancos ilustrados do SUV.",
+      "fix": "Adicionada report-cab-n2n3 em review, com marcos originais 2028 para novos projetos e 2030 para produção; nenhuma obrigação geral de ensaio em 2026 foi declarada.",
+      "remainingReview": "Conferir primeiro código, exceções, anexo e alterações posteriores antes da decisão."
+    },
+    {
+      "id": "safety-coverage-not-total",
+      "severity": "high",
+      "status": "requires_review",
+      "title": "A cobertura de navegação não prova todo o arcabouço aplicável",
+      "paths": [
+        "data/process/report-matrix.json",
+        "docs/guide/seguranca-siscat.md"
+      ],
+      "sourceId": "guide-contran-993",
+      "sourceIds": [
+        "guide-contran-993"
+      ],
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9932023.pdf/@@display-file/file",
+      "documentSha256": "9e135fddd4fa3b6f897ec7836b9fdf991a5803770fc3b504bebfcecebb4d465f",
+      "device": "993/2023, arts. 2º–7º; SISCAT, carta de serviço",
+      "checkedAt": "2026-10-25",
+      "problem": "30 subsistemas e 47 atividades são um universo editorial, não todo o conjunto de obrigações veiculares ou de modalidades de homologação.",
+      "fix": "Adicionada report-general-construction e documentação de limites; a matriz tem 17 frentes consultivas, sem percentual que certifique completude legal.",
+      "remainingReview": "Continuam pendentes conforme o caso: anexos técnicos integrais, cadeia posterior por assunto, tipos e construção, artesanal/leilão/dispensa e demais módulos especiais, dados de primeiro código, ponto R, eixos e configuração de laboratório."
+    },
+    {
+      "id": "safety-authenticated-module",
+      "severity": "medium",
+      "status": "requires_review",
+      "title": "Conferir documentos e canal no módulo real do SISCAT",
+      "paths": [
+        "docs/guide/seguranca-siscat.md"
+      ],
+      "sourceId": "guide-senatran-siscat",
+      "sourceIds": [
+        "guide-senatran-siscat"
+      ],
+      "sourceUrl": "https://www.gov.br/pt-br/servicos/sistema-de-certificacao-de-adequacao-a-legislacao-de-transito",
+      "documentSha256": null,
+      "device": "Portaria 990/2022, art. 26; carta SISCAT",
+      "checkedAt": "2026-10-25",
+      "problem": "A página CAT menciona SEI, enquanto a carta SISCAT estabelece obrigatoriedade do módulo quando disponibilizado. Nenhuma sessão autenticada foi acessada.",
+      "fix": "O guia conserva a distinção e exige confirmação do módulo e procedimento de indisponibilidade; não promete protocolo automático.",
+      "remainingReview": "Confirmar documentos, disponibilização do módulo, canal de contingência, taxa e acesso na operação concreta; orientação pública não equivale ao procedimento completo autenticado."
+    }
+  ],
+  "verification": [
+    "JSON válido e git diff --check",
+    "Todos os sourceIds das 17 frentes resolvem em SOURCE_REFERENCES",
+    "Cenários reais do módulo: ICE não herda linha elétrica; HEV M/N usa 749; L BEV usa 750; O recebe inventário sem inferência de eixo; N3 modificação recebe triagem1021; N3 série não; M2 PBT nulo fica pendente; componente não herda matriz de veículo."
+  ],
+  "unchangedInputs": [
+    "data/contran/publication-policy.json e os 55 excluídos",
+    "catálogos canônicos gerados e seus legalStatus/reviewStatus/applicability/publication",
+    "GLBs e VehicleScene.jsx"
+  ]
+}

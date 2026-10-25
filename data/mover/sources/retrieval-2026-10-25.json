@@ -1,0 +1,30 @@
+{
+  "checkedAt": "2026-10-25",
+  "purpose": "Evidência de localização e acesso; HTTP 200 e presença em índice não comprovam vigência ou revisão integral.",
+  "records": [
+    {
+      "url": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2026",
+      "finalUrl": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2026",
+      "status": 200,
+      "outcome": "official_index_readable",
+      "archivePath": "data/mover/sources/index-2026-10-25.html",
+      "sha256": "9d21b192f676d2a34efbe8741f5c36b5dc8b064bcb33b6b195843e308d0a29bc",
+      "bytes": 203871,
+      "matchesPriorSnapshot": "data/mover/sources/mdic-2026.html"
+    },
+    {
+      "url": "https://pesquisa.in.gov.br/imprensa/jsp/visualiza/index.jsp?data=19/06/2026&jornal=602&pagina=5",
+      "status": 403,
+      "outcome": "primary_text_unavailable",
+      "archivePath": null,
+      "sha256": null
+    },
+    {
+      "url": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-68-de-17-de-marco-de-2026-694449850",
+      "status": 403,
+      "outcome": "primary_text_unavailable",
+      "archivePath": null,
+      "sha256": null
+    }
+  ]
+}

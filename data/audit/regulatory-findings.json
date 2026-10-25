@@ -1,0 +1,1088 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-10-25",
+  "scopeNote": "Auditoria dirigida de integridade, relações e lacunas do acervo. Não certifica exaustividade da legislação brasileira, cadeia integral de todos os atos ou aplicabilidade de um veículo. Fontes autenticadas e métodos privados ainda exigem conferência.",
+  "universalCoverageConfirmed": false,
+  "sourceReports": [
+    {
+      "path": "data/audit/emissions-2026-10-25.json",
+      "sha256": "622aa58031702165b267216fb22bbb3cf16918cdf7a6daa9934c0443e9725bbd"
+    },
+    {
+      "path": "data/audit/agencies-2026-10-25.json",
+      "sha256": "2a2ed13df50330f6ce7fd8c7c897480747d55a1e3b842a40bfb52c275574998e"
+    },
+    {
+      "path": "data/audit/safety-2026-10-25.json",
+      "sha256": "7e81569f390cc3588bb1ee606d7f68d52768f186c9c021582ac4e50c2ad3f26b"
+    }
+  ],
+  "findings": [
+    {
+      "id": "EM-01",
+      "agencyGroup": "ibama",
+      "severity": "high",
+      "status": "fixed",
+      "title": "Categoria L não acompanha suas fontes LCM/PROMOT no processo",
+      "detail": "Categoria L fica family=promot mas sourceIds contém somente ibama-lcvm-service. environment-route é LCVM para todas as categorias. electric-environment e hybrid-evidence usam CONAMA492/LCVM para L; cop-plan inclui L8/P8 para todo perfil.",
+      "action": "Conectar categoria L a ibama-lcm-service e conama-493-2019 nos passos ambiental/modalidade/térmico/BEV/híbrido/pós-produção; selecionar o conjunto de fontes específico da família, sem importar os métodos L8 ou declarar dispensa automática.",
+      "remainingReview": null,
+      "affectedIds": [
+        "conama-493-2019",
+        "ibama-lcm-service"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-para-ciclomotores-motociclos-e-similares-lcm-promot",
+          "label": "Apresentação e Como solicitar a LCM"
+        },
+        {
+          "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=785",
+          "label": "Arts.1 e10"
+        }
+      ],
+      "evidence": [
+        {
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-para-ciclomotores-motociclos-e-similares-lcm-promot",
+          "device": "Apresentação e Como solicitar a LCM",
+          "excerpt": "A Licença para Uso da Configuração de Ciclomotores, Motociclos e Similares (LCM) é o documento que atesta o atendimento à legislação de emissões veiculares (poluentes e ruído).",
+          "checkedAt": "2026-10-25",
+          "evidenceType": "official_guidance"
+        },
+        {
+          "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=785",
+          "device": "Arts.1 e10",
+          "checkedAt": "2026-10-25",
+          "evidenceType": "official_act_targeted_review"
+        }
+      ],
+      "paths": [
+        "src/guide/process-model.js:environmentalClassification",
+        "src/guide/process-model.js:buildChecklist"
+      ],
+      "provenance": {
+        "path": "data/audit/emissions-2026-10-25.json",
+        "findingId": "EM-01"
+      }
+    },
+    {
+      "id": "EM-02",
+      "agencyGroup": "ibama",
+      "severity": "medium",
+      "status": "fixed",
+      "title": "Particularidade de LC na faixa3,5–3,856t não sinalizada",
+      "detail": "",
+      "action": "Acrescentar aviso condicional quando a massa estiver estritamente entre3500e3856kg: confirmar classeLC, origem do motor mestre e autorização prévia. Não converter automaticamente a classe ou marcar P8 aprovado; o perfil não possui os dois últimos documentos.",
+      "remainingReview": null,
+      "affectedIds": [
+        "conama-490-2018"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=767",
+          "label": "Art.23"
+        }
+      ],
+      "evidence": [
+        {
+          "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=767",
+          "device": "Art.23",
+          "excerpt": "O veículo leve comercial com 3,500 < PBT < 3,856 toneladas, cujo motor deriva de motor mestre homologado para veículo pesado, pode, alternativamente, atender os limites da Fase PROCONVE P8, desde que previamente justificado e autorizado pelo Ibama.",
+          "checkedAt": "2026-10-25",
+          "evidenceType": "official_act_targeted_review"
+        }
+      ],
+      "paths": [
+        "docs/guide/emissoes.md",
+        "src/guide/process-model.js:environmentalClassification"
+      ],
+      "provenance": {
+        "path": "data/audit/emissions-2026-10-25.json",
+        "findingId": "EM-02"
+      }
+    },
+    {
+      "id": "EM-03",
+      "agencyGroup": "ibama",
+      "severity": "medium",
+      "status": "fixed",
+      "title": "Lotação desconhecida pode produzir rótulo LP em veículo de carga",
+      "detail": "N1, MTMA3000, ordem de marcha2000, carga útil900, não derivado, seats=null resulta em LP porque JavaScript avalia null<=9 como true. O mesmo perfil lista lotação como dado faltante.",
+      "action": "Exigir lotação positiva inteira antes de excluir a hipótese de mais de8assentos além do motorista no ramo não derivado. Conservar rótulo LP/LC pendente quando seats é null; manter as demais regras de classificação já corretas.",
+      "remainingReview": null,
+      "affectedIds": [
+        "conama-492-2018"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+          "label": "Art.35, art.1-A §§1–2 da CONAMA15/1995"
+        }
+      ],
+      "evidence": [
+        {
+          "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+          "device": "Art.35, art.1-A §§1–2 da CONAMA15/1995",
+          "checkedAt": "2026-10-25",
+          "evidenceType": "official_act_targeted_review"
+        }
+      ],
+      "paths": [
+        "src/guide/process-model.js:environmentalClassification"
+      ],
+      "provenance": {
+        "path": "data/audit/emissions-2026-10-25.json",
+        "findingId": "EM-03"
+      }
+    },
+    {
+      "id": "EM-04",
+      "agencyGroup": "ibama",
+      "severity": "high",
+      "status": "requires_review",
+      "title": "Cobertura de PROMOT ainda é encaminhamento, não matriz normativa completa",
+      "detail": "Os25atos ativos foram escolhidos para L8/P8. IN21/2022 é explicitamente outside-scope em inactiveReferences, não revogada. O guia oferece categoriaL mas não possui sua cadeia administrativa, rito limitado e OBD-M1/M2 estruturados no catálogo ativo.",
+      "action": "Registrar esses atos como candidatos de escopo PROMOT e lacuna de revisão. Não forçar inclusão no catálogo L8/P8 ou tratar outside-scope como revogação. Ligar a fonte CONAMA493 já existente ao guia e acrescentar cronograma específico de OBD-M2 como triagem (novos2025/todos2027; semnovashomologaçõesOBD-M1desde2025), preservando necessidade de cadeia e método.",
+      "remainingReview": null,
+      "affectedIds": [
+        "conama-493-2019",
+        "ibama-in-17-2002",
+        "ibama-in-11-2021",
+        "ibama-in-21-2022",
+        "ibama-in-10-2024"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-para-ciclomotores-motociclos-e-similares-lcm-promot",
+          "label": "Apresentação: IN17/2002 e normas subsequentes"
+        },
+        {
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/legislacao-emissoes",
+          "label": "Índice: IN11/2021 eIN21/2022"
+        },
+        {
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139213",
+          "label": "Ementa e arts.22-A–22-G com referências à IN10/2024"
+        },
+        {
+          "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=785",
+          "label": "Art.10 §§1,4–6"
+        }
+      ],
+      "evidence": [
+        {
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-para-ciclomotores-motociclos-e-similares-lcm-promot",
+          "device": "Apresentação: IN17/2002 e normas subsequentes",
+          "checkedAt": "2026-10-25",
+          "evidenceType": "official_guidance"
+        },
+        {
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/legislacao-emissoes",
+          "device": "Índice: IN11/2021 eIN21/2022",
+          "checkedAt": "2026-10-25",
+          "evidenceType": "official_index"
+        },
+        {
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139213",
+          "device": "Ementa e arts.22-A–22-G com referências à IN10/2024",
+          "checkedAt": "2026-10-25",
+          "evidenceType": "official_act_targeted_review"
+        },
+        {
+          "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=785",
+          "device": "Art.10 §§1,4–6",
+          "checkedAt": "2026-10-25",
+          "evidenceType": "official_act_targeted_review"
+        }
+      ],
+      "paths": [
+        "data/proconve/reviewed-map.json:inactiveReferences",
+        "data/process/official-sources.json",
+        "docs/guide/emissoes.md"
+      ],
+      "provenance": {
+        "path": "data/audit/emissions-2026-10-25.json",
+        "findingId": "EM-04"
+      }
+    },
+    {
+      "id": "EM-05",
+      "agencyGroup": "ibama",
+      "severity": "medium",
+      "status": "requires_review",
+      "title": "Trechos antigos e novos convivem na mesma evidência; IA precisa de contexto de versão",
+      "detail": "Textos oficiais HTML e statusEvidence conservam redações substituídas, marcadas revogado/retificado, junto das novas redações. Ato vigente com alterações não torna todo trecho antigo aplicável.",
+      "action": "Exportar textos brutos como evidência arquivada não consolidada, manter estado de revisão/versão junto de cada trecho recuperado e priorizar requisitos editoriais curados. Não etiquetar todo chunk como regra vigente apenas pelo estado do ato. Não remover a evidência histórica.",
+      "remainingReview": null,
+      "affectedIds": [
+        "ibama-in-11-2014",
+        "ibama-in-23-2020",
+        "ibama-in-3-2021"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=133670",
+          "label": "Art.1 e art.2: redações históricas e redaçãoIN3/2023"
+        }
+      ],
+      "evidence": [
+        {
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=133670",
+          "device": "Art.1 e art.2: redações históricas e redaçãoIN3/2023",
+          "checkedAt": "2026-10-25",
+          "evidenceType": "official_act_targeted_review"
+        }
+      ],
+      "paths": [
+        "data/proconve/active.json:statusEvidence",
+        "data/proconve/sources/evidence.json.gz"
+      ],
+      "provenance": {
+        "path": "data/audit/emissions-2026-10-25.json",
+        "findingId": "EM-05"
+      }
+    },
+    {
+      "id": "EM-06",
+      "agencyGroup": "ibama",
+      "severity": "medium",
+      "status": "requires_review",
+      "title": "Índice oficial de emissões não serve sozinho como universo atualizado",
+      "detail": "Página oficial recuperada hoje traz referênciasaté2022 e lista IN19/2021 e22/2022 como NormasVigentes, apesar de sua revogação expressa peloart28daIN5/2024 já corretamente tratada no repositório.",
+      "action": "Monitorar também o DOU e as páginas individuais/comunicados. Mudança de hash e referência em índice geram candidatos para revisão; não reativam automaticamente ato ou requisito. Manter as exclusões/revogações atuais.",
+      "remainingReview": null,
+      "affectedIds": [],
+      "sourceUrls": [
+        {
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/legislacao-emissoes",
+          "label": "Tabela NormasVigentes"
+        },
+        {
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139386",
+          "label": "Art.28"
+        }
+      ],
+      "evidence": [
+        {
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/legislacao-emissoes",
+          "device": "Tabela NormasVigentes",
+          "checkedAt": "2026-10-25",
+          "evidenceType": "official_index"
+        },
+        {
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139386",
+          "device": "Art.28",
+          "checkedAt": "2026-10-25",
+          "evidenceType": "official_act_targeted_review"
+        }
+      ],
+      "paths": [
+        "data/proconve/sources/evidence.json.gz",
+        "data/process/official-sources.json"
+      ],
+      "provenance": {
+        "path": "data/audit/emissions-2026-10-25.json",
+        "findingId": "EM-06"
+      }
+    },
+    {
+      "id": "EM-07",
+      "agencyGroup": "ibama",
+      "severity": "medium",
+      "status": "requires_review",
+      "title": "Formulários autenticados do Infoserv e métodos privados não foram auditados integralmente",
+      "detail": "O checklist é consultivo e os canais oficiais estão corretamente distinguidos. Não existe mapeamento validado de todos os campos autenticados, assinaturas/documentos por modalidade, famílias, edições de métodos e integração automática.",
+      "action": "Manter esse limite visível e exigir conferência no início de cada processo. A recuperação25/25 comprova acesso aos documentos cadastrados, não homologação completa nem cobertura de todo ato automotivo.",
+      "remainingReview": null,
+      "affectedIds": [],
+      "sourceUrls": [
+        {
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-para-veiculos-motores-ou-maquinas-lcvm-proconve",
+          "label": "Como solicitar/Observações"
+        },
+        {
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-para-ciclomotores-motociclos-e-similares-lcm-promot",
+          "label": "Como solicitar aLCM"
+        }
+      ],
+      "evidence": [
+        {
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-para-veiculos-motores-ou-maquinas-lcvm-proconve",
+          "device": "Como solicitar/Observações",
+          "checkedAt": "2026-10-25",
+          "evidenceType": "official_guidance"
+        },
+        {
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-para-ciclomotores-motociclos-e-similares-lcm-promot",
+          "device": "Como solicitar aLCM",
+          "checkedAt": "2026-10-25",
+          "evidenceType": "official_guidance"
+        }
+      ],
+      "paths": [
+        "docs/guide/emissoes.md",
+        "docs/guide/evidence-review.md",
+        "data/process/official-sources.json"
+      ],
+      "provenance": {
+        "path": "data/audit/emissions-2026-10-25.json",
+        "findingId": "EM-07"
+      }
+    },
+    {
+      "id": "agency-audit-01",
+      "agencyGroup": "cross-agency",
+      "severity": "high",
+      "status": "candidate",
+      "title": "MOVER pesado: modificador 167/2026 ausente do inventário ativo",
+      "detail": "Portaria 176/2025 está cadastrada como mover-012, mas o modificador 167/2026 e sua relação não estavam representados. O índice tem o mesmo hash da coleta de 19/10: é uma lacuna de conciliação de inventário, não nova publicação desde então.",
+      "action": "Registrar candidato não publicado com reviewStatus index_review, legalStatus null e relação index_reported → mover-012; obter e revisar íntegra, dispositivo e data antes de gerar obrigação.",
+      "remainingReview": null,
+      "affectedIds": [
+        "mover-012",
+        "mdic-gm-167-2026"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2026",
+          "label": "Entrada Portaria GM/MDIC 167, de 18/06/2026 e ementa imediatamente seguinte"
+        },
+        {
+          "url": "https://pesquisa.in.gov.br/imprensa/jsp/visualiza/index.jsp?data=19/06/2026&jornal=602&pagina=5",
+          "label": "Fonte oficial"
+        }
+      ],
+      "evidence": [
+        {
+          "url": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2026",
+          "device": "Entrada Portaria GM/MDIC 167, de 18/06/2026 e ementa imediatamente seguinte",
+          "excerpt": "Altera a PORTARIA GM/MDIC Nº 176, DE 7 DE JULHO DE 2025",
+          "checkedAt": "2026-10-25",
+          "evidenceKind": "official_index",
+          "archivePath": "data/mover/sources/index-2026-10-25.html",
+          "sha256": "9d21b192f676d2a34efbe8741f5c36b5dc8b064bcb33b6b195843e308d0a29bc"
+        },
+        {
+          "url": "https://pesquisa.in.gov.br/imprensa/jsp/visualiza/index.jsp?data=19/06/2026&jornal=602&pagina=5",
+          "status": 403,
+          "checkedAt": "2026-10-25"
+        }
+      ],
+      "paths": [
+        "catalog.json#/records",
+        "data/mover/reviewed-map.json#/candidates"
+      ],
+      "provenance": {
+        "path": "data/audit/agencies-2026-10-25.json",
+        "findingId": "agency-audit-01"
+      }
+    },
+    {
+      "id": "agency-audit-02",
+      "agencyGroup": "cross-agency",
+      "severity": "high",
+      "status": "fixed",
+      "title": "URL de coleção não comprova identidade de um ato",
+      "detail": "Gerador liga guide-mdic-2026 a mover-007 e guide-contran-index a senatran-097 como same_official_url. As duas URLs são índices com vários atos. O contrato documenta esse vínculo como identidade, o que é forte demais para fonte de coleção.",
+      "action": "Tipar fonte como act/collection/service/guidance. Inferir identidade só por ID canônico ou URL de ato individual confirmado; índices devem ter relação collection_mentions/contextual_reference e lista de IDs localizada, não identidade automática.",
+      "remainingReview": null,
+      "affectedIds": [],
+      "sourceUrls": [
+        {
+          "url": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2026",
+          "label": "Índice contém várias portarias distintas, incluindo 19/2026, 68/2026 e 167/2026"
+        },
+        {
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+          "label": "Coleção referenciada em guide-contran-index; demonstração estrutural de URL compartilhada"
+        }
+      ],
+      "evidence": [
+        {
+          "url": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2026",
+          "device": "Índice contém várias portarias distintas, incluindo 19/2026, 68/2026 e 167/2026",
+          "checkedAt": "2026-10-25",
+          "evidenceKind": "official_index"
+        },
+        {
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+          "device": "Coleção referenciada em guide-contran-index; demonstração estrutural de URL compartilhada",
+          "checkedAt": "2026-10-25",
+          "evidenceKind": "repository_structural_review"
+        }
+      ],
+      "paths": [
+        "scripts/build_guide_database.py",
+        "data/process/knowledge-index.json#/tables/actSources",
+        "catalog.json#/records"
+      ],
+      "provenance": {
+        "path": "data/audit/agencies-2026-10-25.json",
+        "findingId": "agency-audit-02"
+      }
+    },
+    {
+      "id": "agency-audit-03",
+      "agencyGroup": "cross-agency",
+      "severity": "high",
+      "status": "requires_review",
+      "title": "18 referências Inmetro ainda não sustentam um checklist técnico integral",
+      "detail": "Os 18 registros têm fullTextReviewed false e amendmentChainReviewed false. Isso está corretamente qualificado na base, mas impede afirmar que todos os anexos, exceções OEM/reposição, métodos, transições e modificadores foram cobertos. Nova coleta aos PDFs 145 e 169 pelos dois hosts oficiais retornou503.",
+      "action": "Manter estados atuais e exibir pendência de íntegra/cadeia no painel e no pacote IA. Priorizar145,169,379+845,501,456,34 por função do projeto; não elevar FAQ/PortalIQ a texto integral.",
+      "remainingReview": null,
+      "affectedIds": [],
+      "sourceUrls": [
+        {
+          "url": "https://www.inmetro.gov.br/legislacao/rtac/pdf/RTAC002960.pdf",
+          "label": "Fonte oficial"
+        },
+        {
+          "url": "https://sistema-sil.inmetro.gov.br/rtac/RTAC002960.pdf",
+          "label": "Fonte oficial"
+        },
+        {
+          "url": "https://www.inmetro.gov.br/legislacao/rtac/pdf/RTAC003000.pdf",
+          "label": "Fonte oficial"
+        },
+        {
+          "url": "https://sistema-sil.inmetro.gov.br/rtac/RTAC003000.pdf",
+          "label": "Fonte oficial"
+        }
+      ],
+      "evidence": [
+        {
+          "url": "https://www.inmetro.gov.br/legislacao/rtac/pdf/RTAC002960.pdf",
+          "status": 503,
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "url": "https://sistema-sil.inmetro.gov.br/rtac/RTAC002960.pdf",
+          "status": 503,
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "url": "https://www.inmetro.gov.br/legislacao/rtac/pdf/RTAC003000.pdf",
+          "status": 503,
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "url": "https://sistema-sil.inmetro.gov.br/rtac/RTAC003000.pdf",
+          "status": 503,
+          "checkedAt": "2026-10-25"
+        }
+      ],
+      "paths": [
+        "data/inmetro/reviewed-map.json",
+        "data/inmetro/active.json",
+        "data/inmetro/sources/retrieval-attempts-2026-10-19.json"
+      ],
+      "provenance": {
+        "path": "data/audit/agencies-2026-10-25.json",
+        "findingId": "agency-audit-03"
+      }
+    },
+    {
+      "id": "agency-audit-04",
+      "agencyGroup": "cross-agency",
+      "severity": "high",
+      "status": "access_blocked",
+      "title": "Manutenção Anatel responde200 e precisa ser classificada por conteúdo/redirect",
+      "detail": "As URLs de715 e4083 responderam200 após redirecionar à mesma página de manutenção, de 3890 bytes. Não são novas leituras dos atos. Uma atualização automática que aceita apenas status200 produziria frescor enganoso.",
+      "action": "Classificar maintenance_redirect/content_unavailable, preservar snapshot de 18/10 e data da revisão real. Não revalidar legalStatus nem reviewStatus por sucesso HTTP.",
+      "remainingReview": null,
+      "affectedIds": [],
+      "sourceUrls": [
+        {
+          "url": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2019/1350-resolucao-715",
+          "label": "Fonte oficial"
+        },
+        {
+          "url": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2020/1453-resolucao-729",
+          "label": "Fonte oficial"
+        }
+      ],
+      "evidence": [
+        {
+          "url": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2019/1350-resolucao-715",
+          "finalUrl": "https://informacoes.anatel.gov.br/aviso/manutencao-sistemas.html",
+          "status": 200,
+          "sha256": "f26ed3f1c16ae60b5e65340bcaaae8e97be91b8d711c035b6ae41ac970d6a21f",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "url": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2020/1453-resolucao-729",
+          "finalUrl": "https://informacoes.anatel.gov.br/aviso/manutencao-sistemas.html",
+          "status": 200,
+          "sha256": "f26ed3f1c16ae60b5e65340bcaaae8e97be91b8d711c035b6ae41ac970d6a21f",
+          "checkedAt": "2026-10-25"
+        }
+      ],
+      "paths": [
+        "data/process/safety-sources.json#/records/guide-anatel-715",
+        "data/process/safety-sources.json#/records/guide-anatel-modulos",
+        "data/anatel/sources/evidence.json.gz"
+      ],
+      "provenance": {
+        "path": "data/audit/agencies-2026-10-25.json",
+        "findingId": "agency-audit-04"
+      }
+    },
+    {
+      "id": "agency-audit-05",
+      "agencyGroup": "cross-agency",
+      "severity": "medium",
+      "status": "fixed",
+      "title": "Localizadores MOVER individuais ainda apontam a páginas de coleção",
+      "detail": "Existem links individuais oficiais localizados nas páginas MDIC para esses atos; o catálogo usa páginas genéricas. Corrigir apenas localizador melhora citação e consulta IA, sem promover revisão ou vigência.",
+      "action": "Atualizar officialUrl nas entradas editoriais conforme directLocators deste relatório; preservar reviewStatus/legalStatus e registrar relação located_in_index.",
+      "remainingReview": null,
+      "affectedIds": [],
+      "sourceUrls": [
+        {
+          "url": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/programa-mover-1/legislacao-programa-mover",
+          "label": "Entradas86/2024,192/2025,213/2025 e215/2025"
+        },
+        {
+          "url": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2026",
+          "label": "Entrada19/2026"
+        },
+        {
+          "url": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2025",
+          "label": "Entrada176/2025"
+        }
+      ],
+      "evidence": [
+        {
+          "url": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/programa-mover-1/legislacao-programa-mover",
+          "checkedAt": "2026-10-25",
+          "evidenceKind": "official_index",
+          "device": "Entradas86/2024,192/2025,213/2025 e215/2025"
+        },
+        {
+          "url": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2026",
+          "checkedAt": "2026-10-25",
+          "evidenceKind": "official_index",
+          "device": "Entrada19/2026"
+        },
+        {
+          "url": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2025",
+          "checkedAt": "2026-10-25",
+          "evidenceKind": "official_index",
+          "device": "Entrada176/2025"
+        }
+      ],
+      "paths": [
+        "catalog.json#/records/mover-005",
+        "catalog.json#/records/mover-006",
+        "catalog.json#/records/mover-007",
+        "catalog.json#/records/mover-010",
+        "catalog.json#/records/mover-012",
+        "catalog.json#/records/mover-013"
+      ],
+      "provenance": {
+        "path": "data/audit/agencies-2026-10-25.json",
+        "findingId": "agency-audit-05"
+      }
+    },
+    {
+      "id": "agency-audit-06",
+      "agencyGroup": "cross-agency",
+      "severity": "medium",
+      "status": "requires_review",
+      "title": "Requisitos por produto precisam de condições próprias, além de links por ato",
+      "detail": "O recorte contém 42 itens Inmetro e 15 Anatel, mas apenas 1 requisito Inmetro explicita conditions e nenhum Anatel tem condições estruturadas. Muitos vínculos são do ato inteiro ao subsistema e continuam consultivos. Por exemplo, associação 145/2022 a motor não torna as regras de bateria e lâmpadas aplicáveis a esse motor.",
+      "action": "Criar relações requisito→produto/configuração com evidência/dispositivo. Filtros por química, funçãoRF, categoria, OEM/reposição, uso e datas só podem se tornar regras após revisão; até lá manter requires_assessment/context_only.",
+      "remainingReview": null,
+      "affectedIds": [],
+      "sourceUrls": [
+        {
+          "url": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022",
+          "label": "Objeto: vários componentes diferentes, incluindo bateria chumbo-ácido, lâmpada, freio e pistão"
+        },
+        {
+          "url": "https://www.gov.br/anatel/pt-br/regulado/certificacao-de-produtos/base-legal",
+          "label": "LGT art.162§2 e regulamento de produtos; enquadramento de equipamento"
+        }
+      ],
+      "evidence": [
+        {
+          "url": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022",
+          "device": "Objeto: vários componentes diferentes, incluindo bateria chumbo-ácido, lâmpada, freio e pistão",
+          "checkedAt": "2026-10-25",
+          "evidenceKind": "official_index"
+        },
+        {
+          "url": "https://www.gov.br/anatel/pt-br/regulado/certificacao-de-produtos/base-legal",
+          "device": "LGT art.162§2 e regulamento de produtos; enquadramento de equipamento",
+          "checkedAt": "2026-10-25",
+          "evidenceKind": "official_guidance"
+        }
+      ],
+      "paths": [
+        "data/inmetro/reviewed-map.json#/records/inmetro-145-2022/requirements",
+        "data/anatel/reviewed-map.json#/records",
+        "src/guide/traceability.js"
+      ],
+      "provenance": {
+        "path": "data/audit/agencies-2026-10-25.json",
+        "findingId": "agency-audit-06"
+      }
+    },
+    {
+      "id": "agency-audit-07",
+      "agencyGroup": "cross-agency",
+      "severity": "high",
+      "status": "requires_review",
+      "title": "MOVER tem índice e obrigações gerais, mas não matriz de obrigações comerciais revisadas",
+      "detail": "Dos 14 registros MOVER no catálogo, 13 são publicados e 1 histórico; nenhum possui fullTextReviewed true nem cadeia integral. Doze não possuem estados de revisão jurídica estruturados (null deve permanecer null). O portal oficial separa requisitos obrigatórios para comercialização/importação de veículos novos desde 01/06/2025 de incentivos empresariais. O checklist atual pede enquadramento genérico e não demonstra cobertura completa dessas condições.",
+      "action": "Publicar a lacuna e separar compromissos/requisitos obrigatórios, PBEV voluntário, incentivos/habilitação/P&D e atos por empresa; revisar dispositivos doDecreto 12.435/2025 e atos leves/pesados antes de prometer checklists completos.",
+      "remainingReview": null,
+      "affectedIds": [],
+      "sourceUrls": [
+        {
+          "url": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/programa-mover",
+          "label": "Seção 1. Requisitos Obrigatórios para Comercialização e Importação de Veículos Novos"
+        },
+        {
+          "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/decreto/d12435.htm",
+          "label": "Fonte oficial"
+        }
+      ],
+      "evidence": [
+        {
+          "url": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/programa-mover",
+          "device": "Seção 1. Requisitos Obrigatórios para Comercialização e Importação de Veículos Novos",
+          "excerpt": "A partir de 1º de junho de 2025, a comercialização e a importação de veículos novos no País ficam condicionadas ao cumprimento de requisitos obrigatórios.",
+          "checkedAt": "2026-10-25",
+          "evidenceKind": "official_guidance"
+        },
+        {
+          "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/decreto/d12435.htm",
+          "checkedAt": "2026-10-25",
+          "evidenceKind": "official_text_retrieved_not_integrally_reviewed",
+          "sha256": "037abbe72ef8160aa09c3b041695e4538da542faf9b23d84325fbabd237fdc4c"
+        }
+      ],
+      "paths": [
+        "catalog.json#/records/mover-*",
+        "src/guide/process-model.js#buildChecklist",
+        "data/mover/reviewed-map.json"
+      ],
+      "provenance": {
+        "path": "data/audit/agencies-2026-10-25.json",
+        "findingId": "agency-audit-07"
+      }
+    },
+    {
+      "id": "agency-audit-08",
+      "agencyGroup": "cross-agency",
+      "severity": "medium",
+      "status": "candidate",
+      "title": "Consulta pública sobre167/2026 não pode entrar como regra ativa",
+      "detail": "Busca oficial também localiza minuta para estabelecer ciclo de condução do Grupo 01 e alterar 167/2026. Proposta/minuta e ato publicado devem ter estados e tipos distintos.",
+      "action": "Rastrear como proposal/consultation; só registrar efeito normativo após localizar publicação oficial final e revisar dispositivo. Não atribuir vigência a minuta.",
+      "remainingReview": null,
+      "affectedIds": [],
+      "sourceUrls": [
+        {
+          "url": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/consultas-publicas",
+          "label": "Objeto da consulta sobre ciclo de condução Grupo01 e alteração 167/2026"
+        }
+      ],
+      "evidence": [
+        {
+          "url": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/consultas-publicas",
+          "device": "Objeto da consulta sobre ciclo de condução Grupo01 e alteração 167/2026",
+          "checkedAt": "2026-10-25",
+          "evidenceKind": "official_search_index_excerpt"
+        }
+      ],
+      "paths": [
+        "future_monitor_source_classification",
+        "data/mover/reviewed-map.json#/candidates"
+      ],
+      "provenance": {
+        "path": "data/audit/agencies-2026-10-25.json",
+        "findingId": "agency-audit-08"
+      }
+    },
+    {
+      "id": "safety-990-republication",
+      "agencyGroup": "senatran",
+      "severity": "high",
+      "status": "fixed",
+      "title": "Usar a republicação da Portaria 990, preservando a publicação original",
+      "detail": "A fonte primária do guia era o PDF original de 25 páginas. A republicação oficial tem 27 páginas e mudanças materiais em colunas/referências do Anexo XI.",
+      "action": "URL/hash primários passaram à republicação; originalUrl e originalDocumentSha256 foram preservados. A matriz e o guia agora identificam expressamente essa edição.",
+      "remainingReview": "A comparação não certifica toda a cadeia posterior nem transforma referências históricas do Anexo XI em obrigações atuais.",
+      "affectedIds": [
+        "guide-senatran-990"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf/@@display-file/file",
+          "label": "Republicação de 19/08/2022; Anexo XI, itens 1–4"
+        }
+      ],
+      "evidence": [],
+      "paths": [
+        "data/process/safety-sources.json",
+        "data/process/report-matrix.json",
+        "docs/guide/seguranca-siscat.md"
+      ],
+      "provenance": {
+        "path": "data/audit/safety-2026-10-25.json",
+        "findingId": "safety-990-republication"
+      }
+    },
+    {
+      "id": "safety-m2-unknown-pbt",
+      "agencyGroup": "senatran",
+      "severity": "high",
+      "status": "fixed",
+      "title": "PBT M2 ausente deve manter o grupo documental pendente",
+      "detail": "O ramo M2 tratava a condição else como grupo pesado mesmo com massKg nulo.",
+      "action": "Root adicionou ramo explícito PBT pendente; cenário real avaliado pelo módulo confirmou a saída sem classificação por massa presumida.",
+      "remainingReview": "Tipo, estágio, documentos e anexos do projeto permanecem sujeitos à verificação.",
+      "affectedIds": [
+        "guide-senatran-990"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf/@@display-file/file",
+          "label": "Anexo XI, grupos de leves até 3.500 kg e pesados acima de 3.500 kg"
+        }
+      ],
+      "evidence": [],
+      "paths": [
+        "src/guide/process-model.js"
+      ],
+      "provenance": {
+        "path": "data/audit/safety-2026-10-25.json",
+        "findingId": "safety-m2-unknown-pbt"
+      }
+    },
+    {
+      "id": "safety-electric-mn-l",
+      "agencyGroup": "senatran",
+      "severity": "high",
+      "status": "fixed",
+      "title": "Distinguir os pacotes híbrido/elétrico M/N e L",
+      "detail": "electric-safety apontava apenas ao índice CONTRAN e contexto Inmetro, sem a fonte específica do ramo.",
+      "action": "Novas fontes 749/750, linhas report-electric-mn/l com seleção de propulsão e vínculo específico da tarefa electric-safety; categoria L não recebe o pacote M/N.",
+      "remainingReview": "Anexos integrais, capítulos de pós-colisão e cadeia posterior exigem enquadramento próprio; não inferir método/edição/limite da referência UN/FMVSS.",
+      "affectedIds": [
+        "guide-contran-749",
+        "guide-contran-750"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7492018.pdf/@@display-file/file",
+          "label": "749/2018, arts. 1º–3º; 750/2018, arts. 1º–3º"
+        }
+      ],
+      "evidence": [],
+      "paths": [
+        "data/process/safety-sources.json",
+        "data/process/report-matrix.json",
+        "src/guide/process-model.js"
+      ],
+      "provenance": {
+        "path": "data/audit/safety-2026-10-25.json",
+        "findingId": "safety-electric-mn-l"
+      }
+    },
+    {
+      "id": "safety-towed-auxiliary-axis",
+      "agencyGroup": "senatran",
+      "severity": "high",
+      "status": "fixed",
+      "title": "Inventariar eixo elétrico auxiliar sem inferi-lo do perfil O",
+      "detail": "A categoria O não tinha frente dedicada ao semirreboque com eixo elétrico auxiliar. Ao mesmo tempo, herdar a segurança de veículo trator seria incorreto.",
+      "action": "Adicionada report-electric-towed-review para todos os perfis O, em review, com presença/ausência a documentar; não depende de BEV/HEV nem afirma existência do eixo.",
+      "remainingReview": "Apenas a confirmação de semirreboque e do equipamento habilita a análise específica dos requisitos e da modalidade de CAT.",
+      "affectedIds": [
+        "guide-contran-956"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9562022.pdf/@@display-file/file",
+          "label": "Arts. 1º–2º"
+        }
+      ],
+      "evidence": [],
+      "paths": [
+        "data/process/report-matrix.json",
+        "data/process/safety-sources.json"
+      ],
+      "provenance": {
+        "path": "data/audit/safety-2026-10-25.json",
+        "findingId": "safety-towed-auxiliary-axis"
+      }
+    },
+    {
+      "id": "safety-heavy-auxiliary-motor",
+      "agencyGroup": "senatran",
+      "severity": "high",
+      "status": "fixed",
+      "title": "Vincular a modalidade específica de motor elétrico auxiliar em caminhão",
+      "detail": "O fluxo genérico de modificação não destacava a modalidade de caminhão/caminhão-trator com motor elétrico auxiliar nem seus requisitos impactados.",
+      "action": "Adicionada triagem report-auxiliary-motor-modification para N2/N3 com purpose modification; data de produção desde 01/01/2014 e natureza real da alteração são condições a conferir.",
+      "remainingReview": "A linha não presume que toda modificação seja instalação de motor auxiliar. Anexo e retificação da 1.021 ainda precisam de revisão integral.",
+      "affectedIds": [
+        "guide-contran-1021",
+        "guide-contran-916",
+        "guide-contran-749",
+        "guide-contran-915",
+        "guide-contran-954"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10212026.pdf/@@display-file/file",
+          "label": "1.021/2026, arts. 3º–6º, especialmente art. 3º, §§1º–4º e art. 5º"
+        }
+      ],
+      "evidence": [],
+      "paths": [
+        "data/process/report-matrix.json",
+        "data/process/safety-sources.json"
+      ],
+      "provenance": {
+        "path": "data/audit/safety-2026-10-25.json",
+        "findingId": "safety-heavy-auxiliary-motor"
+      }
+    },
+    {
+      "id": "safety-impact-direct-bindings",
+      "agencyGroup": "senatran",
+      "severity": "medium",
+      "status": "fixed",
+      "title": "Conectar o pacote de impactos às fontes específicas e retificações",
+      "detail": "report-impact-m1n1 apontava somente à Portaria 990 e a um índice, embora o acervo já contivesse dispositivos dirigidos de 910 e 949.",
+      "action": "Fontes e ligações específicas foram adicionadas preservando review: PBT inferior a 2.500 kg, tipo, ponto R, derivação, código e cronogramas distintos.",
+      "remainingReview": "Não universalizar relatório M1 para todo N1; ato vigente e dispositivo cujo prazo encerrou são estados diferentes.",
+      "affectedIds": [
+        "guide-contran-910",
+        "guide-contran-910-retificacao",
+        "guide-contran-949",
+        "guide-contran-949-retificacao"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9102022.pdf/@@display-file/file",
+          "label": "910/2022, arts. 1º–6º e retificação; 949/2022, arts. 2º–5º e retificação"
+        }
+      ],
+      "evidence": [],
+      "paths": [
+        "data/process/report-matrix.json",
+        "data/process/safety-sources.json"
+      ],
+      "provenance": {
+        "path": "data/audit/safety-2026-10-25.json",
+        "findingId": "safety-impact-direct-bindings"
+      }
+    },
+    {
+      "id": "safety-stability-and-m2-modifiers",
+      "agencyGroup": "senatran",
+      "severity": "medium",
+      "status": "fixed",
+      "title": "Exibir os modificadores dos cronogramas ESC/VSF e M2",
+      "detail": "O fluxo referenciava o texto original sem ligação direta ao modificador do art. 7º da 954 ou ao corte retificado do art. 4º da 939.",
+      "action": "Fonte 264 ligada às três linhas de estabilidade; retificação 939 ligada ao pacote M2; guia esclarece cortes 01/01/2020, 01/07/2023 e 01/01/2023 conforme cada ramo.",
+      "remainingReview": "Os cortes não substituem o exame de exceções, data do primeiro modelo básico e cadeia posterior.",
+      "affectedIds": [
+        "guide-contran-264",
+        "guide-contran-939-retificacao"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/deliberacoes/Deliberacao2642022.pdf/@@display-file/file",
+          "label": "Deliberação 264/2022, art. 2º; retificação 939/2022 de 27/05/2022"
+        }
+      ],
+      "evidence": [],
+      "paths": [
+        "data/process/safety-sources.json",
+        "data/process/report-matrix.json",
+        "docs/guide/seguranca-siscat.md"
+      ],
+      "provenance": {
+        "path": "data/audit/safety-2026-10-25.json",
+        "findingId": "safety-stability-and-m2-modifiers"
+      }
+    },
+    {
+      "id": "safety-profile-bus-sources",
+      "agencyGroup": "senatran",
+      "severity": "medium",
+      "status": "fixed",
+      "title": "Conectar a avaliação do perfil aos atos próprios de M2/M3",
+      "detail": "A avaliação safety.sourceIds não apontava diretamente à 939 em M2 nem à 959 em M3, embora a matriz documental tivesse essas fontes.",
+      "action": "Root incluiu as fontes específicas por categoria; a navegação do perfil passou a acompanhar os atos próprios.",
+      "remainingReview": "Anexos, aplicação de ônibus e nível de prova não foram automaticamente confirmados.",
+      "affectedIds": [
+        "guide-contran-939",
+        "guide-contran-959"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9392022.pdf/@@display-file/file",
+          "label": "939/2022, art. 2º; 959/2022, arts. 1º–2º"
+        }
+      ],
+      "evidence": [],
+      "paths": [
+        "src/guide/process-model.js"
+      ],
+      "provenance": {
+        "path": "data/audit/safety-2026-10-25.json",
+        "findingId": "safety-profile-bus-sources"
+      }
+    },
+    {
+      "id": "safety-restraints-current-pair",
+      "agencyGroup": "senatran",
+      "severity": "medium",
+      "status": "fixed",
+      "title": "Ligar retenção a 951/997 sem reativar 220/2007",
+      "detail": "O quadro de processo precisava de frente explícita para retenção, e o Anexo XI da 990 ainda cita a 220/2007.",
+      "action": "Adicionada report-restraints com fontes 951/997 e ressalva explícita de posição, categoria, anexo e atos de ônibus; a 220 permanece histórica.",
+      "remainingReview": "Não tratar alterações de referências de ensaio como consolidação de todas as regras de banco/carroceria.",
+      "affectedIds": [
+        "guide-contran-951",
+        "guide-contran-997"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9512022.pdf/@@display-file/file",
+          "label": "951/2022, arts. 1º–3º; 997/2023, arts. 1º–3º"
+        }
+      ],
+      "evidence": [],
+      "paths": [
+        "data/process/report-matrix.json",
+        "data/process/safety-sources.json"
+      ],
+      "provenance": {
+        "path": "data/audit/safety-2026-10-25.json",
+        "findingId": "safety-restraints-current-pair"
+      }
+    },
+    {
+      "id": "safety-heavy-cab-milestones",
+      "agencyGroup": "senatran",
+      "severity": "medium",
+      "status": "fixed",
+      "title": "Separar cadastro de ato e incidência temporal da proteção de cabine",
+      "detail": "A proteção da cabine N2/N3 não tinha frente própria e não deve ser inferida dos bancos ilustrados do SUV.",
+      "action": "Adicionada report-cab-n2n3 em review, com marcos originais 2028 para novos projetos e 2030 para produção; nenhuma obrigação geral de ensaio em 2026 foi declarada.",
+      "remainingReview": "Conferir primeiro código, exceções, anexo e alterações posteriores antes da decisão.",
+      "affectedIds": [
+        "guide-contran-765"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7652018.pdf/@@display-file/file",
+          "label": "765/2018, arts. 1º–4º"
+        }
+      ],
+      "evidence": [],
+      "paths": [
+        "data/process/report-matrix.json",
+        "data/process/safety-sources.json"
+      ],
+      "provenance": {
+        "path": "data/audit/safety-2026-10-25.json",
+        "findingId": "safety-heavy-cab-milestones"
+      }
+    },
+    {
+      "id": "safety-coverage-not-total",
+      "agencyGroup": "senatran",
+      "severity": "high",
+      "status": "requires_review",
+      "title": "A cobertura de navegação não prova todo o arcabouço aplicável",
+      "detail": "30 subsistemas e 47 atividades são um universo editorial, não todo o conjunto de obrigações veiculares ou de modalidades de homologação.",
+      "action": "Adicionada report-general-construction e documentação de limites; a matriz tem 17 frentes consultivas, sem percentual que certifique completude legal.",
+      "remainingReview": "Continuam pendentes conforme o caso: anexos técnicos integrais, cadeia posterior por assunto, tipos e construção, artesanal/leilão/dispensa e demais módulos especiais, dados de primeiro código, ponto R, eixos e configuração de laboratório.",
+      "affectedIds": [
+        "guide-contran-993"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9932023.pdf/@@display-file/file",
+          "label": "993/2023, arts. 2º–7º; SISCAT, carta de serviço"
+        }
+      ],
+      "evidence": [],
+      "paths": [
+        "data/process/report-matrix.json",
+        "docs/guide/seguranca-siscat.md"
+      ],
+      "provenance": {
+        "path": "data/audit/safety-2026-10-25.json",
+        "findingId": "safety-coverage-not-total"
+      }
+    },
+    {
+      "id": "safety-authenticated-module",
+      "agencyGroup": "senatran",
+      "severity": "medium",
+      "status": "requires_review",
+      "title": "Conferir documentos e canal no módulo real do SISCAT",
+      "detail": "A página CAT menciona SEI, enquanto a carta SISCAT estabelece obrigatoriedade do módulo quando disponibilizado. Nenhuma sessão autenticada foi acessada.",
+      "action": "O guia conserva a distinção e exige confirmação do módulo e procedimento de indisponibilidade; não promete protocolo automático.",
+      "remainingReview": "Confirmar documentos, disponibilização do módulo, canal de contingência, taxa e acesso na operação concreta; orientação pública não equivale ao procedimento completo autenticado.",
+      "affectedIds": [
+        "guide-senatran-siscat"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://www.gov.br/pt-br/servicos/sistema-de-certificacao-de-adequacao-a-legislacao-de-transito",
+          "label": "Portaria 990/2022, art. 26; carta SISCAT"
+        }
+      ],
+      "evidence": [],
+      "paths": [
+        "docs/guide/seguranca-siscat.md"
+      ],
+      "provenance": {
+        "path": "data/audit/safety-2026-10-25.json",
+        "findingId": "safety-authenticated-module"
+      }
+    },
+    {
+      "id": "monitor-mdic-76-2026",
+      "agencyGroup": "mdic",
+      "severity": "low",
+      "status": "candidate",
+      "title": "Grupo de trabalho da Portaria MDIC 76/2026 identificado no índice",
+      "detail": "Institui grupos de trabalho para elaboração de propostas técnicas sobre reciclabilidade e desempenho estrutural e tecnologias assistivas de veículos automotores pesados.",
+      "action": "Conferir a íntegra e acompanhar as propostas resultantes. O registro não acrescenta requisito obrigatório ao veículo.",
+      "remainingReview": "Somente ementa/índice conferidos; conteúdo e efeitos do ato não foram estruturados.",
+      "affectedIds": [
+        "mdic-gm-76-2026"
+      ],
+      "sourceUrls": [
+        {
+          "url": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2026",
+          "label": "Índice oficial MDIC2026"
+        },
+        {
+          "url": "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-76-de-27-de-marco-de-2026-696054503",
+          "label": "Localizador DOU — íntegra pendente"
+        }
+      ],
+      "evidence": [],
+      "paths": [
+        "data/mover/reviewed-map.json#/candidates"
+      ],
+      "provenance": {
+        "path": "data/mover/sources/index-2026-10-25.html",
+        "sha256": "9d21b192f676d2a34efbe8741f5c36b5dc8b064bcb33b6b195843e308d0a29bc"
+      }
+    }
+  ]
+}

@@ -33,6 +33,14 @@ user-excluded CONTRAN acts and the historical inventory. Exclusion does not prov
 a specific revoking act. Never modify them merely to make a test pass.
 
 Active JSON/CSV, `data/site/**` and `data/requirements/catalog.json` are generated.
+`knowledge/**`, `data/process/knowledge-index.json`, `regulatory-coverage.json`
+and `regulatory-revision.json` are also generated. Edit their cited editorial
+inputs, then run `npm run build:data`; never rewrite a generated law card to
+change a legal state. For AI consultation use
+`.agents/skills/consulta-regulatoria/SKILL.md`. Monitoring observations and
+HTTP/hash changes do not update legal review dates or applicability. Keep
+candidate references separate from published acts and preserve old process
+evidence when a changed rules/evidence snapshot requires revalidation.
 Edit sources, retain requirement IDs, regenerate and review diffs. Requirement
 context joins mean that an activity/system consults an act, not that every
 requirement applies. Method/evidence plans remain explicitly unstructured until

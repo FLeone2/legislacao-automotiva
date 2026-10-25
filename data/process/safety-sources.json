@@ -1,0 +1,441 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-25",
+  "scopeNote": "Revisão dirigida para segurança/processos, com republicação da 990/2022 e modificadores expressamente identificados. Fonte lida e vínculo de consulta não promovem vigência, aplicabilidade individual ou revisão integral do acervo.",
+  "records": [
+    {
+      "id": "guide-senatran-990",
+      "agency": "SENATRAN",
+      "title": "Portaria SENATRAN 990/2022 — procedimento CAT e registros de ensaios (republicação)",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf/@@display-file/file",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_original_text",
+      "scope": "Procedimento CAT, SGQ/CCT, CS/ITL, relatórios e SISCAT; grupos e trechos do Anexo XI republicado.",
+      "limitations": "Republicação oficial de 19/08/2022. Revisão dirigida dos dispositivos e linhas citados; não é consolidação da cadeia posterior nem validação de todos os anexos. O Anexo XI corrige colunas e referências em relação ao PDF original e ainda cita atos históricos: conferir o ato atual sem reativar os 55 excluídos.",
+      "device": "Arts. 2º, §§3º e 7º–8º; 4º; 9º; 12–22; 26; Anexo XI, grupos 1–4",
+      "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+      "legalStatus": "requires_chain_review",
+      "edition": "republication_2022-08-19",
+      "originalUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022.pdf/@@display-file/file",
+      "originalDocumentSha256": "79c69a01e9622de7d06f7055dcaa1120ffcf05d2d9aa453f6efebd241c607133",
+      "reviewEvidence": "data/process/review-evidence/safety-2026-10-25.json"
+    },
+    {
+      "id": "guide-senatran-siscat",
+      "agency": "SENATRAN",
+      "title": "Carta de serviço — SISCAT",
+      "url": "https://www.gov.br/pt-br/servicos/sistema-de-certificacao-de-adequacao-a-legislacao-de-transito",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_guidance",
+      "scope": "Acesso, módulos, envio de documentos, GRU, análise e CAT.",
+      "limitations": "Orientação de serviço, última modificação indicada 15/12/2025. Requisitos efetivos devem ser conferidos no módulo; não há acesso autenticado nesta revisão."
+    },
+    {
+      "id": "guide-senatran-cat",
+      "agency": "SENATRAN",
+      "title": "Carta de serviço — emitir CAT",
+      "url": "https://www.gov.br/pt-br/servicos/emitir-certificado-de-adequacao-a-legislacao-de-transito-cat",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_guidance",
+      "scope": "Público do serviço, finalidade do CAT e canais indicados.",
+      "limitations": "Página menciona SISCAT e SEI. Conferir canal conforme módulo disponibilizado e indisponibilidade; não é autorização universal de uso do SEI."
+    },
+    {
+      "id": "guide-contran-915",
+      "agency": "CONTRAN",
+      "title": "Resolução CONTRAN 915/2022",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9152022.pdf/@@display-file/file",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_original_text",
+      "scope": "Classificação M/N/O/L, desempenho dos freios e ABS/CBS.",
+      "limitations": "Texto original conferido; cadeia modificadora integral não certificada. Exceções exigem configuração e datas reais.",
+      "device": "Arts. 2º e 4º–9º",
+      "documentSha256": "07b53ce129b94e6a5fc9b3cba7039af2c7f6cef5097ab89f74b7e9c85425ebc6",
+      "legalStatus": "requires_chain_review",
+      "actId": "contran-915-2022"
+    },
+    {
+      "id": "guide-contran-954",
+      "agency": "CONTRAN",
+      "title": "Resolução CONTRAN 954/2022",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9542022.pdf/@@display-file/file",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_original_text",
+      "scope": "ESC/VSF, categoria, uso urbano/escolar, eixos e cronograma.",
+      "limitations": "Texto original conferido; cadeia modificadora integral não certificada. Exceções exigem configuração e datas reais.",
+      "device": "Arts. 3º–7º",
+      "documentSha256": "56fa725fd66a8943186dcbe62f6e5f8e6fb9145e481117b281b4048288c19897",
+      "legalStatus": "requires_chain_review",
+      "actId": "contran-954-2022",
+      "relatedSourceIds": [
+        "guide-contran-264"
+      ]
+    },
+    {
+      "id": "guide-contran-939",
+      "agency": "CONTRAN",
+      "title": "Resolução CONTRAN 939/2022 — segurança M2",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9392022.pdf/@@display-file/file",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_original_text",
+      "scope": "Segurança de micro-ônibus M2; estrutura, estabilidade, bancos e emergência.",
+      "limitations": "Corpo do ato localizado; anexos técnicos integrais e cadeia modificadora não consolidados. Consulta pública não equivale a alteração publicada.",
+      "device": "Arts. 1º–5º",
+      "actId": "contran-939-2022",
+      "documentSha256": "a1e7da37e6b9e6daa45e862b3fbbd19eb1513ad3213b9be8e0305b6c0a144d57",
+      "relatedSourceIds": [
+        "guide-contran-939-retificacao"
+      ]
+    },
+    {
+      "id": "guide-contran-959",
+      "agency": "CONTRAN",
+      "title": "Resolução CONTRAN 959/2022 — segurança M3",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9592022.pdf/@@display-file/file",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_original_text",
+      "scope": "Segurança de ônibus/micro-ônibus M3; diferenças de uso e documentação de CAT.",
+      "limitations": "Corpo do ato localizado; anexos técnicos integrais e cadeia modificadora não consolidados.",
+      "device": "Arts. 1º–7º",
+      "actId": "contran-959-2022",
+      "documentSha256": "54bffc991227481786dfd33567af33f74db38abd649577dcabaa22d331ddfbfa"
+    },
+    {
+      "id": "guide-contran-index",
+      "agency": "CONTRAN",
+      "title": "Índice oficial de resoluções CONTRAN",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_index",
+      "scope": "Localização de atos e indicação de alterações/efeitos no índice.",
+      "limitations": "Índice não prova consolidação de todos os dispositivos; preservar profundidade por registro do acervo."
+    },
+    {
+      "id": "guide-inmetro-145",
+      "agency": "INMETRO",
+      "title": "Portal IQ — Portaria Inmetro 145/2022",
+      "url": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022?layout=norma_detalhe",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_index",
+      "scope": "Objetos regulados e referências técnicas.",
+      "limitations": "Referência atual, íntegra pendente. Não promover RTQ/RAC ou exclusões OEM a revisão integral; não estender bateria chumbo-ácido a tração de íons de lítio."
+    },
+    {
+      "id": "guide-inmetro-led",
+      "agency": "INMETRO",
+      "title": "FAQ — lâmpadas LED automotivas",
+      "url": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/lampadas-e-luminarias-led-portaria-inmetro-no-231-2026-fabricantes-importadores-comerciantes-e-distribuidores/lampadas-led-para-carros-precisam-de-certificacao",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_guidance",
+      "scope": "LED automotivo fora do escopo das Portarias 145/2022 e 231/2026.",
+      "limitations": "Orientação publicada em 13/08/2026. Não autoriza substituição no veículo nem dispensa segurança CONTRAN."
+    },
+    {
+      "id": "guide-inmetro-bateria-importada",
+      "agency": "INMETRO",
+      "title": "Ofício Circular 5/2026 — baterias chumbo-ácido importadas",
+      "url": "https://www.gov.br/inmetro/pt-br/assuntos/acreditacao-reconhecimento-bpl/comunicados/dicor-alerta/2026/oficio-circular-5-2026-dconf-inmetro.pdf",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_guidance",
+      "scope": "Harmonização de entendimento para bateria automotiva chumbo-ácido importada.",
+      "limitations": "Orientação específica; não é regulamento geral de baterias de tração. Detalhes devem ser lidos no original e no requisito do acervo."
+    },
+    {
+      "id": "guide-anatel-base",
+      "agency": "ANATEL",
+      "title": "Base legal de certificação de produtos",
+      "url": "https://www.gov.br/anatel/pt-br/regulado/certificacao-de-produtos/base-legal",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_guidance",
+      "scope": "Localização do regulamento de avaliação da conformidade/homologação.",
+      "limitations": "Página de orientação, não texto consolidado da Resolução 715/2019 e modificadores."
+    },
+    {
+      "id": "guide-anatel-715",
+      "agency": "ANATEL",
+      "title": "Resolução Anatel 715/2019 e modificadores",
+      "url": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2019/1350-resolucao-715",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "repository_directed_review",
+      "scope": "Produtos para telecomunicações; obrigação e identificação conforme acervo dirigido.",
+      "limitations": "Na consulta atual, endereço redirecionou para manutenção. Preservar snapshot e revisão do acervo; não afirmar nova revisão integral de 25/10/2026.",
+      "accessStatus": "maintenance_redirect"
+    },
+    {
+      "id": "guide-anatel-modulos",
+      "agency": "ANATEL",
+      "title": "Ato 4083/2020 — procedimento de avaliação e integração de módulos",
+      "url": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2020/1453-resolucao-729",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_indexed_excerpt",
+      "scope": "Integração de módulo em produto passível de homologação pode exigir nova avaliação.",
+      "limitations": "Trecho localizado no índice de busca oficial; íntegra atual e cadeia de alterações não conferidas nesta rodada. Não fornece dispensa automática.",
+      "device": "Procedimento operacional: certificação de módulos para integração"
+    },
+    {
+      "id": "guide-mdic-mover",
+      "agency": "MDIC",
+      "title": "Programa MOVER — apresentação oficial",
+      "url": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/programa-mover",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_guidance",
+      "scope": "Programa instituído pela Lei 14.902/2024; compromissos/regimes e encaminhamentos.",
+      "limitations": "Página geral ainda menciona 43/2024; o índice 2026 indica sua revogação. Não usar referência antiga isoladamente como regra atual."
+    },
+    {
+      "id": "guide-mdic-2026",
+      "agency": "MDIC",
+      "title": "Índice de Portarias GM/MDIC de 2026",
+      "url": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2026",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_index",
+      "scope": "Índice indica Portaria 68/2026 e revogação da 43/2024.",
+      "limitations": "Confirmação em índice, não íntegra consolidada da 68, dispositivo de revogação ou transição; preservar ressalva existente do acervo."
+    },
+    {
+      "id": "guide-contran-910",
+      "agency": "CONTRAN",
+      "title": "Resolução CONTRAN 910/2022 — impactos frontal/traseiro",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9102022.pdf/@@display-file/file",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_original_text",
+      "scope": "Proteção aos ocupantes e integridade do sistema de combustível; tipo, PBT, derivação e datas.",
+      "limitations": "Corpo e retificação de 06/06/2022 conferidos de forma dirigida. Arts. 2º–3º têm prazo próprio encerrado em 2025; preservar o regime remanescente dos arts. 4º–5º, sem declarar revogação integral. Anexos e cadeia posterior não consolidados.",
+      "device": "Arts. 1º–6º",
+      "documentSha256": "734d98a11036edb2d6b9a0b3e9b8f749d5afa7b632ade8818fa7b603cc2888af",
+      "legalStatus": "requires_chain_review",
+      "reviewEvidence": "data/process/review-evidence/safety-2026-10-25.json",
+      "actId": "contran-910-2022",
+      "relatedSourceIds": [
+        "guide-contran-910-retificacao"
+      ]
+    },
+    {
+      "id": "guide-contran-910-retificacao",
+      "agency": "CONTRAN",
+      "title": "Retificação da Resolução CONTRAN 910/2022 — 06/06/2022",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9102022R.pdf/@@display-file/file",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_original_text",
+      "scope": "Corrige cortes de datas dos dispositivos indicados.",
+      "limitations": "Retificação oficial específica; ler em conjunto com o corpo da 910, anexos e demais modificadores.",
+      "device": "Art. 3º, I–II, e art. 5º, I–II",
+      "documentSha256": "13c96854d12abb336c5b9a5fbf822ff604963903e024720078a75f5f30f2a3d2",
+      "legalStatus": "requires_chain_review",
+      "reviewEvidence": "data/process/review-evidence/safety-2026-10-25.json",
+      "relatedActIds": [
+        "contran-910-2022"
+      ]
+    },
+    {
+      "id": "guide-contran-949",
+      "agency": "CONTRAN",
+      "title": "Resolução CONTRAN 949/2022 — impacto lateral",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9492022.pdf/@@display-file/file",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_original_text",
+      "scope": "Barreira deformável e poste; tipo, ponto R, exceções, modelo básico e marcos distintos.",
+      "limitations": "Corpo e retificação de 07/06/2022 conferidos de forma dirigida. O marco de poste não se transfere a todo veículo em 2026; anexos e cadeia posterior não consolidados.",
+      "device": "Arts. 2º–5º",
+      "documentSha256": "9b1505055be305a5358bded0622340a69a1c3ee11d762a9a6dffaa20f91a09cf",
+      "legalStatus": "requires_chain_review",
+      "reviewEvidence": "data/process/review-evidence/safety-2026-10-25.json",
+      "actId": "contran-949-2022",
+      "relatedSourceIds": [
+        "guide-contran-949-retificacao"
+      ]
+    },
+    {
+      "id": "guide-contran-949-retificacao",
+      "agency": "CONTRAN",
+      "title": "Retificação da Resolução CONTRAN 949/2022 — 07/06/2022",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9492022R.pdf/@@display-file/file",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_original_text",
+      "scope": "Corrige cortes de código do projeto para 01/01/2020 e 01/01/2026, respectivamente.",
+      "limitations": "Retificação específica; preservar os demais marcos, dispensas e definição de derivação do ato base.",
+      "device": "Art. 5º, I, a, e II, a",
+      "documentSha256": "8215fd7728296ab0e5e9a7d181f3f0c19499596a9921a7fcd3ee7c72239fc172",
+      "legalStatus": "requires_chain_review",
+      "reviewEvidence": "data/process/review-evidence/safety-2026-10-25.json",
+      "relatedActIds": [
+        "contran-949-2022"
+      ]
+    },
+    {
+      "id": "guide-contran-939-retificacao",
+      "agency": "CONTRAN",
+      "title": "Retificação da Resolução CONTRAN 939/2022 — 27/05/2022",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9392022R.pdf/@@display-file/file",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_original_text",
+      "scope": "Corrige o corte de código do projeto M2 para 01/01/2023.",
+      "limitations": "Retificação específica do marco do modelo; não equivale à revisão de todos os anexos técnicos de M2.",
+      "device": "Art. 4º, I",
+      "documentSha256": "453516bd8bcab2db149df4517156eaca64ac1e5af7338209a633156f101d41c0",
+      "legalStatus": "requires_chain_review",
+      "reviewEvidence": "data/process/review-evidence/safety-2026-10-25.json",
+      "relatedActIds": [
+        "contran-939-2022"
+      ]
+    },
+    {
+      "id": "guide-contran-264",
+      "agency": "CONTRAN",
+      "title": "Deliberação CONTRAN 264/2022 — cronograma ESC/VSF",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/deliberacoes/Deliberacao2642022.pdf/@@display-file/file",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_original_text",
+      "scope": "Cortes de código e datas de ESC/VSF, distintos para M1/N1 e para os demais grupos do art. 7º.",
+      "limitations": "Texto modificador de 25/10/2022 publicado em 31/10/2022; não confirma por si toda a cadeia posterior da Resolução 954/2022.",
+      "device": "Arts. 1º–3º; nova redação do art. 7º, I–II, da 954/2022",
+      "documentSha256": "44d9936d4d571c468a91ac72e89e5427dec9072017622a25e98e7b671b8223cd",
+      "legalStatus": "requires_chain_review",
+      "reviewEvidence": "data/process/review-evidence/safety-2026-10-25.json",
+      "relatedActIds": [
+        "contran-954-2022"
+      ]
+    },
+    {
+      "id": "guide-contran-749",
+      "agency": "CONTRAN",
+      "title": "Resolução CONTRAN 749/2018 — segurança híbrida/elétrica M/N",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7492018.pdf/@@display-file/file",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_original_text",
+      "scope": "Configurações híbridas, híbridas plug-in e elétricas dos tipos enumerados; capítulos de pós-colisão dependem do escopo de impactos.",
+      "limitations": "Corpo do ato conferido; anexos técnicos integrais e cadeia posterior não revisados integralmente. Referências UN/FMVSS não autorizam inferir edição, método ou limite aplicável ao projeto.",
+      "device": "Arts. 1º–3º",
+      "documentSha256": "630d21b7ce3df8bedbae8ad93da15ba8c97fe3c2941b08b472f809422a82ba30",
+      "legalStatus": "requires_chain_review",
+      "reviewEvidence": "data/process/review-evidence/safety-2026-10-25.json",
+      "actId": "contran-749-2018"
+    },
+    {
+      "id": "guide-contran-750",
+      "agency": "CONTRAN",
+      "title": "Resolução CONTRAN 750/2018 — segurança híbrida/elétrica L",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7502018.pdf/@@display-file/file",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_original_text",
+      "scope": "Ciclomotores, motocicletas, motonetas, triciclos e quadriciclos híbridos, plug-in e elétricos.",
+      "limitations": "Corpo do ato conferido; anexos integrais e cadeia posterior não consolidados. Não aplicar o pacote M/N da 749 por analogia.",
+      "device": "Arts. 1º–3º",
+      "documentSha256": "99fd0c52b5acdc13be4655b4bdc1691ee198aee6b5f2cabbcea7e9d14a28bfff",
+      "legalStatus": "requires_chain_review",
+      "reviewEvidence": "data/process/review-evidence/safety-2026-10-25.json",
+      "actId": "contran-750-2018"
+    },
+    {
+      "id": "guide-contran-956",
+      "agency": "CONTRAN",
+      "title": "Resolução CONTRAN 956/2022 — eixo elétrico auxiliar em semirreboque",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9562022.pdf/@@display-file/file",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_original_text",
+      "scope": "Presença de eixo elétrico auxiliar, inclusive opcional, e homologação de produção/instalação.",
+      "limitations": "Corpo conferido; anexo técnico e cadeia posterior não revisados integralmente. Categoria O e seleção de propulsão não provam que o veículo seja semirreboque com esse eixo.",
+      "device": "Arts. 1º–2º",
+      "documentSha256": "583274c4c9dc9477902d6934abdc4eec24622bc11ef028e53039f6dc33368d05",
+      "legalStatus": "requires_chain_review",
+      "reviewEvidence": "data/process/review-evidence/safety-2026-10-25.json",
+      "actId": "contran-956-2022"
+    },
+    {
+      "id": "guide-contran-1021",
+      "agency": "CONTRAN",
+      "title": "Resolução CONTRAN 1.021/2026 — motor elétrico auxiliar em caminhão",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10212026.pdf/@@display-file/file",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_original_text",
+      "scope": "Caminhão/caminhão-trator, modificação sujeita a CAT, requisitos impactados e veículos produzidos desde 01/01/2014.",
+      "limitations": "Corpo conferido de forma dirigida. Anexo, retificação indicada no índice e cadeia posterior permanecem em revisão. Não estender a regra do motor auxiliar a toda conversão híbrida nem declarar dispensas.",
+      "device": "Arts. 1º–6º, especialmente art. 3º, §§1º–4º, e art. 5º",
+      "documentSha256": "066b2d37c42826a88da8605c347ceb1647a8f182110dc759d43e02b1af5fe9de",
+      "legalStatus": "requires_chain_review",
+      "reviewEvidence": "data/process/review-evidence/safety-2026-10-25.json",
+      "actId": "contran-1021-2026"
+    },
+    {
+      "id": "guide-contran-916",
+      "agency": "CONTRAN",
+      "title": "Resolução CONTRAN 916/2022 — código de modelo e modificações",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9162022.pdf/@@display-file/file",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_original_text",
+      "scope": "Autorização prévia de modificação, CAT nas hipóteses do Anexo IV, CSV e atualização do registro.",
+      "limitations": "Corpo conferido de forma dirigida; Anexos IV/V e alterações pela 958/2022 e 1.021/2026 devem ser confrontados no caso concreto, sem consolidação integral nesta rodada.",
+      "device": "Arts. 2º–6º",
+      "documentSha256": "a52f98b3134d0e92f6f104ca329199b914e1a74f5abc941a03dc36e6efa49d21",
+      "legalStatus": "requires_chain_review",
+      "reviewEvidence": "data/process/review-evidence/safety-2026-10-25.json",
+      "actId": "contran-916-2022",
+      "relatedSourceIds": [
+        "guide-contran-1021"
+      ]
+    },
+    {
+      "id": "guide-contran-951",
+      "agency": "CONTRAN",
+      "title": "Resolução CONTRAN 951/2022 — cintos, ancoragens e apoios de cabeça",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9512022.pdf/@@display-file/file",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_original_text",
+      "scope": "Requisitos de instalação e ensaios dos sistemas de retenção e apoios.",
+      "limitations": "Corpo conferido; ler com a Resolução 997/2023. Anexos técnicos e cadeia posterior não consolidados; citação em tabela antiga não reativa a 220/2007.",
+      "device": "Arts. 1º–3º; anexos conforme posição e categoria",
+      "documentSha256": "a41b468b4fadc5428cf6a8eb73994c24e057f5293277781bea06845388504369",
+      "legalStatus": "requires_chain_review",
+      "reviewEvidence": "data/process/review-evidence/safety-2026-10-25.json",
+      "actId": "contran-951-2022",
+      "relatedSourceIds": [
+        "guide-contran-997"
+      ]
+    },
+    {
+      "id": "guide-contran-997",
+      "agency": "CONTRAN",
+      "title": "Resolução CONTRAN 997/2023 — alteração de cintos/ancoragens",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9972023.pdf/@@display-file/file",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_original_text",
+      "scope": "Alteração de referências de comprovação e inclusão da 220/2007 na lista de revogações.",
+      "limitations": "Alteração dirigida conferida; não tratar como substituição textual universal de todos os requisitos de banco/carroceria. Efeito registrado em 02/10/2023.",
+      "device": "Arts. 1º–3º; alterações do art. 8º e anexos da 951/2022",
+      "documentSha256": "1dea17df18181cdd3f5b5e3e89d810424cd4dcfae453d5a3cd5ecbf64307af58",
+      "legalStatus": "requires_chain_review",
+      "reviewEvidence": "data/process/review-evidence/safety-2026-10-25.json",
+      "actId": "contran-997-2023"
+    },
+    {
+      "id": "guide-contran-993",
+      "agency": "CONTRAN",
+      "title": "Resolução CONTRAN 993/2023 — equipamentos e construção",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9932023.pdf/@@display-file/file",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_original_text",
+      "scope": "Equipamentos por tipo, requisitos gerais de construção e regulamentações específicas; incompletos têm regra própria.",
+      "limitations": "Corpo conferido; marcações e notas de todos os anexos e cadeia posterior não foram transformadas em checklist automático. A revogação da 912/2022 não dispensa verificar cada assunto.",
+      "device": "Arts. 2º–7º",
+      "documentSha256": "9e135fddd4fa3b6f897ec7836b9fdf991a5803770fc3b504bebfcecebb4d465f",
+      "legalStatus": "requires_chain_review",
+      "reviewEvidence": "data/process/review-evidence/safety-2026-10-25.json",
+      "actId": "contran-993-2023"
+    },
+    {
+      "id": "guide-contran-765",
+      "agency": "CONTRAN",
+      "title": "Resolução CONTRAN 765/2018 — proteção da cabine N2/N3",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7652018.pdf/@@display-file/file",
+      "checkedAt": "2026-10-25",
+      "evidenceType": "official_original_text",
+      "scope": "Proteção dos ocupantes de cabine, exceções e marcos próprios para novos projetos e produção.",
+      "limitations": "Corpo conferido; anexo técnico e cadeia posterior não revisados integralmente. Marcos originais de 2028/2030 não são obrigação geral de ensaio em 2026; confirmar código do projeto e alterações posteriores.",
+      "device": "Arts. 1º–4º",
+      "documentSha256": "1a3badae62feac3c7fd9a8d7b6dfbb5dd70de07c6444e46312394348f02ffdbe",
+      "legalStatus": "requires_chain_review",
+      "reviewEvidence": "data/process/review-evidence/safety-2026-10-25.json",
+      "actId": "contran-765-2018"
+    }
+  ]
+}

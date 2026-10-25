@@ -1,0 +1,1170 @@
+/* Scoped refinement for the consultative guide. Existing vehicle geometry,
+   renderer controls, legacy routes and global theme choices remain separate. */
+#app.guide-mode {
+  --g-apple-action: #0071e3;
+  --g-apple-action-hover: #0064c8;
+  --g-apple-link: #91c8ff;
+}
+
+html[data-theme='light'] #app.guide-mode {
+  --g-apple-link: #0066cc;
+}
+
+#app.guide-mode .topbar {
+  height: 88px;
+  padding-inline: 36px;
+  gap: 24px;
+}
+
+#app.guide-mode .brand-mark {
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  color: var(--ink);
+}
+
+#app.guide-mode .primary-nav {
+  background: transparent;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+#app.guide-mode .nav-indicator {
+  background: var(--surface-3);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+#app.guide-mode .search-trigger {
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+}
+
+#app.guide-mode .country::before {
+  display: none;
+}
+
+#app.guide-mode .topbar :is(a, button, select):focus-visible {
+  outline-color: var(--g-apple-link);
+}
+
+#app.guide-mode .g-app {
+  --g-apple-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  --g-apple-panel: #1c1c1e;
+  --g-apple-inset: #131315;
+  --g-apple-raised: #27272a;
+  --g-apple-line: #38383d;
+  --g-apple-muted: #b4b4bd;
+  --g-apple-focus: #92c8ff;
+  --g-line: var(--g-apple-line);
+  --g-muted: var(--g-apple-muted);
+  font-family: var(--g-apple-font);
+  font-size: 0.9375rem;
+  font-optical-sizing: auto;
+  line-height: 1.55;
+}
+
+html[data-theme='light'] #app.guide-mode .g-app {
+  --g-apple-panel: #fff;
+  --g-apple-inset: #f5f5f7;
+  --g-apple-raised: #eaeaee;
+  --g-apple-line: #d7d7dd;
+  --g-apple-muted: #51515b;
+  --g-apple-focus: #005fc7;
+}
+
+html[data-theme='aurora'] #app.guide-mode .g-app {
+  --g-apple-panel: #18222f;
+  --g-apple-inset: #111b27;
+  --g-apple-raised: #243345;
+  --g-apple-line: #415268;
+  --g-apple-muted: #c0cad9;
+  --g-apple-focus: #a8d0ff;
+}
+
+#app.guide-mode .g-app ::selection {
+  color: var(--ink);
+  background: var(--accent-soft);
+}
+
+#app.guide-mode .g-status-review .g-status-label {
+  color: var(--warning);
+  background: var(--warning-soft);
+  border: 1px solid var(--warning-line);
+}
+
+#app.guide-mode .g-app :is(input, textarea) {
+  caret-color: var(--g-apple-link);
+}
+
+#app.guide-mode .g-page-heading {
+  padding-block: 1.75rem 2.5rem;
+  gap: 2rem;
+}
+
+#app.guide-mode .g-page-heading h1 {
+  font-size: 2.75rem;
+  line-height: 1.12;
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  margin-block: 0 0.875rem;
+}
+
+#app.guide-mode .g-page-heading p {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  max-width: 70ch;
+}
+
+#app.guide-mode :is(.g-eyebrow, .g-sidebar-heading, .g-tag) {
+  font-size: 0.6875rem;
+  letter-spacing: 0.065em;
+}
+
+#app.guide-mode .g-workspace {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+#app.guide-mode .g-project-sidebar {
+  padding: 0 1.5rem 1.5rem 0;
+  background: transparent;
+}
+
+#app.guide-mode .g-project-disclosure > summary,
+#app.guide-mode .g-tree-disclosure > summary {
+  display: none;
+}
+
+#app.guide-mode .g-project-disclosure-body > .g-sidebar-heading {
+  text-transform: none;
+  font-size: 0.875rem;
+  letter-spacing: 0;
+  font-weight: 600;
+}
+
+#app.guide-mode .g-disclosure-action {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--g-apple-link);
+}
+
+#app.guide-mode .g-progress strong {
+  color: var(--g-apple-link);
+}
+
+#app.guide-mode .g-progress progress {
+  accent-color: var(--g-apple-action);
+}
+
+#app.guide-mode .g-progress > div {
+  font-size: 0.75rem;
+}
+
+#app.guide-mode :is(.g-progress small, .g-local-actions small) {
+  font-size: 0.6875rem;
+  line-height: 1.65;
+}
+
+#app.guide-mode .g-profile-summary h2 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+
+#app.guide-mode .g-profile-summary dl {
+  font-size: 0.75rem;
+}
+
+#app.guide-mode .g-profile-summary dl > div {
+  padding-block: 0.375rem;
+}
+
+#app.guide-mode .g-button {
+  min-height: 2.75rem;
+  padding: 0.625rem 1rem;
+  border-radius: 999px;
+  font: 600 0.8125rem/1.35 var(--g-apple-font);
+  transition:
+    background-color 150ms ease-out,
+    transform 150ms ease-out;
+}
+
+#app.guide-mode .g-button:not(.g-primary) {
+  background: transparent;
+}
+
+#app.guide-mode .g-button.g-primary {
+  background: var(--g-apple-action);
+  color: #fff;
+  border-color: transparent;
+}
+
+#app.guide-mode .g-button:hover {
+  filter: none;
+  background: var(--g-apple-raised);
+}
+
+#app.guide-mode .g-button.g-primary:hover {
+  background: var(--g-apple-action-hover);
+}
+
+#app.guide-mode .g-button:active {
+  transform: scale(0.985);
+}
+
+#app.guide-mode .g-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  transform: none;
+}
+
+#app.guide-mode :is(.g-app, .g-modal) :is(input:not([type='checkbox']), select, textarea) {
+  min-height: 2.75rem;
+  border-radius: 0.625rem;
+  padding: 0.625rem 0.75rem;
+  font: 400 0.8125rem/1.5 var(--g-apple-font);
+}
+
+#app.guide-mode .g-tabs {
+  gap: 1.25rem;
+  padding: 0 0 1rem 1.5rem;
+  flex-wrap: wrap;
+  background: transparent;
+  border-bottom: 1px solid var(--g-apple-line);
+}
+
+#app.guide-mode .g-tabs button {
+  flex: 0 1 auto;
+  min-height: 2.75rem;
+  padding: 0.625rem 0;
+  border: 0;
+  border-radius: 0;
+  font-size: 0.8125rem;
+  font-weight: 550;
+  line-height: 1.35;
+  color: var(--g-apple-muted);
+  white-space: normal;
+}
+
+#app.guide-mode .g-tabs button[aria-selected='true'] {
+  color: var(--g-apple-link);
+  background: transparent;
+  box-shadow: inset 0 -2px var(--g-apple-link);
+  font-weight: 650;
+}
+
+#app.guide-mode .g-tabs button:hover:not([aria-selected='true']) {
+  background: transparent;
+  color: var(--ink);
+}
+
+#app.guide-mode .g-tabs button > span {
+  display: none;
+}
+
+#app.guide-mode .g-tabs b {
+  font-variant-numeric: tabular-nums;
+}
+
+#app.guide-mode .g-parts-panel {
+  background: transparent;
+  padding: 1.5rem 1rem;
+}
+
+#app.guide-mode .g-parts-title {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin: 0 0 1rem;
+}
+
+#app.guide-mode .g-selection-jump {
+  display: none;
+}
+
+#app.guide-mode .g-visual-panel {
+  background: transparent;
+}
+
+#app.guide-mode .g-tree-modes {
+  padding: 0.25rem;
+  border: 0;
+  border-radius: 0.625rem;
+  background: var(--g-apple-raised);
+  gap: 0.125rem;
+}
+
+#app.guide-mode .g-tree-modes button {
+  border-radius: 0.4375rem;
+  min-height: 2.75rem;
+  padding-inline: 0.5rem;
+}
+
+#app.guide-mode .g-tree-modes button[aria-pressed='true'] {
+  background: var(--g-apple-panel);
+  color: var(--ink);
+}
+
+#app.guide-mode .g-parts-tree > details > summary {
+  min-height: 2.75rem;
+  padding-block: 0.75rem;
+  font-size: 0.8125rem;
+}
+
+#app.guide-mode .g-parts-tree button {
+  min-height: 2.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+#app.guide-mode .g-parts-tree button[aria-pressed='true'] {
+  color: var(--g-apple-link);
+  background: color-mix(in srgb, var(--g-apple-link) 8%, transparent);
+}
+
+#app.guide-mode .g-parts-tree button > svg,
+#app.guide-mode .g-agencies a > svg {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  color: var(--g-apple-muted);
+}
+
+#app.guide-mode .g-parts-tree button > svg {
+  margin-left: auto;
+}
+
+#app.guide-mode :is(.g-tree-coverage, .g-tree-scope-note) {
+  font-size: 0.6875rem;
+  line-height: 1.65;
+}
+
+#app.guide-mode .g-part-inspector,
+#app.guide-mode .g-traceability {
+  padding: 2.25rem 1.5rem;
+  background: transparent;
+}
+
+#app.guide-mode .g-part-inspector {
+  display: block;
+  border-top: 1px solid var(--g-apple-line);
+}
+
+#app.guide-mode .g-selection-system {
+  color: var(--g-apple-muted);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  margin-bottom: 0.625rem;
+}
+
+#app.guide-mode .g-inspector-title h2,
+#app.guide-mode .g-section-heading h2 {
+  font-size: 1.75rem;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+#app.guide-mode .g-inspector-title p {
+  font-size: 0.875rem;
+  max-width: 70ch;
+}
+
+#app.guide-mode .g-trace-record {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 1.5rem 0;
+  margin: 0;
+}
+
+#app.guide-mode .g-trace-record + .g-trace-record {
+  border-top: 1px solid var(--g-apple-line);
+}
+
+#app.guide-mode .g-trace-heading {
+  align-items: baseline;
+}
+
+#app.guide-mode .g-trace-heading h3 {
+  font-size: 1.1875rem;
+  font-weight: 600;
+  margin-top: 0;
+}
+
+#app.guide-mode .g-trace-heading > .g-tag {
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+#app.guide-mode .g-trace-layout {
+  grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+#app.guide-mode .g-trace-reference {
+  display: block;
+  min-width: 0;
+}
+
+#app.guide-mode .g-trace-model-preview {
+  margin: 0;
+  padding: 1.25rem;
+  background: var(--g-apple-inset);
+  border: 0;
+  border-radius: 1rem;
+}
+
+#app.guide-mode .g-trace-model-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+}
+
+#app.guide-mode .g-trace-model-caption {
+  margin-top: 1rem;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--g-apple-muted);
+}
+
+#app.guide-mode .g-trace-model-caption strong {
+  display: block;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+#app.guide-mode :is(.g-model-attribution, .g-trace-model-credit) a {
+  color: var(--g-apple-link);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+#app.guide-mode .g-trace-archive {
+  padding-top: 1rem;
+  margin-top: 1.25rem;
+  border-top: 1px solid var(--g-apple-line);
+}
+
+#app.guide-mode .g-trace-archive > summary {
+  font-size: 0.75rem;
+  min-height: 2rem;
+  line-height: 1.6;
+}
+
+#app.guide-mode .g-trace-archive :is(img, svg) {
+  margin-top: 1rem;
+}
+
+#app.guide-mode .g-trace-conditions {
+  border-radius: 0;
+  border-inline: 0;
+  background: transparent;
+  padding-inline: 0;
+}
+
+#app.guide-mode .g-trace-provisions > div {
+  border-left: 0;
+  padding-left: 0;
+}
+
+#app.guide-mode .g-trace-record .g-reference strong {
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+
+#app.guide-mode :is(.g-trace-meta, .g-trace-state, .g-trace-origin, .g-trace-limits) {
+  font-size: 0.6875rem;
+  line-height: 1.65;
+}
+
+#app.guide-mode :is(.g-trace-provisions p, .g-trace-provisions strong, .g-trace-gap) {
+  font-size: 0.8125rem;
+  line-height: 1.7;
+}
+
+#app.guide-mode :is(.g-trace-assessment, .g-pending, .g-context-strip strong) {
+  font-size: 0.75rem;
+  line-height: 1.65;
+}
+
+#app.guide-mode .g-context-strip {
+  padding: 1.25rem 1.5rem;
+}
+
+#app.guide-mode .g-page-footer {
+  padding-block: 1.5rem;
+  font-size: 0.6875rem;
+  line-height: 1.65;
+}
+
+#app.guide-mode .g-text-button {
+  font-size: 0.8125rem;
+  text-underline-offset: 0.2em;
+  color: var(--g-apple-link);
+}
+
+#app.guide-mode .g-text-button:hover {
+  text-decoration: underline;
+}
+
+#app.guide-mode
+  :is(.g-app, .g-modal)
+  :is(button, a, input, select, textarea, summary, [tabindex]):not(.g3d *):focus-visible {
+  outline: 2px solid var(--g-apple-focus);
+  outline-offset: 3px;
+}
+
+#app.guide-mode .g-coverage {
+  padding: 2rem;
+  color: var(--ink);
+}
+
+#app.guide-mode .g-coverage-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-bottom: 1.75rem;
+}
+
+#app.guide-mode .g-coverage h2 {
+  font-size: 1.75rem;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  font-weight: 650;
+}
+
+#app.guide-mode .g-coverage h3 {
+  font-size: 1.1875rem;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+}
+
+#app.guide-mode .g-coverage h4 {
+  font-size: 1rem;
+  line-height: 1.45;
+  font-weight: 600;
+}
+
+#app.guide-mode .g-coverage p {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--g-apple-muted);
+  max-width: 75ch;
+}
+
+#app.guide-mode .g-coverage-heading p {
+  margin-top: 0.625rem;
+}
+
+#app.guide-mode .g-coverage-heading .g-coverage-date {
+  font-size: 0.75rem;
+  margin: 0.25rem 0 0;
+  max-width: 24ch;
+}
+
+#app.guide-mode .g-coverage-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0 0 1.75rem;
+  padding: 0;
+}
+
+#app.guide-mode .g-coverage-metrics > div {
+  padding-block: 1rem;
+  border-top: 1px solid var(--g-apple-line);
+}
+
+#app.guide-mode .g-coverage-metrics dt {
+  color: var(--g-apple-muted);
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+#app.guide-mode .g-coverage-metrics dd {
+  margin: 0.5rem 0 0;
+}
+
+#app.guide-mode .g-coverage-metrics strong {
+  display: block;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+#app.guide-mode .g-coverage-metrics small {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.6875rem;
+  line-height: 1.55;
+  color: var(--g-apple-muted);
+}
+
+#app.guide-mode .g-coverage-scope {
+  border: 1px solid var(--g-apple-line);
+  border-radius: 0.875rem;
+  background: var(--g-apple-inset);
+  padding: 1.5rem;
+}
+
+#app.guide-mode .g-coverage-scope p {
+  margin-top: 0.75rem;
+}
+
+#app.guide-mode .g-coverage-section {
+  margin-top: 2.75rem;
+}
+
+#app.guide-mode .g-coverage-section > p {
+  margin-top: 0.625rem;
+}
+
+#app.guide-mode .g-coverage-table-scroll {
+  margin-top: 1.25rem;
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--g-apple-line);
+  border-radius: 0.75rem;
+  scrollbar-color: var(--g-apple-muted) var(--g-apple-inset);
+  scrollbar-width: thin;
+}
+
+#app.guide-mode .g-coverage-table {
+  width: 100%;
+  min-width: 43rem;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  text-align: left;
+}
+
+#app.guide-mode .g-coverage-table th,
+#app.guide-mode .g-coverage-table td {
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid var(--g-apple-line);
+  vertical-align: top;
+}
+
+#app.guide-mode .g-coverage-table thead {
+  background: var(--g-apple-inset);
+  color: var(--g-apple-muted);
+}
+
+#app.guide-mode .g-coverage-table thead th {
+  font-weight: 550;
+}
+
+#app.guide-mode .g-coverage-table tbody th {
+  font-weight: 600;
+}
+
+#app.guide-mode .g-coverage-table tr:last-child > :is(th, td) {
+  border-bottom: 0;
+}
+
+#app.guide-mode .g-coverage-section .g-coverage-footnote {
+  font-size: 0.75rem;
+}
+
+#app.guide-mode .g-coverage-monitoring {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0 0.75rem;
+  padding-block: 1rem;
+  border-block: 1px solid var(--g-apple-line);
+}
+
+#app.guide-mode .g-coverage-monitoring dt {
+  color: var(--g-apple-muted);
+  font-size: 0.75rem;
+}
+
+#app.guide-mode .g-coverage-monitoring dd {
+  margin: 0.375rem 0 0;
+  font-size: 1.125rem;
+  line-height: 1.35;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+#app.guide-mode .g-coverage-monitor-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin-top: 0.75rem;
+}
+
+#app.guide-mode .g-coverage-section .g-coverage-scheduler {
+  margin-top: 1rem;
+}
+
+#app.guide-mode .g-coverage-filters {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+#app.guide-mode .g-coverage-field {
+  display: grid;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+#app.guide-mode .g-coverage-field label {
+  font-size: 0.75rem;
+  font-weight: 550;
+  color: var(--g-apple-muted);
+}
+
+#app.guide-mode .g-coverage-filters :is(input, select) {
+  width: 100%;
+}
+
+#app.guide-mode .g-coverage-result-count {
+  margin-block: 1rem;
+  font-size: 0.75rem;
+}
+
+#app.guide-mode .g-coverage-finding {
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--g-apple-line);
+}
+
+#app.guide-mode .g-coverage-finding-state {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+#app.guide-mode .g-coverage-finding-state span {
+  font-size: 0.6875rem;
+  line-height: 1.5;
+  padding: 0.25rem 0.625rem;
+  color: var(--g-apple-muted);
+  background: var(--g-apple-inset);
+  border: 1px solid var(--g-apple-line);
+  border-radius: 999px;
+}
+
+#app.guide-mode .g-coverage-finding-state [data-severity='critical'],
+#app.guide-mode .g-coverage-finding-state [data-severity='high'] {
+  color: var(--warning);
+  border-color: var(--warning-line);
+  background: var(--warning-soft);
+}
+
+#app.guide-mode .g-coverage-finding > p {
+  margin-top: 0.75rem;
+}
+
+#app.guide-mode .g-coverage-action strong {
+  display: block;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+#app.guide-mode .g-coverage-sources {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  gap: 0.5rem 1.25rem;
+  margin: 0.875rem 0 0;
+}
+
+#app.guide-mode .g-coverage-sources a {
+  display: inline-flex;
+  min-height: 2rem;
+  align-items: center;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--g-apple-link);
+  text-underline-offset: 0.2em;
+}
+
+#app.guide-mode .g-coverage-subsystems {
+  margin-top: 1.25rem;
+}
+
+#app.guide-mode .g-coverage-subsystem {
+  border-top: 1px solid var(--g-apple-line);
+}
+
+#app.guide-mode .g-coverage-subsystem > summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-block: 1rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+#app.guide-mode .g-coverage-subsystem > summary > span {
+  font-weight: 550;
+}
+
+#app.guide-mode .g-coverage-subsystem > summary small {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  color: var(--g-apple-muted);
+}
+
+#app.guide-mode .g-coverage-subsystem > div {
+  padding-bottom: 1.25rem;
+}
+
+#app.guide-mode .g-coverage-gaps {
+  margin: 0 0 0.5rem;
+  padding-left: 1.125rem;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  color: var(--g-apple-muted);
+}
+
+#app.guide-mode .g-coverage-gaps li + li {
+  margin-top: 0.5rem;
+}
+
+#app.guide-mode .g-coverage-knowledge > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  margin-top: 0.75rem;
+}
+
+#app.guide-mode .g-coverage-empty {
+  min-height: 20rem;
+}
+
+#app.guide-mode .g-coverage-empty p {
+  margin-block: 1rem;
+}
+
+@media (max-width: 1200px) {
+  #app.guide-mode .g-tabs {
+    padding-inline: 1rem;
+  }
+
+  #app.guide-mode .g-tabs button {
+    flex-basis: 6rem;
+    padding-inline: 0.5rem;
+  }
+
+  #app.guide-mode .g-coverage-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem 1.5rem;
+  }
+
+  #app.guide-mode .g-coverage-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #app.guide-mode .g-coverage-filters > .g-coverage-field:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 900px) {
+  #app.guide-mode .topbar {
+    height: 76px;
+    padding-inline: 24px;
+  }
+
+  #app.guide-mode .primary-nav {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--appbar-bg);
+  }
+
+  #app.guide-mode .g-project-sidebar {
+    display: block;
+    padding: 0 0 1rem;
+    border-right: 0;
+    border-bottom: 1px solid var(--g-apple-line);
+  }
+
+  #app.guide-mode .g-project-disclosure > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 4.5rem;
+    padding-block: 1rem;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  #app.guide-mode .g-project-disclosure > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  #app.guide-mode .g-project-disclosure > summary > span:first-child {
+    min-width: 0;
+  }
+
+  #app.guide-mode .g-project-disclosure > summary strong,
+  #app.guide-mode .g-project-disclosure > summary small {
+    display: block;
+  }
+
+  #app.guide-mode .g-project-disclosure > summary strong {
+    font-size: 0.875rem;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+
+  #app.guide-mode .g-project-disclosure > summary small {
+    color: var(--g-apple-muted);
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+  }
+
+  #app.guide-mode .g-project-disclosure > summary::after {
+    content: '';
+    width: 0.4375rem;
+    height: 0.4375rem;
+    flex: none;
+    border-right: 1px solid var(--g-apple-muted);
+    border-bottom: 1px solid var(--g-apple-muted);
+    transform: rotate(45deg);
+  }
+
+  #app.guide-mode .g-project-disclosure[open] > summary::after {
+    transform: rotate(225deg);
+  }
+
+  #app.guide-mode .g-disclosure-action {
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  #app.guide-mode .g-project-disclosure[open] .g-project-disclosure-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-block: 0.75rem 1rem;
+  }
+
+  #app.guide-mode .g-project-disclosure:not([open]) .g-project-disclosure-body {
+    display: none;
+  }
+
+  #app.guide-mode .g-project-disclosure-body :is(.g-progress, .g-local-actions) {
+    padding-block: 1rem 0;
+  }
+
+  #app.guide-mode .g-project-disclosure-body .g-agencies {
+    display: block;
+  }
+
+  #app.guide-mode .g-page-heading h1 {
+    font-size: 2rem;
+  }
+
+  #app.guide-mode .g-coverage-heading {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  #app.guide-mode .g-coverage-heading .g-coverage-date {
+    max-width: none;
+  }
+}
+
+@media (max-width: 650px) {
+  #app.guide-mode .topbar {
+    height: 68px;
+    padding-inline: 16px;
+  }
+
+  #app.guide-mode .g-page-heading {
+    padding-block: 1rem 1.5rem;
+    gap: 1rem;
+  }
+
+  #app.guide-mode .g-page-heading h1 {
+    font-size: 1.875rem;
+  }
+
+  #app.guide-mode .g-page-heading p {
+    font-size: 0.875rem;
+  }
+
+  #app.guide-mode .g-workspace {
+    border-radius: 0;
+  }
+
+  #app.guide-mode .g-project-sidebar {
+    padding: 0 0 0.75rem;
+  }
+
+  #app.guide-mode .g-profile-summary dl {
+    font-size: 0.6875rem;
+  }
+
+  #app.guide-mode .g-tabs {
+    padding: 0.75rem 0 1rem;
+    gap: 0.375rem;
+  }
+
+  #app.guide-mode .g-tabs button {
+    flex-basis: calc(33.333% - 0.375rem);
+    min-height: 3rem;
+    font-size: 0.75rem;
+    padding-inline: 0.375rem;
+  }
+
+  #app.guide-mode :is(.g-part-inspector, .g-traceability, .g-coverage) {
+    padding: 1.75rem 0;
+  }
+
+  #app.guide-mode .g-parts-panel {
+    padding: 1.25rem 0;
+  }
+
+  #app.guide-mode .g-tree-disclosure > summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding-block: 0.75rem;
+    min-height: 2.75rem;
+    cursor: pointer;
+    font-size: 0.8125rem;
+    font-weight: 550;
+  }
+
+  #app.guide-mode .g-tree-disclosure > summary small {
+    font-size: 0.75rem;
+    color: var(--g-apple-muted);
+    white-space: nowrap;
+  }
+
+  #app.guide-mode .g-selection-jump {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    margin-top: 0.25rem;
+  }
+
+  #app.guide-mode .g-trace-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  #app.guide-mode .g-trace-heading {
+    align-items: flex-start;
+  }
+
+  #app.guide-mode .g-trace-model-preview {
+    max-width: 30rem;
+    margin-inline: auto;
+  }
+
+  #app.guide-mode .g-trace-reference {
+    max-width: 30rem;
+  }
+
+  #app.guide-mode .g-inspector-title h2 {
+    font-size: 1.75rem;
+  }
+
+  #app.guide-mode .g-trace-record {
+    padding-block: 1.25rem;
+  }
+
+  #app.guide-mode .g-coverage h2 {
+    font-size: 1.5rem;
+  }
+
+  #app.guide-mode .g-coverage h3 {
+    font-size: 1.125rem;
+  }
+
+  #app.guide-mode .g-coverage-metrics {
+    gap: 0.5rem 1rem;
+  }
+
+  #app.guide-mode .g-coverage-metrics strong {
+    font-size: 1.75rem;
+  }
+
+  #app.guide-mode .g-coverage-scope {
+    padding: 1.125rem;
+  }
+
+  #app.guide-mode .g-coverage-section {
+    margin-top: 2rem;
+  }
+
+  #app.guide-mode .g-coverage-filters {
+    grid-template-columns: 1fr;
+  }
+
+  #app.guide-mode .g-coverage-monitoring {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem 1rem;
+  }
+
+  #app.guide-mode .g-coverage-subsystem > summary {
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  #app.guide-mode .g-coverage-subsystem > summary small {
+    flex-shrink: 1;
+  }
+
+  #app.guide-mode .g-context-strip {
+    padding: 1.25rem 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #app.guide-mode .g-button,
+  #app.guide-mode .g-button:active {
+    transition: background-color 100ms linear;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  #app.guide-mode .primary-nav {
+    background: var(--surface);
+    backdrop-filter: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  #app.guide-mode .g-app {
+    --g-apple-line: currentColor;
+    --g-apple-muted: var(--ink);
+  }
+}
