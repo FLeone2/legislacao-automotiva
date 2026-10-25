@@ -665,7 +665,7 @@ function GuideApp({ bridge }) {
   const [tab, setTab] = useState(initialRoute.tab);
   const [partId, setPartId] = useState(initialRoute.part);
   const [stage, setStage] = useState(initialRoute.stage);
-  const [exploded, setExploded] = useState(true);
+  const [exploded, setExploded] = useState(false);
   const [partSearch, setPartSearch] = useState('');
   const [editing, setEditing] = useState(null);
   const [notice, setNotice] = useState(
