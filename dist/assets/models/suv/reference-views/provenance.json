@@ -1,0 +1,52 @@
+{
+  "method": "Direct WebGL export from the published-model source; no image generation or external vehicle photograph",
+  "background": "transparent",
+  "inputs": [
+    {
+      "path": "assets/models/suv/bmw-x5.glb",
+      "sha256": "25c74e4411872932dee468a1d2f533ca5d7e7e448ef55244c2c7bb5e152a37e2"
+    },
+    {
+      "path": "assets/models/suv/mechanical-supplement.glb",
+      "sha256": "d5e013b9ae5265ca98a0d78ad4d7089c32bdc9c2dc0dd094af582a4dfea4e213"
+    },
+    {
+      "path": "src/guide/exploded-layout.js",
+      "sha256": "a358a963bb0309c48b3bb60ea4de119d0fb5f7cd06c3b7d198788635fac22452"
+    },
+    {
+      "path": "src/guide/VehicleScene.jsx",
+      "sha256": "2baf67beccb4fe0ffd5a8633e600a220f71c44706ddc1b8a5fe1a5ac2a5568f7"
+    }
+  ],
+  "views": [
+    {
+      "id": "assembled",
+      "path": "assets/models/suv/reference-views/assembled.webp",
+      "width": 1792,
+      "height": 660,
+      "sha256": "1beec60d3c7ee4a5ebd5ab3a93708b2f8020d10e9ca2d0e5be1cb3c4fe8b504f"
+    },
+    {
+      "id": "side",
+      "path": "assets/models/suv/reference-views/side.webp",
+      "width": 1792,
+      "height": 660,
+      "sha256": "3eef087fde2616b789710ce174a1bf6ed2c7445f76901ef2e0c5c8d1c672b64f"
+    },
+    {
+      "id": "top",
+      "path": "assets/models/suv/reference-views/top.webp",
+      "width": 1792,
+      "height": 660,
+      "sha256": "481e71295287066936a33b77f7f383824879a0105f6f2b819b335f7612f2dc3a"
+    },
+    {
+      "id": "exploded",
+      "path": "assets/models/suv/reference-views/exploded.webp",
+      "width": 1792,
+      "height": 990,
+      "sha256": "9cbe7feda5db522043b1a3a0f8708257e4af4cc37b9890d100eac7404e802532"
+    }
+  ]
+}

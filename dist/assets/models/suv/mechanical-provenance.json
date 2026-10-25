@@ -1,0 +1,210 @@
+{
+  "title": "Generic didactic hybrid mechanical systems",
+  "creator": "Project-authored 3D illustration",
+  "license": "Authored for this project; based on the original project 2D boards",
+  "notice": "Generic educational mechanical example based on the existing 2D boards. It does not describe actual BMW X5 internal architecture, dimensions, required tests or regulatory conformity.",
+  "coordinateSystem": "Three.js Y up, front negative X, visual proportional scale",
+  "parts": [
+    "airbag",
+    "battery12v",
+    "batteryHV",
+    "brakeFluid",
+    "chassis",
+    "cooling",
+    "electronics",
+    "engine",
+    "exhaust",
+    "motorElectric",
+    "steering",
+    "tank"
+  ],
+  "bounds": {
+    "chassis": {
+      "min": [
+        -2.3278968334198,
+        0.10383552312850952,
+        -0.8852081894874573
+      ],
+      "max": [
+        2.2520670890808105,
+        1.0483818054199219,
+        0.8827454447746277
+      ]
+    },
+    "steering": {
+      "min": [
+        -1.6793010234832764,
+        0.2006978541612625,
+        -0.8028862476348877
+      ],
+      "max": [
+        -1.2595694065093994,
+        0.5384652018547058,
+        0.8063877820968628
+      ]
+    },
+    "motorElectric": {
+      "min": [
+        -0.7030000686645508,
+        0.3368837833404541,
+        -0.20500001311302185
+      ],
+      "max": [
+        0.4516391158103943,
+        0.9470000267028809,
+        0.6166095733642578
+      ]
+    },
+    "batteryHV": {
+      "min": [
+        -0.7199999094009399,
+        0.17999999225139618,
+        -0.7000000476837158
+      ],
+      "max": [
+        1.399999976158142,
+        0.60999995470047,
+        0.7000000476837158
+      ]
+    },
+    "cooling": {
+      "min": [
+        -2.0940001010894775,
+        0.46620115637779236,
+        -0.7300000190734863
+      ],
+      "max": [
+        -1.0600000619888306,
+        1.1345000267028809,
+        0.6749999523162842
+      ]
+    },
+    "exhaust": {
+      "min": [
+        -1.3722810745239258,
+        0.10500000417232513,
+        0.3050000071525574
+      ],
+      "max": [
+        2.213020086288452,
+        0.724018931388855,
+        0.6500000953674316
+      ]
+    },
+    "tank": {
+      "min": [
+        0.7199999094009399,
+        0.20250000059604645,
+        -0.8024098873138428
+      ],
+      "max": [
+        1.8050000667572021,
+        0.9750000238418579,
+        0.21000000834465027
+      ]
+    },
+    "battery12v": {
+      "min": [
+        -1.6463642120361328,
+        0.7200000286102295,
+        0.49000000953674316
+      ],
+      "max": [
+        -0.9717652797698975,
+        1.0750000476837158,
+        0.7599999904632568
+      ]
+    },
+    "brakeFluid": {
+      "min": [
+        -1.243924617767334,
+        0.33731478452682495,
+        0.4399999976158142
+      ],
+      "max": [
+        -0.6800000071525574,
+        1.1125000715255737,
+        0.699999988079071
+      ]
+    },
+    "electronics": {
+      "min": [
+        -1.5930842161178589,
+        0.8774999976158142,
+        -0.7150000333786011
+      ],
+      "max": [
+        -0.6525000333786011,
+        1.0525000095367432,
+        0.4399999976158142
+      ]
+    },
+    "airbag": {
+      "min": [
+        -0.41749998927116394,
+        1.024999976158142,
+        0.328000009059906
+      ],
+      "max": [
+        -0.33250001072883606,
+        1.165000081062317,
+        0.46799999475479126
+      ]
+    },
+    "engine": {
+      "min": [
+        -2.0153729915618896,
+        0.4490000307559967,
+        -0.562000036239624
+      ],
+      "max": [
+        -0.1820000410079956,
+        1.2894999980926514,
+        0.5300000309944153
+      ]
+    }
+  },
+  "referenceImages": [
+    {
+      "path": "assets/motor.webp",
+      "sha256": "bcd5ca524834f62f4b1b3c5894fc738de506c664407528c2d671e3b468dd6aa9"
+    },
+    {
+      "path": "assets/chassi.webp",
+      "sha256": "62c147280a808a9631c1f126b53284e81509ac1c615af54ce4bf09c59be8d0f7"
+    },
+    {
+      "path": "assets/bateria.webp",
+      "sha256": "9ee3f2dd8d3b37a75c998eb0268f3df16adc3d84a0394f09b5e018dd508f4218"
+    },
+    {
+      "path": "assets/escapamento.webp",
+      "sha256": "b0a3867f15ecd1f2922a8300a1059c554b6daf7e52ac098eda21116f9e811c9d"
+    },
+    {
+      "path": "assets/tanque.webp",
+      "sha256": "58b11cec3ae46c581ec7a0719f6f18b9bd7bd23ee0db15643abf1721eb9c1f53"
+    },
+    {
+      "path": "assets/vehicle-vector/previews/vehicle.webp",
+      "sha256": "523b2e8dff9dc9008b24d8c918e5aff9a1a051d8357689a82e1cdd0aba269caf"
+    }
+  ],
+  "method": "Authored Blender geometry; beveled cast parts, tubular manifolds, coil springs, modular battery and hybrid drive; no external 3D asset.",
+  "sourceScript": "scripts/models/build_mechanical_supplement.py and scripts/models/engine_geometry.py",
+  "sha256": "d5e013b9ae5265ca98a0d78ad4d7089c32bdc9c2dc0dd094af582a4dfea4e213",
+  "bytes": 989356,
+  "compression": "Draco edge-breaker, position16/normal12/UV14; no decimation",
+  "asset": "assets/models/suv/mechanical-supplement.glb",
+  "mechanicalExample": true,
+  "authoredSources": [
+    {
+      "path": "scripts/models/build_mechanical_supplement.py",
+      "sha256": "445c50f323fb567fb6c8a2f16c57824ef6d56a45a8b083924dadf64f74fdaf32"
+    },
+    {
+      "path": "scripts/models/engine_geometry.py",
+      "sha256": "205672aadfd8ddf8605ad8ab3190bc47a01bb9b6a5f536e6fd5b38a0da00e9bf"
+    }
+  ]
+}

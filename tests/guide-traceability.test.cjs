@@ -142,3 +142,32 @@ test('classic browser helper and CommonJS share the same resolver API', () => {
     'b',
   ]);
 });
+
+test('a selected fluid subsystem never inherits the other brake assembly obligations', () => {
+  const selection = require('../src/guide/subsystem-coverage.js').subsystemSelection(
+    'freios/fluido',
+  );
+  const result = trace(selection, { category: 'M1', powertrain: 'phev' });
+  assert.deepEqual(
+    [...new Set(allRecords(result).map((row) => row.canonicalId))],
+    ['inmetro-456-2021'],
+  );
+  assert.ok(
+    result.relations.every((relation) =>
+      relation.topics.every((topic) => topic.subsystemId === 'freios/fluido'),
+    ),
+  );
+  assert.ok(!allRecords(result).some((row) => row.canonicalId === 'contran-915-2022'));
+  assert.equal(result.assessment.automaticObligation, false);
+  assert.deepEqual(result.visual.referenceArt, selection.referenceArt);
+});
+
+test('an unsupported subsystem filter is an explicit gap rather than a whole-body fallback', () => {
+  const result = trace({
+    id: 'body',
+    legacyPart: 'peca_10_carroceria',
+    subsystemIds: ['unknown/subsystem'],
+  });
+  assert.equal(result.counts.acts, 0);
+  assert.ok(result.gaps.some((value) => /não há vínculo específico/i.test(value)));
+});

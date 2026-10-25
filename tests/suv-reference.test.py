@@ -79,5 +79,72 @@ class ReferenceAssetTest(unittest.TestCase):
             self.assertIn("bufferView", image)
 
 
+class MechanicalExampleTest(unittest.TestCase):
+    def test_detailed_mechanical_asset_is_distinct_from_manufacturer_reference(self):
+        path = ASSET / "mechanical-supplement.glb"
+        data = path.read_bytes()
+        meta = json.loads((ASSET / "mechanical-provenance.json").read_text())
+        self.assertEqual(meta["sha256"], hashlib.sha256(data).hexdigest())
+        self.assertTrue(meta["mechanicalExample"])
+        self.assertLess(len(data), 4_000_000)
+        length = struct.unpack_from("<I", data, 12)[0]
+        gltf = json.loads(data[20 : 20 + length])
+        nodes = [n for n in gltf["nodes"] if "mesh" in n]
+        ids = {n["extras"]["partId"] for n in nodes}
+        self.assertTrue(
+            {
+                "engine",
+                "chassis",
+                "motorElectric",
+                "batteryHV",
+                "cooling",
+                "tank",
+                "exhaust",
+                "brakeFluid",
+                "battery12v",
+                "airbag",
+            }
+            <= ids
+        )
+        sections = {n["extras"].get("section") for n in nodes}
+        self.assertTrue(
+            {
+                "frontSuspension",
+                "rearSuspension",
+                "engineExample",
+                "tractionMotor",
+                "tractionBattery",
+            }
+            <= sections
+        )
+        for node in nodes:
+            self.assertTrue(node["extras"]["mechanicalExample"])
+            self.assertTrue((ROOT / node["extras"]["referenceBoard"]).is_file())
+        for source in meta["authoredSources"]:
+            self.assertEqual(
+                source["sha256"],
+                hashlib.sha256((ROOT / source["path"]).read_bytes()).hexdigest(),
+            )
+
+    def test_all_four_reference_boards_are_exported_from_the_actual_assets(self):
+        meta = json.loads((ASSET / "reference-views/provenance.json").read_text())
+        self.assertEqual(
+            {row["id"] for row in meta["views"]},
+            {"assembled", "side", "top", "exploded"},
+        )
+        for row in meta["views"]:
+            self.assertEqual(
+                row["sha256"],
+                hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest(),
+            )
+            self.assertGreaterEqual(row["width"], 1000)
+            self.assertGreaterEqual(row["height"], 500)
+        for source in meta["inputs"]:
+            self.assertEqual(
+                source["sha256"],
+                hashlib.sha256((ROOT / source["path"]).read_bytes()).hexdigest(),
+            )
+
+
 if __name__ == "__main__":
     unittest.main()

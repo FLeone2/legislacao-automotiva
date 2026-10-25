@@ -171,15 +171,41 @@ export default function TraceabilityInspector({ part, profile, bridge }) {
       <div className="g-trace-layout">
         <aside className="g-trace-reference">
           <a href="#vehicle" aria-label="Abrir prancha original do veículo">
-            <img
-              src={trace.referenceImage}
-              alt={'Referência do site original: ' + part.label}
-              loading="lazy"
-            />
+            {trace.visual.referenceArt || part.referenceArt ? (
+              (() => {
+                const art = trace.visual.referenceArt || part.referenceArt;
+                return (
+                  <svg
+                    className="g-reference-art"
+                    role="img"
+                    aria-label={'Referência 2D original: ' + part.label}
+                    viewBox={[art.x, art.y, art.width, art.height].join(' ')}
+                    preserveAspectRatio="xMidYMid meet"
+                  >
+                    <title>{'Referência 2D original: ' + part.label}</title>
+                    <image
+                      href={art.asset}
+                      width={art.sourceWidth || 1536}
+                      height={art.sourceHeight || 1024}
+                    />
+                  </svg>
+                );
+              })()
+            ) : (
+              <img
+                src={trace.referenceImage}
+                alt={'Referência do site original: ' + part.label}
+                loading="lazy"
+              />
+            )}
           </a>
           <span className="g-tag">REFERÊNCIA DO SITE ORIGINAL</span>
           <p>{part.label}</p>
-          <small>Conjunto visual ligado às associações revisadas da prancha original.</small>
+          <small>
+            {part.subsystemId
+              ? 'Recorte 2D do subsistema original, ligado às associações disponíveis no acervo.'
+              : 'Conjunto visual ligado às associações revisadas da prancha original.'}
+          </small>
           <details>
             <summary>Conjuntos de origem</summary>
             {trace.visual.referenceImages.map((ref) => (

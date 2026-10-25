@@ -45,7 +45,13 @@ const GuideTraceability = (() => {
     const published = catalogRecords.filter((record) => record.publication?.included !== false);
     return resolver.unique(
       legacyPartIds(part).flatMap((id) =>
-        resolver.part(id) ? resolver.records(id, published) : [],
+        resolver.part(id)
+          ? part.subsystemIds?.length
+            ? part.subsystemIds.flatMap((subsystemId) =>
+                resolver.records(id, published, { subsystemId }),
+              )
+            : resolver.records(id, published)
+          : [],
       ),
     );
   }
@@ -200,7 +206,11 @@ const GuideTraceability = (() => {
           'Este conjunto 3D não possui associação específica revisada ao acervo. A ausência de vínculo não significa ausência de obrigação.',
         );
       for (const id of knownIds) {
-        const topics = resolver.topics(id);
+        const topics = resolver
+          .topics(id)
+          .filter(
+            (topic) => !part.subsystemIds?.length || part.subsystemIds.includes(topic.subsystemId),
+          );
         if (!topics.length)
           gaps.push(`Não há assunto normativo revisado para ${resolver.part(id).label || id}.`);
         for (const topic of topics) {
@@ -249,6 +259,10 @@ const GuideTraceability = (() => {
       const relations = [...relationMaps]
         .map(([kind, map]) => ({ kind, label: relationLabels[kind], topics: [...map.values()] }))
         .filter((relation) => relation.topics.length);
+      if (part.subsystemIds?.length && !relations.length)
+        gaps.push(
+          'Não há vínculo específico revisado para este subsistema no conjunto de origem. As referências de outros assuntos não foram herdadas.',
+        );
       const allRecords = relations.flatMap((relation) =>
         relation.topics.flatMap((topic) => topic.records),
       );
@@ -268,6 +282,8 @@ const GuideTraceability = (() => {
           legacyPartIds: knownIds,
           referenceAsset: primaryImage,
           referenceImages,
+          referenceArt: clone(part.referenceArt),
+          subsystemIds: clone(part.subsystemIds || []),
           association: 'reviewed_consultation_mapping',
         },
         referenceImage: primaryImage,

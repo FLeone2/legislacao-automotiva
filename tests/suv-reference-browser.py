@@ -36,6 +36,11 @@ async def wait_trace(page):
 
 
 async def select_part(page, label, expected):
+    if (
+        await page.locator(".g-parts-tree").get_attribute("data-tree-mode")
+        != "assemblies"
+    ):
+        await page.get_by_role("button", name=re.compile("^Conjuntos 3D")).click()
     await page.get_by_label("Buscar componente", exact=True).fill(label)
     await page.locator(".g-parts-tree button").filter(has_text=label).click()
     assert parse_qs(page.url.partition("?")[2]).get("part", [None])[0] == expected, (
@@ -101,7 +106,8 @@ async def exercise(base):
         await page.goto(base + "#guide")
         await wait_model(page)
         assert not await page.get_by_label("Vista explodida", exact=True).is_checked()
-        assert await page.locator(".g-parts-tree button").count() == 11
+        await page.get_by_role("button", name=re.compile("^Conjuntos 3D")).click()
+        assert await page.locator(".g-parts-tree button").count() == 21
         assert "BMW X5 G05" in await page.locator(".g3d-caption").inner_text()
         assert (
             await page.locator(

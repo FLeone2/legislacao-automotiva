@@ -171,6 +171,28 @@ export const PARTS = [
   },
 ];
 
+PARTS.push(
+  {
+    id: 'cooling',
+    label: 'Arrefecimento e radiador',
+    system: 'motor',
+    taxonomy: 'propulsao/componentes',
+    description:
+      'Radiador, ventiladores e circuito de arrefecimento como exemplo didático baseado na prancha 2D.',
+    legacyPart: 'peca_29_radiador',
+  },
+  {
+    id: 'brakeFluid',
+    label: 'Reservatório e fluido de freio',
+    system: 'freios',
+    taxonomy: 'freios/fluido',
+    description:
+      'Reservatório, cilindro mestre e circuito ilustrativos; os requisitos do fluido dependem do produto e da configuração.',
+    legacyParts: ['peca_35_freio_dianteiro', 'peca_37_freio_traseiro'],
+    subsystemIds: ['freios/fluido'],
+  },
+);
+
 // Visual assemblies aggregate only the original, explicitly reviewed source regions.
 const assemblySources = {
   body: [
@@ -195,6 +217,7 @@ const assemblySources = {
   seats: ['peca_09_bancos_dianteiros_console', 'peca_08_banco_traseiro'],
   wheels: ['peca_34_roda_dianteira', 'peca_36_roda_traseira'],
   brakes: ['peca_35_freio_dianteiro', 'peca_37_freio_traseiro'],
+  chassis: ['peca_32_suspensao_dianteira_direcao', 'peca_33_suspensao_traseira'],
   lights: [
     'peca_13_farol_lado_visivel',
     'peca_12_farol_lado_oposto',
@@ -215,6 +238,16 @@ export const SUV_ASSEMBLY_IDS = [
   'mirrors',
   'electronics',
   'vin',
+  'airbag',
+  'chassis',
+  'engine',
+  'motorElectric',
+  'batteryHV',
+  'battery12v',
+  'exhaust',
+  'tank',
+  'cooling',
+  'brakeFluid',
 ];
 
 export function sceneKind(category = 'M1') {
@@ -252,7 +285,7 @@ export function visibleParts(category, powertrain = 'ICE') {
     ].forEach((id) => hidden.add(id));
   }
   if (kind === 'moto') ['doors', 'airbag', 'glass'].forEach((id) => hidden.add(id));
-  return PARTS.filter(
-    (part) => !hidden.has(part.id) && (kind !== 'car' || SUV_ASSEMBLY_IDS.includes(part.id)),
+  return PARTS.filter((part) =>
+    kind === 'car' ? SUV_ASSEMBLY_IDS.includes(part.id) : !hidden.has(part.id),
   );
 }

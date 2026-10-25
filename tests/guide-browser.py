@@ -65,6 +65,8 @@ async def exercise(base):
             || document.querySelector('.g3d-fallback')""")
         evidence["webgl"] = await scene.get_attribute("data-g3d-ready") == "true"
 
+        # Legacy assembly journeys remain available beside the complete subsystem tree.
+        await page.get_by_role("button", name=re.compile("^Conjuntos 3D")).click()
         # Text alternatives and the selected mesh share one persistent identifier.
         await page.get_by_label("Buscar componente", exact=True).fill("Pneus e rodas")
         await (
@@ -252,7 +254,14 @@ async def exercise(base):
         await page.get_by_label("Buscar componente", exact=True).fill(
             "Motor a combustão"
         )
-        assert await page.locator(".g-parts-tree button").count() == 0
+        # The mechanical architecture is a clearly labelled hybrid teaching example,
+        # independent of the process profile. The BEV checklist above still excludes
+        # thermal obligations; selecting a diagram must not fabricate applicability.
+        assert await page.locator(".g-parts-tree button").count() == 1
+        assert (
+            "exemplo híbrido didático"
+            in await page.locator(".g-model-attribution").inner_text()
+        )
         await page.get_by_label("Buscar componente", exact=True).fill("")
 
         # Source documents are packaged, legacy routes still open, and mobile stays in bounds.

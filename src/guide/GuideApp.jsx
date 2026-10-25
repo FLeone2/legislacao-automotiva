@@ -15,6 +15,13 @@ import {
   SOURCE_REFERENCES,
 } from './process-model.js';
 import { loadProjects, saveProjects, validateProject } from './storage.js';
+import {
+  ALL_SUBSYSTEMS,
+  SUBSYSTEMS,
+  SUPPLEMENTAL_SUBSYSTEMS,
+  coverageReport,
+  subsystemSelection,
+} from './subsystem-coverage.js';
 
 const SYSTEM_LABELS = {
   carroceria: 'Carroceria e proteção',
@@ -31,6 +38,9 @@ const SYSTEM_LABELS = {
   iluminacao: 'Iluminação',
   retrovisores: 'Visão indireta',
   identificacao: 'Identificação',
+  propulsao: 'Propulsão e emissões',
+  ocupantes: 'Proteção dos ocupantes',
+  eletronica: 'Eletrônica e comandos',
 };
 const TABS = [
   ['explore', 'Explorador 3D'],
@@ -70,6 +80,7 @@ const AGENCY_ROUTES = {
   ANATEL: 'anatel',
   MDIC: 'mover',
 };
+const DEMO_PROFILE = Object.freeze({ ...DEFAULT_PROFILE, name: 'Veículo de demonstração' });
 const safeSources = Array.isArray(SOURCE_REFERENCES)
   ? SOURCE_REFERENCES
   : Object.values(SOURCE_REFERENCES);
@@ -102,6 +113,13 @@ function readRoute() {
     part: PARTS.some((x) => x.id === p.get('part')) ? p.get('part') : 'brakes',
     stage: p.get('stage') || '',
     project: p.get('project') || '',
+    subsystem: ALL_SUBSYSTEMS.some((row) => row.id === p.get('subsystem'))
+      ? p.get('subsystem')
+      : '',
+    tree:
+      p.get('tree') === 'assemblies' || (!p.get('subsystem') && p.has('part') && !p.has('tree'))
+        ? 'assemblies'
+        : 'subsystems',
   };
 }
 function SourceLinks({ ids = [] }) {
@@ -665,6 +683,8 @@ function GuideApp({ bridge }) {
   const [projectId, setProjectId] = useState(initialRoute.project || initial.projects[0]?.id || '');
   const [tab, setTab] = useState(initialRoute.tab);
   const [partId, setPartId] = useState(initialRoute.part);
+  const [subsystemId, setSubsystemId] = useState(initialRoute.subsystem);
+  const [treeMode, setTreeMode] = useState(initialRoute.tree);
   const [stage, setStage] = useState(initialRoute.stage);
   const [exploded, setExploded] = useState(false);
   const [partSearch, setPartSearch] = useState('');
@@ -681,21 +701,34 @@ function GuideApp({ bridge }) {
   const [storageError, setStorageError] = useState(initial.error || '');
   const fileInput = useRef();
   const project = projects.find((x) => x.id === projectId);
-  const profile = project?.profile || { ...DEFAULT_PROFILE, name: 'Veículo de demonstração' };
+  const profile = project?.profile || DEMO_PROFILE;
   const evaluation = useMemo(() => evaluateProfile(profile), [profile]);
   const items = useMemo(() => buildChecklist(profile), [profile]);
   const checks = project?.checks || {};
-  const part =
-    visibleParts(profile.category, profile.powertrain).find((x) => x.id === partId) ||
-    visibleParts(profile.category, profile.powertrain)[0] ||
-    PARTS[0];
+  const selectedSubsystem = useMemo(() => subsystemSelection(subsystemId), [subsystemId]);
   const availableParts = visibleParts(profile.category, profile.powertrain);
-  const filtered = availableParts.filter((x) =>
-    (x.label + ' ' + x.system)
-      .toLocaleLowerCase('pt-BR')
-      .includes(partSearch.toLocaleLowerCase('pt-BR')),
+  const part =
+    PARTS.find((row) => row.id === (selectedSubsystem?.assemblyId || partId)) ||
+    availableParts[0] ||
+    PARTS[0];
+  const inspectionPart = useMemo(
+    () => (selectedSubsystem ? { ...part, ...selectedSubsystem } : part),
+    [part, selectedSubsystem],
   );
-  const systems = [...new Set(filtered.map((x) => x.system))];
+  const normalizedSearch = partSearch.toLocaleLowerCase('pt-BR');
+  const treeRows = treeMode === 'subsystems' ? ALL_SUBSYSTEMS : availableParts;
+  const filtered = treeRows.filter((row) =>
+    (row.label + ' ' + (row.systemLabel || SYSTEM_LABELS[row.system] || row.system) + ' ' + row.id)
+      .toLocaleLowerCase('pt-BR')
+      .includes(normalizedSearch),
+  );
+  const systems = [...new Set(filtered.map((row) => row.system))];
+  const selectedTreeSystem =
+    treeMode === 'subsystems'
+      ? selectedSubsystem?.system ||
+        ALL_SUBSYSTEMS.find((row) => row.assemblyId === part.id)?.system
+      : part.system;
+  const coverage = coverageReport();
   const done = items.filter((x) => checks[x.id]?.status === 'done').length;
   const na = items.filter((x) => checks[x.id]?.status === 'na').length;
   const activeCount = items.length - na;
@@ -713,6 +746,8 @@ function GuideApp({ bridge }) {
       const r = readRoute();
       setTab(r.tab);
       setPartId(r.part);
+      setSubsystemId(r.subsystem);
+      setTreeMode(r.tree);
       setStage(r.stage);
       if (r.project) setProjectId(r.project);
     };
@@ -720,7 +755,15 @@ function GuideApp({ bridge }) {
     return () => window.removeEventListener('popstate', sync);
   }, []);
   const route = (changes) => {
-    const current = { tab, part: partId, stage, project: projectId, ...changes };
+    const current = {
+      tab,
+      part: partId,
+      stage,
+      project: projectId,
+      subsystem: subsystemId,
+      tree: treeMode,
+      ...changes,
+    };
     const p = new URLSearchParams();
     for (const [k, v] of Object.entries(current)) if (v) p.set(k, v);
     history.pushState(null, '', '#guide?' + p);
@@ -731,7 +774,22 @@ function GuideApp({ bridge }) {
   }
   function selectPart(id) {
     setPartId(id);
-    route({ part: id });
+    setSubsystemId('');
+    setTreeMode('assemblies');
+    route({ part: id, subsystem: '', tree: 'assemblies' });
+  }
+  function selectSubsystem(id) {
+    const selection = subsystemSelection(id);
+    if (!selection) return;
+    setSubsystemId(id);
+    setPartId(selection.assemblyId);
+    setTreeMode('subsystems');
+    route({ part: selection.assemblyId, subsystem: id, tree: 'subsystems' });
+  }
+  function selectTreeMode(mode) {
+    setTreeMode(mode);
+    setPartSearch('');
+    route({ tree: mode });
   }
   function updateCheck(id, next) {
     if (!project) return;
@@ -1048,6 +1106,7 @@ function GuideApp({ bridge }) {
                     </div>
                     <VehicleScene
                       selectedPart={part.id}
+                      selectedSubsystem={selectedSubsystem}
                       onSelect={selectPart}
                       exploded={exploded}
                       category={profile.category}
@@ -1072,8 +1131,38 @@ function GuideApp({ bridge }) {
                           CC BY 4.0
                         </a>
                         . Materiais, compressão e separação adaptados. A geometria não preenche os
-                        dados técnicos do projeto.
+                        dados técnicos do projeto. Conjuntos internos: exemplo híbrido didático
+                        baseado nas pranchas 2D.
                       </div>
+                    )}
+                    {sceneKind(profile.category) === 'car' && (
+                      <details className="g-model-boards">
+                        <summary>
+                          Pranchas 2D do modelo <span>4 vistas</span>
+                        </summary>
+                        <div>
+                          {[
+                            ['assembled', 'Montado em perspectiva'],
+                            ['side', 'Vista lateral'],
+                            ['top', 'Vista superior'],
+                            ['exploded', 'Conjuntos em vista explodida'],
+                          ].map(([id, label]) => (
+                            <a
+                              key={id}
+                              href={'assets/models/suv/reference-views/' + id + '.webp'}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <img
+                                src={'assets/models/suv/reference-views/' + id + '.webp'}
+                                alt={'Modelo 3D de referência: ' + label}
+                                loading="lazy"
+                              />
+                              <span>{label} ↗</span>
+                            </a>
+                          ))}
+                        </div>
+                      </details>
                     )}
                     <div className="g-canvas-footer">
                       <label className="g-switch">
@@ -1089,63 +1178,132 @@ function GuideApp({ bridge }) {
                   </section>
                   <aside className="g-parts-panel">
                     <div className="g-sidebar-heading">
-                      <Icon name="tree" /> ÁRVORE DE COMPONENTES
+                      <Icon name="tree" /> SISTEMAS E SUBSISTEMAS
                     </div>
+                    <div className="g-tree-modes" role="group" aria-label="Modo da árvore">
+                      <button
+                        type="button"
+                        aria-pressed={treeMode === 'subsystems'}
+                        onClick={() => selectTreeMode('subsystems')}
+                      >
+                        Subsistemas <b>{ALL_SUBSYSTEMS.length}</b>
+                      </button>
+                      <button
+                        type="button"
+                        aria-pressed={treeMode === 'assemblies'}
+                        onClick={() => selectTreeMode('assemblies')}
+                      >
+                        Conjuntos 3D <b>{availableParts.length}</b>
+                      </button>
+                    </div>
+                    <p className="g-tree-coverage" role="status">
+                      <strong>
+                        {coverage.covered}/{SUBSYSTEMS.length}
+                      </strong>{' '}
+                      originais identificados · <strong>{SUPPLEMENTAL_SUBSYSTEMS.length}</strong>{' '}
+                      complementares
+                    </p>
                     <label className="g-sr-only" htmlFor="g-part-search">
                       Buscar componente
                     </label>
                     <input
                       id="g-part-search"
-                      placeholder="Buscar componente…"
+                      placeholder={
+                        treeMode === 'subsystems' ? 'Buscar subsistema…' : 'Buscar conjunto…'
+                      }
                       type="search"
                       value={partSearch}
                       onChange={(e) => setPartSearch(e.target.value)}
                     />
-                    <nav aria-label="Sistemas e componentes" className="g-parts-tree">
+                    <nav
+                      aria-label={
+                        treeMode === 'subsystems'
+                          ? 'Sistemas e subsistemas'
+                          : 'Sistemas e componentes'
+                      }
+                      className="g-parts-tree"
+                      data-tree-mode={treeMode}
+                    >
                       {systems.map((system) => (
-                        <details
-                          key={system}
-                          open={
-                            filtered.some((p) => p.system === system && p.id === part.id) ||
-                            !!partSearch
-                          }
-                        >
-                          <summary>{SYSTEM_LABELS[system] || system}</summary>
+                        <details key={system} open={selectedTreeSystem === system || !!partSearch}>
+                          <summary>
+                            {filtered.find((row) => row.system === system)?.systemLabel ||
+                              SYSTEM_LABELS[system] ||
+                              system}
+                            <small>{filtered.filter((row) => row.system === system).length}</small>
+                          </summary>
                           {filtered
-                            .filter((x) => x.system === system)
-                            .map((x) => (
+                            .filter((row) => row.system === system)
+                            .map((row) => (
                               <button
-                                key={x.id}
-                                aria-pressed={part.id === x.id}
-                                onClick={() => selectPart(x.id)}
+                                key={row.id}
+                                type="button"
+                                data-subsystem={treeMode === 'subsystems' ? row.id : undefined}
+                                data-assembly={treeMode === 'subsystems' ? row.assemblyId : row.id}
+                                aria-pressed={
+                                  treeMode === 'subsystems'
+                                    ? subsystemId === row.id
+                                    : part.id === row.id
+                                }
+                                onClick={() =>
+                                  treeMode === 'subsystems'
+                                    ? selectSubsystem(row.id)
+                                    : selectPart(row.id)
+                                }
                               >
                                 <span className="g-tree-line" />
-                                {x.label}
+                                <span className="g-tree-label">{row.label}</span>
+                                {treeMode === 'subsystems' && !row.canonical && (
+                                  <small className="g-tree-example">Exemplo</small>
+                                )}
                                 <span aria-hidden="true">↗</span>
                               </button>
                             ))}
                         </details>
                       ))}
                     </nav>
-                    {!filtered.length && <p className="g-note">Nenhum componente encontrado.</p>}
+                    {!filtered.length && (
+                      <p className="g-note">
+                        Nenhum {treeMode === 'subsystems' ? 'subsistema' : 'conjunto'} encontrado.
+                      </p>
+                    )}
+                    {treeMode === 'subsystems' && (
+                      <p className="g-tree-scope-note">
+                        Identificação e consulta do acervo. O perfil técnico determina quais
+                        condições precisam de avaliação.
+                      </p>
+                    )}
                   </aside>
                 </div>
                 <section className="g-part-inspector" aria-live="polite">
                   <div className="g-inspector-title">
                     <span className="g-eyebrow">
-                      SELEÇÃO SINCRONIZADA · {SYSTEM_LABELS[part.system] || part.system}
+                      SELEÇÃO SINCRONIZADA ·{' '}
+                      {selectedSubsystem?.systemLabel ||
+                        SYSTEM_LABELS[inspectionPart.system] ||
+                        inspectionPart.system}
                     </span>
-                    <h2>{part.label}</h2>
-                    <p>{part.description}</p>
+                    <h2>{inspectionPart.label}</h2>
+                    <p>{inspectionPart.description}</p>
+                    {selectedSubsystem && (
+                      <p className="g-selection-origin">
+                        <code>{selectedSubsystem.subsystemId}</code> ·{' '}
+                        {selectedSubsystem.canonical
+                          ? 'Subsistema original'
+                          : 'Complemento didático'}
+                      </p>
+                    )}
                     <a
                       className="g-text-button"
-                      href={'#library?component=' + encodeURIComponent(part.taxonomy || '')}
+                      href={
+                        '#library?component=' + encodeURIComponent(inspectionPart.taxonomy || '')
+                      }
                     >
                       Consultar assunto na biblioteca <Icon name="arrow" />
                     </a>
                   </div>
                 </section>
-                <TraceabilityInspector part={part} profile={profile} bridge={bridge} />
+                <TraceabilityInspector part={inspectionPart} profile={profile} bridge={bridge} />
               </>
             )}
             {tab === 'flow' && (

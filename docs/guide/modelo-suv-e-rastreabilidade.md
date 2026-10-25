@@ -8,7 +8,7 @@ A hierarquia da cena original foi reconstruída com seus espelhamentos e 131 ins
 
 O arquivo publicado tem aproximadamente 6,4 MB e contém geometria e texturas. O decodificador é local; o visitante não depende de uma CDN para carregar o modelo. `assets/models/suv/provenance.json` registra autoria, licença, fonte, commit, hashes, transformações e adaptações. `assets/models/suv/LICENSE.txt` conserva a licença do modelo; o decodificador tem sua licença Apache 2.0 própria.
 
-As imagens anteriores `assets/vehicle-vector/previews/vehicle.webp` e `assets/vehicle-exploded.webp` orientam a organização da navegação e das separações. As 37 regiões originais continuam preservadas. A nova vista reúne onze conjuntos visuais e mantém acesso à prancha completa para os demais sistemas; não pretende modelar cada peça ou substituir um CAD.
+As imagens anteriores `assets/vehicle-vector/previews/vehicle.webp` e `assets/vehicle-exploded.webp` orientam a organização da navegação e das separações. As 37 regiões originais continuam preservadas. A vista reúne 21 conjuntos 3D e identifica os 30 subsistemas originais, além de três complementares. Um suplemento autoral ilustra os sistemas mecânicos ausentes na fonte BMW; não representa o CAD interno dessa versão. Os recortes 2D originais e quatro vistas renderizadas do modelo atual ficam disponíveis no guia.
 
 ## Caminho até a evidência
 

@@ -9,6 +9,7 @@ import {
   disposeModel,
   SUV_REFERENCE,
 } from './reference-suv.js';
+import { EXPLOSION_VIEW } from './exploded-layout.js';
 import { PARTS, sceneKind, visibleParts } from './vehicle-parts.js';
 
 const COLOR = {
@@ -42,6 +43,7 @@ function createVehicle(category, powertrain) {
       item.userData.partId = id;
       item.userData.offset = new THREE.Vector3(...explode);
       item.visible = visible.has(id);
+      item.userData.available = item.visible;
       root.add(item);
       groups.set(id, item);
     }
@@ -421,15 +423,18 @@ function createVehicle(category, powertrain) {
 
 export default function VehicleScene({
   selectedPart,
+  selectedSubsystem = null,
   onSelect,
   exploded = false,
   category = 'M1',
   powertrain = 'ICE',
 }) {
   const hostRef = useRef(null);
+  const calloutRef = useRef(null);
+  const [isolated, setIsolated] = useState(false);
   const api = useRef(null);
-  const latest = useRef({ selectedPart, onSelect, exploded });
-  latest.current = { selectedPart, onSelect, exploded };
+  const latest = useRef({ selectedPart, selectedSubsystem, onSelect, exploded, isolated });
+  latest.current = { selectedPart, selectedSubsystem, onSelect, exploded, isolated };
   const [failure, setFailure] = useState(false);
   const [hovered, setHovered] = useState(null);
   const [ready, setReady] = useState(false);
@@ -504,17 +509,17 @@ export default function VehicleScene({
     const rim = new THREE.DirectionalLight(0xb3d7ff, 2);
     rim.position.set(4, 3, -4);
     scene.add(rim);
-    const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 70);
+    const camera = new THREE.PerspectiveCamera(35, 1, 0.05, 150);
     const isLong = ['truck', 'bus', 'trailer'].includes(sceneKind(category));
     const distance = isLong ? 1.25 : 1;
     const initial = new THREE.Vector3(-4.7 * distance, 2.8 * distance, 4.7 * distance);
     camera.position.copy(initial);
     const controls = new OrbitControls(camera, canvas);
     controls.target.set(0, 1, 0);
-    controls.minDistance = 4;
-    controls.maxDistance = 20;
+    controls.minDistance = 0.65;
+    controls.maxDistance = 50;
     controls.maxPolarAngle = Math.PI / 2 + 0.06;
-    controls.enablePan = false;
+    controls.enablePan = true;
     controls.enableDamping = false;
     controls.update();
     let { root, groups } = createVehicle(category, powertrain);
@@ -535,18 +540,121 @@ export default function VehicleScene({
     scene.add(grid);
     let disposed = false;
     const render = () => {
-      if (!disposed) renderer.render(scene, camera);
+      if (!disposed) {
+        renderer.render(scene, camera);
+        positionCallout();
+      }
     };
     let previousExploded = false;
-    function sync() {
-      if (previousExploded !== latest.current.exploded) {
-        const offset = camera.position.clone().sub(controls.target);
-        offset.multiplyScalar(latest.current.exploded ? 1.27 : 1 / 1.27);
-        controls.target.y = latest.current.exploded ? 1.65 : 1;
-        camera.position.copy(controls.target).add(offset);
-        controls.update();
-        previousExploded = latest.current.exploded;
+    let previousIsolation = false;
+    let previousSelection = '';
+    let cameraMode = 'perspective';
+    function visibleBounds() {
+      const box = new THREE.Box3();
+      box.corners = [];
+      root.updateMatrixWorld(true);
+      root.traverse((item) => {
+        if (!item.isMesh || !item.visible) return;
+        let parent = item.parent;
+        while (parent) {
+          if (!parent.visible) return;
+          parent = parent.parent;
+        }
+        if (!item.geometry.boundingBox) item.geometry.computeBoundingBox();
+        const worldBox = item.geometry.boundingBox.clone().applyMatrix4(item.matrixWorld);
+        box.union(worldBox);
+        for (const x of [worldBox.min.x, worldBox.max.x])
+          for (const y of [worldBox.min.y, worldBox.max.y])
+            for (const z of [worldBox.min.z, worldBox.max.z])
+              box.corners.push(new THREE.Vector3(x, y, z));
+      });
+      return box;
+    }
+    function fitCamera(mode = cameraMode) {
+      const box = visibleBounds();
+      if (box.isEmpty()) return;
+      const target = box.getCenter(new THREE.Vector3());
+      const direction =
+        mode === 'top'
+          ? new THREE.Vector3(0, 1, 0.001)
+          : mode === 'side'
+            ? new THREE.Vector3(0.001, 0.08, 1)
+            : new THREE.Vector3(
+                ...(latest.current.exploded ? EXPLOSION_VIEW.direction : [-1, 0.4, 1]),
+              );
+      direction.normalize();
+      const right = new THREE.Vector3(0, 1, 0).cross(direction).normalize();
+      const up = direction.clone().cross(right).normalize();
+      const top = latest.current.exploded ? 62 : 52,
+        bottom = 60;
+      const usableY = Math.max(0.45, 1 - (top + bottom) / Math.max(host.clientHeight, 1));
+      const usableX = Math.max(0.5, 1 - 40 / Math.max(host.clientWidth, 1));
+      const tangent = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
+      let required = 1;
+      for (const corner of box.corners) {
+        const point = corner.clone().sub(target);
+        const depth = point.dot(direction);
+        required = Math.max(
+          required,
+          depth + Math.abs(point.dot(right)) / (tangent * camera.aspect * usableX),
+          depth + Math.abs(point.dot(up)) / (tangent * usableY),
+        );
       }
+      controls.target.copy(target);
+      camera.position
+        .copy(target)
+        .addScaledVector(direction, required * (latest.current.exploded ? 1.08 : 1.05));
+      camera.lookAt(target);
+      camera.updateProjectionMatrix();
+      controls.update();
+      floor.position.y = Math.min(-0.005, box.min.y - 0.06);
+      grid.position.y = floor.position.y + 0.002;
+    }
+    function positionCallout() {
+      const element = calloutRef.current;
+      const subsystem = latest.current.selectedSubsystem;
+      if (!element || !subsystem) {
+        if (element) element.style.display = 'none';
+        return;
+      }
+      const group = groups.get(subsystem.assemblyId || latest.current.selectedPart);
+      let nearest = null,
+        best = Infinity;
+      const assembled = new THREE.Vector3(...(subsystem.anchor || [0, 1, 0]));
+      group?.traverse((item) => {
+        if (!item.isMesh || !item.visible) return;
+        const center = item.userData.baseCenter || item.userData.basePosition;
+        const distance = center.distanceToSquared(assembled);
+        if (distance < best) {
+          best = distance;
+          nearest = item;
+        }
+      });
+      if (!nearest) {
+        element.style.display = 'none';
+        return;
+      }
+      const point = assembled.clone();
+      if (latest.current.exploded && nearest.userData.meshOffset)
+        point.add(nearest.userData.meshOffset);
+      point.project(camera);
+      element.style.display = point.z > 1 ? 'none' : 'block';
+      element.style.left =
+        Math.max(12, Math.min(host.clientWidth - 12, (point.x * 0.5 + 0.5) * host.clientWidth)) +
+        'px';
+      element.style.top =
+        Math.max(64, Math.min(host.clientHeight - 64, (-point.y * 0.5 + 0.5) * host.clientHeight)) +
+        'px';
+    }
+    function sync(forceFit = false) {
+      const poseChanged = previousExploded !== latest.current.exploded;
+      const isolationChanged = previousIsolation !== latest.current.isolated;
+      const selectionKey =
+        latest.current.selectedSubsystem?.subsystemId || latest.current.selectedPart;
+      const selectionChanged = previousSelection !== selectionKey;
+      const selectedIds = new Set(
+        latest.current.selectedSubsystem?.assemblyIds || [latest.current.selectedPart],
+      );
       const cutaway =
         !latest.current.exploded &&
         [
@@ -560,18 +668,27 @@ export default function VehicleScene({
           'seats',
           'airbag',
           'steering',
+          'cooling',
+          'brakeFluid',
         ].includes(latest.current.selectedPart);
-      floor.position.y = latest.current.exploded ? -0.75 : -0.005;
-      grid.position.y = latest.current.exploded ? -0.74 : 0.002;
+
+      const highlighted = new Set();
+      let highlightedMeshes = 0;
       groups.forEach((part, id) => {
+        part.visible =
+          part.userData.available !== false && (!latest.current.isolated || selectedIds.has(id));
         part.position.copy(latest.current.exploded ? part.userData.offset : new THREE.Vector3());
         part.traverse((item) => {
           if (!item.isMesh) return;
-          item.visible = !(latest.current.exploded && item.userData.contextOccluder);
+          item.visible = !((latest.current.exploded || cutaway) && item.userData.contextOccluder);
           item.position.copy(item.userData.basePosition);
           if (latest.current.exploded && item.userData.meshOffset)
             item.position.add(item.userData.meshOffset);
-          const active = id === latest.current.selectedPart;
+          const active = selectedIds.has(id);
+          if (active && part.visible && item.visible) {
+            highlighted.add(id);
+            highlightedMeshes++;
+          }
           const materials = Array.isArray(item.material) ? item.material : [item.material];
           materials.forEach((material, index) => {
             const original = item.userData.materialStates[index];
@@ -595,25 +712,34 @@ export default function VehicleScene({
           });
         });
       });
+      canvas.dataset.highlightedAssemblies = [...highlighted].join(',');
+      canvas.dataset.highlightedMeshes = String(highlightedMeshes);
+      canvas.dataset.subsystem = latest.current.selectedSubsystem?.subsystemId || '';
+      canvas.dataset.availableAssemblies = [...groups]
+        .filter(([, group]) => group.children.some((child) => child.isMesh))
+        .map(([id]) => id)
+        .join(',');
       root.updateMatrixWorld(true);
+      if (
+        forceFit ||
+        poseChanged ||
+        isolationChanged ||
+        (latest.current.isolated && selectionChanged)
+      )
+        fitCamera();
+      previousExploded = latest.current.exploded;
+      previousIsolation = latest.current.isolated;
+      previousSelection = selectionKey;
       render();
     }
-    let responsiveScale = 1;
     function resize() {
       const width = host.clientWidth;
       const height = host.clientHeight;
       if (!width || !height) return;
       renderer.setSize(width, height, false);
       camera.aspect = width / height;
-      const nextScale = Math.max(1, 1.32 / camera.aspect);
-      const offset = camera.position
-        .clone()
-        .sub(controls.target)
-        .multiplyScalar(nextScale / responsiveScale);
-      camera.position.copy(controls.target).add(offset);
-      responsiveScale = nextScale;
       camera.updateProjectionMatrix();
-      controls.update();
+      fitCamera();
       render();
     }
     controls.addEventListener('change', render);
@@ -662,20 +788,13 @@ export default function VehicleScene({
       setHovered(null);
     }
     function view(mode) {
-      const target = controls.target;
-      const scale = (latest.current.exploded ? 1.27 : 1) * responsiveScale;
-      if (mode === 'top') camera.position.set(0, target.y + 9 * distance * scale, 0.001);
-      else if (mode === 'side') camera.position.set(0, target.y + 0.9, 9 * distance * scale);
-      else
-        camera.position.copy(
-          initial
-            .clone()
-            .sub(new THREE.Vector3(0, 1, 0))
-            .multiplyScalar(scale)
-            .add(target),
-        );
-      camera.lookAt(target);
-      controls.update();
+      if (mode === 'focus') {
+        setIsolated((value) => !value);
+        return;
+      }
+      cameraMode = mode;
+      if (mode === 'perspective' && latest.current.isolated) setIsolated(false);
+      fitCamera(mode);
       render();
     }
     function keyboard(event) {
@@ -697,8 +816,8 @@ export default function VehicleScene({
       if (event.key === 'ArrowUp') spherical.phi = Math.max(0.1, spherical.phi - 0.12);
       if (event.key === 'ArrowDown') spherical.phi = Math.min(Math.PI / 2, spherical.phi + 0.12);
       if (event.key === '+' || event.key === '=')
-        spherical.radius = Math.max(4, spherical.radius * 0.9);
-      if (event.key === '-') spherical.radius = Math.min(20, spherical.radius * 1.1);
+        spherical.radius = Math.max(0.65, spherical.radius * 0.9);
+      if (event.key === '-') spherical.radius = Math.min(50, spherical.radius * 1.1);
       camera.position.copy(new THREE.Vector3().setFromSpherical(spherical).add(controls.target));
       controls.update();
       render();
@@ -732,7 +851,7 @@ export default function VehicleScene({
           groups = model.groups;
           scene.add(root);
           setLoading(false);
-          sync();
+          sync(true);
           resize();
           setReady(true);
         })
@@ -769,13 +888,15 @@ export default function VehicleScene({
 
   useEffect(() => {
     api.current?.sync();
-  }, [selectedPart, exploded]);
+  }, [selectedPart, selectedSubsystem, exploded, isolated, ready]);
 
   return (
     <div
       className="g3d"
       data-g3d-ready={ready && !failure ? 'true' : 'false'}
       data-model={isReference ? 'bmw-x5-g05' : 'schematic'}
+      data-exploded={String(exploded)}
+      data-isolated={String(isolated)}
       style={{ position: 'relative', width: '100%', minHeight: 440, height: '100%' }}
     >
       <div ref={hostRef} className="g3d-stage" style={{ position: 'absolute', inset: 0 }} />
@@ -852,6 +973,26 @@ export default function VehicleScene({
           <button type="button" onClick={() => api.current?.view('top')}>
             Superior
           </button>
+          <button
+            type="button"
+            onClick={() => api.current?.view('focus')}
+            aria-pressed={isolated}
+            aria-label={
+              isolated ? 'Mostrar todos os conjuntos' : 'Isolar e focar o conjunto selecionado'
+            }
+          >
+            {isolated ? 'Visão geral' : 'Focar conjunto'}
+          </button>
+        </div>
+      )}
+      {ready && selectedSubsystem && (
+        <div
+          ref={calloutRef}
+          className="g3d-subsystem-callout"
+          data-subsystem={selectedSubsystem.subsystemId}
+          aria-hidden="true"
+        >
+          <span>{selectedSubsystem.label}</span>
         </div>
       )}
       {!failure && hovered && (
