@@ -25,7 +25,7 @@ async def capture(base):
         browser = await p.chromium.launch(**launch_options())
         page = await browser.new_page(
             viewport={"width": 1920, "height": 1400},
-            device_scale_factor=1.5,
+            device_scale_factor=2,
             reduced_motion="reduce",
         )
         await page.goto(base + "#guide")
@@ -65,6 +65,8 @@ async def capture(base):
         "assets/models/suv/mechanical-supplement.glb",
         "src/guide/exploded-layout.js",
         "src/guide/VehicleScene.jsx",
+        "src/guide/reference-suv.js",
+        "src/guide/render-definition.js",
     ]
     metadata = {
         "method": "Direct WebGL export from the published-model source; no image generation or external vehicle photograph",

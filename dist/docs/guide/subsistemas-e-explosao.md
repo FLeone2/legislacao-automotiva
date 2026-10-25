@@ -40,3 +40,11 @@ As pranchas anteriores continuam intactas. Cada subsistema abre o mesmo recorte 
 O descritor selecionado limita a consulta ao subsistema explícito. Fluido de freio, por exemplo, não herda o pacote de frenagem/ABS só porque ambos usam o conjunto de freios. Uma referência ausente continua como lacuna; química de bateria, métodos privados, vigência integral e aplicabilidade não são inferidos da imagem ou do novo modelo.
 
 A seleção conserva o perfil, os estados jurídicos, a profundidade de revisão e os requisitos canônicos. URLs guardam `subsystem`, `part` e `tree`; voltar, recarregar e trocar o modo da árvore mantêm um caminho verificável entre seleção, recorte e evidência.
+
+## Definição visual
+
+A renderização acompanha a densidade da tela até 3× e usa supersampling de 1,5× em telas comuns. O buffer é limitado a 4 milhões de pixels e à capacidade do WebGL; aparelhos que informam até 4 GB de memória usam até 2× e 2 milhões de pixels. O cálculo é refeito ao redimensionar a área ou a janela. A cena continua sendo desenhada apenas quando a interação ou o estado exigem uma atualização.
+
+Sombras de 2048², ou 1024² no perfil de memória limitado, são enquadradas pelos conjuntos visíveis e suas projeções no piso. Isso aproveita a resolução também ao isolar um motor pequeno. O normal map original dos pneus recebe filtragem anisotrópica até o limite suportado, no máximo 8×. As peças mecânicas selecionadas conservam mais do contraste do material original. Não há alteração das malhas ou geração de texturas artificiais.
+
+As quatro pranchas são capturadas em densidade 2×. Sua proveniência inclui o código de definição e o carregador de materiais, além da câmera e do layout.

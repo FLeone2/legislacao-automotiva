@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { renderDefinition } from './render-definition.js';
 import {
   loadReferenceSUV,
   materialSnapshot,
@@ -464,7 +465,6 @@ export default function VehicleScene({
       setFailure(true);
       return undefined;
     }
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.7));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.08;
@@ -485,7 +485,7 @@ export default function VehicleScene({
     scene.add(new THREE.HemisphereLight(0xe4edff, 0x20262c, 1.05));
     const pmrem = new THREE.PMREMGenerator(renderer);
     const studio = new RoomEnvironment();
-    const environment = pmrem.fromScene(studio, 0.045);
+    const environment = pmrem.fromScene(studio, 0.025);
     scene.environment = environment.texture;
     scene.environmentIntensity = 0.7;
     studio.dispose();
@@ -493,7 +493,16 @@ export default function VehicleScene({
     const keyLight = new THREE.DirectionalLight(0xfff1e5, 3.1);
     keyLight.position.set(-5, 8, 5);
     keyLight.castShadow = true;
-    keyLight.shadow.mapSize.set(1024, 1024);
+    const definition = renderDefinition({
+      width: host.clientWidth,
+      height: host.clientHeight,
+      devicePixelRatio: window.devicePixelRatio,
+      deviceMemory: navigator.deviceMemory,
+      maxRenderbufferSize: renderer
+        .getContext()
+        .getParameter(renderer.getContext().MAX_RENDERBUFFER_SIZE),
+    });
+    keyLight.shadow.mapSize.set(definition.shadowSize, definition.shadowSize);
     Object.assign(keyLight.shadow.camera, {
       left: -5,
       right: 5,
@@ -502,10 +511,11 @@ export default function VehicleScene({
       near: 0.1,
       far: 25,
     });
-    keyLight.shadow.normalBias = 0.035;
+    keyLight.shadow.normalBias = 0.015;
     keyLight.shadow.bias = -0.0001;
     keyLight.shadow.radius = 4;
     scene.add(keyLight);
+    scene.add(keyLight.target);
     const rim = new THREE.DirectionalLight(0xb3d7ff, 2);
     rim.position.set(4, 3, -4);
     scene.add(rim);
@@ -609,6 +619,37 @@ export default function VehicleScene({
       controls.update();
       floor.position.y = Math.min(-0.005, box.min.y - 0.06);
       grid.position.y = floor.position.y + 0.002;
+      fitShadow(box);
+    }
+    function fitShadow(box) {
+      // Keep the approved light direction while giving small isolated parts the
+      // same shadow detail as the whole vehicle. Include their floor projections.
+      const center = box.getCenter(new THREE.Vector3());
+      const lightDirection = new THREE.Vector3(-5, 8, 5).normalize();
+      const size = box.getSize(new THREE.Vector3()).length();
+      keyLight.target.position.copy(center);
+      keyLight.position.copy(center).addScaledVector(lightDirection, Math.max(10, size * 1.5));
+      keyLight.target.updateMatrixWorld();
+      keyLight.updateMatrixWorld();
+      keyLight.shadow.updateMatrices(keyLight);
+      const lightBounds = new THREE.Box3();
+      const inverse = keyLight.shadow.camera.matrixWorldInverse;
+      for (const corner of box.corners) {
+        lightBounds.expandByPoint(corner.clone().applyMatrix4(inverse));
+        const ground = corner.clone();
+        ground.addScaledVector(lightDirection, -(corner.y - floor.position.y) / lightDirection.y);
+        lightBounds.expandByPoint(ground.applyMatrix4(inverse));
+      }
+      const padding = Math.max(0.15, size * 0.035);
+      Object.assign(keyLight.shadow.camera, {
+        left: lightBounds.min.x - padding,
+        right: lightBounds.max.x + padding,
+        bottom: lightBounds.min.y - padding,
+        top: lightBounds.max.y + padding,
+        near: Math.max(0.1, -lightBounds.max.z - padding),
+        far: Math.max(1, -lightBounds.min.z + padding),
+      });
+      keyLight.shadow.camera.updateProjectionMatrix();
     }
     function positionCallout() {
       const element = calloutRef.current;
@@ -696,10 +737,14 @@ export default function VehicleScene({
             if (active)
               material.color?.lerp(
                 new THREE.Color(COLOR.orange),
-                id === 'wheels' || id === 'glass' ? 0.08 : 0.16,
+                id === 'wheels' || id === 'glass' || item.userData.mechanicalExample ? 0.08 : 0.16,
               );
             material.emissive?.copy(active ? new THREE.Color(0x6c3215) : original.emissive);
-            material.emissiveIntensity = active ? 0.08 : original.emissiveIntensity;
+            material.emissiveIntensity = active
+              ? item.userData.mechanicalExample
+                ? 0.04
+                : 0.08
+              : original.emissiveIntensity;
             const reveal = cutaway && ['body', 'doors', 'glass'].includes(id);
             const transparent = reveal || original.transparent;
             if (material.transparent !== transparent) {
@@ -736,7 +781,16 @@ export default function VehicleScene({
       const width = host.clientWidth;
       const height = host.clientHeight;
       if (!width || !height) return;
-      renderer.setSize(width, height, false);
+      const settings = renderDefinition({
+        width,
+        height,
+        devicePixelRatio: window.devicePixelRatio,
+        deviceMemory: navigator.deviceMemory,
+        maxRenderbufferSize: renderer
+          .getContext()
+          .getParameter(renderer.getContext().MAX_RENDERBUFFER_SIZE),
+      });
+      renderer.setDrawingBufferSize(width, height, settings.pixelRatio);
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
       fitCamera();
@@ -745,6 +799,7 @@ export default function VehicleScene({
     controls.addEventListener('change', render);
     const observer = new ResizeObserver(resize);
     observer.observe(host);
+    window.addEventListener('resize', resize);
     const raycaster = new THREE.Raycaster();
     const pointer = new THREE.Vector2();
     function hit(event) {
@@ -839,7 +894,7 @@ export default function VehicleScene({
     if (isReference) {
       loadReferenceSUV((value) => {
         if (!disposed) setLoadProgress(value);
-      })
+      }, renderer.capabilities.getMaxAnisotropy())
         .then((model) => {
           if (disposed) {
             disposeModel(model.root);
@@ -870,6 +925,7 @@ export default function VehicleScene({
       disposed = true;
       api.current = null;
       observer.disconnect();
+      window.removeEventListener('resize', resize);
       controls.removeEventListener('change', render);
       controls.dispose();
       canvas.removeEventListener('pointerdown', down);

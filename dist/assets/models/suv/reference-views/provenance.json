@@ -16,37 +16,45 @@
     },
     {
       "path": "src/guide/VehicleScene.jsx",
-      "sha256": "2baf67beccb4fe0ffd5a8633e600a220f71c44706ddc1b8a5fe1a5ac2a5568f7"
+      "sha256": "0bcdd2f74bf25e6154c8dd54a6d077ec0697740f8ae5aa7ed7de6ee1a089530f"
+    },
+    {
+      "path": "src/guide/reference-suv.js",
+      "sha256": "79e588490ec6bed925266089c5c294a7ac6d4b320dfa9615bf6cc0c8cc400d51"
+    },
+    {
+      "path": "src/guide/render-definition.js",
+      "sha256": "86bafa4bda54ea17e23fe0d3df9a8b2f128ed5659cf6eec1e80418c2107531f7"
     }
   ],
   "views": [
     {
       "id": "assembled",
       "path": "assets/models/suv/reference-views/assembled.webp",
-      "width": 1792,
-      "height": 660,
-      "sha256": "1beec60d3c7ee4a5ebd5ab3a93708b2f8020d10e9ca2d0e5be1cb3c4fe8b504f"
+      "width": 2390,
+      "height": 880,
+      "sha256": "1889276f6135eebd048e0c01d0c504628f5289bc89c1c21970f923e78f0e06e2"
     },
     {
       "id": "side",
       "path": "assets/models/suv/reference-views/side.webp",
-      "width": 1792,
-      "height": 660,
-      "sha256": "3eef087fde2616b789710ce174a1bf6ed2c7445f76901ef2e0c5c8d1c672b64f"
+      "width": 2390,
+      "height": 880,
+      "sha256": "e80cd4d042f0f499eddf245721b086b4e50809b03db0a66fdbc988644da66fae"
     },
     {
       "id": "top",
       "path": "assets/models/suv/reference-views/top.webp",
-      "width": 1792,
-      "height": 660,
-      "sha256": "481e71295287066936a33b77f7f383824879a0105f6f2b819b335f7612f2dc3a"
+      "width": 2390,
+      "height": 880,
+      "sha256": "5a8acec788cf61ee6a38ad5c22ffb41445f8f292b5f431309dc87faa45f6d778"
     },
     {
       "id": "exploded",
       "path": "assets/models/suv/reference-views/exploded.webp",
-      "width": 1792,
-      "height": 990,
-      "sha256": "9cbe7feda5db522043b1a3a0f8708257e4af4cc37b9890d100eac7404e802532"
+      "width": 2390,
+      "height": 1320,
+      "sha256": "0db0fbe56de53283adf10f1049ca5e430115b73fc4488e784a36c4ece3942a25"
     }
   ]
 }

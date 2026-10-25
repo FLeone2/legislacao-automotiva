@@ -37,7 +37,7 @@ export function disposeModel(root) {
   textures.forEach((t) => t.dispose());
 }
 
-export async function loadReferenceSUV(progress) {
+export async function loadReferenceSUV(progress, maxAnisotropy = 1) {
   const decoder = new DRACOLoader();
   decoder.setDecoderPath('assets/models/suv/draco/');
   decoder.setDecoderConfig({ type: 'wasm' });
@@ -113,6 +113,10 @@ export async function loadReferenceSUV(progress) {
           (material) => {
             const result = material.clone();
             result.envMapIntensity = 1;
+            Object.values(result).forEach((value) => {
+              if (!value?.isTexture) return;
+              value.anisotropy = Math.max(1, Math.min(maxAnisotropy, 8));
+            });
             return result;
           },
         );
