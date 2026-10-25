@@ -3,7 +3,8 @@ import { createRoot } from 'react-dom/client';
 import { ReactFlow, Background, Controls, MarkerType } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import VehicleScene from './VehicleScene.jsx';
-import { PARTS, visibleParts } from './vehicle-parts.js';
+import TraceabilityInspector from './TraceabilityInspector.jsx';
+import { PARTS, visibleParts, sceneKind } from './vehicle-parts.js';
 import {
   DEFAULT_PROFILE,
   normalizeProfile,
@@ -688,7 +689,6 @@ function GuideApp({ bridge }) {
     visibleParts(profile.category, profile.powertrain).find((x) => x.id === partId) ||
     visibleParts(profile.category, profile.powertrain)[0] ||
     PARTS[0];
-  const records = useMemo(() => bridge.records(part), [part, bridge]);
   const availableParts = visibleParts(profile.category, profile.powertrain);
   const filtered = availableParts.filter((x) =>
     (x.label + ' ' + x.system)
@@ -1053,6 +1053,28 @@ function GuideApp({ bridge }) {
                       category={profile.category}
                       powertrain={profile.powertrain}
                     />
+                    {sceneKind(profile.category) === 'car' && (
+                      <div className="g-model-attribution">
+                        Referência visual:{' '}
+                        <a
+                          href="https://github.com/bmwcarit/digital-car-3d"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          BMW X5 G05 · BMW Car IT
+                        </a>{' '}
+                        ·{' '}
+                        <a
+                          href="assets/models/suv/LICENSE.txt"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          CC BY 4.0
+                        </a>
+                        . Materiais, compressão e separação adaptados. A geometria não preenche os
+                        dados técnicos do projeto.
+                      </div>
+                    )}
                     <div className="g-canvas-footer">
                       <label className="g-switch">
                         <input
@@ -1122,35 +1144,8 @@ function GuideApp({ bridge }) {
                       Consultar assunto na biblioteca <Icon name="arrow" />
                     </a>
                   </div>
-                  <div className="g-part-norms">
-                    <div className="g-section-heading">
-                      <h3>Referências associadas</h3>
-                      <span className="g-tag">{records.length} no acervo</span>
-                    </div>
-                    {records.length ? (
-                      records.slice(0, 4).map((r) => (
-                        <button
-                          key={r.id}
-                          className="g-reference"
-                          onClick={() => bridge.openRecord(r.id)}
-                        >
-                          <span className="g-tag">{r.issuer || r.agency}</span>
-                          <strong>{r.title}</strong>
-                          <span aria-hidden="true">↗</span>
-                        </button>
-                      ))
-                    ) : (
-                      <p className="g-note">
-                        Não há vínculo específico revisado para este conjunto. A ausência no acervo
-                        não significa ausência de obrigação.
-                      </p>
-                    )}
-                    <p className="g-note">
-                      Vínculo temático: confira escopo, datas, montagem e o requisito específico
-                      antes de aplicar ao projeto.
-                    </p>
-                  </div>
                 </section>
+                <TraceabilityInspector part={part} profile={profile} bridge={bridge} />
               </>
             )}
             {tab === 'flow' && (

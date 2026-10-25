@@ -1,0 +1,280 @@
+{
+  "title": "BMW X5 G05 2018 reference asset",
+  "creator": "BMW Car IT / contributors to bmwcarit/digital-car-3d",
+  "sourceUrl": "https://github.com/bmwcarit/digital-car-3d",
+  "sourceCommit": "6261f53b5ac63c6686039d106fbbbfb693339d72",
+  "license": "CC-BY-4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "reviewedAt": "2026-10-25",
+  "notice": "Manufacturer-published visual reference asset. Geometry or use of a BMW reference does not establish regulatory applicability, homologation or manufacturer endorsement. Adaptations, regrouping, material tuning and geometry optimization must be identified in attribution.",
+  "files": [
+    {
+      "path": "LICENSE.txt",
+      "bytes": 18656,
+      "sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94"
+    },
+    {
+      "path": "README.md",
+      "bytes": 707,
+      "sha256": "e6a1564578a9b61acb554696ca8b9d3b6a8dfb27bc2485d9a4917278e0c016a3"
+    },
+    {
+      "path": "G05/README.md",
+      "bytes": 4459,
+      "sha256": "d7531aa327e709d2bc3929bee981c2c7d701da5b367a2ca4a1f92b0ed0f01feb"
+    },
+    {
+      "path": "G05/G05_main.rca",
+      "bytes": 3266396,
+      "sha256": "a8e9c460dd529d47d4383b622f7f0df1af2c9bf17e298bd1480c716d25924865"
+    },
+    {
+      "path": "G05/meshes/Doors/O_G05_Doors_B.gltf",
+      "bytes": 6170528,
+      "sha256": "6b8694a7af88b6f57f11575c8569508a249b0f9a6060ba0ef3e30ac130b91592"
+    },
+    {
+      "path": "G05/meshes/Doors/O_G05_Doors_F.gltf",
+      "bytes": 3593396,
+      "sha256": "245ff6fddeb786ac9b63b7ea54ccac2ac432d365ec24e50f3c1df66bcb1c0d1e"
+    },
+    {
+      "path": "G05/meshes/Doors/O_G05_Tailgate.gltf",
+      "bytes": 3263190,
+      "sha256": "264094988b510984bfa5dd50659cc4328c1bc5be9746c31b86e2a72326bdd681"
+    },
+    {
+      "path": "G05/meshes/Emblem/O_G05_Emblem.gltf",
+      "bytes": 31884,
+      "sha256": "e11caf53dd67bb0e8feaf29ce05cdc322f45f6227b7301e8d843f1f717a278f9"
+    },
+    {
+      "path": "G05/meshes/Exterior/O_G05_Exterior_Paint.gltf",
+      "bytes": 3618392,
+      "sha256": "3574495f09e841ef92b663e47f241b372f17f75d2c2a98e0885e44c2038d49e6"
+    },
+    {
+      "path": "G05/meshes/Exterior/O_G05_Exterior_non-Paint.gltf",
+      "bytes": 10331004,
+      "sha256": "ed4cd39eb83274897b75d7bb1b47c640f848b1aa591445dc95d2a0602bc36d29"
+    },
+    {
+      "path": "G05/meshes/Exterior/O_G05_Headlights.gltf",
+      "bytes": 1168484,
+      "sha256": "2ad4eae379678f279ffd9bb0d5f45c1a0cca8b0ac009b95c9d6d14c0cfab8cb4"
+    },
+    {
+      "path": "G05/meshes/Exterior/O_G05_Hood.gltf",
+      "bytes": 358728,
+      "sha256": "302d499e75b962ed26ed9d130e6e543a7b0f6936914cc3a040961891c5889a56"
+    },
+    {
+      "path": "G05/meshes/Exterior/O_G05_Taillights.gltf",
+      "bytes": 1155587,
+      "sha256": "db0edff84b4a10455d19c1c58834bc12f01f9224d679b52feb2b4fa4c0f5ca78"
+    },
+    {
+      "path": "G05/meshes/Interior/O_G05_Interior_Color.gltf",
+      "bytes": 6050021,
+      "sha256": "cbe2e135580988137bc4c9d58bab37c547c891b52d0e38db4105763a623529c6"
+    },
+    {
+      "path": "G05/meshes/Interior/O_G05_Interior_non-Color.gltf",
+      "bytes": 2156483,
+      "sha256": "68e9428e65b9721b359d56f7d7b246e147263bb72f2329c1b6742ae5cab6e531"
+    },
+    {
+      "path": "G05/meshes/Interior/O_G05_Seats.gltf",
+      "bytes": 1720743,
+      "sha256": "c190a5a652653958ae2303373b5e91b4aede95ace8be401d4b238f5f2c9ef4da"
+    },
+    {
+      "path": "G05/meshes/Interior/O_G05_SteeringWheel.gltf",
+      "bytes": 617319,
+      "sha256": "6f153e9b9095d48d9b0ba19f4057d0f8a1fa00895d64061c1caf28ce7f0299f0"
+    },
+    {
+      "path": "G05/meshes/LicensePlates/O_G05_LicensePlates.gltf",
+      "bytes": 70177,
+      "sha256": "025a8d400c66b54ff4ed800fce681a28665ff8c46844bf3ebf6952653a500c42"
+    },
+    {
+      "path": "G05/meshes/Wheels/O_G05_Wheels.gltf",
+      "bytes": 1325357,
+      "sha256": "9d0223cf8f1b69f4574b54fc88aef6debe570ae1b288760c41f0988f93d3aeca"
+    }
+  ],
+  "asset": "assets/models/suv/bmw-x5.glb",
+  "sha256": "25c74e4411872932dee468a1d2f533ca5d7e7e448ef55244c2c7bb5e152a37e2",
+  "bytes": 6422292,
+  "adaptations": [
+    "RCA hierarchy reconstructed with 131 instances, original relative component placement and original texture atlases",
+    "Centimeter coordinates converted to meters, Y-up glTF export, centered visual origin",
+    "PBR silver paint, glass and lamp material tuning; no geometry decimation",
+    "Draco mesh compression and consolidation to one self-contained GLB",
+    "Interactive assembly grouping and visual explosion; steering and plate labels refined at runtime"
+  ],
+  "referenceImages": [
+    "assets/vehicle-vector/previews/vehicle.webp",
+    "assets/vehicle-exploded.webp"
+  ],
+  "visualOnly": true,
+  "conversion": {
+    "schemaVersion": 1,
+    "asset": {
+      "file": "bmw-x5.glb",
+      "bytes": 6422292,
+      "sha256": "25c74e4411872932dee468a1d2f533ca5d7e7e448ef55244c2c7bb5e152a37e2",
+      "format": "glTF 2.0 binary",
+      "extensionsRequired": [
+        "KHR_draco_mesh_compression"
+      ],
+      "groups": {
+        "body": 26,
+        "brakes": 12,
+        "wheels": 16,
+        "doors": 31,
+        "mirrors": 8,
+        "lights": 18,
+        "glass": 7,
+        "seats": 8,
+        "electronics": 4,
+        "steering": 1
+      },
+      "bounds": {
+        "min": [
+          -2.466345184087487,
+          0.002106317929014667,
+          -1.1211776749318798
+        ],
+        "max": [
+          2.4677326170042306,
+          1.738223497934081,
+          1.121177670691012
+        ],
+        "dimensions": [
+          4.934077801091718,
+          1.7361171800050663,
+          2.242355345622892
+        ]
+      }
+    },
+    "attribution": {
+      "title": "BMW X5 2018 (G05)",
+      "creator": "BMW Car IT GmbH / bmwcarit",
+      "source": "https://github.com/bmwcarit/digital-car-3d",
+      "commit": "6261f53b5ac63c6686039d106fbbbfb693339d72",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "licenseFile": "LICENSE.txt"
+    },
+    "retrievedAt": "2026-10-25",
+    "referencePurpose": "Visual reference SUV for consultative navigation. The model is not the engineering configuration of the user project, and visual parts do not establish legal applicability.",
+    "visualReferences": [
+      "assets/vehicle-vector/previews/vehicle.webp",
+      "assets/vehicle-exploded.webp"
+    ],
+    "changes": [
+      "Reconstructed full RCA scene graph transforms, centimetre-to-metre scale, instance mirrors and all four wheels/doors.",
+      "Centered X by -151.7 source centimetres; preserved Y-up and front along negative X.",
+      "Retained source topology, split normals, UV coordinates and baked vertex color AO; no geometry decimation.",
+      "Adjusted paint to neutral metallic silver, glass/transparency, chrome/rubber/interior materials and lamp emission.",
+      "Embedded source tire normal map at 1024px; no external network asset required at runtime.",
+      "Applied Draco compression with 16-bit position, 12-bit normal, 14-bit UV and 10-bit color quantization; compression is an adaptation, not a technical measurement.",
+      "Tagged every mesh node with partId, sourceFile, sourceMesh and sourceRcaId.",
+      "Portable GLB material correction: explicitly stored PBR baseColorFactor and front/rear emissiveFactor values after Blender vertex-AO material export, preserving physical roughness, metalness, alpha and clearcoat."
+    ],
+    "sourceFiles": [
+      {
+        "path": "G05/G05_main.rca",
+        "bytes": 3266396,
+        "sha256": "a8e9c460dd529d47d4383b622f7f0df1af2c9bf17e298bd1480c716d25924865"
+      },
+      {
+        "path": "G05/_shared/MatLib/images/T_G05_Tire_N.png",
+        "bytes": 990447,
+        "sha256": "adf6ecff371fc7543f606144247cc00b0d0c78c2e607ac04e74e603755daa555"
+      },
+      {
+        "path": "G05/meshes/Doors/O_G05_Doors_B.gltf",
+        "bytes": 6170528,
+        "sha256": "6b8694a7af88b6f57f11575c8569508a249b0f9a6060ba0ef3e30ac130b91592"
+      },
+      {
+        "path": "G05/meshes/Doors/O_G05_Doors_F.gltf",
+        "bytes": 3593396,
+        "sha256": "245ff6fddeb786ac9b63b7ea54ccac2ac432d365ec24e50f3c1df66bcb1c0d1e"
+      },
+      {
+        "path": "G05/meshes/Doors/O_G05_Tailgate.gltf",
+        "bytes": 3263190,
+        "sha256": "264094988b510984bfa5dd50659cc4328c1bc5be9746c31b86e2a72326bdd681"
+      },
+      {
+        "path": "G05/meshes/Emblem/O_G05_Emblem.gltf",
+        "bytes": 31884,
+        "sha256": "e11caf53dd67bb0e8feaf29ce05cdc322f45f6227b7301e8d843f1f717a278f9"
+      },
+      {
+        "path": "G05/meshes/Exterior/O_G05_Exterior_Paint.gltf",
+        "bytes": 3618392,
+        "sha256": "3574495f09e841ef92b663e47f241b372f17f75d2c2a98e0885e44c2038d49e6"
+      },
+      {
+        "path": "G05/meshes/Exterior/O_G05_Exterior_non-Paint.gltf",
+        "bytes": 10331004,
+        "sha256": "ed4cd39eb83274897b75d7bb1b47c640f848b1aa591445dc95d2a0602bc36d29"
+      },
+      {
+        "path": "G05/meshes/Exterior/O_G05_Headlights.gltf",
+        "bytes": 1168484,
+        "sha256": "2ad4eae379678f279ffd9bb0d5f45c1a0cca8b0ac009b95c9d6d14c0cfab8cb4"
+      },
+      {
+        "path": "G05/meshes/Exterior/O_G05_Hood.gltf",
+        "bytes": 358728,
+        "sha256": "302d499e75b962ed26ed9d130e6e543a7b0f6936914cc3a040961891c5889a56"
+      },
+      {
+        "path": "G05/meshes/Exterior/O_G05_Taillights.gltf",
+        "bytes": 1155587,
+        "sha256": "db0edff84b4a10455d19c1c58834bc12f01f9224d679b52feb2b4fa4c0f5ca78"
+      },
+      {
+        "path": "G05/meshes/Interior/O_G05_Interior_Color.gltf",
+        "bytes": 6050021,
+        "sha256": "cbe2e135580988137bc4c9d58bab37c547c891b52d0e38db4105763a623529c6"
+      },
+      {
+        "path": "G05/meshes/Interior/O_G05_Interior_non-Color.gltf",
+        "bytes": 2156483,
+        "sha256": "68e9428e65b9721b359d56f7d7b246e147263bb72f2329c1b6742ae5cab6e531"
+      },
+      {
+        "path": "G05/meshes/Interior/O_G05_Seats.gltf",
+        "bytes": 1720743,
+        "sha256": "c190a5a652653958ae2303373b5e91b4aede95ace8be401d4b238f5f2c9ef4da"
+      },
+      {
+        "path": "G05/meshes/Interior/O_G05_SteeringWheel.gltf",
+        "bytes": 617319,
+        "sha256": "6f153e9b9095d48d9b0ba19f4057d0f8a1fa00895d64061c1caf28ce7f0299f0"
+      },
+      {
+        "path": "G05/meshes/LicensePlates/O_G05_LicensePlates.gltf",
+        "bytes": 70177,
+        "sha256": "025a8d400c66b54ff4ed800fce681a28665ff8c46844bf3ebf6952653a500c42"
+      },
+      {
+        "path": "G05/meshes/Wheels/O_G05_Wheels.gltf",
+        "bytes": 1325357,
+        "sha256": "9d0223cf8f1b69f4574b54fc88aef6debe570ae1b288760c41f0988f93d3aeca"
+      },
+      {
+        "path": "LICENSE.txt",
+        "bytes": 18656,
+        "sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94"
+      }
+    ]
+  }
+}

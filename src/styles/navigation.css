@@ -187,3 +187,8 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* The skip link always uses a white surface, including dark themes. */
+.skip-link {
+  color: #17243a;
+}

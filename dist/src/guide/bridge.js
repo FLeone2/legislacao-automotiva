@@ -4,10 +4,27 @@ let guideRoot;
 let guideMountSequence = 0;
 const guideBridge = {
   records(part) {
-    const records = catalogRecords(catalog);
-    if (part.legacyPart && typeof VehicleLegislation !== 'undefined')
-      return VehicleLegislation.records(part.legacyPart, records);
-    return [];
+    if (typeof VehicleLegislation === 'undefined') return [];
+    return GuideTraceability.records(part, catalogRecords(catalog), VehicleLegislation);
+  },
+  traceability(part, profile) {
+    return GuideTraceability.create({
+      resolver: VehicleLegislation,
+      catalogRecords: catalogRecords(catalog),
+      reviewedAt:
+        typeof VehicleLegislationData === 'undefined' ? null : VehicleLegislationData.asOf,
+    })(part, profile);
+  },
+  async loadTraceability(part, profile) {
+    const records = guideBridge.records(part);
+    await Promise.all(
+      records
+        .filter((record) => record._summary && record.regulatorySource)
+        .map((record) =>
+          loadRegulationRecord(record.regulatorySource, record.regulatoryId || record.id),
+        ),
+    );
+    return guideBridge.traceability(part, profile);
   },
   openRecord(id) {
     openNorm(id);

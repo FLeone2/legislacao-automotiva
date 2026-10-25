@@ -10,12 +10,14 @@ Esse documento distingue implementação, validação de release e pesquisa aind
 
 Abra `/#guide` (também é a entrada padrão). O ambiente mantém o design Obsidian e acrescenta:
 
-- Seleção 3D real, por Three.js, sincronizada à árvore e ao inspetor de referências. Geometrias esquemáticas distintas para automóvel, ônibus, caminhão, motociclo e reboque, sem escala ou validade de CAD. O desenho original e seus 37 contornos continuam em `/#vehicle`.
+- Seleção 3D real, por Three.js, sincronizada à árvore e ao inspetor de referências. SUV de referência BMW X5 G05 oficial, sob CC BY 4.0, com geometria e materiais PBR reais em GLB. Onze conjuntos selecionáveis retomam as associações das imagens originais. Ônibus, caminhão, motociclo e reboque conservam modelos esquemáticos; nenhuma vista substitui CAD. O desenho original e seus 37 contornos continuam em `/#vehicle`.
 - Perfil técnico com categoria, propulsão, origem, finalidade, massas, lotação, uso e radiofrequência. LP/LC não são inferidos apenas de M1/N1. Dados ausentes geram pendências; BEV não recebe dispensa ambiental automática.
 - Roteiro em React Flow, checklists por perfil e matriz consultiva de relatórios por categoria/uso. Verificações condicionais não significam obrigação já confirmada. M2 por PBT, M3 urbano/escolar e L têm particularidades próprias.
 - Registro local de status, notas e referência de evidência; exportação Markdown e backup/importação JSON. Não há conta, sincronização entre dispositivos, upload de laudos ou protocolo nos sistemas oficiais. URLs de processos locais precisam do backup no navegador de destino.
 - Mudanças no perfil devolvem verificações a pendentes para revalidação e preservam notas/evidências. O limite de 50 processos não remove processos antigos silenciosamente. Dados locais ilegíveis são preservados em chave de recuperação antes de substituição.
 - [Guia de emissões](docs/guide/emissoes.md), [segurança e SISCAT](docs/guide/seguranca-siscat.md), [órgãos e peças](docs/guide/orgaos-e-componentes.md), [base normativa](docs/guide/banco-normativo.md) e [brief de manutenção](docs/guide/brief-de-manutencao.md).
+
+Veja também [a origem do SUV e a cadeia de rastreabilidade](docs/guide/modelo-suv-e-rastreabilidade.md). A seleção mostra vínculos específicos do conjunto e contexto do veículo, dispositivos, âmbito, fontes e limites; o perfil técnico permanece independente do modelo visual.
 
 A base `data/process/knowledge-index.json` reúne as fontes da revisão dirigida e os atos canônicos já publicados com seus estados separados. Gerar com `python scripts/build_guide_database.py`; `--check` confere determinismo e `--sqlite /tmp/base.sqlite` produz uma cópia SQLite local opcional. Novas fontes não são automaticamente promovidas a atos vigentes ou a requisitos confirmados.
 

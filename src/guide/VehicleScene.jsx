@@ -3,7 +3,12 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-import { buildCarBody } from './car-body.js';
+import {
+  loadReferenceSUV,
+  materialSnapshot,
+  disposeModel,
+  SUV_REFERENCE,
+} from './reference-suv.js';
 import { PARTS, sceneKind, visibleParts } from './vehicle-parts.js';
 
 const COLOR = {
@@ -70,6 +75,7 @@ function createVehicle(category, powertrain) {
     item.userData.originalOpacity = material.opacity;
     item.userData.originalEmissive = material.emissive.clone();
     item.userData.originalEmissiveIntensity = material.emissiveIntensity;
+    item.userData.materialStates = [materialSnapshot(material)];
     item.castShadow = !transparent;
     item.receiveShadow = !transparent;
     if (opts.rotation) item.rotation.set(...opts.rotation);
@@ -256,6 +262,8 @@ function createVehicle(category, powertrain) {
   group('electronics', [-0.5, 0.9, 0]);
   group('vin', [-0.6, 0.6, 0.9]);
 
+  if (kind === 'car') return { root, groups, visible };
+
   if (isMoto) {
     wheel(-1.05, 0);
     wheel(1.05, 0);
@@ -332,8 +340,6 @@ function createVehicle(category, powertrain) {
       box('body', [3.8, 0.16, width], [0.9, 0.97, 0], COLOR.shell);
       for (const side of [-1, 1])
         box('body', [3.8, 0.55, 0.065], [0.9, 1.28, side * 0.96], COLOR.shell, { opacity: 0.62 });
-    } else {
-      buildCarBody({ mesh, box, rod, COLOR });
     }
 
     if (kind !== 'trailer') {
@@ -427,6 +433,11 @@ export default function VehicleScene({
   const [failure, setFailure] = useState(false);
   const [hovered, setHovered] = useState(null);
   const [ready, setReady] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [attempt, setAttempt] = useState(0);
+  const [loadProgress, setLoadProgress] = useState(null);
+  const isReference = sceneKind(category) === 'car';
+  const modelPowertrain = isReference ? 'reference' : powertrain;
   const selected = PARTS.find((part) => part.id === selectedPart);
   const available = visibleParts(category, powertrain);
 
@@ -435,6 +446,8 @@ export default function VehicleScene({
     if (!host) return undefined;
     setReady(false);
     setFailure(false);
+    setLoading(isReference);
+    setLoadProgress(null);
     let renderer;
     try {
       renderer = new THREE.WebGLRenderer({
@@ -494,7 +507,7 @@ export default function VehicleScene({
     const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 70);
     const isLong = ['truck', 'bus', 'trailer'].includes(sceneKind(category));
     const distance = isLong ? 1.25 : 1;
-    const initial = new THREE.Vector3(-5.6 * distance, 3.1 * distance, 5.6 * distance);
+    const initial = new THREE.Vector3(-4.7 * distance, 2.8 * distance, 4.7 * distance);
     camera.position.copy(initial);
     const controls = new OrbitControls(camera, canvas);
     controls.target.set(0, 1, 0);
@@ -504,7 +517,7 @@ export default function VehicleScene({
     controls.enablePan = false;
     controls.enableDamping = false;
     controls.update();
-    const { root, groups } = createVehicle(category, powertrain);
+    let { root, groups } = createVehicle(category, powertrain);
     scene.add(root);
 
     const grid = new THREE.GridHelper(16, 32, 0x31414e, 0x263441);
@@ -554,32 +567,32 @@ export default function VehicleScene({
         part.position.copy(latest.current.exploded ? part.userData.offset : new THREE.Vector3());
         part.traverse((item) => {
           if (!item.isMesh) return;
+          item.visible = !(latest.current.exploded && item.userData.contextOccluder);
           item.position.copy(item.userData.basePosition);
           if (latest.current.exploded && item.userData.meshOffset)
             item.position.add(item.userData.meshOffset);
           const active = id === latest.current.selectedPart;
-          item.material.color.set(item.userData.originalColor);
-          if (active)
-            item.material.color.lerp(
-              new THREE.Color(COLOR.orange),
-              id === 'wheels' || id === 'glass' ? 0.12 : 0.25,
-            );
-          item.material.emissive.copy(
-            active ? new THREE.Color(0x6c3215) : item.userData.originalEmissive,
-          );
-          item.material.emissiveIntensity = active ? 0.12 : item.userData.originalEmissiveIntensity;
-          const reveal = cutaway && ['body', 'doors', 'glass'].includes(id);
-          const opacity = reveal
-            ? Math.min(item.userData.originalOpacity, 0.13)
-            : item.userData.originalOpacity;
-          const transparent = opacity < 1;
-          if (item.material.transparent !== transparent) {
-            item.material.transparent = transparent;
-            item.material.needsUpdate = true;
-          }
-          item.material.opacity = opacity;
-          item.material.depthWrite = !transparent;
-          item.castShadow = !transparent;
+          const materials = Array.isArray(item.material) ? item.material : [item.material];
+          materials.forEach((material, index) => {
+            const original = item.userData.materialStates[index];
+            material.color?.copy(original.color);
+            if (active)
+              material.color?.lerp(
+                new THREE.Color(COLOR.orange),
+                id === 'wheels' || id === 'glass' ? 0.08 : 0.16,
+              );
+            material.emissive?.copy(active ? new THREE.Color(0x6c3215) : original.emissive);
+            material.emissiveIntensity = active ? 0.08 : original.emissiveIntensity;
+            const reveal = cutaway && ['body', 'doors', 'glass'].includes(id);
+            const transparent = reveal || original.transparent;
+            if (material.transparent !== transparent) {
+              material.transparent = transparent;
+              material.needsUpdate = true;
+            }
+            material.opacity = reveal ? Math.min(original.opacity, 0.1) : original.opacity;
+            material.depthWrite = reveal ? false : original.depthWrite;
+            item.castShadow = !reveal && id !== 'glass';
+          });
         });
       });
       root.updateMatrixWorld(true);
@@ -592,7 +605,7 @@ export default function VehicleScene({
       if (!width || !height) return;
       renderer.setSize(width, height, false);
       camera.aspect = width / height;
-      const nextScale = Math.max(1, 1.12 / camera.aspect);
+      const nextScale = Math.max(1, 1.32 / camera.aspect);
       const offset = camera.position
         .clone()
         .sub(controls.target)
@@ -620,6 +633,7 @@ export default function VehicleScene({
         .find(
           (intersection) =>
             intersection.object.isMesh &&
+            intersection.object.visible &&
             intersection.object.parent.visible &&
             intersection.object.material.opacity >= 0.2,
         )?.object.userData.partId;
@@ -703,7 +717,36 @@ export default function VehicleScene({
     api.current = { sync, view };
     sync();
     resize();
-    setReady(true);
+    if (isReference) {
+      loadReferenceSUV((value) => {
+        if (!disposed) setLoadProgress(value);
+      })
+        .then((model) => {
+          if (disposed) {
+            disposeModel(model.root);
+            return;
+          }
+          scene.remove(root);
+          disposeModel(root);
+          root = model.root;
+          groups = model.groups;
+          scene.add(root);
+          setLoading(false);
+          sync();
+          resize();
+          setReady(true);
+        })
+        .catch(() => {
+          if (!disposed) {
+            setLoading(false);
+            setFailure(true);
+            setReady(false);
+          }
+        });
+    } else {
+      setLoading(false);
+      setReady(true);
+    }
     return () => {
       disposed = true;
       api.current = null;
@@ -716,17 +759,13 @@ export default function VehicleScene({
       canvas.removeEventListener('pointerleave', leave);
       canvas.removeEventListener('keydown', keyboard);
       canvas.removeEventListener('webglcontextlost', contextLost);
-      scene.traverse((item) => {
-        item.geometry?.dispose();
-        const materials = Array.isArray(item.material) ? item.material : [item.material];
-        materials.forEach((material) => material?.dispose());
-      });
+      disposeModel(scene);
       keyLight.shadow.dispose();
       environment.dispose();
       renderer.dispose();
       canvas.remove();
     };
-  }, [category, powertrain]);
+  }, [category, modelPowertrain, attempt]);
 
   useEffect(() => {
     api.current?.sync();
@@ -736,6 +775,7 @@ export default function VehicleScene({
     <div
       className="g3d"
       data-g3d-ready={ready && !failure ? 'true' : 'false'}
+      data-model={isReference ? 'bmw-x5-g05' : 'schematic'}
       style={{ position: 'relative', width: '100%', minHeight: 440, height: '100%' }}
     >
       <div ref={hostRef} className="g3d-stage" style={{ position: 'absolute', inset: 0 }} />
@@ -744,28 +784,41 @@ export default function VehicleScene({
         style={{ position: 'absolute', top: 16, left: 18, pointerEvents: 'none' }}
       >
         <span>
-          MODELO ESQUEMÁTICO ·{' '}
-          {sceneKind(category) === 'moto'
-            ? 'MOTOCICLETA'
-            : sceneKind(category) === 'trailer'
-              ? 'REBOQUE'
-              : sceneKind(category) === 'bus'
-                ? 'ÔNIBUS'
-                : sceneKind(category) === 'truck'
-                  ? 'CAMINHÃO'
-                  : 'VEÍCULO LEVE'}
+          {isReference ? 'BMW X5 G05 · MODELO DE REFERÊNCIA' : 'MODELO ESQUEMÁTICO · '}
+          {!isReference &&
+            (sceneKind(category) === 'moto'
+              ? 'MOTOCICLETA'
+              : sceneKind(category) === 'trailer'
+                ? 'REBOQUE'
+                : sceneKind(category) === 'bus'
+                  ? 'ÔNIBUS'
+                  : sceneKind(category) === 'truck'
+                    ? 'CAMINHÃO'
+                    : 'VEÍCULO LEVE')}
         </span>
-        <p>Selecione uma peça para acompanhar a árvore.</p>
+        <p>Selecione um conjunto para consultar sua rastreabilidade.</p>
       </div>
+      {loading && (
+        <div className="g3d-loading" role="status">
+          <span className="g3d-loading-ring" />
+          <strong>Carregando SUV de referência</strong>
+          <span>
+            {loadProgress === null ? 'Preparando malhas e materiais…' : loadProgress + '%'}
+          </span>
+        </div>
+      )}
       {failure && (
         <div
           className="g3d-fallback"
           style={{ position: 'relative', padding: '80px 24px 70px', minHeight: 440 }}
         >
           <p role="status">
-            A visualização 3D está indisponível neste dispositivo. A seleção por componente continua
-            disponível.
+            Não foi possível carregar o modelo 3D. A seleção dos conjuntos e suas referências
+            continua disponível.
           </p>
+          <button className="g-button" onClick={() => setAttempt((x) => x + 1)}>
+            Tentar carregar o modelo novamente
+          </button>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
             {available.map((part) => (
               <button
@@ -780,7 +833,7 @@ export default function VehicleScene({
           </div>
         </div>
       )}
-      {!failure && (
+      {!failure && !loading && (
         <div
           className="g3d-views"
           aria-label="Orientação da vista 3D"

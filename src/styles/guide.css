@@ -1318,3 +1318,328 @@
 [data-theme='light'] .g-status-done .g-status-label {
   color: #21543d;
 }
+
+/* Real reference geometry and explicit source-to-law traceability. */
+.g3d-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--bg);
+  z-index: 2;
+  color: var(--ink-2);
+  font-size: 11px;
+}
+.g3d-loading-ring {
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--line);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: g-model-load 1.2s linear infinite;
+}
+@keyframes g-model-load {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.g-model-attribution {
+  padding: 12px 24px;
+  border-top: 1px solid var(--g-line);
+  font-size: 10px;
+  color: var(--g-muted);
+  line-height: 1.6;
+}
+.g-model-attribution a {
+  color: var(--ink-2);
+}
+.g-part-inspector {
+  grid-template-columns: 1fr;
+  padding-bottom: 18px;
+}
+.g-inspector-title p {
+  max-width: 760px;
+}
+.g-traceability {
+  border-top: 1px solid var(--g-line);
+  padding: 24px;
+}
+.g-trace-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+.g-trace-heading h3 {
+  font-size: 22px;
+  font-weight: 550;
+  letter-spacing: -0.03em;
+  margin-top: 8px;
+}
+.g-trace-layout {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 28px;
+}
+.g-trace-reference img {
+  display: block;
+  width: 100%;
+  height: 130px;
+  object-fit: contain;
+  background: radial-gradient(ellipse, #ffffff12, transparent);
+  border: 1px solid var(--g-line);
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+.g-trace-reference p {
+  font-size: 13px;
+  margin: 8px 0;
+}
+.g-trace-reference small {
+  display: block;
+  font-size: 10px;
+  color: var(--g-muted);
+  line-height: 1.7;
+}
+.g-trace-reference details {
+  margin-top: 16px;
+  font-size: 10px;
+  color: var(--g-muted);
+}
+.g-trace-reference summary {
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.g-trace-reference details a {
+  display: block;
+  color: var(--g-muted);
+  margin: 8px 0;
+  overflow-wrap: anywhere;
+}
+.g-trace-reference code,
+.g-trace-origin code {
+  font-size: 9px;
+}
+.g-trace-relation {
+  margin-bottom: 26px;
+}
+.g-trace-relation h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 550;
+  margin: 0;
+}
+.g-relation-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.g-relation-vehicle {
+  background: var(--process-blue);
+}
+.g-trace-topic {
+  border-top: 1px solid var(--g-line);
+}
+.g-trace-topic > summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 0;
+  cursor: pointer;
+  font-size: 12px;
+  list-style: none;
+}
+.g-trace-topic > summary:before {
+  content: '+';
+  color: var(--g-muted);
+}
+.g-trace-topic[open] > summary:before {
+  content: '−';
+}
+.g-trace-topic > summary > span {
+  flex: 1;
+}
+.g-trace-topic > summary > small {
+  color: var(--g-muted);
+  font-size: 10px;
+}
+.g-trace-record {
+  border: 1px solid var(--g-line);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 0 0 12px;
+  background: var(--bg);
+}
+.g-trace-record-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+.g-trace-state {
+  font-size: 9px;
+  color: var(--g-muted);
+}
+.g-trace-record .g-reference {
+  border: 0;
+  padding-bottom: 9px;
+}
+.g-trace-record .g-reference strong {
+  font-size: 13px;
+  line-height: 1.65;
+}
+.g-trace-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  color: var(--g-muted);
+  font-size: 9px;
+}
+.g-trace-provisions {
+  margin-top: 14px;
+}
+.g-trace-provisions > div {
+  border-left: 2px solid var(--g-line);
+  padding: 0 0 0 12px;
+  margin-bottom: 14px;
+}
+.g-trace-provisions strong {
+  font-size: 11px;
+}
+.g-trace-provisions p {
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--g-muted);
+  margin: 6px 0;
+}
+.g-trace-provisions code {
+  color: var(--g-muted);
+  font-size: 9px;
+  overflow-wrap: anywhere;
+}
+.g-trace-limits {
+  color: var(--g-muted);
+  font-size: 10px;
+  margin-top: 14px;
+  line-height: 1.7;
+}
+.g-trace-limits summary {
+  cursor: pointer;
+}
+.g-trace-limits p {
+  margin: 10px 0;
+}
+.g-trace-origin {
+  font-size: 9px;
+  line-height: 1.7;
+}
+.g-trace-origin span {
+  display: block;
+  margin-top: 6px;
+}
+.g-trace-gap {
+  padding: 12px;
+  border-left: 2px solid var(--warning);
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--g-muted);
+  background: var(--bg);
+  margin-bottom: 14px;
+}
+.g-trace-assessment {
+  font-size: 10px;
+  line-height: 1.7;
+  color: var(--g-muted);
+  border-top: 1px solid var(--g-line);
+  padding-top: 18px;
+}
+@media (max-width: 650px) {
+  .g-traceability {
+    padding: 20px 16px;
+  }
+  .g-trace-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .g-trace-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .g-trace-reference {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 6px 16px;
+  }
+  .g-trace-reference > a {
+    grid-row: 1/5;
+  }
+  .g-trace-reference img {
+    height: 110px;
+    margin-bottom: 0;
+  }
+  .g-trace-reference details {
+    grid-column: 1/-1;
+  }
+  .g-trace-topic > summary {
+    flex-wrap: wrap;
+  }
+  .g-trace-topic > summary > small {
+    font-size: 9px;
+  }
+  .g-model-attribution {
+    padding: 12px 16px;
+    font-size: 9px;
+  }
+}
+
+.g-trace-conditions {
+  padding: 14px 16px;
+  border: 1px solid var(--g-line);
+  border-radius: 8px;
+  margin-bottom: 24px;
+  color: var(--g-muted);
+  font-size: 11px;
+}
+.g-trace-conditions summary {
+  cursor: pointer;
+  color: var(--ink);
+}
+.g-trace-conditions > p {
+  font-size: 10px;
+  margin: 14px 0;
+  line-height: 1.7;
+}
+.g-trace-conditions dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 24px;
+  margin-bottom: 0;
+}
+.g-trace-conditions dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid var(--g-line);
+  padding-top: 8px;
+}
+.g-trace-conditions dd {
+  margin: 0;
+  text-align: right;
+  color: var(--ink);
+}
+@media (max-width: 650px) {
+  .g-trace-conditions dl {
+    grid-template-columns: 1fr;
+  }
+  .g-trace-conditions dl > div {
+    font-size: 10px;
+  }
+}

@@ -171,6 +171,52 @@ export const PARTS = [
   },
 ];
 
+// Visual assemblies aggregate only the original, explicitly reviewed source regions.
+const assemblySources = {
+  body: [
+    'peca_10_carroceria',
+    'peca_01_painel_teto',
+    'peca_11_capo',
+    'peca_14_parachoque_dianteiro',
+    'peca_17_parachoque_traseiro',
+  ],
+  doors: ['peca_21_porta_dianteira', 'peca_22_porta_traseira'],
+  glass: [
+    'peca_03_parabrisa',
+    'peca_02_vidro_lateral_dianteiro',
+    'peca_04_vidro_lateral_superior',
+    'peca_05_vidro_triangular_superior',
+    'peca_06_vidro_traseiro',
+    'peca_07_vidro_lateral_traseiro',
+    'peca_18_vidro_lateral_inferior',
+    'peca_19_vidro_porta_dianteira',
+    'peca_20_vidro_porta_traseira',
+  ],
+  seats: ['peca_09_bancos_dianteiros_console', 'peca_08_banco_traseiro'],
+  wheels: ['peca_34_roda_dianteira', 'peca_36_roda_traseira'],
+  brakes: ['peca_35_freio_dianteiro', 'peca_37_freio_traseiro'],
+  lights: [
+    'peca_13_farol_lado_visivel',
+    'peca_12_farol_lado_oposto',
+    'peca_15_lanterna_traseira_1',
+    'peca_16_lanterna_traseira_2',
+  ],
+};
+for (const part of PARTS) if (assemblySources[part.id]) part.legacyParts = assemblySources[part.id];
+export const SUV_ASSEMBLY_IDS = [
+  'body',
+  'doors',
+  'glass',
+  'seats',
+  'steering',
+  'wheels',
+  'brakes',
+  'lights',
+  'mirrors',
+  'electronics',
+  'vin',
+];
+
 export function sceneKind(category = 'M1') {
   const value = String(category).toUpperCase();
   if (/^L\d|^L$|MOTO/.test(value)) return 'moto';
@@ -206,5 +252,7 @@ export function visibleParts(category, powertrain = 'ICE') {
     ].forEach((id) => hidden.add(id));
   }
   if (kind === 'moto') ['doors', 'airbag', 'glass'].forEach((id) => hidden.add(id));
-  return PARTS.filter((part) => !hidden.has(part.id));
+  return PARTS.filter(
+    (part) => !hidden.has(part.id) && (kind !== 'car' || SUV_ASSEMBLY_IDS.includes(part.id)),
+  );
 }
