@@ -1,6 +1,6 @@
 {
   "assets": {
-    "app.js": "127fb63e41c19158",
+    "app.js": "51e3faea63860a8b",
     "assets/guide/guide.css": "77eb229e70c7949e",
     "assets/guide/guide.js": "0bc38f41e0e12915",
     "flow-data.js": "b7bb692fbb6d4511",
@@ -34,7 +34,7 @@
     "src/views/aurora.js": "aa23b0e7c1d94781",
     "src/views/document.js": "3e775b4a31fb64ae",
     "src/views/history.js": "b12b076190ee8e53",
-    "src/views/knowledge.js": "a774da8b3662d2c0",
+    "src/views/knowledge.js": "006f6a2e447f6dc4",
     "src/views/library.js": "4cafec7f708d28e3",
     "src/views/markings.js": "d9271ce4d40e4c1b",
     "src/views/obsidian-search.js": "47a1c44652bf6f05",
@@ -44,5 +44,5 @@
     "vehicle-data.js": "09123227fe4f6446",
     "vehicle-navigation.js": "9354942ec160aa76"
   },
-  "revision": "7f5f74ff971812f3eba14a4e81f4658cf9ee461c64d653dd40daa603948de3ad"
+  "revision": "d2cabe9721a3f68e821d768c01f760d3c8d55a29ac3570ba4d92d6a086684d2c"
 }
