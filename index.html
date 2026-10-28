@@ -21,6 +21,8 @@
     <link href="src/styles/obsidian.css" rel="stylesheet" />
     <link href="src/styles/guide.css" rel="stylesheet" />
     <link href="assets/guide/guide.css" rel="stylesheet" />
+    <link href="src/styles/portal-apple.css" rel="stylesheet" />
+    <link href="src/styles/knowledge.css" rel="stylesheet" />
     <link href="src/styles/guide-apple.css" rel="stylesheet" />
     <link href="assets/guide/guide.js" rel="prefetch" as="script" id="guideBundle" />
   </head>
@@ -63,9 +65,18 @@
             </button>
           </div>
         </header>
+        <div
+          id="portalContextBar"
+          class="portal-context-bar"
+          role="group"
+          aria-label="Contexto do processo"
+          hidden
+        ></div>
         <aside aria-label="Mais acessos e preferências" class="sidebar glass">
           <nav aria-label="Outras consultas" class="secondary-nav" id="mainNavigation">
-            <a data-nav="tree" href="#tree"><span data-icon="tree"></span>Árvore regulatória</a
+            <a data-nav="knowledge" href="#knowledge"
+              ><span data-icon="book"></span>Base regulatória</a
+            ><a data-nav="tree" href="#tree"><span data-icon="tree"></span>Árvore regulatória</a
             ><a data-nav="markings" href="#markings"
               ><span data-icon="tag"></span>Etiquetas e VIN</a
             >
@@ -139,6 +150,7 @@
             </div>
             <div id="relatedNorms"></div>
             <div class="consultation-shortcuts">
+              <a class="btn" href="#knowledge">Base regulatória e Markdown →</a>
               <a class="btn" href="#markings">Etiquetas e VIN →</a
               ><a class="btn" href="#updates">Fontes, revisão e pendências →</a>
             </div>
@@ -152,12 +164,14 @@
     </dialog>
     <div id="toast" role="status"></div>
     <script src="src/core/dom.js?v=20261019-dark"></script>
+    <script src="src/core/portal-context.js"></script>
     <script src="src/core/icons.js"></script>
     <script src="src/core/requirements.js?v=20261019-dark"></script>
     <script src="tree.js?v=20261019-dark"></script>
     <script src="src/core/vehicle-vector.js?v=20261019-vector"></script>
     <script src="src/core/vehicle-legislation-data.js?v=20261019-map"></script>
     <script src="src/core/vehicle-legislation.js?v=20261019-map"></script>
+    <script src="src/core/model-previews.js"></script>
     <script src="vehicle-data.js?v=20261019-dark"></script>
     <script src="vehicle-navigation.js?v=20261019-dark"></script>
     <script src="src/regulations/store.js?v=20261019-dark"></script>
@@ -170,6 +184,7 @@
     <script src="homologation-flow.js?v=20261019-dark"></script>
     <script src="src/views/history.js"></script>
     <script src="src/views/library.js?v=20261019-dark"></script>
+    <script src="src/views/knowledge.js"></script>
     <script src="src/views/document.js?v=20261019-dark"></script>
     <script src="src/guide/traceability.js"></script>
     <script src="src/guide/bridge.js"></script>

@@ -1,6 +1,7 @@
 """A pending citation index must not block catalog search or reset keyboard choice."""
 
 import asyncio
+from browser_support import reference_vehicle_url
 from playwright.async_api import async_playwright, expect
 from browser_support import TestServer, launch_options, wait_for_route
 
@@ -16,7 +17,7 @@ async def main(base):
             "**/data/site/technical-standards.json",
             lambda route: held.set_result(route),
         )
-        await page.goto(base + "#vehicle")
+        await page.goto(reference_vehicle_url(base + "#vehicle"))
         await wait_for_route(page)
         origin = page.url
         await page.locator("#searchTrigger").click()

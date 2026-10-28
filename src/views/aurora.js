@@ -1,11 +1,61 @@
 'use strict';
 // Obsidian overview; stable routes, supplied geometry and canonical relationships.
 const originalVehicleRenderer = renderVehicle;
-renderVehicle = function () {
+renderVehicle = async function () {
   preserveVisualProfile();
   const query = new URLSearchParams(location.hash.split('?')[1] || '');
-  if (query.has('component')) return originalVehicleRenderer();
-  renderAuroraOverview(query);
+  for (const [key, id] of [
+    ['type', 'vehicleType'],
+    ['powertrain', 'powertrain'],
+  ]) {
+    const control = document.getElementById(id);
+    const value = query.get(key);
+    if (value && [...control.options].some((option) => option.value === value))
+      control.value = value;
+  }
+  if (query.get('view') === 'reference') {
+    disposeGuide();
+    const rendered = query.get('component')
+      ? originalVehicleRenderer()
+      : renderAuroraOverview(query);
+    restoreReferenceZoom(query);
+    return rendered;
+  }
+  const legacy = VehicleLegislation.part(query.get('part'));
+  const modernPart =
+    query.get('part') &&
+    VehicleModelPreviews.selection({
+      assemblyId: query.get('part'),
+      componentId: query.get('component'),
+    });
+  const component = ComponentFlow.component(query.get('component'));
+  if (
+    query.get('part') &&
+    ((!legacy && !modernPart) ||
+      (legacy && query.get('component') && legacy.componentId !== component?.id))
+  ) {
+    disposeGuide();
+    return renderInvalidVehiclePart();
+  }
+  const mounted = await renderVehicleExplorer();
+  if (!mounted) return;
+  $('#app').classList.remove('aurora-home', 'contran-mode');
+  if (component && !modernPart && !query.get('assembly')) {
+    vehicleUI.component = component.id;
+    $('#app').classList.add('tree-mode', 'vehicle-flow-mode');
+    $('#app').classList.remove('vehicle-overview-mode');
+    initializeComponentTree(component, query);
+    renderVehicleFlow();
+  } else {
+    vehicleUI.component = null;
+    vehicleUI.part = legacy?.id || null;
+    vehicleUI.subsystem = query.get('subsystem') || null;
+    vehicleUI.lane = null;
+    $('#app').classList.remove('tree-mode', 'vehicle-flow-mode');
+    $('#app').classList.add('vehicle-overview-mode');
+    document.getElementById('vehicleConsultationRoot').replaceChildren();
+    restoreAssistantPanel();
+  }
 };
 function auroraFocusLink(component, partId) {
   return (
@@ -14,6 +64,9 @@ function auroraFocusLink(component, partId) {
       focus: component.id,
       type: $('#vehicleType').value,
       powertrain: $('#powertrain').value,
+      ...(new URLSearchParams(location.hash.split('?')[1] || '').get('view') === 'reference'
+        ? { view: 'reference' }
+        : {}),
       ...(vehicleVector.parts.some(
         (part) => part.id === partId && part.componentId === component.id,
       )
@@ -122,7 +175,7 @@ function renderAuroraOverview(query) {
         ComponentFlow.component(id),
       );
   $('#main').innerHTML =
-    `<header class="obsidian-page-head"><div><h1 tabindex="-1">Explore o veículo.</h1><p>Selecione um sistema. Consulte suas referências.</p></div><span class="view-switch">Veículo genérico · Vista explodida</span></header><div id="vehicleProfileMount"></div>
+    `<header class="obsidian-page-head"><div><h1 tabindex="-1">Referência 2D do veículo.</h1><p>Prancha histórica: selecione uma das 37 regiões originais.</p></div><nav class="portal-vehicle-modes" aria-label="Apresentação do veículo"><a href="${esc(vehiclePresentationLink(false))}">Modelo 3D</a><a href="${esc(vehiclePresentationLink(true))}" aria-current="page">Referência 2D</a></nav></header><div id="vehicleProfileMount"></div>
     <div class="aurora-overview-grid"><section class="aurora-vehicle-column" aria-label="Exploração visual do veículo">
     <div class="aurora-car-glass">${vehicleMap()}${component?.mapParts.length ? `<div class="vehicle-selection-label glass" aria-hidden="true"><span class="selection-pin"></span><span>${esc(selectedPart?.label || component.label)}</span></div>` : ''}</div>
   </section>${auroraPanel(component, selectedPart)}</div>
@@ -149,18 +202,18 @@ function renderAuroraOverview(query) {
     });
   setupComponentHover();
   setupVehicleSelectionPin(selectedPart || component?.mapParts[0]);
-  $('#vehiclePartSelect').addEventListener('change', (event) => {
+  $('#vehiclePartSelect').addEventListener('change', async (event) => {
     const part = vehicleVector.parts.find((item) => item.id === event.target.value);
     if (!part) {
       if (event.target.value) return;
       const next = new URLSearchParams(location.hash.split('?')[1] || '');
       next.delete('focus');
       next.delete('part');
-      goVehicle('#vehicle' + (next.size ? '?' + next : ''));
+      await goVehicle('#vehicle' + (next.size ? '?' + next : ''));
       $('#vehiclePartSelect')?.focus({ preventScroll: true });
       return;
     }
-    goVehicle(auroraFocusLink(ComponentFlow.component(part.componentId), part.id));
+    await goVehicle(auroraFocusLink(ComponentFlow.component(part.componentId), part.id));
     $('#vehiclePartSelect')?.focus({ preventScroll: true });
   });
 }

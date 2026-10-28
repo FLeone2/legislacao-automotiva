@@ -1,7 +1,12 @@
 import asyncio, os, json
 from pathlib import Path
 from playwright.async_api import async_playwright
-from browser_support import click_navigation, launch_options, wait_for_route
+from browser_support import (
+    click_navigation,
+    launch_options,
+    wait_for_route,
+    reference_vehicle_url,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = os.environ.get("VEHICLE_TEST_URL", "http://127.0.0.1:8000/").rstrip("/") + "/"
@@ -33,7 +38,7 @@ async def main():
         page.on("pageerror", lambda e: errors.append(str(e)))
         for name in ["inmetro", "anatel"]:
             d = json.loads((ROOT / f"data/{name}/active.json").read_text())
-            await page.goto(BASE + "#" + name)
+            await page.goto(reference_vehicle_url(BASE + "#" + name))
             await ready(page)
             assert (
                 f"{d['metadata']['activeCount']} resultados"
@@ -44,7 +49,9 @@ async def main():
             await page.locator(
                 ".contran-evidence:not([data-lazy-record])"
             ).first.wait_for()
-        await page.goto(BASE + "#inmetro?record=inmetro-145-2022")
+        await page.goto(
+            reference_vehicle_url(BASE + "#inmetro?record=inmetro-145-2022")
+        )
         await ready(page)
         assert "íntegra pendente" in await page.locator(".contran-record").inner_text()
         assert (
@@ -63,16 +70,20 @@ async def main():
             is not None
         )
         await page.screenshot(path=str(OUT / "inmetro-requisitos-desktop.png"))
-        await page.goto(BASE + "#inmetro?record=inmetro-33-2021")
+        await page.goto(reference_vehicle_url(BASE + "#inmetro?record=inmetro-33-2021"))
         await ready(page)
         assert "Declaração" in await page.locator(".regulatory-mechanism").inner_text()
-        await page.goto(BASE + "#anatel?record=anatel-ato5155-2024")
+        await page.goto(
+            reference_vehicle_url(BASE + "#anatel?record=anatel-ato5155-2024")
+        )
         await ready(page)
         assert (
             "ExcluiUSB integrado"
             in await page.locator(".regulatory-requirements").inner_text()
         )
-        await page.goto(BASE + "#anatel?record=anatel-ato4088-2020")
+        await page.goto(
+            reference_vehicle_url(BASE + "#anatel?record=anatel-ato4088-2020")
+        )
         await ready(page)
         assert "E-label" in await page.locator(".regulatory-requirements").inner_text()
         await page.locator('.regulatory-system-links a[href*="identificacao"]').click()
@@ -87,7 +98,9 @@ async def main():
             == 1
         )
         await page.goto(
-            BASE + "#vehicle?component=eletrica&subsystem=eletronica%2Fimagens"
+            reference_vehicle_url(
+                BASE + "#vehicle?component=eletrica&subsystem=eletronica%2Fimagens"
+            )
         )
         await page.locator(".component-graph").wait_for()
         ids = await page.evaluate(
@@ -109,7 +122,7 @@ async def main():
         await ready(page)
         assert "record=anatel-res715" in page.url
         # Unified identification view distinguishes PIV, VIN/ETA, ENCE and Anatel.
-        await page.goto(BASE + "#markings")
+        await page.goto(reference_vehicle_url(BASE + "#markings"))
         await page.locator("#markings-etiquetas").wait_for()
         text = await page.locator("#main").inner_text()
         for term in [
@@ -134,7 +147,7 @@ async def main():
         await page.screenshot(path=str(OUT / "vin-requisitos-desktop.png"))
         for name in ["anatel", "inmetro", "markings"]:
             await page.set_viewport_size({"width": 390, "height": 844})
-            await page.goto(BASE + "#" + name)
+            await page.goto(reference_vehicle_url(BASE + "#" + name))
             if name == "markings":
                 await page.locator("#markings-etiquetas").wait_for()
             else:
@@ -143,13 +156,13 @@ async def main():
                 "document.documentElement.scrollWidth<=innerWidth"
             ), name
             await page.screenshot(path=str(OUT / (name + "-mobile.png")))
-        await page.goto(BASE + "#library")
+        await page.goto(reference_vehicle_url(BASE + "#library"))
         await page.locator("#agencyFilter").select_option("ANATEL")
         await page.locator(".document").first.wait_for()
         assert await page.locator(".document").count() == 22
         # Extra navigation entries stay reachable in short desktop and narrow mobile.
         await page.set_viewport_size({"width": 1024, "height": 700})
-        await page.goto(BASE + "#vehicle")
+        await page.goto(reference_vehicle_url(BASE + "#vehicle"))
         await page.locator("#vehicleDrawing").wait_for()
         await click_navigation(page, "markings")
         await page.locator("#markings-vin").wait_for()
@@ -167,7 +180,7 @@ async def main():
             "**/data/site/records/anatel/anatel-ato4088-2020.json",
             lambda r: r.fulfill(status=503, body="unavailable"),
         )
-        await other.goto(BASE + "#markings")
+        await other.goto(reference_vehicle_url(BASE + "#markings"))
         await other.locator("[data-markings-retry]").wait_for()
         assert (
             await other.locator('[data-marking-record="anatel-ato4088-2020"]').count()

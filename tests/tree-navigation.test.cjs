@@ -50,6 +50,7 @@ function fixture() {
         'renderRelated',
         'restoreAssistantPanel',
         'renderVehicle',
+        'renderKnowledge',
         'renderFlow',
         'renderUpdates',
         'renderAI',
@@ -204,4 +205,27 @@ test('leaving library clears residual header text; restoring its URL restores th
   await run('render()');
   assert.equal(context.state.query, 'freios');
   assert.equal(elements['#globalSearch'].value, 'freios');
+});
+
+test('a delayed optional preview cannot paint over a newer destination', async () => {
+  for (const route of ['tree', 'vehicle', 'flow', 'library']) {
+    const { context, elements, run } = fixture();
+    let finishPreview;
+    const pending = new Promise((resolve) => {
+      finishPreview = resolve;
+    });
+    context.ensureVehiclePreviews = () => pending;
+    context.renderGuide = () => {
+      elements['#main'].innerHTML = 'Current guide';
+    };
+    vm.runInContext(fs.readFileSync('src/core/router.js', 'utf8'), context);
+    context.location.hash = '#' + route;
+    const obsolete = run('render()');
+    context.location.hash = '#guide';
+    await run('render()');
+    finishPreview();
+    await obsolete;
+    assert.equal(elements['#main'].innerHTML, 'Current guide', route);
+    assert.equal(elements['#main'].dataset.renderedRoute, '#guide', route);
+  }
 });

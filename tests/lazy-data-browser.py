@@ -1,6 +1,7 @@
 """Verify initial payload, lazy cache, fail-closed records and canonical joins."""
 
 import asyncio
+from browser_support import reference_vehicle_url
 import os
 from playwright.async_api import async_playwright
 from browser_support import launch_options, wait_for_route
@@ -16,7 +17,7 @@ async def main():
         errors = []
         page.on("request", lambda r: requests.append(r.url))
         page.on("pageerror", lambda e: errors.append(str(e)))
-        await page.goto(BASE + "#vehicle")
+        await page.goto(reference_vehicle_url(BASE + "#vehicle"))
         await page.locator("#vehicleDrawing").wait_for()
         data_requests = [
             url for url in requests if "/data/" in url or url.endswith("catalog.json")
@@ -28,7 +29,7 @@ async def main():
             "performance.getEntriesByType('resource').find(r=>r.name.endsWith('/data/site/index.json')).decodedBodySize"
         )
         assert 0 < size <= 450_000, size
-        await page.goto(BASE + "#anatel")
+        await page.goto(reference_vehicle_url(BASE + "#anatel"))
         await page.locator(".contran-record").first.wait_for()
         assert not any("/records/" in url for url in requests)
         act = "anatel-res715"
@@ -44,7 +45,7 @@ async def main():
             "[data-canonical-requirement]"
         ).first.get_attribute("data-canonical-requirement")
         count = sum("/" + act + ".json" in url for url in requests)
-        await page.goto(BASE + "#anatel?record=" + act)
+        await page.goto(reference_vehicle_url(BASE + "#anatel?record=" + act))
         await page.locator("[data-canonical-requirement]").first.wait_for()
         assert sum("/" + act + ".json" in url for url in requests) == count
         # A delayed older record must not replace the current screen or steal focus.
@@ -52,9 +53,9 @@ async def main():
         slow_id = "anatel-ato4088-2020"
         slow_url = "**/data/site/records/anatel/" + slow_id + ".json"
         await page.route(slow_url, lambda route: delayed.set_result(route))
-        await page.goto(BASE + "#anatel?record=" + slow_id)
+        await page.goto(reference_vehicle_url(BASE + "#anatel?record=" + slow_id))
         held = await asyncio.wait_for(delayed, timeout=10)
-        await page.goto(BASE + "#anatel?record=" + act)
+        await page.goto(reference_vehicle_url(BASE + "#anatel?record=" + act))
         await wait_for_route(page)
         summary = page.locator(".contran-evidence > summary")
         await summary.focus()
@@ -65,21 +66,23 @@ async def main():
         assert await page.locator("#main").get_attribute("aria-busy") == "false"
         await page.unroute(slow_url)
         await page.goto(
-            BASE + "#vehicle?component=eletrica&subsystem=eletronica%2Fimagens"
+            reference_vehicle_url(
+                BASE + "#vehicle?component=eletrica&subsystem=eletronica%2Fimagens"
+            )
         )
         await page.locator(".component-graph").wait_for()
         assert await page.evaluate(
             "id=>Object.values(treeModels.vehicle.nodes).some(n=>n.requirementId===id)",
             requirement_id,
         )
-        await page.goto(BASE + "#flow?stage=componentes")
+        await page.goto(reference_vehicle_url(BASE + "#flow?stage=componentes"))
         await page.locator("#flowDetailPanel").wait_for()
         assert await page.evaluate(
             "id=>Object.values(treeModels.flow.nodes).some(n=>n.requirementId===id)",
             requirement_id,
         )
         # A queued graph animation must be harmless after a fast route change.
-        await page.goto(BASE + "#vehicle?component=bancos")
+        await page.goto(reference_vehicle_url(BASE + "#vehicle?component=bancos"))
         await page.locator(".component-graph").wait_for()
         await page.evaluate("""()=>{
             const original=window.requestAnimationFrame;
@@ -93,7 +96,9 @@ async def main():
             for(const fn of queued) fn(performance.now());
         }""")
         await page.locator(".document").first.wait_for()
-        await page.goto(BASE + "#contran?record=contran-248-2007")
+        await page.goto(
+            reference_vehicle_url(BASE + "#contran?record=contran-248-2007")
+        )
         await page.locator(".contran-records .empty").wait_for()
         assert not any("contran-248-2007.json" in url for url in requests)
         # Initial-data failure publishes no fallback catalog or unverified originals.
@@ -102,7 +107,7 @@ async def main():
             "**/data/site/index.json",
             lambda r: r.fulfill(status=503, body="unavailable"),
         )
-        await other.goto(BASE + "#vehicle")
+        await other.goto(reference_vehicle_url(BASE + "#vehicle"))
         await other.locator("#main [role=alert]").wait_for()
         assert not await other.locator("#vehicleDrawing").count()
         await other.unroute("**/data/site/index.json")

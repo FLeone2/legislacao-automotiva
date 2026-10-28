@@ -6,6 +6,7 @@ from matching component counts.
 """
 
 import asyncio
+from browser_support import reference_vehicle_url
 import json
 from pathlib import Path
 
@@ -17,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 async def visit(page, base, route):
-    await page.goto(base + route)
+    await page.goto(reference_vehicle_url(base + route))
     await wait_for_route(page)
 
 

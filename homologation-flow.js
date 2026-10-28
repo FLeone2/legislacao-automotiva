@@ -1,6 +1,29 @@
 'use strict';
 const flowUI = { stage: null, powertrain: 'todos' };
 treeUI.flow = { path: [], selected: null, zoom: 1, tab: 'summary', fit: true };
+// The conceptual map is more detailed than the process checklist. These links
+// open the corresponding work front; they do not equate their legal scope.
+const flowGuideStages = {
+  enquadramento: 'enquadramento',
+  construcao: 'projeto',
+  preparacao: 'projeto',
+  coastdown: 'ambiente',
+  laboratorio: 'ambiente',
+  aprovacoes: 'ambiente',
+  seguranca: 'seguranca',
+  componentes: 'componentes',
+  dossie: 'dossie',
+  cat: 'cat',
+  producao: 'producao',
+  cop: 'cop',
+};
+function flowGuideRoute(stage, tab = 'flow') {
+  const mapped = Object.hasOwn(flowGuideStages, stage?.id) ? flowGuideStages[stage.id] : '';
+  return treeGuideRoute({ tab, ...(mapped ? { stage: mapped } : {}) });
+}
+function flowGuideContext(stage) {
+  return `<section class="portal-context-card flow-guide-context" aria-label="Organizar um processo"><div><span class="portal-eyebrow">Do mapa ao seu projeto</span><h2>${stage ? esc(stage.label) + ' no processo' : 'Um roteiro para a configuração do veículo'}</h2><p>Explore as referências no mapa. No guia, informe o perfil técnico e acompanhe as frentes e o checklist do processo.</p></div><nav class="portal-context-actions" aria-label="Continuar no guia"><a class="portal-context-link" href="${esc(flowGuideRoute(stage))}">${stage ? 'Abrir esta frente no processo' : 'Abrir fluxo do processo'} ${auroraIcon('arrow')}</a><a class="portal-context-link" href="${esc(flowGuideRoute(stage, 'checklist'))}">Perfil e checklist ${auroraIcon('arrow')}</a><a class="portal-context-link" href="${esc(treeGuideRoute({ tab: 'coverage' }))}">Cobertura e lacunas ${auroraIcon('arrow')}</a></nav></section>`;
+}
 function flowRoute(stage, node, powertrain = flowUI.powertrain) {
   const q = new URLSearchParams();
   if (stage) q.set('stage', stage);
@@ -187,7 +210,7 @@ function flowContextPanel(stage) {
       )
       .join('') ||
     '<p class="scope-note">Nenhuma referência associada neste recorte. Confira as lacunas da atividade.</p>'
-  }</div></div><button class="btn primary" data-flow-tree>Explorar a árvore ${auroraIcon('arrow')}</button></aside>`;
+  }</div></div><a class="portal-context-link flow-context-process" href="${esc(flowGuideRoute(stage))}">Abrir esta frente no processo ${auroraIcon('arrow')}</a><button class="btn primary" data-flow-tree>Explorar a árvore ${auroraIcon('arrow')}</button></aside>`;
 }
 function renderFlow() {
   const mapViewport = document.querySelector('.homologation-map-viewport');
@@ -224,9 +247,9 @@ function renderFlow() {
     ui.selected = node;
   }
   $('#main').innerHTML =
-    `<header class="homologation-heading"><div><h1>Homologação.</h1><p>Do enquadramento à produção. Com cada frente no seu lugar.</p></div><div class="view-heading-actions"><button class="btn" data-flow-close>Mapa completo</button><button class="btn" data-flow-find>${auroraIcon('search')} Encontrar uma etapa</button></div></header><div class="homologation-profile"><label><span class="sr-only">Recorte de powertrain</span><select id="flowPowertrain">${homologationFlowSpec.powertrains.map((p) => `<option value="${p.id}" ${p.id === flowUI.powertrain ? 'selected' : ''}>${esc(p.label)}</option>`).join('')}</select></label><label><span class="sr-only">Ir para uma etapa</span><select id="flowStagePicker"><option value="">Ir para uma etapa</option>${homologationFlowSpec.stages.map((s) => `<option value="${s.id}" ${stage?.id === s.id ? 'selected' : ''}>${s.number} · ${esc(s.label)}</option>`).join('')}</select></label><p>Etapa → atividade → referência</p></div>${q.has('stage') && !stage ? '<p class="notice" role="status">Etapa não encontrada. Escolha uma etapa no mapa.</p>' : ''}<section id="flowExplorer" tabindex="-1" class="homologation-map-shell ${stage ? 'inspecting' : ''}" aria-label="Fluxo visual de homologação">${flowMap()}${flowContextPanel(stage)}</section><p class="homologation-reading-note">As setas organizam a consulta; não determinam precedência legal universal. As frentes podem avançar em paralelo. COP é planejada desde o projeto e executada na produção.</p><section id="flowTreeExplorer" class="homologation-explorer" aria-label="Árvore da etapa selecionada" tabindex="-1">${
+    `<header class="homologation-heading portal-page-heading"><div><span class="portal-eyebrow">Consulta por etapa</span><h1>Homologação.</h1><p>Do enquadramento à produção. Explore cada frente e suas referências.</p></div><div class="view-heading-actions"><button class="btn" data-flow-close>Mapa completo</button><button class="btn" data-flow-find>${auroraIcon('search')} Encontrar uma etapa</button></div></header>${flowGuideContext(stage)}<div class="homologation-profile"><label><span class="portal-field-label">Recorte de powertrain</span><select id="flowPowertrain">${homologationFlowSpec.powertrains.map((p) => `<option value="${p.id}" ${p.id === flowUI.powertrain ? 'selected' : ''}>${esc(p.label)}</option>`).join('')}</select></label><label><span class="portal-field-label">Ir para uma etapa</span><select id="flowStagePicker"><option value="">Ir para uma etapa</option>${homologationFlowSpec.stages.map((s) => `<option value="${s.id}" ${stage?.id === s.id ? 'selected' : ''}>${s.number} · ${esc(s.label)}</option>`).join('')}</select></label><p>Etapa → atividade → referência <span class="portal-context-meta">O recorte da consulta não altera o perfil do processo.</span></p></div>${q.has('stage') && !stage ? '<p class="notice" role="status">Etapa não encontrada. Escolha uma etapa no mapa.</p>' : ''}<section id="flowExplorer" tabindex="-1" class="homologation-map-shell ${stage ? 'inspecting' : ''}" aria-label="Fluxo visual de homologação">${flowMap()}${flowContextPanel(stage)}</section><p class="homologation-reading-note">As setas organizam a consulta; não determinam precedência legal universal. As frentes podem avançar em paralelo. COP é planejada desde o projeto e executada na produção.</p><section id="flowTreeExplorer" class="homologation-explorer" aria-label="Árvore da etapa selecionada" tabindex="-1">${
       stage
-        ? `<header class="homologation-explorer-heading"><div><span class="eyebrow">Etapa ${stage.number} · ${esc(stage.short)}</span><h2>${esc(stage.label)}</h2><p>${esc(stage.purpose)}</p></div><button class="btn" data-flow-overview>Voltar ao mapa ↑</button></header><div class="homologation-outputs"><strong>Assuntos e documentos da etapa</strong>${stage.outputs.map((o) => `<span>${esc(o)}</span>`).join('')}</div><div class="tree-breadcrumb" aria-label="Caminho da atividade">${nodeTrail(
+        ? `<header class="homologation-explorer-heading"><div><span class="eyebrow portal-eyebrow">Etapa ${stage.number} · ${esc(stage.short)}</span><h2>${esc(stage.label)}</h2><p>${esc(stage.purpose)}</p></div><button class="btn" data-flow-overview>Voltar ao mapa ↑</button></header><div class="homologation-outputs"><strong>Assuntos e documentos da etapa</strong>${stage.outputs.map((o) => `<span>${esc(o)}</span>`).join('')}</div><div class="tree-breadcrumb" aria-label="Caminho da atividade">${nodeTrail(
             treeUI.flow.selected,
             treeModels.flow,
           )
@@ -254,6 +277,7 @@ function renderFlowActivityContext() {
     activity = n.flowActivity;
   if (!activity) return;
   const links = [
+    `<a class="btn" href="${esc(flowGuideRoute(HomologationFlow.stage(flowUI.stage), 'checklist'))}">Organizar no checklist →</a>`,
     activity.route ? `<a class="btn" href="${esc(activity.route)}">Explorar o assunto →</a>` : '',
     ...(activity.consultationLinks || []).map(
       (link) => `<a class="btn" href="${esc(link.route)}">${esc(link.label)} →</a>`,
@@ -266,10 +290,19 @@ function renderFlowActivityContext() {
       ? `<a class="btn" href="#vehicle?component=${esc(activity.vehicleComponent)}">Ver no veículo →</a>`
       : '',
   ].join('');
-  if (links)
+  const visual =
+    treeUI.flow.tab === 'summary' &&
+    activity.vehicleComponent &&
+    typeof vehicleModelArt === 'function'
+      ? vehicleModelArt(
+          { componentId: activity.vehicleComponent, label: activity.label },
+          'flow-selection-preview',
+        )
+      : '';
+  if (links || visual)
     $('#flowDetailPanel .detail-scroll')?.insertAdjacentHTML(
       'afterbegin',
-      `<div class="homologation-activity-links">${links}</div>`,
+      `${visual}<div class="homologation-activity-links portal-context-actions">${links}</div>`,
     );
 }
 function goFlow(stage, node = null, powertrain = flowUI.powertrain, scroll = true) {

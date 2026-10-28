@@ -1,6 +1,7 @@
 """Consultation journeys preserve context and offer source-backed navigation."""
 
 import asyncio
+from browser_support import reference_vehicle_url
 import os
 from pathlib import Path
 from playwright.async_api import async_playwright, expect
@@ -21,8 +22,10 @@ async def main():
         errors = []
         page.on("pageerror", lambda e: errors.append(str(e)))
         await page.goto(
-            BASE
-            + "#vehicle?focus=bancos&all=1&type=Comercial+leve&powertrain=El%C3%A9trico"
+            reference_vehicle_url(
+                BASE
+                + "#vehicle?focus=bancos&all=1&type=Comercial+leve&powertrain=El%C3%A9trico"
+            )
         )
         await expect(page.locator(".aurora-system-card")).to_have_count(14)
         await expect(page.locator(".aurora-subsystem")).to_have_count(4)
@@ -39,11 +42,15 @@ async def main():
         await expect(page.locator("#powertrain")).to_have_value("Elétrico")
         await page.locator(".aurora-directory header>a").click()
         await expect(page.locator(".aurora-system-card")).to_have_count(6)
-        await page.goto(BASE + "#vehicle?focus=bancos")
+        await page.goto(reference_vehicle_url(BASE + "#vehicle?focus=bancos"))
         await page.locator(".aurora-library-link").click()
         await expect(page.locator("#componentFilter")).to_have_value("ocupantes")
         await expect(page.locator(".document")).not_to_have_count(0)
-        await page.goto(BASE + "#library?agency=INMETRO&review=reference&q=145")
+        await page.goto(
+            reference_vehicle_url(
+                BASE + "#library?agency=INMETRO&review=reference&q=145"
+            )
+        )
         await expect(page.locator("#agencyFilter")).to_have_value("INMETRO")
         await expect(page.locator("#reviewFilter")).to_have_value("reference")
         await expect(page.locator("#librarySearch")).to_have_value("145")

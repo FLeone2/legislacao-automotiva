@@ -2,6 +2,23 @@
 
 import os
 from pathlib import Path
+from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
+
+
+def reference_vehicle_url(url):
+    """Keep contour/zoom regression journeys on the explicit historical 2D mode.
+
+    The primary #vehicle route is now the shared 3D explorer, exercised by the
+    portal integration suite. Existing geometry assertions still test all 37
+    supplied contours and the historical consultation journeys here.
+    """
+    parts = urlsplit(url)
+    route, separator, query = parts.fragment.partition("?")
+    if route != "vehicle":
+        return url
+    values = dict(parse_qsl(query, keep_blank_values=True))
+    values["view"] = "reference"
+    return urlunsplit(parts._replace(fragment="vehicle?" + urlencode(values)))
 
 
 def launch_options():

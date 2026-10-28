@@ -67,6 +67,11 @@ function vehicleMappingNotes(links = []) {
   return [...new Set(links.map((link) => link.note?.trim()).filter(Boolean))].join(' ');
 }
 function componentArt(c, cls = '') {
+  if (!isVehicleReference())
+    return (
+      vehicleModelArt({ componentId: c.id, label: c.label }, cls) ||
+      '<p class="image-unavailable">Miniatura 3D não disponível. Consulte pelo nome do conjunto.</p>'
+    );
   const asset = c.overviewAsset || c.asset;
   return asset
     ? `<img class="${cls}" src="${asset}" alt="Ilustração de ${esc(c.label)}" decoding="async" loading="lazy">`
@@ -78,6 +83,7 @@ function vehicleLink(c, lane, subsystem) {
   if (subsystem) q.set('subsystem', subsystem);
   q.set('type', $('#vehicleType').value);
   q.set('powertrain', $('#powertrain').value);
+  if (isVehicleReference()) q.set('view', 'reference');
   if (new URLSearchParams(location.hash.split('?')[1] || '').get('all') === '1') q.set('all', '1');
   const partId = new URLSearchParams(location.hash.split('?')[1] || '').get('part');
   if (vehicleVector.parts.some((part) => part.id === partId && part.componentId === c.id))
@@ -94,14 +100,36 @@ function selectSystem(id) {
   const c = ComponentFlow.component(id) || vehicleComponents.find((x) => x.taxonomy === id);
   if (c) goVehicle(vehicleLink(c));
 }
-function goVehicle(url) {
-  const update = () => {
-    history.pushState(null, '', url);
-    render();
-    window.scrollTo({ top: 0, behavior: 'instant' });
-    $('#main h1')?.focus({ preventScroll: true });
-  };
-  update();
+async function goVehicle(url) {
+  history.pushState(null, '', url);
+  await render();
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  $('#main h1')?.focus({ preventScroll: true });
+}
+function isVehicleReference() {
+  return new URLSearchParams(location.hash.split('?')[1] || '').get('view') === 'reference';
+}
+function vehiclePresentationLink(reference) {
+  const query = new URLSearchParams(location.hash.split('?')[1] || '');
+  if (reference) query.set('view', 'reference');
+  else query.delete('view');
+  return '#vehicle' + (query.size ? '?' + query : '');
+}
+function restoreReferenceZoom(query) {
+  const value = Number(query.get('zoom'));
+  vehicleUI.zoom = Math.max(1, Math.min(2.4, Number.isFinite(value) && value >= 1 ? value : 1));
+  const layer = document.getElementById('vehicleLayer');
+  if (!layer) return;
+  const anchor = vehicleVector.parts.find((part) => part.id === query.get('part'))?.testPoint || [
+    768, 512,
+  ];
+  layer.setAttribute(
+    'transform',
+    `translate(${anchor[0]} ${anchor[1]}) scale(${vehicleUI.zoom}) translate(${-anchor[0]} ${-anchor[1]})`,
+  );
+  const output = document.getElementById('vehicleImageZoom');
+  if (output) output.textContent = Math.round(vehicleUI.zoom * 100) + '%';
+  if (typeof updateVehicleSelectionPin === 'function') updateVehicleSelectionPin();
 }
 function vehicleMap() {
   const hotspots = vehicleVector.parts
@@ -320,17 +348,30 @@ function renderVehicleFlow() {
   if (sub) q.set('subsystem', sub.id);
   else q.delete('subsystem');
   history.replaceState(null, '', '#vehicle?' + q);
-  $('#main').innerHTML =
-    `<nav class="component-breadcrumb" aria-label="Caminho selecionado"><a href="${esc(auroraFocusLink(c, part?.id))}" data-vehicle-back>← Voltar ao veículo</a><span> / </span><strong>${esc(c.label)}</strong></nav><header class="component-flow-heading"><div class="component-hero-art">${part ? `<img src="${esc(part.displayAsset || part.asset)}" alt="${esc(part.label)}">` : sub ? subsystemArt(sub) : componentArt(c)}</div><div><p class="vehicle-kicker">${part ? esc(c.label) : esc(vehicleContext())}</p><h1 tabindex="-1">${esc(sub?.label || part?.label || c.label)}</h1></div></header>${part ? vehiclePartTopicNavigation(c, part, sub?.id) : subsystemExplorer(c, sub)}<nav class="component-lanes" aria-label="Área regulatória">${lanes.map((l) => `<a href="${esc(vehicleLink(c, l.id, sub?.id))}" data-component-link="${c.id}" class="${vehicleUI.lane === l.id ? 'active' : ''}" ${vehicleUI.lane === l.id ? 'aria-current="page"' : ''}>${esc(l.label)}</a>`).join('')}</nav><div class="tree-breadcrumb" aria-label="Ramo do fluxograma">${nodeTrail(
-      ui.selected,
-      model,
-    )
-      .map((id) => `<button data-tree-node="${esc(id)}">${esc(model.nodes[id].label)}</button>`)
-      .join(
-        '<span>›</span>',
-      )}</div><section class="graph-shell component-graph" aria-label="Fluxograma de normas de ${esc(part?.label || c.label)}">${graphMarkup(model, ui)}</section><div class="tree-footer"><span>Abra um assunto para consultar suas referências.</span><button data-graph-action="reset">Recolher</button></div><p class="contran-component-link">${activeVehicleSourceLinks(c, sub, part?.id)}</p><p class="scope-note">Associação para consulta. Confira escopo, configuração e datas na fonte oficial.</p>`;
+  const target =
+    (!isVehicleReference() && document.getElementById('vehicleConsultationRoot')) || $('#main');
+  const art = isVehicleReference()
+    ? part
+      ? `<img src="${esc(part.displayAsset || part.asset)}" alt="${esc(part.label)}">`
+      : sub
+        ? subsystemArt(sub)
+        : componentArt(c)
+    : vehicleModelArt({
+        ...(sub ? { subsystemId: sub.id } : {}),
+        ...(part ? { legacyPartId: part.id } : { componentId: c.id }),
+        label: sub?.label || part?.label || c.label,
+      });
+  target.innerHTML = `<nav class="component-breadcrumb" aria-label="Caminho selecionado"><a href="${esc(auroraFocusLink(c, part?.id))}" data-vehicle-back>← Voltar ao veículo</a><span> / </span><strong>${esc(c.label)}</strong></nav>${isVehicleReference() ? `<nav class="portal-vehicle-modes" aria-label="Apresentação do veículo"><a href="${esc(vehiclePresentationLink(false))}">Modelo 3D</a><a href="${esc(vehiclePresentationLink(true))}" aria-current="page">Referência 2D</a></nav>` : ''}<header class="component-flow-heading"><div class="component-hero-art">${art || '<p>Miniatura não disponível; referências textuais abaixo.</p>'}</div><div><p class="vehicle-kicker">${part ? esc(c.label) : esc(vehicleContext())}</p><${isVehicleReference() ? 'h1 tabindex="-1"' : 'h2'}>${esc(sub?.label || part?.label || c.label)}</${isVehicleReference() ? 'h1' : 'h2'}></div></header>${part ? vehiclePartTopicNavigation(c, part, sub?.id) : subsystemExplorer(c, sub)}<nav class="component-lanes" aria-label="Área regulatória">${lanes.map((l) => `<a href="${esc(vehicleLink(c, l.id, sub?.id))}" data-component-link="${c.id}" class="${vehicleUI.lane === l.id ? 'active' : ''}" ${vehicleUI.lane === l.id ? 'aria-current="page"' : ''}>${esc(l.label)}</a>`).join('')}</nav><div class="tree-breadcrumb" aria-label="Ramo do fluxograma">${nodeTrail(
+    ui.selected,
+    model,
+  )
+    .map((id) => `<button data-tree-node="${esc(id)}">${esc(model.nodes[id].label)}</button>`)
+    .join(
+      '<span>›</span>',
+    )}</div><section class="graph-shell component-graph" aria-label="Fluxograma de normas de ${esc(part?.label || c.label)}">${graphMarkup(model, ui)}</section><div class="tree-footer"><span>Abra um assunto para consultar suas referências.</span><button data-graph-action="reset">Recolher</button></div><p class="contran-component-link">${activeVehicleSourceLinks(c, sub, part?.id)}</p><p class="scope-note">Associação para consulta. Confira escopo, configuração e datas na fonte oficial.</p>`;
   renderTreeDetails();
   setupGraph();
+  if (!isVehicleReference()) updateVehicleExplorerRoute();
   $('#main').dataset.renderedRoute = location.hash;
 }
 function vehiclePartTopicNavigation(component, part, subsystemId) {
@@ -393,6 +434,9 @@ if (typeof document !== 'undefined') {
       );
       $('#vehicleImageZoom').textContent = Math.round(vehicleUI.zoom * 100) + '%';
       if (typeof updateVehicleSelectionPin === 'function') updateVehicleSelectionPin();
+      const query = new URLSearchParams(location.hash.split('?')[1] || '');
+      query.set('zoom', String(vehicleUI.zoom));
+      history.replaceState(null, '', '#vehicle?' + query);
       return;
     }
     const link = e.target.closest('[data-component-link],[data-vehicle-back]');
@@ -421,6 +465,17 @@ if (typeof document !== 'undefined') {
   });
 }
 function subsystemArt(sub) {
+  if (!isVehicleReference()) {
+    // This art sits inside an existing navigation link. Keep derivative credit
+    // as text here; the linked license/source attribution is above the scene.
+    const image =
+      typeof VehicleModelPreviews === 'undefined'
+        ? null
+        : VehicleModelPreviews.resolve({ subsystemId: sub.id, label: sub.label });
+    return image
+      ? `<span class="portal-model-preview portal-model-inline" data-model-preview="${esc(image.id)}"><img src="${esc(image.assetUrl)}" alt="${esc(image.caption + ': ' + sub.label)}" width="${image.width}" height="${image.height}" loading="lazy" decoding="async"><small>${esc(image.caption)}${image.modelSources.includes('bmw-x5-g05') ? ' · BMW Car IT · CC BY 4.0 · renderização adaptada' : ' · Geometria autoral didática'}</small></span>`
+      : '<p class="image-unavailable">Sem miniatura 3D deste subsistema</p>';
+  }
   const a = ComponentFlow.art(sub, catalog.metadata.hierarchy);
   return a
     ? `<svg viewBox="${a.x} ${a.y} ${a.width} ${a.height}" role="img" aria-label="Ilustração conceitual: ${esc(sub.label)}"><svg x="${a.x}" y="${a.y}" width="${a.width}" height="${a.height}" viewBox="${a.x} ${a.y} ${a.width} ${a.height}" style="width:${a.width}px;height:${a.height}px;overflow:hidden"><image href="${a.asset}" width="1536" height="1024"/></svg></svg>`
@@ -429,7 +484,8 @@ function subsystemArt(sub) {
 function subsystemExplorer(c, selected) {
   const subs = ComponentFlow.subsystems(c, catalog.metadata.hierarchy);
   const art = subs.map((sub) => ComponentFlow.art(sub, catalog.metadata.hierarchy));
-  const shared = art.length > 1 && art.every((a) => a?.asset === art[0]?.asset);
+  const shared =
+    isVehicleReference() && art.length > 1 && art.every((a) => a?.asset === art[0]?.asset);
   return `<details class="subsystem-explorer" ${selected ? '' : 'open'}><summary><span>Subsistemas de ${esc(c.label)}</span><span>${subs.length} ${selected ? '· ' + esc(selected.label) : '· escolha no desenho ou nos cards'}</span></summary><div class="subsystem-explorer-content">${shared ? `<svg class="subsystem-board" viewBox="0 0 1536 1024" role="group" aria-label="Subsistemas ilustrados de ${esc(c.label)}"><image href="${art[0].asset}" width="1536" height="1024"/>${subs.map((sub, i) => `<a href="${esc(vehicleLink(c, null, sub.id))}" data-subsystem-link="${esc(sub.id)}" aria-label="Abrir fluxograma de ${esc(sub.label)}"><rect x="${art[i].x + 8}" y="${art[i].y + 8}" width="${art[i].width - 16}" height="${art[i].height - 16}" class="subsystem-region ${selected?.id === sub.id ? 'selected' : ''}"><title>${esc(sub.label)}</title></rect></a>`).join('')}</svg>` : ''}<div class="subsystem-cards">${subs.map((sub) => `<a class="subsystem-card ${selected?.id === sub.id ? 'active' : ''}" href="${esc(vehicleLink(c, null, sub.id))}" data-subsystem-link="${esc(sub.id)}" ${selected?.id === sub.id ? 'aria-current="page"' : ''}><div>${subsystemArt(sub)}</div><strong>${esc(sub.label)}</strong><small>Explorar normas ↗</small></a>`).join('')}</div></div></details>${selected ? `<a class="subsystem-parent" href="${esc(vehicleLink(c))}" data-component-link="${c.id}">← Fluxograma completo de ${esc(c.label)}</a>` : ''}`;
 }
 document.addEventListener('click', (e) => {

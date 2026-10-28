@@ -1,10 +1,12 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
+import { flushSync } from 'react-dom';
 import { ReactFlow, Background, Controls, MarkerType } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import VehicleScene from './VehicleScene.jsx';
 import TraceabilityInspector from './TraceabilityInspector.jsx';
 import RegulatoryCoverage from './RegulatoryCoverage.jsx';
+import VehicleExplorer from './VehicleExplorer.jsx';
 import { needsRegulatoryReview, recordCheckReview } from './review-state.js';
 import { PARTS, visibleParts, sceneKind } from './vehicle-parts.js';
 import {
@@ -737,7 +739,10 @@ function GuideApp({ bridge }) {
     if (node) node.open = !window.matchMedia('(max-width: 650px)').matches;
   }, []);
   const [partSearch, setPartSearch] = useState('');
-  const [editing, setEditing] = useState(null);
+  const [editing, setEditing] = useState(() => {
+    const requested = new URLSearchParams(location.hash.split('?')[1] || '').get('profile');
+    return ['new', 'edit'].includes(requested) ? requested : null;
+  });
   const [notice, setNotice] = useState(
     initial.error ||
       (initialRoute.project &&
@@ -750,6 +755,9 @@ function GuideApp({ bridge }) {
   const [storageError, setStorageError] = useState(initial.error || '');
   const fileInput = useRef();
   const project = projects.find((x) => x.id === projectId);
+  useEffect(() => {
+    bridge.setActiveProjectId?.(project?.id || '');
+  }, [project?.id, bridge]);
   const profile = project?.profile || DEMO_PROFILE;
   const evaluation = useMemo(() => evaluateProfile(profile), [profile]);
   const items = useMemo(() => buildChecklist(profile), [profile]);
@@ -820,6 +828,8 @@ function GuideApp({ bridge }) {
       setTreeMode(r.tree);
       setStage(r.stage);
       if (r.project) setProjectId(r.project);
+      const requested = new URLSearchParams(location.hash.split('?')[1] || '').get('profile');
+      setEditing(['new', 'edit'].includes(requested) ? requested : null);
     };
     window.addEventListener('popstate', sync);
     return () => window.removeEventListener('popstate', sync);
@@ -881,6 +891,12 @@ function GuideApp({ bridge }) {
     );
     setNotice('');
   }
+  function closeProfile() {
+    setEditing(null);
+    const params = new URLSearchParams(location.hash.split('?')[1] || '');
+    params.delete('profile');
+    history.replaceState(null, '', '#guide' + (params.size ? '?' + params : ''));
+  }
   function saveProfile(value) {
     if (editing === 'edit' && project) {
       setProjects((old) =>
@@ -919,7 +935,7 @@ function GuideApp({ bridge }) {
         setNotice(
           'Limite de 50 processos neste navegador. Exporte os backups antes de iniciar outro.',
         );
-        setEditing(null);
+        closeProfile();
         return;
       }
       const now = new Date().toISOString();
@@ -938,7 +954,7 @@ function GuideApp({ bridge }) {
       setTab('checklist');
       setNotice('Processo criado. Revise o enquadramento antes de iniciar os protocolos.');
     }
-    setEditing(null);
+    closeProfile();
   }
   async function importProject(e) {
     try {
@@ -1257,7 +1273,7 @@ function GuideApp({ bridge }) {
                         />
                         <span /> Vista explodida
                       </label>
-                      <a href="#vehicle">Consultar desenho original ↗</a>
+                      <a href="#vehicle?view=reference">Consultar referência 2D ↗</a>
                     </div>
                   </section>
                   <aside className="g-parts-panel">
@@ -1481,8 +1497,8 @@ function GuideApp({ bridge }) {
       </footer>
       {editing && (
         <ProfileForm
-          initial={editing === 'edit' ? profile : null}
-          onClose={() => setEditing(null)}
+          initial={editing === 'edit' && project ? profile : null}
+          onClose={closeProfile}
           onSave={saveProfile}
         />
       )}
@@ -1517,4 +1533,18 @@ export function mount(element, bridge) {
     </GuideBoundary>,
   );
   return root;
+}
+
+export function mountVehicle(element, bridge, context) {
+  const root = createRoot(element);
+  const update = (value) =>
+    flushSync(() =>
+      root.render(
+        <GuideBoundary>
+          <VehicleExplorer bridge={bridge} context={value} />
+        </GuideBoundary>,
+      ),
+    );
+  update(context);
+  return { update, unmount: () => root.unmount() };
 }

@@ -1,6 +1,7 @@
 """Approved Obsidian shell, context-preserving search and complete tree access."""
 
 import asyncio
+from browser_support import reference_vehicle_url
 import json
 from pathlib import Path
 from urllib.parse import parse_qs, urlsplit
@@ -24,7 +25,7 @@ OUT.mkdir(parents=True, exist_ok=True)
 async def visit(page, base, route):
     if await page.locator("#searchDialog[open]").count():
         await page.keyboard.press("Escape")
-    await page.goto(base + route)
+    await page.goto(reference_vehicle_url(base + route))
     await wait_for_route(page)
 
 
@@ -132,7 +133,9 @@ async def main(base):
 
         await page.locator("#searchTrigger").click()
         await page.locator("#globalSearch").fill("unknown-query-with-no-match-xyz")
-        await expect(page.locator("#searchStatus")).to_contain_text("Nenhum resultado")
+        await expect(page.locator("#searchStatus")).to_contain_text(
+            "Nenhuma referência encontrada"
+        )
         await expect(page.locator("[data-search-result]")).to_have_count(0)
         await page.keyboard.press("Enter")
         assert page.url == origin
@@ -177,9 +180,12 @@ async def main(base):
         )
 
         await visit(page, base, "#flow")
-        await page.locator('[data-flow-stage="componentes"]').click()
+        stage_button = page.locator('[data-flow-stage="componentes"]')
+        await stage_button.scroll_into_view_if_needed()
+        map_scroll = await page.evaluate("scrollY")
+        await stage_button.click()
         await wait_for_route(page)
-        assert await page.evaluate("scrollY") == 0, (
+        assert abs(await page.evaluate("scrollY") - map_scroll) < 1, (
             "Selecting a stage must retain the map context"
         )
         activity = await page.locator("[data-flow-activity]").first.get_attribute(

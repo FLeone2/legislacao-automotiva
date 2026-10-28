@@ -13,7 +13,7 @@ function historicalSearchLinks(query) {
     normalizeCitation(record.title + ' ' + record.id).includes(needle),
   );
   if (!matches.length) return '';
-  return `<aside class="historical-search" aria-label="Referências históricas"><strong>Histórico · fora da consulta atual</strong><div class="consultation-shortcuts">${matches.map((record) => `<a href="${esc(regulatoryHistoryUrl(record.agency, record.id))}">${esc(record.title)} →</a>`).join('')}</div></aside>`;
+  return `<aside class="historical-search portal-source-note" aria-label="Referências históricas"><strong>Histórico · fora da consulta atual</strong><div class="consultation-shortcuts">${matches.map((record) => `<a href="${esc(regulatoryHistoryUrl(record.agency, record.id))}">${esc(record.title)} →</a>`).join('')}</div></aside>`;
 }
 
 function historicalCurrentLink(id) {
@@ -33,7 +33,7 @@ async function renderRegulatoryHistory() {
   const agency = query.get('agency') || '';
   const id = query.get('record') || '';
   $('#main').innerHTML =
-    '<h1>Referência histórica</h1><p role="status">Carregando o histórico…</p>';
+    '<header class="portal-header"><div><div class="eyebrow portal-eyebrow">Memória regulatória</div><h1 class="portal-title">Referência histórica</h1><p class="portal-summary" role="status">Carregando a referência e a cadeia documentada…</p></div></header>';
   try {
     const record = await loadHistoricalRecord(agency, id);
     if (route !== location.hash || state.view !== 'history') return;
@@ -76,14 +76,14 @@ async function renderRegulatoryHistory() {
       ]),
     ];
     const limitations = limits.length
-      ? `<details><summary>Limites da revisão</summary><ul>${limits.map((limit) => `<li>${esc(limit)}</li>`).join('')}</ul></details>`
+      ? `<details class="portal-disclosure"><summary>Limites da revisão</summary><ul>${limits.map((limit) => `<li>${esc(limit)}</li>`).join('')}</ul></details>`
       : '';
     $('#main').innerHTML =
-      `<article class="regulatory-history"><div class="eyebrow">Histórico normativo</div><h1>${esc(title)}</h1><p class="notice"><strong>${esc(record.statusLabel || record.status || 'Registro histórico')}</strong><br>Fora da consulta atual. Esta ficha preserva a referência e a cadeia documentada.</p><p>${esc(record.subject || record.summary || '')}</p>${regulatoryStatusSummary(record)}${basis}${limitations}${record.effectiveDate ? `<p><strong>Data de efeito registrada:</strong> ${esc(record.effectiveDate)}</p>` : ''}${evidence ? `<section><h2>Efeito e cadeia revisados</h2><ul>${evidence}</ul></section>` : ''}${current.length ? `<section><h2>Consultar as referências atuais</h2><div class="consultation-shortcuts">${current.map(historicalCurrentLink).join('')}</div></section>` : ''}${sources.length ? `<details><summary>Fontes do histórico</summary>${sources.map((source) => `<p>${safeLink(source.url || source.sourceUrl, esc(source.clause || source.label || 'Fonte oficial'))}</p>${source.excerpt ? `<blockquote>${esc(source.excerpt)}</blockquote>` : ''}`).join('')}</details>` : ''}<div class="actions">${safeLink(record.officialUrl, 'Documento original', 'btn')}<a class="btn" href="#library">Biblioteca atual →</a></div></article>`;
+      `<article class="regulatory-history portal-reading"><header class="portal-header"><div><div class="eyebrow portal-eyebrow">Histórico normativo</div><h1 class="portal-title">${esc(title)}</h1><p class="portal-summary">${esc(record.subject || record.summary || '')}</p></div>${portalConsultationActions()}</header><p class="notice portal-consultation-note"><strong>${esc(record.statusLabel || record.status || 'Registro histórico')}</strong><br>Fora da consulta atual. Esta ficha preserva a referência e a cadeia documentada.</p>${regulatoryStatusSummary(record)}${basis}${limitations}${record.effectiveDate ? `<p><strong>Data de efeito registrada:</strong> ${esc(record.effectiveDate)}</p>` : ''}${evidence ? `<section><h2>Efeito e cadeia revisados</h2><ul>${evidence}</ul></section>` : ''}${current.length ? `<section><h2>Consultar as referências atuais</h2><div class="consultation-shortcuts">${current.map(historicalCurrentLink).join('')}</div></section>` : ''}${sources.length ? `<details class="portal-disclosure"><summary>Fontes do histórico</summary>${sources.map((source) => `<p>${safeLink(source.url || source.sourceUrl, esc(source.clause || source.label || 'Fonte oficial'))}</p>${source.excerpt ? `<blockquote>${esc(source.excerpt)}</blockquote>` : ''}`).join('')}</details>` : ''}<div class="actions portal-actions">${safeLink(record.officialUrl, 'Documento original', 'btn')}<a class="btn" href="#library">Biblioteca atual →</a></div></article>`;
   } catch {
     if (route !== location.hash || state.view !== 'history') return;
     $('#main').innerHTML =
-      '<h1>Histórico indisponível</h1><p role="status">Este registro não integra o histórico publicado ou não foi possível carregá-lo.</p><button class="btn" data-history-retry>Tentar novamente</button><a class="btn" href="#library">Biblioteca atual →</a>';
+      '<section class="portal-empty"><div class="eyebrow portal-eyebrow">Memória regulatória</div><h1 class="portal-title">Histórico indisponível</h1><p role="status">Este registro não integra o histórico publicado ou não foi possível carregá-lo.</p><div class="portal-actions"><button class="btn" data-history-retry>Tentar novamente</button><a class="btn" href="#library">Biblioteca atual →</a></div></section>';
   }
 }
 
@@ -94,7 +94,7 @@ document.addEventListener('click', (event) => {
 function regulatoryProcedureDirectory(source) {
   const guides = regulatoryData[source]?.metadata.procedureGuidance || [];
   if (!guides.length) return '';
-  return `<details class="procedure-directory"><summary>Procedimentos e canais oficiais</summary><div class="consultation-shortcuts">${guides.map((guide) => `<a class="btn" href="#${source}?guide=${esc(guide.id)}">${esc(guide.label)} →</a>`).join('')}</div></details>`;
+  return `<details class="procedure-directory portal-disclosure"><summary>Procedimentos e canais oficiais</summary><div class="consultation-shortcuts">${guides.map((guide) => `<a class="btn" href="#${source}?guide=${esc(guide.id)}">${esc(guide.label)} →</a>`).join('')}</div></details>`;
 }
 
 function renderProcedureGuide(source, id) {
@@ -103,12 +103,12 @@ function renderProcedureGuide(source, id) {
   );
   if (!guide) {
     $('#main').innerHTML =
-      `<h1>Procedimento não encontrado</h1><p role="status">Este guia não está cadastrado no recorte consultivo.</p><a class="btn" href="#${esc(source)}">Voltar ao acervo →</a>`;
+      `<header class="portal-header"><div><div class="eyebrow portal-eyebrow">Orientação de serviço</div><h1 class="portal-title">Procedimento não encontrado</h1></div></header><p role="status">Este guia não está cadastrado no recorte consultivo.</p><a class="btn" href="#${esc(source)}">Voltar ao acervo →</a>`;
     return;
   }
   const related = (guide.relatedActIds || [])
     .map((actId) => catalogRecord(catalog, actId))
     .filter((record) => record && record.publication?.included !== false);
   $('#main').innerHTML =
-    `<article class="regulatory-procedure-guide" data-procedure-guide="${esc(id)}"><div class="eyebrow">Orientação oficial de serviço</div><h1>${esc(guide.label)}</h1><p>${esc(guide.scope)}</p>${guide.who ? `<p><strong>Quem consulta este caminho:</strong> ${esc(guide.who)}</p>` : ''}${guide.channel ? `<p><strong>Canal:</strong> ${safeLink(guide.channel.url, esc(guide.channel.label))}</p>` : ''}${guide.documents?.length ? `<section><h2>Informações indicadas no serviço</h2><ul>${guide.documents.map((document) => `<li>${esc(document)}</li>`).join('')}</ul></section>` : ''}${guide.conditions?.length ? `<section><h2>Condições do caminho</h2><ul>${guide.conditions.map((condition) => `<li>${esc(condition)}</li>`).join('')}</ul></section>` : ''}${guide.note ? `<p class="notice">${esc(guide.note)}</p>` : ''}${related.length ? `<section><h2>Referências relacionadas</h2><div class="consultation-shortcuts">${related.map((record) => `<button class="btn" data-open="${esc(record.id)}">${esc(record.title)} →</button>`).join('')}</div></section>` : ''}<details><summary>Fontes e escopo da orientação</summary>${(guide.sources || []).map((item) => `<p>${safeLink(item.url, esc(item.clause || 'Fonte oficial'))}</p>${item.excerpt ? `<blockquote>${esc(item.excerpt)}</blockquote>` : ''}`).join('')}<p>Revisão: ${esc(guide.reviewedAt)}. Esta orientação de serviço é distinta de uma regra jurídica ou de um checklist completo.</p></details>${regulatoryProcedureDirectory(source)}<div class="actions"><a class="btn" href="#${esc(source)}">Acervo ${esc(regulatoryConfig[source].label)} →</a><a class="btn" href="#flow?stage=aprovacoes">Fluxo de homologação →</a></div></article>`;
+    `<article class="regulatory-procedure-guide portal-reading" data-procedure-guide="${esc(id)}"><header class="portal-header"><div><div class="eyebrow portal-eyebrow">Orientação oficial de serviço</div><h1 class="portal-title">${esc(guide.label)}</h1><p class="portal-summary">${esc(guide.scope)}</p></div>${portalConsultationActions()}</header>${guide.who ? `<p><strong>Quem consulta este caminho:</strong> ${esc(guide.who)}</p>` : ''}${guide.channel ? `<p><strong>Canal:</strong> ${safeLink(guide.channel.url, esc(guide.channel.label))}</p>` : ''}${guide.documents?.length ? `<section><h2>Informações indicadas no serviço</h2><ul>${guide.documents.map((document) => `<li>${esc(document)}</li>`).join('')}</ul></section>` : ''}${guide.conditions?.length ? `<section><h2>Condições do caminho</h2><ul>${guide.conditions.map((condition) => `<li>${esc(condition)}</li>`).join('')}</ul></section>` : ''}${guide.note ? `<p class="notice">${esc(guide.note)}</p>` : ''}${related.length ? `<section><h2>Referências relacionadas</h2><div class="consultation-shortcuts">${related.map((record) => `<button class="btn" data-open="${esc(record.id)}">${esc(record.title)} →</button>`).join('')}</div></section>` : ''}<details class="portal-disclosure"><summary>Fontes e escopo da orientação</summary>${(guide.sources || []).map((item) => `<p>${safeLink(item.url, esc(item.clause || 'Fonte oficial'))}</p>${item.excerpt ? `<blockquote>${esc(item.excerpt)}</blockquote>` : ''}`).join('')}<p>Revisão: ${esc(guide.reviewedAt)}. Esta orientação de serviço é distinta de uma regra jurídica ou de um checklist completo.</p></details>${regulatoryProcedureDirectory(source)}<div class="actions portal-actions"><a class="btn" href="#${esc(source)}">Acervo ${esc(regulatoryConfig[source].label)} →</a><a class="btn" href="#flow?stage=aprovacoes">Fluxo de homologação →</a></div></article>`;
 }

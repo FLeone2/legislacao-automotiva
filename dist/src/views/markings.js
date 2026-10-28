@@ -1,8 +1,11 @@
 'use strict';
 async function renderMarkings() {
   $('#main').innerHTML =
-    '<h1>Etiquetas, selos e VIN</h1><p role="status">Carregando as referências…</p>';
-  const results = await Promise.allSettled(Object.keys(regulatoryConfig).map(loadRegulations));
+    '<header class="portal-header"><div><div class="eyebrow portal-eyebrow">Identificação e rastreabilidade</div><h1 class="portal-title">Etiquetas, selos e VIN</h1><p class="portal-summary" role="status">Carregando as referências de identificação…</p></div></header>';
+  const results = await Promise.allSettled([
+    ...Object.keys(regulatoryConfig).map(loadRegulations),
+    portalLoadVehiclePreviews(),
+  ]);
   const candidates = Object.entries(regulatoryData).flatMap(([source, data]) =>
     (data?.records || [])
       .filter((r) =>
@@ -43,10 +46,10 @@ async function renderMarkings() {
     (data?.records || []).filter((r) => !r._summary).map((r) => ({ ...r, source })),
   );
   $('#main').innerHTML =
-    `<div class="eyebrow">Identificação e rastreabilidade</div><h1>Etiquetas, selos e VIN</h1><p class="subtitle">Veja qual marcação pertence ao veículo, ao componente ou ao equipamento de telecomunicações.</p><p><a class="btn" href="#vehicle?component=identificacao&subsystem=identificacao%2Frotulagem">Explorar no veículo →</a></p>${unavailable ? '<p class="notice" role="alert">Uma fonte não carregou. Os resultados abaixo estão incompletos. <button class="btn" data-markings-retry>Tentar novamente</button></p>' : ''}<nav class="regulatory-phases" aria-label="Assuntos de identificação">${groups.map((g) => `<button class="btn" data-markings-section="${g.id}">${g.label}</button>`).join('')}</nav>${groups
+    `<header class="portal-header"><div><div class="eyebrow portal-eyebrow">Identificação e rastreabilidade</div><h1 class="portal-title">Etiquetas, selos e VIN</h1><p class="subtitle portal-summary">A identificação certa para cada finalidade: veículo, componente ou equipamento de telecomunicações.</p></div>${portalConsultationActions()}</header><div class="portal-context-card">${portalVehicleArt({ assemblyId: 'vin', label: 'Identificação do veículo' }, 'portal-context-preview')}<div class="portal-context-meta"><h2>Do veículo à sua identificação</h2><p>Explore os vínculos de consulta e confira o escopo de cada marcação.</p><div class="portal-context-actions"><a class="btn" href="#vehicle?component=identificacao&subsystem=identificacao%2Frotulagem">Explorar no veículo →</a></div></div></div>${unavailable ? '<p class="notice portal-consultation-note" role="alert">Uma fonte não carregou. Os resultados abaixo estão incompletos. <button class="btn" data-markings-retry>Tentar novamente</button></p>' : ''}<nav class="regulatory-phases portal-section-nav" aria-label="Assuntos de identificação">${groups.map((g) => `<button class="btn" data-markings-section="${g.id}">${g.label}</button>`).join('')}</nav>${groups
       .map((g) => {
         const rows = all.filter((r) => r.requirements?.some((x) => x.topics?.includes(g.id)));
-        return `<section id="markings-${g.id}" class="markings-group"><h2>${g.label}</h2><p>${g.text}</p>${rows.map((r) => `<article class="contran-record" data-marking-record="${esc(r.id)}"><div class="eyebrow">${esc(regulatoryConfig[r.source].label)}</div><h3>${esc(r.title || 'Resolução CONTRAN nº ' + r.number + '/' + r.year)}</h3>${regulatoryRequirements(r, [g.id])}<div class="actions"><a class="btn" href="${regulatoryUrl(r.source, { record: r.id })}">Ato, alterações e sistemas relacionados →</a>${safeLink(r.officialUrl, 'Fonte oficial', 'btn')}</div></article>`).join('') || '<p class="notice">Nenhuma referência carregada para este assunto.</p>'}</section>`;
+        return `<section id="markings-${g.id}" class="markings-group portal-section" aria-labelledby="markings-title-${g.id}"><div class="portal-section-heading"><h2 id="markings-title-${g.id}">${g.label}</h2><p>${g.text}</p></div><div class="portal-list">${rows.map((r) => `<article class="contran-record portal-list-item" data-marking-record="${esc(r.id)}"><div class="eyebrow">${esc(regulatoryConfig[r.source].label)}</div><h3>${esc(r.title || 'Resolução CONTRAN nº ' + r.number + '/' + r.year)}</h3>${regulatoryRequirements(r, [g.id])}<div class="actions portal-actions"><a class="btn" href="${regulatoryUrl(r.source, { record: r.id })}">Ato, alterações e sistemas relacionados →</a>${safeLink(r.officialUrl, 'Fonte oficial', 'btn')}</div></article>`).join('') || '<p class="notice portal-inline-empty">Nenhuma referência carregada para este assunto. Consulte a cobertura regulatória antes de concluir que há dispensa.</p>'}</div></section>`;
       })
       .join(
         '',

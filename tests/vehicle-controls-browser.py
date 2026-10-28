@@ -1,6 +1,7 @@
 """Regressions for neutral selection, unobstructed zoom and aligned system names."""
 
 import asyncio
+from browser_support import reference_vehicle_url
 import json
 from pathlib import Path
 
@@ -36,7 +37,9 @@ async def main(base):
             )
             for all_systems in (False, True):
                 await page.goto(
-                    base + ("#vehicle?all=1" if all_systems else "#vehicle")
+                    reference_vehicle_url(
+                        base + ("#vehicle?all=1" if all_systems else "#vehicle")
+                    )
                 )
                 await wait_for_route(page)
                 await empty_selection(page)
@@ -90,7 +93,7 @@ async def main(base):
                     )
 
         await page.set_viewport_size({"width": 1440, "height": 1000})
-        await page.goto(base + "#vehicle")
+        await page.goto(reference_vehicle_url(base + "#vehicle"))
         await wait_for_route(page)
         for part_id in ("peca_08_banco_traseiro", "peca_30_tanque_tubo_combustivel"):
             point = await page.evaluate(
@@ -121,7 +124,7 @@ async def main(base):
         await expect(page.locator("#vehiclePartSelect")).to_have_value(
             "peca_30_tanque_tubo_combustivel"
         )
-        await page.goto(base + "#vehicle")
+        await page.goto(reference_vehicle_url(base + "#vehicle"))
         await wait_for_route(page)
         await page.locator(".aurora-system-card").first.focus()
         await page.keyboard.press("Enter")
@@ -130,7 +133,7 @@ async def main(base):
             "Motor e transmissão"
         )
         for theme in ("dark", "light", "aurora"):
-            await page.goto(base + "#vehicle")
+            await page.goto(reference_vehicle_url(base + "#vehicle"))
             await wait_for_route(page)
             await select_theme(page, theme)
             await page.add_script_tag(

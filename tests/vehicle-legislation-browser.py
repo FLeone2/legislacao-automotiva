@@ -1,6 +1,7 @@
 """Verify the explicit part-to-legislation map through the real consultation UI."""
 
 import asyncio
+from browser_support import reference_vehicle_url
 from datetime import datetime, timezone
 import json
 from pathlib import Path
@@ -22,7 +23,7 @@ def params(page):
 
 
 async def visit(page, base, route):
-    await page.goto(base + route)
+    await page.goto(reference_vehicle_url(base + route))
     await wait_for_route(page)
 
 

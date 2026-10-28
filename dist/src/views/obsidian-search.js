@@ -76,16 +76,18 @@ function renderCatalogSearchResults(preserveSelection = false) {
   const query = $('#globalSearch').value;
   const results = catalogSearchResults(query);
   catalogSearchUI.entries = results.entries.slice(0, 12);
+  $('#searchResults').dataset.state = results.entries.length ? 'ready' : 'empty';
+  $('#searchResults').setAttribute('aria-busy', String(catalogSearchUI.loading));
   $('#searchTechnicalStatus').innerHTML = technicalStandardsNotice();
   $('#searchStatus').textContent = catalogSearchUI.loadingStandards
     ? `Carregando citações de normas técnicas… ${results.records} referências do acervo disponíveis.`
     : results.entries.length
       ? `${results.records} referências${results.entries.length > results.records ? ` · ${results.entries.length - results.records} conjuntos ou sistemas` : ''}${results.entries.length > 12 ? ' · primeiros 12 resultados' : ''}`
-      : 'Nenhum resultado. Tente outro número ou assunto.';
+      : 'Nenhuma referência encontrada. Tente o número da norma ou um assunto mais amplo.';
   $('#searchResults').innerHTML = catalogSearchUI.entries
     .map(
       (entry, index) =>
-        `<button class="search-result" id="search-result-${index}" data-search-result="${index}" role="option" aria-selected="${index === 0}" tabindex="-1"><span class="result-mark">${auroraIcon(entry.kind === 'record' ? 'book' : 'car')}</span><span class="result-copy"><strong>${esc(entry.title)}</strong><small>${esc(entry.description)}</small></span><em>${esc(entry.agency)}</em>${auroraIcon('arrow')}</button>`,
+        `<button class="search-result portal-search-result" id="search-result-${index}" data-search-result="${index}" role="option" aria-selected="${index === 0}" tabindex="-1"><span class="result-mark" aria-hidden="true">${auroraIcon(entry.kind === 'record' ? 'book' : 'car')}</span><span class="result-copy"><strong>${esc(entry.title)}</strong><small>${esc(entry.description)}</small></span><em>${esc(entry.agency)}</em><span aria-hidden="true">${auroraIcon('arrow')}</span></button>`,
     )
     .join('');
   $('#searchAllResults').href = libraryRoute({ q: query });
@@ -109,6 +111,7 @@ async function openCatalogSearch(keyboard = false, query = null) {
   $('#globalSearch').focus({ preventScroll: true });
   if (!catalogRecords(catalog).length) {
     $('#searchStatus').textContent = 'Carregando o acervo…';
+    $('#searchResults').setAttribute('aria-busy', 'true');
     catalogSearchUI.loading = true;
     try {
       const index = await initializeRegulatoryStore();
@@ -117,8 +120,13 @@ async function openCatalogSearch(keyboard = false, query = null) {
     } catch {
       if (dialog.open) {
         $('#searchStatus').textContent = 'Não foi possível carregar o acervo.';
+        catalogSearchUI.entries = [];
+        $('#searchResults').dataset.state = 'error';
+        $('#searchResults').setAttribute('aria-busy', 'false');
+        $('#globalSearch').removeAttribute('aria-activedescendant');
+        $('#searchResults').removeAttribute('aria-activedescendant');
         $('#searchResults').innerHTML =
-          '<button class="btn" data-search-retry>Tentar novamente</button>';
+          '<button class="btn" data-search-retry role="option" aria-selected="false">Tentar carregar o acervo novamente</button>';
       }
       return;
     } finally {
