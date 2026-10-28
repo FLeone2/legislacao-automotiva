@@ -3,7 +3,9 @@
 Portal consultivo de legislação automotiva, com navegação visual, referências oficiais e limites de revisão por registro.
 
 Site: https://legislacao-automotiva.pages.dev/#guide. O guia de projeto é a entrada
-principal; a consulta pelo desenho original continua em `/#vehicle`.
+principal; `/#vehicle` abre a consulta 3D e `/#vehicle?view=reference` conserva
+o desenho original. A [Base regulatória](https://legislacao-automotiva.pages.dev/#knowledge)
+reúne as fichas Markdown, fontes e arquivos estruturados publicados.
 O [checkup regulatório de 25/10/2026](docs/guide/checkup-regulatorio.md) registra
 as correções, a profundidade do acervo e as pendências. A auditoria anterior está
 na [matriz de melhorias e evidências](docs/audit-implementation-2026-10-19.md).
@@ -14,7 +16,7 @@ Abra `/#guide` (também é a entrada padrão). O ambiente usa uma composição m
 inspirada nas referências de design Apple, conserva os temas Obsidian, Claro e
 Aurora e acrescenta:
 
-- Seleção 3D real, por Three.js, sincronizada à árvore e ao inspetor de referências. SUV de referência BMW X5 G05 oficial, sob CC BY 4.0, com geometria e materiais PBR reais em GLB. Vinte e um conjuntos 3D e 33 identificações de subsistemas (30 originais + três complementares) retomam as imagens originais. Um suplemento didático acrescenta motor/transmissão, suspensão dianteira e traseira, motor elétrico/inversor e bateria HV. Ônibus, caminhão, motociclo e reboque conservam modelos esquemáticos; nenhuma vista substitui CAD. O desenho original e seus 37 contornos continuam em `/#vehicle`.
+- Seleção 3D real, por Three.js, sincronizada à árvore e ao inspetor de referências. SUV de referência BMW X5 G05 oficial, sob CC BY 4.0, com geometria e materiais PBR reais em GLB. Vinte e um conjuntos 3D e 33 identificações de subsistemas (30 originais + três complementares) retomam as imagens originais. Um suplemento didático acrescenta motor/transmissão, suspensão dianteira e traseira, motor elétrico/inversor e bateria HV. Ônibus, caminhão, motociclo e reboque conservam modelos esquemáticos; nenhuma vista substitui CAD. O desenho original e seus 37 contornos continuam em `/#vehicle?view=reference`.
 - Perfil técnico com categoria, propulsão, origem, finalidade, massas, lotação, uso e radiofrequência. LP/LC não são inferidos apenas de M1/N1. Dados ausentes geram pendências; BEV não recebe dispensa ambiental automática.
 - Roteiro em React Flow, checklists por perfil e matriz consultiva de relatórios por categoria/uso. Verificações condicionais não significam obrigação já confirmada. M2 por PBT, M3 urbano/escolar e L têm particularidades próprias.
 - Registro local de status, notas e referência de evidência; exportação Markdown e backup/importação JSON. Não há conta, sincronização entre dispositivos, upload de laudos ou protocolo nos sistemas oficiais. URLs de processos locais precisam do backup no navegador de destino.
@@ -25,7 +27,7 @@ Veja também [a origem do SUV e a cadeia de rastreabilidade](docs/guide/modelo-s
 
 A base `data/process/knowledge-index.json` reúne as fontes da revisão dirigida e os atos canônicos já publicados com seus estados separados. Gerar com `python scripts/build_guide_database.py`; `--check` confere determinismo e `--sqlite /tmp/base.sqlite` produz uma cópia SQLite local opcional. Novas fontes não são automaticamente promovidas a atos vigentes ou a requisitos confirmados.
 
-O site continua estático. A ilha React do guia carrega sob demanda, com dependências fixadas e empacotadas localmente em `assets/guide`; nenhuma CDN é necessária. `npm run build:guide` recompila a ilha; `npm run build` recompila também o artefato Cloudflare. `postinstall` conserva a publicação estática comprometida. A suíte `tests/guide-browser.py`, descoberta por `npm run test:browser`, verifica fluxo, 3D/árvore, teclado, persistência, backups, celular e axe.
+O site continua estático. A ilha React compartilhada pelo Guia e pelo explorador 3D carrega sob demanda, com dependências fixadas e empacotadas localmente em `assets/guide`; nenhuma CDN é necessária. `npm run build:guide` recompila a ilha; `npm run build` recompila também o artefato Cloudflare. `postinstall` conserva a publicação estática comprometida. A suíte `tests/guide-browser.py`, descoberta por `npm run test:browser`, verifica fluxo, 3D/árvore, teclado, persistência, backups, celular e axe.
 
 As skills Anatomy, React Flow, Impeccable e webapp-testing não estavam instaladas na sessão. Foram utilizados React Flow e Three.js como bibliotecas, o sistema visual Impeccable já versionado, a skill normativa local e Playwright/axe nas verificações. O guia não é uma certificação de completude jurídica para todo veículo: métodos privados, cadeias integrais e particularidades não revisadas permanecem pendentes.
 
@@ -42,6 +44,30 @@ atuais. Consulte [geração e proveniência](docs/guide/miniaturas-3d.md) e a
 [direção visual e referências de frontend](docs/guide/frontend-apple-e-skills.md).
 Um conjunto relacionado ou ilustrativo conserva sua legenda; sua imagem não
 comprova a aplicabilidade de uma referência normativa.
+
+## Portal unificado
+
+O acabamento minimalista do Guia se estende a Veículo, Homologação, Biblioteca,
+árvores, consultas por órgão, etiquetas/VIN, histórico, revisões e busca. As
+miniaturas de conjuntos usam os derivados do modelo 3D aprovado. Os temas
+Obsidian, Claro e Aurora permanecem disponíveis. A direção compartilhada está em
+[design-portal-unificado.md](docs/guide/design-portal-unificado.md).
+
+`/#vehicle` reutiliza a cena do Guia, com 33 subsistemas e 21 conjuntos 3D,
+seleção textual e referências específicas do conjunto. A consulta histórica em
+`/#vehicle?view=reference` mantém os 37 contornos e suas coordenadas. Os endereços
+anteriores de peças e sistemas continuam disponíveis.
+
+A barra de contexto permite continuar o processo selecionado no Guia ao navegar
+pelas consultas. `src/core/portal-context.js` conserva somente sua identificação
+ativa; o carregador do Guia continua validando perfil, checklist e evidências.
+Uma consulta livre não escolhe automaticamente um processo salvo. Categoria e
+motorização visuais permanecem distintas do perfil técnico do processo.
+
+A área `/#knowledge` torna a base publicada acessível pela interface: busca por
+fichas de atos e fontes, filtros, qualificações de revisão, fontes oficiais e
+acesso aos respectivos Markdown. Candidatos à revisão aparecem separados dos
+atos publicados. Seus arquivos são descritos na seção **Auditoria e base para IA**.
 
 ## Consulta ativa CONTRAN e PROCONVE
 
@@ -564,15 +590,17 @@ de avaliação, sem transformar referências ou lacunas em confirmação jurídi
 O build usa uma lista explícita de arquivos; inventários históricos, snapshots,
 políticas editoriais e pesquisas brutas ficam fora de `dist`.
 
-## Design Obsidian
+## Base visual Obsidian e evolução do portal
 
-O design aprovado no pacote Obsidian está em `src/styles/obsidian.css`.
+A composição original aprovada no pacote Obsidian está em `src/styles/obsidian.css`.
+O refinamento atual de todo o portal usa `src/styles/portal-apple.css`, com ajustes
+específicos do Guia em `src/styles/guide-apple.css`.
 `src/views/aurora.js` mantém seu nome histórico e compõe a visão geral do veículo.
-A navegação principal reúne Veículo, Homologação e Biblioteca; **Mais acessos e
-preferências** preserva as consultas por órgão, árvores, etiquetas/VIN e temas.
+A navegação principal reúne Guia, Veículo, Homologação e Biblioteca; **Mais acessos e
+preferências** reúne a Base regulatória, consultas por órgão, árvores, etiquetas/VIN e temas.
 No celular, a navegação principal fica na base da tela.
 
-A vista usa os 37 contornos originais, sem alterar coordenadas. A prévia WebP
+A vista de referência 2D usa os 37 contornos originais, sem alterar coordenadas. A prévia WebP
 omite somente o retângulo branco do fundo; o SVG fornecido permanece intacto.
 Seleção visual e controles textuais consultam o mesmo mapa de relacionamentos.
 O mapa de homologação adota a composição aprovada e mantém as árvores expansíveis
@@ -756,6 +784,29 @@ mantêm os limites de revisão; o portal continua consultivo.
 
 A aba **Cobertura regulatória** separa cadastro, trechos normativos, orientações, revisão e pendências. O diagnóstico é reproduzível com `python scripts/build_regulatory_coverage.py` e não certifica cobertura universal.
 
-`npm run build:data` também gera `knowledge/`: Markdown por ato/fonte, JSONL, relações e candidatos separados. `npm run check:knowledge` verifica os artefatos. Crie um SQLite FTS5 com `python scripts/build_regulatory_knowledge.py --sqlite /tmp/homologacao.sqlite` e consulte com `python scripts/query_regulatory_knowledge.py --database /tmp/homologacao.sqlite --query "LCM PROMOT"`. Os detalhes de arquitetura, fontes e atualização estão em `docs/guide/arquitetura-base-regulatoria.md` e `docs/guide/atualizacoes-e-operacao.md`.
+A [Base regulatória](https://legislacao-automotiva.pages.dev/#knowledge) apresenta
+294 fichas de atos e 40 fichas de fontes, além de dois candidatos separados para
+revisão. As fichas registram o conteúdo disponível, fontes, qualificações e
+lacunas; não representam as íntegras de todas as leis nem uma revisão integral do
+acervo. O [índice Markdown publicado](https://legislacao-automotiva.pages.dev/knowledge/README.md)
+é a entrada documental para pessoas e ferramentas de IA.
 
-O monitor diário observa fontes/índices e mantém fila de revisão; sua agenda só passa a executar após o workflow integrar o ramo padrão. A revisão humana dos efeitos e da aplicabilidade continua separada da coleta. Conclusões de processos salvos em outra versão da base são sinalizadas para nova conferência, com notas e referências preservadas.
+`npm run build:data` gera `knowledge/`: Markdown por ato/fonte, JSONL, relações,
+candidatos separados e um manifesto com hashes e revisão. `npm run check:knowledge`
+verifica os artefatos. Crie um SQLite FTS5 com
+`python scripts/build_regulatory_knowledge.py --sqlite /tmp/homologacao.sqlite` e
+consulte com
+`python scripts/query_regulatory_knowledge.py --database /tmp/homologacao.sqlite --query "LCM PROMOT"`.
+O SQLite é uma cópia local opcional; a publicação estática disponibiliza os
+Markdown e índices estruturados. Não há API remota de consulta, PostgreSQL ou
+assistente de IA conectado. A arquitetura proposta para essa expansão está em
+[arquitetura-base-regulatoria.md](docs/guide/arquitetura-base-regulatoria.md), com
+operação em [atualizacoes-e-operacao.md](docs/guide/atualizacoes-e-operacao.md).
+
+O workflow de monitoramento já integra a `main`, com agenda diária às 09h17 UTC
+e acionamento manual. Ele observa fontes/índices e mantém uma fila de revisão;
+não publica alterações normativas automaticamente nem transforma mudanças de
+HTTP ou hash em revisão jurídica. A revisão humana dos efeitos e da
+aplicabilidade continua separada da coleta. Conclusões de processos salvos em
+outra versão da base são sinalizadas para nova conferência, com notas e
+referências preservadas.

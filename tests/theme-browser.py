@@ -1,6 +1,7 @@
 """Exercise real palette changes, persistence, map states and blocked storage."""
 
 import asyncio
+from browser_support import reference_vehicle_url
 from pathlib import Path
 from playwright.async_api import async_playwright, expect
 from browser_support import (
@@ -14,9 +15,9 @@ from browser_support import (
 ROOT = Path(__file__).resolve().parents[1]
 KEY = "legislacao-automotiva.theme"
 PALETTES = {
-    "dark": ("rgb(11, 12, 15)", "rgb(23, 25, 30)"),
+    "dark": ("rgb(11, 12, 15)", "rgb(28, 28, 30)"),
     "light": ("rgb(244, 246, 248)", "rgb(255, 255, 255)"),
-    "aurora": ("rgb(8, 15, 25)", "rgb(21, 30, 41)"),
+    "aurora": ("rgb(8, 15, 25)", "rgb(24, 34, 47)"),
 }
 
 
@@ -29,7 +30,11 @@ async def main(base):
         )
         page = await context.new_page()
         page.on("pageerror", lambda error: errors.append(str(error)))
-        await page.goto(base + "#vehicle?focus=bancos&part=peca_08_banco_traseiro")
+        await page.goto(
+            reference_vehicle_url(
+                base + "#vehicle?focus=bancos&part=peca_08_banco_traseiro"
+            )
+        )
         await wait_for_route(page)
         picker = page.get_by_label("Tema", exact=True)
         await expect(picker).to_have_value("dark")
@@ -73,7 +78,7 @@ async def main(base):
                 "markings",
                 "inmetro?record=inmetro-145-2022",
             ]:
-                await page.goto(base + "#" + route)
+                await page.goto(reference_vehicle_url(base + "#" + route))
                 await wait_for_route(page)
                 await expect(picker).to_have_value(theme)
                 assert (
@@ -82,14 +87,19 @@ async def main(base):
                     )
                     == background
                 )
-                assert (
-                    await picker.evaluate("e=>getComputedStyle(e).backgroundColor")
-                    == surface
+                picker_surface = await picker.evaluate(
+                    "e=>getComputedStyle(e).backgroundColor"
+                )
+                assert picker_surface == surface, (
+                    theme,
+                    route,
+                    picker_surface,
+                    surface,
                 )
                 assert await page.evaluate(
                     "document.documentElement.scrollWidth<=innerWidth"
                 ), (theme, route)
-            await page.goto(base + "#vehicle?focus=bancos")
+            await page.goto(reference_vehicle_url(base + "#vehicle?focus=bancos"))
             await wait_for_route(page)
             seat = page.locator(
                 "#vehicleDrawing #peca_09_bancos_dianteiros_console path"
@@ -130,7 +140,7 @@ async def main(base):
 
         # A second tab follows a preference change without a reload.
         other = await context.new_page()
-        await other.goto(base + "#library")
+        await other.goto(reference_vehicle_url(base + "#library"))
         await wait_for_route(other)
         await select_theme(page, "light")
         await expect(other.get_by_label("Tema", exact=True)).to_have_value("light")
@@ -168,10 +178,10 @@ async def main(base):
         });""")
         page = await blocked.new_page()
         page.on("pageerror", lambda error: errors.append(str(error)))
-        await page.goto(base + "#vehicle")
+        await page.goto(reference_vehicle_url(base + "#vehicle"))
         await wait_for_route(page)
         await select_theme(page, "light")
-        await page.goto(base + "#flow")
+        await page.goto(reference_vehicle_url(base + "#flow"))
         await wait_for_route(page)
         await expect(page.get_by_label("Tema", exact=True)).to_have_value("light")
         assert not errors, errors

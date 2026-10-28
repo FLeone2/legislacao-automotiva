@@ -1,13 +1,14 @@
 """Flow navigation keeps document context, focus and route state in sync."""
 
 import asyncio
+from browser_support import reference_vehicle_url
 from urllib.parse import parse_qs, urlsplit
 from playwright.async_api import async_playwright, expect
 from browser_support import TestServer, launch_options, wait_for_route
 
 
 async def open_reference(page, base):
-    await page.goto(base + "#library?agency=INMETRO&q=145")
+    await page.goto(reference_vehicle_url(base + "#library?agency=INMETRO&q=145"))
     await wait_for_route(page)
     await page.locator(".document [data-open]").click()
     await expect(page.locator("#normDialog")).to_be_visible()
@@ -57,7 +58,7 @@ async def main(base):
                 await expect(page.locator(".component-graph")).to_be_visible()
 
         # Keyboard activation enters the expanded stage rather than losing focus.
-        await page.goto(base + "#flow")
+        await page.goto(reference_vehicle_url(base + "#flow"))
         await wait_for_route(page)
         await page.locator('[data-flow-stage="construcao"]').focus()
         await page.keyboard.press("Enter")

@@ -1,0 +1,86 @@
+/* The regulatory bank uses the shared portal typography, surfaces and states. */
+.knowledge-page {
+  min-width: 0;
+}
+.knowledge-counts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  padding-block: 24px;
+  margin-block: 0 24px;
+  border-block: 1px solid var(--p-line, var(--line));
+}
+.knowledge-counts div {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 8px;
+}
+.knowledge-counts dt {
+  color: var(--p-muted, var(--muted));
+  font-size: 13px;
+  line-height: 1.5;
+}
+.knowledge-counts dd {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  font-variant-numeric: tabular-nums;
+}
+.knowledge-record-states {
+  display: grid;
+  gap: 12px;
+  margin-block: 20px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.knowledge-record-states div {
+  display: grid;
+  grid-template-columns: minmax(100px, 150px) minmax(0, 1fr);
+  gap: 16px;
+}
+.knowledge-record-states dt {
+  color: var(--p-muted, var(--muted));
+}
+.knowledge-record-states dd {
+  margin: 0;
+}
+.knowledge-provenance {
+  margin-top: 16px;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--p-muted, var(--muted));
+}
+.knowledge-provenance summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: var(--p-link, var(--ink));
+}
+.knowledge-provenance :is(p, code),
+.knowledge-record h3 {
+  overflow-wrap: anywhere;
+}
+.knowledge-candidates {
+  margin-block: 48px;
+}
+.knowledge-candidates[hidden] {
+  display: none;
+}
+.knowledge-access .portal-actions {
+  margin-block: 20px;
+}
+@media (max-width: 650px) {
+  .knowledge-counts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 16px;
+  }
+  .knowledge-counts dd {
+    font-size: 30px;
+  }
+  .knowledge-record-states div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+  }
+}

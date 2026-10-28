@@ -1,4 +1,5 @@
 import asyncio
+from browser_support import reference_vehicle_url
 from pathlib import Path
 from playwright.async_api import async_playwright
 from browser_support import TestServer, launch_options
@@ -15,7 +16,7 @@ async def point(page, xy):
 
 
 async def overview(page):
-    await page.goto(BASE + "#vehicle?all=1")
+    await page.goto(reference_vehicle_url(BASE + "#vehicle?all=1"))
     await page.locator("#vehicleDrawing").wait_for()
     await page.evaluate("document.fonts.ready")
     await page.wait_for_timeout(150)
@@ -228,7 +229,9 @@ async def main():
         await page.locator('[data-graph-action="fit"]').click()
         await page.locator('[data-graph-action="reset"]').click()
         for component in points:
-            await page.goto(BASE + "#vehicle?component=" + component)
+            await page.goto(
+                reference_vehicle_url(BASE + "#vehicle?component=" + component)
+            )
             await flow(page)
             assert await page.locator("#main h1").inner_text()
         # Keyboard alternative and real clicks on mobile (no document overflow).
@@ -255,13 +258,13 @@ async def main():
         await page.keyboard.press("Enter")
         await flow(page)
         assert vehicle_url_has(page, "lane=ambiental")
-        await page.goto(BASE + "#vehicle?component=missing")
+        await page.goto(reference_vehicle_url(BASE + "#vehicle?component=missing"))
         await page.locator("#vehicleDrawing").wait_for()
         assert (
             "Componente não encontrado"
             in await page.locator("#main [role=status]").inner_text()
         )
-        await page.goto(BASE + "#vehicle?component=motor")
+        await page.goto(reference_vehicle_url(BASE + "#vehicle?component=motor"))
         await flow(page)
         await page.evaluate(
             "catalog.records=[];catalog.canonicalRecords=[];renderVehicle()"
@@ -281,7 +284,7 @@ async def main():
         await page.unroute(motor_asset)
         # Existing application views remain intact.
         for view in ["tree", "mover", "library", "flow", "updates", "ai"]:
-            await page.goto(BASE + "#" + view)
+            await page.goto(reference_vehicle_url(BASE + "#" + view))
             await page.locator("#main h1").wait_for()
             assert await page.locator("#main h1").inner_text()
         # Real touch-capable browser context and motion-enabled transition smoke.

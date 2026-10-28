@@ -1,7 +1,7 @@
 import asyncio, os
 from pathlib import Path
 from playwright.async_api import async_playwright
-from browser_support import launch_options
+from browser_support import launch_options, reference_vehicle_url
 
 BASE = os.environ.get("VEHICLE_TEST_URL", "http://127.0.0.1:8000/").rstrip("/") + "/"
 OUT = Path(__file__).parent / "artifacts"
@@ -16,7 +16,7 @@ async def main():
         )
         errors = []
         page.on("pageerror", lambda e: errors.append(str(e)))
-        await page.goto(BASE + "#vehicle")
+        await page.goto(reference_vehicle_url(BASE + "#vehicle"))
         await page.locator("#vehicleDrawing").wait_for()
         cases = await page.evaluate(
             """()=>catalog.metadata.hierarchy.filter(g=>g.physical).flatMap(g=>g.children.map(s=>{const c=vehicleComponents.find(c=>ComponentFlow.subsystems(c,catalog.metadata.hierarchy).some(x=>x.id===s.id));return {component:c.id,id:s.id,label:s.label,asset:ComponentFlow.art({...s,system:g.id},catalog.metadata.hierarchy).asset}}))"""
@@ -28,11 +28,13 @@ async def main():
             assert response.headers.get("content-type", "").startswith("image/"), asset
         for case in cases:
             await page.goto(
-                BASE
-                + "#vehicle?component="
-                + case["component"]
-                + "&subsystem="
-                + case["id"]
+                reference_vehicle_url(
+                    BASE
+                    + "#vehicle?component="
+                    + case["component"]
+                    + "&subsystem="
+                    + case["id"]
+                )
             )
             await page.locator(".component-graph").wait_for()
             assert await page.locator("#main h1").inner_text() == case["label"], case
@@ -50,7 +52,7 @@ async def main():
             )
             assert actual == expected, (case, actual, expected)
         # Real region click and return, preserving selected subsystem through refresh.
-        await page.goto(BASE + "#vehicle?component=freios")
+        await page.goto(reference_vehicle_url(BASE + "#vehicle?component=freios"))
         await page.locator(".subsystem-board").wait_for()
         board = page.locator(".subsystem-board")
         await board.scroll_into_view_if_needed()
@@ -73,7 +75,7 @@ async def main():
             path=str(OUT / "sistema-freios-completo.png"), full_page=True
         )
         # All four occupant-protection subsystems are separate graphical entries.
-        await page.goto(BASE + "#vehicle?component=bancos")
+        await page.goto(reference_vehicle_url(BASE + "#vehicle?component=bancos"))
         await page.locator(".subsystem-board").wait_for()
         assert await page.locator(".subsystem-card").count() == 4
         await page.locator(

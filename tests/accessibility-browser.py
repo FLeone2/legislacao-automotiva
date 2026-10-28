@@ -1,6 +1,7 @@
 """Run real axe checks and keyboard/mobile navigation regression checks."""
 
 import asyncio
+from browser_support import reference_vehicle_url
 import json
 from pathlib import Path
 from playwright.async_api import async_playwright
@@ -59,7 +60,7 @@ async def main(base):
             for theme in ("dark", "light", "aurora")
             for route, ready in routes
         ]:
-            await page.goto(base + "#" + route)
+            await page.goto(reference_vehicle_url(base + "#" + route))
             await page.locator(ready).first.wait_for()
             await select_theme(page, theme)
             await page.add_script_tag(
@@ -81,7 +82,7 @@ async def main(base):
                         ],
                     }
                 )
-        await page.goto(base + "#vehicle")
+        await page.goto(reference_vehicle_url(base + "#vehicle"))
         # A fresh document starts the tab sequence; changing a hash deliberately
         # retains the compact preference trigger's keyboard focus.
         await page.reload()

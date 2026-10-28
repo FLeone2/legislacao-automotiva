@@ -112,12 +112,12 @@ function TraceRecord({ record, bridge }) {
     </article>
   );
 }
-export default function TraceabilityInspector({ part, profile, bridge }) {
+export default function TraceabilityInspector({ part, profile, bridge, modelKind }) {
   const [trace, setTrace] = useState(() => bridge.traceability(part, profile));
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [retry, setRetry] = useState(0);
-  const preview = modelThumbnail(part, sceneKind(profile?.category));
+  const preview = modelThumbnail(part, modelKind || sceneKind(profile?.category));
   const [previewError, setPreviewError] = useState(false);
   useEffect(() => setPreviewError(false), [preview?.assetUrl]);
   useEffect(() => {
@@ -230,7 +230,7 @@ export default function TraceabilityInspector({ part, profile, bridge }) {
           )}
           <details className="g-trace-archive">
             <summary>Referência histórica 2D</summary>
-            <a href="#vehicle" aria-label="Abrir prancha original do veículo">
+            <a href="#vehicle?view=reference" aria-label="Abrir prancha original do veículo">
               {trace.visual.referenceArt || part.referenceArt ? (
                 (() => {
                   const art = trace.visual.referenceArt || part.referenceArt;
@@ -268,7 +268,7 @@ export default function TraceabilityInspector({ part, profile, bridge }) {
             {trace.visual.referenceImages.map((ref) => (
               <a
                 key={ref.legacyPartId}
-                href={'#vehicle?part=' + encodeURIComponent(ref.legacyPartId)}
+                href={'#vehicle?view=reference&part=' + encodeURIComponent(ref.legacyPartId)}
               >
                 <code>{ref.legacyPartId}</code>
               </a>

@@ -8,7 +8,11 @@ let renderSequence = 0;
 async function render() {
   const renderId = ++renderSequence;
   const main = $('#main');
-  if (typeof disposeGuide === 'function') disposeGuide();
+  if (
+    typeof disposeGuide === 'function' &&
+    !(typeof keepVehicleExplorer === 'function' && keepVehicleExplorer())
+  )
+    disposeGuide();
   const previousView = main.dataset.view;
   const previousRoute = main.dataset.renderedRoute;
   main.setAttribute('aria-busy', 'true');
@@ -35,6 +39,7 @@ async function render() {
         'mover',
         'vehicle',
         'library',
+        'knowledge',
         'flow',
         'updates',
         'ai',
@@ -48,6 +53,10 @@ async function render() {
     )
       state.view = 'guide';
     main.dataset.view = state.view;
+    if (typeof PortalContext !== 'undefined') {
+      PortalContext.rememberRoute(location.hash);
+      PortalContext.renderBar(state.view);
+    }
     $('#app').classList.toggle(
       'contran-mode',
       ['contran', 'proconve', 'inmetro', 'anatel', 'markings'].includes(state.view),
@@ -64,6 +73,8 @@ async function render() {
       $('#app').classList.remove('vehicle-flow-mode', 'vehicle-overview-mode');
     }
     if (['tree', 'mover'].includes(state.view)) {
+      if (typeof ensureVehiclePreviews === 'function') await ensureVehiclePreviews();
+      if (renderId !== renderSequence) return;
       restoreRegulatoryTreeRoute(state.view);
       renderTree(state.view);
       return;
@@ -73,17 +84,24 @@ async function render() {
       return;
     }
     if (state.view === 'vehicle') {
-      renderVehicle();
+      if (typeof ensureVehiclePreviews === 'function') await ensureVehiclePreviews();
+      if (renderId !== renderSequence) return;
+      await renderVehicle();
       return;
     }
     if (state.view === 'flow') {
+      if (typeof ensureVehiclePreviews === 'function') await ensureVehiclePreviews();
+      if (renderId !== renderSequence) return;
       renderFlow();
       return;
     }
     restoreAssistantPanel();
+    if (typeof ensureVehiclePreviews === 'function') await ensureVehiclePreviews();
+    if (renderId !== renderSequence) return;
     await {
       vehicle: renderVehicle,
       library: renderLibrary,
+      knowledge: renderKnowledge,
       flow: renderFlow,
       updates: renderUpdates,
       ai: renderAI,

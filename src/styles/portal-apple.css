@@ -1,0 +1,2205 @@
+/* Shared portal presentation. Load after structural styles and before the
+   approved guide refinement. Domain data, diagram coordinates and 3D stay intact. */
+:root {
+  --p-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  --p-action: #0071e3;
+  --p-action-hover: #0064c8;
+  --p-link: #91c8ff;
+  --p-selected: rgba(145, 200, 255, 0.1);
+  --p-panel: #1c1c1e;
+  --p-inset: #131315;
+  --p-raised: #27272a;
+  --p-line: #38383d;
+  --p-muted: #b4b4bd;
+  --p-field: #73737d;
+  --p-focus: #92c8ff;
+  --p-gutter: 36px;
+}
+
+html[data-theme='light'] {
+  --p-link: #0066cc;
+  --p-selected: rgba(0, 102, 204, 0.07);
+  --p-panel: #fff;
+  --p-inset: #f5f5f7;
+  --p-raised: #eaeaee;
+  --p-line: #d7d7dd;
+  --p-muted: #51515b;
+  --p-field: #84848e;
+  --p-focus: #005fc7;
+}
+
+html[data-theme='aurora'] {
+  --p-link: #a8d0ff;
+  --p-selected: rgba(168, 208, 255, 0.1);
+  --p-panel: #18222f;
+  --p-inset: #111b27;
+  --p-raised: #243345;
+  --p-line: #415268;
+  --p-muted: #c0cad9;
+  --p-field: #8196b0;
+  --p-focus: #a8d0ff;
+}
+
+html[data-theme] body {
+  font-family: var(--p-font);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+/* The same shell surrounds every destination. */
+#app .topbar {
+  height: 88px;
+  padding-inline: var(--p-gutter);
+  gap: 24px;
+}
+
+#app .brand-mark {
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  color: var(--ink);
+}
+
+#app .primary-nav {
+  background: transparent;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+#app .primary-nav a {
+  min-height: 44px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+#app .primary-nav a.active {
+  color: var(--ink);
+  background: var(--surface-3);
+}
+
+#app .search-trigger {
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+}
+
+#app .country::before {
+  display: none;
+}
+
+#app .topbar :is(a, button, select):focus-visible,
+#app .sidebar :is(a, button, select, summary):focus-visible {
+  outline: 2px solid var(--p-focus);
+  outline-offset: 3px;
+}
+
+#app .sidebar {
+  top: 76px;
+  right: var(--p-gutter);
+  border: 1px solid var(--p-line);
+  border-radius: 16px;
+  padding: 14px;
+  background: var(--p-panel);
+  box-shadow: 0 12px 40px #00000020;
+  backdrop-filter: none;
+}
+
+#app .secondary-nav a {
+  min-height: 44px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+#app .secondary-nav a:is(:hover, .active) {
+  background: var(--p-selected);
+  color: var(--p-link);
+}
+
+#app .nav-source-group summary {
+  min-height: 44px;
+  padding-block: 12px;
+  font-size: 13px;
+}
+
+#app .theme-picker {
+  border-color: var(--p-line);
+}
+
+#app .theme-picker select,
+#app #contextProfiles select {
+  min-height: 44px;
+  border: 1px solid var(--p-field);
+  border-radius: 10px;
+  background: var(--p-inset);
+  font-size: 13px;
+  color: var(--ink);
+}
+
+/* Page hooks shared by the classic consultation views. */
+#app:not(.guide-mode) :is(.portal-header, .portal-page-heading) {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px 32px;
+  margin-block: 0 32px;
+}
+
+#app:not(.guide-mode) .portal-title {
+  font-size: 44px;
+  line-height: 1.12;
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  margin: 0;
+}
+
+#app:not(.guide-mode) .portal-eyebrow {
+  margin-bottom: 12px;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 500;
+  color: var(--p-muted);
+}
+
+#app:not(.guide-mode) .portal-summary {
+  max-width: 74ch;
+  margin-block: 14px 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--p-muted);
+}
+
+#app:not(.guide-mode) :is(.portal-actions, .portal-context-actions) {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+}
+
+#app:not(.guide-mode) .portal-section-heading {
+  margin-bottom: 16px;
+}
+
+#app:not(.guide-mode) .portal-section-heading h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+}
+
+#app:not(.guide-mode) .portal-section-heading p {
+  margin-block: 8px 0;
+  color: var(--p-muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+#app:not(.guide-mode) .portal-context-card {
+  margin-block: 24px;
+  padding: 20px 0;
+  border-block: 1px solid var(--p-line);
+  background: transparent;
+  color: var(--ink);
+}
+
+#app:not(.guide-mode) .portal-context-card h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+}
+
+#app:not(.guide-mode) :is(.portal-context-card p, .portal-context-meta) {
+  max-width: 80ch;
+  color: var(--p-muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+#app:not(.guide-mode) .portal-context-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  color: var(--p-link);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+#app .portal-context-bar:not([hidden]) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin: 0 var(--p-gutter);
+  padding-block: 12px;
+  border-block: 1px solid var(--p-line);
+  color: var(--p-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+#app .portal-context-bar :is(p, strong, small) {
+  margin: 0;
+}
+
+#app .portal-context-bar .portal-context-text {
+  min-width: 0;
+  flex: 1 1 220px;
+}
+
+#app .portal-context-bar .portal-context-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex: 0 1 auto;
+  gap: 8px 12px;
+}
+
+#app .portal-context-bar strong {
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 550;
+}
+
+#app .portal-context-bar small {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+}
+
+#app .portal-context-bar a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--p-link);
+  font-size: 13px;
+}
+
+/* Shared rhythm; the guide retains its own approved workspace. */
+#app:not(.guide-mode) .body-layout {
+  padding: 28px var(--p-gutter) 48px;
+  gap: 32px;
+}
+
+#app:not(.guide-mode) #main {
+  font-family: var(--p-font);
+  min-width: 0;
+}
+
+#app:not(.guide-mode) :is(.portal-page-head, .obsidian-page-head, .homologation-heading) {
+  gap: 32px;
+  margin-block: 0 32px;
+}
+
+#app:not(.guide-mode)
+  :is(
+    #main > h1,
+    .portal-page-head h1,
+    .obsidian-page-head h1,
+    .homologation-heading h1,
+    .tree-page-head h1,
+    .regulatory-history h1,
+    .regulatory-procedure-guide h1
+  ) {
+  margin: 0;
+  font-size: 44px;
+  line-height: 1.12;
+  font-weight: 650;
+  letter-spacing: -0.035em;
+}
+
+#app:not(.guide-mode)
+  :is(.subtitle, .portal-page-head p, .obsidian-page-head p, .homologation-heading p) {
+  max-width: 74ch;
+  margin-block: 14px 0;
+  color: var(--p-muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+#app:not(.guide-mode)
+  :is(
+    .portal-page-actions,
+    .view-heading-actions,
+    .consultation-query-actions,
+    .consultation-shortcuts,
+    .actions
+  ) {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+}
+
+#app:not(.guide-mode) :is(.btn, .aurora-primary) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--p-line);
+  border-radius: 999px;
+  background: transparent;
+  box-shadow: none;
+  color: var(--ink);
+  font: 550 13px/1.45 var(--p-font);
+  text-align: center;
+  white-space: normal;
+  transition:
+    background-color 150ms ease-out,
+    border-color 150ms ease-out;
+}
+
+#app:not(.guide-mode) :is(.btn:hover, .document .links button:hover) {
+  background: var(--p-raised);
+}
+
+#app:not(.guide-mode) :is(.btn.primary, .aurora-primary) {
+  background: var(--p-action);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: none;
+}
+
+#app:not(.guide-mode) :is(.btn.primary:hover, .aurora-primary:hover) {
+  background: var(--p-action-hover);
+  color: #fff;
+}
+
+#app:not(.guide-mode)
+  :is(.text-button, .tree-permalink, .tree-footer button, .aurora-library-link) {
+  min-height: 44px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--p-link);
+}
+
+#app:not(.guide-mode)
+  :is(
+    .component-breadcrumb a,
+    .document .links,
+    .document .links a,
+    .contran-results-heading a,
+    .contran-method a,
+    .contran-reference,
+    .contran-component-link a,
+    .contran-evidence a,
+    .contran-extra-link,
+    .scope-note a,
+    .tree-permalink,
+    .transversal a
+  ) {
+  color: var(--p-link);
+  text-underline-offset: 0.18em;
+}
+
+#app:not(.guide-mode) :is(input:not([type='checkbox']):not([type='radio']), select, textarea) {
+  min-height: 44px;
+  max-width: 100%;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--p-field);
+  border-radius: 10px;
+  background: var(--p-panel);
+  color: var(--ink);
+  font: 400 13px/1.5 var(--p-font);
+  caret-color: var(--p-link);
+}
+
+#app:not(.guide-mode) :is(input, textarea)::placeholder {
+  color: var(--p-muted);
+  opacity: 1;
+}
+
+#app:not(.guide-mode) :is(button, a, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--p-focus);
+  outline-offset: 3px;
+}
+
+#app:not(.guide-mode) :is(.graph-viewport, [role='tabpanel']):focus-visible {
+  outline-offset: -3px;
+}
+
+#app:not(.guide-mode)
+  :is(
+    .scope-note,
+    .detail-intro,
+    .profile-notice,
+    .regulatory-filter-note,
+    .library-query-summary,
+    .count-line,
+    .homologation-reading-note
+  ) {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--p-muted);
+}
+
+#app:not(.guide-mode) :is(.notice, .tree-warning, .tree-caveat, .contran-temporal) {
+  padding: 14px 16px;
+  border: 1px solid var(--warning-line);
+  border-radius: 10px;
+  background: var(--warning-soft);
+  color: var(--warning);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+#app:not(.guide-mode) :is(.tag, .pill, .status, .contran-status, .contran-tags span) {
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: var(--p-inset);
+  color: var(--p-muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+#app:not(.guide-mode) .contran-status.pending {
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+#app:not(.guide-mode) .empty {
+  border: 1px solid var(--p-line);
+  border-radius: 12px;
+  padding: 40px 24px;
+  color: var(--p-muted);
+}
+
+/* Library and agency consultations: one readable document list. */
+#app:not(.guide-mode)
+  :is(
+    .consultation-help,
+    .consultation-sources,
+    .contran-method,
+    .regulatory-categories,
+    .procedure-directory,
+    .portal-filter-panel
+  ) {
+  margin-block: 24px;
+  padding: 16px 20px;
+  border: 1px solid var(--p-line);
+  border-radius: 12px;
+  background: transparent;
+  box-shadow: none;
+  color: var(--p-muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+#app:not(.guide-mode)
+  :is(
+    .consultation-help,
+    .consultation-sources,
+    .contran-method,
+    .regulatory-categories,
+    .procedure-directory
+  )
+  summary {
+  min-height: 44px;
+  padding-block: 10px;
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 550;
+}
+
+#app:not(.guide-mode) .library-toolbar {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-block: 24px 16px;
+  padding: 20px;
+  background: var(--p-inset);
+  border: 0;
+  border-radius: 12px;
+}
+
+#app:not(.guide-mode) .library-toolbar > input {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+#app:not(.guide-mode) .library-toolbar :is(input, select) {
+  width: 100%;
+}
+
+#app:not(.guide-mode) .library-toolbar > .btn {
+  justify-self: start;
+}
+
+#app:not(.guide-mode) .portal-filter-panel {
+  padding: 24px;
+  border: 0;
+  background: var(--p-inset);
+}
+
+#app:not(.guide-mode) .portal-filter-panel .library-toolbar {
+  padding: 0;
+  margin-block: 20px 16px;
+  background: transparent;
+}
+
+#app:not(.guide-mode) :is(.consultation-query-actions, .library-query-summary) {
+  margin-block: 12px;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+#app:not(.guide-mode) .count-line {
+  margin-block: 24px 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+#app:not(.guide-mode) #documents {
+  border-top: 1px solid var(--p-line);
+}
+
+#app:not(.guide-mode) :is(.document, .contran-record, .update-card, .marking-record) {
+  padding: 28px 0;
+  margin: 0;
+  border: 0;
+  border-bottom: 1px solid var(--p-line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+#app:not(.guide-mode)
+  :is(.document h3, .contran-record h2, .contran-record h3, .update-card h3, .marking-record h3) {
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+
+#app:not(.guide-mode) :is(.document p, .contran-subject, .update-card p, .marking-record p) {
+  max-width: 85ch;
+  color: var(--p-muted);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+#app:not(.guide-mode) :is(.document .document-context, .document .links, .document .links button) {
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+#app:not(.guide-mode) .document .links button {
+  min-height: 44px;
+  border-radius: 6px;
+  color: var(--p-link);
+  padding: 8px 0;
+}
+
+#app:not(.guide-mode) :is(.consultation-source-grid, .regulatory-categories > div) {
+  gap: 10px;
+}
+
+#app:not(.guide-mode) .contran-source {
+  margin-block: 24px;
+  padding: 16px 0;
+  border: 0;
+  border-block: 1px solid var(--p-line);
+  border-radius: 0;
+  background: transparent;
+}
+
+#app:not(.guide-mode) .contran-source :is(strong, span) {
+  font-size: 13px;
+  color: var(--p-muted);
+}
+
+#app:not(.guide-mode) .contran-source strong {
+  color: var(--ink);
+}
+
+#app:not(.guide-mode) .contran-notice {
+  padding: 16px 20px;
+  border: 1px solid var(--p-line);
+  border-radius: 12px;
+  background: var(--p-inset);
+  color: var(--p-muted);
+}
+
+#app:not(.guide-mode) .contran-counts {
+  gap: 24px;
+  margin-block: 28px;
+}
+
+#app:not(.guide-mode) .contran-counts > div {
+  padding: 16px 0;
+  border: 0;
+  border-top: 1px solid var(--p-line);
+  border-radius: 0;
+}
+
+#app:not(.guide-mode) .contran-counts strong {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+#app:not(.guide-mode) .contran-counts span {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--p-muted);
+}
+
+#app:not(.guide-mode) .contran-filters {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: end;
+  gap: 16px;
+  padding: 20px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--p-inset);
+}
+
+#app:not(.guide-mode) .contran-filters label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--p-muted);
+}
+
+#app:not(.guide-mode) .contran-filters label:first-child,
+#app:not(.guide-mode) .contran-filters > .regulatory-filter-note {
+  grid-column: 1 / -1;
+}
+
+#app:not(.guide-mode) .contran-results-heading {
+  flex-wrap: wrap;
+  margin-block: 24px 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--p-line);
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--p-muted);
+}
+
+#app:not(.guide-mode) .contran-results-heading > div {
+  align-items: center;
+  gap: 10px 16px;
+}
+
+#app:not(.guide-mode) .contran-record-top {
+  align-items: baseline;
+}
+
+#app:not(.guide-mode) .regulatory-state-grid {
+  gap: 16px 24px;
+  margin-block: 20px;
+  padding: 16px 0;
+  border: 0;
+  border-block: 1px solid var(--p-line);
+  border-radius: 0;
+  background: transparent;
+}
+
+#app:not(.guide-mode) .regulatory-state-grid dt {
+  color: var(--p-muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+#app:not(.guide-mode) .regulatory-state-grid dd {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+#app:not(.guide-mode) .regulatory-state-grid small {
+  color: var(--p-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+#app:not(.guide-mode) .regulatory-requirements {
+  padding: 20px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+#app:not(.guide-mode) .regulatory-requirements > h3 {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+#app:not(.guide-mode) .regulatory-requirements > article {
+  padding: 20px;
+  margin-block: 16px 0;
+  border: 0;
+  border-radius: 12px;
+  background: var(--p-inset);
+}
+
+#app:not(.guide-mode) .regulatory-requirements h4 {
+  margin-block: 0 8px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+#app:not(.guide-mode) .regulatory-requirements :is(p, summary) {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--p-muted);
+}
+
+#app:not(.guide-mode) .regulatory-requirements summary {
+  min-height: 44px;
+  color: var(--p-link);
+}
+
+#app:not(.guide-mode) :is(.requirement-id, .contran-hash) {
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--p-muted);
+}
+
+#app:not(.guide-mode)
+  :is(
+    .contran-evidence,
+    .contran-method,
+    .record-lazy-content,
+    .regulatory-consultation,
+    .regulatory-timeline
+  ) {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--p-muted);
+}
+
+#app:not(.guide-mode) .contran-evidence {
+  border-color: var(--p-line);
+  padding-block: 12px 0;
+}
+
+#app:not(.guide-mode) .contran-evidence summary {
+  min-height: 44px;
+  display: list-item;
+  padding-block: 10px;
+  color: var(--p-link);
+}
+
+#app:not(.guide-mode) .contran-evidence dt {
+  font-size: 12px;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+#app:not(.guide-mode)
+  :is(
+    .regulatory-requirements,
+    .contran-evidence,
+    .regulatory-consultation,
+    .regulatory-history,
+    .regulatory-procedure-guide
+  )
+  blockquote {
+  margin: 12px 0;
+  padding: 12px 16px;
+  border: 0;
+  border-left: 2px solid var(--p-field);
+  border-radius: 0;
+  background: transparent;
+  color: var(--p-muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+#app:not(.guide-mode)
+  :is(
+    .requirement-context-links a,
+    .regulatory-system-links a,
+    .regulatory-category,
+    .component-lanes a,
+    .vehicle-part-topics a,
+    .vehicle-other-topics a,
+    .subsystem-parent
+  ) {
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--p-line);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--p-link);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+#app:not(.guide-mode)
+  :is(
+    .regulatory-category.selected,
+    .component-lanes a.active,
+    .vehicle-part-topics [aria-current='page'],
+    .regulatory-phases a.selected,
+    .regulatory-phases button[aria-current='page'],
+    .regulatory-phases button[aria-current='true']
+  ) {
+  border-color: var(--p-link);
+  background: var(--p-selected);
+  color: var(--p-link);
+}
+
+#app:not(.guide-mode) .contran-pagination {
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  font-size: 13px;
+  color: var(--p-muted);
+}
+
+/* Trees and flow keep their topology and coordinate space. */
+#app:not(.guide-mode) .tree-page-head {
+  margin-bottom: 24px;
+}
+
+#app:not(.guide-mode) .tree-context {
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 16px;
+}
+
+#app:not(.guide-mode) .tree-context > span:not(.context-note) {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--p-muted);
+  font-size: 12px;
+}
+
+#app:not(.guide-mode) .tree-context .context-note {
+  color: var(--p-muted);
+  font-size: 12px;
+}
+
+#app:not(.guide-mode) .tree-breadcrumb {
+  gap: 6px;
+  padding-block: 12px;
+  border-color: var(--p-line);
+  background: transparent;
+}
+
+#app:not(.guide-mode) .tree-breadcrumb button {
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 0;
+  background: transparent;
+  color: var(--p-muted);
+  font-size: 12px;
+}
+
+#app:not(.guide-mode) .tree-breadcrumb button:last-of-type {
+  color: var(--p-link);
+}
+
+#app:not(.guide-mode) .tree-presentation {
+  gap: 8px;
+  margin-block: 12px 20px;
+}
+
+html[data-theme] #app:not(.guide-mode) .tree-presentation [aria-pressed='true'] {
+  color: var(--p-link);
+  border-color: var(--p-link);
+  background: var(--p-selected);
+}
+
+#app:not(.guide-mode) :is(.graph-shell, .homologation-map-shell) {
+  border: 1px solid var(--p-line);
+  border-radius: 16px;
+  background: var(--p-inset);
+  box-shadow: none;
+}
+
+#app:not(.guide-mode) .graph-node {
+  background: var(--p-panel);
+  border-color: var(--p-line);
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+#app:not(.guide-mode) .graph-node.on-path {
+  background: var(--p-raised);
+  border-color: var(--p-field);
+}
+
+#app:not(.guide-mode) .graph-node.selected {
+  background: var(--p-selected);
+  border-color: var(--p-link);
+}
+
+#app:not(.guide-mode) .graph-node.selected .node-toggle {
+  background: var(--p-selected);
+  color: var(--p-link);
+}
+
+#app:not(.guide-mode) .graph-links path.chosen {
+  stroke: var(--p-link);
+}
+
+#app:not(.guide-mode) :is(.graph-controls, .graph-mini, .flow-map-tools) {
+  border: 1px solid var(--p-line);
+  border-radius: 10px;
+  background: var(--p-panel);
+  color: var(--p-muted);
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+#app:not(.guide-mode) .graph-controls :is(button, output) {
+  color: var(--p-muted);
+  font-size: 12px;
+}
+
+html[data-theme] #app:not(.guide-mode) .tree-text-list {
+  padding: 24px;
+  border: 1px solid var(--p-line);
+  border-radius: 16px;
+  background: var(--p-inset);
+}
+
+html[data-theme] #app:not(.guide-mode) .tree-text-list [data-tree-node] {
+  padding: 14px 16px;
+  min-height: 48px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--p-line);
+  border-radius: 0;
+  color: var(--ink);
+}
+
+html[data-theme] #app:not(.guide-mode) .tree-text-list .tree-list-current {
+  background: var(--p-selected);
+  border: 1px solid var(--p-link);
+  border-radius: 10px;
+  color: var(--p-link);
+}
+
+html[data-theme] #app:not(.guide-mode) .tree-list-documents .tree-doc {
+  margin: 0;
+  border: 0;
+  border-bottom: 1px solid var(--p-line);
+  background: transparent;
+}
+
+#app:not(.guide-mode) :is(.tree-doc, .tree-accordion) {
+  border: 0;
+  border-bottom: 1px solid var(--p-line);
+  border-radius: 0;
+  background: transparent;
+  padding-block: 16px;
+}
+
+#app:not(.guide-mode) .tree-doc strong {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+#app:not(.guide-mode)
+  :is(.tree-doc small, .tree-doc .tag, .tree-detail-top small, .tree-detail-footer small) {
+  color: var(--p-muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+#app:not(.guide-mode) .tree-accordion :is(summary, p) {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--p-muted);
+}
+
+#app:not(.guide-mode) .tree-accordion summary {
+  min-height: 44px;
+  align-items: center;
+  color: var(--ink);
+}
+
+#app:not(.guide-mode) .detail-tabs {
+  gap: 16px;
+  border-color: var(--p-line);
+}
+
+#app:not(.guide-mode) .detail-tabs button {
+  min-height: 44px;
+  padding-inline: 0;
+  color: var(--p-muted);
+  font-size: 13px;
+}
+
+#app:not(.guide-mode) .detail-tabs button.active {
+  border-color: var(--p-link);
+  color: var(--p-link);
+}
+
+#app:not(.guide-mode):is(.tree-mode, .vehicle-flow-mode):not(.homologation-flow-mode) #aiPanel,
+#app:not(.guide-mode) :is(.homologation-detail, .flow-context-panel) {
+  border: 1px solid var(--p-line);
+  border-radius: 16px;
+  background: var(--p-panel);
+  padding: 24px;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+#app:not(.guide-mode) :is(.tree-detail-top h2, .flow-context-panel h2) {
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+#app:not(.guide-mode) .homologation-profile {
+  gap: 16px;
+  margin-block: 24px;
+}
+
+#app:not(.guide-mode) .homologation-profile :is(label, p) {
+  font-size: 12px;
+  color: var(--p-muted);
+}
+
+#app:not(.guide-mode) .portal-field-label {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--p-muted);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+#app:not(.guide-mode) .flow-context-process {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin-top: 12px;
+  color: var(--p-link);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+#app:not(.guide-mode) .homologation-step,
+html[data-theme='light'] #app:not(.guide-mode) .homologation-step {
+  background: var(--p-panel);
+  border-color: var(--p-line);
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+#app:not(.guide-mode) .homologation-step:hover {
+  background: var(--p-raised);
+  border-color: var(--p-field);
+}
+
+#app:not(.guide-mode) .homologation-step.selected,
+html[data-theme='light'] #app:not(.guide-mode) .homologation-step.selected {
+  background: var(--p-selected);
+  border-color: var(--p-link);
+}
+
+#app:not(.guide-mode) .homologation-step.components .homologation-step-kicker b {
+  color: var(--p-link);
+}
+
+#app:not(.guide-mode) .homologation-connectors .flow-connection.components {
+  stroke: var(--p-link);
+}
+
+#app:not(.guide-mode) .flow-map-tools button {
+  min-height: 36px;
+  color: var(--p-muted);
+}
+
+#app:not(.guide-mode) .flow-context-scroll nav button[aria-current='true'] {
+  color: var(--p-link);
+}
+
+#app:not(.guide-mode) .homologation-activity-links .btn {
+  color: var(--p-link);
+}
+
+/* Vehicle overview, component pages and their textual alternatives. */
+#app:not(.guide-mode) .aurora-car-glass::before,
+#app:not(.guide-mode) .aurora-explorer::before {
+  background: none;
+}
+
+#app:not(.guide-mode) .aurora-explorer {
+  border: 1px solid var(--p-line);
+  border-radius: 16px;
+  background: var(--p-panel);
+  box-shadow: none;
+  backdrop-filter: none;
+  padding: 24px;
+}
+
+#app:not(.guide-mode) .aurora-explorer-heading h2 {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+#app:not(.guide-mode)
+  :is(
+    .inspector-meta,
+    .inspector-meta .vehicle-reference-count,
+    .inspector-footer p,
+    .aurora-subsystem small,
+    .vehicle-reference-group h3
+  ) {
+  font-size: 12px;
+  line-height: 1.65;
+  color: var(--p-muted);
+}
+
+#app:not(.guide-mode) :is(.inspector-reference, .aurora-subsystem) {
+  min-height: 44px;
+  border-color: var(--p-line);
+}
+
+#app:not(.guide-mode) :is(.inspector-reference:hover, .aurora-subsystem:hover) {
+  color: var(--p-link);
+}
+
+#app:not(.guide-mode)
+  :is(.inspector-reference strong, .aurora-subsystem strong, .inspector-topics summary) {
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+#app:not(.guide-mode) .aurora-directory {
+  padding: 16px 0;
+  margin-top: 24px;
+  border: 0;
+  border-block: 1px solid var(--p-line);
+  border-radius: 0;
+  background: transparent;
+}
+
+#app:not(.guide-mode) :is(.aurora-directory header > a, .aurora-system-card) {
+  min-height: 44px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+#app:not(.guide-mode) .aurora-system-card.selected {
+  background: var(--p-selected);
+  color: var(--p-link);
+  box-shadow: none;
+}
+
+#app:not(.guide-mode) :is(.vehicle-flow-shortcut, .transversal) {
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+#app:not(.guide-mode) .vehicle-drawing-tools {
+  border: 1px solid var(--p-line);
+  border-radius: 10px;
+  background: var(--p-panel);
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+#app:not(.guide-mode) :is(.component-flow-heading, .subsystem-explorer) {
+  padding: 24px;
+  border: 1px solid var(--p-line);
+  border-radius: 16px;
+  background: var(--p-inset);
+}
+
+#app:not(.guide-mode) :is(.subsystem-card, .component-card, .system-item, .subsystem) {
+  border-color: var(--p-line);
+  border-radius: 12px;
+  background: var(--p-panel);
+  box-shadow: none;
+  color: var(--ink);
+}
+
+#app:not(.guide-mode) :is(.subsystem-card.active, .component-card.is-hovered) {
+  border-color: var(--p-link);
+  background: var(--p-selected);
+}
+
+/* Identification, historical references and source review pages. */
+#app:not(.guide-mode) .markings-group {
+  padding: 28px 0;
+  margin-block: 24px;
+  border: 0;
+  border-top: 1px solid var(--p-line);
+  border-radius: 0;
+  background: transparent;
+}
+
+#app:not(.guide-mode) .markings-group > h2 {
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+#app:not(.guide-mode) .markings-group > p {
+  max-width: 80ch;
+  color: var(--p-muted);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+#app:not(.guide-mode) :is(.regulatory-history, .regulatory-procedure-guide) {
+  max-width: 1000px;
+  color: var(--p-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+#app:not(.guide-mode) :is(.regulatory-history, .regulatory-procedure-guide) section {
+  padding-block: 20px;
+  border-top: 1px solid var(--p-line);
+  margin-top: 24px;
+}
+
+#app:not(.guide-mode) :is(.regulatory-history, .regulatory-procedure-guide) h2 {
+  font-size: 24px;
+  line-height: 1.3;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+#app:not(.guide-mode) :is(.regulatory-history, .regulatory-procedure-guide) > details {
+  padding-block: 16px;
+  border-top: 1px solid var(--p-line);
+}
+
+#app:not(.guide-mode) :is(.regulatory-history, .regulatory-procedure-guide) summary {
+  min-height: 44px;
+  color: var(--p-link);
+}
+
+#app:not(.guide-mode) :is(.regulatory-history, .regulatory-procedure-guide) a:not(.btn) {
+  color: var(--p-link);
+}
+
+#app:not(.guide-mode) :is(.historical-search, .regulatory-timeline > ul > li) {
+  border: 1px solid var(--p-line);
+  border-radius: 12px;
+  background: var(--p-inset);
+}
+
+#app:not(.guide-mode) .update-card {
+  padding-block: 28px;
+}
+
+#app:not(.guide-mode) .wide-ai {
+  border: 1px solid var(--p-line);
+  border-radius: 16px;
+  background: var(--p-panel);
+  color: var(--ink);
+  padding: 28px;
+  box-shadow: none;
+}
+
+#app:not(.guide-mode) .wide-ai :is(.bubble, .bubble p) {
+  color: var(--p-muted);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+/* A real model-derived preview can accompany a consultation in any route. */
+#app:not(.guide-mode) .portal-model-preview {
+  max-width: 420px;
+  margin: 20px 0;
+  padding: 20px;
+  border: 0;
+  border-radius: 16px;
+  background: var(--p-inset);
+}
+
+#app:not(.guide-mode) .portal-model-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+#app:not(.guide-mode) .portal-model-preview figcaption {
+  margin-top: 12px;
+  color: var(--p-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+#app:not(.guide-mode) .portal-model-preview figcaption strong {
+  display: block;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 550;
+}
+
+#app:not(.guide-mode) .portal-model-preview figcaption :is(p, small) {
+  display: block;
+  margin-block: 8px 0;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+#app:not(.guide-mode) .portal-model-preview a {
+  color: var(--p-link);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+#app:not(.guide-mode) .portal-model-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+#app:not(.guide-mode) .portal-model-grid .portal-model-preview {
+  max-width: none;
+  margin: 0;
+}
+
+#app:not(.guide-mode) .portal-context-card:has(> .portal-model-preview) {
+  display: grid;
+  grid-template-columns: minmax(180px, 240px) minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+}
+
+#app:not(.guide-mode) .portal-context-card > .portal-model-preview {
+  margin: 0;
+}
+
+dialog:not(.g-modal) .portal-model-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+dialog:not(.g-modal) .portal-model-preview {
+  margin: 0;
+  padding: 16px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--p-inset);
+}
+
+dialog:not(.g-modal) .portal-model-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+}
+
+dialog:not(.g-modal) .portal-model-preview figcaption {
+  margin-top: 12px;
+  color: var(--p-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+dialog:not(.g-modal) .portal-model-preview figcaption :is(strong, small) {
+  display: block;
+}
+
+dialog:not(.g-modal) .portal-model-preview figcaption strong {
+  font-size: 13px;
+}
+
+/* Standalone 3D consultation shares the guide's visual language and model. */
+#app:not(.guide-mode) .portal-vehicle-explorer {
+  --g-line: var(--p-line);
+  --g-muted: var(--p-muted);
+  font: 400 15px/1.55 var(--p-font);
+}
+
+#app:not(.guide-mode) .portal-vehicle-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+#app:not(.guide-mode) .portal-vehicle-heading h1 {
+  margin: 0;
+  font-size: 44px;
+  line-height: 1.12;
+  font-weight: 650;
+  letter-spacing: -0.035em;
+}
+
+#app:not(.guide-mode) .portal-vehicle-heading p {
+  margin-top: 14px;
+  max-width: 74ch;
+  color: var(--p-muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+#app:not(.guide-mode)
+  :is(.portal-vehicle-modes, .portal-vehicle-consultation, .portal-vehicle-system-links) {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin-block: 16px;
+}
+
+#app:not(.guide-mode) .portal-vehicle-modes a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-block: 8px;
+  border-bottom: 2px solid transparent;
+  color: var(--p-muted);
+  font-size: 13px;
+}
+
+#app:not(.guide-mode) .portal-vehicle-modes a:is([aria-current='page'], [aria-current='true']) {
+  border-color: var(--p-link);
+  color: var(--p-link);
+}
+
+#app:not(.guide-mode) .portal-vehicle-consultation .g-button {
+  max-width: 100%;
+  white-space: normal;
+  text-align: center;
+}
+
+#app:not(.guide-mode) .portal-vehicle-filters {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-block: 20px 28px;
+}
+
+#app:not(.guide-mode) .portal-vehicle-filters label {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  color: var(--p-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+#app:not(.guide-mode) .portal-vehicle-explorer .g-visual-panel {
+  background: transparent;
+}
+
+#app:not(.guide-mode) .portal-vehicle-explorer .g-canvas-header {
+  padding: 16px 0;
+}
+
+#app:not(.guide-mode) .portal-vehicle-explorer .g-canvas-header h2 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+#app:not(.guide-mode) .portal-vehicle-explorer .g-parts-panel {
+  padding: 16px 20px;
+  background: transparent;
+}
+
+#app:not(.guide-mode) .portal-vehicle-explorer :is(.g-parts-title, .g-sidebar-heading) {
+  margin-bottom: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+#app:not(.guide-mode) .portal-vehicle-explorer .g-parts-tree summary {
+  min-height: 44px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+#app:not(.guide-mode) .portal-vehicle-explorer .g-parts-tree button {
+  min-height: 44px;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+#app:not(.guide-mode) .portal-vehicle-explorer .g-parts-tree button[aria-pressed='true'] {
+  color: var(--p-link);
+  background: var(--p-selected);
+}
+
+#app:not(.guide-mode) .portal-vehicle-explorer .g-parts-tree button > svg {
+  width: 14px;
+  height: 14px;
+  margin-left: auto;
+  flex: none;
+}
+
+#app:not(.guide-mode) .portal-vehicle-explorer :is(.g-part-inspector, .g-traceability) {
+  display: block;
+  padding: 32px 0;
+  background: transparent;
+}
+
+#app:not(.guide-mode) .portal-vehicle-explorer .g-inspector-title h2 {
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+#app:not(.guide-mode) .portal-vehicle-explorer .g-inspector-title p {
+  color: var(--p-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+#app:not(.guide-mode) .portal-vehicle-explorer .g-trace-layout {
+  grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+  gap: 40px;
+  align-items: start;
+}
+
+#app:not(.guide-mode) .portal-vehicle-explorer .g-trace-reference {
+  display: block;
+  min-width: 0;
+}
+
+#app:not(.guide-mode) .portal-vehicle-explorer .g-trace-model-preview {
+  margin: 0;
+  padding: 20px;
+  border: 0;
+  border-radius: 16px;
+  background: var(--p-inset);
+}
+
+#app:not(.guide-mode) .portal-vehicle-explorer .g-trace-model-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  margin: 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
+}
+
+#app:not(.guide-mode) .portal-vehicle-explorer .g-trace-model-caption {
+  margin-top: 16px;
+  color: var(--p-muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+#app:not(.guide-mode) .portal-vehicle-explorer .g-trace-model-caption strong {
+  display: block;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+#app:not(.guide-mode) .portal-vehicle-explorer .g-trace-archive {
+  padding-top: 16px;
+  margin-top: 20px;
+  border-top: 1px solid var(--p-line);
+}
+
+#app:not(.guide-mode) .portal-vehicle-explorer .g-trace-record {
+  padding: 24px 0;
+  margin: 0;
+  border: 0;
+  border-bottom: 1px solid var(--p-line);
+  border-radius: 0;
+  background: transparent;
+}
+
+#app:not(.guide-mode) .portal-vehicle-explorer .g-trace-conditions {
+  border-inline: 0;
+  border-radius: 0;
+  background: transparent;
+  padding-inline: 0;
+}
+
+#app:not(.guide-mode) .portal-vehicle-explorer .g-trace-provisions > div {
+  padding-left: 0;
+  border-left: 0;
+}
+
+#app:not(.guide-mode)
+  .portal-vehicle-explorer
+  :is(
+    .g-trace-meta,
+    .g-trace-state,
+    .g-trace-origin,
+    .g-trace-limits,
+    .g-model-attribution,
+    .g-trace-model-credit
+  ) {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--p-muted);
+}
+
+#app:not(.guide-mode)
+  .portal-vehicle-explorer
+  :is(.g-trace-provisions p, .g-trace-provisions strong, .g-trace-gap, .g-trace-assessment) {
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+#app:not(.guide-mode) .portal-vehicle-explorer :is(.g-model-attribution, .g-trace-model-credit) a {
+  color: var(--p-link);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+/* Dialogs are outside #app and remain scrollable in their native top layer. */
+html[data-theme] dialog:not(.g-modal) {
+  max-width: calc(100vw - 32px);
+  max-height: calc(100dvh - 32px);
+  padding: 32px;
+  border: 1px solid var(--p-line);
+  border-radius: 20px;
+  background: var(--p-panel);
+  color: var(--ink);
+  box-shadow: 0 24px 80px #00000038;
+  font-family: var(--p-font);
+}
+
+dialog:not(.g-modal)::backdrop {
+  background: var(--backdrop);
+  backdrop-filter: blur(6px);
+}
+
+dialog:not(.g-modal) h2 {
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  padding-right: 24px;
+}
+
+dialog:not(.g-modal) :is(p, dd, li) {
+  color: var(--p-muted);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+dialog:not(.g-modal) :is(a:not(.btn), .regulatory-requirements summary) {
+  color: var(--p-link);
+}
+
+dialog:not(.g-modal) :is(dl, .regulatory-requirements, .regulatory-state-grid) {
+  padding: 20px;
+  border: 1px solid var(--p-line);
+  border-radius: 12px;
+  background: var(--p-inset);
+}
+
+dialog:not(.g-modal) .regulatory-requirements > article {
+  border-color: var(--p-line);
+  background: var(--p-panel);
+  color: var(--ink);
+}
+
+dialog:not(.g-modal) .regulatory-requirements :is(.requirement-scope, .requirement-id) {
+  color: var(--p-muted);
+}
+
+dialog:not(.g-modal) dt {
+  color: var(--p-muted);
+  text-transform: none;
+  font-size: 12px;
+  font-weight: 550;
+}
+
+dialog:not(.g-modal) :is(.btn, .close, .icon-action) {
+  min-height: 44px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+dialog:not(.g-modal) .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border: 1px solid var(--p-line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font-weight: 550;
+}
+
+dialog:not(.g-modal) .btn.primary {
+  background: var(--p-action);
+  border-color: transparent;
+  color: #fff;
+}
+
+dialog:not(.g-modal) .btn.primary:hover {
+  background: var(--p-action-hover);
+}
+
+dialog:not(.g-modal) :is(button, a, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--p-focus);
+  outline-offset: 3px;
+}
+
+html[data-theme] .search-dialog:not(.g-modal) {
+  padding: 0;
+  border-color: var(--p-line);
+  background: var(--p-panel);
+}
+
+.search-dialog .search-head {
+  border-color: var(--p-line);
+}
+
+.search-dialog .search-head input {
+  min-height: 44px;
+  font-family: var(--p-font);
+  caret-color: var(--p-link);
+}
+
+.search-dialog .search-head:focus-within {
+  box-shadow: inset 0 -2px var(--p-link);
+}
+
+.search-dialog .search-head input:focus-visible {
+  outline: none;
+}
+
+.search-dialog .search-result {
+  border-radius: 10px;
+  min-height: 60px;
+}
+
+.search-dialog .search-result:is(:hover, [aria-selected='true']) {
+  background: var(--p-selected);
+}
+
+.search-dialog :is(.result-mark, .search-result em) {
+  background: transparent;
+  color: var(--p-muted);
+}
+
+.search-dialog :is(.search-foot, #searchStatus, .result-copy small) {
+  color: var(--p-muted);
+  border-color: var(--p-line);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+#toast {
+  border: 1px solid var(--p-line);
+  background: var(--p-panel);
+  color: var(--ink);
+  font: 400 13px/1.5 var(--p-font);
+}
+
+@media (max-width: 1200px) {
+  #app:not(.guide-mode) .contran-filters,
+  #app:not(.guide-mode) .library-toolbar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1100px) {
+  #app .topbar {
+    padding-inline: 24px;
+    gap: 16px;
+  }
+
+  #app .primary-nav a {
+    width: 104px;
+    font-size: 12px;
+    gap: 6px;
+  }
+
+  #app .toolbar {
+    gap: 4px;
+  }
+
+  #app .search-trigger {
+    min-width: 44px;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  #app .search-trigger > span:not([data-icon]) {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  :root {
+    --p-gutter: 24px;
+  }
+
+  #app .topbar {
+    height: 76px;
+  }
+
+  #app .primary-nav {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--appbar-bg);
+  }
+
+  #app .primary-nav a {
+    min-height: 44px;
+    width: calc((100% - 12px) / 4);
+    font-size: 11px;
+    gap: 5px;
+  }
+
+  #app .sidebar {
+    top: 70px;
+    right: 16px;
+  }
+
+  #app:not(.guide-mode) .body-layout {
+    padding-bottom: calc(120px + env(safe-area-inset-bottom));
+    gap: 24px;
+  }
+
+  #app:not(.guide-mode)
+    :is(
+      #main > h1,
+      .portal-page-head h1,
+      .obsidian-page-head h1,
+      .homologation-heading h1,
+      .tree-page-head h1,
+      .regulatory-history h1,
+      .regulatory-procedure-guide h1
+    ) {
+    font-size: 38px;
+  }
+
+  #app:not(.guide-mode) .contran-counts {
+    gap: 16px;
+  }
+
+  #app:not(.guide-mode) :is(.portal-title, .portal-vehicle-heading h1) {
+    font-size: 38px;
+  }
+
+  #toast {
+    bottom: calc(88px + env(safe-area-inset-bottom));
+    max-width: calc(100vw - 32px);
+  }
+}
+
+@media (max-width: 650px) {
+  :root {
+    --p-gutter: 16px;
+  }
+
+  #app .topbar {
+    height: 68px;
+    gap: 6px;
+  }
+
+  #app:not(.guide-mode) .body-layout {
+    padding-top: 24px;
+  }
+
+  #app:not(.guide-mode) :is(.portal-title, .portal-vehicle-heading h1) {
+    font-size: 32px;
+    line-height: 1.15;
+  }
+
+  #app:not(.guide-mode) :is(.portal-header, .portal-page-heading, .portal-vehicle-heading) {
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  #app:not(.guide-mode) :is(.portal-summary, .portal-vehicle-heading p) {
+    font-size: 14px;
+  }
+
+  #app:not(.guide-mode) .portal-context-bar {
+    gap: 8px;
+  }
+
+  #app:not(.guide-mode) .portal-context-bar .portal-context-actions > a {
+    min-height: 44px;
+  }
+
+  #app:not(.guide-mode)
+    :is(
+      #main > h1,
+      .portal-page-head h1,
+      .obsidian-page-head h1,
+      .homologation-heading h1,
+      .tree-page-head h1,
+      .regulatory-history h1,
+      .regulatory-procedure-guide h1
+    ) {
+    font-size: 32px;
+    line-height: 1.15;
+  }
+
+  #app:not(.guide-mode) :is(.portal-page-head, .obsidian-page-head, .homologation-heading) {
+    margin-bottom: 24px;
+  }
+
+  #app:not(.guide-mode)
+    :is(.subtitle, .portal-page-head p, .obsidian-page-head p, .homologation-heading p) {
+    max-width: none;
+    font-size: 14px;
+  }
+
+  #app:not(.guide-mode) :is(.portal-page-actions, .view-heading-actions) {
+    margin-top: 16px;
+  }
+
+  #app:not(.guide-mode) :is(.library-toolbar, .contran-filters) {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 16px;
+  }
+
+  #app:not(.guide-mode) .portal-filter-panel {
+    padding: 20px 16px;
+  }
+
+  #app:not(.guide-mode) .portal-filter-panel .library-toolbar {
+    padding: 0;
+  }
+
+  #app:not(.guide-mode) :is(.contran-record-top, .contran-source, .contran-results-heading) {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  #app:not(.guide-mode) .contran-status {
+    max-width: 100%;
+  }
+
+  #app:not(.guide-mode)
+    :is(.document h3, .contran-record h2, .contran-record h3, .update-card h3, .marking-record h3) {
+    font-size: 19px;
+  }
+
+  #app:not(.guide-mode) .regulatory-state-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  #app:not(.guide-mode) .regulatory-requirements > article {
+    padding: 16px;
+  }
+
+  #app:not(.guide-mode)
+    :is(
+      .consultation-help,
+      .consultation-sources,
+      .contran-method,
+      .regulatory-categories,
+      .procedure-directory,
+      .portal-filter-panel
+    ) {
+    padding: 12px 16px;
+  }
+
+  #app:not(.guide-mode)
+    :is(
+      .btn,
+      .component-lanes a,
+      .requirement-context-links a,
+      .regulatory-system-links a,
+      .regulatory-category
+    ) {
+    max-width: 100%;
+  }
+
+  #app:not(.guide-mode) .tree-breadcrumb {
+    flex-wrap: wrap;
+  }
+
+  html[data-theme] #app:not(.guide-mode) .tree-text-list {
+    padding: 16px;
+  }
+
+  #app:not(.guide-mode)
+    :is(.graph-controls button, .flow-map-tools button, .vehicle-drawing-tools button) {
+    min-width: 44px;
+    min-height: 44px;
+    height: 44px;
+  }
+
+  #app:not(.guide-mode) .aurora-explorer {
+    padding: 24px 0;
+    border: 0;
+    border-top: 1px solid var(--p-line);
+    border-radius: 0;
+    background: transparent;
+  }
+
+  #app:not(.guide-mode) .aurora-directory-grid {
+    gap: 8px;
+  }
+
+  #app:not(.guide-mode) .aurora-system-card {
+    min-height: 56px;
+    font-size: 12px;
+  }
+
+  #app:not(.guide-mode) :is(.component-flow-heading, .subsystem-explorer, .wide-ai) {
+    padding: 20px 16px;
+  }
+
+  #app:not(.guide-mode) .portal-context-card:has(> .portal-model-preview),
+  #app:not(.guide-mode) .portal-model-grid,
+  dialog:not(.g-modal) .portal-model-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  #app:not(.guide-mode) .portal-context-card > .portal-model-preview {
+    max-width: 320px;
+  }
+
+  #app:not(.guide-mode) .portal-vehicle-filters {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-block: 16px 20px;
+  }
+
+  #app:not(.guide-mode) .portal-vehicle-filters > .g-note {
+    grid-column: 1 / -1;
+    margin: 0;
+  }
+
+  #app:not(.guide-mode) .portal-vehicle-heading {
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  #app:not(.guide-mode) .portal-vehicle-heading p {
+    margin-bottom: 0;
+  }
+
+  #app:not(.guide-mode) .portal-vehicle-heading .portal-vehicle-modes {
+    margin: 0;
+  }
+
+  #app:not(.guide-mode) .portal-vehicle-explorer .g-explorer-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  #app:not(.guide-mode) .portal-vehicle-explorer .g-parts-panel {
+    padding: 24px 0;
+    border-left: 0;
+    border-top: 1px solid var(--p-line);
+  }
+
+  #app:not(.guide-mode) .portal-vehicle-explorer .g-trace-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  #app:not(.guide-mode) .portal-vehicle-explorer .g-trace-model-preview {
+    padding: 20px;
+  }
+
+  #app:not(.guide-mode) .markings-group > h2 {
+    font-size: 24px;
+  }
+
+  html[data-theme] dialog:not(.g-modal) {
+    width: calc(100vw - 24px);
+    max-width: calc(100vw - 24px);
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+
+  html[data-theme] .search-dialog:not(.g-modal) {
+    padding: 0;
+  }
+
+  dialog:not(.g-modal) h2 {
+    font-size: 24px;
+  }
+
+  dialog:not(.g-modal) :is(dl, .regulatory-requirements, .regulatory-state-grid) {
+    padding: 16px;
+  }
+
+  .search-dialog .search-head {
+    padding: 12px 16px;
+  }
+
+  .search-dialog .search-result {
+    gap: 10px;
+  }
+
+  .search-dialog .result-mark {
+    width: 28px;
+    height: 32px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #app:not(.guide-mode) :is(button, .btn, a),
+  dialog:not(.g-modal) :is(button, .btn, a) {
+    transition: none;
+  }
+
+  #app:not(.guide-mode) :is(button, .btn):active,
+  #app:not(.guide-mode) .homologation-step:hover,
+  dialog:not(.g-modal) :is(button, .btn):active {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  #app .primary-nav {
+    background: var(--p-panel);
+    backdrop-filter: none;
+  }
+
+  dialog:not(.g-modal)::backdrop {
+    backdrop-filter: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root,
+  html[data-theme] {
+    --p-line: var(--p-field);
+  }
+
+  #app:not(.guide-mode) a:not(.btn),
+  dialog:not(.g-modal) a:not(.btn) {
+    text-decoration: underline;
+  }
+}

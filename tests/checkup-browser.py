@@ -1,6 +1,7 @@
 """Full internal-access audit, including transient map states and every document."""
 
 import asyncio
+from browser_support import reference_vehicle_url
 import json
 from pathlib import Path
 from playwright.async_api import async_playwright, expect
@@ -29,10 +30,12 @@ async def main():
         page.on("pageerror", lambda e: errors.append(str(e)))
 
         async def route(value):
-            await page.evaluate("(value)=>location.hash=value", value)
+            # Contour and source-board assertions use the explicit 2D view.
+            fragment = reference_vehicle_url(BASE + value).split("#", 1)[1]
+            await page.evaluate("(value)=>location.hash=value", fragment)
             await wait_for_route(page)
 
-        await page.goto(BASE + "#vehicle?all=1")
+        await page.goto(reference_vehicle_url(BASE + "#vehicle?all=1"))
         await wait_for_route(page)
         assert await page.locator("html").get_attribute("data-theme") == "dark"
         parts = await page.evaluate("""()=>Object.fromEntries(

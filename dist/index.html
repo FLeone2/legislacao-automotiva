@@ -21,8 +21,10 @@
     <link href="src/styles/obsidian.css?v=64b451186470b284" rel="stylesheet" />
     <link href="src/styles/guide.css?v=def356a2e6280ec5" rel="stylesheet" />
     <link href="assets/guide/guide.css?v=77eb229e70c7949e" rel="stylesheet" />
+    <link href="src/styles/portal-apple.css?v=cf0fd7ef680a3b40" rel="stylesheet" />
+    <link href="src/styles/knowledge.css?v=e7225d618102ac06" rel="stylesheet" />
     <link href="src/styles/guide-apple.css?v=4952bb02ce80873b" rel="stylesheet" />
-    <link href="assets/guide/guide.js?v=77a8fdacca835c5c" rel="prefetch" as="script" id="guideBundle" />
+    <link href="assets/guide/guide.js?v=0bc38f41e0e12915" rel="prefetch" as="script" id="guideBundle" />
   </head>
   <body>
     <a class="skip-link" href="#main">Ir para o conteúdo</a>
@@ -63,9 +65,18 @@
             </button>
           </div>
         </header>
+        <div
+          id="portalContextBar"
+          class="portal-context-bar"
+          role="group"
+          aria-label="Contexto do processo"
+          hidden
+        ></div>
         <aside aria-label="Mais acessos e preferências" class="sidebar glass">
           <nav aria-label="Outras consultas" class="secondary-nav" id="mainNavigation">
-            <a data-nav="tree" href="#tree"><span data-icon="tree"></span>Árvore regulatória</a
+            <a data-nav="knowledge" href="#knowledge"
+              ><span data-icon="book"></span>Base regulatória</a
+            ><a data-nav="tree" href="#tree"><span data-icon="tree"></span>Árvore regulatória</a
             ><a data-nav="markings" href="#markings"
               ><span data-icon="tag"></span>Etiquetas e VIN</a
             >
@@ -139,6 +150,7 @@
             </div>
             <div id="relatedNorms"></div>
             <div class="consultation-shortcuts">
+              <a class="btn" href="#knowledge">Base regulatória e Markdown →</a>
               <a class="btn" href="#markings">Etiquetas e VIN →</a
               ><a class="btn" href="#updates">Fontes, revisão e pendências →</a>
             </div>
@@ -152,31 +164,34 @@
     </dialog>
     <div id="toast" role="status"></div>
     <script src="src/core/dom.js?v=113e73619a8186a5"></script>
+    <script src="src/core/portal-context.js?v=8dd417170d7c9a4b"></script>
     <script src="src/core/icons.js?v=eda7ff03c2fe9ab5"></script>
     <script src="src/core/requirements.js?v=7c00b959d0f08eff"></script>
-    <script src="tree.js?v=1280466942cf43dc"></script>
+    <script src="tree.js?v=3e47940f91a42000"></script>
     <script src="src/core/vehicle-vector.js?v=79611b4391e15157"></script>
     <script src="src/core/vehicle-legislation-data.js?v=09afb72ee08ff99a"></script>
     <script src="src/core/vehicle-legislation.js?v=026c87e0ac19f5e6"></script>
+    <script src="src/core/model-previews.js?v=a3108df792c2962e"></script>
     <script src="vehicle-data.js?v=09123227fe4f6446"></script>
-    <script src="vehicle-navigation.js?v=8d8e1918808770f8"></script>
+    <script src="vehicle-navigation.js?v=9354942ec160aa76"></script>
     <script src="src/regulations/store.js?v=2ee0f0576d280739"></script>
     <script src="src/regulations/catalog.js?v=89795c8359b917f6"></script>
     <script src="src/regulations/technical-standards.js?v=99bf9d7d99103fc4"></script>
     <script src="src/regulations/status.js?v=99904cd4c2cc8166"></script>
-    <script src="src/views/regulations.js?v=afc0d4b46ac36681"></script>
-    <script src="src/views/markings.js?v=ab5ad74a8ab35fe5"></script>
+    <script src="src/views/regulations.js?v=874c68a538a6671e"></script>
+    <script src="src/views/markings.js?v=d9271ce4d40e4c1b"></script>
     <script src="flow-data.js?v=b7bb692fbb6d4511"></script>
-    <script src="homologation-flow.js?v=7e795da97f1c054a"></script>
-    <script src="src/views/history.js?v=f8071cecc2a17887"></script>
-    <script src="src/views/library.js?v=a22ef1d85a5d260b"></script>
-    <script src="src/views/document.js?v=ba32210a1f344e2c"></script>
+    <script src="homologation-flow.js?v=614b33594fcf95b6"></script>
+    <script src="src/views/history.js?v=b12b076190ee8e53"></script>
+    <script src="src/views/library.js?v=4cafec7f708d28e3"></script>
+    <script src="src/views/knowledge.js?v=a774da8b3662d2c0"></script>
+    <script src="src/views/document.js?v=3e775b4a31fb64ae"></script>
     <script src="src/guide/traceability.js?v=93493bd2dce94cf2"></script>
-    <script src="src/guide/bridge.js?v=82776aa73e563de9"></script>
-    <script src="src/core/router.js?v=aa4b37e0202afc3f"></script>
+    <script src="src/guide/bridge.js?v=2ab4a6f70039dae7"></script>
+    <script src="src/core/router.js?v=18fb12b64aa4c2d9"></script>
     <script src="src/core/navigation.js?v=45972f53e17b5312"></script>
-    <script src="src/views/aurora.js?v=fe92b381b73edfb8"></script>
-    <script src="app.js?v=9686894386165349"></script>
+    <script src="src/views/aurora.js?v=aa23b0e7c1d94781"></script>
+    <script src="app.js?v=127fb63e41c19158"></script>
     <dialog aria-label="Buscar no acervo" class="search-dialog" id="searchDialog">
       <div class="search-head">
         <span data-icon="search"></span
@@ -222,6 +237,6 @@
       </p>
       <button class="btn primary" data-open-search="">Buscar no acervo</button>
     </dialog>
-    <script src="src/views/obsidian-search.js?v=a520f13fc3a98c7a"></script>
+    <script src="src/views/obsidian-search.js?v=47a1c44652bf6f05"></script>
   </body>
 </html>

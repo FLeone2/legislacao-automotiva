@@ -102,13 +102,55 @@ O Obsidian aprovado organiza a consulta sobre um fundo grafite, com texto claro,
 
 O sistema usa densidade de ferramenta consultiva: títulos amplos introduzem cada vista, enquanto metadados e relações ocupam linhas compactas. O vidro aparece na navegação, nos controles flutuantes e no inspetor; listas de referências também usam superfícies planas e divisórias. Esta documentação registra o código existente, sem definir conteúdo ou critérios regulatórios.
 
-O ambiente `#guide` segue o refinamento minimalista solicitado em 25/10/2026:
-superfícies mais planas, ações azuis, perfil e árvore expansíveis no celular e
-miniaturas dos conjuntos 3D. Essa extensão e suas referências Apple estão em
-[frontend-apple-e-skills.md](docs/guide/frontend-apple-e-skills.md); as regras
-Obsidian abaixo continuam descrevendo as consultas legadas.
+O refinamento minimalista iniciado no `#guide` passa a abranger todas as áreas do
+portal: superfícies planas, ações azuis, hierarquia de leitura, filtros agrupados
+e miniaturas dos conjuntos 3D. As referências Apple estão em
+[frontend-apple-e-skills.md](docs/guide/frontend-apple-e-skills.md), e a direção
+compartilhada em [design-portal-unificado.md](docs/guide/design-portal-unificado.md).
+O frontmatter e as regras Obsidian abaixo registram a base original; a camada
+atual descrita a seguir determina o acabamento compartilhado.
 
-A autoridade visual é o pacote Obsidian aprovado e sua implementação em HTML, CSS e JavaScript clássico. Não há uma nova direção criativa neste documento. As adaptações da maquete ao acervo real estão em [obsidian-implementation.md](docs/obsidian-implementation.md); propósito e restrições do produto estão em [PRODUCT.md](PRODUCT.md).
+### Camada atual do portal
+
+`src/styles/portal-apple.css` carrega depois dos estilos estruturais e antes de
+`src/styles/guide-apple.css`. Assim, cabeçalho, navegação, menu, busca e diálogos
+compartilham a apresentação; os refinamentos específicos do Guia permanecem.
+O conteúdo consultivo usa seletores que excluem `.guide-mode`. Os tokens `--p-*`
+complementam os existentes sem redefinir o acento de seleção do modelo.
+
+| Papel | Obsidian | Claro | Aurora |
+| --- | --- | --- | --- |
+| Ação (`--p-action`) | `#0071e3` | `#0071e3` | `#0071e3` |
+| Link (`--p-link`) | `#91c8ff` | `#0066cc` | `#a8d0ff` |
+| Painel (`--p-panel`) | `#1c1c1e` | `#fff` | `#18222f` |
+| Divisória (`--p-line`) | `#38383d` | `#d7d7dd` | `#415268` |
+
+A família de sistema é `-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial,
+sans-serif`. Títulos, metadados e ações mantêm papéis distintos. Cabeçalhos de
+consulta usam `.portal-header`, `.portal-title`, `.portal-summary` e
+`.portal-actions`; listas de atos recebem divisórias. Fontes e ressalvas
+continuam próximas ao assunto.
+
+A navegação principal possui quatro destinos: Guia, Veículo, Homologação e
+Biblioteca. A Base regulatória e consultas especializadas ficam nos acessos
+secundários. A `.portal-context-bar` mostra o processo selecionado e a ação para
+continuá-lo. A faixa respeita `hidden`, não modifica evidências e diferencia
+consulta livre de processo salvo.
+
+O explorador `#vehicle` reutiliza a cena 3D aprovada, com 33 subsistemas e 21
+conjuntos; a referência dos 37 contornos permanece em
+`#vehicle?view=reference`. Miniaturas são derivados das malhas, com legenda e
+proveniência. Selecionar uma geometria não determina aplicabilidade jurídica.
+A Base regulatória `#knowledge` apresenta fichas e arquivos para consulta; seus
+candidatos e graus de revisão têm identificação própria.
+
+Controles principais mantêm alvo de 44 pixels. Em telas pequenas, filtros
+passam a uma coluna, textos quebram e mapas conservam rolagem local. Movimento
+reduzido, transparência reduzida, maior contraste e foco visível têm regras na
+camada compartilhada. Critérios de verificação estão no documento de direção;
+os resultados efetivamente executados são registrados na entrega.
+
+A base histórica é o pacote Obsidian aprovado e sua implementação em HTML, CSS e JavaScript clássico. As seções abaixo preservam esse registro de origem; os ajustes atuais seguem a camada compartilhada descrita acima. As adaptações da maquete ao acervo real estão em [obsidian-implementation.md](docs/obsidian-implementation.md); propósito e restrições do produto estão em [PRODUCT.md](PRODUCT.md).
 
 **Key Characteristics:**
 
@@ -231,9 +273,9 @@ Campos comuns usam `surface`, borda `field-border` e raio `field`. A busca globa
 
 A busca abre um diálogo sobre a tela de origem, mostra resultados do mesmo acervo e restaura foco ao fechar. Entrada por teclado não espera uma animação. Não se documentam estados de erro de campo que o produto não implementa.
 
-### Navigation
+### Navigation da composição original
 
-Três destinos principais compartilham cápsula e indicador deslizante. Cada link desktop mede (146 × 40px), com texto (14px); até (1250px), largura (118px). O indicador move em (320ms) com `--ease`. Até (900px), a navegação é fixa no rodapé e os links têm altura (44px). Rotas secundárias mantêm o menu próprio.
+A composição Obsidian original reunia três destinos principais em cápsula e indicador deslizante. Cada link desktop media (146 × 40px), com texto (14px); até (1250px), largura (118px). O indicador usava (320ms) com `--ease`. Até (900px), a navegação passava ao rodapé com links de (44px). A navegação atual de quatro destinos está descrita na camada do portal acima; rotas secundárias mantêm o menu próprio.
 
 ### Referência de árvore
 
@@ -245,7 +287,7 @@ A curva reutilizada é `cubic-bezier(0.22, 1, 0.36, 1)`. A entrada do painel de 
 
 Os sete snippets de `.impeccable/design.json` são amostras visuais autocontidas, sem navegação ou carregamento do acervo. Reutilizam os valores da implementação e incluem estados CSS. As setas vetoriais usam o SVG canônico de `src/core/icons.js`; não exigem bibliotecas externas. A amostra de referência usa esse vetor no lugar do glifo legado de abertura, sem alterar o produto.
 
-Fontes conferidas: `index.html`, `styles.css`, `src/styles/theme-tokens.css`, `src/styles/obsidian.css`, `src/styles/tree-navigation.css`, `src/views/aurora.js`, `src/views/obsidian-search.js`, `tree.js`, `homologation-flow.js`, `src/core/icons.js` e `src/core/dom.js`. A leitura de duas capturas estáticas serviu apenas para conferir a composição; esta etapa não executou navegador, detector ou nova avaliação de movimento. O reflow de 30px consta no código; a recaptura dessa última correção fica a cargo da verificação de entrega.
+Fontes conferidas: `index.html`, `styles.css`, `src/styles/theme-tokens.css`, `src/styles/obsidian.css`, `src/styles/tree-navigation.css`, `src/views/aurora.js`, `src/views/obsidian-search.js`, `tree.js`, `homologation-flow.js`, `src/core/icons.js` e `src/core/dom.js`. Na documentação original, a leitura de duas capturas estáticas serviu apenas para conferir a composição; aquela etapa não executou navegador, detector ou nova avaliação de movimento. O reflow de 30px constava no código, com recaptura deixada para a verificação de entrega. Este registro histórico não descreve os resultados da validação atual do portal.
 
 Glifos legados em alguns controles e a sua substituição futura não são canonizados como vocabulário de ícones. A pilha de sistema permanece por decisão explícita do pacote aprovado. Este documento não altera código nem afirma verificação jurídica.
 

@@ -1,4 +1,5 @@
 import asyncio
+from browser_support import reference_vehicle_url
 from pathlib import Path
 from playwright.async_api import async_playwright, expect
 from browser_support import open_preferences, TestServer, launch_options
@@ -15,7 +16,10 @@ async def main(base):
         errors = []
         page.on("pageerror", lambda e: errors.append(str(e)))
         await page.goto(
-            base + "#vehicle?focus=motor&type=Comercial+leve&powertrain=El%C3%A9trico"
+            reference_vehicle_url(
+                base
+                + "#vehicle?focus=motor&type=Comercial+leve&powertrain=El%C3%A9trico"
+            )
         )
         await page.locator(".aurora-explorer").wait_for()
         await expect(page.locator("#vehicleType")).to_have_value("Comercial leve")
@@ -23,7 +27,7 @@ async def main(base):
         await page.reload()
         await expect(page.locator("#vehicleType")).to_have_value("Comercial leve")
         await expect(page.locator("#powertrain")).to_have_value("Elétrico")
-        await page.goto(base + "#vehicle")
+        await page.goto(reference_vehicle_url(base + "#vehicle"))
         await page.locator(".aurora-explorer").wait_for()
         await expect(page.locator(".aurora-explorer h2")).to_have_text(
             "Selecione um sistema"
@@ -57,17 +61,17 @@ async def main(base):
             "(els)=>els.map(e=>e.href)"
         )
         for url in systems:
-            await page.goto(url)
+            await page.goto(reference_vehicle_url(url))
             await page.locator(".aurora-explorer h2").wait_for()
             await expect(page.locator(".aurora-primary")).to_have_attribute(
                 "href", __import__("re").compile("component=")
             )
             assert await page.locator(".aurora-subsystem").count() > 0, url
-        await page.goto(base + "#vehicle?focus=bancos")
+        await page.goto(reference_vehicle_url(base + "#vehicle?focus=bancos"))
         await page.locator(".aurora-subsystem").first.click()
         await page.locator(".component-graph").wait_for()
         assert "subsystem=ocupantes%2Fcintos" in page.url
-        await page.goto(base + "#vehicle?focus=bancos")
+        await page.goto(reference_vehicle_url(base + "#vehicle?focus=bancos"))
         await page.locator(".aurora-primary").click()
         await page.locator(".component-graph").wait_for()
         for route, ready in [
@@ -81,12 +85,12 @@ async def main(base):
             ("mover", ".graph-node"),
             ("updates", ".update-card"),
         ]:
-            await page.goto(base + "#" + route)
+            await page.goto(reference_vehicle_url(base + "#" + route))
             await page.locator(ready).first.wait_for()
             assert not await page.evaluate(
                 "document.documentElement.scrollWidth>innerWidth"
             ), route
-        await page.goto(base + "#vehicle")
+        await page.goto(reference_vehicle_url(base + "#vehicle"))
         await page.locator(".aurora-explorer").wait_for()
         await expect(page.locator("html")).to_have_attribute("data-theme", "dark")
         await open_preferences(page)
@@ -98,7 +102,7 @@ async def main(base):
         await page.locator(".document").first.wait_for()
         assert "951" in await page.locator("#main").inner_text()
         await page.set_viewport_size({"width": 390, "height": 844})
-        await page.goto(base + "#vehicle")
+        await page.goto(reference_vehicle_url(base + "#vehicle"))
         await page.locator(".aurora-explorer").wait_for()
         assert not await page.evaluate(
             "document.documentElement.scrollWidth>innerWidth"
@@ -110,7 +114,7 @@ async def main(base):
             await page.locator("#navigationToggle").get_attribute("aria-expanded")
             == "false"
         )
-        await page.goto(base + "#vehicle")
+        await page.goto(reference_vehicle_url(base + "#vehicle"))
         await page.locator(".aurora-system-card").first.focus()
         await page.keyboard.press("Enter")
         await expect(page.locator(".aurora-explorer h2")).to_have_text(

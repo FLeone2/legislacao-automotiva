@@ -1,4 +1,5 @@
 import asyncio
+from browser_support import reference_vehicle_url
 import os
 import json
 from pathlib import Path
@@ -26,7 +27,7 @@ async def main():
         page.on("pageerror", lambda e: errors.append(str(e)))
         m = json.loads((ROOT / "data/contran/active.json").read_text())["metadata"]
         environmental = json.loads((ROOT / "data/proconve/active.json").read_text())
-        await page.goto(BASE + "#contran")
+        await page.goto(reference_vehicle_url(BASE + "#contran"))
         await ready(page)
         assert (
             str(m["activeCount"])
@@ -55,7 +56,7 @@ async def main():
         await page.reload()
         await ready(page)
         assert "951/2022" == await page.locator("#contranSearch").input_value()
-        await page.goto(BASE + "#contran?system=ocupantes")
+        await page.goto(reference_vehicle_url(BASE + "#contran?system=ocupantes"))
         await ready(page)
         assert (
             await page.locator('[data-contran-record="contran-951-2022"]').count() == 1
@@ -67,10 +68,14 @@ async def main():
             "contran-827-1997",
             "contran-412-2012",
         ]:
-            await page.goto(BASE + "#contran?scope=all&record=" + key)
+            await page.goto(
+                reference_vehicle_url(BASE + "#contran?scope=all&record=" + key)
+            )
             await page.locator(".contran-records .empty").wait_for()
             assert await page.locator(".contran-record").count() == 0
-        await page.goto(BASE + "#contran?record=contran-220-2007")
+        await page.goto(
+            reference_vehicle_url(BASE + "#contran?record=contran-220-2007")
+        )
         await wait_for_route(page)
         # The source route can finish before its hash redirect has rendered the
         # historical record. Wait for the destination content, not just the route marker.
@@ -79,7 +84,11 @@ async def main():
         )
         assert "#history?agency=contran&record=contran-220-2007" in page.url
         assert await page.locator(".contran-record").count() == 0
-        await page.goto(BASE + "#contran?scope=current&q=termo-sem-correspondencia-xyz")
+        await page.goto(
+            reference_vehicle_url(
+                BASE + "#contran?scope=current&q=termo-sem-correspondencia-xyz"
+            )
+        )
         await page.locator(".contran-records .empty").wait_for()
         await page.locator(".empty [data-contran-clear]").click()
         await ready(page)
@@ -96,12 +105,12 @@ async def main():
             in await page.locator('a[download][href$="active.csv"]').inner_text()
         )
         # Real navigation from a vehicle system and from an existing catalogue reference.
-        await page.goto(BASE + "#vehicle?component=bancos")
+        await page.goto(reference_vehicle_url(BASE + "#vehicle?component=bancos"))
         await page.locator(".component-graph").wait_for()
         await page.locator(".contran-component-link a").first.click()
         await ready(page)
         assert "component=bancos" in page.url
-        await page.goto(BASE + "#library")
+        await page.goto(reference_vehicle_url(BASE + "#library"))
         await page.locator("#librarySearch").fill("951")
         await page.locator('[data-open="senatran-061"]').first.click()
         await page.locator("#normDialog").wait_for()
@@ -112,12 +121,12 @@ async def main():
             await page.locator('[data-contran-record="contran-951-2022"]').count() == 1
         )
         # Transverse categories never force a physical system association.
-        await page.goto(BASE + "#contran?category=homologacao")
+        await page.goto(reference_vehicle_url(BASE + "#contran?category=homologacao"))
         await ready(page)
         assert (
             await page.locator('[data-contran-record="contran-922-2022"]').count() == 1
         )
-        await page.goto(BASE + "#proconve?phase=L8")
+        await page.goto(reference_vehicle_url(BASE + "#proconve?phase=L8"))
         await ready(page)
         assert (
             f"{environmental['metadata']['phaseCounts']['L8']} resultados"
@@ -129,7 +138,7 @@ async def main():
         assert (
             await page.locator('[data-contran-record="ibama-in-20-2020"]').count() == 0
         )
-        await page.goto(BASE + "#proconve?phase=P8")
+        await page.goto(reference_vehicle_url(BASE + "#proconve?phase=P8"))
         await ready(page)
         assert (
             f"{environmental['metadata']['phaseCounts']['P8']} resultados"
@@ -141,14 +150,16 @@ async def main():
         assert (
             await page.locator('[data-contran-record="ibama-in-20-2021"]').count() == 0
         )
-        await page.goto(BASE + "#proconve?category=emissoes-corporativas")
+        await page.goto(
+            reference_vehicle_url(BASE + "#proconve?category=emissoes-corporativas")
+        )
         await ready(page)
         assert await page.locator(".contran-record").count() == 2
         assert (
             await page.locator('.regulatory-system-links a[href^="#vehicle"]').count()
             == 0
         )
-        await page.goto(BASE + "#proconve?component=tanque")
+        await page.goto(reference_vehicle_url(BASE + "#proconve?component=tanque"))
         await ready(page)
         tank_count = sum(
             any(link["componentId"] == "tanque" for link in record["vehicleLinks"])
@@ -164,14 +175,16 @@ async def main():
         await page.locator('.regulatory-context a[href^="#vehicle"]').click()
         await page.locator(".component-graph").wait_for()
         assert "component=tanque" in page.url
-        await page.goto(BASE + "#vehicle?component=motor&lane=ambiental")
+        await page.goto(
+            reference_vehicle_url(BASE + "#vehicle?component=motor&lane=ambiental")
+        )
         await page.locator(".component-graph").wait_for()
         refs = await page.evaluate(
             "Object.values(treeModels.vehicle.nodes).filter(n=>n.recordIds?.some(id=>catalog.records.find(r=>r.id===id)?.regulatoryId==='ibama-in-20-2025')).length"
         )
         assert refs > 0
         await page.set_viewport_size({"width": 390, "height": 844})
-        await page.goto(BASE + "#contran")
+        await page.goto(reference_vehicle_url(BASE + "#contran"))
         await ready(page)
         assert await page.evaluate("document.documentElement.scrollWidth<=innerWidth")
         await page.screenshot(path=str(ARTIFACTS / "contran-mobile-verified.png"))
@@ -193,12 +206,14 @@ async def main():
             "**/data/site/records/contran/contran-951-2022.json",
             lambda r: r.fulfill(status=503, body="unavailable"),
         )
-        await other.goto(BASE + "#contran?record=contran-951-2022")
+        await other.goto(
+            reference_vehicle_url(BASE + "#contran?record=contran-951-2022")
+        )
         await other.locator("[data-contran-retry]").wait_for()
         await other.unroute("**/data/site/records/contran/contran-951-2022.json")
         await other.locator("[data-contran-retry]").click()
         await ready(other)
-        await page.goto(BASE + "#proconve")
+        await page.goto(reference_vehicle_url(BASE + "#proconve"))
         await ready(page)
         assert await page.evaluate("document.documentElement.scrollWidth<=innerWidth")
         await page.screenshot(

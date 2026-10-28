@@ -223,12 +223,18 @@ async def exercise(base):
         assert "inválido" in await page.locator(".g-feedback").inner_text()
         assert await page.locator("#g-project-select option").count() == 3
 
-        # Profile edits change the checklist branches without dropping stored work.
-        await page.get_by_role("button", name="Editar perfil técnico").click()
+        # External profile links open the editor; saving consumes that request
+        # so a reload cannot reopen it or create another history entry.
+        await page.goto(page.url + "&profile=edit")
         modal = page.get_by_role("dialog", name="Editar perfil técnico")
         await modal.get_by_label(re.compile("^Propulsão")).select_option("bev")
         await modal.get_by_label(re.compile("^Combustível")).select_option("electric")
         await modal.get_by_role("button", name="Atualizar perfil").click()
+        await modal.wait_for(state="hidden")
+        assert "profile" not in route_values(page)
+        await page.reload()
+        await wait_guide(page)
+        assert await page.locator(".g-modal").count() == 0
         assert (
             await page.get_by_role(
                 "heading", name="Definir ensaios específicos do PHEV"
@@ -250,6 +256,21 @@ async def exercise(base):
             await item.get_by_label("Referência da evidência", exact=True).input_value()
             == "REL-QA-001 · revisão A"
         )
+        # Cancelling an external new-process request also clears its URL flag
+        # and leaves the selected process and all saved evidence untouched.
+        preserved = await page.evaluate(
+            "localStorage.getItem('homologation-projects-v1')"
+        )
+        project_before_cancel = route_values(page)["project"]
+        await page.goto(page.url + "&profile=new")
+        modal = page.get_by_role("dialog", name="Iniciar novo processo")
+        await modal.get_by_role("button", name="Cancelar", exact=True).click()
+        await modal.wait_for(state="hidden")
+        assert "profile" not in route_values(page)
+        assert route_values(page)["project"] == project_before_cancel
+        assert preserved == await page.evaluate(
+            "localStorage.getItem('homologation-projects-v1')"
+        )
         await choose_tab(page, "explore")
         await page.get_by_label("Buscar componente", exact=True).fill(
             "Motor a combustão"
@@ -270,7 +291,7 @@ async def exercise(base):
             response = await page.request.get(base + await link.get_attribute("href"))
             assert response.ok
         for route, ready in [
-            ("vehicle", "#vehicleDrawing"),
+            ("vehicle", ".portal-vehicle-explorer"),
             ("flow", ".homologation-step"),
             ("library", ".document"),
         ]:

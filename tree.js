@@ -42,6 +42,39 @@ const facetCopy = {
     text: 'Leia os textos oficiais, anexos, retificações e atos modificadores. Uma associação temática não confirma a vigência integral nem a aplicação ao projeto.',
   },
 };
+// Explicit presentation links to the approved 3D assemblies. They do not
+// participate in the catalog join or decide which regulations apply.
+const treeGuideSelections = Object.freeze({
+  'seg-freios': { assemblyId: 'brakes' },
+  'seg-luz': { assemblyId: 'lights' },
+  'seg-ocupantes': { assemblyId: 'seats' },
+  'seg-corpo': { assemblyId: 'body' },
+  'seg-vidros': { assemblyId: 'glass' },
+  'seg-espelhos': { assemblyId: 'mirrors' },
+  'seg-pneus': { assemblyId: 'wheels' },
+  'conf-chassi': { assemblyId: 'chassis' },
+  'conf-motor': { assemblyId: 'engine' },
+  'conf-comandos': { assemblyId: 'electronics' },
+  'efi-eletrica': { assemblyId: 'motorElectric' },
+});
+function treeGuideRoute(params = {}) {
+  if (typeof PortalContext !== 'undefined') return PortalContext.guideRoute(params);
+  const query = new URLSearchParams(params);
+  return '#guide' + (query.size ? '?' + query : '');
+}
+function treeGuideSelection(node, model) {
+  return nodeTrail(node.id, model)
+    .reverse()
+    .map((id) => (Object.hasOwn(treeGuideSelections, id) ? treeGuideSelections[id] : null))
+    .find(Boolean);
+}
+function treeGuideContext(model, selected, mover) {
+  const selection = treeGuideSelection(selected, model);
+  const explore = selection
+    ? `<a class="portal-context-link" href="${esc(treeGuideRoute({ tab: 'explore', part: selection.assemblyId, tree: 'assemblies' }))}">Ver o conjunto 3D ${auroraIcon('arrow')}</a>`
+    : '';
+  return `<section class="portal-context-card tree-guide-context" aria-label="Da consulta ao processo"><div><span class="portal-eyebrow">${mover ? 'Programa e projeto' : 'Da consulta ao projeto'}</span><h2>${esc(selected.label)}</h2><p>${mover ? 'Confira os compromissos e sujeitos do programa. No guia, organize o perfil do veículo e as frentes do processo.' : 'Explore as referências deste assunto e use o perfil técnico para organizar o roteiro do veículo.'}</p></div><nav class="portal-context-actions" aria-label="Continuar no guia">${explore}<a class="portal-context-link" href="${esc(treeGuideRoute({ tab: 'checklist', profile: 'edit' }))}">Definir perfil técnico ${auroraIcon('arrow')}</a><a class="portal-context-link" href="${esc(treeGuideRoute({ tab: 'coverage' }))}">Cobertura e lacunas ${auroraIcon('arrow')}</a></nav></section>`;
+}
 function uniqueIds(ids) {
   return [...new Set(ids)];
 }
@@ -406,7 +439,7 @@ function renderTree(mode) {
   }
   const selected = model.nodes[ui.selected];
   $('#main').innerHTML =
-    `<div class="tree-page-head"><div class="eyebrow">${mover ? 'Políticas automotivas · MOVER' : 'Árvore regulatória · Brasil'}</div><h1>${mover ? 'MOVER' : 'Legislação por assunto'}</h1><div class="tree-context"><span>🇧🇷 Brasil</span><span>Âmbito federal</span><span>${model.root.recordIds.length} referências</span><span class="context-note">Aplicabilidade a verificar na fonte</span></div></div>${ui.invalidNode ? '<p class="notice" role="status">Ramo não encontrado. Escolha um assunto na visão geral.</p>' : ''}<nav class="tree-breadcrumb" aria-label="Caminho selecionado">${nodeTrail(
+    `<header class="tree-page-head portal-page-heading"><div class="eyebrow portal-eyebrow">${mover ? 'Políticas automotivas · MOVER' : 'Árvore regulatória · Brasil'}</div><h1>${mover ? 'MOVER' : 'Legislação por assunto'}</h1><p class="portal-summary">${mover ? 'Programas, compromissos e instrumentos para consultar em contexto.' : 'Parta de um sistema. Siga os assuntos até as referências e seus detalhes.'}</p><div class="tree-context portal-context-meta"><span>Brasil · âmbito federal</span><span>${model.root.recordIds.length} referências</span><span class="context-note">Aplicabilidade a verificar na fonte</span></div></header>${ui.invalidNode ? '<p class="notice" role="status">Ramo não encontrado. Escolha um assunto na visão geral.</p>' : ''}${treeGuideContext(model, selected, mover)}<nav class="tree-breadcrumb" aria-label="Caminho selecionado">${nodeTrail(
       selected.id,
       model,
     )
@@ -440,6 +473,11 @@ function renderTreeDetails() {
   const text =
     n.text ||
     `${n.label} reúne ${records.length} referências para consulta. Expanda os ramos ou abra os documentos para verificar objeto, condições, datas e alterações.`;
+  const selection = ['tree', 'mover'].includes(state.view) ? treeGuideSelection(n, model) : null;
+  const visual =
+    ui.tab === 'summary' && selection && typeof vehicleModelArt === 'function'
+      ? vehicleModelArt({ ...selection, label: n.label }, 'tree-selection-preview')
+      : '';
   const tabs = `<div class="detail-tabs" role="tablist" aria-label="Detalhes">${[
     ['summary', 'Resumo'],
     ['documents', 'Documentos'],
@@ -449,7 +487,7 @@ function renderTreeDetails() {
         `<button id="tree-tab-${id}" role="tab" aria-selected="${ui.tab === id}" aria-controls="tree-detail-content" tabindex="${ui.tab === id ? 0 : -1}" data-tree-tab="${id}" class="${ui.tab === id ? 'active' : ''}">${label}${id === 'documents' ? ` <span>${records.length}</span>` : ''}</button>`,
     )
     .join('')}</div>`;
-  detailPanel.innerHTML = `<div class="tree-detail-top"><small>${esc(trail.join(' / ') || 'Visão geral')}</small><span class="pill">${esc(n.kind || 'Tema selecionado')}</span><h2>${esc(n.label)}</h2></div>${tabs}<div class="detail-scroll" id="tree-detail-content" role="tabpanel" aria-labelledby="tree-tab-${ui.tab}" tabindex="0">${ui.tab === 'documents' ? `<p class="detail-intro">${records.length} referências associadas.</p>${records.map(treeDocument).join('') || '<p class="notice">Nenhuma referência cadastrada neste ramo. Isso não indica isenção de obrigação.</p>'}` : `<p class="detail-intro">${esc(text)}</p><details class="tree-accordion" open><summary>Aplicabilidade</summary><p>${state.view === 'mover' ? 'Confirme objeto, sujeitos alcançados, datas, condições de enquadramento e anexos. Incentivos e obrigações empresariais não se aplicam automaticamente a cada veículo.' : 'Confirme categoria, configuração, datas, exceções e anexos na fonte.'}</p></details><details class="tree-accordion" open><summary>Referências</summary>${records.slice(0, 3).map(treeDocument).join('') || '<p class="notice">Nenhuma referência cadastrada neste ramo. Isso não indica isenção de obrigação.</p>'}${records.length > 3 ? `<button class="text-button" data-tree-tab="documents">Ver as ${records.length} referências →</button>` : ''}</details>${one ? `<details class="tree-accordion" open><summary>Vigência e alterações</summary><div class="tree-warning">${esc(one.status || 'Situação jurídica não informada')}</div><p>Confira a redação atual, as retificações e as transições na fonte.</p></details>` : ''}`}</div><div class="tree-detail-footer"><small>Confira a fonte, o nível de revisão e as condições de cada referência.</small>${one ? `<button class="btn primary" data-open="${one.id}" data-requirement="${esc(n.requirementId || '')}">Abrir referência ${auroraIcon('arrow')}</button>` : `<button class="btn primary" data-tree-tab="documents">Consultar documentos ${auroraIcon('arrow')}</button>`}</div>`;
+  detailPanel.innerHTML = `<div class="tree-detail-top"><small>${esc(trail.join(' / ') || 'Visão geral')}</small><span class="pill">${esc(n.kind || 'Tema selecionado')}</span><h2>${esc(n.label)}</h2></div>${tabs}<div class="detail-scroll" id="tree-detail-content" role="tabpanel" aria-labelledby="tree-tab-${ui.tab}" tabindex="0">${ui.tab === 'documents' ? `<p class="detail-intro">${records.length} referências associadas.</p>${records.map(treeDocument).join('') || '<p class="notice">Nenhuma referência cadastrada neste ramo. Isso não indica isenção de obrigação.</p>'}` : `${visual}<p class="detail-intro">${esc(text)}</p><details class="tree-accordion" open><summary>Aplicabilidade</summary><p>${state.view === 'mover' ? 'Confirme objeto, sujeitos alcançados, datas, condições de enquadramento e anexos. Incentivos e obrigações empresariais não se aplicam automaticamente a cada veículo.' : 'Confirme categoria, configuração, datas, exceções e anexos na fonte.'}</p></details><details class="tree-accordion" open><summary>Referências</summary>${records.slice(0, 3).map(treeDocument).join('') || '<p class="notice">Nenhuma referência cadastrada neste ramo. Isso não indica isenção de obrigação.</p>'}${records.length > 3 ? `<button class="text-button" data-tree-tab="documents">Ver as ${records.length} referências →</button>` : ''}</details>${one ? `<details class="tree-accordion" open><summary>Vigência e alterações</summary><div class="tree-warning">${esc(one.status || 'Situação jurídica não informada')}</div><p>Confira a redação atual, as retificações e as transições na fonte.</p></details>` : ''}`}</div><div class="tree-detail-footer"><small>Confira a fonte, o nível de revisão e as condições de cada referência.</small>${one ? `<button class="btn primary" data-open="${one.id}" data-requirement="${esc(n.requirementId || '')}">Abrir referência ${auroraIcon('arrow')}</button>` : `<button class="btn primary" data-tree-tab="documents">Consultar documentos ${auroraIcon('arrow')}</button>`}</div>`;
 }
 function applyGraphZoom(fit = false) {
   const ui = activeTreeUI(),

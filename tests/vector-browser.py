@@ -1,6 +1,7 @@
 """Exercise the supplied 37-part scene through real mouse, touch and keyboard input."""
 
 import asyncio
+from browser_support import reference_vehicle_url
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 import xml.etree.ElementTree as ET
@@ -72,7 +73,7 @@ async def hit(page, xy):
 
 
 async def overview(page, value="#vehicle?all=1"):
-    await page.goto(BASE + value)
+    await page.goto(reference_vehicle_url(BASE + value))
     await wait_for_route(page)
     await page.locator("#vehicleDrawing").wait_for()
 
@@ -267,7 +268,9 @@ async def main():
 
         # Existing component URLs keep their original meaning, including text-only identification.
         for system in sorted(SYSTEMS):
-            await page.goto(BASE + "#vehicle?component=" + system)
+            await page.goto(
+                reference_vehicle_url(BASE + "#vehicle?component=" + system)
+            )
             await wait_for_route(page)
             await expect(page.locator(".component-graph")).to_have_count(1)
             assert query(page)["component"] == system

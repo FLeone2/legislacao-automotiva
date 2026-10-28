@@ -8,7 +8,7 @@ import os
 from pathlib import Path
 from PIL import Image, ImageChops, ImageFilter, ImageStat
 from playwright.async_api import async_playwright
-from browser_support import launch_options, TestServer
+from browser_support import launch_options, TestServer, reference_vehicle_url
 
 ROOT = Path(__file__).resolve().parents[1]
 BASELINES = ROOT / "tests/visual-baselines"
@@ -53,7 +53,7 @@ async def main(base):
                 reduced_motion="reduce",
                 device_scale_factor=1,
             )
-            await page.goto(base + "#" + route)
+            await page.goto(reference_vehicle_url(base + "#" + route))
             await page.locator(
                 "#vehicleDrawing"
                 if route.startswith("vehicle")
