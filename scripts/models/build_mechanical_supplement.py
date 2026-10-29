@@ -8,6 +8,7 @@ args.add_argument(
     type=pathlib.Path,
     default=pathlib.Path("/tmp/homologacao-mechanical-export"),
 )
+args.add_argument("--skip-preview", action="store_true")
 options = args.parse_args(
     sys.argv[sys.argv.index("--") + 1 :] if "--" in sys.argv else []
 )
@@ -325,6 +326,29 @@ for axle, label in [(-1.58, "frontSuspension"), (1.416, "rearSuspension")]:
             axis,
         )
         cyl(part, "upper_mount", top, 0.122, 0.038, "rubber", axis)
+        cyl(
+            part,
+            "upper_mount_retainer",
+            (axle + 0.10, 1.018, side * 0.669),
+            0.103,
+            0.018,
+            "aluminum",
+            axis,
+        )
+        for angle in range(0, 360, 120):
+            a = math.radians(angle)
+            bolt(
+                part,
+                "strut_mount_stud",
+                (
+                    axle + 0.10 + math.cos(a) * 0.083,
+                    1.038,
+                    side * 0.669 + math.sin(a) * 0.083,
+                ),
+                0.010,
+                0.021,
+                "steel",
+            )
         bolt(
             part,
             "top_nut",
@@ -341,6 +365,31 @@ for axle, label in [(-1.58, "frontSuspension"), (1.416, "rearSuspension")]:
             (axle + 0.15, 0.60, side * 0.73),
             0.012,
             "steel",
+        )
+        # Formed attachment ears and ball-joint boots give the link a readable end.
+        box(
+            part,
+            "damper_lower_clevis",
+            (axle + 0.015, 0.425, side * 0.72),
+            (0.095, 0.10, 0.055),
+            "cast",
+            0.016,
+        )
+        bolt(
+            part,
+            "damper_clevis_pin",
+            (axle + 0.015, 0.425, side * 0.758),
+            0.020,
+            0.016,
+            "silver",
+            (0, 0, 1),
+        )
+        sphere(
+            part,
+            "lower_ball_joint_boot",
+            (axle - 0.02, 0.28, side * 0.78),
+            (0.047, 0.037, 0.047),
+            "rubber",
         )
         # CV boot and halfshaft toward the differential; not a claimed manufacturer architecture.
         rod(
@@ -374,6 +423,15 @@ for axle, label in [(-1.58, "frontSuspension"), (1.416, "rearSuspension")]:
         "steel",
     )
     sphere(part, "differential", (axle, 0.35, 0), (0.15, 0.13, 0.17), "cast")
+    for dx in [-0.09, -0.045, 0, 0.045, 0.09]:
+        box(
+            part,
+            "differential_cast_rib",
+            (axle + dx, 0.35, 0.158),
+            (0.014, 0.18, 0.026),
+            "aluminum",
+            0.006,
+        )
     if label == "frontSuspension":
         SECTION = "steeringRack"
         rod(
@@ -471,28 +529,100 @@ for z in [-0.15, -0.10, -0.05, 0, 0.05, 0.10, 0.15]:
 for x in [-0.59, -0.27]:
     for z in [-0.11, 0.21]:
         bolt("motorElectric", "inverter_lid_bolt", (x, 0.94, z), 0.009, 0.014, "silver")
-for z in [-0.10, 0.10]:
+# Two separate connector bodies, with strain-relief glands and routed cable pairs.
+box(
+    "motorElectric",
+    "inverter_lid_seal",
+    (-0.43, 0.922, 0.05),
+    (0.426, 0.009, 0.436),
+    "rubber",
+    0.018,
+)
+for x in [-0.54, -0.32]:
+    side = -1 if x < -0.43 else 1
+    box(
+        "motorElectric",
+        "hv_connector_flange",
+        (x, 0.84, 0.273),
+        (0.082, 0.076, 0.018),
+        "plastic",
+        0.009,
+    )
     cyl(
         "motorElectric",
         "hv_socket",
-        (-0.43, 0.84, 0.285 + z * 0.10),
+        (x, 0.84, 0.305),
         0.031,
         0.07,
         "orange",
         (0, 0, 1),
     )
+    torus(
+        "motorElectric",
+        "hv_connector_lockring",
+        (x, 0.84, 0.323),
+        0.032,
+        0.005,
+        "plastic",
+        (0, 0, 1),
+    )
+    for depth in range(4):
+        torus(
+            "motorElectric",
+            "hv_cable_strain_relief",
+            (x, 0.84, 0.35 + depth * 0.009),
+            0.020,
+            0.003,
+            "rubber",
+            (0, 0, 1),
+        )
     pipe(
         "motorElectric",
         "orange_hv_cable",
         [
-            (-0.43, 0.84, 0.29 + z * 0.10),
-            (-0.18, 0.63, 0.41 + z),
-            (0, 0.40, 0.49 + z),
-            (0.45, 0.36, 0.48 + z),
+            (x, 0.84, 0.38),
+            (x + 0.20, 0.63, 0.43 + side * 0.07),
+            (0, 0.40, 0.49 + side * 0.07),
+            (0.45, 0.36, 0.48 + side * 0.07),
         ],
         0.018,
         "orange",
     )
+for z in [-0.08, 0.16]:
+    cyl(
+        "motorElectric",
+        "inverter_coolant_union",
+        (-0.665, 0.84, z),
+        0.020,
+        0.055,
+        "silver",
+        (1, 0, 0),
+    )
+    torus(
+        "motorElectric",
+        "coolant_union_bead",
+        (-0.688, 0.84, z),
+        0.021,
+        0.003,
+        "cast",
+        (1, 0, 0),
+    )
+box(
+    "motorElectric",
+    "low_voltage_control_socket",
+    (-0.43, 0.86, -0.185),
+    (0.105, 0.045, 0.045),
+    "plastic",
+    0.006,
+)
+box(
+    "motorElectric",
+    "control_socket_latch",
+    (-0.43, 0.89, -0.19),
+    (0.045, 0.015, 0.038),
+    "darksteel",
+    0.004,
+)
 
 SECTION = "tractionBattery"
 box(
@@ -536,6 +666,87 @@ for row in range(2):
             "copper",
             0.003,
         )
+        cyl(
+            "batteryHV",
+            "module_terminal_stud",
+            (x + 0.11, 0.487, z + 0.20),
+            0.009,
+            0.014,
+            "silver",
+        )
+        if column < 4:
+            box(
+                "batteryHV",
+                "intermodule_busbar",
+                (x + 0.285, 0.481, z + 0.20),
+                (0.32, 0.008, 0.025),
+                "copper",
+                0.004,
+            )
+        box(
+            "batteryHV",
+            "module_sense_connector",
+            (x - 0.10, 0.476, z - 0.21),
+            (0.066, 0.025, 0.035),
+            "plastic",
+            0.005,
+        )
+for z in [-0.57, 0.57]:
+    pipe(
+        "batteryHV",
+        "module_sense_loom",
+        [(-0.55, 0.48, z), (0.25, 0.48, z), (1.17, 0.48, z)],
+        0.009,
+        "rubber",
+    )
+    for x in [-0.45, 0.29, 1.03]:
+        box(
+            "batteryHV",
+            "loom_retainer",
+            (x, 0.485, z),
+            (0.035, 0.025, 0.034),
+            "plastic",
+            0.005,
+        )
+# The centre channel provides room for the service junction without covering cells.
+box(
+    "batteryHV",
+    "service_junction_base",
+    (0.89, 0.405, 0),
+    (0.33, 0.10, 0.12),
+    "plastic",
+    0.014,
+)
+for x in [0.81, 0.98]:
+    cyl("batteryHV", "hv_contactor_example", (x, 0.47, 0), 0.046, 0.068, "cast")
+    bolt("batteryHV", "contactor_terminal", (x, 0.509, 0), 0.010, 0.014, "copper")
+for z in [-0.12, 0.12]:
+    box(
+        "batteryHV",
+        "pack_connector_flange",
+        (-0.65, 0.29, z),
+        (0.025, 0.086, 0.085),
+        "plastic",
+        0.007,
+    )
+    cyl(
+        "batteryHV",
+        "pack_hv_receptacle",
+        (-0.695, 0.29, z),
+        0.031,
+        0.065,
+        "orange",
+        (1, 0, 0),
+    )
+    torus(
+        "batteryHV",
+        "pack_socket_lockring",
+        (-0.725, 0.29, z),
+        0.032,
+        0.004,
+        "rubber",
+        (1, 0, 0),
+    )
 for x in [-0.66, 1.34]:
     for z in [-0.61, 0.61]:
         box(
@@ -692,6 +903,24 @@ box(
     "plastic",
     0.09,
 )
+for x in [0.84, 1.01, 1.18, 1.33]:
+    box(
+        "tank",
+        "moulded_tank_reinforcement",
+        (x, 0.35, 0.195),
+        (0.033, 0.18, 0.022),
+        "darksteel",
+        0.009,
+    )
+for z in [-0.61, 0.17]:
+    box(
+        "tank",
+        "mould_separation_seam",
+        (1.06, 0.36, z),
+        (0.55, 0.016, 0.025),
+        "darksteel",
+        0.006,
+    )
 for x in [0.81, 1.3]:
     box(
         "tank",
@@ -701,6 +930,16 @@ for x in [0.81, 1.3]:
         "steel",
         0.014,
     )
+    for z in [-0.62, 0.18]:
+        box(
+            "tank",
+            "strap_mounting_ear",
+            (x, 0.25, z),
+            (0.10, 0.04, 0.065),
+            "steel",
+            0.01,
+        )
+        bolt("tank", "strap_mounting_bolt", (x, 0.279, z), 0.013, 0.02, "silver")
 cyl("tank", "pump_access", (1.04, 0.51, -0.22), 0.12, 0.028, "cast")
 for i in range(6):
     a = i * math.pi / 3
@@ -720,6 +959,24 @@ pipe(
     "plastic",
 )
 cyl("tank", "fuel_cap", (1.75, 0.92, -0.77), 0.055, 0.028, "plastic", (0, 0, 1))
+for x in [0.99, 1.09]:
+    cyl("tank", "pump_line_quick_connector", (x, 0.545, -0.22), 0.016, 0.046, "plastic")
+    pipe(
+        "tank",
+        "fuel_or_vent_line",
+        [(x, 0.565, -0.22), (x - 0.13, 0.58, -0.35), (0.74, 0.52, -0.48)],
+        0.009,
+        "rubber",
+    )
+pipe(
+    "tank",
+    "filler_breather_hose",
+    [(1.16, 0.51, -0.43), (1.50, 0.61, -0.60), (1.70, 0.85, -0.72)],
+    0.012,
+    "rubber",
+)
+for y, x, z in [(0.59, 1.64, -0.65), (0.88, 1.74, -0.77)]:
+    torus("tank", "filler_hose_band", (x, y, z), 0.037, 0.004, "silver", (0.3, 1, -0.2))
 
 SECTION = "auxiliaryBattery"
 box(
@@ -737,6 +994,60 @@ box(
     (0.29, 0.035, 0.26),
     "darksteel",
     0.013,
+)
+box(
+    "battery12v",
+    "battery_base_flange",
+    (-1.25, 0.725, 0.62),
+    (0.305, 0.025, 0.274),
+    "darksteel",
+    0.008,
+)
+# Handle, six cell plugs and the hold-down make the familiar battery form legible.
+for x in [-1.34, -1.16]:
+    box(
+        "battery12v",
+        "handle_pivot",
+        (x, 1.033, 0.70),
+        (0.035, 0.025, 0.035),
+        "plastic",
+        0.007,
+    )
+pipe(
+    "battery12v",
+    "carrying_handle",
+    [
+        (-1.34, 1.036, 0.70),
+        (-1.33, 1.058, 0.70),
+        (-1.17, 1.058, 0.70),
+        (-1.16, 1.036, 0.70),
+    ],
+    0.009,
+    "plastic",
+)
+for x in [-1.34, -1.25, -1.16]:
+    for z in [0.55, 0.60]:
+        cyl("battery12v", "recessed_cell_plug", (x, 1.031, z), 0.015, 0.010, "plastic")
+        box(
+            "battery12v",
+            "plug_slot",
+            (x, 1.037, z),
+            (0.018, 0.002, 0.003),
+            "cast",
+            0.001,
+        )
+for x in [-1.41, -1.09]:
+    rod(
+        "battery12v", "hold_down_rod", (x, 0.74, 0.68), (x, 1.025, 0.68), 0.006, "steel"
+    )
+    bolt("battery12v", "hold_down_nut", (x, 1.034, 0.68), 0.011, 0.014, "silver")
+box(
+    "battery12v",
+    "hold_down_bridge",
+    (-1.25, 1.025, 0.68),
+    (0.35, 0.016, 0.022),
+    "steel",
+    0.004,
 )
 for x in [-1.34, -1.16]:
     cyl("battery12v", "terminal", (x, 1.04, 0.62), 0.018, 0.04, "silver")
@@ -794,7 +1105,80 @@ box(
     0.035,
 )
 cyl("brakeFluid", "reservoir_cap", (-0.85, 1.10, 0.57), 0.052, 0.025, "plastic")
+torus(
+    "brakeFluid",
+    "booster_rolled_seam",
+    (-0.73, 0.88, 0.57),
+    0.129,
+    0.007,
+    "steel",
+    (1, 0, 0),
+)
+cyl(
+    "brakeFluid",
+    "master_mounting_flange",
+    (-0.79, 0.88, 0.57),
+    0.066,
+    0.02,
+    "aluminum",
+    (1, 0, 0),
+)
+for y in [0.832, 0.928]:
+    bolt(
+        "brakeFluid",
+        "master_flange_nut",
+        (-0.806, y, 0.57),
+        0.010,
+        0.020,
+        "silver",
+        (1, 0, 0),
+    )
+for x in [-0.91, -0.81]:
+    cyl(
+        "brakeFluid",
+        "reservoir_rubber_grommet",
+        (x, 0.943, 0.57),
+        0.023,
+        0.020,
+        "rubber",
+    )
+for index in range(12):
+    a = index * math.pi / 6
+    box(
+        "brakeFluid",
+        "reservoir_cap_grip",
+        (-0.85 + math.cos(a) * 0.049, 1.10, 0.57 + math.sin(a) * 0.049),
+        (0.008, 0.018, 0.008),
+        "darksteel",
+        0.002,
+    )
+for y in [0.98, 1.035]:
+    box(
+        "brakeFluid",
+        "reservoir_level_moulding",
+        (-0.86, y, 0.652),
+        (0.11, 0.005, 0.004),
+        "ivory",
+        0.001,
+    )
+box(
+    "brakeFluid",
+    "fluid_level_sensor",
+    (-0.755, 1.015, 0.57),
+    (0.035, 0.035, 0.055),
+    "plastic",
+    0.007,
+)
+box(
+    "brakeFluid",
+    "level_sensor_connector",
+    (-0.73, 1.015, 0.57),
+    (0.023, 0.025, 0.038),
+    "darksteel",
+    0.005,
+)
 for z in [0.53, 0.61]:
+    bolt("brakeFluid", "brake_line_union", (-0.91, 0.88, z), 0.012, 0.022, "aluminum")
     pipe(
         "brakeFluid",
         "hard_brake_line",
@@ -879,6 +1263,17 @@ build_engine(
     dict(box=box, cyl=cyl, pipe=pipe, torus=torus, sphere=sphere, bolt=bolt, rod=rod)
 )
 
+# Bake the assembled installation into the asset so the viewer, exports and
+# selected-part bounds all share one pose. A raycast against the actual hood
+# surface verifies the visual clearance; these are illustration coordinates.
+engine_installation_offset = (0, -0.185, 0)
+radiator_installation_offset = (0, -0.045, 0)
+for o in OBJECTS:
+    if o["partId"] == "engine":
+        o.location += cv(engine_installation_offset)
+    elif o["partId"] == "cooling" and o["section"] == "radiator":
+        o.location += cv(radiator_installation_offset)
+
 # Consolidate by part/section/material to keep the web renderer fast while preserving semantic sections.
 clusters = {}
 for o in OBJECTS:
@@ -897,6 +1292,9 @@ for key, items in clusters.items():
     o["partId"] = key[0]
     o["section"] = key[1]
     o["mechanicalExample"] = True
+    o["sourceMesh"] = o.name
+    o["sourceFile"] = "authored/mechanical-supplement"
+    o["sourceType"] = "authored_illustrative"
 bpy.ops.object.select_all(action="SELECT")
 bpy.ops.export_scene.gltf(
     filepath=str(OUT / "mechanical-supplement.glb"),
@@ -944,9 +1342,31 @@ provenance = {
         for p in refs
     ],
     "method": "Authored Blender geometry; beveled cast parts, tubular manifolds, coil springs, modular battery and hybrid drive; no external 3D asset.",
-    "sourceScript": "build_mechanics.py and engine_geometry.py",
+    "sourceScript": "scripts/models/build_mechanical_supplement.py and scripts/models/engine_geometry.py",
+    "asset": "assets/models/suv/mechanical-supplement.glb",
+    "sha256": hashlib.sha256(
+        (OUT / "mechanical-supplement.glb").read_bytes()
+    ).hexdigest(),
+    "bytes": (OUT / "mechanical-supplement.glb").stat().st_size,
+    "compression": "Uncompressed Blender intermediate; compress_mechanical.mjs produces the published asset",
+    "mechanicalExample": True,
+    "assembledInstallation": {
+        "engineTranslation": list(engine_installation_offset),
+        "radiatorTranslation": list(radiator_installation_offset),
+        "purpose": "Visual clearance below the actual reference hood; not CAD dimensions or manufacturer architecture",
+    },
+    "authoredSources": [
+        {"path": p, "sha256": hashlib.sha256((repo / p).read_bytes()).hexdigest()}
+        for p in [
+            "scripts/models/build_mechanical_supplement.py",
+            "scripts/models/engine_geometry.py",
+        ]
+    ],
 }
 (OUT / "provenance.json").write_text(json.dumps(provenance, indent=2))
+if options.skip_preview:
+    print("MECHANICS_DONE", flush=True)
+    sys.exit(0)
 bpy.ops.wm.save_as_mainfile(filepath=str(OUT / "mechanical-supplement.blend"))
 # Thumbnail: the complete mechanical base under a neutral studio light.
 scene = bpy.context.scene

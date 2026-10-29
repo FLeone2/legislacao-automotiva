@@ -206,7 +206,7 @@
         "authored-mechanics"
       ],
       "notes": [],
-      "sha256": "5401e9a57e58f8249b33daff7453f4033ab8fe011c66d5ce9209ebf30f611d26",
+      "sha256": "6945f4a8c5b860244355584f1baf1373ba6e45f04c7649ecc4bdc8f11e26bda1",
       "subset": false,
       "width": 1024
     },
@@ -228,7 +228,7 @@
       "notes": [
         "Módulos e conexões da bateria didática, com a tampa omitida para inspeção; não é a arquitetura certificada do BMW."
       ],
-      "sha256": "235b4abe0489520782ffdb697a451a750ff324c9896f8375070d3f50c8c3f45a",
+      "sha256": "b7758dad732a47d16fd0ea158f1f8b31f5f0299de96083c54fdabb1ee0f19513",
       "subset": true,
       "width": 1024
     },
@@ -254,7 +254,7 @@
       "notes": [
         "Módulos e conexões da bateria didática, com a tampa omitida para inspeção; não é a arquitetura certificada do BMW."
       ],
-      "sha256": "06c326e5a26e41dfcfc880f57b50de2be20af455b871332a110ab0cbb19d1707",
+      "sha256": "ae33d31a348203ab4a0b07ab8c71f4596f860b97e663c421076bc68cdcadcf6b",
       "subset": true,
       "width": 1024
     },
@@ -278,7 +278,7 @@
       "notes": [
         "Módulos e conexões da bateria didática, com a tampa omitida para inspeção; não é a arquitetura certificada do BMW."
       ],
-      "sha256": "8623138f2f7b704068329bd6706bfe1c78297fe9eb3a6e3053a4b1160454368f",
+      "sha256": "eef4a12e4b55cc728183450ebe0759e4265cd590e4baf73bc81a6f64756a5fa5",
       "subset": true,
       "width": 1024
     },
@@ -320,7 +320,7 @@
       "notes": [
         "Reservatório, cilindro mestre e circuito didáticos. A imagem não representa composição ou especificação de um fluido."
       ],
-      "sha256": "c3ea1e6a13e7df00ab95642269b666f97068e2c9c73a705fee344c490ce9b2b3",
+      "sha256": "60ed18c8c39ca6a312d908c3e1cd2ba8dcef988a9996e1d417c22462b6091e9c",
       "subset": false,
       "width": 1024
     },
@@ -366,7 +366,7 @@
       "notes": [
         "Exemplo didático da suspensão dianteira. Não representa dimensões ou arquitetura interna certificada do BMW."
       ],
-      "sha256": "be1757282cf68797619a290c2b51415f1c8f76c06ff74f22b61b4a8b5e455ac0",
+      "sha256": "9c1c9490f06407a770d50413e0da9af417aa7f9d4ab375e35abecd7816500b57",
       "subset": true,
       "width": 1024
     },
@@ -391,7 +391,7 @@
         "Exemplo didático da suspensão dianteira. Não representa dimensões ou arquitetura interna certificada do BMW.",
         "Exemplar de direção do modelo; no conjunto de suspensão mostra-se a cremalheira didática."
       ],
-      "sha256": "b72331f8063b5e40ad4a72511fea57e7f0f71919afc42ccce1f6d92c95747e8b",
+      "sha256": "d61799e5633048cfb6e5a579eb99a5efb991ffa20154fa519f7d104c20e8fe48",
       "subset": true,
       "width": 1024
     },
@@ -411,7 +411,7 @@
         "authored-mechanics"
       ],
       "notes": [],
-      "sha256": "3f9df3023ceb37bd2ceee3aecd9d5dcf7226b52d106fd8c720fc962dafcaab59",
+      "sha256": "b887205dccbc3c201976aee1c0155579dcca2042449600d6707b1dc1c271f7a3",
       "subset": false,
       "width": 1024
     },
@@ -479,7 +479,7 @@
       "notes": [
         "Painel e módulos do conjunto visual; não representa um produto de telecomunicações homologado ou um circuito certificado."
       ],
-      "sha256": "dc0e6e8bce703d32946f46616665991f8e5b5641e5f7752535f5ef3152d33493",
+      "sha256": "a7ccd991cd0a03296ea7179739c4ed9571262f820af835c299d5b37f7b828445",
       "subset": true,
       "width": 1024
     },
@@ -499,7 +499,7 @@
         "authored-mechanics"
       ],
       "notes": [],
-      "sha256": "0a4fc0dfaad1dfd50cfb41f5aa01568bb4ad6572ffa60468f39fdcaa67d08251",
+      "sha256": "d053b7f042c92300af374c0b9b03b7fe4ba49245c2dc335369f3f85c72378cbb",
       "subset": false,
       "width": 1024
     },
@@ -521,7 +521,7 @@
         "authored-mechanics"
       ],
       "notes": [],
-      "sha256": "cbe3eceee73f04a950d3b6ee37fb761d99c5c44ad3fa0ecba3e75361412e2600",
+      "sha256": "1f019c2aec8062b740273ca1b6e7a1821ceb819e0d1425b777e61c8f8bf82b05",
       "subset": false,
       "width": 1024
     },
@@ -623,7 +623,7 @@
         "authored-mechanics"
       ],
       "notes": [],
-      "sha256": "ac943aa449d4e3d7972a15a5751a4f6015b98387d4e0eb751cf24598894c1986",
+      "sha256": "5063d6bb034c67ec9e50ffe58821e5f5f40b4aef89ee215d203fc29ef39d28aa",
       "subset": false,
       "width": 1024
     },
@@ -687,7 +687,7 @@
         "authored-mechanics"
       ],
       "notes": [],
-      "sha256": "3e1dd06b06254ef484a92e1c2aa84ffba8109e2d9a3cedf2365cd2ac4710824b",
+      "sha256": "7d10390573697186eb376cac69660a03deec8fd20baff555887bfabb605e0533",
       "subset": false,
       "width": 1024
     },
