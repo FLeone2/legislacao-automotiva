@@ -59,7 +59,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "airbagModule",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "airbag__airbagModule__mechanical_aluminum"
         },
         {
@@ -74,7 +74,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "airbagModule",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "airbag__airbagModule__mechanical_plastic"
         },
         {
@@ -89,7 +89,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "airbagModule",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "airbag__airbagModule__mechanical_steel"
         },
         {
@@ -104,7 +104,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "airbagModule",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "airbag__airbagModule__mechanical_yellow"
         }
       ],
@@ -119,14 +119,14 @@
       "camera": {
         "fov": 35,
         "position": [
-          -1.789486157506225,
-          1.1857528720703825,
-          1.3456321197331214
+          -1.7940394340464352,
+          1.1900916432445574,
+          1.348962032572758
         ],
         "target": [
           -1.3090647459030151,
-          0.8975000251084566,
-          0.6250000023283064
+          0.8991068303585052,
+          0.6215000003576279
         ]
       },
       "contextAssemblyIds": [],
@@ -149,29 +149,30 @@
         "battery12v__auxiliaryBattery__mechanical_darksteel",
         "battery12v__auxiliaryBattery__mechanical_plastic",
         "battery12v__auxiliaryBattery__mechanical_red",
-        "battery12v__auxiliaryBattery__mechanical_silver"
+        "battery12v__auxiliaryBattery__mechanical_silver",
+        "battery12v__auxiliaryBattery__mechanical_steel"
       ],
       "selectedMeshes": [
         {
           "assemblyId": "battery12v",
           "baseCenter": [
-            -1.2699999844189733,
-            0.8500000238418579,
-            0.7549999952316284
+            -1.2592499889433384,
+            0.8864999776124023,
+            0.6542500011855736
           ],
           "flatShading": false,
           "id": "battery12v__auxiliaryBattery__mechanical_cast",
           "mechanicalExample": true,
           "role": "selection",
           "section": "auxiliaryBattery",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "battery12v__auxiliaryBattery__mechanical_cast"
         },
         {
           "assemblyId": "battery12v",
           "baseCenter": [
             -1.25,
-            1.0099999904632568,
+            0.8700000131502748,
             0.6200000047683716
           ],
           "flatShading": false,
@@ -179,14 +180,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "auxiliaryBattery",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "battery12v__auxiliaryBattery__mechanical_darksteel"
         },
         {
           "assemblyId": "battery12v",
           "baseCenter": [
             -1.180882640182972,
-            0.8975000232458115,
+            0.902856819331646,
             0.6200000047683716
           ],
           "flatShading": false,
@@ -194,7 +195,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "auxiliaryBattery",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "battery12v__auxiliaryBattery__mechanical_plastic"
         },
         {
@@ -209,26 +210,41 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "auxiliaryBattery",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "battery12v__auxiliaryBattery__mechanical_red"
         },
         {
           "assemblyId": "battery12v",
           "baseCenter": [
-            -1.2499999962747097,
+            -1.2500000032152023,
             1.0399999618530273,
-            0.6199999911787437
+            0.6463709194763785
           ],
           "flatShading": false,
           "id": "battery12v__auxiliaryBattery__mechanical_silver",
           "mechanicalExample": true,
           "role": "selection",
           "section": "auxiliaryBattery",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "battery12v__auxiliaryBattery__mechanical_silver"
+        },
+        {
+          "assemblyId": "battery12v",
+          "baseCenter": [
+            -1.2499999925494105,
+            0.8864999935030937,
+            0.6800000425978776
+          ],
+          "flatShading": false,
+          "id": "battery12v__auxiliaryBattery__mechanical_steel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "auxiliaryBattery",
+          "sourceFile": "authored/mechanical-supplement",
+          "sourceMesh": "battery12v__auxiliaryBattery__mechanical_steel"
         }
       ],
-      "sha256": "5401e9a57e58f8249b33daff7453f4033ab8fe011c66d5ce9209ebf30f611d26",
+      "sha256": "6945f4a8c5b860244355584f1baf1373ba6e45f04c7649ecc4bdc8f11e26bda1",
       "subset": false,
       "width": 1024
     },
@@ -239,13 +255,13 @@
       "camera": {
         "fov": 35,
         "position": [
-          -1.445456804350526,
-          1.4017740779276258,
-          2.678185211890207
+          -1.4414288618284163,
+          1.4141572977970658,
+          2.665393250900164
         ],
         "target": [
-          0.3400000035762787,
-          0.3304999931715429,
+          0.33549997210502625,
+          0.3479999974370003,
           0
         ]
       },
@@ -271,6 +287,8 @@
         "batteryHV__tractionBattery__mechanical_cast",
         "batteryHV__tractionBattery__mechanical_copper",
         "batteryHV__tractionBattery__mechanical_darksteel",
+        "batteryHV__tractionBattery__mechanical_orange",
+        "batteryHV__tractionBattery__mechanical_plastic",
         "batteryHV__tractionBattery__mechanical_rubber",
         "batteryHV__tractionBattery__mechanical_silver",
         "batteryHV__tractionBattery__mechanical_steel"
@@ -288,14 +306,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionBattery",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "batteryHV__tractionBattery__mechanical_aluminum"
         },
         {
           "assemblyId": "batteryHV",
           "baseCenter": [
             0.33000002801418304,
-            0.4050000011920929,
+            0.4332500007003546,
             -0.0049999793991446495
           ],
           "flatShading": false,
@@ -303,14 +321,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionBattery",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "batteryHV__tractionBattery__mechanical_cast"
         },
         {
           "assemblyId": "batteryHV",
           "baseCenter": [
             0.43999998830258846,
-            0.4749999940395355,
+            0.4924999983049929,
             0.19499999564141035
           ],
           "flatShading": false,
@@ -318,7 +336,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionBattery",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "batteryHV__tractionBattery__mechanical_copper"
         },
         {
@@ -333,14 +351,44 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionBattery",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "batteryHV__tractionBattery__mechanical_darksteel"
         },
         {
           "assemblyId": "batteryHV",
           "baseCenter": [
-            0.3400000035762787,
-            0.3499999940395355,
+            -0.6949999928474426,
+            0.28999999165534973,
+            1.862645149230957e-09
+          ],
+          "flatShading": false,
+          "id": "batteryHV__tractionBattery__mechanical_orange",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionBattery",
+          "sourceFile": "authored/mechanical-supplement",
+          "sourceMesh": "batteryHV__tractionBattery__mechanical_orange"
+        },
+        {
+          "assemblyId": "batteryHV",
+          "baseCenter": [
+            0.19624998420476913,
+            0.37225000374019146,
+            -5.21540641784668e-08
+          ],
+          "flatShading": false,
+          "id": "batteryHV__tractionBattery__mechanical_plastic",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionBattery",
+          "sourceFile": "authored/mechanical-supplement",
+          "sourceMesh": "batteryHV__tractionBattery__mechanical_plastic"
+        },
+        {
+          "assemblyId": "batteryHV",
+          "baseCenter": [
+            0.30799999833106995,
+            0.371279738843441,
             0
           ],
           "flatShading": false,
@@ -348,22 +396,22 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionBattery",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "batteryHV__tractionBattery__mechanical_rubber"
         },
         {
           "assemblyId": "batteryHV",
           "baseCenter": [
-            0.3000000056471136,
-            0.35499998927116394,
-            -1.90152290580059e-08
+            0.29999999872815597,
+            0.4204999883659184,
+            -1.6091674659435284e-08
           ],
           "flatShading": false,
           "id": "batteryHV__tractionBattery__mechanical_silver",
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionBattery",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "batteryHV__tractionBattery__mechanical_silver"
         },
         {
@@ -378,11 +426,11 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionBattery",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "batteryHV__tractionBattery__mechanical_steel"
         }
       ],
-      "sha256": "235b4abe0489520782ffdb697a451a750ff324c9896f8375070d3f50c8c3f45a",
+      "sha256": "b7758dad732a47d16fd0ea158f1f8b31f5f0299de96083c54fdabb1ee0f19513",
       "subset": true,
       "width": 1024
     },
@@ -395,32 +443,32 @@
       "camera": {
         "fov": 35,
         "position": [
-          -2.5836162691587212,
-          1.2496697605750862,
-          3.875424403738082
+          -2.5866410747567965,
+          1.2339846396684737,
+          3.8799616121351947
         ],
         "target": [
           0,
-          -0.30050000092014667,
+          -0.3180000051856041,
           0
         ]
       },
       "contextAssemblyIds": [],
       "displayTranslations": {
         "batteryHV": [
-          -0.3400000035762787,
-          -1.2012499479576946,
+          -0.33549997210502625,
+          -1.236249926686287,
           0
         ],
         "engine": [
-          0.3713669296354055,
-          -0.7492499846220015,
+          0.3713670190423727,
+          -0.6842499524354935,
           0.016000023371593675
         ],
         "motorElectric": [
-          1.1923669461160897,
-          -0.6419418772542955,
-          -0.20580477152430143
+          1.192367035523057,
+          -0.6388855989039893,
+          -0.1880713225285917
         ]
       },
       "file": "batteryHV--engine--motorElectric.webp",
@@ -445,6 +493,8 @@
         "batteryHV__tractionBattery__mechanical_cast",
         "batteryHV__tractionBattery__mechanical_copper",
         "batteryHV__tractionBattery__mechanical_darksteel",
+        "batteryHV__tractionBattery__mechanical_orange",
+        "batteryHV__tractionBattery__mechanical_plastic",
         "batteryHV__tractionBattery__mechanical_rubber",
         "batteryHV__tractionBattery__mechanical_silver",
         "batteryHV__tractionBattery__mechanical_steel",
@@ -457,7 +507,10 @@
         "engine__engineExample__mechanical_yellow",
         "motorElectric__inverter__mechanical_aluminum",
         "motorElectric__inverter__mechanical_cast",
+        "motorElectric__inverter__mechanical_darksteel",
         "motorElectric__inverter__mechanical_orange",
+        "motorElectric__inverter__mechanical_plastic",
+        "motorElectric__inverter__mechanical_rubber",
         "motorElectric__inverter__mechanical_silver",
         "motorElectric__tractionMotor__mechanical_aluminum",
         "motorElectric__tractionMotor__mechanical_cast",
@@ -478,14 +531,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionBattery",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "batteryHV__tractionBattery__mechanical_aluminum"
         },
         {
           "assemblyId": "batteryHV",
           "baseCenter": [
             0.33000002801418304,
-            0.4050000011920929,
+            0.4332500007003546,
             -0.0049999793991446495
           ],
           "flatShading": false,
@@ -493,14 +546,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionBattery",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "batteryHV__tractionBattery__mechanical_cast"
         },
         {
           "assemblyId": "batteryHV",
           "baseCenter": [
             0.43999998830258846,
-            0.4749999940395355,
+            0.4924999983049929,
             0.19499999564141035
           ],
           "flatShading": false,
@@ -508,7 +561,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionBattery",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "batteryHV__tractionBattery__mechanical_copper"
         },
         {
@@ -523,14 +576,44 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionBattery",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "batteryHV__tractionBattery__mechanical_darksteel"
         },
         {
           "assemblyId": "batteryHV",
           "baseCenter": [
-            0.3400000035762787,
-            0.3499999940395355,
+            -0.6949999928474426,
+            0.28999999165534973,
+            1.862645149230957e-09
+          ],
+          "flatShading": false,
+          "id": "batteryHV__tractionBattery__mechanical_orange",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionBattery",
+          "sourceFile": "authored/mechanical-supplement",
+          "sourceMesh": "batteryHV__tractionBattery__mechanical_orange"
+        },
+        {
+          "assemblyId": "batteryHV",
+          "baseCenter": [
+            0.19624998420476913,
+            0.37225000374019146,
+            -5.21540641784668e-08
+          ],
+          "flatShading": false,
+          "id": "batteryHV__tractionBattery__mechanical_plastic",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionBattery",
+          "sourceFile": "authored/mechanical-supplement",
+          "sourceMesh": "batteryHV__tractionBattery__mechanical_plastic"
+        },
+        {
+          "assemblyId": "batteryHV",
+          "baseCenter": [
+            0.30799999833106995,
+            0.371279738843441,
             0
           ],
           "flatShading": false,
@@ -538,22 +621,22 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionBattery",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "batteryHV__tractionBattery__mechanical_rubber"
         },
         {
           "assemblyId": "batteryHV",
           "baseCenter": [
-            0.3000000056471136,
-            0.35499998927116394,
-            -1.90152290580059e-08
+            0.29999999872815597,
+            0.4204999883659184,
+            -1.6091674659435284e-08
           ],
           "flatShading": false,
           "id": "batteryHV__tractionBattery__mechanical_silver",
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionBattery",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "batteryHV__tractionBattery__mechanical_silver"
         },
         {
@@ -568,14 +651,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionBattery",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "batteryHV__tractionBattery__mechanical_steel"
         },
         {
           "assemblyId": "engine",
           "baseCenter": [
             -1.0802499502897263,
-            0.6752500432729721,
+            0.6102500408887863,
             -0.030999988317489624
           ],
           "flatShading": false,
@@ -583,14 +666,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_aluminum"
         },
         {
           "assemblyId": "engine",
           "baseCenter": [
             -1.1349999904632568,
-            0.6405000138282776,
+            0.5755000114440918,
             0.044000014662742615
           ],
           "flatShading": false,
@@ -598,14 +681,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_cast"
         },
         {
           "assemblyId": "engine",
           "baseCenter": [
             -1.0580000281333923,
-            0.7497499558329582,
+            0.68474992364645,
             0.08050000574439764
           ],
           "flatShading": false,
@@ -613,14 +696,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_darksteel"
         },
         {
           "assemblyId": "engine",
           "baseCenter": [
             -1.392499953508377,
-            0.7914999882876873,
+            0.7264999561011791,
             -0.14099999237805605
           ],
           "flatShading": false,
@@ -628,14 +711,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_plastic"
         },
         {
           "assemblyId": "engine",
           "baseCenter": [
             -1.4976864755153656,
-            0.7837248194217682,
+            0.7187248170375824,
             -4.6566128730773926e-09
           ],
           "flatShading": false,
@@ -643,14 +726,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_rubber"
         },
         {
           "assemblyId": "engine",
           "baseCenter": [
             -1.095749944448471,
-            0.6941721681743686,
+            0.6291721657901828,
             -0.023037838564260837
           ],
           "flatShading": false,
@@ -658,14 +741,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_steel"
         },
         {
           "assemblyId": "engine",
           "baseCenter": [
             -1.0399999618530273,
-            1.001000051498413,
+            0.9360000491142273,
             0.3400000035762787
           ],
           "flatShading": false,
@@ -673,7 +756,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_yellow"
         },
         {
@@ -688,14 +771,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "inverter",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "motorElectric__inverter__mechanical_aluminum"
         },
         {
           "assemblyId": "motorElectric",
           "baseCenter": [
-            -0.4300000071525574,
-            0.9340000152587891,
+            -0.47300001233816147,
+            0.8779999925754964,
             0.0500000084284693
           ],
           "flatShading": false,
@@ -703,37 +786,82 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "inverter",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "motorElectric__inverter__mechanical_cast"
         },
         {
           "assemblyId": "motorElectric",
           "baseCenter": [
-            -0.004680445417761803,
-            0.6039418697430302,
-            0.4283046979263808
+            -0.4300000071525574,
+            0.8899999856948853,
+            -0.1899999976158142
+          ],
+          "flatShading": false,
+          "id": "motorElectric__inverter__mechanical_darksteel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "inverter",
+          "sourceFile": "authored/mechanical-supplement",
+          "sourceMesh": "motorElectric__inverter__mechanical_darksteel"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.05968054197728634,
+            0.600885591392724,
+            0.4275712479973296
           ],
           "flatShading": false,
           "id": "motorElectric__inverter__mechanical_orange",
           "mechanicalExample": true,
           "role": "selection",
           "section": "inverter",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "motorElectric__inverter__mechanical_orange"
         },
         {
           "assemblyId": "motorElectric",
           "baseCenter": [
-            -0.42999998159624153,
-            0.9399999976158142,
-            0.05000000033446015
+            -0.4300000034272671,
+            0.842249995097518,
+            0.06025000475347042
+          ],
+          "flatShading": false,
+          "id": "motorElectric__inverter__mechanical_plastic",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "inverter",
+          "sourceFile": "authored/mechanical-supplement",
+          "sourceMesh": "motorElectric__inverter__mechanical_plastic"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.4300000071525574,
+            0.8717499813064933,
+            0.10599999502301216
+          ],
+          "flatShading": false,
+          "id": "motorElectric__inverter__mechanical_rubber",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "inverter",
+          "sourceFile": "authored/mechanical-supplement",
+          "sourceMesh": "motorElectric__inverter__mechanical_rubber"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.4773528632327121,
+            0.8834999841637909,
+            0.050000007484546506
           ],
           "flatShading": false,
           "id": "motorElectric__inverter__mechanical_silver",
           "mechanicalExample": true,
           "role": "selection",
           "section": "inverter",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "motorElectric__inverter__mechanical_silver"
         },
         {
@@ -748,7 +876,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionMotor",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "motorElectric__tractionMotor__mechanical_aluminum"
         },
         {
@@ -763,7 +891,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionMotor",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "motorElectric__tractionMotor__mechanical_cast"
         },
         {
@@ -778,7 +906,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionMotor",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "motorElectric__tractionMotor__mechanical_copper"
         },
         {
@@ -793,7 +921,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionMotor",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "motorElectric__tractionMotor__mechanical_silver"
         },
         {
@@ -808,11 +936,11 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionMotor",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "motorElectric__tractionMotor__mechanical_steel"
         }
       ],
-      "sha256": "06c326e5a26e41dfcfc880f57b50de2be20af455b871332a110ab0cbb19d1707",
+      "sha256": "ae33d31a348203ab4a0b07ab8c71f4596f860b97e663c421076bc68cdcadcf6b",
       "subset": true,
       "width": 1024
     },
@@ -824,9 +952,9 @@
       "camera": {
         "fov": 35,
         "position": [
-          -2.760455538339304,
-          1.6562733230035827,
-          4.140683307508957
+          -2.761320952354293,
+          1.656792571412576,
+          4.14198142853144
         ],
         "target": [
           0,
@@ -837,14 +965,14 @@
       "contextAssemblyIds": [],
       "displayTranslations": {
         "batteryHV": [
-          0.3873195830732584,
-          -0.3304999931715429,
+          0.3918195251375437,
+          -0.3479999974370003,
           0
         ],
         "motorElectric": [
-          -1.0843194719403981,
-          -0.6419418772542955,
-          -0.20580477152430143
+          -1.0888194140046834,
+          -0.6388855989039893,
+          -0.1880713225285917
         ]
       },
       "file": "batteryHV--motorElectric.webp",
@@ -868,12 +996,17 @@
         "batteryHV__tractionBattery__mechanical_cast",
         "batteryHV__tractionBattery__mechanical_copper",
         "batteryHV__tractionBattery__mechanical_darksteel",
+        "batteryHV__tractionBattery__mechanical_orange",
+        "batteryHV__tractionBattery__mechanical_plastic",
         "batteryHV__tractionBattery__mechanical_rubber",
         "batteryHV__tractionBattery__mechanical_silver",
         "batteryHV__tractionBattery__mechanical_steel",
         "motorElectric__inverter__mechanical_aluminum",
         "motorElectric__inverter__mechanical_cast",
+        "motorElectric__inverter__mechanical_darksteel",
         "motorElectric__inverter__mechanical_orange",
+        "motorElectric__inverter__mechanical_plastic",
+        "motorElectric__inverter__mechanical_rubber",
         "motorElectric__inverter__mechanical_silver",
         "motorElectric__tractionMotor__mechanical_aluminum",
         "motorElectric__tractionMotor__mechanical_cast",
@@ -894,14 +1027,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionBattery",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "batteryHV__tractionBattery__mechanical_aluminum"
         },
         {
           "assemblyId": "batteryHV",
           "baseCenter": [
             0.33000002801418304,
-            0.4050000011920929,
+            0.4332500007003546,
             -0.0049999793991446495
           ],
           "flatShading": false,
@@ -909,14 +1042,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionBattery",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "batteryHV__tractionBattery__mechanical_cast"
         },
         {
           "assemblyId": "batteryHV",
           "baseCenter": [
             0.43999998830258846,
-            0.4749999940395355,
+            0.4924999983049929,
             0.19499999564141035
           ],
           "flatShading": false,
@@ -924,7 +1057,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionBattery",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "batteryHV__tractionBattery__mechanical_copper"
         },
         {
@@ -939,14 +1072,44 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionBattery",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "batteryHV__tractionBattery__mechanical_darksteel"
         },
         {
           "assemblyId": "batteryHV",
           "baseCenter": [
-            0.3400000035762787,
-            0.3499999940395355,
+            -0.6949999928474426,
+            0.28999999165534973,
+            1.862645149230957e-09
+          ],
+          "flatShading": false,
+          "id": "batteryHV__tractionBattery__mechanical_orange",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionBattery",
+          "sourceFile": "authored/mechanical-supplement",
+          "sourceMesh": "batteryHV__tractionBattery__mechanical_orange"
+        },
+        {
+          "assemblyId": "batteryHV",
+          "baseCenter": [
+            0.19624998420476913,
+            0.37225000374019146,
+            -5.21540641784668e-08
+          ],
+          "flatShading": false,
+          "id": "batteryHV__tractionBattery__mechanical_plastic",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "tractionBattery",
+          "sourceFile": "authored/mechanical-supplement",
+          "sourceMesh": "batteryHV__tractionBattery__mechanical_plastic"
+        },
+        {
+          "assemblyId": "batteryHV",
+          "baseCenter": [
+            0.30799999833106995,
+            0.371279738843441,
             0
           ],
           "flatShading": false,
@@ -954,22 +1117,22 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionBattery",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "batteryHV__tractionBattery__mechanical_rubber"
         },
         {
           "assemblyId": "batteryHV",
           "baseCenter": [
-            0.3000000056471136,
-            0.35499998927116394,
-            -1.90152290580059e-08
+            0.29999999872815597,
+            0.4204999883659184,
+            -1.6091674659435284e-08
           ],
           "flatShading": false,
           "id": "batteryHV__tractionBattery__mechanical_silver",
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionBattery",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "batteryHV__tractionBattery__mechanical_silver"
         },
         {
@@ -984,7 +1147,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionBattery",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "batteryHV__tractionBattery__mechanical_steel"
         },
         {
@@ -999,14 +1162,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "inverter",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "motorElectric__inverter__mechanical_aluminum"
         },
         {
           "assemblyId": "motorElectric",
           "baseCenter": [
-            -0.4300000071525574,
-            0.9340000152587891,
+            -0.47300001233816147,
+            0.8779999925754964,
             0.0500000084284693
           ],
           "flatShading": false,
@@ -1014,37 +1177,82 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "inverter",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "motorElectric__inverter__mechanical_cast"
         },
         {
           "assemblyId": "motorElectric",
           "baseCenter": [
-            -0.004680445417761803,
-            0.6039418697430302,
-            0.4283046979263808
+            -0.4300000071525574,
+            0.8899999856948853,
+            -0.1899999976158142
+          ],
+          "flatShading": false,
+          "id": "motorElectric__inverter__mechanical_darksteel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "inverter",
+          "sourceFile": "authored/mechanical-supplement",
+          "sourceMesh": "motorElectric__inverter__mechanical_darksteel"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.05968054197728634,
+            0.600885591392724,
+            0.4275712479973296
           ],
           "flatShading": false,
           "id": "motorElectric__inverter__mechanical_orange",
           "mechanicalExample": true,
           "role": "selection",
           "section": "inverter",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "motorElectric__inverter__mechanical_orange"
         },
         {
           "assemblyId": "motorElectric",
           "baseCenter": [
-            -0.42999998159624153,
-            0.9399999976158142,
-            0.05000000033446015
+            -0.4300000034272671,
+            0.842249995097518,
+            0.06025000475347042
+          ],
+          "flatShading": false,
+          "id": "motorElectric__inverter__mechanical_plastic",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "inverter",
+          "sourceFile": "authored/mechanical-supplement",
+          "sourceMesh": "motorElectric__inverter__mechanical_plastic"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.4300000071525574,
+            0.8717499813064933,
+            0.10599999502301216
+          ],
+          "flatShading": false,
+          "id": "motorElectric__inverter__mechanical_rubber",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "inverter",
+          "sourceFile": "authored/mechanical-supplement",
+          "sourceMesh": "motorElectric__inverter__mechanical_rubber"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.4773528632327121,
+            0.8834999841637909,
+            0.050000007484546506
           ],
           "flatShading": false,
           "id": "motorElectric__inverter__mechanical_silver",
           "mechanicalExample": true,
           "role": "selection",
           "section": "inverter",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "motorElectric__inverter__mechanical_silver"
         },
         {
@@ -1059,7 +1267,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionMotor",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "motorElectric__tractionMotor__mechanical_aluminum"
         },
         {
@@ -1074,7 +1282,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionMotor",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "motorElectric__tractionMotor__mechanical_cast"
         },
         {
@@ -1089,7 +1297,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionMotor",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "motorElectric__tractionMotor__mechanical_copper"
         },
         {
@@ -1104,7 +1312,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionMotor",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "motorElectric__tractionMotor__mechanical_silver"
         },
         {
@@ -1119,11 +1327,11 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionMotor",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "motorElectric__tractionMotor__mechanical_steel"
         }
       ],
-      "sha256": "8623138f2f7b704068329bd6706bfe1c78297fe9eb3a6e3053a4b1160454368f",
+      "sha256": "eef4a12e4b55cc728183450ebe0759e4265cd590e4baf73bc81a6f64756a5fa5",
       "subset": true,
       "width": 1024
     },
@@ -1446,12 +1654,12 @@
       "camera": {
         "fov": 35,
         "position": [
-          -1.8165387901621677,
-          1.2376533038441906,
-          1.8518647010188727
+          -1.8165296693735447,
+          1.2376478492524103,
+          1.851851064539422
         ],
         "target": [
-          -0.9619623180478811,
+          -0.9619622882455587,
           0.7249074205756187,
           0.5699999928474426
         ]
@@ -1474,12 +1682,31 @@
       "renderHeight": 1536,
       "renderWidth": 2048,
       "selectedMeshIds": [
+        "brakeFluid__brakeHydraulics__mechanical_aluminum",
         "brakeFluid__brakeHydraulics__mechanical_cast",
+        "brakeFluid__brakeHydraulics__mechanical_darksteel",
         "brakeFluid__brakeHydraulics__mechanical_ivory",
         "brakeFluid__brakeHydraulics__mechanical_plastic",
-        "brakeFluid__brakeHydraulics__mechanical_silver"
+        "brakeFluid__brakeHydraulics__mechanical_rubber",
+        "brakeFluid__brakeHydraulics__mechanical_silver",
+        "brakeFluid__brakeHydraulics__mechanical_steel"
       ],
       "selectedMeshes": [
+        {
+          "assemblyId": "brakeFluid",
+          "baseCenter": [
+            -0.8501961780712008,
+            0.8799999952316284,
+            0.5699999928474426
+          ],
+          "flatShading": false,
+          "id": "brakeFluid__brakeHydraulics__mechanical_aluminum",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "brakeHydraulics",
+          "sourceFile": "authored/mechanical-supplement",
+          "sourceMesh": "brakeFluid__brakeHydraulics__mechanical_aluminum"
+        },
         {
           "assemblyId": "brakeFluid",
           "baseCenter": [
@@ -1492,22 +1719,37 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "brakeHydraulics",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "brakeFluid__brakeHydraulics__mechanical_cast"
+        },
+        {
+          "assemblyId": "brakeFluid",
+          "baseCenter": [
+            -0.8107500039041042,
+            1.0557500030845404,
+            0.570000022649765
+          ],
+          "flatShading": false,
+          "id": "brakeFluid__brakeHydraulics__mechanical_darksteel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "brakeHydraulics",
+          "sourceFile": "authored/mechanical-supplement",
+          "sourceMesh": "brakeFluid__brakeHydraulics__mechanical_darksteel"
         },
         {
           "assemblyId": "brakeFluid",
           "baseCenter": [
             -0.8600000143051147,
             1.0099999904632568,
-            0.5699999928474426
+            0.5720000006258488
           ],
           "flatShading": false,
           "id": "brakeFluid__brakeHydraulics__mechanical_ivory",
           "mechanicalExample": true,
           "role": "selection",
           "section": "brakeHydraulics",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "brakeFluid__brakeHydraulics__mechanical_ivory"
         },
         {
@@ -1522,14 +1764,29 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "brakeHydraulics",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "brakeFluid__brakeHydraulics__mechanical_plastic"
         },
         {
           "assemblyId": "brakeFluid",
           "baseCenter": [
-            -1.0747840404510498,
-            0.609610378742218,
+            -0.8600000133737922,
+            0.9430000185966492,
+            0.5699999852976506
+          ],
+          "flatShading": false,
+          "id": "brakeFluid__brakeHydraulics__mechanical_rubber",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "brakeHydraulics",
+          "sourceFile": "authored/mechanical-supplement",
+          "sourceMesh": "brakeFluid__brakeHydraulics__mechanical_rubber"
+        },
+        {
+          "assemblyId": "brakeFluid",
+          "baseCenter": [
+            -1.0199622763320804,
+            0.6375400051474571,
             0.5699999928474426
           ],
           "flatShading": false,
@@ -1537,11 +1794,26 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "brakeHydraulics",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "brakeFluid__brakeHydraulics__mechanical_silver"
+        },
+        {
+          "assemblyId": "brakeFluid",
+          "baseCenter": [
+            -0.7300000190734863,
+            0.8799999952316284,
+            0.5699999928474426
+          ],
+          "flatShading": false,
+          "id": "brakeFluid__brakeHydraulics__mechanical_steel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "brakeHydraulics",
+          "sourceFile": "authored/mechanical-supplement",
+          "sourceMesh": "brakeFluid__brakeHydraulics__mechanical_steel"
         }
       ],
-      "sha256": "c3ea1e6a13e7df00ab95642269b666f97068e2c9c73a705fee344c490ce9b2b3",
+      "sha256": "60ed18c8c39ca6a312d908c3e1cd2ba8dcef988a9996e1d417c22462b6091e9c",
       "subset": false,
       "width": 1024
     },
@@ -1660,14 +1932,14 @@
       "camera": {
         "fov": 35,
         "position": [
-          -2.8768362084006993,
-          1.380661503113955,
-          2.0101506254725567
+          -2.9642210968574276,
+          1.4873469179695082,
+          2.148335779660684
         ],
         "target": [
-          -1.5359149239868783,
-          0.5761087324656623,
-          -0.0012313011481752678
+          -1.5392548257075966,
+          0.6323671552796096,
+          0.010886372935937194
         ]
       },
       "contextAssemblyIds": [],
@@ -1699,16 +1971,16 @@
         {
           "assemblyId": "chassis",
           "baseCenter": [
-            -1.5845714602859118,
-            0.2686559849680553,
-            0.007445281885422261
+            -1.5392548285388512,
+            0.6323671749935803,
+            0.010886382629004487
           ],
           "flatShading": false,
           "id": "chassis__frontSuspension__mechanical_aluminum",
           "mechanicalExample": true,
           "role": "selection",
           "section": "frontSuspension",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "chassis__frontSuspension__mechanical_aluminum"
         },
         {
@@ -1723,7 +1995,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "frontSuspension",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "chassis__frontSuspension__mechanical_cast"
         },
         {
@@ -1738,7 +2010,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "frontSuspension",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "chassis__frontSuspension__mechanical_darksteel"
         },
         {
@@ -1746,14 +2018,14 @@
           "baseCenter": [
             -1.5800000354647636,
             0.6172843407839537,
-            4.470348358154297e-08
+            -1.4901161193847656e-08
           ],
           "flatShading": false,
           "id": "chassis__frontSuspension__mechanical_rubber",
           "mechanicalExample": true,
           "role": "selection",
           "section": "frontSuspension",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "chassis__frontSuspension__mechanical_rubber"
         },
         {
@@ -1768,26 +2040,26 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "frontSuspension",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "chassis__frontSuspension__mechanical_silver"
         },
         {
           "assemblyId": "chassis",
           "baseCenter": [
-            -1.4999019757018748,
-            0.44192541952413406,
-            -0.001231305667831195
+            -1.506494870499421,
+            0.6420265660456801,
+            0.01160754456419294
           ],
           "flatShading": false,
           "id": "chassis__frontSuspension__mechanical_steel",
           "mechanicalExample": true,
           "role": "selection",
           "section": "frontSuspension",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "chassis__frontSuspension__mechanical_steel"
         }
       ],
-      "sha256": "be1757282cf68797619a290c2b51415f1c8f76c06ff74f22b61b4a8b5e455ac0",
+      "sha256": "9c1c9490f06407a770d50413e0da9af417aa7f9d4ab375e35abecd7816500b57",
       "subset": true,
       "width": 1024
     },
@@ -1799,14 +2071,14 @@
       "camera": {
         "fov": 35,
         "position": [
-          -2.8768362084006993,
-          1.380661503113955,
-          2.0101506254725567
+          -2.9642210968574276,
+          1.4873469179695082,
+          2.148335779660684
         ],
         "target": [
-          -1.5359149239868783,
-          0.5761087324656623,
-          -0.0012313011481752678
+          -1.5392548257075966,
+          0.6323671552796096,
+          0.010886372935937194
         ]
       },
       "contextAssemblyIds": [],
@@ -1844,16 +2116,16 @@
         {
           "assemblyId": "chassis",
           "baseCenter": [
-            -1.5845714602859118,
-            0.2686559849680553,
-            0.007445281885422261
+            -1.5392548285388512,
+            0.6323671749935803,
+            0.010886382629004487
           ],
           "flatShading": false,
           "id": "chassis__frontSuspension__mechanical_aluminum",
           "mechanicalExample": true,
           "role": "selection",
           "section": "frontSuspension",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "chassis__frontSuspension__mechanical_aluminum"
         },
         {
@@ -1868,7 +2140,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "frontSuspension",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "chassis__frontSuspension__mechanical_cast"
         },
         {
@@ -1883,7 +2155,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "frontSuspension",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "chassis__frontSuspension__mechanical_darksteel"
         },
         {
@@ -1891,14 +2163,14 @@
           "baseCenter": [
             -1.5800000354647636,
             0.6172843407839537,
-            4.470348358154297e-08
+            -1.4901161193847656e-08
           ],
           "flatShading": false,
           "id": "chassis__frontSuspension__mechanical_rubber",
           "mechanicalExample": true,
           "role": "selection",
           "section": "frontSuspension",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "chassis__frontSuspension__mechanical_rubber"
         },
         {
@@ -1913,22 +2185,22 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "frontSuspension",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "chassis__frontSuspension__mechanical_silver"
         },
         {
           "assemblyId": "chassis",
           "baseCenter": [
-            -1.4999019757018748,
-            0.44192541952413406,
-            -0.001231305667831195
+            -1.506494870499421,
+            0.6420265660456801,
+            0.01160754456419294
           ],
           "flatShading": false,
           "id": "chassis__frontSuspension__mechanical_steel",
           "mechanicalExample": true,
           "role": "selection",
           "section": "frontSuspension",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "chassis__frontSuspension__mechanical_steel"
         },
         {
@@ -1943,7 +2215,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "steeringRack",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "steering__steeringRack__mechanical_aluminum"
         },
         {
@@ -1958,7 +2230,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "steeringRack",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "steering__steeringRack__mechanical_darksteel"
         },
         {
@@ -1973,7 +2245,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "steeringRack",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "steering__steeringRack__mechanical_rubber"
         },
         {
@@ -1988,11 +2260,11 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "steeringRack",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "steering__steeringRack__mechanical_steel"
         }
       ],
-      "sha256": "b72331f8063b5e40ad4a72511fea57e7f0f71919afc42ccce1f6d92c95747e8b",
+      "sha256": "d61799e5633048cfb6e5a579eb99a5efb991ffa20154fa519f7d104c20e8fe48",
       "subset": true,
       "width": 1024
     },
@@ -2003,13 +2275,13 @@
       "camera": {
         "fov": 35,
         "position": [
-          -3.05471532713423,
-          1.686979746720492,
-          2.1890728825114647
+          -3.092006079047855,
+          1.6868541969745974,
+          2.245009010381902
         ],
         "target": [
           -1.5770000498741865,
-          0.8003505803644657,
+          0.777850579470396,
           -0.027500033378601074
         ]
       },
@@ -2049,7 +2321,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "coolantReservoir",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "cooling__coolantReservoir__mechanical_ivory"
         },
         {
@@ -2064,14 +2336,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "coolantReservoir",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "cooling__coolantReservoir__mechanical_plastic"
         },
         {
           "assemblyId": "cooling",
           "baseCenter": [
             -2.0850000381469727,
-            0.7639999941457063,
+            0.7189999774564058,
             0
           ],
           "flatShading": false,
@@ -2079,14 +2351,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "radiator",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "cooling__radiator__mechanical_aluminum"
         },
         {
           "assemblyId": "cooling",
           "baseCenter": [
             -2.0450000762939453,
-            0.7599999904632568,
+            0.7149999737739563,
             0
           ],
           "flatShading": false,
@@ -2094,14 +2366,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "radiator",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "cooling__radiator__mechanical_darksteel"
         },
         {
           "assemblyId": "cooling",
           "baseCenter": [
             -1.997022233903408,
-            0.7599999904632568,
+            0.7149999737739563,
             -2.2351741790771484e-08
           ],
           "flatShading": false,
@@ -2109,14 +2381,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "radiator",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "cooling__radiator__mechanical_plastic"
         },
         {
           "assemblyId": "cooling",
           "baseCenter": [
             -1.723672866821289,
-            0.7665332406759262,
+            0.7215332388877869,
             0.0018369853496551514
           ],
           "flatShading": false,
@@ -2124,11 +2396,11 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "radiator",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "cooling__radiator__mechanical_rubber"
         }
       ],
-      "sha256": "3f9df3023ceb37bd2ceee3aecd9d5dcf7226b52d106fd8c720fc962dafcaab59",
+      "sha256": "b887205dccbc3c201976aee1c0155579dcca2042449600d6707b1dc1c271f7a3",
       "subset": false,
       "width": 1024
     },
@@ -2336,13 +2608,13 @@
       "camera": {
         "fov": 35,
         "position": [
-          -2.374809958293714,
-          1.4248859749762284,
-          3.562214937440571
+          -2.37480996344514,
+          1.424885978067084,
+          3.56221494516771
         ],
         "target": [
           0,
-          1.1102230246251565e-16,
+          0,
           0
         ]
       },
@@ -2355,7 +2627,7 @@
         ],
         "engine": [
           0.4783944100141525,
-          -0.7492499846220015,
+          -0.6842499524354935,
           0.016000023371593675
         ]
       },
@@ -2400,7 +2672,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "OBDAndHarness",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "electronics__OBDAndHarness__mechanical_aluminum"
         },
         {
@@ -2415,7 +2687,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "OBDAndHarness",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "electronics__OBDAndHarness__mechanical_cast"
         },
         {
@@ -2430,14 +2702,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "OBDAndHarness",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "electronics__OBDAndHarness__mechanical_plastic"
         },
         {
           "assemblyId": "engine",
           "baseCenter": [
             -1.0802499502897263,
-            0.6752500432729721,
+            0.6102500408887863,
             -0.030999988317489624
           ],
           "flatShading": false,
@@ -2445,14 +2717,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_aluminum"
         },
         {
           "assemblyId": "engine",
           "baseCenter": [
             -1.1349999904632568,
-            0.6405000138282776,
+            0.5755000114440918,
             0.044000014662742615
           ],
           "flatShading": false,
@@ -2460,14 +2732,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_cast"
         },
         {
           "assemblyId": "engine",
           "baseCenter": [
             -1.0580000281333923,
-            0.7497499558329582,
+            0.68474992364645,
             0.08050000574439764
           ],
           "flatShading": false,
@@ -2475,14 +2747,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_darksteel"
         },
         {
           "assemblyId": "engine",
           "baseCenter": [
             -1.392499953508377,
-            0.7914999882876873,
+            0.7264999561011791,
             -0.14099999237805605
           ],
           "flatShading": false,
@@ -2490,14 +2762,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_plastic"
         },
         {
           "assemblyId": "engine",
           "baseCenter": [
             -1.4976864755153656,
-            0.7837248194217682,
+            0.7187248170375824,
             -4.6566128730773926e-09
           ],
           "flatShading": false,
@@ -2505,14 +2777,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_rubber"
         },
         {
           "assemblyId": "engine",
           "baseCenter": [
             -1.095749944448471,
-            0.6941721681743686,
+            0.6291721657901828,
             -0.023037838564260837
           ],
           "flatShading": false,
@@ -2520,14 +2792,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_steel"
         },
         {
           "assemblyId": "engine",
           "baseCenter": [
             -1.0399999618530273,
-            1.001000051498413,
+            0.9360000491142273,
             0.3400000035762787
           ],
           "flatShading": false,
@@ -2535,11 +2807,11 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_yellow"
         }
       ],
-      "sha256": "dc0e6e8bce703d32946f46616665991f8e5b5641e5f7752535f5ef3152d33493",
+      "sha256": "a7ccd991cd0a03296ea7179739c4ed9571262f820af835c299d5b37f7b828445",
       "subset": true,
       "width": 1024
     },
@@ -2550,13 +2822,13 @@
       "camera": {
         "fov": 35,
         "position": [
-          -2.5643705545606315,
-          1.628660407587415,
-          2.18252603404194
+          -2.5643705597120583,
+          1.5636603784917626,
+          2.1825260417690795
         ],
         "target": [
           -1.0986865162849426,
-          0.7492499846220015,
+          0.6842499524354935,
           -0.016000023371593675
         ]
       },
@@ -2589,7 +2861,7 @@
           "assemblyId": "engine",
           "baseCenter": [
             -1.0802499502897263,
-            0.6752500432729721,
+            0.6102500408887863,
             -0.030999988317489624
           ],
           "flatShading": false,
@@ -2597,14 +2869,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_aluminum"
         },
         {
           "assemblyId": "engine",
           "baseCenter": [
             -1.1349999904632568,
-            0.6405000138282776,
+            0.5755000114440918,
             0.044000014662742615
           ],
           "flatShading": false,
@@ -2612,14 +2884,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_cast"
         },
         {
           "assemblyId": "engine",
           "baseCenter": [
             -1.0580000281333923,
-            0.7497499558329582,
+            0.68474992364645,
             0.08050000574439764
           ],
           "flatShading": false,
@@ -2627,14 +2899,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_darksteel"
         },
         {
           "assemblyId": "engine",
           "baseCenter": [
             -1.392499953508377,
-            0.7914999882876873,
+            0.7264999561011791,
             -0.14099999237805605
           ],
           "flatShading": false,
@@ -2642,14 +2914,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_plastic"
         },
         {
           "assemblyId": "engine",
           "baseCenter": [
             -1.4976864755153656,
-            0.7837248194217682,
+            0.7187248170375824,
             -4.6566128730773926e-09
           ],
           "flatShading": false,
@@ -2657,14 +2929,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_rubber"
         },
         {
           "assemblyId": "engine",
           "baseCenter": [
             -1.095749944448471,
-            0.6941721681743686,
+            0.6291721657901828,
             -0.023037838564260837
           ],
           "flatShading": false,
@@ -2672,14 +2944,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_steel"
         },
         {
           "assemblyId": "engine",
           "baseCenter": [
             -1.0399999618530273,
-            1.001000051498413,
+            0.9360000491142273,
             0.3400000035762787
           ],
           "flatShading": false,
@@ -2687,11 +2959,11 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_yellow"
         }
       ],
-      "sha256": "0a4fc0dfaad1dfd50cfb41f5aa01568bb4ad6572ffa60468f39fdcaa67d08251",
+      "sha256": "d053b7f042c92300af374c0b9b03b7fe4ba49245c2dc335369f3f85c72378cbb",
       "subset": false,
       "width": 1024
     },
@@ -2703,13 +2975,13 @@
       "camera": {
         "fov": 35,
         "position": [
-          -4.312913558579024,
-          2.5877481351474145,
-          6.469370337868537
+          -4.31291356373045,
+          2.5877481382382697,
+          6.469370345595675
         ],
         "target": [
           0,
-          1.1102230246251565e-16,
+          0,
           5.551115123125783e-17
         ]
       },
@@ -2717,7 +2989,7 @@
       "displayTranslations": {
         "engine": [
           -0.8439640641212462,
-          -0.7492499846220015,
+          -0.6842499524354935,
           0.016000023371593675
         ],
         "exhaust": [
@@ -2757,7 +3029,7 @@
           "assemblyId": "engine",
           "baseCenter": [
             -1.0802499502897263,
-            0.6752500432729721,
+            0.6102500408887863,
             -0.030999988317489624
           ],
           "flatShading": false,
@@ -2765,14 +3037,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_aluminum"
         },
         {
           "assemblyId": "engine",
           "baseCenter": [
             -1.1349999904632568,
-            0.6405000138282776,
+            0.5755000114440918,
             0.044000014662742615
           ],
           "flatShading": false,
@@ -2780,14 +3052,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_cast"
         },
         {
           "assemblyId": "engine",
           "baseCenter": [
             -1.0580000281333923,
-            0.7497499558329582,
+            0.68474992364645,
             0.08050000574439764
           ],
           "flatShading": false,
@@ -2795,14 +3067,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_darksteel"
         },
         {
           "assemblyId": "engine",
           "baseCenter": [
             -1.392499953508377,
-            0.7914999882876873,
+            0.7264999561011791,
             -0.14099999237805605
           ],
           "flatShading": false,
@@ -2810,14 +3082,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_plastic"
         },
         {
           "assemblyId": "engine",
           "baseCenter": [
             -1.4976864755153656,
-            0.7837248194217682,
+            0.7187248170375824,
             -4.6566128730773926e-09
           ],
           "flatShading": false,
@@ -2825,14 +3097,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_rubber"
         },
         {
           "assemblyId": "engine",
           "baseCenter": [
             -1.095749944448471,
-            0.6941721681743686,
+            0.6291721657901828,
             -0.023037838564260837
           ],
           "flatShading": false,
@@ -2840,14 +3112,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_steel"
         },
         {
           "assemblyId": "engine",
           "baseCenter": [
             -1.0399999618530273,
-            1.001000051498413,
+            0.9360000491142273,
             0.3400000035762787
           ],
           "flatShading": false,
@@ -2855,7 +3127,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "engineExample",
-          "sourceFile": "authored/engine_geometry.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "engine__engineExample__mechanical_yellow"
         },
         {
@@ -2870,7 +3142,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "exhaust",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "exhaust__exhaust__mechanical_plastic"
         },
         {
@@ -2885,7 +3157,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "exhaust",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "exhaust__exhaust__mechanical_silver"
         },
         {
@@ -2900,11 +3172,11 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "exhaust",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "exhaust__exhaust__mechanical_steel"
         }
       ],
-      "sha256": "cbe3eceee73f04a950d3b6ee37fb761d99c5c44ad3fa0ecba3e75361412e2600",
+      "sha256": "1f019c2aec8062b740273ca1b6e7a1821ceb819e0d1425b777e61c8f8bf82b05",
       "subset": false,
       "width": 1024
     },
@@ -2958,7 +3230,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "exhaust",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "exhaust__exhaust__mechanical_plastic"
         },
         {
@@ -2973,7 +3245,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "exhaust",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "exhaust__exhaust__mechanical_silver"
         },
         {
@@ -2988,7 +3260,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "exhaust",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "exhaust__exhaust__mechanical_steel"
         }
       ],
@@ -3413,14 +3685,14 @@
       "camera": {
         "fov": 35,
         "position": [
-          -1.1127097474536496,
-          1.2341594432229996,
-          1.6863486864460617
+          -1.1069798175143652,
+          1.2276651532649425,
+          1.6600202084309748
         ],
         "target": [
-          -0.1256804708391428,
-          0.6419418772542955,
-          0.20580477152430143
+          -0.12568056024610996,
+          0.6388855989039893,
+          0.1880713225285917
         ]
       },
       "contextAssemblyIds": [],
@@ -3441,7 +3713,10 @@
       "selectedMeshIds": [
         "motorElectric__inverter__mechanical_aluminum",
         "motorElectric__inverter__mechanical_cast",
+        "motorElectric__inverter__mechanical_darksteel",
         "motorElectric__inverter__mechanical_orange",
+        "motorElectric__inverter__mechanical_plastic",
+        "motorElectric__inverter__mechanical_rubber",
         "motorElectric__inverter__mechanical_silver",
         "motorElectric__tractionMotor__mechanical_aluminum",
         "motorElectric__tractionMotor__mechanical_cast",
@@ -3462,14 +3737,14 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "inverter",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "motorElectric__inverter__mechanical_aluminum"
         },
         {
           "assemblyId": "motorElectric",
           "baseCenter": [
-            -0.4300000071525574,
-            0.9340000152587891,
+            -0.47300001233816147,
+            0.8779999925754964,
             0.0500000084284693
           ],
           "flatShading": false,
@@ -3477,37 +3752,82 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "inverter",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "motorElectric__inverter__mechanical_cast"
         },
         {
           "assemblyId": "motorElectric",
           "baseCenter": [
-            -0.004680445417761803,
-            0.6039418697430302,
-            0.4283046979263808
+            -0.4300000071525574,
+            0.8899999856948853,
+            -0.1899999976158142
+          ],
+          "flatShading": false,
+          "id": "motorElectric__inverter__mechanical_darksteel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "inverter",
+          "sourceFile": "authored/mechanical-supplement",
+          "sourceMesh": "motorElectric__inverter__mechanical_darksteel"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.05968054197728634,
+            0.600885591392724,
+            0.4275712479973296
           ],
           "flatShading": false,
           "id": "motorElectric__inverter__mechanical_orange",
           "mechanicalExample": true,
           "role": "selection",
           "section": "inverter",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "motorElectric__inverter__mechanical_orange"
         },
         {
           "assemblyId": "motorElectric",
           "baseCenter": [
-            -0.42999998159624153,
-            0.9399999976158142,
-            0.05000000033446015
+            -0.4300000034272671,
+            0.842249995097518,
+            0.06025000475347042
+          ],
+          "flatShading": false,
+          "id": "motorElectric__inverter__mechanical_plastic",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "inverter",
+          "sourceFile": "authored/mechanical-supplement",
+          "sourceMesh": "motorElectric__inverter__mechanical_plastic"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.4300000071525574,
+            0.8717499813064933,
+            0.10599999502301216
+          ],
+          "flatShading": false,
+          "id": "motorElectric__inverter__mechanical_rubber",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "inverter",
+          "sourceFile": "authored/mechanical-supplement",
+          "sourceMesh": "motorElectric__inverter__mechanical_rubber"
+        },
+        {
+          "assemblyId": "motorElectric",
+          "baseCenter": [
+            -0.4773528632327121,
+            0.8834999841637909,
+            0.050000007484546506
           ],
           "flatShading": false,
           "id": "motorElectric__inverter__mechanical_silver",
           "mechanicalExample": true,
           "role": "selection",
           "section": "inverter",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "motorElectric__inverter__mechanical_silver"
         },
         {
@@ -3522,7 +3842,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionMotor",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "motorElectric__tractionMotor__mechanical_aluminum"
         },
         {
@@ -3537,7 +3857,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionMotor",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "motorElectric__tractionMotor__mechanical_cast"
         },
         {
@@ -3552,7 +3872,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionMotor",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "motorElectric__tractionMotor__mechanical_copper"
         },
         {
@@ -3567,7 +3887,7 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionMotor",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "motorElectric__tractionMotor__mechanical_silver"
         },
         {
@@ -3582,11 +3902,11 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "tractionMotor",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "motorElectric__tractionMotor__mechanical_steel"
         }
       ],
-      "sha256": "ac943aa449d4e3d7972a15a5751a4f6015b98387d4e0eb751cf24598894c1986",
+      "sha256": "5063d6bb034c67ec9e50ffe58821e5f5f40b4aef89ee215d203fc29ef39d28aa",
       "subset": false,
       "width": 1024
     },
@@ -3761,14 +4081,14 @@
       "camera": {
         "fov": 35,
         "position": [
-          -0.1358829171689515,
-          1.4277797454957464,
-          1.8013694109368572
+          -0.1383686715343646,
+          1.4292711981149941,
+          1.802465843090426
         ],
         "target": [
           1.2624999731779099,
           0.5887500112876296,
-          -0.29620492458343506
+          -0.2988371239779862
         ]
       },
       "contextAssemblyIds": [],
@@ -3788,7 +4108,9 @@
       "renderWidth": 2048,
       "selectedMeshIds": [
         "tank__fuelTank__mechanical_cast",
+        "tank__fuelTank__mechanical_darksteel",
         "tank__fuelTank__mechanical_plastic",
+        "tank__fuelTank__mechanical_rubber",
         "tank__fuelTank__mechanical_silver",
         "tank__fuelTank__mechanical_steel"
       ],
@@ -3805,8 +4127,23 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "fuelTank",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "tank__fuelTank__mechanical_cast"
+        },
+        {
+          "assemblyId": "tank",
+          "baseCenter": [
+            1.0657499879598618,
+            0.3499999940395355,
+            -0.2082500047981739
+          ],
+          "flatShading": false,
+          "id": "tank__fuelTank__mechanical_darksteel",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "fuelTank",
+          "sourceFile": "authored/mechanical-supplement",
+          "sourceMesh": "tank__fuelTank__mechanical_darksteel"
         },
         {
           "assemblyId": "tank",
@@ -3820,29 +4157,44 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "fuelTank",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "tank__fuelTank__mechanical_plastic"
         },
         {
           "assemblyId": "tank",
           "baseCenter": [
-            1.0400000200606871,
-            0.5320000052452087,
-            -0.21999999266886924
+            1.2213136553764343,
+            0.6785070598125458,
+            -0.47222766280174255
+          ],
+          "flatShading": false,
+          "id": "tank__fuelTank__mechanical_rubber",
+          "mechanicalExample": true,
+          "role": "selection",
+          "section": "fuelTank",
+          "sourceFile": "authored/mechanical-supplement",
+          "sourceMesh": "tank__fuelTank__mechanical_rubber"
+        },
+        {
+          "assemblyId": "tank",
+          "baseCenter": [
+            1.2890361589051804,
+            0.5826562894508243,
+            -0.3087397047005296
           ],
           "flatShading": false,
           "id": "tank__fuelTank__mechanical_silver",
           "mechanicalExample": true,
           "role": "selection",
           "section": "fuelTank",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "tank__fuelTank__mechanical_silver"
         },
         {
           "assemblyId": "tank",
           "baseCenter": [
-            1.054999964311719,
-            0.2199999988079071,
+            1.0549999829381704,
+            0.23624999914318323,
             -0.2199999988079071
           ],
           "flatShading": false,
@@ -3850,11 +4202,11 @@
           "mechanicalExample": true,
           "role": "selection",
           "section": "fuelTank",
-          "sourceFile": "authored/build_mechanics.py",
+          "sourceFile": "authored/mechanical-supplement",
           "sourceMesh": "tank__fuelTank__mechanical_steel"
         }
       ],
-      "sha256": "3e1dd06b06254ef484a92e1c2aa84ffba8109e2d9a3cedf2365cd2ac4710824b",
+      "sha256": "7d10390573697186eb376cac69660a03deec8fd20baff555887bfabb605e0533",
       "subset": false,
       "width": 1024
     },
@@ -4039,7 +4391,7 @@
       "width": 1024
     }
   ],
-  "indexSha256": "d747f1c14bbd5392e63d98cf84193f66f9137f2a9ad669676b2a540404087461",
+  "indexSha256": "8eb2768f552055cb477d45458a1b45b3ea9640caf5b093376a76a928c27a95e5",
   "inputs": [
     {
       "path": "assets/models/suv/bmw-x5.glb",
@@ -4047,7 +4399,7 @@
     },
     {
       "path": "assets/models/suv/mechanical-supplement.glb",
-      "sha256": "d5e013b9ae5265ca98a0d78ad4d7089c32bdc9c2dc0dd094af582a4dfea4e213"
+      "sha256": "85a5839f0d1b2efddd8741df545a6c1a6a082f070dae6fcacfc9e9ce1b46aec1"
     },
     {
       "path": "assets/models/suv/provenance.json",
@@ -4055,11 +4407,11 @@
     },
     {
       "path": "assets/models/suv/mechanical-provenance.json",
-      "sha256": "2c6d7b790aba0098da20010e3b337f5aaaaff9b990658bd7c4afb2f38d559a98"
+      "sha256": "0035fcc9194223e9461e170bb2dd5c68f7c0ace83b5eabb145be70afc641f216"
     },
     {
       "path": "src/guide/reference-suv.js",
-      "sha256": "79e588490ec6bed925266089c5c294a7ac6d4b320dfa9615bf6cc0c8cc400d51"
+      "sha256": "6bada8b14ea4231a48412ef60d792a6341ef1bb9bdac46daa81256182be8f0eb"
     },
     {
       "path": "src/guide/vehicle-parts.js",
@@ -4091,7 +4443,7 @@
   "modelSources": {
     "authored-mechanics": {
       "creator": "Project-authored 3D illustration",
-      "license": "Authored for this project; based on the original project 2D boards",
+      "license": "Project-authored illustration; original 2D references retained under their existing provenance",
       "notice": "Generic educational mechanical example based on the existing 2D boards. It does not describe actual BMW X5 internal architecture, dimensions, required tests or regulatory conformity.",
       "title": "Generic didactic hybrid mechanical systems"
     },

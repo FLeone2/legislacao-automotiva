@@ -105,10 +105,6 @@ export async function loadReferenceSUV(progress, maxAnisotropy = 1) {
         node.removeFromParent();
         matrix.decompose(node.position, node.quaternion, node.scale);
         node.updateMatrix();
-        if (modelIndex === 1 && id === 'engine') {
-          node.position.y -= 0.12;
-          center.y -= 0.12;
-        }
         const materials = (Array.isArray(node.material) ? node.material : [node.material]).map(
           (material) => {
             const result = material.clone();

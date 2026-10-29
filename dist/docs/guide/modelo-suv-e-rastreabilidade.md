@@ -10,6 +10,10 @@ O arquivo publicado tem aproximadamente 6,4 MB e contém geometria e texturas. O
 
 As imagens anteriores `assets/vehicle-vector/previews/vehicle.webp` e `assets/vehicle-exploded.webp` orientam a organização da navegação e das separações. As 37 regiões originais continuam preservadas. A vista reúne 21 conjuntos 3D e identifica os 30 subsistemas originais, além de três complementares. Um suplemento autoral ilustra os sistemas mecânicos ausentes na fonte BMW; não representa o CAD interno dessa versão. Os recortes 2D originais e quatro vistas renderizadas do modelo atual ficam disponíveis no guia.
 
+O motor do exemplo tem a posição montada gravada no próprio suplemento, abaixo da superfície real do capô. O carregador não aplica um deslocamento corretivo separado. O teste geométrico percorre os vértices superiores do motor contra as malhas originais do capô e exige folga visual mínima de 2 cm. Essas coordenadas pertencem à ilustração; não são cotas de engenharia. Suspensão, inversor, bateria de tração, tanque, bateria de 12 V e hidráulica dos freios incluem suportes, fixações, conexões e relevos adicionais. IDs de seleção e associações normativas permanecem os mesmos.
+
+O suplemento publicado ocupa aproximadamente 1,16 MB. Para reproduzi-lo, execute o Blender com `scripts/models/build_mechanical_supplement.py -- --output DIRETORIO --skip-preview` e compacte o resultado com `scripts/models/compress_mechanical.mjs`. O cabeçalho desse segundo script identifica as versões das ferramentas opcionais de autoria; elas não são dependências do site. A compactação preserva a geometria sem decimação e atualiza hashes, tamanho e fontes autorais em `mechanical-provenance.json`. Após alterar o modelo ou seu carregador, recapture as imagens com `scripts/capture_model_thumbnails.py` e `scripts/capture_reference_boards.py`.
+
 ## Caminho até a evidência
 
 A seleção segue esta cadeia:
@@ -35,5 +39,6 @@ Os detalhes dos atos são carregados sob demanda apenas para os vínculos seleci
 - `tests/guide-traceability.test.cjs`: fontes explícitas, agrupamento, estados independentes, requisitos e lacunas.
 - `tests/suv-reference.test.py`: checksum, licença, identidade das malhas, materiais PBR e dependências locais.
 - `tests/suv-reference-browser.py`: GLB e Draco reais, seleção/árvore, fontes e dispositivos, perfil, celular, acessibilidade, erro e repetição.
+- `tests/mechanical-fit-browser.py`: vértices reais do motor sob o capô, folga visual e reprodução da colisão da pose anterior.
 
 A versão renderizada é verificada visualmente em computador e telas de 390 e 320 pixels. O build conserva o alvo Cloudflare e a publicação exclusiva de `dist`.

@@ -2,7 +2,7 @@
   "assets": {
     "app.js": "51e3faea63860a8b",
     "assets/guide/guide.css": "77eb229e70c7949e",
-    "assets/guide/guide.js": "0bc38f41e0e12915",
+    "assets/guide/guide.js": "fcaa457272a33b19",
     "flow-data.js": "b7bb692fbb6d4511",
     "homologation-flow.js": "614b33594fcf95b6",
     "src/core/dom.js": "113e73619a8186a5",
@@ -44,5 +44,5 @@
     "vehicle-data.js": "09123227fe4f6446",
     "vehicle-navigation.js": "9354942ec160aa76"
   },
-  "revision": "d2cabe9721a3f68e821d768c01f760d3c8d55a29ac3570ba4d92d6a086684d2c"
+  "revision": "a47406e51bbbad421ae88484fe35f91337422248fc337e629403b5551afde530"
 }
