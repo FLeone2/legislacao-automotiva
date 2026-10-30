@@ -20,7 +20,7 @@
     },
     {
       "path": "src/guide/reference-suv.js",
-      "sha256": "79e588490ec6bed925266089c5c294a7ac6d4b320dfa9615bf6cc0c8cc400d51"
+      "sha256": "d411a8e6fc7ab8a3daed2b34fc1cf0650ef16dac5233752bc86c68b091e73563"
     },
     {
       "path": "src/guide/render-definition.js",
@@ -31,30 +31,30 @@
     {
       "id": "assembled",
       "path": "assets/models/suv/reference-views/assembled.webp",
-      "width": 2390,
+      "width": 2394,
       "height": 880,
-      "sha256": "1889276f6135eebd048e0c01d0c504628f5289bc89c1c21970f923e78f0e06e2"
+      "sha256": "681ed4cce58a476852fe599b8fb12ffe072617b5f709bc739079e48ddd64caed"
     },
     {
       "id": "side",
       "path": "assets/models/suv/reference-views/side.webp",
-      "width": 2390,
+      "width": 2394,
       "height": 880,
-      "sha256": "e80cd4d042f0f499eddf245721b086b4e50809b03db0a66fdbc988644da66fae"
+      "sha256": "1a414ce5d8dc0736903354e7100d51eda66df68b9e5feee3ad9d52a8b3f9791c"
     },
     {
       "id": "top",
       "path": "assets/models/suv/reference-views/top.webp",
-      "width": 2390,
+      "width": 2394,
       "height": 880,
-      "sha256": "5a8acec788cf61ee6a38ad5c22ffb41445f8f292b5f431309dc87faa45f6d778"
+      "sha256": "b2b1e5ef48553fbed7cb46bd2c8236856f861d941dce1e5fa7c79c884923c28d"
     },
     {
       "id": "exploded",
       "path": "assets/models/suv/reference-views/exploded.webp",
-      "width": 2390,
+      "width": 2394,
       "height": 1320,
-      "sha256": "0db0fbe56de53283adf10f1049ca5e430115b73fc4488e784a36c4ece3942a25"
+      "sha256": "6be0bdf0c40a5db5a76797177137b5fcd9189bdf7d516b782cc81b977f071ceb"
     }
   ]
 }
