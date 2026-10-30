@@ -7,7 +7,13 @@ const DEFAULT_MODEL = '@cf/mistralai/mistral-small-3.1-24b-instruct';
 const DEFAULT_GEMINI_MODEL = 'gemini-3.8-flash';
 // Free-tier Flash models tried in order when one is retired (404) or overloaded
 // (500/503). The last one is an alias that Google keeps pointing at a current model.
-const GEMINI_RESERVES = ['gemini-3.6-flash', 'gemini-3.5-flash-lite', 'gemini-flash-latest'];
+const GEMINI_RESERVES = ['gemini-3.5-flash-lite', 'gemini-3.6-flash', 'gemini-flash-latest'];
+
+// Google Search grounding is not part of the Gemini free tier (HTTP 429 on a
+// free key). It is used only when GEMINI_WEB_SEARCH is "on" (billing enabled).
+function searchOn(env) {
+  return String(env.GEMINI_WEB_SEARCH || '').toLowerCase() === 'on';
+}
 const GEMINI_ENDPOINT = 'https://generativelanguage.googleapis.com/v1beta/models/';
 const MAX_BODY = 48_000;
 const MAX_PASSAGES = 8;
@@ -75,7 +81,12 @@ function geminiModelOf(env) {
 function providers(env) {
   const list = [];
   if (typeof env.GEMINI_API_KEY === 'string' && env.GEMINI_API_KEY)
-    list.push({ id: 'gemini', label: 'Google Gemini', model: geminiModelOf(env), web: true });
+    list.push({
+      id: 'gemini',
+      label: 'Google Gemini',
+      model: geminiModelOf(env),
+      web: searchOn(env),
+    });
   if (env.AI) list.push({ id: 'workers', label: 'Cloudflare Workers AI', model: modelOf(env) });
   return list;
 }
@@ -131,21 +142,31 @@ async function withModel(env, prompt, search) {
   const configured = geminiModelOf(env);
   const models = [configured, ...GEMINI_RESERVES.filter((model) => model !== configured)];
   const skipped = [];
-  for (const [index, model] of models.entries()) {
+  let lastQuota = null;
+  for (const model of models) {
     try {
       const result = await callGemini(env, prompt, model, search);
       return skipped.length ? { ...result, skipped } : result;
     } catch (error) {
-      if (!(error instanceof UnavailableModelError) || index === models.length - 1) throw error;
+      // Free-tier limits and overloads are per model: try the next one.
+      if (!(error instanceof UnavailableModelError) && !(error instanceof QuotaError)) throw error;
+      if (error instanceof QuotaError) lastQuota = error;
       skipped.push(error.message);
     }
   }
+  const summary = skipped.join('; ');
+  throw lastQuota && skipped.length === models.length
+    ? new QuotaError(summary)
+    : new Error(summary);
 }
 
-// Google Search grounding is not part of the Gemini free tier: a free key gets
-// HTTP 429 when the search tool is present. Then Gemini answers from the
-// passages alone and the reply says that the web search was unavailable.
+// With search enabled but refused (429 on every model), Gemini answers from
+// the passages alone and the reply says that the web search was unavailable.
 async function runGemini(env, prompt, { passages }) {
+  if (!searchOn(env)) {
+    if (!passages) throw new Error('Gemini: sem trechos do acervo e sem busca na internet');
+    return withModel(env, prompt, false);
+  }
   try {
     return await withModel(env, prompt, true);
   } catch (error) {
