@@ -105,3 +105,69 @@ test('uses Gemini when its secret exists and falls back on quota', async () => {
     globalThis.fetch = original;
   }
 });
+
+test('Gemini searches Google, returns web sources apart and answers without passages', async () => {
+  const { onRequestGet, onRequestPost } = await load();
+  const env = {
+    GEMINI_API_KEY: 'test-key',
+    AI: { run: async () => ({ response: 'Workers [1].' }) },
+  };
+  const listed = await onRequestGet({ env }).json();
+  assert.equal(listed.providers[0].web, true);
+  const original = globalThis.fetch;
+  let sent;
+  try {
+    globalThis.fetch = async (url, init) => {
+      sent = JSON.parse(init.body);
+      return new Response(
+        JSON.stringify({
+          candidates: [
+            {
+              content: { parts: [{ text: 'TPMS integra o Grupo B (internet).' }] },
+              groundingMetadata: {
+                webSearchQueries: ['TPMS MOVER grupo B'],
+                groundingChunks: [
+                  { web: { uri: 'https://www.gov.br/mdic/mover', title: 'gov.br' } },
+                  { web: { uri: 'https://www.gov.br/mdic/mover', title: 'duplicado' } },
+                  { web: { uri: 'javascript:alert(1)', title: 'x' } },
+                ],
+                searchEntryPoint: { renderedContent: '<div>chips</div>' },
+              },
+            },
+          ],
+        }),
+        { status: 200 },
+      );
+    };
+    const data = await (
+      await onRequestPost({ request: post({ question: 'TPMS no MOVER?', passages: [] }), env })
+    ).json();
+    assert.deepEqual(sent.tools, [{ google_search: {} }]);
+    assert.match(sent.contents[0].parts[0].text, /Nenhum trecho do acervo/);
+    assert.match(sent.systemInstruction.parts[0].text, /\(internet\)/);
+    assert.equal(data.provider, 'gemini');
+    assert.deepEqual(data.web.sources, [{ uri: 'https://www.gov.br/mdic/mover', title: 'gov.br' }]);
+    assert.deepEqual(data.web.queries, ['TPMS MOVER grupo B']);
+    assert.equal(data.web.suggestions, '<div>chips</div>');
+
+    globalThis.fetch = async () =>
+      new Response(JSON.stringify({ error: { message: 'API key not valid' } }), { status: 400 });
+    const fallback = await (
+      await onRequestPost({ request: post({ question, passages: [passage] }), env })
+    ).json();
+    assert.equal(fallback.provider, 'workers');
+    assert.match(fallback.fallbackReason, /Gemini: erro 400 \(API key not valid\)/);
+    const noPassages = await onRequestPost({
+      request: post({ question, passages: [] }),
+      env,
+    });
+    assert.equal(noPassages.status, 502);
+  } finally {
+    globalThis.fetch = original;
+  }
+  const workersOnly = await onRequestPost({
+    request: post({ question, passages: [] }),
+    env: { AI: env.AI },
+  });
+  assert.equal(workersOnly.status, 422);
+});
