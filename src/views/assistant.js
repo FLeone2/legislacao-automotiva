@@ -268,8 +268,8 @@ const Assistant = (() => {
           entry.answer = data.answer;
           entry.by = `${data.providerLabel || 'IA'} · ${data.model || ''}`;
           entry.fallback = Boolean(data.fallback);
-        }
-        else entry.error = data.error || 'A IA não respondeu. Os trechos encontrados estão abaixo.';
+        } else
+          entry.error = data.error || 'A IA não respondeu. Os trechos encontrados estão abaixo.';
       }
     } catch {
       entry.error = 'Não foi possível carregar a base de consulta. Tente recarregar a página.';
