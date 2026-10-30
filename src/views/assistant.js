@@ -81,7 +81,13 @@ const Assistant = (() => {
     const subjects = new Map();
     for (const passage of data.passages)
       if (passage.actId && passage.kind === 'catalog_reference' && !subjects.has(passage.actId))
-        subjects.set(passage.actId, passage.text.split(/Relações e links/)[0].trim().slice(0, 160));
+        subjects.set(
+          passage.actId,
+          passage.text
+            .split(/Relações e links/)[0]
+            .trim()
+            .slice(0, 160),
+        );
     return {
       docs,
       df,
@@ -333,7 +339,8 @@ const Assistant = (() => {
           entry.answer = data.answer;
           entry.by = `${data.providerLabel || 'IA'} · ${data.model || ''}`;
           entry.fallback = Boolean(data.fallback);
-        } else entry.error = data.error || 'A IA não respondeu. Os trechos encontrados estão abaixo.';
+        } else
+          entry.error = data.error || 'A IA não respondeu. Os trechos encontrados estão abaixo.';
       }
     } catch {
       entry.error = 'Não foi possível carregar a base de consulta. Tente recarregar a página.';
@@ -361,7 +368,11 @@ const Assistant = (() => {
     $('#main').onclick = (event) => {
       const example = event.target.closest('[data-ask-example]');
       if (example) {
-        history.replaceState(null, '', '#ia?' + new URLSearchParams({ q: example.dataset.askExample }));
+        history.replaceState(
+          null,
+          '',
+          '#ia?' + new URLSearchParams({ q: example.dataset.askExample }),
+        );
         ask(example.dataset.askExample);
         return;
       }

@@ -2,7 +2,7 @@
   "assets": {
     "app.js": "51e3faea63860a8b",
     "assets/guide/guide.css": "77eb229e70c7949e",
-    "assets/guide/guide.js": "0bc38f41e0e12915",
+    "assets/guide/guide.js": "7d2be2320147a3a0",
     "flow-data.js": "b7bb692fbb6d4511",
     "homologation-flow.js": "614b33594fcf95b6",
     "src/core/dom.js": "113e73619a8186a5",
@@ -12,7 +12,7 @@
     "src/core/pdf-copies.js": "f4494d16c3ba2ffa",
     "src/core/portal-context.js": "8dd417170d7c9a4b",
     "src/core/requirements.js": "7c00b959d0f08eff",
-    "src/core/router.js": "09572bd8b53cbf70",
+    "src/core/router.js": "05d638ff4e79e66e",
     "src/core/theme.js": "34e204846c9f9eaf",
     "src/core/vehicle-legislation-data.js": "09afb72ee08ff99a",
     "src/core/vehicle-legislation.js": "026c87e0ac19f5e6",
@@ -33,7 +33,7 @@
     "src/styles/simple.css": "dd0cc41be3dd91b7",
     "src/styles/theme-tokens.css": "324e23552f497674",
     "src/styles/tree-navigation.css": "5359462e4ee3180d",
-    "src/views/assistant.js": "b1a240744486baf4",
+    "src/views/assistant.js": "49174dc85600a182",
     "src/views/aurora.js": "ecb7d4381804afe1",
     "src/views/document.js": "e506dfbbdb1007cd",
     "src/views/history.js": "b12b076190ee8e53",
@@ -48,5 +48,5 @@
     "vehicle-data.js": "09123227fe4f6446",
     "vehicle-navigation.js": "9354942ec160aa76"
   },
-  "revision": "bed9f9857dabd702452bc87a85732b5d1d5471649e1b21d568062a9926183402"
+  "revision": "e6168a94a640087313a30704ab8ab3e7a3e375e2202da17ec3fb7a056c344424"
 }
