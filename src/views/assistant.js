@@ -1,7 +1,7 @@
 'use strict';
 // "Perguntar": lexical retrieval in the browser over the published knowledge
-// base and the official PDF text, then a short cited answer from Workers AI
-// (functions/api/ask.js). Without the AI, the retrieved passages still help.
+// base and the official PDF text, then a short cited answer (functions/api/ask.js).
+// Gemini may also search Google; web sources are listed apart from the collection.
 const Assistant = (() => {
   const STOPWORDS = new Set(
     'a o as os um uma uns umas de do da dos das em no na nos nas por pelo pela pelos pelas para com sem sob sobre e ou que se ao aos à às é ser são foi como qual quais quando onde quem meu minha seu sua seus suas este esta isso isto esse essa eu voce você preciso precisa devo deve pode posso tem ter há mais menos muito qualquer cada entre até já não sim ele ela eles elas lhe me te nos vos the of and'.split(
@@ -24,6 +24,9 @@ const Assistant = (() => {
     hibrido: ['hev', 'phev', 'eletrico'],
     eletrico: ['bev', 'bateria', 'tracao'],
     emissoes: ['proconve', 'poluentes', 'l8'],
+    tpms: ['pressao', 'pneus', 'monitoramento'],
+    mover: ['programa', 'mobilidade', 'requisitos'],
+    intec: ['mover', 'requisitos', 'tecnologia'],
   };
   const STAGES = {
     ambiental: 'Ambiental',
@@ -205,7 +208,12 @@ const Assistant = (() => {
       const data = response.ok ? await response.json() : null;
       const providers = Array.isArray(data?.providers) ? data.providers : [];
       status = data?.available
-        ? { available: true, providers, provider: data.default || providers[0]?.id || null }
+        ? {
+            available: true,
+            providers,
+            provider: data.default || providers[0]?.id || null,
+            web: providers.some((p) => p.web),
+          }
         : { available: false, providers: [] };
     } catch {
       status = { available: false, providers: [] };
@@ -237,6 +245,20 @@ const Assistant = (() => {
       .map((block) => `<p>${block.replace(/\n/g, '<br>')}</p>`)
       .join('');
   }
+  function renderWeb(entry) {
+    const web = entry.web;
+    if (!web?.sources?.length && !web?.suggestions) return '';
+    const sources = (web.sources || [])
+      .map(
+        (s, i) =>
+          `<li><span class="ask-n">${i + 1}</span><div><strong>${esc(s.title)}</strong>${safeLink(s.uri, 'Abrir', 'ask-pill')}</div></li>`,
+      )
+      .join('');
+    const frame = web.suggestions
+      ? `<iframe class="ask-web-suggestions" title="Sugestões de pesquisa do Google" sandbox="allow-popups allow-popups-to-escape-sandbox" srcdoc="${esc(web.suggestions)}"></iframe>`
+      : '';
+    return `<details class="ask-used ask-web" open><summary>Fontes da internet (Google) · ${(web.sources || []).length}</summary><p class="ask-web-note">Não fazem parte do acervo revisado. Confira na publicação oficial antes de usar.</p>${sources ? `<ol>${sources}</ol>` : ''}${frame}</details>`;
+  }
   function renderPassages(entry) {
     return `<details class="ask-used"${entry.answer ? '' : ' open'}><summary>${entry.answer ? 'Trechos usados na resposta' : 'Trechos encontrados'} (${entry.passages.length})</summary><ol>${entry.passages
       .map(
@@ -261,11 +283,14 @@ const Assistant = (() => {
       e.state === 'loading'
         ? 'Procurando nas leis e escrevendo a resposta…'
         : e.answer
-          ? `Resposta · ${esc(e.by)} · com ${e.passages.length} trechos do acervo${e.fallback ? ' · o outro modelo estava indisponível' : ''}`
+          ? `Resposta · ${esc(e.by)} · ${e.passages.length ? `${e.passages.length} trechos do acervo` : 'sem trechos do acervo'}${e.web?.sources?.length ? ` + ${e.web.sources.length} fontes da internet` : ''}`
           : status?.available
             ? 'Sem resposta da IA'
             : 'A IA ainda não está ligada neste endereço; veja os trechos encontrados';
-    target.innerHTML = `<div class="ask-meta-line"><span class="ask-badge" aria-hidden="true">IA</span><span role="status">${meta}</span>${picker}</div>${e.answer ? `<div class="ask-answer">${renderAnswer(e)}<p class="ask-disclaimer">Não é parecer jurídico. Confira a vigência na fonte oficial.</p></div>` : ''}${e.error ? `<p class="ask-error" role="alert">${esc(e.error)}</p>` : ''}${e.passages.length ? renderPassages(e) : ''}`;
+    const fallback = e.fallback
+      ? `<p class="ask-error" role="note">O modelo escolhido não respondeu${e.fallbackReason ? ` (${esc(e.fallbackReason)})` : ''}; esta resposta veio do outro modelo.</p>`
+      : '';
+    target.innerHTML = `<div class="ask-meta-line"><span class="ask-badge" aria-hidden="true">IA</span><span role="status">${meta}</span>${picker}</div>${fallback}${e.answer ? `<div class="ask-answer">${renderAnswer(e)}<p class="ask-disclaimer">Não é parecer jurídico. Confira a vigência na fonte oficial.</p></div>` : ''}${e.error ? `<p class="ask-error" role="alert">${esc(e.error)}</p>` : ''}${e.answer ? renderWeb(e) : ''}${e.passages.length ? renderPassages(e) : ''}`;
   }
   function renderLaws() {
     const target = $('#askLaws');
@@ -325,10 +350,12 @@ const Assistant = (() => {
       const pdf = await pdfWindows(topActs.slice(0, 3), terms);
       entry.passages = [...chosen.map((item) => item.doc.passage), ...pdf.slice(0, 2)];
       entry.related = related;
-      if (!entry.passages.length) {
+      const ai = await checkStatus();
+      const canWeb = ai.web && ai.providers.find((p) => p.id === ai.provider)?.web;
+      if (!entry.passages.length && !canWeb) {
         entry.error =
           'Não encontrei nada no acervo com essas palavras. Tente o nome da norma, do órgão ou da peça.';
-      } else if ((await checkStatus()).available) {
+      } else if (ai.available) {
         const response = await fetch('api/ask', {
           method: 'POST',
           headers: { 'content-type': 'application/json' },
@@ -339,6 +366,8 @@ const Assistant = (() => {
           entry.answer = data.answer;
           entry.by = `${data.providerLabel || 'IA'} · ${data.model || ''}`;
           entry.fallback = Boolean(data.fallback);
+          entry.fallbackReason = typeof data.fallbackReason === 'string' ? data.fallbackReason : '';
+          entry.web = data.web && typeof data.web === 'object' ? data.web : null;
         } else
           entry.error = data.error || 'A IA não respondeu. Os trechos encontrados estão abaixo.';
       }
@@ -352,7 +381,7 @@ const Assistant = (() => {
   function render() {
     const q = new URLSearchParams(location.hash.split('?')[1] || '').get('q') || '';
     $('#main').innerHTML =
-      `<div class="ask2"><h1 class="sr-only">Perguntar às leis</h1><form class="ask-bar" id="askForm" role="search"><label for="askInput" class="sr-only">Sua pergunta</label><input id="askInput" type="search" maxlength="600" autocomplete="off" placeholder="Pergunte em português ou digite o número de uma norma"><button class="btn primary" type="submit">Perguntar</button></form><div class="ask-history" id="askHistory"></div><div class="ask-layout"><article class="ask-main"><section id="askAnswer" class="ask-answer-block" aria-live="polite"></section><section id="askLaws" class="ask-laws"></section></article><aside class="ask-where" id="askWhere" aria-label="Onde isso entra na homologação"></aside></div><p class="simple-note">As respostas usam só as fichas, trechos e PDFs oficiais publicados aqui. Não são parecer jurídico; vigência e aplicação ao seu veículo dependem da leitura dos atos oficiais.</p></div>`;
+      `<div class="ask2"><h1 class="sr-only">Perguntar às leis</h1><form class="ask-bar" id="askForm" role="search"><label for="askInput" class="sr-only">Sua pergunta</label><input id="askInput" type="search" maxlength="600" autocomplete="off" placeholder="Pergunte em português ou digite o número de uma norma"><button class="btn primary" type="submit">Perguntar</button></form><div class="ask-history" id="askHistory"></div><div class="ask-layout"><article class="ask-main"><section id="askAnswer" class="ask-answer-block" aria-live="polite"></section><section id="askLaws" class="ask-laws"></section></article><aside class="ask-where" id="askWhere" aria-label="Onde isso entra na homologação"></aside></div><p class="simple-note">As respostas usam primeiro as fichas, trechos e PDFs oficiais publicados aqui. Com o Gemini, a IA também pesquisa no Google, e essas fontes aparecem separadas. Não são parecer jurídico; vigência e aplicação ao seu veículo dependem da leitura dos atos oficiais.</p></div>`;
     renderAll();
     checkStatus().then(renderAnswerBlock);
     loadIndex().catch(() => {});

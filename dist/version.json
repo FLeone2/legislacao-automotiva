@@ -30,10 +30,10 @@
     "src/styles/obsidian.css": "64b451186470b284",
     "src/styles/portal-apple.css": "cf0fd7ef680a3b40",
     "src/styles/regulatory-context.css": "7809503fdf796251",
-    "src/styles/simple.css": "dd0cc41be3dd91b7",
+    "src/styles/simple.css": "30d47b713b7e56bb",
     "src/styles/theme-tokens.css": "324e23552f497674",
     "src/styles/tree-navigation.css": "5359462e4ee3180d",
-    "src/views/assistant.js": "bee62ff29c3a3473",
+    "src/views/assistant.js": "72514c0f95c8d29d",
     "src/views/aurora.js": "ecb7d4381804afe1",
     "src/views/document.js": "e506dfbbdb1007cd",
     "src/views/history.js": "b12b076190ee8e53",
@@ -48,5 +48,5 @@
     "vehicle-data.js": "09123227fe4f6446",
     "vehicle-navigation.js": "9354942ec160aa76"
   },
-  "revision": "89bfd624b10af5cbf432baa47c897051de886bc6df906cf04694ee94e56f7168"
+  "revision": "9b9770040909036c3ab216c4d10a480537f7f2e580a4dcbf4bc65387691b463b"
 }
