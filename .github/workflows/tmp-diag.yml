@@ -1,0 +1,25 @@
+name: tmp-diag
+on:
+  push:
+    branches: [feat/ia-pdfs-visual-simples]
+    paths: ['.github/workflows/tmp-diag.yml']
+permissions:
+  contents: read
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: npm ci
+      - run: python -m pip install -r requirements-dev.txt
+      - name: Run tests and report failures
+        run: |
+          npm test > out.txt 2>&1 || true
+          grep -E "^not ok|^    not ok" out.txt | head -5 | while read -r l; do echo "::error title=failed-test::$l"; done
+          awk '/^not ok/{f=1} f&&/error:|message:|expected|actual|Error/{print}' out.txt | head -12 | while read -r l; do echo "::warning title=detail::$l"; done
