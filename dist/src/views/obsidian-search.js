@@ -217,7 +217,6 @@ document.addEventListener('keydown', (event) => {
   }
 });
 document.addEventListener('click', (event) => {
-  if (event.target.closest('[data-assistant]')) $('#assistantDialog').showModal();
   if (event.target.closest('[data-assistant-close]')) $('#assistantDialog').close();
   if (event.target.closest('[data-open-search]')) openCatalogSearch();
 });

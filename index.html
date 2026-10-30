@@ -24,6 +24,7 @@
     <link href="src/styles/portal-apple.css" rel="stylesheet" />
     <link href="src/styles/knowledge.css" rel="stylesheet" />
     <link href="src/styles/guide-apple.css" rel="stylesheet" />
+    <link href="src/styles/simple.css" rel="stylesheet" />
     <link href="assets/guide/guide.js" rel="prefetch" as="script" id="guideBundle" />
   </head>
   <body>
@@ -31,16 +32,17 @@
     <div id="app">
       <div class="workspace">
         <header class="topbar">
-          <a class="brand" href="#guide"
+          <a class="brand" href="#inicio"
             ><span class="brand-mark" data-icon="car"></span
             ><strong>Legislação <span>Automotiva</span></strong></a
           >
           <nav aria-label="Navegação principal" class="primary-nav main-nav glass">
             <span aria-hidden="true" class="nav-indicator"></span
-            ><a data-nav="guide" href="#guide"><span data-icon="file"></span>Guia</a
+            ><a data-nav="inicio" href="#inicio"><span data-icon="home"></span>Início</a
             ><a data-nav="vehicle" href="#vehicle"><span data-icon="car"></span>Veículo</a
             ><a data-nav="flow" href="#flow"><span data-icon="flow"></span>Homologação</a
-            ><a data-nav="library" href="#library"><span data-icon="book"></span>Biblioteca</a>
+            ><a data-nav="library" href="#library"><span data-icon="book"></span>Leis</a
+            ><a data-nav="ia" href="#ia"><span data-icon="chat"></span>Perguntar</a>
           </nav>
           <div class="toolbar">
             <span class="country">Brasil</span
@@ -52,8 +54,8 @@
               aria-label="Buscar referências e sistemas"
             >
               <span data-icon="search"></span><span>Buscar</span><kbd>⌘ K</kbd></button
-            ><button aria-label="Consulta assistida" class="icon-action" data-assistant="">
-              <span data-icon="chat"></span></button
+            ><a aria-label="Perguntar às leis com IA" class="icon-action" href="#ia" data-assistant="">
+              <span data-icon="chat"></span></a
             ><button
               aria-controls="mainNavigation"
               aria-expanded="false"
@@ -74,7 +76,8 @@
         ></div>
         <aside aria-label="Mais acessos e preferências" class="sidebar glass">
           <nav aria-label="Outras consultas" class="secondary-nav" id="mainNavigation">
-            <a data-nav="knowledge" href="#knowledge"
+            <a data-nav="guide" href="#guide"><span data-icon="file"></span>Meu projeto (guia)</a
+            ><a data-nav="knowledge" href="#knowledge"
               ><span data-icon="book"></span>Base regulatória</a
             ><a data-nav="tree" href="#tree"><span data-icon="tree"></span>Árvore regulatória</a
             ><a data-nav="markings" href="#markings"
@@ -167,6 +170,7 @@
     <script src="src/core/portal-context.js"></script>
     <script src="src/core/icons.js"></script>
     <script src="src/core/requirements.js?v=20261019-dark"></script>
+    <script src="src/core/pdf-copies.js"></script>
     <script src="tree.js?v=20261019-dark"></script>
     <script src="src/core/vehicle-vector.js?v=20261019-vector"></script>
     <script src="src/core/vehicle-legislation-data.js?v=20261019-map"></script>
@@ -185,6 +189,8 @@
     <script src="src/views/history.js"></script>
     <script src="src/views/library.js?v=20261019-dark"></script>
     <script src="src/views/knowledge.js"></script>
+    <script src="src/views/home.js"></script>
+    <script src="src/views/assistant.js"></script>
     <script src="src/views/document.js?v=20261019-dark"></script>
     <script src="src/guide/traceability.js"></script>
     <script src="src/guide/bridge.js"></script>
@@ -230,12 +236,9 @@
       <button aria-label="Fechar consulta assistida" class="close" data-assistant-close="">
         <span data-icon="close"></span>
       </button>
-      <h2 id="assistantTitle">Consulta assistida</h2>
-      <p>
-        Nenhum assistente de IA está conectado. Consulte as referências e as fontes oficiais do
-        acervo.
-      </p>
-      <button class="btn primary" data-open-search="">Buscar no acervo</button>
+      <h2 id="assistantTitle">Perguntar às leis</h2>
+      <p>A aba Perguntar responde com trechos e PDFs oficiais do acervo, sempre com citação.</p>
+      <a class="btn primary" href="#ia" data-assistant-close="">Abrir Perguntar</a>
     </dialog>
     <script src="src/views/obsidian-search.js"></script>
   </body>

@@ -18,7 +18,7 @@ async function render() {
   main.setAttribute('aria-busy', 'true');
   try {
     if (typeof preserveVisualProfile === 'function') preserveVisualProfile();
-    $('#app').classList.remove('homologation-flow-mode', 'aurora-home');
+    $('#app').classList.remove('homologation-flow-mode', 'aurora-home', 'simple-mode');
     for (const handler of [
       'onpointerover',
       'onpointerout',
@@ -27,13 +27,15 @@ async function render() {
       'onfocusout',
     ])
       main[handler] = null;
-    state.view = location.hash.slice(1).split('?')[0] || 'guide';
+    state.view = location.hash.slice(1).split('?')[0] || 'inicio';
     if (state.view === 'ai') {
-      history.replaceState(null, '', '#library');
-      state.view = 'library';
+      history.replaceState(null, '', '#ia');
+      state.view = 'ia';
     }
     if (
       ![
+        'inicio',
+        'ia',
         'guide',
         'tree',
         'mover',
@@ -51,7 +53,7 @@ async function render() {
         'history',
       ].includes(state.view)
     )
-      state.view = 'guide';
+      state.view = 'inicio';
     main.dataset.view = state.view;
     if (typeof PortalContext !== 'undefined') {
       PortalContext.rememberRoute(location.hash);
@@ -81,6 +83,11 @@ async function render() {
     }
     if (state.view === 'guide') {
       await renderGuide();
+      return;
+    }
+    if (state.view === 'inicio' || state.view === 'ia') {
+      $('#app').classList.add('simple-mode');
+      (state.view === 'inicio' ? renderHome : renderAssistant)();
       return;
     }
     if (state.view === 'vehicle') {

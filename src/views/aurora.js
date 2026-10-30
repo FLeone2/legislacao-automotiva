@@ -240,4 +240,4 @@ function setupVehicleSelectionPin(part) {
   updateVehicleSelectionPin();
 }
 // Stable entry route; the shell and the illustration use the same catalog.
-if (!location.hash) history.replaceState(null, '', '#vehicle');
+if (!location.hash) history.replaceState(null, '', '#inicio');

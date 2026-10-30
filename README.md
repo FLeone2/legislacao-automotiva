@@ -10,6 +10,15 @@ O [checkup regulatório de 25/10/2026](docs/guide/checkup-regulatorio.md) regist
 as correções, a profundidade do acervo e as pendências. A auditoria anterior está
 na [matriz de melhorias e evidências](docs/audit-implementation-2026-10-19.md).
 
+## Início, Perguntar e PDFs oficiais
+
+`/#inicio` é a nova entrada: as três etapas em sequência (ambiental → trânsito →
+produção) e, ao lado, o que corre em paralelo (sua responsabilidade e fornecedores).
+`/#ia` responde perguntas com trechos citados do acervo e dos PDFs oficiais, usando o
+Workers AI gratuito do Cloudflare (`functions/api/ask.js`). As cópias dos PDFs são
+feitas pelo fluxo **Official PDF copies** do GitHub Actions. Veja
+[como ativar e quais são os limites](docs/guide/assistente-e-pdfs.md).
+
 ## Ambiente de projeto e guia profissional
 
 Abra `/#guide` (também é a entrada padrão). O ambiente usa uma composição minimalista
