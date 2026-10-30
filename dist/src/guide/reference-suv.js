@@ -7,6 +7,7 @@ import { explodeTransform } from './exploded-layout.js';
 import { SUV_ASSEMBLY_IDS } from './vehicle-parts.js';
 
 export const SUV_REFERENCE = source;
+const SUPPLEMENT_DROP = Object.freeze({ engine: 0.18, cooling: 0.065 });
 export function materialSnapshot(material) {
   return {
     color: material.color?.clone() || new THREE.Color(0xffffff),
@@ -105,9 +106,12 @@ export async function loadReferenceSUV(progress, maxAnisotropy = 1) {
         node.removeFromParent();
         matrix.decompose(node.position, node.quaternion, node.scale);
         node.updateMatrix();
-        if (modelIndex === 1 && id === 'engine') {
-          node.position.y -= 0.12;
-          center.y -= 0.12;
+        // The didactic supplement sits under the BMW hood. Measured against the
+        // hood underside, these drops keep engine and radiator below the panel.
+        const drop = modelIndex === 1 ? SUPPLEMENT_DROP[id] || 0 : 0;
+        if (drop) {
+          node.position.y -= drop;
+          center.y -= drop;
         }
         const materials = (Array.isArray(node.material) ? node.material : [node.material]).map(
           (material) => {

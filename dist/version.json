@@ -8,11 +8,11 @@
     "src/core/dom.js": "113e73619a8186a5",
     "src/core/icons.js": "eda7ff03c2fe9ab5",
     "src/core/model-previews.js": "a3108df792c2962e",
-    "src/core/navigation.js": "938cbb7bd7faa293",
+    "src/core/navigation.js": "a31a7051102258f3",
     "src/core/pdf-copies.js": "f4494d16c3ba2ffa",
     "src/core/portal-context.js": "8dd417170d7c9a4b",
     "src/core/requirements.js": "7c00b959d0f08eff",
-    "src/core/router.js": "1c24905a5df179bc",
+    "src/core/router.js": "09572bd8b53cbf70",
     "src/core/theme.js": "34e204846c9f9eaf",
     "src/core/vehicle-legislation-data.js": "09afb72ee08ff99a",
     "src/core/vehicle-legislation.js": "026c87e0ac19f5e6",
@@ -30,14 +30,14 @@
     "src/styles/obsidian.css": "64b451186470b284",
     "src/styles/portal-apple.css": "cf0fd7ef680a3b40",
     "src/styles/regulatory-context.css": "7809503fdf796251",
-    "src/styles/simple.css": "d0fcc6e515725ddc",
+    "src/styles/simple.css": "dd0cc41be3dd91b7",
     "src/styles/theme-tokens.css": "324e23552f497674",
     "src/styles/tree-navigation.css": "5359462e4ee3180d",
-    "src/views/assistant.js": "bf401b6850a0c345",
+    "src/views/assistant.js": "b1a240744486baf4",
     "src/views/aurora.js": "ecb7d4381804afe1",
     "src/views/document.js": "e506dfbbdb1007cd",
     "src/views/history.js": "b12b076190ee8e53",
-    "src/views/home.js": "b26bb81bb5341c4c",
+    "src/views/home.js": "9dcdc847cb9b0e40",
     "src/views/knowledge.js": "487dadbce0541943",
     "src/views/library.js": "4cafec7f708d28e3",
     "src/views/markings.js": "d9271ce4d40e4c1b",
@@ -48,5 +48,5 @@
     "vehicle-data.js": "09123227fe4f6446",
     "vehicle-navigation.js": "9354942ec160aa76"
   },
-  "revision": "7be1b81bb964c11604c967407f6105dc7a7980559a44669c7ec06294318becf7"
+  "revision": "bed9f9857dabd702452bc87a85732b5d1d5471649e1b21d568062a9926183402"
 }

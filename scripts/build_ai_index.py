@@ -24,15 +24,26 @@ KIND_LABELS = {
 }
 
 
+# Post-homologation acts: production conformity (ACP), in-use monitoring (IUMPR)
+# and corporate fleet emissions. Grouping for navigation only, not legal scope.
+POST_HOMOLOGATION = {
+    "ibama-in-5-2024",
+    "ibama-in-16-2025",
+    "ibama-in-20-2025",
+    "ibama-in-23-2022",
+    "ibama-in-28-2023",
+}
+
+
 def stage(agency, act_id):
     agency = (agency or "").lower()
-    if act_id == "inmetro-169-2023" or "mover" in agency or "mdic" in agency:
-        return "paralelo"
-    if agency in {"contran", "senatran"}:
-        return "transito"
-    if agency in {"ibama", "proconve", "conama"} or "ibama" in agency:
-        return "ambiental"
-    return "fornecedor"
+    if act_id in POST_HOMOLOGATION:
+        return "pos"
+    if "contran" in agency or "senatran" in agency:
+        return "seguranca"
+    if "inmetro" in agency or "anatel" in agency:
+        return "inmetro"
+    return "ambiental"
 
 
 def clean(text):

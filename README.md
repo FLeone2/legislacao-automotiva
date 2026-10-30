@@ -12,10 +12,11 @@ na [matriz de melhorias e evidências](docs/audit-implementation-2026-10-19.md).
 
 ## Início, Perguntar e PDFs oficiais
 
-`/#inicio` é a nova entrada: as três etapas em sequência (ambiental → trânsito →
-produção) e, ao lado, o que corre em paralelo (sua responsabilidade e fornecedores).
-`/#ia` responde perguntas com trechos citados do acervo e dos PDFs oficiais, usando o
-Workers AI gratuito do Cloudflare (`functions/api/ask.js`). As cópias dos PDFs são
+`/#inicio` é a nova entrada: uma caixa de pergunta (IA sobre o acervo) e as quatro
+áreas — Ambiental, Segurança, Inmetro e Pós-homologação (COP/ACP). `/#ia` mostra a
+resposta citada e as normas relacionadas nessas mesmas abas, usando o Google Gemini
+(quando configurado) ou o Workers AI gratuito do Cloudflare (`functions/api/ask.js`).
+O agrupamento é de navegação; não define o escopo legal de cada ato. As cópias dos PDFs são
 feitas pelo fluxo **Official PDF copies** do GitHub Actions. Veja
 [como ativar e quais são os limites](docs/guide/assistente-e-pdfs.md).
 

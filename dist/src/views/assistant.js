@@ -26,10 +26,23 @@ const Assistant = (() => {
     emissoes: ['proconve', 'poluentes', 'l8'],
   };
   const STAGES = {
-    ambiental: 'Etapa 1 · Ambiental',
-    transito: 'Etapa 2 · Trânsito',
-    paralelo: 'Em paralelo · sua responsabilidade',
-    fornecedor: 'Fornecedor · Inmetro e Anatel',
+    ambiental: 'Ambiental',
+    seguranca: 'Segurança',
+    inmetro: 'Inmetro',
+    pos: 'Pós-homologação',
+  };
+  const STAGE_ORDER = ['ambiental', 'seguranca', 'inmetro', 'pos'];
+  const STAGE_HINT = {
+    ambiental: 'IBAMA · PROCONVE · LCVM',
+    seguranca: 'CONTRAN · SENATRAN · CAT',
+    inmetro: 'Componentes · PBEV · Anatel',
+    pos: 'COP · ACP · IUMPR',
+  };
+  const STAGE_ROUTE = {
+    ambiental: '#proconve',
+    seguranca: '#contran',
+    inmetro: '#inmetro',
+    pos: '#flow?stage=cop',
   };
   const EXAMPLES = [
     'O que é a LCVM e quem emite?',
@@ -65,7 +78,17 @@ const Assistant = (() => {
     const df = new Map();
     for (const doc of docs) for (const word of doc.tf.keys()) df.set(word, (df.get(word) || 0) + 1);
     const avg = docs.reduce((sum, doc) => sum + doc.length, 0) / Math.max(1, docs.length);
-    return { docs, df, avg, acts: new Map(data.acts.map((act) => [act.id, act])) };
+    const subjects = new Map();
+    for (const passage of data.passages)
+      if (passage.actId && passage.kind === 'catalog_reference' && !subjects.has(passage.actId))
+        subjects.set(passage.actId, passage.text.split(/Relações e links/)[0].trim().slice(0, 160));
+    return {
+      docs,
+      df,
+      avg,
+      subjects,
+      acts: new Map(data.acts.map((act) => [act.id, act])),
+    };
   }
   function idf(word) {
     const n = index.docs.length;
@@ -97,14 +120,16 @@ const Assistant = (() => {
       .sort((a, b) => b.score - a.score);
     const perAct = new Map();
     const chosen = [];
+    const related = [];
     for (const item of scored) {
       const key = item.doc.passage.actId || item.doc.passage.id;
-      if ((perAct.get(key) || 0) >= 2) continue;
-      perAct.set(key, (perAct.get(key) || 0) + 1);
-      chosen.push(item);
-      if (chosen.length === 6) break;
+      const seen = perAct.get(key) || 0;
+      if (!seen && item.doc.passage.actId && related.length < 40) related.push(item.doc.passage);
+      if (seen >= 2) continue;
+      perAct.set(key, seen + 1);
+      if (chosen.length < 6) chosen.push(item);
     }
-    return { chosen, terms: all };
+    return { chosen, related, terms: all };
   }
 
   async function pdfWindows(actIds, terms) {
@@ -177,83 +202,123 @@ const Assistant = (() => {
         ? { available: true, providers, provider: data.default || providers[0]?.id || null }
         : { available: false, providers: [] };
     } catch {
-      status = { available: false };
+      status = { available: false, providers: [] };
     }
     return status;
   }
 
-  function sourceLinks(passage) {
-    const act = passage.actId ? index.acts.get(passage.actId) : null;
+  const pastQuestions = [];
+  let current = null;
+  let activeTab = null;
+  let showAll = false;
+
+  function lawLinks(actId, url) {
+    const act = actId ? index.acts.get(actId) : null;
     const pdf =
       act?.pdf && /^pdfs\/[\w./-]+\.pdf$/.test(act.pdf)
-        ? `<a href="${esc(act.pdf)}" target="_blank" rel="noopener">Abrir PDF${passage.kind === 'official_pdf_text' ? ` (p. ${esc(passage.device.replace(/\D+/g, ''))})` : ''}</a>`
+        ? `<a class="ask-pill" href="${esc(act.pdf)}" target="_blank" rel="noopener">PDF</a>`
         : '';
-    return `${pdf}${safeLink(passage.url || act?.url, 'Fonte oficial')}${passage.actId ? `<a href="${esc('#library?' + new URLSearchParams({ q: passage.title || '' }))}">Ver na biblioteca</a>` : ''}`;
-  }
-  function renderSources(entry) {
-    return `<ol class="ask-sources">${entry.passages
-      .map(
-        (passage, i) =>
-          `<li id="ask-${entry.id}-${i + 1}"><div class="ask-source-head"><span class="ask-n">${i + 1}</span><strong>${esc(passage.title)}</strong></div><div class="ask-chips"><span class="ask-stage ask-stage-${esc(passage.stage)}">${esc(STAGES[passage.stage] || passage.stage)}</span><span class="ask-kind">${esc(passage.kindLabel)}${passage.device ? ` · ${esc(passage.device)}` : ''}</span></div><p>${esc(passage.text.length > 340 ? passage.text.slice(0, 340) + '…' : passage.text)}</p><div class="ask-links">${sourceLinks(passage)}</div></li>`,
-      )
-      .join('')}</ol>`;
+    return `${pdf}${safeLink(url || act?.url, 'Fonte oficial', 'ask-pill')}`;
   }
   function renderAnswer(entry) {
-    const html = esc(entry.answer)
+    return esc(entry.answer)
       .replace(/\[(\d{1,2})\]/g, (match, n) =>
         Number(n) <= entry.passages.length
-          ? `<a class="ask-cite" href="#ask-${entry.id}-${n}" data-cite="ask-${entry.id}-${n}" aria-label="Trecho ${n}">${n}</a>`
+          ? `<a class="ask-cite" href="#ask-src-${n}" data-cite="ask-src-${n}" aria-label="Trecho ${n}">${n}</a>`
           : match,
       )
       .split(/\n{2,}/)
       .map((block) => `<p>${block.replace(/\n/g, '<br>')}</p>`)
       .join('');
-    return html;
   }
-  function renderEntry(entry) {
-    const body =
-      entry.state === 'loading'
-        ? '<p class="ask-wait" role="status">Procurando nas leis e escrevendo a resposta…</p>'
-        : `${entry.answer ? `<div class="ask-answer">${renderAnswer(entry)}</div><p class="ask-by">Respondido por ${esc(entry.by)}${entry.fallback ? ' (o outro modelo estava indisponível)' : ''}</p>` : ''}${entry.error ? `<p class="ask-error" role="alert">${esc(entry.error)}</p>` : ''}${entry.passages.length ? `<h3 class="ask-sources-title">${entry.answer ? 'Trechos usados na resposta' : 'Trechos encontrados'}</h3>${renderSources(entry)}` : ''}`;
-    return `<article class="ask-entry" data-entry="${entry.id}"><p class="ask-question">${esc(entry.question)}</p>${body}</article>`;
-  }
-  function renderThread() {
-    const target = $('#askThread');
-    if (!target) return;
-    target.innerHTML = thread.length
-      ? thread.slice().reverse().map(renderEntry).join('')
-      : `<div class="ask-empty"><p>Experimente uma destas perguntas:</p><div class="ask-examples">${EXAMPLES.map((q) => `<button type="button" class="ask-example" data-ask-example="${esc(q)}">${esc(q)}</button>`).join('')}</div></div>`;
-  }
-  function renderStatus() {
-    const target = $('#askStatus');
-    if (!target || !status) return;
-    target.className = `ask-status ${status.available ? 'on' : 'off'}`;
-    target.textContent = status.available
-      ? 'IA ligada · gratuita'
-      : 'IA ainda não ligada neste endereço · mostramos os trechos encontrados';
-    const picker = $('#askProvider');
-    if (!picker) return;
-    picker.hidden = status.providers.length < 2;
-    picker.innerHTML = status.providers
+  function renderPassages(entry) {
+    return `<details class="ask-used"${entry.answer ? '' : ' open'}><summary>${entry.answer ? 'Trechos usados na resposta' : 'Trechos encontrados'} (${entry.passages.length})</summary><ol>${entry.passages
       .map(
-        (p) =>
-          `<button type="button" data-provider="${esc(p.id)}" aria-pressed="${String(p.id === status.provider)}" title="${esc(p.model)}">${esc(p.label)}</button>`,
+        (p, i) =>
+          `<li id="ask-src-${i + 1}"><span class="ask-n">${i + 1}</span><div><strong>${esc(p.title)}</strong><small>${esc(STAGES[p.stage] || '')} · ${esc(p.kindLabel)}${p.device ? ` · ${esc(p.device)}` : ''}</small><p>${esc(p.text.length > 320 ? p.text.slice(0, 320) + '…' : p.text)}</p><div class="ask-links">${lawLinks(p.actId, p.url)}</div></div></li>`,
       )
-      .join('');
+      .join('')}</ol></details>`;
+  }
+  function renderAnswerBlock() {
+    const target = $('#askAnswer');
+    if (!target) return;
+    if (!current) {
+      target.innerHTML = `<div class="ask-empty"><p>Experimente:</p><div class="ask-examples">${EXAMPLES.map((q) => `<button type="button" class="ask-example" data-ask-example="${esc(q)}">${esc(q)}</button>`).join('')}</div></div>`;
+      return;
+    }
+    const e = current;
+    const picker =
+      status?.providers?.length > 1
+        ? `<div class="ask-provider" role="group" aria-label="Modelo de IA">${status.providers.map((p) => `<button type="button" data-provider="${esc(p.id)}" aria-pressed="${String(p.id === status.provider)}" title="${esc(p.model)}">${esc(p.label)}</button>`).join('')}</div>`
+        : '';
+    const meta =
+      e.state === 'loading'
+        ? 'Procurando nas leis e escrevendo a resposta…'
+        : e.answer
+          ? `Resposta · ${esc(e.by)} · com ${e.passages.length} trechos do acervo${e.fallback ? ' · o outro modelo estava indisponível' : ''}`
+          : status?.available
+            ? 'Sem resposta da IA'
+            : 'A IA ainda não está ligada neste endereço; veja os trechos encontrados';
+    target.innerHTML = `<div class="ask-meta-line"><span class="ask-badge" aria-hidden="true">IA</span><span role="status">${meta}</span>${picker}</div>${e.answer ? `<div class="ask-answer">${renderAnswer(e)}<p class="ask-disclaimer">Não é parecer jurídico. Confira a vigência na fonte oficial.</p></div>` : ''}${e.error ? `<p class="ask-error" role="alert">${esc(e.error)}</p>` : ''}${e.passages.length ? renderPassages(e) : ''}`;
+  }
+  function renderLaws() {
+    const target = $('#askLaws');
+    const where = $('#askWhere');
+    if (!target || !where) return;
+    if (!current || current.state === 'loading' || !current.related.length) {
+      target.innerHTML = '';
+      where.innerHTML = '';
+      return;
+    }
+    const groups = Object.fromEntries(STAGE_ORDER.map((s) => [s, []]));
+    for (const passage of current.related) groups[passage.stage]?.push(passage);
+    const top = STAGE_ORDER.reduce((a, b) => (groups[b].length > groups[a].length ? b : a));
+    if (!activeTab || !groups[activeTab].length) activeTab = top;
+    const rows = showAll ? groups[activeTab] : groups[activeTab].slice(0, 8);
+    const more =
+      groups[activeTab].length > 8
+        ? `<button type="button" class="ask-more" data-more>${showAll ? 'Mostrar menos' : `Ver todas (${groups[activeTab].length})`}</button>`
+        : '';
+    target.innerHTML = `<div class="ask-tabs-head"><h2>Normas relacionadas</h2><div role="tablist" aria-label="Filtrar por etapa" class="ask-tabs">${STAGE_ORDER.map((s) => `<button type="button" role="tab" id="ask-tab-${s}" aria-controls="ask-panel" aria-selected="${String(s === activeTab)}" data-tab="${s}" ${groups[s].length ? '' : 'disabled'}>${STAGES[s]} <span>${groups[s].length}</span></button>`).join('')}</div></div><ul class="ask-law-list" id="ask-panel" role="tabpanel" aria-labelledby="ask-tab-${activeTab}">${rows
+      .map(
+        (p, i) =>
+          `<li><span class="ask-n">${i + 1}</span><div><strong>${esc(p.title)}</strong><span>${esc(index.subjects.get(p.actId) || p.kindLabel)}</span></div><div class="ask-links">${lawLinks(p.actId, p.url)}</div></li>`,
+      )
+      .join('')}</ul>${more}`;
+    where.innerHTML = `<p class="ask-where-title">Onde isso entra</p><ol>${STAGE_ORDER.map((s) => `<li class="${s === top ? 'on' : ''}"><span class="ask-dot ask-dot-${s}"></span><a href="${esc(STAGE_ROUTE[s])}"><strong>${STAGES[s]}</strong><small>${STAGE_HINT[s]}</small></a></li>`).join('')}</ol><a class="ask-where-link" href="#vehicle">Ver no veículo 3D →</a>`;
+  }
+  function renderHistory() {
+    const target = $('#askHistory');
+    if (!target) return;
+    const previous = pastQuestions.filter((q) => q !== current?.question).slice(-4);
+    target.innerHTML = previous.length
+      ? `<span>Anteriores:</span>${previous.map((q) => `<button type="button" data-ask-example="${esc(q)}">${esc(q.length > 48 ? q.slice(0, 48) + '…' : q)}</button>`).join('')}`
+      : '';
+  }
+  function renderAll() {
+    renderAnswerBlock();
+    renderLaws();
+    renderHistory();
   }
 
   async function ask(question) {
     question = question.trim().slice(0, 600);
     if (question.length < 3) return;
-    const entry = { id: thread.length + 1, question, state: 'loading', passages: [] };
-    thread.push(entry);
-    renderThread();
+    const input = $('#askInput');
+    if (input) input.value = question;
+    if (!pastQuestions.includes(question)) pastQuestions.push(question);
+    const entry = { question, state: 'loading', passages: [], related: [] };
+    current = entry;
+    activeTab = null;
+    showAll = false;
+    renderAll();
     try {
       await loadIndex();
-      const { chosen, terms } = search(question);
+      const { chosen, related, terms } = search(question);
       const topActs = [...new Set(chosen.map((item) => item.doc.passage.actId).filter(Boolean))];
       const pdf = await pdfWindows(topActs.slice(0, 3), terms);
-      entry.passages = [...chosen.slice(0, 6).map((item) => item.doc.passage), ...pdf.slice(0, 2)];
+      entry.passages = [...chosen.map((item) => item.doc.passage), ...pdf.slice(0, 2)];
+      entry.related = related;
       if (!entry.passages.length) {
         entry.error =
           'Não encontrei nada no acervo com essas palavras. Tente o nome da norma, do órgão ou da peça.';
@@ -268,49 +333,62 @@ const Assistant = (() => {
           entry.answer = data.answer;
           entry.by = `${data.providerLabel || 'IA'} · ${data.model || ''}`;
           entry.fallback = Boolean(data.fallback);
-        } else
-          entry.error = data.error || 'A IA não respondeu. Os trechos encontrados estão abaixo.';
+        } else entry.error = data.error || 'A IA não respondeu. Os trechos encontrados estão abaixo.';
       }
     } catch {
       entry.error = 'Não foi possível carregar a base de consulta. Tente recarregar a página.';
     }
     entry.state = 'done';
-    renderThread();
-    $(`[data-entry="${entry.id}"]`)?.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    if (current === entry) renderAll();
   }
 
   function render() {
+    const q = new URLSearchParams(location.hash.split('?')[1] || '').get('q') || '';
     $('#main').innerHTML =
-      `<div class="simple-page ask-page"><header class="simple-head"><p class="simple-eyebrow">Perguntar</p><h1 class="simple-title">Pergunte às leis do acervo</h1><p class="simple-lead">A resposta usa só as fichas, os trechos e os PDFs oficiais publicados aqui, sempre com o número do trecho. É um protótipo: confira na fonte antes de decidir.</p><div class="ask-meta"><p class="ask-status" id="askStatus" role="status">Verificando a IA…</p><div class="ask-provider" id="askProvider" role="group" aria-label="Modelo de IA" hidden></div></div></header><form class="ask-form" id="askForm"><label for="askInput" class="sr-only">Sua pergunta</label><textarea id="askInput" rows="2" maxlength="600" placeholder="Ex.: O que preciso para tirar a LCVM de um SUV híbrido importado?"></textarea><button class="btn primary" type="submit">Perguntar</button></form><section id="askThread" class="ask-thread" aria-live="polite"></section><p class="simple-note">As respostas não são parecer jurídico. Uma ficha de resumo não é o texto do ato. Vigência, alterações e aplicação ao seu veículo dependem da leitura dos atos oficiais.</p></div>`;
-    renderThread();
-    checkStatus().then(renderStatus);
-    $('#askProvider').onclick = (event) => {
-      const button = event.target.closest('[data-provider]');
-      if (!button || !status) return;
-      status.provider = button.dataset.provider;
-      renderStatus();
-    };
+      `<div class="ask2"><form class="ask-bar" id="askForm" role="search"><label for="askInput" class="sr-only">Sua pergunta</label><input id="askInput" type="search" maxlength="600" autocomplete="off" placeholder="Pergunte em português ou digite o número de uma norma"><button class="btn primary" type="submit">Perguntar</button></form><div class="ask-history" id="askHistory"></div><div class="ask-layout"><article class="ask-main"><section id="askAnswer" class="ask-answer-block" aria-live="polite"></section><section id="askLaws" class="ask-laws"></section></article><aside class="ask-where" id="askWhere" aria-label="Onde isso entra na homologação"></aside></div><p class="simple-note">As respostas usam só as fichas, trechos e PDFs oficiais publicados aqui. Não são parecer jurídico; vigência e aplicação ao seu veículo dependem da leitura dos atos oficiais.</p></div>`;
+    renderAll();
+    checkStatus().then(renderAnswerBlock);
     loadIndex().catch(() => {});
-    const form = $('#askForm');
-    const input = $('#askInput');
-    form.onsubmit = (event) => {
+    if (q && q !== current?.question) ask(q);
+    else if (current) $('#askInput').value = current.question;
+    $('#askForm').onsubmit = (event) => {
       event.preventDefault();
-      const value = input.value;
-      input.value = '';
+      const value = $('#askInput').value.trim();
+      if (!value) return;
+      history.replaceState(null, '', '#ia?' + new URLSearchParams({ q: value }));
       ask(value);
     };
-    input.onkeydown = (event) => {
-      if (event.key === 'Enter' && !event.shiftKey) {
-        event.preventDefault();
-        form.requestSubmit();
-      }
-    };
-    $('#askThread').onclick = (event) => {
+    $('#main').onclick = (event) => {
       const example = event.target.closest('[data-ask-example]');
-      if (example) ask(example.dataset.askExample);
+      if (example) {
+        history.replaceState(null, '', '#ia?' + new URLSearchParams({ q: example.dataset.askExample }));
+        ask(example.dataset.askExample);
+        return;
+      }
+      const tab = event.target.closest('[data-tab]');
+      if (event.target.closest('[data-more]')) {
+        showAll = !showAll;
+        renderLaws();
+        return;
+      }
+      if (tab) {
+        activeTab = tab.dataset.tab;
+        showAll = false;
+        renderLaws();
+        $(`#ask-tab-${activeTab}`)?.focus();
+        return;
+      }
+      const provider = event.target.closest('[data-provider]');
+      if (provider && status) {
+        status.provider = provider.dataset.provider;
+        renderAnswerBlock();
+        return;
+      }
       const cite = event.target.closest('[data-cite]');
       if (cite) {
         event.preventDefault();
+        const details = $('.ask-used');
+        if (details) details.open = true;
         const target = document.getElementById(cite.dataset.cite);
         target?.scrollIntoView({ block: 'center', behavior: 'smooth' });
         target?.classList.add('flash');
@@ -318,7 +396,13 @@ const Assistant = (() => {
       }
     };
   }
-  return { render, search: (q) => search(q), loadIndex, tokens };
+  function stageCounts() {
+    if (!index) return null;
+    const counts = Object.fromEntries(STAGE_ORDER.map((s) => [s, 0]));
+    for (const act of index.acts.values()) if (counts[act.stage] !== undefined) counts[act.stage]++;
+    return counts;
+  }
+  return { render, loadIndex, stageCounts, tokens, STAGES, STAGE_ORDER, STAGE_HINT, STAGE_ROUTE };
 })();
 function renderAssistant() {
   Assistant.render();
