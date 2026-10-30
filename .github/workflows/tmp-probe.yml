@@ -17,7 +17,7 @@ jobs:
           cat > probe.py <<'PY'
           import asyncio, json
           from playwright.async_api import async_playwright
-          QS = ["TPMS é requisito do MOVER?", "Quem emite a LCVM?"]
+          QS = ["TPMS é requisito do MOVER?", "Quem emite a LCVM?", "ESC é obrigatório no M1?", "O que é a etiqueta PBEV?"]
           async def main():
               async with async_playwright() as p:
                   b = await p.chromium.launch()
