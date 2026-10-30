@@ -5,8 +5,9 @@
 
 const DEFAULT_MODEL = '@cf/mistralai/mistral-small-3.1-24b-instruct';
 const DEFAULT_GEMINI_MODEL = 'gemini-3.8-flash';
-// Tried when the configured model is retired (HTTP 404); Google keeps it current.
-const GEMINI_LATEST = 'gemini-flash-latest';
+// Free-tier Flash models tried in order when one is retired (404) or overloaded
+// (500/503). The last one is an alias that Google keeps pointing at a current model.
+const GEMINI_RESERVES = ['gemini-3.6-flash', 'gemini-3.5-flash-lite', 'gemini-flash-latest'];
 const GEMINI_ENDPOINT = 'https://generativelanguage.googleapis.com/v1beta/models/';
 const MAX_BODY = 48_000;
 const MAX_PASSAGES = 8;
@@ -80,7 +81,7 @@ function providers(env) {
 }
 
 class QuotaError extends Error {}
-class RetiredModelError extends Error {}
+class UnavailableModelError extends Error {}
 
 function answerOf(result) {
   if (typeof result === 'string') return result;
@@ -128,11 +129,16 @@ function thinkingOf(model) {
 
 async function withModel(env, prompt, search) {
   const configured = geminiModelOf(env);
-  try {
-    return await callGemini(env, prompt, configured, search);
-  } catch (error) {
-    if (!(error instanceof RetiredModelError) || configured === GEMINI_LATEST) throw error;
-    return callGemini(env, prompt, GEMINI_LATEST, search);
+  const models = [configured, ...GEMINI_RESERVES.filter((model) => model !== configured)];
+  const skipped = [];
+  for (const [index, model] of models.entries()) {
+    try {
+      const result = await callGemini(env, prompt, model, search);
+      return skipped.length ? { ...result, skipped } : result;
+    } catch (error) {
+      if (!(error instanceof UnavailableModelError) || index === models.length - 1) throw error;
+      skipped.push(error.message);
+    }
   }
 }
 
@@ -173,7 +179,7 @@ async function callGemini(env, prompt, model, search) {
   const detail = reason ? ` (${reason})` : '';
   if (response.status === 429) throw new QuotaError(`Gemini (${model}): limite atingido${detail}`);
   const failure = `Gemini (${model}): erro ${response.status}${detail}`;
-  if (response.status === 404) throw new RetiredModelError(failure);
+  if ([404, 500, 503].includes(response.status)) throw new UnavailableModelError(failure);
   if (!response.ok) throw new Error(failure);
   const candidate = data?.candidates?.[0];
   const parts = candidate?.content?.parts || [];

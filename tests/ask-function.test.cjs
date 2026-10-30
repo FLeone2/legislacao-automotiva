@@ -175,7 +175,7 @@ test('Gemini searches Google, returns web sources apart and answers without pass
   assert.equal(workersOnly.status, 422);
 });
 
-test('a retired Gemini model falls back to the latest Flash alias', async () => {
+test('a retired Gemini model falls back to the next free Flash model', async () => {
   const { onRequestPost } = await load();
   const env = {
     GEMINI_API_KEY: 'k',
@@ -202,9 +202,9 @@ test('a retired Gemini model falls back to the latest Flash alias', async () => 
       await onRequestPost({ request: post({ question, passages: [passage] }), env })
     ).json();
     assert.equal(data.answer, 'Resposta [1].');
-    assert.equal(data.model, 'gemini-flash-latest');
+    assert.equal(data.model, 'gemini-3.6-flash');
     assert.equal(data.fallback, false);
-    assert.match(urls[1], /models\/gemini-flash-latest:generateContent/);
+    assert.match(urls[1], /models\/gemini-3\.6-flash:generateContent/);
     assert.deepEqual(bodies[0].generationConfig.thinkingConfig, { thinkingBudget: 0 });
     assert.deepEqual(bodies[1].generationConfig.thinkingConfig, { thinkingLevel: 'low' });
   } finally {
@@ -243,6 +243,42 @@ test('on the free tier Gemini answers from the passages when web search is refus
     const empty = await onRequestPost({ request: post({ question, passages: [] }), env });
     assert.equal(empty.status, 502);
     assert.match((await empty.json()).error, /não está disponível na chave gratuita/);
+  } finally {
+    globalThis.fetch = original;
+  }
+});
+
+test('overloaded Gemini models are skipped in order before Workers AI', async () => {
+  const { onRequestPost } = await load();
+  const env = { GEMINI_API_KEY: 'k', AI: { run: async () => ({ response: 'Workers [1].' }) } };
+  const original = globalThis.fetch;
+  const tried = [];
+  try {
+    globalThis.fetch = async (url) => {
+      const model = url.match(/models\/([^:]+):/)[1];
+      tried.push(model);
+      if (model !== 'gemini-3.5-flash-lite')
+        return new Response(JSON.stringify({ error: { message: 'high demand' } }), {
+          status: 503,
+        });
+      return new Response(
+        JSON.stringify({ candidates: [{ content: { parts: [{ text: 'Lite [1].' }] } }] }),
+        { status: 200 },
+      );
+    };
+    const data = await (
+      await onRequestPost({ request: post({ question, passages: [passage] }), env })
+    ).json();
+    assert.deepEqual(tried, ['gemini-3.8-flash', 'gemini-3.6-flash', 'gemini-3.5-flash-lite']);
+    assert.equal(data.provider, 'gemini');
+    assert.equal(data.model, 'gemini-3.5-flash-lite');
+    globalThis.fetch = async () =>
+      new Response(JSON.stringify({ error: { message: 'high demand' } }), { status: 503 });
+    const all = await (
+      await onRequestPost({ request: post({ question, passages: [passage] }), env })
+    ).json();
+    assert.equal(all.provider, 'workers');
+    assert.match(all.fallbackReason, /gemini-flash-latest\): erro 503/);
   } finally {
     globalThis.fetch = original;
   }
