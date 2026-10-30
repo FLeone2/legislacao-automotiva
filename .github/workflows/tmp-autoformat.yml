@@ -23,6 +23,5 @@ jobs:
       - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git rm -q .github/workflows/tmp-autoformat.yml
           git commit -qam "Formatação automática (prettier e ruff)" || exit 0
           git push
