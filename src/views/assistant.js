@@ -172,7 +172,10 @@ const Assistant = (() => {
     try {
       const response = await fetch('api/ask', { headers: { accept: 'application/json' } });
       const data = response.ok ? await response.json() : null;
-      status = data?.available ? { available: true, model: data.model } : { available: false };
+      const providers = Array.isArray(data?.providers) ? data.providers : [];
+      status = data?.available
+        ? { available: true, providers, provider: data.default || providers[0]?.id || null }
+        : { available: false, providers: [] };
     } catch {
       status = { available: false };
     }
@@ -211,7 +214,7 @@ const Assistant = (() => {
     const body =
       entry.state === 'loading'
         ? '<p class="ask-wait" role="status">Procurando nas leis e escrevendo a resposta…</p>'
-        : `${entry.answer ? `<div class="ask-answer">${renderAnswer(entry)}</div>` : ''}${entry.error ? `<p class="ask-error" role="alert">${esc(entry.error)}</p>` : ''}${entry.passages.length ? `<h3 class="ask-sources-title">${entry.answer ? 'Trechos usados na resposta' : 'Trechos encontrados'}</h3>${renderSources(entry)}` : ''}`;
+        : `${entry.answer ? `<div class="ask-answer">${renderAnswer(entry)}</div><p class="ask-by">Respondido por ${esc(entry.by)}${entry.fallback ? ' (o outro modelo estava indisponível)' : ''}</p>` : ''}${entry.error ? `<p class="ask-error" role="alert">${esc(entry.error)}</p>` : ''}${entry.passages.length ? `<h3 class="ask-sources-title">${entry.answer ? 'Trechos usados na resposta' : 'Trechos encontrados'}</h3>${renderSources(entry)}` : ''}`;
     return `<article class="ask-entry" data-entry="${entry.id}"><p class="ask-question">${esc(entry.question)}</p>${body}</article>`;
   }
   function renderThread() {
@@ -226,8 +229,17 @@ const Assistant = (() => {
     if (!target || !status) return;
     target.className = `ask-status ${status.available ? 'on' : 'off'}`;
     target.textContent = status.available
-      ? 'IA ligada · Cloudflare Workers AI (gratuito)'
+      ? 'IA ligada · gratuita'
       : 'IA ainda não ligada neste endereço · mostramos os trechos encontrados';
+    const picker = $('#askProvider');
+    if (!picker) return;
+    picker.hidden = status.providers.length < 2;
+    picker.innerHTML = status.providers
+      .map(
+        (p) =>
+          `<button type="button" data-provider="${esc(p.id)}" aria-pressed="${String(p.id === status.provider)}" title="${esc(p.model)}">${esc(p.label)}</button>`,
+      )
+      .join('');
   }
 
   async function ask(question) {
@@ -249,10 +261,14 @@ const Assistant = (() => {
         const response = await fetch('api/ask', {
           method: 'POST',
           headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({ question, passages: entry.passages }),
+          body: JSON.stringify({ question, passages: entry.passages, provider: status.provider }),
         });
         const data = await response.json().catch(() => ({}));
-        if (response.ok && data.answer) entry.answer = data.answer;
+        if (response.ok && data.answer) {
+          entry.answer = data.answer;
+          entry.by = `${data.providerLabel || 'IA'} · ${data.model || ''}`;
+          entry.fallback = Boolean(data.fallback);
+        }
         else entry.error = data.error || 'A IA não respondeu. Os trechos encontrados estão abaixo.';
       }
     } catch {
@@ -265,9 +281,15 @@ const Assistant = (() => {
 
   function render() {
     $('#main').innerHTML =
-      `<div class="simple-page ask-page"><header class="simple-head"><p class="simple-eyebrow">Perguntar</p><h1 class="simple-title">Pergunte às leis do acervo</h1><p class="simple-lead">A resposta usa só as fichas, os trechos e os PDFs oficiais publicados aqui, sempre com o número do trecho. É um protótipo: confira na fonte antes de decidir.</p><p class="ask-status" id="askStatus" role="status">Verificando a IA…</p></header><form class="ask-form" id="askForm"><label for="askInput" class="sr-only">Sua pergunta</label><textarea id="askInput" rows="2" maxlength="600" placeholder="Ex.: O que preciso para tirar a LCVM de um SUV híbrido importado?"></textarea><button class="btn primary" type="submit">Perguntar</button></form><section id="askThread" class="ask-thread" aria-live="polite"></section><p class="simple-note">As respostas não são parecer jurídico. Uma ficha de resumo não é o texto do ato. Vigência, alterações e aplicação ao seu veículo dependem da leitura dos atos oficiais.</p></div>`;
+      `<div class="simple-page ask-page"><header class="simple-head"><p class="simple-eyebrow">Perguntar</p><h1 class="simple-title">Pergunte às leis do acervo</h1><p class="simple-lead">A resposta usa só as fichas, os trechos e os PDFs oficiais publicados aqui, sempre com o número do trecho. É um protótipo: confira na fonte antes de decidir.</p><div class="ask-meta"><p class="ask-status" id="askStatus" role="status">Verificando a IA…</p><div class="ask-provider" id="askProvider" role="group" aria-label="Modelo de IA" hidden></div></div></header><form class="ask-form" id="askForm"><label for="askInput" class="sr-only">Sua pergunta</label><textarea id="askInput" rows="2" maxlength="600" placeholder="Ex.: O que preciso para tirar a LCVM de um SUV híbrido importado?"></textarea><button class="btn primary" type="submit">Perguntar</button></form><section id="askThread" class="ask-thread" aria-live="polite"></section><p class="simple-note">As respostas não são parecer jurídico. Uma ficha de resumo não é o texto do ato. Vigência, alterações e aplicação ao seu veículo dependem da leitura dos atos oficiais.</p></div>`;
     renderThread();
     checkStatus().then(renderStatus);
+    $('#askProvider').onclick = (event) => {
+      const button = event.target.closest('[data-provider]');
+      if (!button || !status) return;
+      status.provider = button.dataset.provider;
+      renderStatus();
+    };
     loadIndex().catch(() => {});
     const form = $('#askForm');
     const input = $('#askInput');

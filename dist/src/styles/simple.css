@@ -569,3 +569,39 @@ html[data-theme='light'] {
     height: 52px;
   }
 }
+
+.ask-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.ask-provider {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 999px;
+  background: var(--p-inset);
+}
+.ask-provider button {
+  border: 0;
+  border-radius: 999px;
+  min-height: 32px;
+  padding: 0 12px;
+  background: transparent;
+  color: var(--p-muted);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.ask-provider button[aria-pressed='true'] {
+  background: var(--p-panel);
+  color: var(--ink);
+  font-weight: 600;
+}
+.ask-by {
+  margin: -6px 0 0;
+  font-size: 12px;
+  color: var(--p-muted);
+}

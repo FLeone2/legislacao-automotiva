@@ -1,8 +1,11 @@
 // Cloudflare Pages Function: answers a question using only the passages the
-// browser retrieved from the published knowledge base. Workers AI runs inside
-// Cloudflare, so no API key reaches the browser. The free allocation resets daily.
+// browser retrieved from the published knowledge base. Two free providers:
+// Google Gemini (secret GEMINI_API_KEY) and Cloudflare Workers AI (binding AI).
+// Keys stay on the server; the browser only chooses among available providers.
 
 const DEFAULT_MODEL = '@cf/mistralai/mistral-small-3.1-24b-instruct';
+const DEFAULT_GEMINI_MODEL = 'gemini-2.5-flash';
+const GEMINI_ENDPOINT = 'https://generativelanguage.googleapis.com/v1beta/models/';
 const MAX_BODY = 48_000;
 const MAX_PASSAGES = 8;
 const MAX_PASSAGE_TEXT = 2_400;
@@ -46,6 +49,22 @@ function modelOf(env) {
     : DEFAULT_MODEL;
 }
 
+function geminiModelOf(env) {
+  return typeof env.GEMINI_MODEL === 'string' && /^gemini-[\w.-]+$/.test(env.GEMINI_MODEL)
+    ? env.GEMINI_MODEL
+    : DEFAULT_GEMINI_MODEL;
+}
+
+function providers(env) {
+  const list = [];
+  if (typeof env.GEMINI_API_KEY === 'string' && env.GEMINI_API_KEY)
+    list.push({ id: 'gemini', label: 'Google Gemini', model: geminiModelOf(env) });
+  if (env.AI) list.push({ id: 'workers', label: 'Cloudflare Workers AI', model: modelOf(env) });
+  return list;
+}
+
+class QuotaError extends Error {}
+
 function answerOf(result) {
   if (typeof result === 'string') return result;
   if (typeof result?.response === 'string') return result.response;
@@ -53,17 +72,69 @@ function answerOf(result) {
   return choice?.message?.content || choice?.text || '';
 }
 
+async function runWorkers(env, prompt) {
+  try {
+    const result = await env.AI.run(modelOf(env), {
+      messages: [
+        { role: 'system', content: SYSTEM_PROMPT },
+        { role: 'user', content: prompt },
+      ],
+      max_tokens: 700,
+      temperature: 0.2,
+    });
+    return { answer: answerOf(result).trim(), usage: result?.usage || null };
+  } catch (error) {
+    const message = String(error?.message || error);
+    if (/4006|neuron|allocation|quota|limit/i.test(message)) throw new QuotaError(message);
+    throw error;
+  }
+}
+
+async function runGemini(env, prompt) {
+  const response = await fetch(`${GEMINI_ENDPOINT}${geminiModelOf(env)}:generateContent`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', 'x-goog-api-key': env.GEMINI_API_KEY },
+    body: JSON.stringify({
+      systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+      contents: [{ role: 'user', parts: [{ text: prompt }] }],
+      generationConfig: {
+        temperature: 0.2,
+        maxOutputTokens: 900,
+        thinkingConfig: { thinkingBudget: 0 },
+      },
+    }),
+  });
+  const data = await response.json().catch(() => ({}));
+  if (response.status === 429) throw new QuotaError('gemini quota');
+  if (!response.ok) throw new Error(`gemini ${response.status}`);
+  const parts = data?.candidates?.[0]?.content?.parts || [];
+  return {
+    answer: parts
+      .map((part) => part?.text || '')
+      .join('')
+      .trim(),
+    usage: data?.usageMetadata || null,
+  };
+}
+
 export function onRequestGet({ env }) {
-  return json({ available: Boolean(env.AI), model: env.AI ? modelOf(env) : null });
+  const list = providers(env);
+  return json({
+    available: list.length > 0,
+    model: list[0]?.model || null,
+    providers: list,
+    default: list[0]?.id || null,
+  });
 }
 
 export async function onRequestPost({ request, env }) {
   if (!sameOrigin(request)) return json({ error: 'Origem não permitida.' }, 403);
-  if (!env.AI)
+  const list = providers(env);
+  if (!list.length)
     return json(
       {
         error:
-          'A IA ainda não foi ligada neste site. Ative o Workers AI no projeto do Cloudflare Pages.',
+          'A IA ainda não foi ligada neste site. Configure o Gemini ou o Workers AI no Cloudflare Pages.',
       },
       503,
     );
@@ -97,32 +168,34 @@ export async function onRequestPost({ request, env }) {
         `[${p.n}] ${p.title} (${p.agency.toUpperCase()} · ${p.kind}${p.device ? ` · ${p.device}` : ''})\n${p.text}`,
     )
     .join('\n\n');
-  const model = modelOf(env);
-  try {
-    const result = await env.AI.run(model, {
-      messages: [
-        { role: 'system', content: SYSTEM_PROMPT },
-        {
-          role: 'user',
-          content: `Trechos do acervo:\n<trechos>\n${context}\n</trechos>\n\nPergunta: ${question}`,
-        },
-      ],
-      max_tokens: 700,
-      temperature: 0.2,
-    });
-    const answer = answerOf(result).trim();
-    if (!answer) return json({ error: 'A IA não devolveu resposta. Tente de novo.' }, 502);
-    return json({ answer, model, usage: result?.usage || null });
-  } catch (error) {
-    const message = String(error?.message || error);
-    if (/4006|neuron|allocation|quota|limit/i.test(message))
-      return json(
-        {
-          error:
-            'O limite gratuito diário da IA acabou. Ele volta às 21h (horário de Brasília). Os trechos encontrados continuam abaixo.',
-        },
-        429,
-      );
-    return json({ error: 'A IA está indisponível agora. Tente de novo em instantes.' }, 502);
+  const prompt = `Trechos do acervo:\n<trechos>\n${context}\n</trechos>\n\nPergunta: ${question}`;
+  const chosen = list.find((provider) => provider.id === body?.provider) || list[0];
+  const order = [chosen, ...list.filter((provider) => provider !== chosen)];
+  let quotaHit = false;
+  for (const provider of order) {
+    try {
+      const run = provider.id === 'gemini' ? runGemini : runWorkers;
+      const { answer, usage } = await run(env, prompt);
+      if (!answer) continue;
+      return json({
+        answer,
+        provider: provider.id,
+        providerLabel: provider.label,
+        model: provider.model,
+        fallback: provider !== chosen,
+        usage,
+      });
+    } catch (error) {
+      if (error instanceof QuotaError) quotaHit = true;
+    }
   }
+  if (quotaHit)
+    return json(
+      {
+        error:
+          'O limite gratuito da IA acabou por hoje. Os trechos encontrados continuam abaixo; tente de novo mais tarde.',
+      },
+      429,
+    );
+  return json({ error: 'A IA está indisponível agora. Tente de novo em instantes.' }, 502);
 }

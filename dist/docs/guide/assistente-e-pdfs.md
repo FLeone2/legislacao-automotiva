@@ -23,6 +23,16 @@ Sem a IA ligada, a aba continua útil: ela mostra os trechos encontrados.
 
 Para trocar o modelo, altere `AI_MODEL` em `wrangler.toml`.
 
+### Google Gemini (opcional, recomendado para testar)
+
+Quando o segredo `GEMINI_API_KEY` existe, a aba usa primeiro o **Gemini** (`GEMINI_MODEL`, padrão `gemini-2.5-flash`) e mostra um seletor para comparar com o Workers AI. Se o limite do Gemini acabar, a resposta vem do Workers AI e a tela avisa.
+
+1. Crie uma chave gratuita no Google AI Studio (aistudio.google.com, menu **Get API key**).
+2. No Cloudflare, abra **Workers & Pages → legislacao-automotiva → Settings → Variables and Secrets**, clique em **Add**, escolha o tipo **Secret**, use o nome `GEMINI_API_KEY` e cole a chave. Faça isso para **Production** e **Preview**.
+3. Faça um novo deploy, ou reabra o PR, para a chave valer.
+
+A chave fica só no servidor do Cloudflare; o navegador nunca a recebe. No plano gratuito, o Google pode usar o conteúdo enviado (a pergunta e os trechos públicos das leis) para melhorar seus produtos. Não escreva informações confidenciais na pergunta.
+
 ## Cópias dos PDFs oficiais
 
 `scripts/fetch_official_pdfs.py` baixa o documento oficial de cada ato e guarda em `pdfs/<órgão>/<ato>.pdf`, com o texto extraído em `pdfs/text/<ato>.json` e o registro em `pdfs/manifest.json` (endereço, data, SHA-256, páginas).

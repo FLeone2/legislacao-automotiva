@@ -16,7 +16,9 @@ const question = 'Quem emite a LCVM?';
 
 test('reports availability without exposing configuration', async () => {
   const { onRequestGet } = await load();
-  assert.deepEqual(await onRequestGet({ env: {} }).json(), { available: false, model: null });
+  const off = await onRequestGet({ env: {} }).json();
+  assert.equal(off.available, false);
+  assert.deepEqual(off.providers, []);
   const on = await onRequestGet({ env: { AI: {} } }).json();
   assert.equal(on.available, true);
   assert.match(on.model, /^@cf\//);
@@ -60,4 +62,46 @@ test('sends only numbered passages as data and maps the daily limit', async () =
     env: limited,
   });
   assert.equal(quota.status, 429);
+});
+
+test('uses Gemini when its secret exists and falls back on quota', async () => {
+  const { onRequestGet, onRequestPost } = await load();
+  const env = {
+    GEMINI_API_KEY: 'test-key',
+    AI: { run: async () => ({ response: 'Resposta do Workers AI [1].' }) },
+  };
+  const listed = await onRequestGet({ env }).json();
+  assert.deepEqual(
+    listed.providers.map((p) => p.id),
+    ['gemini', 'workers'],
+  );
+  assert.equal(JSON.stringify(listed).includes('test-key'), false);
+  const original = globalThis.fetch;
+  const calls = [];
+  try {
+    globalThis.fetch = async (url, init) => {
+      calls.push({ url, init });
+      return new Response(
+        JSON.stringify({ candidates: [{ content: { parts: [{ text: 'Do Gemini [1].' }] } }] }),
+        { status: 200 },
+      );
+    };
+    const ok = await onRequestPost({
+      request: post({ question, passages: [passage], provider: 'gemini' }),
+      env,
+    });
+    const data = await ok.json();
+    assert.equal(data.answer, 'Do Gemini [1].');
+    assert.equal(data.provider, 'gemini');
+    assert.match(calls[0].url, /generativelanguage\.googleapis\.com\/v1beta\/models\/gemini-/);
+    assert.equal(calls[0].init.headers['x-goog-api-key'], 'test-key');
+    globalThis.fetch = async () => new Response('{}', { status: 429 });
+    const fallback = await (
+      await onRequestPost({ request: post({ question, passages: [passage] }), env })
+    ).json();
+    assert.equal(fallback.provider, 'workers');
+    assert.equal(fallback.fallback, true);
+  } finally {
+    globalThis.fetch = original;
+  }
 });

@@ -8,3 +8,5 @@ binding = "AI"
 
 [vars]
 AI_MODEL = "@cf/mistralai/mistral-small-3.1-24b-instruct"
+# Google Gemini is used first when the GEMINI_API_KEY secret exists (never commit the key).
+GEMINI_MODEL = "gemini-2.5-flash"
