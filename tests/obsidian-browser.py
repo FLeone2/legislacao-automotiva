@@ -272,10 +272,8 @@ async def main(base):
         )
         await page.keyboard.press("Escape")
         await page.locator("[data-assistant]").click()
-        await expect(page.locator("#assistantDialog")).to_contain_text(
-            "Nenhum assistente de IA está conectado"
-        )
-        await page.keyboard.press("Escape")
+        await page.wait_for_url("**/#ia")
+        await expect(page.locator("#askInput")).to_be_visible()
         report["preferences"] = (
             "mobile category, reduced motion, keyboard-instant palette and honest unavailable assistant"
         )

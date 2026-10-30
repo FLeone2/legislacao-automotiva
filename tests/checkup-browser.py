@@ -264,7 +264,7 @@ async def main():
                 '()=>location.hash="#ai"'
             )
             if legacy == "#ai":
-                await page.wait_for_url("**/#library")
+                await page.wait_for_url("**/#ia")
                 await wait_for_route(page)
         expected_active = sum(
             json.loads((ROOT / f"data/{source}/active.json").read_text())["metadata"][

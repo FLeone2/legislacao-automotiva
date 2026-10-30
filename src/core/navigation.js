@@ -15,7 +15,7 @@ function updateNavigation(view) {
       if (group) group.open = true;
     } else link.removeAttribute('aria-current');
   });
-  const primary = ['guide', 'vehicle', 'flow', 'library'].indexOf(view);
+  const primary = ['inicio', 'vehicle', 'flow', 'library'].indexOf(view);
   document.querySelector('.primary-nav').dataset.secondary = String(primary < 0);
   document.querySelector('.primary-nav')?.style.setProperty('--nav-index', Math.max(0, primary));
 }

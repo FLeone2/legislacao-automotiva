@@ -24,23 +24,24 @@
     <link href="src/styles/portal-apple.css?v=cf0fd7ef680a3b40" rel="stylesheet" />
     <link href="src/styles/knowledge.css?v=e7225d618102ac06" rel="stylesheet" />
     <link href="src/styles/guide-apple.css?v=4952bb02ce80873b" rel="stylesheet" />
-    <link href="assets/guide/guide.js?v=0bc38f41e0e12915" rel="prefetch" as="script" id="guideBundle" />
+    <link href="src/styles/simple.css?v=dd0cc41be3dd91b7" rel="stylesheet" />
+    <link href="assets/guide/guide.js?v=7e4a99e668119b15" rel="prefetch" as="script" id="guideBundle" />
   </head>
   <body>
     <a class="skip-link" href="#main">Ir para o conteúdo</a>
     <div id="app">
       <div class="workspace">
         <header class="topbar">
-          <a class="brand" href="#guide"
+          <a class="brand" href="#inicio"
             ><span class="brand-mark" data-icon="car"></span
             ><strong>Legislação <span>Automotiva</span></strong></a
           >
           <nav aria-label="Navegação principal" class="primary-nav main-nav glass">
             <span aria-hidden="true" class="nav-indicator"></span
-            ><a data-nav="guide" href="#guide"><span data-icon="file"></span>Guia</a
+            ><a data-nav="inicio" href="#inicio"><span data-icon="home"></span>Início</a
             ><a data-nav="vehicle" href="#vehicle"><span data-icon="car"></span>Veículo</a
             ><a data-nav="flow" href="#flow"><span data-icon="flow"></span>Homologação</a
-            ><a data-nav="library" href="#library"><span data-icon="book"></span>Biblioteca</a>
+            ><a data-nav="library" href="#library"><span data-icon="book"></span>Leis</a>
           </nav>
           <div class="toolbar">
             <span class="country">Brasil</span
@@ -52,8 +53,13 @@
               aria-label="Buscar referências e sistemas"
             >
               <span data-icon="search"></span><span>Buscar</span><kbd>⌘ K</kbd></button
-            ><button aria-label="Consulta assistida" class="icon-action" data-assistant="">
-              <span data-icon="chat"></span></button
+            ><a
+              aria-label="Perguntar às leis com IA"
+              class="icon-action"
+              href="#ia"
+              data-assistant=""
+            >
+              <span data-icon="chat"></span></a
             ><button
               aria-controls="mainNavigation"
               aria-expanded="false"
@@ -74,7 +80,8 @@
         ></div>
         <aside aria-label="Mais acessos e preferências" class="sidebar glass">
           <nav aria-label="Outras consultas" class="secondary-nav" id="mainNavigation">
-            <a data-nav="knowledge" href="#knowledge"
+            <a data-nav="guide" href="#guide"><span data-icon="file"></span>Meu projeto (guia)</a
+            ><a data-nav="knowledge" href="#knowledge"
               ><span data-icon="book"></span>Base regulatória</a
             ><a data-nav="tree" href="#tree"><span data-icon="tree"></span>Árvore regulatória</a
             ><a data-nav="markings" href="#markings"
@@ -167,6 +174,7 @@
     <script src="src/core/portal-context.js?v=8dd417170d7c9a4b"></script>
     <script src="src/core/icons.js?v=eda7ff03c2fe9ab5"></script>
     <script src="src/core/requirements.js?v=7c00b959d0f08eff"></script>
+    <script src="src/core/pdf-copies.js?v=f4494d16c3ba2ffa"></script>
     <script src="tree.js?v=3e47940f91a42000"></script>
     <script src="src/core/vehicle-vector.js?v=79611b4391e15157"></script>
     <script src="src/core/vehicle-legislation-data.js?v=09afb72ee08ff99a"></script>
@@ -184,13 +192,15 @@
     <script src="homologation-flow.js?v=614b33594fcf95b6"></script>
     <script src="src/views/history.js?v=b12b076190ee8e53"></script>
     <script src="src/views/library.js?v=4cafec7f708d28e3"></script>
-    <script src="src/views/knowledge.js?v=006f6a2e447f6dc4"></script>
-    <script src="src/views/document.js?v=3e775b4a31fb64ae"></script>
+    <script src="src/views/knowledge.js?v=487dadbce0541943"></script>
+    <script src="src/views/home.js?v=9dcdc847cb9b0e40"></script>
+    <script src="src/views/assistant.js?v=bee62ff29c3a3473"></script>
+    <script src="src/views/document.js?v=e506dfbbdb1007cd"></script>
     <script src="src/guide/traceability.js?v=93493bd2dce94cf2"></script>
     <script src="src/guide/bridge.js?v=2ab4a6f70039dae7"></script>
-    <script src="src/core/router.js?v=18fb12b64aa4c2d9"></script>
-    <script src="src/core/navigation.js?v=45972f53e17b5312"></script>
-    <script src="src/views/aurora.js?v=aa23b0e7c1d94781"></script>
+    <script src="src/core/router.js?v=05d638ff4e79e66e"></script>
+    <script src="src/core/navigation.js?v=a31a7051102258f3"></script>
+    <script src="src/views/aurora.js?v=ecb7d4381804afe1"></script>
     <script src="app.js?v=51e3faea63860a8b"></script>
     <dialog aria-label="Buscar no acervo" class="search-dialog" id="searchDialog">
       <div class="search-head">
@@ -230,13 +240,10 @@
       <button aria-label="Fechar consulta assistida" class="close" data-assistant-close="">
         <span data-icon="close"></span>
       </button>
-      <h2 id="assistantTitle">Consulta assistida</h2>
-      <p>
-        Nenhum assistente de IA está conectado. Consulte as referências e as fontes oficiais do
-        acervo.
-      </p>
-      <button class="btn primary" data-open-search="">Buscar no acervo</button>
+      <h2 id="assistantTitle">Perguntar às leis</h2>
+      <p>A aba Perguntar responde com trechos e PDFs oficiais do acervo, sempre com citação.</p>
+      <a class="btn primary" href="#ia" data-assistant-close="">Abrir Perguntar</a>
     </dialog>
-    <script src="src/views/obsidian-search.js?v=47a1c44652bf6f05"></script>
+    <script src="src/views/obsidian-search.js?v=e60630a9fbee86cb"></script>
   </body>
 </html>

@@ -49,7 +49,11 @@ def build(destination=None):
         "data/process",
         "docs/guide",
         "data/requirements/catalog.json",
+        "data/ai",
     ]
+    # Official PDF copies are optional until the copy workflow has run.
+    if (ROOT / "pdfs/manifest.json").exists():
+        paths.append("pdfs")
     for agency in ("contran", "proconve", "inmetro", "anatel"):
         paths += [f"data/{agency}/active.json", f"data/{agency}/active.csv"]
     for name in paths:

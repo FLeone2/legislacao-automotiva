@@ -1,3 +1,12 @@
 name = "legislacao-automotiva"
 pages_build_output_dir = "./dist"
 compatibility_date = "2026-10-18"
+
+# Workers AI for the "Perguntar" tab (functions/api/ask.js). Free daily allocation.
+[ai]
+binding = "AI"
+
+[vars]
+AI_MODEL = "@cf/mistralai/mistral-small-3.1-24b-instruct"
+# Google Gemini is used first when the GEMINI_API_KEY secret exists (never commit the key).
+GEMINI_MODEL = "gemini-2.5-flash"
