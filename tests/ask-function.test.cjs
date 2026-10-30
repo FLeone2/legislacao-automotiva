@@ -160,7 +160,7 @@ test('Gemini searches Google, returns web sources apart and answers without pass
     assert.equal(fallback.provider, 'workers');
     assert.match(
       fallback.fallbackReason,
-      /Gemini \(gemini-3\.8-flash\): erro 400 \(API key not valid\)/,
+      /Gemini \(gemini-3\.5-flash-lite\): erro 400 \(API key not valid\)/,
     );
     const noPassages = await onRequestPost({
       request: post({ question, passages: [] }),
@@ -204,10 +204,10 @@ test('a retired Gemini model falls back to the next free Flash model', async () 
       await onRequestPost({ request: post({ question, passages: [passage] }), env })
     ).json();
     assert.equal(data.answer, 'Resposta [1].');
-    assert.equal(data.model, 'gemini-3.5-flash-lite');
+    assert.equal(data.model, 'gemini-3.6-flash');
     assert.equal(data.fallback, false);
     assert.equal(bodies[0].tools, undefined);
-    assert.match(urls[1], /models\/gemini-3\.5-flash-lite:generateContent/);
+    assert.match(urls[1], /models\/gemini-3\.6-flash:generateContent/);
     assert.deepEqual(bodies[0].generationConfig.thinkingConfig, { thinkingBudget: 0 });
     assert.deepEqual(bodies[1].generationConfig.thinkingConfig, { thinkingLevel: 'low' });
   } finally {
@@ -264,9 +264,9 @@ test('overloaded or rate-limited Gemini models are skipped before Workers AI', a
     globalThis.fetch = async (url) => {
       const model = url.match(/models\/([^:]+):/)[1];
       tried.push(model);
-      if (model !== 'gemini-3.6-flash')
+      if (model !== 'gemini-3.8-flash')
         return new Response(JSON.stringify({ error: { message: 'busy' } }), {
-          status: model === 'gemini-3.8-flash' ? 503 : 429,
+          status: model === 'gemini-3.5-flash-lite' ? 524 : 429,
         });
       return new Response(
         JSON.stringify({ candidates: [{ content: { parts: [{ text: 'Lite [1].' }] } }] }),
@@ -276,9 +276,9 @@ test('overloaded or rate-limited Gemini models are skipped before Workers AI', a
     const data = await (
       await onRequestPost({ request: post({ question, passages: [passage] }), env })
     ).json();
-    assert.deepEqual(tried, ['gemini-3.8-flash', 'gemini-3.5-flash-lite', 'gemini-3.6-flash']);
+    assert.deepEqual(tried, ['gemini-3.5-flash-lite', 'gemini-3.6-flash', 'gemini-3.8-flash']);
     assert.equal(data.provider, 'gemini');
-    assert.equal(data.model, 'gemini-3.6-flash');
+    assert.equal(data.model, 'gemini-3.8-flash');
     globalThis.fetch = async () =>
       new Response(JSON.stringify({ error: { message: 'high demand' } }), { status: 503 });
     const all = await (
@@ -313,6 +313,27 @@ test('without GEMINI_WEB_SEARCH the free key never sends the search tool', async
     assert.equal(bodies[0].tools, undefined);
     const empty = await onRequestPost({ request: post({ question, passages: [] }), env });
     assert.equal(empty.status, 422);
+  } finally {
+    globalThis.fetch = original;
+  }
+});
+
+test('a Gemini model that does not answer in time is skipped', async () => {
+  const { onRequestPost } = await load();
+  const env = { GEMINI_API_KEY: 'k', AI: { run: async () => ({ response: 'W [1].' }) } };
+  const original = globalThis.fetch;
+  try {
+    globalThis.fetch = async (url) => {
+      if (url.includes('gemini-3.5-flash-lite')) throw new DOMException('timeout', 'TimeoutError');
+      return new Response(
+        JSON.stringify({ candidates: [{ content: { parts: [{ text: 'Ok [1].' }] } }] }),
+        { status: 200 },
+      );
+    };
+    const data = await (
+      await onRequestPost({ request: post({ question, passages: [passage] }), env })
+    ).json();
+    assert.equal(data.model, 'gemini-3.6-flash');
   } finally {
     globalThis.fetch = original;
   }

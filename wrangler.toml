@@ -9,6 +9,6 @@ binding = "AI"
 [vars]
 AI_MODEL = "@cf/mistralai/mistral-small-3.1-24b-instruct"
 # Google Gemini is used first when the GEMINI_API_KEY secret exists (never commit the key).
-GEMINI_MODEL = "gemini-3.8-flash"
+GEMINI_MODEL = "gemini-3.5-flash-lite"
 # "on" only after enabling billing on the Google project: Search grounding is not free.
 GEMINI_WEB_SEARCH = "off"
