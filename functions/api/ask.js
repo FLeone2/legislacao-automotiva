@@ -4,10 +4,11 @@
 // AI (binding AI), which only sees the passages. Keys stay on the server.
 
 const DEFAULT_MODEL = '@cf/mistralai/mistral-small-3.1-24b-instruct';
-const DEFAULT_GEMINI_MODEL = 'gemini-3.8-flash';
+const DEFAULT_GEMINI_MODEL = 'gemini-3.5-flash-lite';
+const GEMINI_TIMEOUT_MS = 15_000;
 // Free-tier Flash models tried in order when one is retired (404) or overloaded
 // (500/503). The last one is an alias that Google keeps pointing at a current model.
-const GEMINI_RESERVES = ['gemini-3.5-flash-lite', 'gemini-3.6-flash', 'gemini-flash-latest'];
+const GEMINI_RESERVES = ['gemini-3.6-flash', 'gemini-3.8-flash', 'gemini-flash-latest'];
 
 // Google Search grounding is not part of the Gemini free tier (HTTP 429 on a
 // free key). It is used only when GEMINI_WEB_SEARCH is "on" (billing enabled).
@@ -181,26 +182,32 @@ async function runGemini(env, prompt, { passages }) {
 }
 
 async function callGemini(env, prompt, model, search) {
-  const response = await fetch(`${GEMINI_ENDPOINT}${model}:generateContent`, {
-    method: 'POST',
-    headers: { 'content-type': 'application/json', 'x-goog-api-key': env.GEMINI_API_KEY },
-    body: JSON.stringify({
-      systemInstruction: { parts: [{ text: search ? WEB_PROMPT : SYSTEM_PROMPT }] },
-      contents: [{ role: 'user', parts: [{ text: prompt }] }],
-      ...(search ? { tools: [{ google_search: {} }] } : {}),
-      generationConfig: {
-        temperature: 0.2,
-        maxOutputTokens: 4096,
-        thinkingConfig: thinkingOf(model),
-      },
-    }),
-  });
+  let response;
+  try {
+    response = await fetch(`${GEMINI_ENDPOINT}${model}:generateContent`, {
+      method: 'POST',
+      signal: AbortSignal.timeout(GEMINI_TIMEOUT_MS),
+      headers: { 'content-type': 'application/json', 'x-goog-api-key': env.GEMINI_API_KEY },
+      body: JSON.stringify({
+        systemInstruction: { parts: [{ text: search ? WEB_PROMPT : SYSTEM_PROMPT }] },
+        contents: [{ role: 'user', parts: [{ text: prompt }] }],
+        ...(search ? { tools: [{ google_search: {} }] } : {}),
+        generationConfig: {
+          temperature: 0.2,
+          maxOutputTokens: 4096,
+          thinkingConfig: thinkingOf(model),
+        },
+      }),
+    });
+  } catch (error) {
+    throw new UnavailableModelError(`Gemini (${model}): sem resposta (${text(error?.name, 40)})`);
+  }
   const data = await response.json().catch(() => ({}));
   const reason = text(data?.error?.message, 160);
   const detail = reason ? ` (${reason})` : '';
   if (response.status === 429) throw new QuotaError(`Gemini (${model}): limite atingido${detail}`);
   const failure = `Gemini (${model}): erro ${response.status}${detail}`;
-  if ([404, 500, 503].includes(response.status)) throw new UnavailableModelError(failure);
+  if (response.status === 404 || response.status >= 500) throw new UnavailableModelError(failure);
   if (!response.ok) throw new Error(failure);
   const candidate = data?.candidates?.[0];
   const parts = candidate?.content?.parts || [];

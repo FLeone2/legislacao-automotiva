@@ -25,13 +25,13 @@ Para trocar o modelo, altere `AI_MODEL` em `wrangler.toml`.
 
 ### Google Gemini (opcional, recomendado para testar)
 
-Quando o segredo `GEMINI_API_KEY` existe, a aba usa primeiro o **Gemini** (`GEMINI_MODEL`, padrão `gemini-3.8-flash`, com `gemini-flash-latest` como reserva se o modelo for aposentado) e mostra um seletor para comparar com o Workers AI. Se o limite do Gemini acabar, a resposta vem do Workers AI e a tela avisa.
+Quando o segredo `GEMINI_API_KEY` existe, a aba usa primeiro o **Gemini** (`GEMINI_MODEL`, padrão `gemini-3.5-flash-lite`, com outros modelos Flash como reserva) e mostra um seletor para comparar com o Workers AI. Se o limite do Gemini acabar, a resposta vem do Workers AI e a tela avisa.
 
 1. Crie uma chave gratuita no Google AI Studio (aistudio.google.com, menu **Get API key**).
 2. No Cloudflare, abra **Workers & Pages → legislacao-automotiva → Settings → Variables and Secrets**, clique em **Add**, escolha o tipo **Secret**, use o nome `GEMINI_API_KEY` e cole a chave. Faça isso para **Production** e **Preview**.
 3. Faça um novo deploy, ou reabra o PR, para a chave valer.
 
-A busca no Google (grounding) não faz parte do nível gratuito do Gemini. Ela fica desligada (`GEMINI_WEB_SEARCH = "off"` em `wrangler.toml`) e só deve ser ligada (`"on"`) depois de ativar o faturamento no projeto do Google. Com a chave gratuita, o Gemini responde só com o acervo e tenta, em ordem, `gemini-3.8-flash`, `gemini-3.5-flash-lite`, `gemini-3.6-flash` e `gemini-flash-latest` quando um modelo está sobrecarregado ou no limite.
+A busca no Google (grounding) não faz parte do nível gratuito do Gemini. Ela fica desligada (`GEMINI_WEB_SEARCH = "off"` em `wrangler.toml`) e só deve ser ligada (`"on"`) depois de ativar o faturamento no projeto do Google. Com a chave gratuita, o Gemini responde só com o acervo e tenta, em ordem, `gemini-3.5-flash-lite`, `gemini-3.6-flash`, `gemini-3.8-flash` e `gemini-flash-latest` quando um modelo está sobrecarregado, no limite, com erro do servidor ou sem resposta em 15 segundos.
 
 A chave fica só no servidor do Cloudflare; o navegador nunca a recebe. No plano gratuito, o Google pode usar o conteúdo enviado (a pergunta e os trechos públicos das leis) para melhorar seus produtos. Não escreva informações confidenciais na pergunta.
 
