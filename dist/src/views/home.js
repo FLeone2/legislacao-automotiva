@@ -47,7 +47,11 @@ const HOME_PARALLEL = [
     owner: 'Sua responsabilidade',
     tone: 'own',
     items: [
-      ['PBEV · etiqueta ENCE do veículo', 'Usa o consumo medido na etapa 1.', '#inmetro?record=inmetro-169-2023'],
+      [
+        'PBEV · etiqueta ENCE do veículo',
+        'Usa o consumo medido na etapa 1.',
+        '#inmetro?record=inmetro-169-2023',
+      ],
       ['VIN, ETA e etiquetas', 'Definidos com o código da etapa 2.', '#markings'],
       ['MOVER', 'Compromissos e relatórios do programa.', '#mover'],
     ],

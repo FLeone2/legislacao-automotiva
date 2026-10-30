@@ -9,7 +9,7 @@
     "src/core/icons.js": "eda7ff03c2fe9ab5",
     "src/core/model-previews.js": "a3108df792c2962e",
     "src/core/navigation.js": "938cbb7bd7faa293",
-    "src/core/pdf-copies.js": "bec632221d1fe625",
+    "src/core/pdf-copies.js": "f4494d16c3ba2ffa",
     "src/core/portal-context.js": "8dd417170d7c9a4b",
     "src/core/requirements.js": "7c00b959d0f08eff",
     "src/core/router.js": "1c24905a5df179bc",
@@ -37,7 +37,7 @@
     "src/views/aurora.js": "ecb7d4381804afe1",
     "src/views/document.js": "e506dfbbdb1007cd",
     "src/views/history.js": "b12b076190ee8e53",
-    "src/views/home.js": "6222a54423b20a39",
+    "src/views/home.js": "b26bb81bb5341c4c",
     "src/views/knowledge.js": "487dadbce0541943",
     "src/views/library.js": "4cafec7f708d28e3",
     "src/views/markings.js": "d9271ce4d40e4c1b",
@@ -48,5 +48,5 @@
     "vehicle-data.js": "09123227fe4f6446",
     "vehicle-navigation.js": "9354942ec160aa76"
   },
-  "revision": "f163d2838ac9e0c1d020c34c0665023e0cdd98e3828bebcda5768d1f6911e4e4"
+  "revision": "1235b8104c8cb59e62cd42e74f3c0dddec0866826c28981f16e391fd89edbfc2"
 }
