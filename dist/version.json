@@ -33,7 +33,7 @@
     "src/styles/simple.css": "30d47b713b7e56bb",
     "src/styles/theme-tokens.css": "324e23552f497674",
     "src/styles/tree-navigation.css": "5359462e4ee3180d",
-    "src/views/assistant.js": "40e09728995c2055",
+    "src/views/assistant.js": "3fd7949d77eeccc3",
     "src/views/aurora.js": "ecb7d4381804afe1",
     "src/views/document.js": "e506dfbbdb1007cd",
     "src/views/history.js": "b12b076190ee8e53",
@@ -48,5 +48,5 @@
     "vehicle-data.js": "09123227fe4f6446",
     "vehicle-navigation.js": "9354942ec160aa76"
   },
-  "revision": "e6eb1e13d9db4a5981fd63a090a30704908e388ebb6420c1a4ca5b20e98d65d7"
+  "revision": "3aa1a12f4a7f85ecda5a7183fe0641d6336ad6f06e3b8176a30d54420855802e"
 }
