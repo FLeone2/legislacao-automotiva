@@ -218,11 +218,7 @@ const Assistant = (() => {
     const target = $('#askThread');
     if (!target) return;
     target.innerHTML = thread.length
-      ? thread
-          .slice()
-          .reverse()
-          .map(renderEntry)
-          .join('')
+      ? thread.slice().reverse().map(renderEntry).join('')
       : `<div class="ask-empty"><p>Experimente uma destas perguntas:</p><div class="ask-examples">${EXAMPLES.map((q) => `<button type="button" class="ask-example" data-ask-example="${esc(q)}">${esc(q)}</button>`).join('')}</div></div>`;
   }
   function renderStatus() {
