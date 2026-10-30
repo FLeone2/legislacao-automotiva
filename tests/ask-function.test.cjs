@@ -156,7 +156,10 @@ test('Gemini searches Google, returns web sources apart and answers without pass
       await onRequestPost({ request: post({ question, passages: [passage] }), env })
     ).json();
     assert.equal(fallback.provider, 'workers');
-    assert.match(fallback.fallbackReason, /Gemini: erro 400 \(API key not valid\)/);
+    assert.match(
+      fallback.fallbackReason,
+      /Gemini \(gemini-3\.8-flash\): erro 400 \(API key not valid\)/,
+    );
     const noPassages = await onRequestPost({
       request: post({ question, passages: [] }),
       env,
@@ -170,4 +173,41 @@ test('Gemini searches Google, returns web sources apart and answers without pass
     env: { AI: env.AI },
   });
   assert.equal(workersOnly.status, 422);
+});
+
+test('a retired Gemini model falls back to the latest Flash alias', async () => {
+  const { onRequestPost } = await load();
+  const env = {
+    GEMINI_API_KEY: 'k',
+    GEMINI_MODEL: 'gemini-2.5-flash',
+    AI: { run: async () => ({}) },
+  };
+  const original = globalThis.fetch;
+  const urls = [];
+  const bodies = [];
+  try {
+    globalThis.fetch = async (url, init) => {
+      urls.push(url);
+      bodies.push(JSON.parse(init.body));
+      if (url.includes('gemini-2.5-flash'))
+        return new Response(JSON.stringify({ error: { message: 'no longer available' } }), {
+          status: 404,
+        });
+      const parts = [{ text: 'pensando', thought: true }, { text: 'Resposta [1].' }];
+      return new Response(JSON.stringify({ candidates: [{ content: { parts } }] }), {
+        status: 200,
+      });
+    };
+    const data = await (
+      await onRequestPost({ request: post({ question, passages: [passage] }), env })
+    ).json();
+    assert.equal(data.answer, 'Resposta [1].');
+    assert.equal(data.model, 'gemini-flash-latest');
+    assert.equal(data.fallback, false);
+    assert.match(urls[1], /models\/gemini-flash-latest:generateContent/);
+    assert.deepEqual(bodies[0].generationConfig.thinkingConfig, { thinkingBudget: 0 });
+    assert.deepEqual(bodies[1].generationConfig.thinkingConfig, { thinkingLevel: 'low' });
+  } finally {
+    globalThis.fetch = original;
+  }
 });
