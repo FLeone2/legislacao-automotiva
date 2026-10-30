@@ -236,11 +236,17 @@ const Assistant = (() => {
   }
   function renderAnswer(entry) {
     return esc(entry.answer)
-      .replace(/\[(\d{1,2})\]/g, (match, n) =>
-        Number(n) <= entry.passages.length
-          ? `<a class="ask-cite" href="#ask-src-${n}" data-cite="ask-src-${n}" aria-label="Trecho ${n}">${n}</a>`
-          : match,
-      )
+      .replace(/\[(\d{1,2}(?:\s*,\s*\d{1,2})*)\]/g, (match, list) => {
+        const numbers = list.split(',').map((n) => Number(n.trim()));
+        if (numbers.some((n) => n < 1 || n > entry.passages.length)) return match;
+        return numbers
+          .map(
+            (n) =>
+              `<a class="ask-cite" href="#ask-src-${n}" data-cite="ask-src-${n}" aria-label="Trecho ${n}">${n}</a>`,
+          )
+          .join('');
+      })
+      .replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>')
       .split(/\n{2,}/)
       .map((block) => `<p>${block.replace(/\n/g, '<br>')}</p>`)
       .join('');
