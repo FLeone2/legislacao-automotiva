@@ -31,7 +31,10 @@ jobs:
                   for q in QS:
                       bodies.clear()
                       await pg.goto('https://legislacao-automotiva.pages.dev/#ia?q=' + q.replace(' ', '%20'))
-                      await pg.wait_for_selector('.ask-answer, .ask-error', timeout=60000)
+                      try:
+                          await pg.wait_for_selector('.ask-answer, .ask-error', timeout=150000)
+                      except Exception as e:
+                          print('::warning title=TIMEOUT::' + str(e)[:300])
                       await pg.wait_for_timeout(1500)
                       meta = await pg.locator('.ask-meta-line').first.inner_text()
                       txt = await pg.locator('#askAnswer').inner_text()
