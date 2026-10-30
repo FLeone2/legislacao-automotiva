@@ -4,7 +4,9 @@
 // AI (binding AI), which only sees the passages. Keys stay on the server.
 
 const DEFAULT_MODEL = '@cf/mistralai/mistral-small-3.1-24b-instruct';
-const DEFAULT_GEMINI_MODEL = 'gemini-2.5-flash';
+const DEFAULT_GEMINI_MODEL = 'gemini-3.8-flash';
+// Tried when the configured model is retired (HTTP 404); Google keeps it current.
+const GEMINI_LATEST = 'gemini-flash-latest';
 const GEMINI_ENDPOINT = 'https://generativelanguage.googleapis.com/v1beta/models/';
 const MAX_BODY = 48_000;
 const MAX_PASSAGES = 8;
@@ -78,6 +80,7 @@ function providers(env) {
 }
 
 class QuotaError extends Error {}
+class RetiredModelError extends Error {}
 
 function answerOf(result) {
   if (typeof result === 'string') return result;
@@ -118,8 +121,23 @@ function webSourcesOf(metadata) {
   return sources;
 }
 
+function thinkingOf(model) {
+  // 2.5 models take a token budget; newer ones take a level.
+  return /^gemini-2\./.test(model) ? { thinkingBudget: 0 } : { thinkingLevel: 'low' };
+}
+
 async function runGemini(env, prompt) {
-  const response = await fetch(`${GEMINI_ENDPOINT}${geminiModelOf(env)}:generateContent`, {
+  const configured = geminiModelOf(env);
+  try {
+    return await callGemini(env, prompt, configured);
+  } catch (error) {
+    if (!(error instanceof RetiredModelError) || configured === GEMINI_LATEST) throw error;
+    return callGemini(env, prompt, GEMINI_LATEST);
+  }
+}
+
+async function callGemini(env, prompt, model) {
+  const response = await fetch(`${GEMINI_ENDPOINT}${model}:generateContent`, {
     method: 'POST',
     headers: { 'content-type': 'application/json', 'x-goog-api-key': env.GEMINI_API_KEY },
     body: JSON.stringify({
@@ -128,23 +146,26 @@ async function runGemini(env, prompt) {
       tools: [{ google_search: {} }],
       generationConfig: {
         temperature: 0.2,
-        maxOutputTokens: 1200,
-        thinkingConfig: { thinkingBudget: 0 },
+        maxOutputTokens: 4096,
+        thinkingConfig: thinkingOf(model),
       },
     }),
   });
   const data = await response.json().catch(() => ({}));
   const reason = text(data?.error?.message, 160);
-  if (response.status === 429)
-    throw new QuotaError(`Gemini: limite atingido${reason ? ` (${reason})` : ''}`);
-  if (!response.ok)
-    throw new Error(`Gemini: erro ${response.status}${reason ? ` (${reason})` : ''}`);
+  const detail = reason ? ` (${reason})` : '';
+  if (response.status === 429) throw new QuotaError(`Gemini (${model}): limite atingido${detail}`);
+  const failure = `Gemini (${model}): erro ${response.status}${detail}`;
+  if (response.status === 404) throw new RetiredModelError(failure);
+  if (!response.ok) throw new Error(failure);
   const candidate = data?.candidates?.[0];
   const parts = candidate?.content?.parts || [];
   const metadata = candidate?.groundingMetadata;
   const suggestions = metadata?.searchEntryPoint?.renderedContent;
   return {
+    model,
     answer: parts
+      .filter((part) => !part?.thought)
       .map((part) => part?.text || '')
       .join('')
       .trim(),
@@ -222,7 +243,8 @@ export async function onRequestPost({ request, env }) {
   for (const provider of order) {
     try {
       const run = provider.id === 'gemini' ? runGemini : runWorkers;
-      const { answer, usage, web } = await run(env, prompt, { passages: passages.length });
+      const result = await run(env, prompt, { passages: passages.length });
+      const { answer, usage, web } = result;
       if (!answer) {
         problems.push(`${provider.label}: resposta vazia`);
         continue;
@@ -231,7 +253,7 @@ export async function onRequestPost({ request, env }) {
         answer,
         provider: provider.id,
         providerLabel: provider.label,
-        model: provider.model,
+        model: result.model || provider.model,
         fallback: provider !== chosen,
         fallbackReason: provider !== chosen ? problems.join('; ') : '',
         web: web || null,
