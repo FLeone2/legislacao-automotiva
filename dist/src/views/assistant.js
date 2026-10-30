@@ -290,7 +290,10 @@ const Assistant = (() => {
     const fallback = e.fallback
       ? `<p class="ask-error" role="note">O modelo escolhido não respondeu${e.fallbackReason ? ` (${esc(e.fallbackReason)})` : ''}; esta resposta veio do outro modelo.</p>`
       : '';
-    target.innerHTML = `<div class="ask-meta-line"><span class="ask-badge" aria-hidden="true">IA</span><span role="status">${meta}</span>${picker}</div>${fallback}${e.answer ? `<div class="ask-answer">${renderAnswer(e)}<p class="ask-disclaimer">Não é parecer jurídico. Confira a vigência na fonte oficial.</p></div>` : ''}${e.error ? `<p class="ask-error" role="alert">${esc(e.error)}</p>` : ''}${e.answer ? renderWeb(e) : ''}${e.passages.length ? renderPassages(e) : ''}`;
+    const noWeb = e.webUnavailable
+      ? `<p class="ask-web-note">A busca na internet não está disponível na chave gratuita do Gemini; esta resposta usa só o acervo.</p>`
+      : '';
+    target.innerHTML = `<div class="ask-meta-line"><span class="ask-badge" aria-hidden="true">IA</span><span role="status">${meta}</span>${picker}</div>${fallback}${e.answer ? `<div class="ask-answer">${renderAnswer(e)}<p class="ask-disclaimer">Não é parecer jurídico. Confira a vigência na fonte oficial.</p></div>` : ''}${e.error ? `<p class="ask-error" role="alert">${esc(e.error)}</p>` : ''}${e.answer ? renderWeb(e) : ''}${noWeb}${e.passages.length ? renderPassages(e) : ''}`;
   }
   function renderLaws() {
     const target = $('#askLaws');
@@ -368,6 +371,7 @@ const Assistant = (() => {
           entry.fallback = Boolean(data.fallback);
           entry.fallbackReason = typeof data.fallbackReason === 'string' ? data.fallbackReason : '';
           entry.web = data.web && typeof data.web === 'object' ? data.web : null;
+          entry.webUnavailable = typeof data.webUnavailable === 'string' && data.webUnavailable;
         } else
           entry.error = data.error || 'A IA não respondeu. Os trechos encontrados estão abaixo.';
       }

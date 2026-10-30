@@ -126,24 +126,41 @@ function thinkingOf(model) {
   return /^gemini-2\./.test(model) ? { thinkingBudget: 0 } : { thinkingLevel: 'low' };
 }
 
-async function runGemini(env, prompt) {
+async function withModel(env, prompt, search) {
   const configured = geminiModelOf(env);
   try {
-    return await callGemini(env, prompt, configured);
+    return await callGemini(env, prompt, configured, search);
   } catch (error) {
     if (!(error instanceof RetiredModelError) || configured === GEMINI_LATEST) throw error;
-    return callGemini(env, prompt, GEMINI_LATEST);
+    return callGemini(env, prompt, GEMINI_LATEST, search);
   }
 }
 
-async function callGemini(env, prompt, model) {
+// Google Search grounding is not part of the Gemini free tier: a free key gets
+// HTTP 429 when the search tool is present. Then Gemini answers from the
+// passages alone and the reply says that the web search was unavailable.
+async function runGemini(env, prompt, { passages }) {
+  try {
+    return await withModel(env, prompt, true);
+  } catch (error) {
+    if (!(error instanceof QuotaError)) throw error;
+    if (!passages)
+      throw new Error(
+        'Gemini: a busca na internet não está disponível na chave gratuita e o acervo não tem trechos para essa pergunta',
+      );
+    const result = await withModel(env, prompt, false);
+    return { ...result, webUnavailable: text(error.message, 200) };
+  }
+}
+
+async function callGemini(env, prompt, model, search) {
   const response = await fetch(`${GEMINI_ENDPOINT}${model}:generateContent`, {
     method: 'POST',
     headers: { 'content-type': 'application/json', 'x-goog-api-key': env.GEMINI_API_KEY },
     body: JSON.stringify({
-      systemInstruction: { parts: [{ text: WEB_PROMPT }] },
+      systemInstruction: { parts: [{ text: search ? WEB_PROMPT : SYSTEM_PROMPT }] },
       contents: [{ role: 'user', parts: [{ text: prompt }] }],
-      tools: [{ google_search: {} }],
+      ...(search ? { tools: [{ google_search: {} }] } : {}),
       generationConfig: {
         temperature: 0.2,
         maxOutputTokens: 4096,
@@ -257,6 +274,7 @@ export async function onRequestPost({ request, env }) {
         fallback: provider !== chosen,
         fallbackReason: provider !== chosen ? problems.join('; ') : '',
         web: web || null,
+        webUnavailable: result.webUnavailable || '',
         usage,
       });
     } catch (error) {
@@ -272,5 +290,10 @@ export async function onRequestPost({ request, env }) {
       },
       429,
     );
-  return json({ error: 'A IA está indisponível agora. Tente de novo em instantes.' }, 502);
+  return json(
+    {
+      error: `A IA não conseguiu responder agora${problems.length ? ` (${problems.join('; ')})` : ''}. Tente de novo em instantes.`,
+    },
+    502,
+  );
 }

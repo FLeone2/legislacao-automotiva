@@ -211,3 +211,39 @@ test('a retired Gemini model falls back to the latest Flash alias', async () => 
     globalThis.fetch = original;
   }
 });
+
+test('on the free tier Gemini answers from the passages when web search is refused', async () => {
+  const { onRequestPost } = await load();
+  const env = { GEMINI_API_KEY: 'k', AI: { run: async () => ({ response: 'Workers [1].' }) } };
+  const original = globalThis.fetch;
+  const bodies = [];
+  try {
+    globalThis.fetch = async (url, init) => {
+      const body = JSON.parse(init.body);
+      bodies.push(body);
+      if (body.tools)
+        return new Response(JSON.stringify({ error: { message: 'You exceeded your quota' } }), {
+          status: 429,
+        });
+      return new Response(
+        JSON.stringify({ candidates: [{ content: { parts: [{ text: 'Do acervo [1].' }] } }] }),
+        { status: 200 },
+      );
+    };
+    const data = await (
+      await onRequestPost({ request: post({ question, passages: [passage] }), env })
+    ).json();
+    assert.equal(data.provider, 'gemini');
+    assert.equal(data.answer, 'Do acervo [1].');
+    assert.match(data.webUnavailable, /limite atingido/);
+    assert.equal(bodies.length, 2);
+    assert.equal(bodies[1].tools, undefined);
+    assert.match(bodies[1].systemInstruction.parts[0].text, /Use SOMENTE os trechos/);
+
+    const empty = await onRequestPost({ request: post({ question, passages: [] }), env });
+    assert.equal(empty.status, 502);
+    assert.match((await empty.json()).error, /não está disponível na chave gratuita/);
+  } finally {
+    globalThis.fetch = original;
+  }
+});
