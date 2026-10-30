@@ -110,6 +110,7 @@ test('Gemini searches Google, returns web sources apart and answers without pass
   const { onRequestGet, onRequestPost } = await load();
   const env = {
     GEMINI_API_KEY: 'test-key',
+    GEMINI_WEB_SEARCH: 'on',
     AI: { run: async () => ({ response: 'Workers [1].' }) },
   };
   const listed = await onRequestGet({ env }).json();
@@ -152,6 +153,7 @@ test('Gemini searches Google, returns web sources apart and answers without pass
 
     globalThis.fetch = async () =>
       new Response(JSON.stringify({ error: { message: 'API key not valid' } }), { status: 400 });
+
     const fallback = await (
       await onRequestPost({ request: post({ question, passages: [passage] }), env })
     ).json();
@@ -202,9 +204,10 @@ test('a retired Gemini model falls back to the next free Flash model', async () 
       await onRequestPost({ request: post({ question, passages: [passage] }), env })
     ).json();
     assert.equal(data.answer, 'Resposta [1].');
-    assert.equal(data.model, 'gemini-3.6-flash');
+    assert.equal(data.model, 'gemini-3.5-flash-lite');
     assert.equal(data.fallback, false);
-    assert.match(urls[1], /models\/gemini-3\.6-flash:generateContent/);
+    assert.equal(bodies[0].tools, undefined);
+    assert.match(urls[1], /models\/gemini-3\.5-flash-lite:generateContent/);
     assert.deepEqual(bodies[0].generationConfig.thinkingConfig, { thinkingBudget: 0 });
     assert.deepEqual(bodies[1].generationConfig.thinkingConfig, { thinkingLevel: 'low' });
   } finally {
@@ -212,9 +215,13 @@ test('a retired Gemini model falls back to the next free Flash model', async () 
   }
 });
 
-test('on the free tier Gemini answers from the passages when web search is refused', async () => {
+test('with search on but refused, Gemini answers from the passages', async () => {
   const { onRequestPost } = await load();
-  const env = { GEMINI_API_KEY: 'k', AI: { run: async () => ({ response: 'Workers [1].' }) } };
+  const env = {
+    GEMINI_API_KEY: 'k',
+    GEMINI_WEB_SEARCH: 'on',
+    AI: { run: async () => ({ response: 'Workers [1].' }) },
+  };
   const original = globalThis.fetch;
   const bodies = [];
   try {
@@ -236,9 +243,9 @@ test('on the free tier Gemini answers from the passages when web search is refus
     assert.equal(data.provider, 'gemini');
     assert.equal(data.answer, 'Do acervo [1].');
     assert.match(data.webUnavailable, /limite atingido/);
-    assert.equal(bodies.length, 2);
-    assert.equal(bodies[1].tools, undefined);
-    assert.match(bodies[1].systemInstruction.parts[0].text, /Use SOMENTE os trechos/);
+    assert.equal(bodies.length, 5);
+    assert.equal(bodies[4].tools, undefined);
+    assert.match(bodies[4].systemInstruction.parts[0].text, /Use SOMENTE os trechos/);
 
     const empty = await onRequestPost({ request: post({ question, passages: [] }), env });
     assert.equal(empty.status, 502);
@@ -248,7 +255,7 @@ test('on the free tier Gemini answers from the passages when web search is refus
   }
 });
 
-test('overloaded Gemini models are skipped in order before Workers AI', async () => {
+test('overloaded or rate-limited Gemini models are skipped before Workers AI', async () => {
   const { onRequestPost } = await load();
   const env = { GEMINI_API_KEY: 'k', AI: { run: async () => ({ response: 'Workers [1].' }) } };
   const original = globalThis.fetch;
@@ -257,9 +264,9 @@ test('overloaded Gemini models are skipped in order before Workers AI', async ()
     globalThis.fetch = async (url) => {
       const model = url.match(/models\/([^:]+):/)[1];
       tried.push(model);
-      if (model !== 'gemini-3.5-flash-lite')
-        return new Response(JSON.stringify({ error: { message: 'high demand' } }), {
-          status: 503,
+      if (model !== 'gemini-3.6-flash')
+        return new Response(JSON.stringify({ error: { message: 'busy' } }), {
+          status: model === 'gemini-3.8-flash' ? 503 : 429,
         });
       return new Response(
         JSON.stringify({ candidates: [{ content: { parts: [{ text: 'Lite [1].' }] } }] }),
@@ -269,9 +276,9 @@ test('overloaded Gemini models are skipped in order before Workers AI', async ()
     const data = await (
       await onRequestPost({ request: post({ question, passages: [passage] }), env })
     ).json();
-    assert.deepEqual(tried, ['gemini-3.8-flash', 'gemini-3.6-flash', 'gemini-3.5-flash-lite']);
+    assert.deepEqual(tried, ['gemini-3.8-flash', 'gemini-3.5-flash-lite', 'gemini-3.6-flash']);
     assert.equal(data.provider, 'gemini');
-    assert.equal(data.model, 'gemini-3.5-flash-lite');
+    assert.equal(data.model, 'gemini-3.6-flash');
     globalThis.fetch = async () =>
       new Response(JSON.stringify({ error: { message: 'high demand' } }), { status: 503 });
     const all = await (
@@ -279,6 +286,33 @@ test('overloaded Gemini models are skipped in order before Workers AI', async ()
     ).json();
     assert.equal(all.provider, 'workers');
     assert.match(all.fallbackReason, /gemini-flash-latest\): erro 503/);
+  } finally {
+    globalThis.fetch = original;
+  }
+});
+
+test('without GEMINI_WEB_SEARCH the free key never sends the search tool', async () => {
+  const { onRequestGet, onRequestPost } = await load();
+  const env = { GEMINI_API_KEY: 'k', AI: { run: async () => ({ response: 'W [1].' }) } };
+  assert.equal((await onRequestGet({ env }).json()).providers[0].web, false);
+  const original = globalThis.fetch;
+  const bodies = [];
+  try {
+    globalThis.fetch = async (url, init) => {
+      bodies.push(JSON.parse(init.body));
+      return new Response(
+        JSON.stringify({ candidates: [{ content: { parts: [{ text: 'Ok [1].' }] } }] }),
+        { status: 200 },
+      );
+    };
+    const data = await (
+      await onRequestPost({ request: post({ question, passages: [passage] }), env })
+    ).json();
+    assert.equal(data.answer, 'Ok [1].');
+    assert.equal(bodies.length, 1);
+    assert.equal(bodies[0].tools, undefined);
+    const empty = await onRequestPost({ request: post({ question, passages: [] }), env });
+    assert.equal(empty.status, 422);
   } finally {
     globalThis.fetch = original;
   }

@@ -31,6 +31,8 @@ Quando o segredo `GEMINI_API_KEY` existe, a aba usa primeiro o **Gemini** (`GEMI
 2. No Cloudflare, abra **Workers & Pages → legislacao-automotiva → Settings → Variables and Secrets**, clique em **Add**, escolha o tipo **Secret**, use o nome `GEMINI_API_KEY` e cole a chave. Faça isso para **Production** e **Preview**.
 3. Faça um novo deploy, ou reabra o PR, para a chave valer.
 
+A busca no Google (grounding) não faz parte do nível gratuito do Gemini. Ela fica desligada (`GEMINI_WEB_SEARCH = "off"` em `wrangler.toml`) e só deve ser ligada (`"on"`) depois de ativar o faturamento no projeto do Google. Com a chave gratuita, o Gemini responde só com o acervo e tenta, em ordem, `gemini-3.8-flash`, `gemini-3.5-flash-lite`, `gemini-3.6-flash` e `gemini-flash-latest` quando um modelo está sobrecarregado ou no limite.
+
 A chave fica só no servidor do Cloudflare; o navegador nunca a recebe. No plano gratuito, o Google pode usar o conteúdo enviado (a pergunta e os trechos públicos das leis) para melhorar seus produtos. Não escreva informações confidenciais na pergunta.
 
 ## Cópias dos PDFs oficiais
