@@ -31,7 +31,10 @@ const WEB_PROMPT = SYSTEM_PROMPT.replace(
 Quando os trechos não bastarem ou faltarem, pesquise no Google, de preferência em fontes oficiais (gov.br, Planalto, Diário Oficial, MDIC, IBAMA, SENATRAN, Inmetro). Marque o que veio da internet com "(internet)" logo após a frase e diga qual órgão ou documento publicou a informação.
 Nunca use "[n]" para algo que veio da internet. Se nem os trechos nem a busca bastarem, diga isso claramente.
 `,
-).replace('que não estejam nos trechos.', 'que não estejam nos trechos ou nas fontes encontradas na busca.');
+).replace(
+  'que não estejam nos trechos.',
+  'que não estejam nos trechos ou nas fontes encontradas na busca.',
+);
 if (WEB_PROMPT === SYSTEM_PROMPT) throw new Error('WEB_PROMPT did not change');
 
 function json(body, status = 200) {
@@ -132,8 +135,10 @@ async function runGemini(env, prompt) {
   });
   const data = await response.json().catch(() => ({}));
   const reason = text(data?.error?.message, 160);
-  if (response.status === 429) throw new QuotaError(`Gemini: limite atingido${reason ? ` (${reason})` : ''}`);
-  if (!response.ok) throw new Error(`Gemini: erro ${response.status}${reason ? ` (${reason})` : ''}`);
+  if (response.status === 429)
+    throw new QuotaError(`Gemini: limite atingido${reason ? ` (${reason})` : ''}`);
+  if (!response.ok)
+    throw new Error(`Gemini: erro ${response.status}${reason ? ` (${reason})` : ''}`);
   const candidate = data?.candidates?.[0];
   const parts = candidate?.content?.parts || [];
   const metadata = candidate?.groundingMetadata;
@@ -146,8 +151,12 @@ async function runGemini(env, prompt) {
     usage: data?.usageMetadata || null,
     web: {
       sources: webSourcesOf(metadata),
-      queries: (metadata?.webSearchQueries || []).map((q) => text(q, 120)).filter(Boolean).slice(0, 5),
-      suggestions: typeof suggestions === 'string' && suggestions.length < 40_000 ? suggestions : '',
+      queries: (metadata?.webSearchQueries || [])
+        .map((q) => text(q, 120))
+        .filter(Boolean)
+        .slice(0, 5),
+      suggestions:
+        typeof suggestions === 'string' && suggestions.length < 40_000 ? suggestions : '',
     },
   };
 }
