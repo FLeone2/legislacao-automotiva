@@ -50,6 +50,8 @@ def build(destination=None):
         "docs/guide",
         "data/requirements/catalog.json",
         "data/ai",
+        "prototipo",
+        "data/prototype",
     ]
     # Official PDF copies are optional until the copy workflow has run.
     if (ROOT / "pdfs/manifest.json").exists():
@@ -66,21 +68,23 @@ def build(destination=None):
     copy_knowledge(target)
     # Each script and stylesheet URL follows its actual bytes. A new release
     # cannot accidentally retain an old hand-written cache version.
-    index = target / "index.html"
     revisions = {}
 
     def version_asset(match):
         path = match[2]
-        digest = hashlib.sha256((target / path).read_bytes()).hexdigest()[:16]
+        digest = hashlib.sha256((target / path.lstrip("/")).read_bytes()).hexdigest()[
+            :16
+        ]
         revisions[path] = digest
         return f'{match[1]}="{path}?v={digest}"'
 
-    html = re.sub(
-        r'(src|href)="([^"?]+\.(?:js|css))(?:\?[^\"]*)?"',
-        version_asset,
-        index.read_text(),
-    )
-    index.write_text(html)
+    for index in (target / "index.html", target / "prototipo/index.html"):
+        html = re.sub(
+            r'(src|href)="([^"?]+\.(?:js|css))(?:\?[^\"]*)?"',
+            version_asset,
+            index.read_text(),
+        )
+        index.write_text(html)
     # Revalidate the entry page/data in browsers, including the stable Pages URL.
     (target / "_headers").write_text(
         "/*\n  Cache-Control: public, max-age=0, must-revalidate\n"

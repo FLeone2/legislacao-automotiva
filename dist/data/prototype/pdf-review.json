@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Cópias públicas de consulta; acesso e hash não alteram revisão jurídica, vigência ou aplicabilidade.",
+  "records": [
+    {
+      "actId": "inmetro-145-2022",
+      "variant": "original",
+      "primary": true,
+      "status": "unavailable",
+      "checkedAt": "2026-10-31",
+      "attempts": [
+        {
+          "url": "https://sistema-sil.inmetro.gov.br/rtac/RTAC002960.pdf",
+          "error": "HTTPError: HTTP Error 503: Service Unavailable"
+        },
+        {
+          "url": "https://www.inmetro.gov.br/legislacao/rtac/pdf/RTAC002960.pdf",
+          "error": "HTTPError: HTTP Error 503: Service Unavailable"
+        }
+      ],
+      "sourcePage": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1452022?layout=norma_detalhe"
+    },
+    {
+      "actId": "senatran-095",
+      "variant": "original",
+      "primary": false,
+      "status": "verified_pdf",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022.pdf/@@display-file/file",
+      "finalUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022.pdf/@@display-file/file",
+      "path": "pdfs/prototype/senatran-095-original.pdf",
+      "byteLength": 939808,
+      "sha256": "79c69a01e9622de7d06f7055dcaa1120ffcf05d2d9aa453f6efebd241c607133",
+      "contentType": "application/pdf",
+      "header": "%PDF-",
+      "titleEvidence": "PORTARIA Nº 990, DE 01 DE AGOSTO DE 2022",
+      "checkedAt": "2026-10-31",
+      "sourcePage": null
+    },
+    {
+      "actId": "senatran-095",
+      "variant": "republication_2022-08-19",
+      "primary": true,
+      "status": "verified_pdf",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf/@@display-file/file",
+      "finalUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf/@@display-file/file",
+      "path": "pdfs/prototype/senatran-095-republication_2022-08-19.pdf",
+      "byteLength": 1195687,
+      "sha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+      "contentType": "application/pdf",
+      "header": "%PDF-",
+      "titleEvidence": "Portaria Nº 990, DE 1º DE AGOSTO DE 2022",
+      "checkedAt": "2026-10-31",
+      "sourcePage": null
+    },
+    {
+      "actId": "contran-954-2022",
+      "variant": "original",
+      "primary": true,
+      "status": "verified_pdf",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9542022.pdf/@@display-file/file",
+      "finalUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9542022.pdf/@@display-file/file",
+      "path": "pdfs/prototype/contran-954-2022-original.pdf",
+      "byteLength": 86148,
+      "sha256": "56fa725fd66a8943186dcbe62f6e5f8e6fb9145e481117b281b4048288c19897",
+      "contentType": "application/pdf",
+      "header": "%PDF-",
+      "titleEvidence": "RESOLUÇÃO CONTRAN Nº 954, DE 28 DE MARÇO DE 2022",
+      "checkedAt": "2026-10-31",
+      "sourcePage": null
+    },
+    {
+      "actId": "contran-915-2022",
+      "variant": "original",
+      "primary": true,
+      "status": "verified_pdf",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9152022.pdf/@@display-file/file",
+      "finalUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9152022.pdf/@@display-file/file",
+      "path": "pdfs/prototype/contran-915-2022-original.pdf",
+      "byteLength": 86215,
+      "sha256": "07b53ce129b94e6a5fc9b3cba7039af2c7f6cef5097ab89f74b7e9c85425ebc6",
+      "contentType": "application/pdf",
+      "header": "%PDF-",
+      "titleEvidence": "RESOLUÇÃO CONTRAN Nº 915, DE 28 DE MARÇO DE 2022",
+      "checkedAt": "2026-10-31",
+      "sourcePage": null
+    },
+    {
+      "actId": "conama-490-2018",
+      "variant": "official_publication",
+      "primary": true,
+      "status": "verified_pdf",
+      "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=767",
+      "finalUrl": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=767",
+      "path": "pdfs/prototype/conama-490-2018-official_publication.pdf",
+      "byteLength": 606152,
+      "sha256": "8166b042a05234fa7f968aa281addc2be33c9dee6525b755852523c523dc0a7d",
+      "contentType": "application/pdf",
+      "header": "%PDF-",
+      "titleEvidence": "RESOLUÇÃO Nº 490, DE 16 DE NOVEMBRO DE 2018",
+      "checkedAt": "2026-10-31",
+      "sourcePage": null
+    },
+    {
+      "actId": "conama-492-2018",
+      "variant": "official_publication",
+      "primary": true,
+      "status": "verified_pdf",
+      "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+      "finalUrl": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+      "path": "pdfs/prototype/conama-492-2018-official_publication.pdf",
+      "byteLength": 267802,
+      "sha256": "6145893406a02142fc3f7d78ec4cd188e6669e35dcfe903f8ebb05107ff088e2",
+      "contentType": "application/pdf",
+      "header": "%PDF-",
+      "titleEvidence": "RESOLUÇÃO N. 492, DE 20 DE DEZEMBRO DE 2018",
+      "checkedAt": "2026-10-31",
+      "sourcePage": null
+    }
+  ]
+}

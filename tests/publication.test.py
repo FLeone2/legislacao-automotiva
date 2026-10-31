@@ -29,12 +29,22 @@ with tempfile.TemporaryDirectory() as directory:
     version = json.loads((target / "version.json").read_text())
     assert re.fullmatch(r"[0-9a-f]{64}", version["revision"])
     html = (target / "index.html").read_text()
-    assets = re.findall(r'(?:src|href)="([^"?]+\.(?:js|css))\?v=([0-9a-f]{16})"', html)
+    prototype_html = (target / "prototipo/index.html").read_text()
+    assets = re.findall(
+        r'(?:src|href)="([^"?]+\.(?:js|css))\?v=([0-9a-f]{16})"',
+        html + prototype_html,
+    )
     assert dict(assets) == version["assets"]
     assert "src/core/theme.js" in version["assets"]
     assert "src/styles/theme-tokens.css" in version["assets"]
     for path, revision in assets:
-        assert hashlib.sha256((target / path).read_bytes()).hexdigest()[:16] == revision
+        assert (
+            hashlib.sha256((target / path.lstrip("/")).read_bytes()).hexdigest()[:16]
+            == revision
+        )
+    assert "/assets/prototype/app.js" in version["assets"]
+    assert "/assets/prototype/app.css" in version["assets"]
+    assert (target / "data/prototype/catalog.json").is_file()
     fingerprint = hashlib.sha256()
     for path in sorted(
         p for p in target.rglob("*") if p.is_file() and p != target / "version.json"
