@@ -1225,7 +1225,7 @@ function AssistantView({
                 Consulta por fontes. A IA não está ativa nesta resposta.
               </p>
             )}
-            <div className="prototype-answer-text">{answer.answer}</div>
+            <CitedAnswer answer={answer} />
             {answer.sources?.length > 0 && <ActList acts={answer.sources} />}
             <button
               className="prototype-text-button"
@@ -1253,6 +1253,32 @@ function AssistantView({
         )}
       </div>
     </section>
+  );
+}
+
+function CitedAnswer({ answer }) {
+  const citations = new Map((answer.citations || []).map((citation) => [citation.id, citation]));
+  const sources = answer.sources || [];
+  return (
+    <div className="prototype-answer-text">
+      {answer.answer.split(/(\[[^\]\n]+\])/g).map((text, index) => {
+        const citation = citations.get(text.slice(1, -1));
+        if (!text.startsWith('[') || !citation || !officialLink(citation)) return text;
+        const number = sources.findIndex((source) => source.id === citation.id) + 1;
+        return (
+          <a
+            key={index}
+            href={officialLink(citation)}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={citation.title}
+            aria-label={`Conferir fonte: ${citation.title}`}
+          >
+            [{number || 'fonte'}]
+          </a>
+        );
+      })}
+    </div>
   );
 }
 
