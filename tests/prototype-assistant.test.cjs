@@ -268,6 +268,7 @@ test('guided JSON validates each paragraph source ID and renders canonical citat
   for (const envelope of [
     { response: JSON.stringify(payload) },
     { response: payload },
+    { response: JSON.stringify({ result: { response: JSON.stringify(payload) } }) },
     { choices: [{ message: { content: JSON.stringify(payload) } }] },
     { choices: [{ message: { content: [{ type: 'text', text: JSON.stringify(payload) }] } }] },
     `\`\`\`json\n${JSON.stringify(payload)}\n\`\`\``,
@@ -317,8 +318,41 @@ test('rejected model output returns a diagnostic code without leaking the reject
   ).json();
   assert.equal(result.mode, 'sources');
   assert.equal(result.status, 'invalid_citations');
-  assert.deepEqual(result.diagnostic, { code: 'unknown_citation' });
+  assert.equal(result.diagnostic.code, 'unknown_citation');
+  assert.equal(result.diagnostic.shape.envelope.type, 'object');
+  assert.equal(result.diagnostic.shape.payload.type, 'object');
+  assert.deepEqual(result.diagnostic.shape.payload.keys, ['paragraphs']);
   assert.equal(JSON.stringify(result).includes('REJECTED_CONTENT'), false);
+});
+
+test('shape diagnostics never expose scalar values or unknown property names', async () => {
+  const { inspectPrototypeAnswer } = await load();
+  const result = inspectPrototypeAnswer(
+    {
+      response: JSON.stringify({
+        type: 'SECRET_SCALAR_VALUE',
+        properties: { paragraphs: { type: 'SECRET_NESTED_VALUE' } },
+        PRIVATE_QUESTION_AS_KEY: 'PRIVATE_ANSWER_VALUE',
+      }),
+      usage: { PRIVATE_TOKEN_AS_KEY: 'PRIVATE_TOKEN_VALUE' },
+    },
+    fixture.acts,
+  );
+  assert.equal(result.code, 'invalid_structure');
+  assert.deepEqual(result.shape.payload.keys, ['type', 'properties']);
+  assert.equal(result.shape.payload.otherKeyCount, 1);
+  assert.doesNotMatch(JSON.stringify(result.shape), /SECRET_|PRIVATE_/);
+  const extraClaim = inspectPrototypeAnswer(
+    {
+      response: JSON.stringify({
+        result: { paragraphs: [{ text: 'Afirmação.', sourceIds: ['brake-act'] }] },
+        PRIVATE_UNCITED_CLAIM: 'Não pode ser descartada.',
+      }),
+    },
+    fixture.acts,
+  );
+  assert.equal(extraClaim.value, null);
+  assert.equal(extraClaim.code, 'invalid_structure');
 });
 
 test('mapped component topics retain the right guidance and service sources keep their evidence nature', async () => {

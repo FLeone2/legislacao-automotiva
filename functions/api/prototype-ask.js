@@ -133,20 +133,97 @@ function answerPayload(result) {
   return null;
 }
 
+const SHAPE_KEYS = new Set([
+  'response',
+  'result',
+  'output',
+  'data',
+  'paragraphs',
+  'text',
+  'sourceIds',
+  'answer',
+  'sources',
+  'citations',
+  'references',
+  'source_ids',
+  'content',
+  'choices',
+  'message',
+  'usage',
+  'error',
+  'refusal',
+  'finish_reason',
+  'type',
+  'properties',
+  'items',
+  'required',
+  'schema',
+  'json_schema',
+  'guided_json',
+  'resposta',
+  'paragrafos',
+  'texto',
+  'fontes',
+]);
+
+// Diagnostics disclose structural metadata only. Unknown key names and every
+// scalar value stay private, including rejected text, questions and secrets.
+function safeOutputShape(value, depth = 0) {
+  if (value === null) return { type: 'null' };
+  if (Array.isArray(value))
+    return {
+      type: 'array',
+      count: Math.min(value.length, 100),
+      ...(depth < 2
+        ? { items: value.slice(0, 2).map((item) => safeOutputShape(item, depth + 1)) }
+        : {}),
+    };
+  if (typeof value === 'string') return { type: 'string', length: Math.min(value.length, 6_001) };
+  if (typeof value !== 'object') return { type: typeof value };
+  const allKeys = Object.keys(value);
+  const keys = allKeys.filter((key) => SHAPE_KEYS.has(key)).slice(0, 12);
+  return {
+    type: 'object',
+    keys,
+    otherKeyCount: Math.min(allKeys.filter((key) => !SHAPE_KEYS.has(key)).length, 100),
+    ...(depth < 2
+      ? {
+          fields: Object.fromEntries(
+            keys.slice(0, 6).map((key) => [key, safeOutputShape(value[key], depth + 1)]),
+          ),
+        }
+      : {}),
+  };
+}
+
 export function inspectPrototypeAnswer(result, sources) {
-  const reject = (code) => ({ value: null, code });
   let payload = answerPayload(result);
+  const reject = (code) => ({
+    value: null,
+    code,
+    shape: {
+      envelope: safeOutputShape(result),
+      payload: safeOutputShape(payload),
+    },
+  });
   if (payload == null || payload === '') return reject('empty_response');
-  if (typeof payload === 'string') {
-    if (payload.length > 6_000) return reject('output_too_long');
-    // A sole JSON fence is presentation, not evidence. Additional prose is not
-    // discarded: it must fail JSON parsing rather than hide uncited claims.
-    const raw = payload.trim().replace(/^```(?:json)?\s*\n([\s\S]*?)\n```$/, '$1');
-    try {
-      payload = JSON.parse(raw);
-    } catch {
-      return reject('invalid_json');
+  for (let depth = 0; depth <= 3; depth += 1) {
+    if (typeof payload === 'string') {
+      if (payload.length > 6_000) return reject('output_too_long');
+      // A sole JSON fence is presentation, not evidence. Additional prose is not
+      // discarded: it must fail parsing rather than hide uncited claims.
+      const raw = payload.trim().replace(/^```(?:json)?\s*\n([\s\S]*?)\n```$/, '$1');
+      try {
+        payload = JSON.parse(raw);
+      } catch {
+        return reject('invalid_json');
+      }
     }
+    const keys =
+      payload && typeof payload === 'object' && !Array.isArray(payload) ? Object.keys(payload) : [];
+    if (depth < 3 && keys.length === 1 && ['response', 'result', 'output'].includes(keys[0]))
+      payload = payload[keys[0]];
+    else break;
   }
   if (
     !payload ||
@@ -287,7 +364,7 @@ export async function onRequestPost({ request, env = {} }) {
     if (!validation.value)
       return json({
         ...prototypeSourceResponse(retrieval, 'invalid_citations'),
-        diagnostic: { code: validation.code },
+        diagnostic: { code: validation.code, shape: validation.shape },
       });
     return json({
       ...validation.value,
