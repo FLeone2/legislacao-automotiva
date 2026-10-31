@@ -23,6 +23,26 @@ WORKFLOW = json.loads((ROOT / "data/prototype/workflow.json").read_text())
 STEPS = {step["id"]: step for step in WORKFLOW["steps"]}
 AXE_RESULTS = []
 TREE_FIT_ACTIONS = []
+MAIN_CLEARANCE_PAIRS = [
+    ("door-front-left", "door-rear-left"),
+    ("door-front-right", "door-rear-right"),
+    *[
+        pair
+        for side in ("left", "right")
+        for pair in [
+            (f"door-front-{side}", f"wheel-front-{side}"),
+            (f"door-rear-{side}", f"wheel-rear-{side}"),
+            (f"wheel-front-{side}", f"brake-front-{side}"),
+            (f"wheel-rear-{side}", f"brake-rear-{side}"),
+        ]
+    ],
+    ("engine", "cooling"),
+    ("engine", "hood"),
+    ("batteryHV", "front-axle"),
+    ("batteryHV", "rear-axle"),
+    ("batteryHV", "tank"),
+    ("batteryHV", "exhaust"),
+]
 
 
 def frames(page):
@@ -204,17 +224,12 @@ def assert_exploded(page):
         return s.mode === 'exploded' && s.actualExplosion >= 0.64;
     }""")
     scene = state(page)
-    assert scene["wheelCount"] == 4
     diagnostics = scene["explosionDiagnostics"]
     assert diagnostics["coordinateFrame"] == "vehicle"
     assert diagnostics["movedPieceCount"] > 20, (
         "Exploding must move the actual GLB pieces, not replace the scene with an image"
     )
-    assert len(diagnostics["coherentWheels"]) == 4
-    assert len({wheel["corner"] for wheel in diagnostics["coherentWheels"]}) == 4
-    assert all(
-        wheel["offsetSpread"] < 0.00001 for wheel in diagnostics["coherentWheels"]
-    ), "Tire and rim must travel with their physical wheel corner"
+    assert_wheel_coherence(scene)
     assert len(diagnostics["brakeSets"]) == 4
     pieces = {piece["nodeId"]: piece for piece in diagnostics["pieces"]}
     brakes = {brake["corner"]: brake for brake in diagnostics["brakeSets"]}
@@ -238,12 +253,132 @@ def assert_exploded(page):
         [ratios[key] for key in ("x", "y", "z")] if isinstance(ratios, dict) else ratios
     )
     assert len(ratios) == 3 and all(math.isfinite(ratio) for ratio in ratios)
-    assert max(ratios) <= 2.2, ratios
-    assert ratios[1] <= 2.0, (
+    assert ratios[0] < 1.8 and ratios[2] < 2.4, ratios
+    assert ratios[1] < 1.8, (
         "The overview must stay near the vehicle, without the previous tall parts column",
         ratios,
     )
     return scene
+
+
+def assert_wheel_coherence(scene):
+    diagnostics = scene["explosionDiagnostics"]
+    assert scene["wheelCount"] == 4
+    assert {wheel["corner"] for wheel in scene["wheelPositions"]} == {
+        "front-left",
+        "front-right",
+        "rear-left",
+        "rear-right",
+    }
+    assert len(diagnostics["coherentWheels"]) == 4
+    assert len({wheel["corner"] for wheel in diagnostics["coherentWheels"]}) == 4
+    assert all(
+        wheel["offsetSpread"] < 0.00001 for wheel in diagnostics["coherentWheels"]
+    ), "Tire and rim must travel with their physical wheel corner"
+
+
+def set_explosion(page, amount):
+    slider = page.get_by_role("slider", name="Separação dos conjuntos", exact=True)
+    slider.fill(str(amount))
+    expect(slider).to_have_value(str(amount))
+    page.wait_for_function(
+        """amount => {
+            const s = document.querySelector('.prototype-viewport').__vehicleViewer.getState();
+            return Math.abs(s.actualExplosion - amount) < .000001;
+        }""",
+        arg=amount,
+    )
+    frames(page)
+    scene = state(page)
+    assert_wheel_coherence(scene)
+    return scene
+
+
+def select_assembly(page, assembly_id, label):
+    page.locator(".prototype-picker-trigger").click()
+    page.get_by_label("Buscar componente", exact=True).fill(label)
+    page.locator(".prototype-picker-popover").get_by_role(
+        "button", name=label, exact=True
+    ).click()
+    page.wait_for_function(
+        """id => document.querySelector('.prototype-viewport').__vehicleViewer
+            .getState().selection.assemblyId === id""",
+        arg=assembly_id,
+    )
+    expect(page.locator("#prototype-vehicle-references h2")).to_have_text(label)
+    frames(page)
+
+
+def real_bounds(scene, identifier, piece=False):
+    rows = scene["explosionDiagnostics"]["pieces" if piece else "groups"]
+    row = next(
+        (row for row in rows if row["nodeId" if piece else "id"] == identifier), None
+    )
+    assert row, ("Actual rendered geometry must expose its world bounds", identifier)
+    if piece:
+        assert row["visible"], (
+            "The detailed part must actually be rendered",
+            identifier,
+        )
+    return row["currentBounds"]
+
+
+def assert_real_clearance(scene, first, second, first_piece=False, second_piece=False):
+    a = real_bounds(scene, first, first_piece)
+    b = real_bounds(scene, second, second_piece)
+    # Physical 3D boxes can separate on any axis. A projected screen overlap is
+    # legitimate during orbit; hollow body/cabin fits are deliberately excluded.
+    gap = math.hypot(
+        *[
+            max(0, b["min"][axis] - a["max"][axis], a["min"][axis] - b["max"][axis])
+            for axis in range(3)
+        ]
+    )
+    assert gap >= 0.015, (first, second, scene["actualExplosion"], gap, a, b)
+    return {"first": first, "second": second, "gapMeters": gap}
+
+
+def assert_exterior_extraction(scene):
+    # A frontward extraction must pass the foremost fascia X plane entirely.
+    # This uses one exterior boundary, without treating the hollow cabin as solid.
+    plane = real_bounds(scene, "body")["min"][0]
+    gaps = {}
+    for assembly_id in ("engine", "cooling"):
+        rear_edge = real_bounds(scene, assembly_id)["max"][0]
+        gap = plane - rear_edge
+        assert gap >= 0.015, (
+            "The removed assembly must clear the bumper/grille plane",
+            assembly_id,
+            scene["selection"],
+            scene["actualExplosion"],
+            rear_edge,
+            plane,
+        )
+        gaps[assembly_id] = gap
+    side_plane = real_bounds(scene, "body")["min"][2]
+    tank_gap = side_plane - real_bounds(scene, "tank")["max"][2]
+    assert tank_gap >= 0.015, (
+        "The removed fuel tank must clear the exterior side plane",
+        scene["selection"],
+        scene["actualExplosion"],
+        tank_gap,
+    )
+    gaps["tankLateral"] = tank_gap
+    return gaps
+
+
+def assert_door_coherence(scene, expected_members):
+    pieces = {row["nodeId"]: row for row in scene["explosionDiagnostics"]["pieces"]}
+    groups = {row["id"]: row for row in scene["explosionDiagnostics"]["groups"]}
+    for group_id, members in expected_members.items():
+        assert set(groups[group_id]["nodeIds"]) == members
+        offsets = [pieces[node_id]["offset"] for node_id in members]
+        assert all(math.dist(offsets[0], offset) < 0.00001 for offset in offsets), (
+            "Glass and trim must remain attached to their physical door panel",
+            group_id,
+            scene["selection"],
+            scene["actualExplosion"],
+        )
 
 
 def piece_positions(scene):
@@ -281,6 +416,210 @@ def assert_assembled(page):
             < 0.00001
         ), (piece["nodeId"], piece["origin"], piece["current"])
     return scene
+
+
+def explosion_regression(page, viewport):
+    """Exercise the reported 97% mobile pose using actual rendered transforms."""
+    page.set_viewport_size({"width": 390, "height": 844})
+    navigate(page, "Veículo")
+    page.wait_for_function("""() => {
+        const s = document.querySelector('.prototype-viewport').__vehicleViewer.getState();
+        return s.viewport.width === s.viewport.visibleWidth
+            && s.viewport.height === s.viewport.visibleHeight
+            && s.viewport.visibleWidth <= innerWidth;
+    }""")
+    clear = page.get_by_role("button", name="Limpar seleção", exact=True)
+    if clear.count():
+        clear.click()
+    page.wait_for_function("""() => !document.querySelector('.prototype-viewport')
+        .__vehicleViewer.getState().selection.assemblyId""")
+    samples, report = {}, {"width": 390, "samples": [], "selections": []}
+    for amount in (0, 0.5, 0.65, 0.97, 1):
+        scene = set_explosion(page, amount)
+        assert not scene["selection"]["assemblyId"]
+        samples[amount] = scene
+        assert scene["explosionDiagnostics"]["coordinateFrame"] == "vehicle"
+        ratios = scene["explosionDiagnostics"]["envelopeRatio"]
+        assert all(math.isfinite(ratio) for ratio in ratios)
+        assert ratios[0] < 1.8 and ratios[1] < 1.8 and ratios[2] < 2.4, ratios
+        clearances = (
+            [
+                assert_real_clearance(scene, first, second)
+                for first, second in MAIN_CLEARANCE_PAIRS
+            ]
+            if amount >= 0.65
+            else []
+        )
+        report["samples"].append(
+            {
+                "amount": amount,
+                "movedPieces": scene["explosionDiagnostics"]["movedPieceCount"],
+                "envelopeRatio": scene["explosionDiagnostics"]["envelopeRatio"],
+                "clearances": clearances,
+                "exteriorExtractionGaps": assert_exterior_extraction(scene)
+                if amount >= 0.65
+                else {},
+            }
+        )
+        if amount in (0.97, 1):
+            viewport.scroll_into_view_if_needed()
+            capture(page, f"08-mobile-{round(amount * 100):03d}.png")
+    positions = {amount: piece_positions(scene) for amount, scene in samples.items()}
+    for piece in samples[0]["explosionDiagnostics"]["pieces"]:
+        assert math.dist(piece["origin"], piece["current"]) < 0.00001
+    assert positions[0].keys() == positions[1].keys()
+    for group_id in (
+        "hood",
+        "engine",
+        "batteryHV",
+        "door-front-left",
+        "wheel-front-left",
+    ):
+        group = next(
+            group
+            for group in samples[0.65]["explosionDiagnostics"]["groups"]
+            if group["id"] == group_id
+        )
+        node_id = group["nodeIds"][0]
+        assert math.dist(positions[0][node_id], positions[0.5][node_id]) > 0.02
+        first_delta = math.dist(positions[0.65][node_id], positions[0.97][node_id])
+        last_delta = math.dist(positions[0.97][node_id], positions[1][node_id])
+        assert first_delta > 0.02, (
+            "65→97% must not plateau without a selection",
+            group_id,
+            first_delta,
+        )
+        assert last_delta > 0.00001, (
+            "97→100% still moves geometry",
+            group_id,
+            last_delta,
+        )
+        report.setdefault("continuedMovement", []).append(
+            {
+                "group": group_id,
+                "65to97Meters": first_delta,
+                "97to100Meters": last_delta,
+            }
+        )
+
+    # The same physical pose must survive orbit and a landscape resize.
+    canvas = viewport.locator("canvas")
+    canvas.focus()
+    page.keyboard.press("ArrowLeft")
+    frames(page)
+    orbit = state(page)
+    assert orbit["cameraPosition"] != samples[1]["cameraPosition"]
+    assert_same_positions(positions[1], piece_positions(orbit))
+    page.set_viewport_size({"width": 1600, "height": 1000})
+    frames(page)
+    assert_same_positions(positions[1], piece_positions(state(page)))
+    page.set_viewport_size({"width": 390, "height": 844})
+    frames(page)
+
+    door_members = {
+        group["id"]: set(group["nodeIds"])
+        for group in samples[0.65]["explosionDiagnostics"]["groups"]
+        if group["id"].startswith("door-") or group["id"] == "tailgate"
+    }
+    assert len(door_members) == 5
+    for assembly_id in ("body", "engine", "brakes", "chassis", "batteryHV", "doors"):
+        label = next(
+            row["label"] for row in CATALOG["assemblies"] if row["id"] == assembly_id
+        )
+        select_assembly(page, assembly_id, label)
+        selected_samples = {}
+        for amount in (0.65, 0.97, 1):
+            scene = set_explosion(page, amount)
+            assert scene["selection"]["assemblyId"] == assembly_id
+            selected_samples[amount] = scene
+            if assembly_id in ("body", "doors"):
+                assert_door_coherence(scene, door_members)
+            if amount == 0.65:
+                continue
+            clearances = []
+            if assembly_id == "engine":
+                pairs = [
+                    ("engine-head", "engine-block"),
+                    ("engine-cam-cover", "engine-head"),
+                    *[
+                        ("engine-block", f"engine-piston-{number:02d}")
+                        for number in range(1, 5)
+                    ],
+                    *[
+                        ("engine-cam-cover", f"engine-ignition-coil-{number:02d}")
+                        for number in range(1, 5)
+                    ],
+                ]
+                clearances.extend(
+                    assert_real_clearance(scene, first, second, True, True)
+                    for first, second in pairs
+                )
+                clearances.append(
+                    assert_real_clearance(scene, "engine-head", "hood", True)
+                )
+                clearances.append(assert_real_clearance(scene, "engine", "cooling"))
+            elif assembly_id in ("brakes", "chassis"):
+                for axle in ("front", "rear"):
+                    for side in ("left", "right"):
+                        corner = f"{axle}-{side}"
+                        clearances.append(
+                            assert_real_clearance(
+                                scene,
+                                f"brake-{corner}"
+                                if assembly_id == "brakes"
+                                else f"{corner}-spring",
+                                f"wheel-{corner}",
+                                assembly_id == "chassis",
+                            )
+                        )
+            elif assembly_id == "batteryHV":
+                clearances.extend(
+                    assert_real_clearance(
+                        scene,
+                        "battery-cover",
+                        f"battery-module-{number:02d}",
+                        True,
+                        True,
+                    )
+                    for number in range(1, 11)
+                )
+                clearances.extend(
+                    assert_real_clearance(scene, "batteryHV", neighbor)
+                    for neighbor in ("front-axle", "rear-axle", "tank", "exhaust")
+                )
+            report["selections"].append(
+                {
+                    "assembly": assembly_id,
+                    "amount": amount,
+                    "clearances": clearances,
+                    "exteriorExtractionGaps": assert_exterior_extraction(scene)
+                    if assembly_id in ("body", "engine", "batteryHV")
+                    else {},
+                }
+            )
+        start_positions = piece_positions(selected_samples[0.65])
+        end_positions = piece_positions(selected_samples[1])
+        assert any(
+            math.dist(start_positions[node_id], point) > 0.02
+            for node_id, point in end_positions.items()
+        ), ("The selected pose must continue opening above 65%", assembly_id)
+        if assembly_id == "engine":
+            canvas.focus()
+            page.keyboard.press("ArrowRight")
+            frames(page)
+            assert_same_positions(
+                piece_positions(selected_samples[1]), piece_positions(state(page))
+            )
+        viewport.scroll_into_view_if_needed()
+        capture(page, f"09-mobile-{assembly_id}-100.png")
+        no_overflow(page)
+    assert_assembled(page)
+    select_assembly(page, "brakes", "Freios e estabilidade")
+    set_explosion(page, 0.65)
+    (OUT / "explosion-regression.json").write_text(
+        json.dumps(report, ensure_ascii=False, indent=2)
+    )
+    return report
 
 
 def assert_centered_tree(page):
@@ -621,6 +960,9 @@ with TestServer() as base, sync_playwright() as p:
         )
         expect(open_evidence(page, mover, "Qualificações")).not_to_be_empty()
 
+        # Reproduce the reported plateau and real collisions on a 390px screen.
+        explosion_report = explosion_regression(page, viewport)
+
         # Real mobile canvas and independent tree scrolling at both narrow widths.
         for width, height in [(390, 844), (320, 740)]:
             page.set_viewport_size({"width": width, "height": height})
@@ -669,6 +1011,8 @@ with TestServer() as base, sync_playwright() as p:
                     "glbRequests": len(glb_requests),
                     "initialGlbRequests": 0,
                     "treeFitActions": TREE_FIT_ACTIONS,
+                    "explosionSamples": len(explosion_report["samples"]),
+                    "detailedExplosionSelections": len(explosion_report["selections"]),
                     "errors": errors,
                     "accessibilityScreens": len(AXE_RESULTS),
                 },

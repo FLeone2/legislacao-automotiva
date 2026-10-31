@@ -11,6 +11,7 @@ import {
   pieceDescriptor,
   createExplosionPlan,
   explosionPhases,
+  blendExplosionOffsets,
   wheelCorner,
   rectanglesOverlap,
 } from './vehicle-layout.js';
@@ -93,12 +94,15 @@ export function mountVehicleViewer(container, callbacks = {}) {
   const pointer = new THREE.Vector2();
   const lightDirection = new THREE.Vector3(-4, 8, 4).normalize();
   function translation(item, amount) {
-    const phases = explosionPhases(amount);
-    return item.userData.overviewOffset
-      .clone()
-      .multiplyScalar(phases.assemblies)
-      .addScaledVector(item.userData.detailOffset, phases.detail)
-      .addScaledVector(item.userData.overviewOffset, -phases.detail);
+    return new THREE.Vector3().fromArray(
+      blendExplosionOffsets(
+        item.userData.overviewOffset,
+        item.userData.expandedOffset,
+        item.userData.detailOffset,
+        amount,
+        item.userData.detailPhase,
+      ),
+    );
   }
   function updateExplosionPlan() {
     if (!layoutRows.length) return;
@@ -131,9 +135,16 @@ export function mountVehicleViewer(container, callbacks = {}) {
     meshes.forEach((item) => {
       const overview = explosionPlan.overview.offsets.get(item.userData.nodeId) ||
         assemblyOffsets.get(item.userData.partId) || [0, 0, 0];
-      const detail = explosionPlan.detail.offsets.get(item.userData.nodeId) || overview;
+      const group = explosionPlan.membership.get(item.userData.nodeId);
+      const expanded =
+        explosionPlan.expanded.offsets.get(item.userData.nodeId) ||
+        explosionPlan.expanded.groupOffsets.get(group) ||
+        overview;
+      const detail = explosionPlan.detail.offsets.get(item.userData.nodeId) || expanded;
       item.userData.overviewOffset.set(...overview);
+      item.userData.expandedOffset.set(...expanded);
       item.userData.detailOffset.set(...detail);
+      item.userData.detailPhase = explosionPlan.detailPhases.get(item.userData.nodeId) || 'none';
     });
     layoutTween =
       from && !motionPreference.matches ? { from, start: performance.now(), progress: 0 } : null;
@@ -195,11 +206,38 @@ export function mountVehicleViewer(container, callbacks = {}) {
         origin: origin.toArray(),
         current: current.toArray(),
         offset: current.clone().sub(origin).toArray(),
+        originBounds: { min: originBox.min.toArray(), max: originBox.max.toArray() },
+        currentBounds: { min: currentBox.min.toArray(), max: currentBox.max.toArray() },
         visible: members.some((item) => item.visible),
         meshCount: members.length,
       });
     }
     const byId = new Map(transforms.map((piece) => [piece.nodeId, piece]));
+    const grouped = new Map();
+    for (const piece of transforms) {
+      if (!piece.visible) continue;
+      const id = explosionPlan?.membership.get(piece.nodeId);
+      if (!id) continue;
+      if (!grouped.has(id))
+        grouped.set(id, {
+          id,
+          nodeIds: [],
+          origin: new THREE.Box3(),
+          current: new THREE.Box3(),
+        });
+      const group = grouped.get(id);
+      group.nodeIds.push(piece.nodeId);
+      for (const [target, bounds] of [
+        ['origin', piece.originBounds],
+        ['current', piece.currentBounds],
+      ])
+        group[target].union(
+          new THREE.Box3(
+            new THREE.Vector3().fromArray(bounds.min),
+            new THREE.Vector3().fromArray(bounds.max),
+          ),
+        );
+    }
     const sets = (prefix) =>
       (explosionPlan?.overview.units || [])
         .filter((unit) => unit.id.startsWith(prefix))
@@ -229,6 +267,12 @@ export function mountVehicleViewer(container, callbacks = {}) {
         .map((value, axis) => value / Math.max(0.001, originalSize.getComponent(axis))),
       movedPieceCount: transforms.filter((piece) => Math.hypot(...piece.offset) > 0.0001).length,
       pieces: transforms,
+      groups: [...grouped.values()].map(({ id, nodeIds, origin, current }) => ({
+        id,
+        nodeIds,
+        originBounds: { min: origin.min.toArray(), max: origin.max.toArray() },
+        currentBounds: { min: current.min.toArray(), max: current.max.toArray() },
+      })),
       coherentWheels: sets('wheel-'),
       brakeSets: sets('brake-'),
     };
@@ -280,7 +324,7 @@ export function mountVehicleViewer(container, callbacks = {}) {
         });
       if (explosionPlan && currentExplosion >= 0.6499) {
         const activePlan =
-          explosionPhases(currentExplosion).detail > 0 && state.selection.assemblyId
+          explosionPhases(currentExplosion).detail > 0
             ? explosionPlan.detail
             : explosionPlan.overview;
         result.explosionGroups = activePlan.units
@@ -1064,6 +1108,7 @@ export function mountVehicleViewer(container, callbacks = {}) {
           baseCenter: center.clone(),
           materialStates: materials.map(materialSnapshot),
           overviewOffset: new THREE.Vector3(),
+          expandedOffset: new THREE.Vector3(),
           detailOffset: new THREE.Vector3(),
           baseBounds: node.geometry.boundingBox.clone().applyMatrix4(world),
           contextOccluder: /(?:_none|_void)/i.test(extras.sourceMesh || node.name),

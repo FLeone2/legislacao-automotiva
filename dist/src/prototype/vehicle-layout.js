@@ -196,87 +196,208 @@ function groupRows(rows) {
   return [...groups.values()].sort((a, b) => a.id.localeCompare(b.id));
 }
 
-// These offsets express a restrained presentation disassembly, not a validated
-// service procedure or exploded CAD. The actual GLB geometry is translated;
-// its source position, node identity and axle/corner remain intact.
-function assemblyOffset(group) {
-  const center = middle(group.bounds);
-  if (group.id.startsWith('wheel-')) return [0, 0, Math.sign(center[2]) * 0.58];
-  if (group.id.startsWith('brake-')) return [0, -0.015, Math.sign(center[2]) * 0.24];
+// The first pose opens the real assemblies enough for inspection. The second
+// continues along their vehicle axes, accounting for the actual GLB bounds.
+// These are presentation displacements, not a validated service procedure.
+function assemblyOffset(group, expanded = false) {
+  const center = middle(group.bounds),
+    side = Math.sign(center[2]) || 1;
+  if (group.id.startsWith('wheel-')) return [0, 0, side * (expanded ? 0.72 : 0.58)];
+  if (group.id.startsWith('brake-')) return [0, -0.015, side * (expanded ? 0.35 : 0.24)];
   if (group.id.startsWith('door-'))
-    return [group.id.includes('-front-') ? -0.035 : 0.035, 0.035, Math.sign(center[2]) * 0.48];
-  const offsets = {
+    return [
+      (group.id.includes('-front-') ? -1 : 1) * (expanded ? 0.24 : 0.15),
+      0.035,
+      side * (expanded ? 1.35 : 1.1),
+    ];
+  const compact = {
     body: [0, 0.055, 0],
-    hood: [-0.13, 0.48, 0],
-    tailgate: [0.32, 0.12, 0],
+    hood: [-0.1, 1.0, 0],
+    tailgate: [0.52, 0.15, 0],
     glazing: [0, 0.34, 0],
-    cabin: [0, 0.22, 0],
-    'front-axle': [-0.035, -0.28, 0],
-    'rear-axle': [0.035, -0.28, 0],
-    engine: [-0.43, 0.16, 0],
-    cooling: [-0.38, 0.1, 0],
-    motorElectric: [-0.14, 0.03, 0.4],
-    batteryHV: [0, -0.42, 0],
-    exhaust: [0, -0.28, 0.15],
-    tank: [0.08, -0.32, -0.13],
-    battery12v: [-0.12, 0.16, 0.23],
-    electronics: [-0.04, 0.3, -0.25],
-    brakeFluid: [0, 0.22, 0.12],
-    steering: [0, 0.18, 0],
+    cabin: [0, 0.055, 0],
+    'front-axle': [-0.035, -0.19, 0],
+    'rear-axle': [0.035, -0.19, 0],
+    engine: [-2.43, 0.1, 0],
+    cooling: [-1.6, 0.1, -1.42],
+    motorElectric: [-0.14, -0.1, -1.38],
+    batteryHV: [0, -0.65, 0],
+    exhaust: [0, -0.7, 0.55],
+    tank: [1.2, -0.55, -1.33],
+    battery12v: [-0.55, 0.18, 0.9],
+    electronics: [-0.4, 0.3, -1.55],
+    brakeFluid: [-1.3, -0.2, 1.1],
+    steering: [0, 0.055, 0],
   };
-  return offsets[group.id] || [Math.sign(center[0]) * 0.1, 0.12, Math.sign(center[2]) * 0.12];
+  const full = {
+    body: [0, 0.085, 0],
+    hood: [0.12, 1.05, 0],
+    tailgate: [0.92, 0.22, 0],
+    glazing: [0, 0.6, 0],
+    cabin: [0, 0.085, 0],
+    'front-axle': [-0.035, -0.2, 0],
+    'rear-axle': [0.035, -0.2, 0],
+    engine: [-2.82, 0.16, 0],
+    cooling: [-1.9, 0.1, -1.42],
+    motorElectric: [-0.2, -0.15, -1.62],
+    batteryHV: [0, -0.9, 0],
+    exhaust: [0.1, -0.7, 0.68],
+    tank: [1.28, -0.55, -1.33],
+    battery12v: [-0.75, 0.25, 1.0],
+    electronics: [-0.7, 0.35, -1.65],
+    brakeFluid: [-1.5, -0.25, 1.2],
+    steering: [0, 0.085, 0],
+  };
+  return (
+    (expanded ? full : compact)[group.id] || [
+      Math.sign(center[0]) * 0.12,
+      expanded ? 0.2 : 0.12,
+      side * (expanded ? 0.2 : 0.12),
+    ]
+  );
 }
 
-function detailOffset(piece, assemblyBounds) {
-  const center = middle(piece.bounds),
-    parentCenter = middle(assemblyBounds),
-    local = minus(center, parentCenter),
-    name = `${piece.nodeId} ${piece.section}`;
-  // Keep direction tied to where the piece is installed, rather than sending
-  // every small object to a camera-facing grid. Specific covers open vertically.
-  let offset = times(local, 0.7);
-  if (piece.assemblyId === 'batteryHV') {
-    offset = [local[0] * 0.4, local[1] * 0.6, local[2] * 0.55];
-    if (/battery-cover|service-disconnect/.test(name)) offset[1] += 0.52;
-    else if (/battery-module/.test(name)) offset[1] += 0.19;
-    else if (/busbar|bms|junction/.test(name)) offset[1] += 0.32;
-    else if (/cooling-plate/.test(name)) offset[1] += 0.08;
-  } else if (piece.assemblyId === 'engine') {
-    offset = [local[0] * 0.6, local[1] * 0.8, local[2] * 0.75];
-    if (/cam-cover|ignition|oil-cap/.test(name)) offset[1] += 0.5;
-    else if (/engine-head|camshafts/.test(name)) offset[1] += 0.25;
-    else if (/piston/.test(name)) offset[1] += 0.15;
-    else if (/sump/.test(name)) offset[1] -= 0.14;
-    else if (/transmission|bellhousing/.test(name)) offset[0] += 0.2;
-  } else if (piece.assemblyId === 'chassis') {
-    const axleCenter = piece.nodeId.startsWith('rear-') ? 1.42 : -1.58;
-    offset = [(center[0] - axleCenter) * 0.45, local[1] * 0.35, center[2] * 0.5];
-    if (/spring|strut-mount/.test(name)) offset[1] += 0.16;
-    if (/control-arm|subframe/.test(name)) offset[1] -= 0.1;
-  } else if (piece.assemblyId === 'brakes') {
-    const outward = Math.sign(center[2]);
-    offset = /caliper/i.test(piece.sourceMesh || '')
-      ? [-0.06, 0.08, outward * 0.22]
-      : [0, 0, outward * (/cover/i.test(piece.sourceMesh || '') ? 0.03 : 0.1)];
+const translated = (bounds, offset) => ({
+  min: plus(bounds.min, offset),
+  max: plus(bounds.max, offset),
+});
+const unionBounds = (rows) => ({
+  min: [0, 1, 2].map((axis) => Math.min(...rows.map((row) => row.min[axis]))),
+  max: [0, 1, 2].map((axis) => Math.max(...rows.map((row) => row.max[axis]))),
+});
+
+// Major loose assemblies use explicit physical escape directions. Hollow body
+// and cabin bounds are intentionally not treated as solid collision boxes.
+function constrainMacro(groups, initial) {
+  const offsets = new Map([...initial].map(([id, offset]) => [id, [...offset]]));
+  const byId = new Map(groups.map((group) => [group.id, group]));
+  function beyond(a, b, axis, sign, gap = 0.12) {
+    if (!byId.has(a) || !byId.has(b)) return;
+    const first = translated(byId.get(a).bounds, offsets.get(a));
+    const second = translated(byId.get(b).bounds, offsets.get(b));
+    const clearance =
+      sign > 0 ? first.min[axis] - second.max[axis] : second.min[axis] - first.max[axis];
+    if (clearance < gap) offsets.get(a)[axis] += sign * (gap - clearance);
   }
-  return offset.map((value) => Math.max(-0.65, Math.min(0.65, value)));
+  for (const side of ['left', 'right']) {
+    const sign = side === 'left' ? 1 : -1;
+    for (const door of [`door-front-${side}`, `door-rear-${side}`])
+      for (const wheel of [`wheel-front-${side}`, `wheel-rear-${side}`])
+        beyond(door, wheel, 2, sign);
+    beyond(`door-rear-${side}`, `door-front-${side}`, 0, 1);
+    for (const axle of ['front', 'rear'])
+      beyond(`wheel-${axle}-${side}`, `brake-${axle}-${side}`, 2, sign);
+  }
+  beyond('hood', 'engine', 1, 1, 0.16);
+  // The bumper is a solid obstruction: extract the powertrain through the
+  // front plane, without treating the hollow cabin as a solid body volume.
+  beyond('engine', 'body', 0, -1, 0.14);
+  beyond('cooling', 'body', 0, -1, 0.14);
+  beyond('cooling', 'engine', 2, -1, 0.16);
+  for (const axle of ['front-axle', 'rear-axle']) beyond('batteryHV', axle, 1, -1);
+  beyond('tank', 'wheel-rear-right', 0, 1);
+  beyond('tank', 'batteryHV', 2, -1);
+  beyond('tank', 'body', 2, -1);
+  beyond('exhaust', 'batteryHV', 2, 1);
+  return offsets;
+}
+
+const DETAILED_ASSEMBLIES = new Set([
+  'engine',
+  'batteryHV',
+  'chassis',
+  'brakes',
+  'motorElectric',
+  'cooling',
+  'battery12v',
+  'electronics',
+  'tank',
+  'exhaust',
+  'brakeFluid',
+]);
+
+function engineDetailOffsets(rows) {
+  const offsets = new Map(rows.map((row) => [row.nodeId, [0, 0, 0]]));
+  const byId = new Map(rows.map((row) => [row.nodeId, row]));
+  const block = byId.get('engine-block');
+  if (!block) return offsets;
+  function tier(ids, lowerMax, gap) {
+    const chosen = ids.map((id) => byId.get(id)).filter(Boolean);
+    if (!chosen.length) return lowerMax;
+    const shift = lowerMax + gap - Math.min(...chosen.map((row) => row.bounds.min[1]));
+    for (const row of chosen) offsets.get(row.nodeId)[1] = shift;
+    return Math.max(...chosen.map((row) => row.bounds.max[1] + shift));
+  }
+  const pistons = rows.filter((row) => /engine-piston-/.test(row.nodeId)).map((row) => row.nodeId);
+  let top = tier(pistons, block.bounds.max[1], 0.11);
+  top = tier(['engine-head'], top, 0.11);
+  top = tier(['engine-camshafts'], top, 0.08);
+  top = tier(['engine-cam-cover'], top, 0.08);
+  tier(
+    rows.filter((row) => /ignition|oil-cap/.test(row.nodeId)).map((row) => row.nodeId),
+    top,
+    0.08,
+  );
+  const sump = byId.get('engine-sump');
+  if (sump) offsets.get(sump.nodeId)[1] = block.bounds.min[1] - 0.11 - sump.bounds.max[1];
+  const crank = byId.get('engine-crankshaft');
+  if (crank)
+    offsets.set(crank.nodeId, [0, -0.05, block.bounds.min[2] - 0.11 - crank.bounds.max[2]]);
+  for (const row of rows) {
+    if (/engine-transmission|bellhousing/.test(row.nodeId))
+      offsets.set(row.nodeId, [0.38, -0.03, 0]);
+    else if (/timing-cover|accessory-drive|coolant-outlet/.test(row.nodeId))
+      offsets.set(row.nodeId, [-0.3, 0, 0]);
+    else if (/intake-manifold|throttle|oil-filter/.test(row.nodeId))
+      offsets.set(row.nodeId, [0, 0, -0.36]);
+    else if (/exhaust-manifold|exhaust-connection|alternator|dipstick/.test(row.nodeId))
+      offsets.set(row.nodeId, [0, 0, 0.36]);
+    else if (/engine-mounts/.test(row.nodeId)) offsets.set(row.nodeId, [0, -0.18, 0]);
+  }
+  return offsets;
+}
+
+function detailOffset(piece, assemblyBounds, engineOffsets) {
+  if (piece.assemblyId === 'engine') return engineOffsets.get(piece.nodeId) || [0, 0, 0];
+  const center = middle(piece.bounds),
+    local = minus(center, middle(assemblyBounds));
+  const name = `${piece.nodeId} ${piece.section}`;
+  if (piece.assemblyId === 'batteryHV') {
+    // Slide the lid forward under the bay before opening modules. This avoids
+    // pushing an opaque lid upward through the vehicle's floor.
+    if (/battery-cover|service-disconnect/.test(name)) return [-2.5, 0, 0];
+    const offset = [local[0] * 0.4, 0, local[2] * 0.35];
+    if (/battery-module/.test(name)) offset[1] = 0.19;
+    else if (/busbar|bms|junction/.test(name)) offset[1] = 0.27;
+    else if (/cooling-plate/.test(name)) offset[1] = 0.08;
+    return offset;
+  }
+  if (piece.assemblyId === 'chassis') {
+    const axleCenter = piece.nodeId.startsWith('rear-') ? 1.42 : -1.58;
+    const offset = [(center[0] - axleCenter) * 0.35, local[1] * 0.25, center[2] * 0.42];
+    if (/spring|strut-mount/.test(name)) offset[1] += 0.13;
+    if (/control-arm|subframe/.test(name)) offset[1] -= 0.08;
+    return offset;
+  }
+  if (piece.assemblyId === 'brakes') {
+    if (/caliper/i.test(piece.sourceMesh || '')) return [-0.08, 0.35, 0];
+    return [0, 0, Math.sign(center[2]) * (/cover/i.test(piece.sourceMesh || '') ? -0.04 : 0.08)];
+  }
+  return times(local, 0.45).map((value) => Math.max(-0.4, Math.min(0.4, value)));
 }
 
 function withOffsets(groups, offsetFor) {
   const offsets = new Map();
+  const groupOffsets = new Map();
   const units = groups.map((group) => {
     const offset = offsetFor(group);
     group.nodeIds.forEach((id) => offsets.set(id, [...offset]));
+    groupOffsets.set(group.id, [...offset]);
     return {
       ...group,
       assemblyIds: [...group.assemblyIds],
       offset,
-      targetBounds: {
-        min: plus(group.bounds.min, offset),
-        max: plus(group.bounds.max, offset),
-      },
-      // A fixed vehicle-side diagnostic; unlike the old packing rectangle this
-      // is not used to place anything or to promise separation at every orbit.
+      targetBounds: translated(group.bounds, offset),
       rect: {
         minX: group.bounds.min[0] + offset[0],
         maxX: group.bounds.max[0] + offset[0],
@@ -285,7 +406,36 @@ function withOffsets(groups, offsetFor) {
       },
     };
   });
-  return { units, offsets, coordinateFrame: 'vehicle' };
+  return { units, offsets, groupOffsets, coordinateFrame: 'vehicle' };
+}
+
+export function blendExplosionOffsets(overview, expanded, detail, amount, phase = 'default') {
+  const { assemblies, detail: spread } = explosionPhases(amount);
+  const start = phase === 'battery-lid' ? 0.65 : phase === 'battery-parts' ? 0.9 : 0.78;
+  const end = phase === 'battery-lid' ? 0.9 : 1;
+  const parts = phase === 'none' ? 0 : smooth((clamp01(amount) - start) / (end - start));
+  const a = point(overview),
+    b = point(expanded),
+    c = point(detail);
+  return a.map(
+    (value, axis) => value * assemblies + (b[axis] - value) * spread + (c[axis] - b[axis]) * parts,
+  );
+}
+
+export function offsetForPiece(plan, nodeId, amount) {
+  const groupId = plan.membership.get(nodeId);
+  const overview = plan.overview.offsets.get(nodeId) ||
+    plan.overview.groupOffsets.get(groupId) || [0, 0, 0];
+  const expanded =
+    plan.expanded.offsets.get(nodeId) || plan.expanded.groupOffsets.get(groupId) || overview;
+  const detail = plan.detail.offsets.get(nodeId) || expanded;
+  return blendExplosionOffsets(
+    overview,
+    expanded,
+    detail,
+    amount,
+    plan.detailPhases.get(nodeId) || 'none',
+  );
 }
 
 export function createExplosionPlan(
@@ -296,46 +446,82 @@ export function createExplosionPlan(
     (piece) => !piece.contextOccluder && piece.section !== 'engineInternal',
   );
   const groups = groupRows(eligible.map((piece) => ({ ...piece, groupId: explosionGroup(piece) })));
-  const overview = withOffsets(groups, assemblyOffset);
-  let detail = overview;
-  if (detailAssemblyId) {
-    const assemblyRows = pieces.filter((piece) => piece.assemblyId === detailAssemblyId);
-    const parentBounds = {
-      min: [0, 1, 2].map((axis) =>
-        Math.min(...assemblyRows.map((piece) => piece.bounds.min[axis])),
-      ),
-      max: [0, 1, 2].map((axis) =>
-        Math.max(...assemblyRows.map((piece) => piece.bounds.max[axis])),
-      ),
-    };
-    const detailedRows = pieces.filter(
-      (piece) =>
-        !piece.contextOccluder &&
-        (!isolated ||
-          (piece.assemblyId === detailAssemblyId && (!nodeId || piece.nodeId === nodeId))),
+  const overviewOffsets = constrainMacro(
+    groups,
+    new Map(groups.map((group) => [group.id, assemblyOffset(group)])),
+  );
+  const fullOffsets = constrainMacro(
+    groups,
+    new Map(groups.map((group) => [group.id, assemblyOffset(group, true)])),
+  );
+  const overview = withOffsets(groups, (group) => overviewOffsets.get(group.id));
+  const membership = new Map(pieces.map((piece) => [piece.nodeId, explosionGroup(piece)]));
+  const detailPhases = new Map();
+  const chosen = DETAILED_ASSEMBLIES.has(detailAssemblyId)
+    ? pieces.filter(
+        (piece) => piece.assemblyId === detailAssemblyId && (!nodeId || piece.nodeId === nodeId),
+      )
+    : [];
+  const parentRows = pieces.filter((piece) => piece.assemblyId === detailAssemblyId);
+  const parentBounds = parentRows.length
+    ? unionBounds(parentRows.map((piece) => piece.bounds))
+    : { min: [0, 0, 0], max: [0, 0, 0] };
+  const engineOffsets = engineDetailOffsets(parentRows);
+  const local = new Map(
+    chosen.map((piece) => [piece.nodeId, detailOffset(piece, parentBounds, engineOffsets)]),
+  );
+  for (const piece of chosen)
+    detailPhases.set(
+      piece.nodeId,
+      piece.assemblyId === 'batteryHV'
+        ? /battery-cover|service-disconnect/.test(piece.nodeId)
+          ? 'battery-lid'
+          : 'battery-parts'
+        : 'default',
     );
-    const detailGroups = groupRows(
-      detailedRows.map((piece) => ({
-        ...piece,
-        groupId:
-          piece.assemblyId === detailAssemblyId &&
-          (!nodeId || piece.nodeId === nodeId) &&
-          piece.assemblyId !== 'wheels'
-            ? `detail-${piece.nodeId}`
-            : explosionGroup(piece),
-      })),
+  if (detailAssemblyId === 'engine' && chosen.length) {
+    // Keep the hood above the original bay and behind the extracted engine;
+    // its inner tiers open later, clear of both the hood and front bumper.
+    const engineBounds = unionBounds(
+      parentRows.map((piece) =>
+        translated(
+          piece.bounds,
+          plus(fullOffsets.get('engine'), local.get(piece.nodeId) || [0, 0, 0]),
+        ),
+      ),
     );
-    const byId = new Map(pieces.map((piece) => [piece.nodeId, piece]));
-    const byGroup = new Map(overview.units.map((group) => [group.id, group]));
-    detail = withOffsets(detailGroups, (group) => {
-      const piece = byId.get(group.nodeIds[0]);
-      const base =
-        byGroup.get(explosionGroup(piece))?.offset ||
-        assemblyOffset({ ...group, id: explosionGroup(piece) });
-      return group.id.startsWith('detail-')
-        ? plus(base, detailOffset(piece, parentBounds))
-        : [...base];
-    });
+    const hood = groups.find((group) => group.id === 'hood');
+    if (hood)
+      fullOffsets.get('hood')[0] = Math.max(
+        fullOffsets.get('hood')[0],
+        engineBounds.max[0] + 0.16 - hood.bounds.min[0],
+      );
+    const cooling = groups.find((group) => group.id === 'cooling');
+    if (cooling)
+      fullOffsets.get('cooling')[2] = Math.min(
+        fullOffsets.get('cooling')[2],
+        engineBounds.min[2] - 0.16 - cooling.bounds.max[2],
+      );
   }
-  return { overview, detail, coordinateFrame: 'vehicle' };
+  const expanded = withOffsets(groups, (group) => fullOffsets.get(group.id));
+  const detailRows = pieces.filter(
+    (piece) =>
+      !piece.contextOccluder &&
+      (piece.section !== 'engineInternal' || detailAssemblyId === 'engine') &&
+      (!isolated ||
+        (piece.assemblyId === detailAssemblyId && (!nodeId || piece.nodeId === nodeId))),
+  );
+  const detailGroups = groupRows(
+    detailRows.map((piece) => ({
+      ...piece,
+      groupId: local.has(piece.nodeId) ? `detail-${piece.nodeId}` : explosionGroup(piece),
+    })),
+  );
+  const byId = new Map(pieces.map((piece) => [piece.nodeId, piece]));
+  const detail = withOffsets(detailGroups, (group) => {
+    const piece = byId.get(group.nodeIds[0]);
+    const base = fullOffsets.get(explosionGroup(piece)) || [0, 0, 0];
+    return plus(base, local.get(piece.nodeId) || [0, 0, 0]);
+  });
+  return { overview, expanded, detail, membership, detailPhases, coordinateFrame: 'vehicle' };
 }
