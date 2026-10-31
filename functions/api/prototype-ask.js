@@ -1,5 +1,4 @@
-import catalog from '../../data/prototype/catalog.json' with { type: 'json' };
-import passageIndex from '../../data/ai/passages.json' with { type: 'json' };
+import prototypeData from '../../src/prototype/assistant-data.cjs';
 import {
   plainText,
   PrototypeQuestionError,
@@ -7,6 +6,7 @@ import {
   retrievePrototypeSources,
 } from '../../src/prototype/assistant-retrieval.js';
 
+const { catalog, passageIndex } = prototypeData;
 const DEFAULT_MODEL = '@cf/mistralai/mistral-small-3.1-24b-instruct';
 export const AI_TIMEOUT_MS = 6_000;
 const MAX_BODY_BYTES = 8_192;
