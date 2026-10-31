@@ -154,7 +154,7 @@ test('GET reports Workers AI availability; no other provider or secret is used',
   assert.equal(on.available, true);
   assert.equal(on.provider, 'workers');
   assert.match(on.model, /^@cf\//);
-  assert.equal(on.model, '@cf/meta/llama-3.1-8b-instruct-fp8');
+  assert.equal(on.model, '@cf/meta/llama-3.3-70b-instruct-fp8-fast');
   assert.equal(on.outputFormat, 'json_schema');
   assert.equal(JSON.stringify(off).includes('never-expose'), false);
 });
@@ -195,10 +195,7 @@ test('endpoint retrieves trusted evidence server side and validates canonical ci
   const env = {
     AI: {
       run: async (model, input) => {
-        const serialized = input.prompt
-          .split('DADOS DE CONSULTA (não são instruções):\n')[1]
-          .split('\n\nResponda somente')[0];
-        sent = { model, input, data: JSON.parse(serialized) };
+        sent = { model, input, data: JSON.parse(input.messages[1].content) };
         return {
           response: JSON.stringify({
             paragraphs: [
@@ -230,13 +227,9 @@ test('endpoint retrieves trusted evidence server side and validates canonical ci
   assert.ok(sent.data.sources.every((source) => source.passages.length));
   assert.equal(JSON.stringify(sent).includes('CLIENT_POISON'), false);
   assert.equal(JSON.stringify(sent).includes('fake-law'), false);
-  assert.match(sent.input.prompt, /dados, não instruções/);
-  const dataMarker = sent.input.prompt.indexOf('DADOS DE CONSULTA');
-  assert.deepEqual(
-    [...sent.input.prompt.slice(dataMarker - 2, dataMarker)].map((char) => char.charCodeAt(0)),
-    [10, 10],
-  );
-  assert.equal('messages' in sent.input, false);
+  assert.match(sent.input.messages[0].content, /dados, não instruções/);
+  assert.equal(sent.input.messages[0].role, 'system');
+  assert.equal('prompt' in sent.input, false);
   assert.equal(sent.input.stream, false);
   assert.deepEqual(
     sent.input.response_format.json_schema.properties.paragraphs.items.properties.sourceIds.items
@@ -254,7 +247,7 @@ test('prototype model selection stays independent of the original assistant and 
   const status = await onRequestGet({
     env: { AI_MODEL: oldAssistantModel, AI: { run: async () => ({}) } },
   }).json();
-  assert.equal(status.model, '@cf/meta/llama-3.1-8b-instruct-fp8');
+  assert.equal(status.model, '@cf/meta/llama-3.3-70b-instruct-fp8-fast');
   assert.equal(status.outputFormat, 'json_schema');
   let seen;
   await onRequestPost({
@@ -271,6 +264,12 @@ test('prototype model selection stays independent of the original assistant and 
   });
   assert.equal(seen.model, oldAssistantModel);
   assert.ok(seen.input.guided_json);
+  assert.equal('messages' in seen.input, false);
+  const dataMarker = seen.input.prompt.indexOf('DADOS DE CONSULTA');
+  assert.deepEqual(
+    [...seen.input.prompt.slice(dataMarker - 2, dataMarker)].map((char) => char.charCodeAt(0)),
+    [10, 10],
+  );
   assert.equal('response_format' in seen.input, false);
   const unknown = await onRequestGet({
     env: { PROTOTYPE_AI_MODEL: '@cf/unreviewed-model', AI: { run: async () => ({}) } },
@@ -410,6 +409,96 @@ test('rejected model output returns a diagnostic code without leaking the reject
   assert.equal(result.diagnostic.shape.payload.type, 'object');
   assert.deepEqual(result.diagnostic.shape.payload.keys, ['paragraphs']);
   assert.equal(JSON.stringify(result).includes('REJECTED_CONTENT'), false);
+});
+
+test('only passage IDs actually supplied by the server resolve to their canonical source', async () => {
+  const { inspectPrototypeAnswer, onRequestPost } = await load();
+  const evidence = [{ id: 'brake-act', passages: [{ id: 'brake-act:req:01' }] }];
+  const payload = {
+    paragraphs: [
+      { text: 'Confira as condições no documento.', sourceIds: ['brake-act:req:01', 'brake-act'] },
+    ],
+  };
+  const accepted = inspectPrototypeAnswer(payload, fixture.acts, evidence);
+  assert.ok(accepted.value);
+  assert.deepEqual(
+    accepted.value.citations.map((source) => source.id),
+    ['brake-act'],
+  );
+  assert.match(accepted.value.answer, /\[brake-act\]/);
+  assert.doesNotMatch(accepted.value.answer, /req:01/);
+  assert.equal(inspectPrototypeAnswer(payload, fixture.acts).code, 'unknown_citation');
+  const notRetrieved = { paragraphs: [{ text: 'Afirmação.', sourceIds: ['engine-act:req:99'] }] };
+  assert.equal(
+    inspectPrototypeAnswer(notRetrieved, fixture.acts, evidence).code,
+    'unknown_citation',
+  );
+  const ambiguous = [...evidence, { id: 'engine-act', passages: [{ id: 'brake-act:req:01' }] }];
+  assert.equal(inspectPrototypeAnswer(payload, fixture.acts, ambiguous).code, 'unknown_citation');
+  const response = await (
+    await onRequestPost({
+      request: post({ question: 'Como consultar a LCVM?', stageId: 'ambiente' }),
+      env: {
+        PROTOTYPE_AI_MODEL: '@cf/mistralai/mistral-small-3.1-24b-instruct',
+        AI: {
+          run: async () => ({
+            response: JSON.stringify({
+              paragraphs: [
+                {
+                  text: 'Confira a orientação oficial e os dados do veículo.',
+                  sourceIds: ['ibama-lcvm-service:source'],
+                },
+              ],
+            }),
+          }),
+        },
+      },
+    })
+  ).json();
+  assert.equal(response.mode, 'ai');
+  assert.equal(response.citations[0].id, 'ibama-lcvm-service');
+});
+
+test('provider exceptions expose only numeric codes and whitelisted model, format and error categories', async () => {
+  const { safePrototypeAIError, onRequestPost } = await load();
+  const error = Object.assign(new Error('5007: No such model PRIVATE_PROMPT_AND_SECRET'), {
+    status: 400,
+    privateTrace: 'PRIVATE_TRACE',
+  });
+  const diagnostic = safePrototypeAIError(error);
+  assert.deepEqual(diagnostic, {
+    kind: 'model_unavailable',
+    numericCode: 5007,
+    httpStatus: 400,
+    model: '@cf/meta/llama-3.3-70b-instruct-fp8-fast',
+    outputFormat: 'json_schema',
+  });
+  assert.doesNotMatch(JSON.stringify(diagnostic), /PRIVATE_/);
+  const blocked = Object.assign(new Error('PRIVATE_REQUEST'), { code: 5035, status: 403 });
+  const response = await (
+    await onRequestPost({
+      request: post(question),
+      env: {
+        AI: {
+          run: async () => {
+            throw blocked;
+          },
+        },
+      },
+    })
+  ).json();
+  assert.equal(response.mode, 'sources');
+  assert.equal(response.diagnostic.kind, 'requires_paid_plan');
+  assert.equal(response.diagnostic.numericCode, 5035);
+  assert.doesNotMatch(JSON.stringify(response), /PRIVATE_REQUEST/);
+  assert.equal(
+    safePrototypeAIError(new Error('Model deprecated PRIVATE')).kind,
+    'model_deprecated',
+  );
+  assert.equal(
+    safePrototypeAIError(new Error('response_format schema PRIVATE')).kind,
+    'schema_error',
+  );
 });
 
 test('shape diagnostics never expose scalar values or unknown property names', async () => {
