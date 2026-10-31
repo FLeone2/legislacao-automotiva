@@ -1039,3 +1039,456 @@ html[data-theme] #app .contran-source .btn {
   flex: none;
   white-space: nowrap;
 }
+
+/* =====================================================================
+   v2 — inset sheet, simpler navigation, vehicle home with a norms lens
+   ===================================================================== */
+html[data-theme] #app {
+  background: var(--shell);
+}
+html[data-theme] #app .sidebar {
+  background: transparent;
+  border: 0;
+}
+@media (min-width: 901px) {
+  html[data-theme] #app .workspace {
+    margin: 10px 10px 10px var(--sidebar);
+    min-height: calc(100vh - 20px);
+    background: var(--app-wash), var(--bg);
+    border-radius: 28px;
+  }
+  html[data-theme] #app header.topbar {
+    top: 10px;
+    height: 76px;
+    padding-inline: 24px;
+    border-bottom: 0;
+    border-radius: 28px 28px 0 0;
+    background: transparent !important;
+    backdrop-filter: none;
+  }
+  html[data-theme] body::after {
+    content: '';
+    display: block;
+    position: fixed;
+    inset: 10px 10px 10px var(--sidebar);
+    border-radius: 28px;
+    box-shadow: 0 0 0 100vmax var(--shell);
+    pointer-events: none;
+    z-index: 3;
+  }
+  html[data-theme] #app .sidebar {
+    z-index: 5;
+  }
+}
+
+/* Navigation: three primary links, everything else under "Mais". */
+html[data-theme] #app .nav-more {
+  border: 0;
+  margin: -6px 0 0;
+}
+html[data-theme] #app .nav-more > summary {
+  min-height: 42px;
+  padding: 9px 12px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--ink-2);
+  border-radius: 12px;
+}
+html[data-theme] #app .nav-more > summary:hover {
+  background: var(--surface-2);
+  color: var(--ink);
+}
+html[data-theme] #app .nav-more[open] > summary {
+  margin-bottom: 8px;
+}
+html[data-theme] #app .nav-more .nav-group {
+  margin: 0 0 14px;
+}
+html[data-theme] #app .nav-more .nav-group:last-child {
+  margin-bottom: 0;
+}
+
+/* Vehicle home */
+html[data-theme] #app .vehicle-home {
+  max-width: 1280px;
+}
+html[data-theme] #app .home-head {
+  margin: 0 0 22px;
+}
+html[data-theme] #app .home-head h1 {
+  margin: 0;
+  font-size: clamp(32px, 3.4vw, 46px);
+}
+html[data-theme] #app .home-head .subtitle {
+  margin-top: 8px;
+}
+html[data-theme] #app .home-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 352px;
+  gap: 22px;
+  align-items: start;
+}
+html[data-theme] #app .stage-card {
+  position: relative;
+  padding: 10px;
+  border-radius: 30px;
+  background: var(--stage);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.35) inset,
+    0 24px 48px -28px rgba(0, 0, 0, 0.55);
+}
+html[data-theme] #app .stage-card .aurora-car-glass {
+  padding: 0;
+  border: 0;
+  border-radius: 22px;
+  background: transparent;
+  box-shadow: none;
+}
+html[data-theme] #app .stage-card .catalog-stage {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: 0;
+}
+html[data-theme] #app .stage-card .catalog-caption {
+  display: none;
+}
+html[data-theme] #app .stage-card .component-hover {
+  top: 14px;
+  left: 14px;
+  font-size: 13px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--bg);
+  border: 0;
+}
+html[data-theme] #app .stage-card .vehicle-drawing-tools {
+  top: 14px;
+  right: 14px;
+  border-radius: 999px;
+  border: 0;
+  background: var(--ink);
+}
+html[data-theme] #app .stage-card .vehicle-drawing-tools button {
+  color: var(--bg);
+  min-width: 34px;
+  height: 32px;
+}
+
+/* Lens: what is behind the selected part */
+html[data-theme] #app .lens {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px;
+  border-radius: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  position: sticky;
+  top: 96px;
+}
+html[data-theme] #app .lens.is-swapping {
+  animation: lens-in 0.28s var(--ease-out);
+}
+@keyframes lens-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+html[data-theme] #app .lens-head h2 {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.12;
+}
+html[data-theme] #app .lens-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 16px;
+  background: var(--surface-2);
+}
+html[data-theme] #app .lens-tabs button {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--ink-2);
+  font-size: 14.5px;
+  font-weight: 600;
+  transition:
+    background-color 0.2s var(--ease-out),
+    color 0.2s var(--ease-out);
+}
+html[data-theme] #app .lens-tabs button[aria-selected='true'] {
+  background: var(--surface-3);
+  color: var(--ink);
+}
+html[data-theme] #app .lens-tabs button span {
+  min-width: 22px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+}
+html[data-theme] #app .lens-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+html[data-theme] #app .chip-toggle {
+  min-height: 32px;
+  padding: 3px 13px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-2);
+  font-size: 13px;
+  font-weight: 600;
+  transition:
+    background-color 0.18s var(--ease-out),
+    color 0.18s var(--ease-out),
+    border-color 0.18s var(--ease-out);
+}
+html[data-theme] #app .chip-toggle:hover {
+  border-color: var(--accent-ink);
+  color: var(--ink);
+}
+html[data-theme] #app .chip-toggle[aria-pressed='true'] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--bg);
+}
+html[data-theme] #app .lens-norms {
+  list-style: none;
+  margin: 0 -8px;
+  padding: 0 8px 0 8px;
+  max-height: 236px;
+  overflow: auto;
+  display: grid;
+  gap: 2px;
+  scrollbar-width: thin;
+}
+html[data-theme] #app .lens-norms button {
+  width: 100%;
+  display: grid;
+  gap: 3px;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 14px;
+  background: transparent;
+  color: var(--ink);
+  text-align: left;
+  transition: background-color 0.18s var(--ease-out);
+}
+html[data-theme] #app .lens-norms button:hover {
+  background: var(--surface-2);
+}
+html[data-theme] #app .lens-norms button:active {
+  transform: scale(0.99);
+}
+html[data-theme] #app .lens-norms strong {
+  font-size: 14.5px;
+  font-weight: 650;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+html[data-theme] #app .lens-norms span {
+  font-size: 12.5px;
+  color: var(--muted);
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+html[data-theme] #app .lens-norms b {
+  color: var(--accent-ink);
+  font-weight: 700;
+}
+html[data-theme] #app .lens-more,
+html[data-theme] #app .aurora-library-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-ink);
+  padding: 4px 2px;
+}
+html[data-theme] #app .lens-more svg {
+  width: 16px;
+  height: 16px;
+}
+html[data-theme] #app .lens-empty {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 14px;
+}
+html[data-theme] #app .lens .aurora-subsystem-list {
+  display: grid;
+  gap: 8px;
+}
+html[data-theme] #app .lens .aurora-primary {
+  margin: 0;
+  border-radius: 16px;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+html[data-theme] #app .lens .aurora-primary svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* System chips replace the card grid */
+html[data-theme] #app .system-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 22px 0 0;
+  padding: 0;
+  border: 0;
+}
+html[data-theme] #app .system-chips .aurora-system-card {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: auto;
+  height: auto;
+  min-height: 42px;
+  padding: 6px 8px 6px 16px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: none;
+  color: var(--ink);
+  transition:
+    background-color 0.18s var(--ease-out),
+    border-color 0.18s var(--ease-out),
+    transform 0.12s var(--ease-out);
+}
+html[data-theme] #app .system-chips .aurora-system-card strong {
+  font-size: 14.5px;
+  font-weight: 600;
+}
+html[data-theme] #app .system-chips .aurora-system-card small {
+  min-width: 26px;
+  margin: 0;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--surface-3);
+  color: var(--ink-2);
+  font-size: 12.5px;
+  font-weight: 700;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+html[data-theme] #app .system-chips .aurora-system-card:hover,
+html[data-theme] #app .system-chips .aurora-system-card.is-hovered {
+  border-color: var(--accent);
+}
+html[data-theme] #app .system-chips .aurora-system-card:active {
+  transform: scale(0.97);
+}
+html[data-theme] #app .system-chips .aurora-system-card.selected {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+html[data-theme] #app .system-chips .aurora-system-card.selected small {
+  background: rgba(0, 0, 0, 0.16);
+  color: var(--on-accent);
+}
+
+/* Selection marks on the illustration */
+html[data-theme] #app .selection-pin circle {
+  fill: #fff;
+  stroke: rgba(44, 36, 27, 0.6);
+  stroke-width: 2;
+}
+html[data-theme] #app .selection-pin.active circle {
+  fill: var(--accent);
+  stroke: #fff;
+  stroke-width: 3.5;
+}
+html[data-theme] #app .selection-pin.active circle.pulse {
+  fill: var(--accent);
+  fill-opacity: 0.28;
+  stroke: none;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+html[data-theme] #app .selection-pin .pin-label {
+  fill: var(--ink);
+}
+html[data-theme] #app .selection-pin text {
+  fill: var(--bg);
+  font: 700 29px var(--font-body);
+}
+@media (prefers-reduced-motion: no-preference) {
+  html[data-theme] #app .selection-pin.active circle.pulse {
+    animation: pin-pulse 2.2s var(--ease-out) infinite;
+  }
+  html[data-theme] #app .selection-layer,
+  html[data-theme] #app .selection-pins {
+    animation: sel-in 0.35s var(--ease-out);
+  }
+  @keyframes pin-pulse {
+    from {
+      transform: scale(0.8);
+      opacity: 1;
+    }
+    to {
+      transform: scale(1.9);
+      opacity: 0;
+    }
+  }
+  @keyframes sel-in {
+    from {
+      opacity: 0;
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  html[data-theme] #app .home-grid {
+    grid-template-columns: 1fr;
+  }
+  html[data-theme] #app .lens {
+    position: static;
+  }
+}
+
+html[data-theme] #app :is(.body-layout, main#main) {
+  background: transparent;
+}
+
+html[data-theme] #app .selection-pin.active text {
+  font-size: 29px;
+  fill: var(--bg);
+}
+html[data-theme] #app .lens-norms {
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 26px), transparent);
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 26px), transparent);
+  padding-bottom: 22px;
+}
+html[data-theme] #app .home-head {
+  margin-bottom: 16px;
+}
+html[data-theme] #app .home-head h1 {
+  font-size: clamp(30px, 3vw, 40px);
+}

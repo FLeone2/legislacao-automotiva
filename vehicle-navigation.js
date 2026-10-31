@@ -28,6 +28,17 @@ function selectSystem(id) {
   if (c) goVehicle(vehicleLink(c));
 }
 function goVehicle(url) {
+  const target = new URLSearchParams(url.split('?')[1] || '');
+  const inPlace =
+    $('#app').classList.contains('aurora-home') &&
+    target.has('focus') &&
+    !target.has('component') &&
+    typeof swapAuroraSelection === 'function' &&
+    ComponentFlow.component(target.get('focus'));
+  if (inPlace) {
+    swapAuroraSelection(ComponentFlow.component(target.get('focus')));
+    return;
+  }
   const update = () => {
     history.pushState(null, '', url);
     render();

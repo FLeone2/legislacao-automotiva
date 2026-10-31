@@ -5,8 +5,12 @@ function updateNavigation(view) {
     link.classList.toggle('active', selected);
     if (selected) {
       link.setAttribute('aria-current', 'page');
-      const group = link.closest('details');
-      if (group) group.open = true;
+      for (
+        let group = link.closest('details');
+        group;
+        group = group.parentElement.closest('details')
+      )
+        group.open = true;
     } else link.removeAttribute('aria-current');
   });
 }

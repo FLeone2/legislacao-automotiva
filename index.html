@@ -43,32 +43,36 @@
         </button>
         <nav aria-label="Navegação principal" class="main-nav" id="mainNavigation">
           <div class="nav-group" data-navigation-group="explorar">
-            <p class="nav-group-label">Explorar</p>
             <a data-nav="vehicle" href="#vehicle"
               ><span aria-hidden="true">▱</span>Veículo e sistemas</a
             ><a data-nav="flow" href="#flow"
               ><span aria-hidden="true">♧</span>Fluxo de homologação</a
-            ><a data-nav="tree" href="#tree"><span aria-hidden="true">◇</span>Árvore regulatória</a>
+            ><a data-nav="library" href="#library"><span aria-hidden="true">▤</span>Biblioteca</a>
           </div>
-          <div class="nav-group" data-navigation-group="acervo">
-            <p class="nav-group-label">Acervo normativo</p>
-            <a data-nav="library" href="#library"><span aria-hidden="true">▤</span>Biblioteca</a
-            ><a data-nav="markings" href="#markings"
-              ><span aria-hidden="true">▥</span>Etiquetas e VIN</a
-            >
-            <details class="nav-source-group">
-              <summary>Consultar por órgão</summary>
-              <a data-nav="contran" href="#contran">CONTRAN</a
-              ><a data-nav="proconve" href="#proconve">PROCONVE / IBAMA</a
-              ><a data-nav="inmetro" href="#inmetro">Inmetro</a
-              ><a data-nav="anatel" href="#anatel">Anatel</a>
-            </details>
-          </div>
-          <div class="nav-group" data-navigation-group="programas">
-            <p class="nav-group-label">Programas e acompanhamento</p>
-            <a data-nav="mover" href="#mover"><span aria-hidden="true">◈</span>MOVER</a
-            ><a data-nav="updates" href="#updates"><span aria-hidden="true">◷</span>Atualizações</a>
-          </div>
+          <details class="nav-more" data-navigation-group="mais">
+            <summary>Mais</summary>
+            <div class="nav-group" data-navigation-group="acervo">
+              <p class="nav-group-label">Acervo normativo</p>
+              <a data-nav="tree" href="#tree"><span aria-hidden="true">◇</span>Árvore regulatória</a
+              ><a data-nav="markings" href="#markings"
+                ><span aria-hidden="true">▥</span>Etiquetas e VIN</a
+              >
+              <details class="nav-source-group">
+                <summary>Consultar por órgão</summary>
+                <a data-nav="contran" href="#contran">CONTRAN</a
+                ><a data-nav="proconve" href="#proconve">PROCONVE / IBAMA</a
+                ><a data-nav="inmetro" href="#inmetro">Inmetro</a
+                ><a data-nav="anatel" href="#anatel">Anatel</a>
+              </details>
+            </div>
+            <div class="nav-group" data-navigation-group="programas">
+              <p class="nav-group-label">Acompanhamento</p>
+              <a data-nav="mover" href="#mover"><span aria-hidden="true">◈</span>MOVER</a
+              ><a data-nav="updates" href="#updates"
+                ><span aria-hidden="true">◷</span>Atualizações</a
+              >
+            </div>
+          </details>
         </nav>
       </aside>
       <div class="workspace">

@@ -35,14 +35,67 @@ function auroraFocusLink(component) {
     })
   );
 }
-function auroraPanel(component) {
+// Norms shown for a system are the ones its flowchart lists, so panel and map never disagree.
+const vehicleNormCache = new Map();
+function vehicleNorms(component) {
+  const key = component.id;
+  const cached = vehicleNormCache.get(key);
+  if (cached?.catalog === catalog) return cached.records;
+  const records = new Map();
+  const lanes = ComponentFlow.topics(component, catalog.metadata.hierarchy);
+  for (const lane of lanes) {
+    for (const topic of lane.topics)
+      for (const r of ComponentFlow.records(topic, catalog.records))
+        records.set(r.regulatoryId || r.id, r);
+    for (const r of activeVehicleRecords(component, null, lane.id))
+      if (!records.has(r.regulatoryId || r.id)) records.set(r.regulatoryId || r.id, r);
+  }
+  const list = [...records.values()].sort(
+    (x, y) => Number(Boolean(y.officialAudit)) - Number(Boolean(x.officialAudit)),
+  );
+  vehicleNormCache.set(key, { catalog, records: list });
+  return list;
+}
+function lensNormRows(records, agency) {
+  return records
+    .filter((r) => !agency || (r.issuer || r.agency) === agency)
+    .map(
+      (r) =>
+        `<li><button type="button" data-open="${esc(r.id)}"><strong>${esc(r.title)}</strong><span><b>${esc(r.issuer || r.agency)}</b>${esc(r.status || '')}</span></button></li>`,
+    )
+    .join('');
+}
+function auroraPanel(component, tab = 'normas', agency = '') {
   const subsystems = ComponentFlow.subsystems(component, catalog.metadata.hierarchy);
-  return `<aside class="aurora-explorer" aria-label="Subsistemas de ${esc(component.label)}">
-    <header class="aurora-explorer-heading"><h2>${esc(component.label)}</h2></header>
-    <div class="aurora-subsystem-list">${subsystems.map((sub) => `<a class="aurora-subsystem" href="${esc(vehicleLink(component, null, sub.id))}"><span class="aurora-subsystem-art">${subsystemArt(sub)}</span><strong>${esc(sub.label)}</strong></a>`).join('')}</div>
-    <a class="aurora-primary" href="${esc(vehicleLink(component))}">Ver referências ${auroraIcon('arrow')}</a>
+  const records = vehicleNorms(component);
+  const issuers = [...new Set(records.map((r) => r.issuer || r.agency))];
+  const rows = lensNormRows(records, agency);
+  const tabs = [
+    ['normas', 'Normas', records.length],
+    ['subsistemas', 'Subsistemas', subsystems.length],
+  ];
+  return `<aside class="aurora-explorer lens" data-component="${esc(component.id)}" aria-label="Normas e subsistemas de ${esc(component.label)}">
+    <header class="lens-head"><h2>${esc(component.label)}</h2></header>
+    <div class="lens-tabs" role="tablist" aria-label="Conteúdo do sistema">${tabs.map(([id, label, count]) => `<button type="button" role="tab" id="lens-tab-${id}" aria-controls="lens-panel-${id}" aria-selected="${tab === id}" tabindex="${tab === id ? 0 : -1}" data-lens-tab="${id}">${label}<span>${count}</span></button>`).join('')}</div>
+    <div class="lens-panel" role="tabpanel" id="lens-panel-normas" aria-labelledby="lens-tab-normas" ${tab === 'normas' ? '' : 'hidden'}>
+      ${
+        records.length
+          ? `<div class="lens-filter" role="group" aria-label="Filtrar por órgão"><button type="button" class="chip-toggle" aria-pressed="${!agency}" data-lens-agency="">Todas</button>${issuers.map((name) => `<button type="button" class="chip-toggle" aria-pressed="${agency === name}" data-lens-agency="${esc(name)}">${esc(name)}</button>`).join('')}</div><ul class="lens-norms">${rows}</ul><a class="lens-more" href="${esc(libraryRoute({ component: component.taxonomy }))}">Ver tudo na biblioteca ${auroraIcon('arrow')}</a>`
+          : '<p class="lens-empty">Ainda não há norma cadastrada para este sistema. Nenhuma foi inferida a partir do desenho.</p>'
+      }
+    </div>
+    <div class="lens-panel aurora-subsystem-list" role="tabpanel" id="lens-panel-subsistemas" aria-labelledby="lens-tab-subsistemas" ${tab === 'subsistemas' ? '' : 'hidden'}>${subsystems.map((sub) => `<a class="aurora-subsystem" href="${esc(vehicleLink(component, null, sub.id))}"><span class="aurora-subsystem-art">${subsystemArt(sub)}</span><strong>${esc(sub.label)}</strong></a>`).join('')}</div>
+    <a class="aurora-primary" href="${esc(vehicleLink(component))}">Abrir o mapa de normas ${auroraIcon('arrow')}</a>
     <a class="aurora-library-link" href="${esc(libraryRoute({ component: component.taxonomy }))}">Biblioteca do sistema →</a>
   </aside>`;
+}
+function auroraChips(selectedId) {
+  return vehicleComponents
+    .map(
+      (c) =>
+        `<a data-aurora-component="${esc(c.id)}" data-component-link="${esc(c.id)}" class="aurora-system-card ${selectedId === c.id ? 'selected' : ''}" href="${esc(auroraFocusLink(c))}" ${selectedId === c.id ? 'aria-current="true"' : ''}><strong>${esc(c.short || c.label)}</strong><small>${vehicleNorms(c).length}<span class="sr-only"> normas</span></small></a>`,
+    )
+    .join('');
 }
 function renderAuroraOverview(query) {
   for (const [key, id] of [
@@ -61,38 +114,8 @@ function renderAuroraOverview(query) {
   vehicleUI.zoom = 1;
   $('#app').classList.add('aurora-home', 'vehicle-overview-mode');
   $('#app').classList.remove('tree-mode', 'vehicle-flow-mode', 'contran-mode');
-  const all = query.get('all') === '1';
-  const directoryLink = new URLSearchParams(auroraFocusLink(component).split('?')[1]);
-  if (all) directoryLink.delete('all');
-  else directoryLink.set('all', '1');
-  const directory = all
-    ? vehicleComponents
-    : ['motor', 'freios', 'iluminacao', 'pneus-rodas', 'eletrica', 'identificacao'].map((id) =>
-        ComponentFlow.component(id),
-      );
-  const focusLabel = ComponentFlow.topics(component, catalog.metadata.hierarchy)
-    .map((l) => l.label)
-    .join(' · ');
-  const coverage = ComponentFlow.coverage(catalog.metadata.hierarchy);
   $('#main').innerHTML =
-    `<div class="aurora-overview-grid"><section class="aurora-vehicle-column" aria-label="Exploração visual do veículo">
-    <header class="aurora-heading"><h1>Sistemas do veículo</h1></header>
-    <nav class="aurora-breadcrumb" aria-label="Seleção atual">${auroraIcon('home')}<span>Veículo</span><span>›</span><strong>${esc(component.label)}</strong></nav>
-    <div class="aurora-car-glass">${vehicleMap()}<div class="aurora-selection-caption">${auroraIcon('shield')}<div><strong>${esc(component.label)}</strong><small>${esc(focusLabel)}</small></div><span>Selecionado</span></div></div>
-    <p class="aurora-original-note">Ilustração conceitual · selecione no desenho ou nos cartões</p>
-  </section>${auroraPanel(component)}</div>
-  <section class="aurora-directory" aria-labelledby="auroraDirectory"><header><div><h2 id="auroraDirectory">Sistemas</h2><span>${vehicleComponents.length} componentes · ${coverage.systems} sistemas · ${coverage.covered} subsistemas</span></div><a href="${esc('#vehicle?' + directoryLink)}">${all ? 'Mostrar principais' : 'Ver todos os sistemas'} →</a></header><div class="aurora-directory-grid ${all ? 'expanded' : ''}">${directory
-    .map(
-      (c) =>
-        `<a data-aurora-component="${esc(c.id)}" class="aurora-system-card ${component.id === c.id ? 'selected' : ''}" href="${esc(auroraFocusLink(c))}"><div class="aurora-system-art">${componentArt(c)}</div><strong>${esc(c.label)}</strong><small>${esc(
-          ComponentFlow.topics(c, catalog.metadata.hierarchy)
-            .map((l) => l.label)
-            .join(' · '),
-        )}</small></a>`,
-    )
-    .join(
-      '',
-    )}</div></section><footer class="aurora-page-foot">Liquid Aurora · Legislação Automotiva <span>Referências oficiais · aplicabilidade por projeto</span></footer>`;
+    `<div class="vehicle-home"><header class="home-head"><h1>Explore o veículo</h1><p class="subtitle">Escolha uma parte no desenho para ver as normas ligadas a ela.</p></header><div class="home-grid"><section class="stage-card" aria-label="Exploração visual do veículo"><div class="aurora-car-glass">${vehicleMap()}</div></section>${auroraPanel(component)}</div><nav class="aurora-directory system-chips" aria-label="Sistemas do veículo">${auroraChips(component.id)}</nav></div>`;
   $('#main')
     .querySelectorAll('#vehicleDrawing [data-component-link]')
     .forEach((link) => {
@@ -104,6 +127,54 @@ function renderAuroraOverview(query) {
   decorateVehicleSelection(component.id);
   setupComponentHover();
 }
+// Changing the selected system keeps the zoom, the pan and the focus: only the highlight,
+// the chips and the panel are swapped, so the map never reloads.
+function swapAuroraSelection(component, { push = true } = {}) {
+  if (push) history.pushState(null, '', auroraFocusLink(component));
+  $('#main')
+    .querySelectorAll('#vehicleDrawing [data-component-link]')
+    .forEach((link) => {
+      const on = link.dataset.componentLink === component.id;
+      link.classList.toggle('aurora-selected', on);
+      link.setAttribute('aria-current', on ? 'true' : 'false');
+    });
+  $('#vehicleLayer .selection-layer')?.remove();
+  $('#vehicleLayer .selection-pins')?.remove();
+  decorateVehicleSelection(component.id);
+  $('.system-chips').innerHTML = auroraChips(component.id);
+  const panel = $('.lens');
+  const tab = panel?.querySelector('[data-lens-tab][aria-selected="true"]')?.dataset.lensTab;
+  const holder = document.createElement('div');
+  holder.innerHTML = auroraPanel(component, tab || 'normas');
+  panel?.replaceWith(holder.firstElementChild);
+  $('.lens').classList.add('is-swapping');
+}
+document.addEventListener('click', (event) => {
+  const tab = event.target.closest('[data-lens-tab]');
+  const agency = event.target.closest('[data-lens-agency]');
+  const lens = event.target.closest('.lens');
+  if (!lens || (!tab && !agency)) return;
+  const component = ComponentFlow.component(lens.dataset.component);
+  const current =
+    tab?.dataset.lensTab ||
+    lens.querySelector('[data-lens-tab][aria-selected="true"]')?.dataset.lensTab;
+  const next = document.createElement('div');
+  next.innerHTML = auroraPanel(component, current, agency ? agency.dataset.lensAgency : '');
+  lens.replaceWith(next.firstElementChild);
+  const focus = tab
+    ? `[data-lens-tab="${tab.dataset.lensTab}"]`
+    : `[data-lens-agency="${agency.dataset.lensAgency.replace(/"/g, '\\"')}"]`;
+  document.querySelector('.lens ' + focus)?.focus({ preventScroll: true });
+});
+document.addEventListener('keydown', (event) => {
+  const tab = event.target.closest?.('[data-lens-tab]');
+  if (!tab || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+  const tabs = [...tab.parentElement.querySelectorAll('[data-lens-tab]')];
+  tabs[
+    (tabs.indexOf(tab) + (event.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length
+  ].click();
+  event.preventDefault();
+});
 // Selection is drawn inside the zoomed layer, over the image and under the hotspots,
 // so highlight, pins and hit areas share one transform. It never takes pointer events.
 function decorateVehicleSelection(selectedId) {
@@ -145,9 +216,9 @@ function decorateVehicleSelection(selectedId) {
     { class: 'selection-pins', 'pointer-events': 'none', 'aria-hidden': 'true' },
     layer,
   );
-  vehicleComponents.forEach((c, index) => {
+  vehicleComponents.forEach((c) => {
     const shape = layer.querySelector(`[data-component-link="${c.id}"] path`);
-    const spot = shape && !c.external ? pinSpot(shape) : null;
+    const spot = shape && pinSpot(shape);
     if (!spot) return;
     const active = c.id === selectedId;
     const pin = make(
@@ -158,9 +229,26 @@ function decorateVehicleSelection(selectedId) {
       },
       pins,
     );
-    make('circle', { r: active ? 17 : 12 }, pin);
-    const label = make('text', { 'text-anchor': 'middle', dy: active ? 6 : 4.5 }, pin);
-    label.textContent = String(index + 1);
+    if (!active) {
+      make('circle', { r: 13 }, pin);
+      return;
+    }
+    make('circle', { class: 'pulse', r: 26 }, pin);
+    make('circle', { r: 17 }, pin);
+    const text = c.short || c.label;
+    const width = Math.round(text.length * 17 + 44);
+    const flip = spot.x > 1100;
+    make(
+      'rect',
+      { class: 'pin-label', x: flip ? -width - 34 : 34, y: -27, width, height: 54, rx: 27 },
+      pin,
+    );
+    const label = make(
+      'text',
+      { x: flip ? -width / 2 - 34 : width / 2 + 34, y: 10, 'text-anchor': 'middle' },
+      pin,
+    );
+    label.textContent = text;
   });
 }
 // Keep all original routes and regulatory data; add the theme shell before bootstrap.
@@ -183,7 +271,6 @@ for (const [view, icon] of Object.entries(navIconMap)) {
   const span = link?.querySelector('span');
   if (span) span.outerHTML = auroraIcon(icon);
 }
-$('.nav-source-group').open = true;
 document.querySelector('[data-navigation-group="programas"] .nav-group-label').textContent =
   'Acompanhamento';
 $('.topbrand').setAttribute('href', '#vehicle');

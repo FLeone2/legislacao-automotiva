@@ -27,6 +27,7 @@
   --shadow-pop: 0 10px 30px rgba(0, 0, 0, 0.45);
   --backdrop: rgba(10, 7, 4, 0.62);
   --stage: #efe8dc;
+  --shell: #110e0b;
   --app-wash: radial-gradient(900px 480px at 88% -10%, rgba(240, 138, 75, 0.07), transparent 62%);
 }
 
@@ -56,11 +57,14 @@
   --shadow-pop: 0 10px 30px rgba(74, 52, 24, 0.16);
   --backdrop: rgba(44, 36, 27, 0.4);
   --stage: #fffaf1;
+  --shell: #e8dcc7;
   --app-wash: radial-gradient(900px 480px at 88% -10%, rgba(185, 71, 15, 0.06), transparent 62%);
 }
 
 [data-theme='aurora'] {
   --scheme: dark;
+  --stage: #f1f4f8;
+  --shell: #060b13;
   --bg: #080f19;
   --surface: #151e29;
   --surface-2: #1b2839;
@@ -137,5 +141,4 @@ html[data-theme] {
   --radius: 16px;
   --radius-sm: 10px;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-  --stage: #f4f4f5;
 }
