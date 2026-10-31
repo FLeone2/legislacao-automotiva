@@ -2,6 +2,30 @@
 // the browser uses this module to offer clearly labelled source cards offline.
 const MAX_QUESTION = 600;
 const MAX_SOURCES = 6;
+const SHORT_REGULATORY_LABELS = new Set([
+  'lp',
+  'lc',
+  'l7',
+  'l8',
+  'p7',
+  'p8',
+  'm1',
+  'm2',
+  'm3',
+  'n1',
+  'n2',
+  'n3',
+  'o1',
+  'o2',
+  'o3',
+  'o4',
+  'l1',
+  'l2',
+  'l3',
+  'l4',
+  'l5',
+  'l6',
+]);
 const PROFILE_KEYS = new Set([
   'category',
   'subcategory',
@@ -24,7 +48,7 @@ const PROFILE_KEYS = new Set([
   'manufacturingDate',
 ]);
 const STOP_WORDS = new Set(
-  'a o as os de do da dos das em no na nos nas para por e ou um uma que qual quais como quando onde quem sao ser esta este esse essa se ao aos minha meu sobre preciso precisa necessario necessaria obrigatorio obrigatoria requisitos requisito normas norma leis lei legislacao homologacao homologar veiculo veiculos aplica aplicam aplicavel verificar conferir consulta consultar fontes fonte referencia referencias selecao peca pecas conjunto devo deve devem gostaria quero saber entender pode podem posso voce texto textos oficial oficiais documento documentos relatorio relatorios evidencia evidencias ato atos resolucao resolucoes portaria portarias instrucao instrucoes normativa normativas decreto decretos deliberacao deliberacoes'.split(
+  'a o as os de do da dos das em no na nos nas para por e ou um uma que qual quais como quando onde quem sao ser esta este esse essa se ao aos minha meu sobre preciso precisa necessario necessaria obrigatorio obrigatoria requisitos requisito normas norma leis lei legislacao homologacao homologar veiculo veiculos aplica aplicam aplicavel verificar conferir consulta consultar fontes fonte referencia referencias selecao peca pecas conjunto devo deve devem gostaria quero saber entender pode podem posso voce texto textos oficial oficiais documento documentos relatorio relatorios evidencia evidencias ato atos resolucao resolucoes portaria portarias instrucao instrucoes normativa normativas decreto decretos deliberacao deliberacoes diferenca diferencas entre distinguir diferenciar comparar comparacao explique explicar'.split(
     ' ',
   ),
 );
@@ -74,23 +98,27 @@ const normalized = (value) =>
     .replace(/[\u0300-\u036f]/g, '')
     .toLowerCase();
 const wordRoot = (word) => word.replace(/^frenagem$/, 'freio').replace(/s$/, '');
-function words(value) {
+export function prototypeQueryWords(value) {
   return [
     ...new Set(
       (normalized(value).match(/[a-z0-9]+/g) || [])
-        .filter((word) => word.length > 2 && !STOP_WORDS.has(word))
+        .filter(
+          (word) => (word.length > 2 || SHORT_REGULATORY_LABELS.has(word)) && !STOP_WORDS.has(word),
+        )
         .map(wordRoot),
     ),
   ];
 }
 function scoreText(queryWords, value, weight) {
-  const textWords = new Set(words(value));
+  const textWords = new Set(prototypeQueryWords(value));
   return queryWords.reduce((sum, word) => sum + (textWords.has(word) ? weight : 0), 0);
 }
-function actScore(act, queryWords) {
+function actScore(act, queryWords, sourceHints = []) {
   return (
     scoreText(queryWords, `${act.id} ${act.title}`, 6) +
-    scoreText(queryWords, act.description || act.scope, 3)
+    scoreText(queryWords, act.description || act.scope, 3) +
+    scoreText(queryWords, sourceHints.map((source) => source.title).join(' '), 6) +
+    scoreText(queryWords, sourceHints.map((source) => source.scope).join(' '), 3)
   );
 }
 
@@ -160,7 +188,7 @@ export function retrievePrototypeSources(input, catalog) {
       for (const id of stage.sourceIds || []) allowedIds.add(id);
     }
   }
-  const queryWords = words(request.question);
+  const queryWords = prototypeQueryWords(request.question);
   const contextReferences = [];
   for (const relation of selected?.relations || []) {
     for (const topic of relation.topics || []) {
@@ -177,14 +205,24 @@ export function retrievePrototypeSources(input, catalog) {
       }
     }
   }
-  const scored = references.map((act) => ({
-    act,
-    score:
-      actScore(act, queryWords) +
-      contextReferences
-        .filter((reference) => reference.id === act.id)
-        .reduce((sum, reference) => sum + scoreText(queryWords, reference.topic, 4), 0),
-  }));
+  const scored = references.map((act) => {
+    // Identity is explicit: an existing source with the same canonical ID or
+    // registered actIds may improve discovery, never create a new legal join.
+    const sourceHints = list(catalog.sources).filter(
+      (source) => source.id === act.id || source.actIds?.includes(act.id),
+    );
+    return {
+      act,
+      titleScore:
+        scoreText(queryWords, `${act.id} ${act.title}`, 6) +
+        scoreText(queryWords, sourceHints.map((source) => source.title).join(' '), 6),
+      score:
+        actScore(act, queryWords, sourceHints) +
+        contextReferences
+          .filter((reference) => reference.id === act.id)
+          .reduce((sum, reference) => sum + scoreText(queryWords, reference.topic, 4), 0),
+    };
+  });
   const scoped = allowedIds ? scored.filter(({ act }) => allowedIds.has(act.id)) : scored;
   let ranked = scoped;
   let contextApplied = !!allowedIds;
@@ -200,8 +238,7 @@ export function retrievePrototypeSources(input, catalog) {
   // trusted reference title/identifier. A description's incidental word alone
   // cannot turn a generic follow-up into an unrelated collection-wide query.
   const clearlyDifferent = scored.filter(
-    ({ act, score }) =>
-      score >= 3 && (!stage || scoreText(queryWords, `${act.id} ${act.title}`, 6) >= 6),
+    ({ titleScore, score }) => score >= 3 && (!stage || titleScore >= 6),
   );
   if (
     allowedIds &&

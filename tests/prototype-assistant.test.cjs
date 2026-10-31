@@ -154,7 +154,8 @@ test('GET reports Workers AI availability; no other provider or secret is used',
   assert.equal(on.available, true);
   assert.equal(on.provider, 'workers');
   assert.match(on.model, /^@cf\//);
-  assert.equal(on.outputFormat, 'guided_json');
+  assert.equal(on.model, '@cf/meta/llama-3.1-8b-instruct-fp8');
+  assert.equal(on.outputFormat, 'json_schema');
   assert.equal(JSON.stringify(off).includes('never-expose'), false);
 });
 
@@ -238,10 +239,90 @@ test('endpoint retrieves trusted evidence server side and validates canonical ci
   assert.equal('messages' in sent.input, false);
   assert.equal(sent.input.stream, false);
   assert.deepEqual(
-    sent.input.guided_json.properties.paragraphs.items.properties.sourceIds.items.enum,
+    sent.input.response_format.json_schema.properties.paragraphs.items.properties.sourceIds.items
+      .enum,
     data.sources.map((source) => source.id),
   );
+  assert.equal(sent.input.response_format.type, 'json_schema');
+  assert.equal('guided_json' in sent.input, false);
   assert.equal(sent.input.max_tokens <= 400, true);
+});
+
+test('prototype model selection stays independent of the original assistant and uses each documented format', async () => {
+  const { onRequestGet, onRequestPost } = await load();
+  const oldAssistantModel = '@cf/mistralai/mistral-small-3.1-24b-instruct';
+  const status = await onRequestGet({
+    env: { AI_MODEL: oldAssistantModel, AI: { run: async () => ({}) } },
+  }).json();
+  assert.equal(status.model, '@cf/meta/llama-3.1-8b-instruct-fp8');
+  assert.equal(status.outputFormat, 'json_schema');
+  let seen;
+  await onRequestPost({
+    request: post(question),
+    env: {
+      PROTOTYPE_AI_MODEL: oldAssistantModel,
+      AI: {
+        run: async (model, input) => {
+          seen = { model, input };
+          return { response: '' };
+        },
+      },
+    },
+  });
+  assert.equal(seen.model, oldAssistantModel);
+  assert.ok(seen.input.guided_json);
+  assert.equal('response_format' in seen.input, false);
+  const unknown = await onRequestGet({
+    env: { PROTOTYPE_AI_MODEL: '@cf/unreviewed-model', AI: { run: async () => ({}) } },
+  }).json();
+  assert.equal(unknown.model, status.model);
+});
+
+test('LP/LC and L8/P8 comparisons retrieve their canonical CONAMA sources and retain source devices', async () => {
+  const { retrievePrototypeSources, prototypeQueryWords } = await loadRetrieval();
+  const { evidenceFor } = await load();
+  const catalog = require('../data/prototype/catalog.json');
+  assert.deepEqual(prototypeQueryWords('Qual a diferença entre LP e LC?'), ['lp', 'lc']);
+  assert.deepEqual(prototypeQueryWords('Como distinguir L8 e P8?'), ['l8', 'p8']);
+  assert.deepEqual(prototypeQueryWords('M1 / N1 / N3 / O4'), ['m1', 'n1', 'n3', 'o4']);
+  const classification = retrievePrototypeSources(
+    { question: 'Qual a diferença entre LP e LC?' },
+    catalog,
+  );
+  assert.deepEqual(
+    classification.sources.map((source) => source.id),
+    ['conama-492-2018', 'conama-490-2018'],
+  );
+  const phase = retrievePrototypeSources({ question: 'Como distinguir L8 e P8?' }, catalog);
+  assert.deepEqual(
+    new Set(phase.sources.map((source) => source.id)),
+    new Set(['conama-492-2018', 'conama-490-2018']),
+  );
+  const evidence = evidenceFor(classification);
+  const light = evidence.find((source) => source.id === 'conama-492-2018').passages;
+  assert.ok(
+    light.some((passage) => passage.kind === 'source_reference' && /35.*36/.test(passage.device)),
+  );
+  const heavy = evidence.find((source) => source.id === 'conama-490-2018').passages;
+  assert.ok(
+    heavy.some(
+      (passage) =>
+        passage.kind === 'source_reference' &&
+        /23/.test(passage.device) &&
+        /justificativa\/autorização prévia/.test(passage.text),
+    ),
+  );
+  assert.ok(
+    evidence.every((source) =>
+      source.passages.some((passage) => passage.kind === 'catalog_reference'),
+    ),
+  );
+  const changedTopic = retrievePrototypeSources(
+    { question: 'Qual a diferença entre LP e LC?', stageId: 'cat' },
+    catalog,
+  );
+  assert.equal(changedTopic.context.applied, false);
+  assert.equal(changedTopic.sources[0].id, 'conama-492-2018');
 });
 
 test('guided JSON validates each paragraph source ID and renders canonical citations server side', async () => {
