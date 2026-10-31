@@ -8,7 +8,7 @@ import {
 
 const { catalog, passageIndex } = prototypeData;
 const DEFAULT_MODEL = '@cf/mistralai/mistral-small-3.1-24b-instruct';
-export const AI_TIMEOUT_MS = 6_000;
+export const AI_TIMEOUT_MS = 12_000;
 const MAX_BODY_BYTES = 8_192;
 const LIMITATION =
   'Esta consulta não é parecer jurídico. Confirme vigência, aplicabilidade e lacunas na fonte oficial.';

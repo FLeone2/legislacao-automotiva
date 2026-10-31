@@ -6,7 +6,7 @@ import {
 } from './assistant-retrieval.js';
 
 const ENDPOINT = '/api/prototype-ask';
-const CLIENT_TIMEOUT_MS = 8_000;
+const CLIENT_TIMEOUT_MS = 14_000;
 const { loadPrototypeCatalog } = prototypeCatalog;
 
 async function requestJson(fetcher, url, options, signal, timeoutMs) {
