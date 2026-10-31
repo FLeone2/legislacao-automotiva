@@ -5,6 +5,7 @@ an honest source-only fallback without contacting a remote model or using keys.
 """
 
 import json
+import math
 import re
 from io import BytesIO
 from pathlib import Path
@@ -21,6 +22,7 @@ CATALOG = json.loads((ROOT / "data/prototype/catalog.json").read_text())
 WORKFLOW = json.loads((ROOT / "data/prototype/workflow.json").read_text())
 STEPS = {step["id"]: step for step in WORKFLOW["steps"]}
 AXE_RESULTS = []
+TREE_FIT_ACTIONS = []
 
 
 def frames(page):
@@ -69,6 +71,11 @@ def capture(page, name, accessibility=False):
 
 
 def open_evidence(page, scope, label):
+    if scope.count() and scope.evaluate(
+        "el => Boolean(el.closest('.prototype-stage-plan:not([open])'))"
+    ):
+        page.locator(".prototype-stage-plan > summary").click()
+        expect(page.locator(".prototype-stage-plan")).to_have_attribute("open", "")
     summary = (
         scope.locator("summary")
         .filter(has_text=re.compile(r"^\s*" + re.escape(label) + r"\s*$"))
@@ -130,18 +137,42 @@ def set_profile(page, values):
 
 def tree_choose(page, label, keyboard=False):
     graph = page.get_by_role("region", name="Árvore de legislação expansível")
-    button = graph.get_by_role("button", name=label, exact=True)
-    expect(button).to_be_visible()
+    button = graph.get_by_role("button", name=label, exact=True).first
     if keyboard:
         button.focus()
         expect(button).to_be_focused()
         page.keyboard.press("Enter")
     else:
+        graph.scroll_into_view_if_needed()
+        expect(button).to_be_visible()
+        if not tree_target_in_view(graph, button):
+            graph.get_by_role("button", name="Enquadrar árvore", exact=True).click()
+            frames(page)
+            TREE_FIT_ACTIONS.append(label)
+            assert tree_target_in_view(graph, button), (
+                "The user-facing fit control must bring this node inside the tree viewport",
+                label,
+            )
         button.click()
     current = graph.locator(".is-current .prototype-node-main")
     expect(current).to_have_text(label)
     expect(current).to_be_focused()
     return page.locator(".prototype-tree-node-content")
+
+
+def tree_target_in_view(graph, button):
+    viewport = graph.bounding_box()
+    target = button.bounding_box()
+    if not viewport or not target:
+        return False
+    margin = 4
+    return (
+        target["x"] >= viewport["x"] + margin
+        and target["y"] >= viewport["y"] + margin
+        and target["x"] + target["width"] <= viewport["x"] + viewport["width"] - margin
+        and target["y"] + target["height"]
+        <= viewport["y"] + viewport["height"] - margin
+    )
 
 
 def no_overflow(page):
@@ -167,14 +198,114 @@ def assert_scene(page):
 
 
 def assert_exploded(page):
-    page.get_by_role("button", name="Desmontado", exact=True).click()
+    page.get_by_role("button", name="Explodido", exact=True).click()
     page.wait_for_function("""() => {
         const s = document.querySelector('.prototype-viewport').__vehicleViewer.getState();
         return s.mode === 'exploded' && s.actualExplosion >= 0.64;
     }""")
     scene = state(page)
-    assert scene["explosionOverlaps"] == [], scene["explosionOverlaps"]
     assert scene["wheelCount"] == 4
+    diagnostics = scene["explosionDiagnostics"]
+    assert diagnostics["coordinateFrame"] == "vehicle"
+    assert diagnostics["movedPieceCount"] > 20, (
+        "Exploding must move the actual GLB pieces, not replace the scene with an image"
+    )
+    assert len(diagnostics["coherentWheels"]) == 4
+    assert len({wheel["corner"] for wheel in diagnostics["coherentWheels"]}) == 4
+    assert all(
+        wheel["offsetSpread"] < 0.00001 for wheel in diagnostics["coherentWheels"]
+    ), "Tire and rim must travel with their physical wheel corner"
+    assert len(diagnostics["brakeSets"]) == 4
+    pieces = {piece["nodeId"]: piece for piece in diagnostics["pieces"]}
+    brakes = {brake["corner"]: brake for brake in diagnostics["brakeSets"]}
+    for wheel in diagnostics["coherentWheels"]:
+        wheel_offsets = [
+            math.dist(piece["origin"], piece["current"])
+            for node_id in wheel["nodeIds"]
+            if (piece := pieces.get(node_id))
+        ]
+        brake_offsets = [
+            math.dist(piece["origin"], piece["current"])
+            for node_id in brakes[wheel["corner"]]["nodeIds"]
+            if (piece := pieces.get(node_id))
+        ]
+        assert wheel_offsets and brake_offsets
+        assert sum(wheel_offsets) / len(wheel_offsets) > sum(brake_offsets) / len(
+            brake_offsets
+        ), "Pulling the road wheel outward must reveal its brake close to the axle"
+    ratios = diagnostics["envelopeRatio"]
+    ratios = (
+        [ratios[key] for key in ("x", "y", "z")] if isinstance(ratios, dict) else ratios
+    )
+    assert len(ratios) == 3 and all(math.isfinite(ratio) for ratio in ratios)
+    assert max(ratios) <= 2.2, ratios
+    assert ratios[1] <= 2.0, (
+        "The overview must stay near the vehicle, without the previous tall parts column",
+        ratios,
+    )
+    return scene
+
+
+def piece_positions(scene):
+    return {
+        piece["nodeId"]: piece["current"]
+        for piece in scene["explosionDiagnostics"]["pieces"]
+    }
+
+
+def assert_same_positions(expected, actual, tolerance=0.00001):
+    assert expected.keys() == actual.keys()
+    for node_id in expected:
+        assert (
+            max(
+                abs(left - right)
+                for left, right in zip(expected[node_id], actual[node_id], strict=True)
+            )
+            < tolerance
+        ), (node_id, expected[node_id], actual[node_id])
+
+
+def assert_assembled(page):
+    page.get_by_role("button", name="Montado", exact=True).click()
+    page.wait_for_function("""() => {
+        const s = document.querySelector('.prototype-viewport').__vehicleViewer.getState();
+        return s.mode === 'assembled' && s.actualExplosion < 0.000001;
+    }""")
+    scene = state(page)
+    for piece in scene["explosionDiagnostics"]["pieces"]:
+        assert (
+            max(
+                abs(left - right)
+                for left, right in zip(piece["origin"], piece["current"], strict=True)
+            )
+            < 0.00001
+        ), (piece["nodeId"], piece["origin"], piece["current"])
+    return scene
+
+
+def assert_centered_tree(page):
+    graph = page.get_by_role("region", name="Árvore de legislação expansível")
+    stage = graph.locator(".centered-tree-stage")
+    expect(stage).to_be_visible()
+    frames(page)
+    bounds = graph.bounding_box()
+    root = graph.locator('.prototype-graph-node[data-side="root"]').bounding_box()
+    assert root and bounds
+    root_x = root["x"] + root["width"] / 2
+    root_y = root["y"] + root["height"] / 2
+    assert abs(root_x - (bounds["x"] + bounds["width"] / 2)) < 64
+    assert abs(root_y - (bounds["y"] + bounds["height"] / 2)) < 64
+    left = graph.locator('.prototype-graph-node[data-side="left"]')
+    right = graph.locator('.prototype-graph-node[data-side="right"]')
+    assert left.count() and right.count()
+    assert all(
+        (box := node.bounding_box()) and box["x"] + box["width"] / 2 < root_x
+        for node in left.all()
+    )
+    assert all(
+        (box := node.bounding_box()) and box["x"] + box["width"] / 2 > root_x
+        for node in right.all()
+    )
 
 
 with TestServer() as base, sync_playwright() as p:
@@ -257,15 +388,27 @@ with TestServer() as base, sync_playwright() as p:
         )
         expect(page.locator("#prototype-vehicle-references")).to_be_visible()
 
-        # The component picker is an accessible alternative to the 3D target.
-        page.locator(".prototype-picker-trigger").click()
-        page.get_by_label("Buscar componente", exact=True).fill("Freios")
-        page.locator(".prototype-picker-popover").get_by_role(
+        # The game-style assembly menu and searchable picker are real selection controls.
+        assembly_menu = page.get_by_role("group", name="Conjuntos do veículo")
+        expect(assembly_menu).to_be_visible()
+        brakes_button = assembly_menu.get_by_role(
             "button", name="Freios e estabilidade", exact=True
-        ).click()
+        )
+        brakes_button.click()
+        expect(brakes_button).to_have_attribute("aria-pressed", "true")
         page.wait_for_function(
             "document.querySelector('.prototype-viewport').__vehicleViewer.getState().selection.assemblyId === 'brakes'"
         )
+        page.locator(".prototype-picker-trigger").click()
+        page.get_by_label("Buscar componente", exact=True).fill("Motor a combustão")
+        page.locator(".prototype-picker-popover").get_by_role(
+            "button", name="Motor a combustão", exact=True
+        ).click()
+        page.wait_for_function(
+            "document.querySelector('.prototype-viewport').__vehicleViewer.getState().selection.assemblyId === 'engine'"
+        )
+        brakes_button.click()
+        expect(brakes_button).to_have_attribute("aria-pressed", "true")
         references = page.locator("#prototype-vehicle-references")
         expect(references.locator("h2")).to_have_text("Freios e estabilidade")
         assert (
@@ -312,7 +455,24 @@ with TestServer() as base, sync_playwright() as p:
         ).to_have_count(1)
         assert state(page)["cameraPosition"] == camera_before
         assert len(glb_requests) == glb_count
-        assert_exploded(page)
+        assembled_scene = assert_assembled(page)
+        assembled_positions = piece_positions(assembled_scene)
+        exploded_scene = assert_exploded(page)
+        exploded_positions = piece_positions(exploded_scene)
+        assert any(
+            math.dist(assembled_positions[node_id], exploded_positions[node_id]) > 0.05
+            for node_id in assembled_positions
+        ), "The GLB geometry must move in 3D space"
+        canvas.focus()
+        page.keyboard.press("ArrowLeft")
+        frames(page)
+        orbit_scene = state(page)
+        assert orbit_scene["cameraPosition"] != exploded_scene["cameraPosition"]
+        assert_same_positions(exploded_positions, piece_positions(orbit_scene))
+        restored_scene = assert_assembled(page)
+        assert_same_positions(assembled_positions, piece_positions(restored_scene))
+        exploded_scene = assert_exploded(page)
+        exploded_positions = piece_positions(exploded_scene)
         capture(page, "04-explosao.png", accessibility=True)
 
         # The process is seven chronological groups backed by nineteen concrete analyst steps.
@@ -323,6 +483,7 @@ with TestServer() as base, sync_playwright() as p:
         expect(
             page.locator(".prototype-tree-node-content .prototype-condition-state")
         ).to_have_text("Condição a confirmar")
+        assert_centered_tree(page)
         set_profile(
             page,
             {
@@ -392,9 +553,23 @@ with TestServer() as base, sync_playwright() as p:
 
         # Expand the original branch pattern by keyboard: test -> act -> cited NBR.
         choose_step(page, "sa-05-active")
+        tree_stage = graph.locator(".centered-tree-stage")
+        initial_zoom = float(tree_stage.get_attribute("data-zoom"))
+        graph.get_by_role("button", name="Ampliar árvore", exact=True).click()
+        page.wait_for_function(
+            "before => Number(document.querySelector('.centered-tree-stage').dataset.zoom) > before",
+            arg=initial_zoom,
+        )
+        expanded_zoom = tree_stage.get_attribute("data-zoom")
         details = tree_choose(page, "Frenagem e ABS", keyboard=True)
         expect(details).to_contain_text("Controle de relatório: nível 2")
+        expect(tree_stage).to_have_attribute("data-zoom", expanded_zoom)
+        expect(graph.locator('.prototype-graph-node[data-side="root"]')).to_be_visible()
         tree_choose(page, "Resolução CONTRAN 915/2022", keyboard=True)
+        expect(tree_stage).to_have_attribute("data-zoom", expanded_zoom)
+        expect(
+            graph.get_by_role("button", name="Frenagem e ABS", exact=True).first
+        ).to_be_visible()
         expect(
             page.locator(".prototype-tree-node-content .prototype-act-link").first
         ).to_have_attribute("href", re.compile(r"contran-915-2022-original\.pdf$"))
@@ -414,6 +589,7 @@ with TestServer() as base, sync_playwright() as p:
         ):
             summary.click()
         expect(details).to_contain_text("Texto privado não reproduzido")
+        capture(page, "05a-arvore-expandida.png", accessibility=True)
 
         # A foreign reference is qualified, with no blanket claim of equivalence.
         choose_step(page, "sa-05-active")
@@ -451,7 +627,8 @@ with TestServer() as base, sync_playwright() as p:
             navigate(page, "Veículo")
             viewport.scroll_into_view_if_needed()
             assert_scene(page)
-            assert_exploded(page)
+            mobile_scene = assert_exploded(page)
+            assert_same_positions(exploded_positions, piece_positions(mobile_scene))
             frames(page)
             image = Image.open(
                 BytesIO(viewport.locator("canvas").screenshot())
@@ -468,7 +645,7 @@ with TestServer() as base, sync_playwright() as p:
             no_overflow(page)
             capture(page, f"07-homologacao-{width}.png", accessibility=width == 320)
         assert not errors, errors
-        assert len(AXE_RESULTS) == 7
+        assert len(AXE_RESULTS) >= 8
         assert not any(result["violations"] for result in AXE_RESULTS), (
             "See tests/artifacts/prototype/accessibility.json"
         )
@@ -480,8 +657,18 @@ with TestServer() as base, sync_playwright() as p:
                     "steps": 19,
                     "wheelCount": state(page)["wheelCount"],
                     "pieces": state(page)["pieceCount"],
+                    "coordinateFrame": exploded_scene["explosionDiagnostics"][
+                        "coordinateFrame"
+                    ],
+                    "movedPieces": exploded_scene["explosionDiagnostics"][
+                        "movedPieceCount"
+                    ],
+                    "explodedEnvelopeRatio": exploded_scene["explosionDiagnostics"][
+                        "envelopeRatio"
+                    ],
                     "glbRequests": len(glb_requests),
                     "initialGlbRequests": 0,
+                    "treeFitActions": TREE_FIT_ACTIONS,
                     "errors": errors,
                     "accessibilityScreens": len(AXE_RESULTS),
                 },

@@ -69,66 +69,109 @@ before(async () => {
   pieces = modelPieces();
 });
 
-function noCollisions(stage) {
-  for (let first = 0; first < stage.units.length; first++)
-    for (let second = first + 1; second < stage.units.length; second++) {
-      assert.equal(
-        layout.rectanglesOverlap(stage.units[first].rect, stage.units[second].rect),
-        false,
-        `display silhouettes overlap: ${stage.units[first].id} / ${stage.units[second].id}`,
-      );
-    }
+function boundsOf(rows, translated = false) {
+  return {
+    min: [0, 1, 2].map((axis) =>
+      Math.min(...rows.map((row) => (translated ? row.targetBounds : row.bounds).min[axis])),
+    ),
+    max: [0, 1, 2].map((axis) =>
+      Math.max(...rows.map((row) => (translated ? row.targetBounds : row.bounds).max[axis])),
+    ),
+  };
 }
 
-test('actual vehicle assemblies have four coherent wheel sets and separated silhouettes for every camera', () => {
-  const cameras = [
+test('real GLB keeps four wheel corners, coherent road wheels and brakes closer to their axles', () => {
+  const tires = pieces.filter((piece) => /Wheel_Tire/i.test(piece.sourceMesh));
+  assert.equal(tires.length, 4);
+  const plan = layout.createExplosionPlan(pieces);
+  const wheels = plan.overview.units.filter((unit) => unit.id.startsWith('wheel-'));
+  const brakes = plan.overview.units.filter((unit) => unit.id.startsWith('brake-'));
+  assert.equal(wheels.length, 4);
+  assert.equal(brakes.length, 4);
+  for (const wheel of wheels) {
+    assert.equal(wheel.nodeIds.filter((id) => tires.some((tire) => tire.nodeId === id)).length, 1);
+    const offset = plan.overview.offsets.get(wheel.nodeIds[0]);
+    for (const id of wheel.nodeIds)
+      assert.deepEqual(
+        plan.overview.offsets.get(id),
+        offset,
+        'rim, tire, hub and wheel fasteners travel together',
+      );
+    assert.equal(offset[0], 0, 'explosion does not move a wheel to a different axle');
+    assert.equal(offset[1], 0);
+    assert.equal(Math.sign(offset[2]), wheel.id.endsWith('left') ? 1 : -1);
+    const brake = brakes.find((unit) => unit.id === wheel.id.replace('wheel-', 'brake-'));
+    assert.ok(
+      Math.abs(brake.offset[2]) < Math.abs(offset[2]),
+      'tire opens farther than brake for inspection',
+    );
+  }
+});
+
+test('physical overview is stable across camera, orbit direction and portrait/landscape', () => {
+  const expected = layout.createExplosionPlan(pieces);
+  for (const direction of [
     [-1, 0.78, 1.35],
     [0.001, 0.11, 1],
     [0, 1, 0.001],
     [-1, 0.16, 0.001],
-  ];
-  const tires = pieces.filter((piece) => /Wheel_Tire/i.test(piece.sourceMesh));
-  assert.equal(tires.length, 4);
-  for (const direction of cameras)
-    for (const aspect of [0.8, 1.7]) {
-      const plan = layout.createExplosionPlan(pieces, { direction, aspect });
-      const wheels = plan.overview.units.filter((unit) => unit.id.startsWith('wheel-'));
-      assert.equal(wheels.length, 4);
-      for (const wheel of wheels) {
-        const tireCount = wheel.nodeIds.filter((id) =>
-          tires.some((tire) => tire.nodeId === id),
-        ).length;
-        assert.equal(tireCount, 1, 'each real road-wheel position keeps one tire');
-        const offset = plan.overview.offsets.get(wheel.nodeIds[0]);
-        for (const id of wheel.nodeIds)
-          assert.deepEqual(
-            plan.overview.offsets.get(id),
-            offset,
-            'rim, tire, hub, screws, brake and emblem travel as one set',
-          );
-      }
-      noCollisions(plan.overview);
-    }
+  ])
+    for (const aspect of [0.4, 0.8, 1.7, 2.6])
+      assert.deepEqual(layout.createExplosionPlan(pieces, { direction, aspect }), expected);
+  assert.equal(expected.coordinateFrame, 'vehicle');
 });
 
-test('second stage decomposes only the selected assembly and keeps semantic identities', () => {
-  for (const detailAssemblyId of ['batteryHV', 'engine', 'chassis'])
-    for (const aspect of [0.8, 1.7]) {
-      const plan = layout.createExplosionPlan(pieces, { aspect, detailAssemblyId, isolated: true });
-      const ids = new Set(plan.detail.units.flatMap((unit) => unit.nodeIds));
-      assert.ok(ids.size > 5, 'selected subsystem retains meaningful independent parts');
-      for (const id of ids)
-        assert.equal(pieces.find((piece) => piece.nodeId === id).assemblyId, detailAssemblyId);
-      noCollisions(plan.detail);
-      assert.deepEqual(
-        layout.createExplosionPlan(pieces, { aspect, detailAssemblyId, isolated: true }),
-        plan,
-        'layout must be deterministic across selection/navigation',
-      );
-    }
+test('compact disassembly preserves vehicle directions instead of packing a flat or tall board', () => {
+  const plan = layout.createExplosionPlan(pieces);
+  const groups = new Map(plan.overview.units.map((unit) => [unit.id, unit]));
+  assert.ok(groups.get('hood').offset[1] > 0);
+  assert.ok(groups.get('engine').offset[0] < 0);
+  assert.ok(groups.get('batteryHV').offset[1] < 0);
+  for (const id of ['front-axle', 'rear-axle']) assert.ok(groups.get(id).offset[1] < 0);
+  for (const id of ['door-front-left', 'door-rear-left']) assert.ok(groups.get(id).offset[2] > 0);
+  for (const id of ['door-front-right', 'door-rear-right']) assert.ok(groups.get(id).offset[2] < 0);
+  assert.ok(groups.get('tailgate').offset[0] > 0, 'tailgate and its window move toward the rear');
+  const assembled = boundsOf(plan.overview.units),
+    exploded = boundsOf(plan.overview.units, true);
+  const ratio = assembled.max.map(
+    (value, axis) => (exploded.max[axis] - exploded.min[axis]) / (value - assembled.min[axis]),
+  );
+  assert.ok(ratio[0] < 1.4, `length: ${ratio[0]}`);
+  assert.ok(ratio[1] < 1.65, `height: ${ratio[1]}`);
+  assert.ok(ratio[2] < 1.6, `width: ${ratio[2]}`);
+  const targets = plan.overview.units.map((unit) => unit.offset);
+  assert.ok(
+    new Set(targets.map((offset) => offset[2])).size > 3,
+    'lateral depth is retained in vehicle coordinates',
+  );
 });
 
-test('normalized explosion opens assemblies before detail, with continuous reversible phase boundaries', () => {
+test('second phase actually separates only selected assembly pieces and retains original IDs', () => {
+  const overview = layout.createExplosionPlan(pieces).overview;
+  for (const detailAssemblyId of ['batteryHV', 'engine', 'chassis', 'brakes']) {
+    const plan = layout.createExplosionPlan(pieces, { detailAssemblyId });
+    let moved = 0;
+    for (const piece of pieces) {
+      const before = overview.offsets.get(piece.nodeId),
+        after = plan.detail.offsets.get(piece.nodeId);
+      if (!before || !after) continue;
+      if (piece.assemblyId !== detailAssemblyId) assert.deepEqual(after, before);
+      else if (after.some((value, axis) => Math.abs(value - before[axis]) > 0.001)) moved++;
+    }
+    assert.ok(moved > 2, `${detailAssemblyId} should contain real separately movable geometry`);
+    const isolated = layout.createExplosionPlan(pieces, { detailAssemblyId, isolated: true });
+    const ids = new Set(isolated.detail.units.flatMap((unit) => unit.nodeIds));
+    assert.ok(ids.size > 3);
+    for (const id of ids)
+      assert.equal(pieces.find((piece) => piece.nodeId === id).assemblyId, detailAssemblyId);
+    assert.deepEqual(
+      layout.createExplosionPlan(pieces, { detailAssemblyId, isolated: true }),
+      isolated,
+    );
+  }
+});
+
+test('normalized explosion opens assemblies before detail, with continuous reversible boundaries', () => {
   assert.deepEqual(layout.explosionPhases(0), { assemblies: 0, detail: 0 });
   assert.deepEqual(layout.explosionPhases(0.65), { assemblies: 1, detail: 0 });
   assert.deepEqual(layout.explosionPhases(1), { assemblies: 1, detail: 1 });
@@ -139,23 +182,7 @@ test('normalized explosion opens assemblies before detail, with continuous rever
     if (step < 650) assert.equal(phase.detail, 0);
     assert.ok(
       phase.assemblies - previous.assemblies < 0.005 && phase.detail - previous.detail < 0.005,
-      'small slider movements cannot teleport an assembly or piece',
     );
     previous = phase;
   }
-});
-
-test('portrait workbench constrains horizontal spread and uses vertical lanes', () => {
-  const plan = layout.createExplosionPlan(pieces, { aspect: 0.8 });
-  const rects = plan.overview.units.map((unit) => unit.rect);
-  const width =
-    Math.max(...rects.map((rect) => rect.maxX)) - Math.min(...rects.map((rect) => rect.minX));
-  const height =
-    Math.max(...rects.map((rect) => rect.maxY)) - Math.min(...rects.map((rect) => rect.minY));
-  assert.ok(width <= 7.200001, `portrait assembly span is too wide: ${width}`);
-  assert.ok(
-    height > width,
-    'phone overview should occupy a tall field, rather than a landscape strip',
-  );
-  noCollisions(plan.overview);
 });

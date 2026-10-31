@@ -238,7 +238,7 @@ test('endpoint retrieves trusted evidence server side and validates canonical ci
   );
   assert.equal(sent.input.response_format.type, 'json_schema');
   assert.equal('guided_json' in sent.input, false);
-  assert.equal(sent.input.max_tokens <= 400, true);
+  assert.ok(sent.input.max_tokens >= 700 && sent.input.max_tokens <= 1000);
 });
 
 test('prototype model selection stays independent of the original assistant and uses each documented format', async () => {
@@ -376,7 +376,7 @@ test('guided JSON validates each paragraph source ID and renders canonical citat
       'inline_citation',
     ],
     [{ ...payload, ignoredClaim: 'Não pode ser descartada.' }, 'invalid_structure'],
-    [{ paragraphs: [...payload.paragraphs, ...payload.paragraphs] }, 'invalid_structure'],
+    [{ paragraphs: Array(7).fill(payload.paragraphs[0]) }, 'invalid_structure'],
     [`${JSON.stringify(payload)}\nAfirmação adicional sem fonte.`, 'invalid_json'],
     [{ response: '' }, 'empty_response'],
   ]) {
@@ -671,4 +671,160 @@ test('browser adapter sends identifiers only and falls back to the local catalog
   } finally {
     globalThis.fetch = original;
   }
+});
+
+test('report-control intent retains its number and retrieves distinct exact safety links', async () => {
+  const { prototypeQueryWords, prototypeReportLevels, retrievePrototypeSources } =
+    await loadRetrieval();
+  const { buildConsultationCatalog } = await import(
+    pathToFileURL(path.join(__dirname, '../src/prototype/consultation-catalog.js')).href
+  );
+  const c = buildConsultationCatalog(
+    require('../data/prototype/catalog.json'),
+    require('../data/prototype/workflow.json'),
+    require('../data/prototype/document-chunks.json'),
+  );
+  assert.ok(prototypeQueryWords('Quais itens de nível 3?').includes('nivel3'));
+  assert.deepEqual(prototypeReportLevels('Relatórios de nível III'), [3]);
+  assert.deepEqual(prototypeReportLevels('Comparar níveis 1, 2 e 3'), [1, 2, 3]);
+  assert.deepEqual(prototypeReportLevels('MOVER: eficiência energética nível 3'), []);
+  const result = retrievePrototypeSources({ question: 'Quais são os itens de nível 3?' }, c);
+  const ids = result.sources.map((source) => source.id);
+  assert.equal(ids[0], 'senatran-095');
+  assert.equal(ids.filter((id) => id === 'senatran-095').length, 1);
+  assert.ok(!ids.includes('guide-senatran-990') && !ids.includes('senatran-990-2022'));
+  assert.ok(
+    ids.includes('contran-949-2022') &&
+      ids.includes('contran-910-2022') &&
+      ids.includes('contran-749-2018'),
+  );
+  assert.ok(ids.every((id) => id === 'senatran-095' || id.startsWith('contran-')));
+  assert.ok(ids.length <= 8);
+  assert.equal(result.context.reportControls[0].automaticApplicability, false);
+  assert.equal(result.context.reportControls[0].kind, 'analyst_planning_not_legal_text');
+  assert.ok(result.context.reportControls[0].items.every((item) => item.conditions));
+  const active = retrievePrototypeSources({ question: 'Quais itens de nível 2?' }, c);
+  assert.ok(active.sources.some((source) => source.id === 'contran-915-2022'));
+  assert.ok(active.context.reportControls[0].indexedLinkCoverage.omittedSourceCount > 0);
+});
+
+test('document identity deduplicates a verified act copy but never FAQ context or a different edition', async () => {
+  const { buildConsultationCatalog } = await import(
+    pathToFileURL(path.join(__dirname, '../src/prototype/consultation-catalog.js')).href
+  );
+  const { retrievePrototypeSources } = await loadRetrieval();
+  const base = {
+    ...fixture,
+    acts: [fixture.acts[0]],
+    sources: [
+      {
+        id: 'official-copy',
+        title: 'Texto de frenagem',
+        actId: 'brake-act',
+        url: 'https://www.gov.br/freios',
+        evidenceType: 'official_original_text',
+      },
+      {
+        id: 'faq',
+        title: 'Orientação de frenagem',
+        actIds: ['brake-act'],
+        url: 'https://www.gov.br/freios',
+        evidenceType: 'official_guidance',
+      },
+      {
+        id: 'other-document',
+        title: 'Texto de frenagem em outra edição',
+        actId: 'brake-act',
+        url: 'https://www.gov.br/freios-original.pdf',
+        evidenceType: 'official_original_text',
+      },
+    ],
+  };
+  const c = buildConsultationCatalog(base);
+  assert.equal(c.sourceCanonicalIds.get('official-copy'), 'brake-act');
+  assert.equal(c.sourceCanonicalIds.has('faq'), false);
+  assert.equal(c.sourceCanonicalIds.has('other-document'), false);
+  const result = retrievePrototypeSources({ question: 'Consultar frenagem' }, c);
+  assert.ok(!result.sources.some((source) => source.id === 'official-copy'));
+  assert.equal(
+    result.sources.find((source) => source.id === 'faq').evidenceType,
+    'official_guidance',
+  );
+  assert.ok(result.sources.some((source) => source.id === 'other-document'));
+});
+
+test('level-three evidence selects Anexo XI and the continuation of its table within a fixed text budget', async () => {
+  const { buildConsultationCatalog } = await import(
+    pathToFileURL(path.join(__dirname, '../src/prototype/consultation-catalog.js')).href
+  );
+  const { retrievePrototypeSources } = await loadRetrieval();
+  const { evidenceFor, MAX_EVIDENCE_TEXT_CHARS } = await load();
+  const docs = require('../data/prototype/document-chunks.json');
+  const c = buildConsultationCatalog(
+    require('../data/prototype/catalog.json'),
+    require('../data/prototype/workflow.json'),
+    docs,
+  );
+  const retrieval = retrievePrototypeSources(
+    { question: 'Quais são os itens de nível 3?', profile: { grossMassKg: 2400 } },
+    c,
+  );
+  const evidence = evidenceFor(retrieval);
+  const primary = evidence.find((source) => source.id === 'senatran-095');
+  const machine = primary.passages.filter((passage) => passage.unreviewedExtraction);
+  assert.ok(machine.some((passage) => /1\.5\. Relatórios com controle Nível 3/.test(passage.text)));
+  assert.ok(machine.some((passage) => passage.page === 17));
+  assert.ok(!machine.some((passage) => passage.page === 3));
+  assert.ok(machine.some((passage) => /propulsão|híbridos|elétricos/.test(passage.text)));
+  assert.ok(
+    machine.every(
+      (passage) => passage.notConsolidated && passage.documentSha256 && passage.markdownPath,
+    ),
+  );
+  const known = new Set(docs.chunks.map((chunk) => chunk.id));
+  assert.ok(machine.every((passage) => known.has(passage.id)));
+  assert.ok(
+    evidence.reduce(
+      (sum, source) => sum + source.passages.reduce((n, p) => n + p.text.length, 0),
+      0,
+    ) <= MAX_EVIDENCE_TEXT_CHARS,
+  );
+  const heavy = evidenceFor(
+    retrievePrototypeSources(
+      { question: 'Quais itens de nível 3?', profile: { grossMassKg: 12000 } },
+      c,
+    ),
+  );
+  assert.ok(
+    heavy
+      .find((source) => source.id === 'senatran-095')
+      .passages.some((passage) => /2\.5\. Relatórios com controle Nível 3/.test(passage.text)),
+  );
+});
+
+test('technical explanations retain short list lines and cited blocks beyond the former brief-answer limit', async () => {
+  const { validatePrototypeAnswer, inspectPrototypeAnswer } = await load();
+  const block = {
+    text: 'Conferir a condição na fonte. '.repeat(18).trim(),
+    sourceIds: ['brake-act'],
+  };
+  const paragraphs = [
+    { text: 'Itens a conferir:\n- Primeiro ensaio.\n- Segundo ensaio.', sourceIds: ['brake-act'] },
+    ...Array(3).fill(block),
+  ];
+  const valid = validatePrototypeAnswer({ paragraphs }, fixture.acts);
+  assert.ok(valid);
+  assert.match(valid.answer, /\n- Primeiro ensaio\.\n- Segundo ensaio\./);
+  assert.deepEqual(
+    valid.citations.map((source) => source.id),
+    ['brake-act'],
+  );
+  const tooManyWords = Array(6).fill({
+    text: 'conferir '.repeat(75).trim(),
+    sourceIds: ['brake-act'],
+  });
+  assert.equal(
+    inspectPrototypeAnswer({ paragraphs: tooManyWords }, fixture.acts).code,
+    'answer_too_long',
+  );
 });

@@ -1,7 +1,7 @@
 {
   "assets": {
-    "/assets/prototype/app.css": "4139c2e91cf33d7e",
-    "/assets/prototype/app.js": "77db22e5bc347ab9",
+    "/assets/prototype/app.css": "6f8110e92ee05ba9",
+    "/assets/prototype/app.js": "99e1483ccf2dcb26",
     "app.js": "51e3faea63860a8b",
     "assets/guide/guide.css": "77eb229e70c7949e",
     "assets/guide/guide.js": "7e4a99e668119b15",
@@ -50,5 +50,5 @@
     "vehicle-data.js": "09123227fe4f6446",
     "vehicle-navigation.js": "9354942ec160aa76"
   },
-  "revision": "5e5d1e23111f16180c81be31afc9e903a247dac53e148f6e7e888cecc29cc620"
+  "revision": "5c1124bc5a3b3e8c5ddc3559207dba34e57e1e3c303807259dd5eca3be6b69ac"
 }

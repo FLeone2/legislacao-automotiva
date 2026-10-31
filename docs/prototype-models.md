@@ -34,6 +34,14 @@ node scripts/models/prototype_check_fit.mjs /workspace/suv-studio
 
 A validação confere quatro pneus no modelo base, preservação dos arquivos globais, hashes de autoria, campos semânticos em todos os meshes, dez módulos de bateria, peças de suspensão nos quatro cantos, quatro bobinas e seis componentes internos do motor. A compressão Draco preserva a topologia; não há decimação.
 
+## Apresentação interativa nexo
+
+A garagem usa iluminação branca, ambiente PBR e piso quase preto, sem iluminação dourada. Esta revisão refina a apresentação das malhas existentes; não substitui a geometria por uma imagem nem entrega CAD interno do fabricante.
+
+A vista explodida aplica translações reais nos eixos locais do veículo. Pneus, aros e fixadores preservam seus quatro cantos e afastam-se mais que discos/pinças, expondo os freios junto aos eixos. Portas, capô, motor, suspensão e bateria mantêm a direção de montagem. A segunda parte do controle separa os componentes da seleção. Rotação da câmera e proporção da tela não reorganizam as coordenadas das peças. Oclusão de perspectiva é examinada por órbita, foco ou isolamento, sem espalhar todos os conjuntos no plano da câmera.
+
+`getState().explosionDiagnostics` registra centros originais e atuais medidos dos meshes, número de peças deslocadas, coerência dos quatro conjuntos de rodas/freios e proporção do envelope. A verificação de navegador desta revisão conferiu 224 peças deslocadas, quatro rodas e envelope aproximado de 1,07 × 1,32 × 1,43 da configuração montada na primeira fase. Esses números avaliam a apresentação visual, sem equivalência dimensional de engenharia.
+
 ## Verificação desta revisão
 
 O suplemento exportado tem **102 componentes semânticos**, **283 meshes por material** e **1.403.808 bytes**. Seu SHA-256 é `867525b78d79da28f8f00591cd92a15b61e4559e33f5645ff3799869922112a9`.

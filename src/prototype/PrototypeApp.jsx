@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import prototypeCatalog from './catalog.js';
 import { askPrototype, getPrototypeAssistantStatus } from './assistant.js';
 import { loadPrototypeWorkflow, buildWorkflow, getWorkflowTree } from './workflow.js';
+import CenteredTreeCanvas from './CenteredTreeCanvas.jsx';
 import './prototype.css';
 
 const { loadPrototypeCatalog, getSelectionReferences } = prototypeCatalog;
@@ -72,6 +73,12 @@ function Icon({ name, size = 20, ...props }) {
     minus: 'M5 12h14',
     tree: 'M5 3v15h14M5 8h12M5 13h12M17 6v4M17 11v4M19 16v4',
     profile: 'M16 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0M4 22v-3a8 8 0 0 1 16 0v3',
+    brain:
+      'M9 4a3 3 0 0 0-5 2v2a3 3 0 0 0 0 5v2a3 3 0 0 0 5 2m6-13a3 3 0 0 1 5 2v2a3 3 0 0 1 0 5v2a3 3 0 0 1-5 2M9 3v18m6-18v18M5 8h4m6 0h4M5 14h4m6 0h4',
+    engine: 'M7 5h9M11 2v3M4 8h13l4 4v6H7l-3-4H2V9h2zM7 5v3M18 10V7h3v4',
+    brake: 'M20 9a9 9 0 1 0 0 6M12 6a6 6 0 1 0 0 12M12 9a3 3 0 1 0 0 6m5-10h5v14h-5z',
+    suspension: 'M12 2v3m0 14v3M7 5h10l-10 4 10 3-10 3 10 4H7',
+    battery: 'M4 6h16v14H4zM8 3v3m8-3v3M7 11h5m-2-2v4m5-2h3',
   };
   return (
     <svg
@@ -510,7 +517,7 @@ function AssistantView({
     }
   }
   return (
-    <section className="prototype-ia" aria-label="IA">
+    <section className="prototype-ia" aria-label="IA" data-has-messages={messages.length > 0}>
       <form className="prototype-composer" onSubmit={submit}>
         <label className="prototype-sr-only" htmlFor="prototype-question">
           Pergunta
@@ -520,7 +527,7 @@ function AssistantView({
           ref={input}
           value={question}
           onChange={(event) => setQuestion(event.target.value)}
-          placeholder="Pergunte sobre a legislação automotiva"
+          placeholder="Pergunte sobre o veículo ou a legislação"
           rows={3}
           maxLength={questionLimit}
           onKeyDown={(event) => {
@@ -653,7 +660,7 @@ function VehicleTools({ viewer, controls, hasSelection }) {
           className={controls.mode === 'exploded' ? 'is-selected' : ''}
           aria-pressed={controls.mode === 'exploded'}
         >
-          Desmontado
+          Explodido
         </button>
       </div>
       <div className="prototype-tool-actions">
@@ -687,18 +694,6 @@ function VehicleTools({ viewer, controls, hasSelection }) {
               <Icon name="close" size={17} />
             </button>
           </div>
-          <label className="prototype-range-label">
-            Separação<span>{Math.round(controls.explosion * 100)}%</span>
-            <input
-              type="range"
-              aria-label="Separação dos conjuntos"
-              min="0"
-              max="1"
-              step=".01"
-              value={controls.explosion}
-              onChange={(event) => viewer.current?.setExplosion(Number(event.target.value))}
-            />
-          </label>
           <label>
             Câmera
             <select
@@ -751,10 +746,13 @@ function VehicleTools({ viewer, controls, hasSelection }) {
     </div>
   );
 }
-function ComponentPicker({ catalog, parts, route, onSelect }) {
+function ComponentPicker({ catalog, parts, route, onSelect, openRequest = 0 }) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [expanded, setExpanded] = useState('');
+  useEffect(() => {
+    if (openRequest > 0) setOpen(true);
+  }, [openRequest]);
   const selected =
     parts.find((part) => part.nodeId === route.node) ||
     catalog.subsystems.find((sub) => sub.id === route.subsystem) ||
@@ -861,6 +859,48 @@ function ComponentPicker({ catalog, parts, route, onSelect }) {
         </div>
       )}
     </div>
+  );
+}
+function VehicleAssemblyMenu({ catalog, route, onSelect, onBrowse }) {
+  const entries = [
+    ['body', 'Carroceria', 'car'],
+    ['engine', 'Motor e transmissão', 'engine'],
+    ['brakes', 'Freios e estabilidade', 'brake'],
+    ['chassis', 'Chassi e suspensão', 'suspension'],
+    ['batteryHV', 'Bateria de tração', 'battery'],
+  ];
+  return (
+    <aside className="prototype-assembly-menu" role="group" aria-label="Conjuntos do veículo">
+      <div className="prototype-assembly-menu-heading">
+        <h2>Conjuntos</h2>
+        <button
+          className="prototype-icon-button"
+          onClick={onBrowse}
+          aria-label="Buscar todos os componentes"
+        >
+          <Icon name="search" size={19} />
+        </button>
+      </div>
+      <div className="prototype-assembly-menu-items">
+        {entries
+          .filter(([id]) => catalog.assemblies.some((item) => item.id === id))
+          .map(([id, label, icon]) => (
+            <button
+              key={id}
+              className={route.part === id ? 'is-selected' : ''}
+              aria-pressed={route.part === id}
+              onClick={() => onSelect({ assemblyId: id }, true)}
+            >
+              <Icon name={icon} size={27} />
+              <span>{label}</span>
+              <Icon name="chevron" size={17} />
+            </button>
+          ))}
+      </div>
+      <button className="prototype-text-button prototype-all-components" onClick={onBrowse}>
+        Todos os componentes <Icon name="plus" size={16} />
+      </button>
+    </aside>
   );
 }
 function VehicleReferences({ assembly, subsystem, selectedNode, references, onAsk, onWorkflow }) {
@@ -1266,8 +1306,6 @@ function LegislationTree({ step, tree, catalog, standards = [], profileFields = 
       (showOutside || node.status !== 'outside_profile') &&
       searchable(`${node.label} ${node.description || ''}`).includes(searchable(query)),
   );
-  const childHeight = 94;
-  const height = Math.max(280, children.length * childHeight + 24);
   const records = selected.act
     ? [selected.act]
     : selected.kind === 'source'
@@ -1351,58 +1389,14 @@ function LegislationTree({ step, tree, catalog, standards = [], profileFields = 
         </div>
       </div>
       {presentation === 'graph' ? (
-        <div
-          className="prototype-regulatory-graph"
-          tabIndex="0"
-          role="region"
-          aria-label="Árvore de legislação expansível"
-        >
-          <div
-            className="prototype-graph-space"
-            style={{ height, width: children.length ? 690 : 340 }}
-          >
-            <svg className="prototype-graph-links" width="690" height={height} aria-hidden="true">
-              {children.map((node, index) => (
-                <path
-                  key={node.id}
-                  d={`M286 68 C320 68 330 ${index * childHeight + 68} 364 ${index * childHeight + 68}`}
-                />
-              ))}
-            </svg>
-            <div className="prototype-graph-node is-current" style={{ left: 20, top: 24 }}>
-              <span tabIndex="-1" ref={currentNode} className="prototype-node-main">
-                {selected.label}
-              </span>
-              {selected.parent && (
-                <button
-                  className="prototype-node-expand"
-                  onClick={() => choose(nodes.get(selected.parent))}
-                  aria-label="Voltar ao ramo anterior"
-                >
-                  <Icon name="back" size={17} />
-                </button>
-              )}
-            </div>
-            {children.map((node, index) => (
-              <div
-                className="prototype-graph-node"
-                key={node.id}
-                style={{ left: 364, top: index * childHeight + 24 }}
-              >
-                <button className="prototype-node-main" onClick={() => choose(node)}>
-                  {node.label}
-                </button>
-                <button
-                  className="prototype-node-expand"
-                  onClick={() => choose(node)}
-                  aria-label={`${node.children?.length ? 'Expandir' : 'Abrir'} ${node.label}`}
-                >
-                  <Icon name={node.children?.length ? 'plus' : 'chevron'} size={16} />
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
+        <CenteredTreeCanvas
+          root={root}
+          selectedId={selected.id}
+          onSelect={choose}
+          showOutside={showOutside}
+          query={query}
+          focusRef={currentNode}
+        />
       ) : (
         <div className="prototype-tree-text-list">
           {selected.parent && (
@@ -1493,8 +1487,20 @@ function LegislationTree({ step, tree, catalog, standards = [], profileFields = 
     </div>
   );
 }
-function HomologationView({ catalog, workflow, profile, onProfileChange, route, onStage, onAsk }) {
+function HomologationView({
+  catalog,
+  workflow,
+  profile,
+  onProfileChange,
+  route,
+  onStage,
+  onAsk,
+  profileRequest = 0,
+}) {
   const [profileOpen, setProfileOpen] = useState(false);
+  useEffect(() => {
+    if (profileRequest > 0) setProfileOpen(true);
+  }, [profileRequest]);
   const steps = asArray(workflow?.steps?.length ? workflow.steps : catalog.stages);
   const phases =
     workflow?.steps?.length && workflow?.phases?.length
@@ -1610,43 +1616,51 @@ function HomologationView({ catalog, workflow, profile, onProfileChange, route, 
             </div>
           )}
           {!selected.scopeReferral && (
-            <div className="prototype-stage-work">
-              <EvidenceGroup label="Entradas" items={selected.inputs} />
-              <EvidenceGroup
-                key={`actions:${selected.id}`}
-                label="Ações"
-                items={selected.actions}
-                defaultOpen
-              />
-              <EvidenceGroup
-                label="Preparação e condicionamento"
-                items={selected.preconditioning || selected.preconditions}
-              />
-              <EvidenceGroup label="Ensaios e procedimentos" items={selected.tests} />
-              <EvidenceGroup label="Resultados" items={selected.results} />
-              <EvidenceGroup label="Documentos" items={selected.documents} />
-              <EvidenceGroup label="Encaminhamento" items={selected.handover} />
-              <EvidenceGroup label="Conferência dos relatórios" items={selected.reportChecklist} />
-              {selected.fieldGroups?.length > 0 && (
-                <details className="prototype-evidence-group prototype-infoserv-fields">
-                  <summary>
-                    Dados para o Infoserv
-                    <Icon name="down" size={15} />
-                  </summary>
-                  <div>
-                    {selected.fieldGroups.map((group) => (
-                      <div key={group.id}>
-                        <EvidenceGroup label={group.title || group.label} items={group.fields} />
-                        {group.verification && <p>{verificationText(group.verification)}</p>}
-                        {group.currentUiVerified === false && (
-                          <p>Interface atual não verificada.</p>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </details>
-              )}
-            </div>
+            <details className="prototype-stage-plan">
+              <summary>
+                Procedimento da etapa <Icon name="down" size={15} />
+              </summary>
+              <div className="prototype-stage-work">
+                <EvidenceGroup label="Entradas" items={selected.inputs} />
+                <EvidenceGroup
+                  key={`actions:${selected.id}`}
+                  label="Ações"
+                  items={selected.actions}
+                  defaultOpen
+                />
+                <EvidenceGroup
+                  label="Preparação e condicionamento"
+                  items={selected.preconditioning || selected.preconditions}
+                />
+                <EvidenceGroup label="Ensaios e procedimentos" items={selected.tests} />
+                <EvidenceGroup label="Resultados" items={selected.results} />
+                <EvidenceGroup label="Documentos" items={selected.documents} />
+                <EvidenceGroup label="Encaminhamento" items={selected.handover} />
+                <EvidenceGroup
+                  label="Conferência dos relatórios"
+                  items={selected.reportChecklist}
+                />
+                {selected.fieldGroups?.length > 0 && (
+                  <details className="prototype-evidence-group prototype-infoserv-fields">
+                    <summary>
+                      Dados para o Infoserv
+                      <Icon name="down" size={15} />
+                    </summary>
+                    <div>
+                      {selected.fieldGroups.map((group) => (
+                        <div key={group.id}>
+                          <EvidenceGroup label={group.title || group.label} items={group.fields} />
+                          {group.verification && <p>{verificationText(group.verification)}</p>}
+                          {group.currentUiVerified === false && (
+                            <p>Interface atual não verificada.</p>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </details>
+                )}
+              </div>
+            </details>
           )}
           <LegislationTree
             key={selected.id}
@@ -1681,6 +1695,8 @@ export default function PrototypeApp() {
   const [profile, setProfile] = useState(() => readSaved().profile || {});
   const [assistantContext, setAssistantContext] = useState(null);
   const [assistantQuestion, setAssistantQuestion] = useState(null);
+  const [profileRequest, setProfileRequest] = useState(0);
+  const [componentPickerRequest, setComponentPickerRequest] = useState(0);
   const viewport = useRef(null);
   const viewer = useRef(null);
   const focusAfterSelection = useRef(false);
@@ -1777,6 +1793,7 @@ export default function PrototypeApp() {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     if (route.view === 'veiculo') setViewerRequested(true);
+    if (route.view !== 'homologacao') setProfileRequest(0);
   }, [route.view]);
   useEffect(() => {
     if (!viewerRequested || !catalog || !viewport.current || viewer.current) return;
@@ -1884,8 +1901,22 @@ export default function PrototypeApp() {
     asArray(workflow?.steps || catalog?.stages).find((step) =>
       step.assemblyIds?.includes(assembly.id),
     );
+  const profileLabel = [
+    profile.category,
+    workflowData?.profileFields
+      ?.find((field) => field.key === 'propulsion')
+      ?.options?.find((option) => option.value === profile.propulsion)?.label,
+  ]
+    .filter(Boolean)
+    .join(' · ');
+  const isVehicle = route.view === 'veiculo';
   return (
-    <div className="prototype-app">
+    <div className="prototype-app" data-view={route.view}>
+      <div className="prototype-garage-atmosphere" aria-hidden="true" />
+      <div
+        className={`prototype-garage-veil${!isVehicle ? ' is-visible' : ''}`}
+        aria-hidden="true"
+      />
       <a
         className="prototype-skip-link"
         href="#prototype-main"
@@ -1900,35 +1931,32 @@ export default function PrototypeApp() {
         <button
           className="prototype-brand"
           onClick={() => navigate('ia')}
-          aria-label="Legislação Automotiva"
+          aria-label="nexo — início"
         >
-          <Icon name="car" size={26} />
-          <span>Legislação Automotiva</span>
+          <span>nexo</span>
         </button>
-        <nav className="prototype-nav" aria-label="Navegação principal">
-          {NAV.map(([id, label]) => (
-            <button
-              key={id}
-              onClick={() => {
-                if (id === 'ia') setAssistantContext(null);
-                navigate(id);
-              }}
-              aria-current={route.view === id ? 'page' : undefined}
-              className={route.view === id ? 'is-selected' : ''}
-            >
-              {label}
-            </button>
-          ))}
-        </nav>
-        <a
-          className="prototype-portal-link"
-          href="/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Abrir portal"
-        >
-          <Icon name="external" size={18} />
-        </a>
+        <div className="prototype-header-actions">
+          <button
+            className="prototype-header-profile"
+            onClick={() => {
+              setProfileRequest((value) => value + 1);
+              navigate('homologacao');
+            }}
+            aria-label="Editar perfil técnico"
+          >
+            <span>{profileLabel || 'Perfil técnico'}</span>
+            <Icon name="down" size={14} />
+          </button>
+          <a
+            className="prototype-portal-link"
+            href="/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Abrir portal"
+          >
+            <Icon name="external" size={18} />
+          </a>
+        </div>
       </header>
       <main id="prototype-main" tabIndex="-1">
         {loadError ? (
@@ -1945,7 +1973,7 @@ export default function PrototypeApp() {
           </div>
         ) : (
           <>
-            <section hidden={route.view !== 'ia'}>
+            <section className="prototype-ia-page" hidden={route.view !== 'ia'}>
               <AssistantView
                 profile={profile}
                 context={assistantContext}
@@ -1957,52 +1985,81 @@ export default function PrototypeApp() {
               />
             </section>
             <section
-              className="prototype-vehicle-page"
-              hidden={route.view !== 'veiculo'}
+              className={`prototype-vehicle-page${!isVehicle ? ' is-background' : ''}`}
+              hidden={!isVehicle && !viewerRequested}
+              aria-hidden={!isVehicle ? true : undefined}
+              inert={!isVehicle ? true : undefined}
               aria-label="Veículo"
             >
-              <div className="prototype-vehicle-studio">
-                <VehicleTools
-                  viewer={viewer}
-                  controls={controls}
-                  hasSelection={Boolean(assembly)}
-                />
-                <div
-                  className="prototype-viewport"
-                  ref={viewport}
-                  aria-label="Modelo 3D interativo do veículo"
-                />
-                <div className="prototype-vehicle-selection">
-                  <ComponentPicker
-                    catalog={catalog}
-                    parts={parts}
-                    route={route}
-                    onSelect={selectPart}
+              <div className="prototype-garage-workspace">
+                <div className="prototype-vehicle-studio">
+                  <VehicleTools
+                    viewer={viewer}
+                    controls={controls}
+                    hasSelection={Boolean(assembly)}
                   />
-                  {assembly && (
-                    <button
-                      className="prototype-icon-button"
-                      onClick={() => navigate('veiculo', { part: '', subsystem: '', node: '' })}
-                      aria-label="Limpar seleção"
+                  <div
+                    className="prototype-viewport"
+                    ref={viewport}
+                    aria-label="Modelo 3D interativo do veículo"
+                  />
+                  <div className="prototype-vehicle-selection">
+                    <ComponentPicker
+                      catalog={catalog}
+                      parts={parts}
+                      route={route}
+                      onSelect={selectPart}
+                      openRequest={componentPickerRequest}
+                    />
+                    {assembly && (
+                      <button
+                        className="prototype-icon-button"
+                        onClick={() => navigate('veiculo', { part: '', subsystem: '', node: '' })}
+                        aria-label="Limpar seleção"
+                      >
+                        <Icon name="close" size={16} />
+                      </button>
+                    )}
+                  </div>
+                  <label className="prototype-stage-explosion">
+                    <span>Separação</span>
+                    <input
+                      type="range"
+                      aria-label="Separação dos conjuntos"
+                      min="0"
+                      max="1"
+                      step=".01"
+                      value={controls.mode === 'assembled' ? 0 : controls.explosion}
+                      onChange={(event) => {
+                        if (controls.mode !== 'exploded') viewer.current?.setMode('exploded');
+                        viewer.current?.setExplosion(Number(event.target.value));
+                      }}
+                    />
+                    <span>
+                      {Math.round((controls.mode === 'assembled' ? 0 : controls.explosion) * 100)}%
+                    </span>
+                  </label>
+                  {!ready && !viewerError && (
+                    <div
+                      className="prototype-viewer-loading"
+                      role="status"
+                      aria-label="Carregando veículo"
                     >
-                      <Icon name="close" size={16} />
-                    </button>
+                      <span />
+                    </div>
+                  )}
+                  {viewerError && (
+                    <p className="prototype-viewer-error" role="status">
+                      {viewerError}
+                    </p>
                   )}
                 </div>
-                {!ready && !viewerError && (
-                  <div
-                    className="prototype-viewer-loading"
-                    role="status"
-                    aria-label="Carregando veículo"
-                  >
-                    <span />
-                  </div>
-                )}
-                {viewerError && (
-                  <p className="prototype-viewer-error" role="status">
-                    {viewerError}
-                  </p>
-                )}
+                <VehicleAssemblyMenu
+                  catalog={catalog}
+                  route={route}
+                  onSelect={selectPart}
+                  onBrowse={() => setComponentPickerRequest((value) => value + 1)}
+                />
               </div>
               <VehicleReferences
                 assembly={assembly}
@@ -2026,11 +2083,28 @@ export default function PrototypeApp() {
                 route={route}
                 onStage={(id) => navigate('homologacao', { stage: id, branch: '' })}
                 onAsk={askStage}
+                profileRequest={profileRequest}
               />
             )}
           </>
         )}
       </main>
+      <nav className="prototype-nav" aria-label="Navegação principal">
+        {NAV.map(([id, label]) => (
+          <button
+            key={id}
+            onClick={() => {
+              if (id === 'ia') setAssistantContext(null);
+              navigate(id);
+            }}
+            aria-current={route.view === id ? 'page' : undefined}
+            className={route.view === id ? 'is-selected' : ''}
+          >
+            <Icon name={id === 'ia' ? 'brain' : id === 'veiculo' ? 'car' : 'tree'} size={22} />
+            <span>{label}</span>
+          </button>
+        ))}
+      </nav>
       <footer className="prototype-footer">
         <details className="prototype-model-credits">
           <summary>Créditos</summary>

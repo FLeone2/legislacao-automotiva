@@ -2,6 +2,7 @@
 // the browser uses this module to offer clearly labelled source cards offline.
 const MAX_QUESTION = 600;
 const MAX_SOURCES = 6;
+const MAX_REPORT_SOURCES = 8;
 const SHORT_REGULATORY_LABELS = new Set([
   'lp',
   'lc',
@@ -108,11 +109,35 @@ const normalized = (value) =>
     .replace(/[\u0300-\u036f]/g, '')
     .toLowerCase();
 const wordRoot = (word) => word.replace(/^frenagem$/, 'freio').replace(/s$/, '');
+// A report-control number is part of the subject, not a stop word. Keep this
+// intent separate from MOVER performance levels and emission classifications.
+export function prototypeReportLevels(value) {
+  const subject = normalized(value);
+  if (
+    /\b(?:mover|eficiencia|energetica|emissoes|consumo)\b/.test(subject) &&
+    !/\b(?:relatorios?|comprovacao|controle|senatran|cat|seguranca|990)\b/.test(subject)
+  )
+    return [];
+  const levels = [];
+  for (const match of subject.matchAll(
+    /\bnive(?:l|is)\s*(?:de\s*(?:controle|comprovacao|relatorios?)\s*)?((?:[123]|iii|ii|i)(?:\s*(?:,|\/|e|ou|a|-)\s*(?:[123]|iii|ii|i)){0,2})\b/g,
+  )) {
+    for (const token of match[1].match(/\b(?:[123]|iii|ii|i)\b/g) || []) {
+      const number = { i: 1, ii: 2, iii: 3 }[token] || Number(token);
+      if (!levels.includes(number)) levels.push(number);
+    }
+  }
+  return levels;
+}
 export function prototypeQueryWords(value) {
+  const subject = normalized(value).replace(
+    /\bnivel\s*([123]|iii|ii|i)\b/g,
+    (_, level) => `nivel${{ i: 1, ii: 2, iii: 3 }[level] || level}`,
+  );
   return [
     ...new Set(
       (
-        normalized(value)
+        subject
           .replace(/\bftp[ -]*75\b/g, 'ftp75')
           .replace(/\bcost[ -]*down\b/g, 'coastdown')
           .match(/[a-z0-9]+/g) || []
@@ -120,7 +145,8 @@ export function prototypeQueryWords(value) {
         .filter(
           (word) => (word.length > 2 || SHORT_REGULATORY_LABELS.has(word)) && !STOP_WORDS.has(word),
         )
-        .map(wordRoot),
+        .map(wordRoot)
+        .concat(prototypeReportLevels(value).map((level) => `nivel${level}`)),
     ),
   ];
 }
@@ -176,6 +202,7 @@ export function retrievePrototypeSources(input, catalog) {
   const request = normalizePrototypeQuestion(input);
   const acts = list(catalog.acts).filter((act) => act?.id && act?.title);
   const actIds = new Set(acts.map((act) => act.id));
+  const canonicalId = (id) => catalog.sourceCanonicalIds?.get(id) || id;
   const references = [
     ...acts,
     ...list(catalog.sources).filter(
@@ -183,6 +210,7 @@ export function retrievePrototypeSources(input, catalog) {
         source?.id &&
         source?.title &&
         !actIds.has(source.id) &&
+        canonicalId(source.id) === source.id &&
         source.evidenceType !== 'editorial_candidate',
     ),
   ];
@@ -204,15 +232,23 @@ export function retrievePrototypeSources(input, catalog) {
   )
     throw new PrototypeQuestionError('O subsistema não corresponde ao conjunto selecionado.');
   const selected = subsystem || component;
-  let allowedIds = selected ? new Set(selected.actIds || []) : null;
+  let allowedIds = selected ? new Set((selected.actIds || []).map(canonicalId)) : null;
   if (stage) {
-    const stageIds = new Set([...(stage.actIds || []), ...(stage.sourceIds || [])]);
+    const stageIds = new Set(
+      [...(stage.actIds || []), ...(stage.sourceIds || [])].map(canonicalId),
+    );
     allowedIds = allowedIds ? new Set([...allowedIds].filter((id) => stageIds.has(id))) : stageIds;
     if (selected && stage.assemblyIds?.includes(component?.id || subsystem?.assemblyId)) {
-      for (const id of stage.sourceIds || []) allowedIds.add(id);
+      for (const id of stage.sourceIds || []) allowedIds.add(canonicalId(id));
     }
   }
   const queryWords = prototypeQueryWords(request.question);
+  const reportControls = prototypeReportLevels(request.question)
+    .map((level) => catalog.reportControlIndex?.get(level))
+    .filter(Boolean);
+  const reportAnchorIds = new Set(reportControls.flatMap((control) => control.anchorActIds));
+  const reportActIds = new Set(reportControls.flatMap((control) => control.actIds));
+  const reportActOrder = new Map([...reportActIds].map((id, index) => [id, index]));
   const contextReferences = [];
   for (const relation of selected?.relations || []) {
     for (const topic of relation.topics || []) {
@@ -233,14 +269,17 @@ export function retrievePrototypeSources(input, catalog) {
     // Identity is explicit: an existing source with the same canonical ID or
     // registered actIds may improve discovery, never create a new legal join.
     const sourceHints = list(catalog.sources).filter(
-      (source) => source.id === act.id || source.actIds?.includes(act.id),
+      (source) => canonicalId(source.id) === act.id || source.actIds?.includes(act.id),
     );
+    const reportScore = reportAnchorIds.has(act.id) ? 120 : reportActIds.has(act.id) ? 60 : 0;
     return {
       act,
       titleScore:
+        reportScore +
         scoreText(queryWords, `${act.id} ${act.title}`, 6) +
         scoreText(queryWords, sourceHints.map((source) => source.title).join(' '), 6),
       score:
+        reportScore +
         actScore(
           act,
           queryWords,
@@ -270,7 +309,12 @@ export function retrievePrototypeSources(input, catalog) {
   const clearlyDifferent = scored.filter(
     ({ titleScore, score }) => score >= 3 && (!stage || titleScore >= 6),
   );
-  if (
+  if (reportControls.length) {
+    // An explicitly requested report class is a transversal subject. Its exact
+    // editorial links are planning context, never an applicability decision.
+    ranked = scored.filter(({ act }) => reportActIds.has(act.id) || reportAnchorIds.has(act.id));
+    contextApplied = false;
+  } else if (
     allowedIds &&
     !selectionMatch &&
     bestScoped === 0 &&
@@ -284,8 +328,16 @@ export function retrievePrototypeSources(input, catalog) {
   } else if (!allowedIds) {
     ranked = scored.filter(({ score }) => score >= 3);
   }
-  ranked.sort((left, right) => right.score - left.score || left.act.id.localeCompare(right.act.id));
-  const sources = ranked.slice(0, MAX_SOURCES).map(({ act }) => sourceOf(act));
+  ranked.sort(
+    (left, right) =>
+      right.score - left.score ||
+      (reportActOrder.get(left.act.id) ?? Infinity) -
+        (reportActOrder.get(right.act.id) ?? Infinity) ||
+      left.act.id.localeCompare(right.act.id),
+  );
+  const sources = ranked
+    .slice(0, reportControls.length ? MAX_REPORT_SOURCES : MAX_SOURCES)
+    .map(({ act }) => sourceOf(act));
   const requirementIds = new Set(selected?.requirementIds || []);
   for (const relation of selected?.relations || []) {
     for (const topic of relation.topics || []) {
@@ -306,6 +358,23 @@ export function retrievePrototypeSources(input, catalog) {
       stageId: stage?.id || null,
       stageLabel: stage?.label || null,
       workflowGuide: stage?.workflowGuide || null,
+      reportControls: reportControls.map((control) => ({
+        kind: 'analyst_planning_not_legal_text',
+        level: control.level,
+        label: control.label,
+        basis: control.basis,
+        content: control.content,
+        items: control.items,
+        automaticApplicability: false,
+        indexedLinkCoverage: {
+          allLinksRetrieved: [...control.anchorActIds, ...control.actIds].every((id) =>
+            sources.some((source) => source.id === id),
+          ),
+          omittedSourceCount: [...control.anchorActIds, ...control.actIds].filter(
+            (id) => !sources.some((source) => source.id === id),
+          ).length,
+        },
+      })),
       applied: contextApplied,
       relation: 'consultation_context',
       references: contextApplied

@@ -2,6 +2,18 @@ import { prototypeQueryWords } from './assistant-retrieval.js';
 // A trusted projection used on the Worker and for the explicit local source
 // fallback. Browser evidence is never submitted to the Worker as authority.
 const list = (value) => (Array.isArray(value) ? value : Object.values(value || {}));
+const unique = (values) => [...new Set(values.filter(Boolean))];
+const documentUrl = (value) => {
+  try {
+    const url = new URL(value);
+    url.hash = '';
+    url.pathname = url.pathname.replace(/\/@@display-file\/file\/?$/, '').replace(/\/$/, '');
+    url.searchParams.sort();
+    return url.href;
+  } catch {
+    return null;
+  }
+};
 export function buildConsultationCatalog(catalog, workflow = {}, documents = {}) {
   const publishedIds = new Set(list(catalog.acts).map((act) => act.id));
   const indexed = list(documents.documents).filter(
@@ -54,6 +66,51 @@ export function buildConsultationCatalog(catalog, workflow = {}, documents = {})
       evidenceType: source.evidenceType || source.kind || previous.evidenceType || null,
     });
   }
+  // Only an explicitly identified copy of the same act document can share its
+  // result slot. A FAQ's actIds, thematic relationship or similar title is not
+  // document identity and must remain an independent source of guidance.
+  const sourceCanonicalIds = new Map();
+  const actsById = new Map(list(catalog.acts).map((act) => [act.id, act]));
+  for (const source of sourceMap.values()) {
+    if (!['official_original_text', 'official_act_targeted_review'].includes(source.evidenceType))
+      continue;
+    const id = source.actId || (source.actIds?.length === 1 ? source.actIds[0] : null);
+    const owner = actsById.get(id);
+    if (!owner) continue;
+    const candidate = documentUrl(source.url || source.officialUrl || source.sourceUrl);
+    const knownUrls = [
+      owner.officialUrl,
+      owner.pdfOfficialUrl,
+      ...indexed
+        .filter((document) => document.actId === id && document.primary !== false)
+        .flatMap((document) => [document.url, document.finalUrl]),
+    ]
+      .map(documentUrl)
+      .filter(Boolean);
+    if (candidate && knownUrls.includes(candidate)) sourceCanonicalIds.set(source.id, id);
+  }
+  const reportControlIndex = new Map();
+  const reportSource = sourceMap.get('guide-senatran-990');
+  const reportAnchorIds = actsById.has(reportSource?.actId) ? [reportSource.actId] : [];
+  for (const control of list(workflow.reportControls)) {
+    if (![1, 2, 3].includes(control.level) || !reportAnchorIds.length) continue;
+    const items = list(workflow.steps)
+      .flatMap((step) => list(step.tests))
+      .filter((test) => test.reportControlLevel === control.level)
+      .map((test) => ({
+        id: test.id,
+        label: test.label || test.title,
+        conditions: test.conditions,
+        actIds: unique(test.actIds || []).filter((id) => publishedIds.has(id)),
+        gaps: test.gaps,
+      }));
+    reportControlIndex.set(control.level, {
+      ...control,
+      anchorActIds: reportAnchorIds,
+      actIds: unique(items.flatMap((test) => test.actIds)),
+      items,
+    });
+  }
   for (const step of list(workflow.steps)) {
     for (const id of step.actIds || [])
       hints.set(id, [...(hints.get(id) || []), step.title || step.label || '']);
@@ -102,5 +159,7 @@ export function buildConsultationCatalog(catalog, workflow = {}, documents = {})
     documentWordIndex,
     documentWordFrequency,
     documentChunkIndex,
+    sourceCanonicalIds,
+    reportControlIndex,
   };
 }

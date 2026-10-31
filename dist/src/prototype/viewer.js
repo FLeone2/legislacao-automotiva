@@ -91,17 +91,7 @@ export function mountVehicleViewer(container, callbacks = {}) {
   const projected = new THREE.Vector3();
   const raycaster = new THREE.Raycaster();
   const pointer = new THREE.Vector2();
-  const lightDirection = new THREE.Vector3(-5, 8, 5).normalize();
-
-  function layoutDirection() {
-    return state.camera === 'top'
-      ? [0, 1, 0.001]
-      : state.camera === 'side'
-        ? [0.001, 0.11, 1]
-        : state.camera === 'front'
-          ? [-1, 0.16, 0.001]
-          : [-1, 0.78, 1.35];
-  }
+  const lightDirection = new THREE.Vector3(-4, 8, 4).normalize();
   function translation(item, amount) {
     const phases = explosionPhases(amount);
     return item.userData.overviewOffset
@@ -113,10 +103,7 @@ export function mountVehicleViewer(container, callbacks = {}) {
   function updateExplosionPlan() {
     if (!layoutRows.length) return;
     const detailAssemblyId = state.explosion > 0.65 ? state.selection.assemblyId : '';
-    const aspect = camera?.aspect || 1.5;
     const key = [
-      state.camera,
-      aspect < 1 ? 'portrait' : 'landscape',
       detailAssemblyId,
       detailAssemblyId ? state.selection.nodeId : '',
       detailAssemblyId ? state.isolated : false,
@@ -130,8 +117,6 @@ export function mountVehicleViewer(container, callbacks = {}) {
       planCache.set(
         key,
         createExplosionPlan(layoutRows, {
-          direction: layoutDirection(),
-          aspect: aspect < 1 ? 0.8 : 1.7,
           detailAssemblyId,
           nodeId: state.selection.nodeId,
           isolated: state.isolated,
@@ -182,6 +167,72 @@ export function mountVehicleViewer(container, callbacks = {}) {
       meshCount: partMeshes.length,
     }));
   }
+  function explosionDiagnostics() {
+    const assembledBounds = new THREE.Box3(),
+      actualBounds = new THREE.Box3();
+    const transforms = [];
+    root?.updateMatrixWorld(true);
+    for (const piece of pieces.values()) {
+      const members = piece.meshes.filter((item) => !item.userData.contextOccluder);
+      if (!members.length) continue;
+      const originBox = new THREE.Box3(),
+        currentBox = new THREE.Box3();
+      for (const item of members) {
+        originBox.union(item.userData.baseBounds);
+        const real = item.geometry.boundingBox.clone().applyMatrix4(item.matrixWorld);
+        currentBox.union(real);
+        if (item.visible) {
+          assembledBounds.union(item.userData.baseBounds);
+          actualBounds.union(real);
+        }
+      }
+      const origin = originBox.getCenter(new THREE.Vector3()),
+        current = currentBox.getCenter(new THREE.Vector3());
+      transforms.push({
+        nodeId: piece.nodeId,
+        assemblyId: piece.assemblyId,
+        section: piece.section,
+        origin: origin.toArray(),
+        current: current.toArray(),
+        offset: current.clone().sub(origin).toArray(),
+        visible: members.some((item) => item.visible),
+        meshCount: members.length,
+      });
+    }
+    const byId = new Map(transforms.map((piece) => [piece.nodeId, piece]));
+    const sets = (prefix) =>
+      (explosionPlan?.overview.units || [])
+        .filter((unit) => unit.id.startsWith(prefix))
+        .map((unit) => {
+          const members = unit.nodeIds.map((id) => byId.get(id)).filter(Boolean);
+          const first = members[0]?.offset || [0, 0, 0];
+          return {
+            corner: unit.id.slice(prefix.length),
+            nodeIds: members.map((piece) => piece.nodeId),
+            offset: [...first],
+            offsetSpread: Math.max(
+              0,
+              ...members.map((piece) =>
+                Math.hypot(...piece.offset.map((value, axis) => value - first[axis])),
+              ),
+            ),
+          };
+        });
+    const originalSize = assembledBounds.getSize(new THREE.Vector3()),
+      currentSize = actualBounds.getSize(new THREE.Vector3());
+    return {
+      coordinateFrame: 'vehicle',
+      assembledBounds: { min: assembledBounds.min.toArray(), max: assembledBounds.max.toArray() },
+      actualBounds: { min: actualBounds.min.toArray(), max: actualBounds.max.toArray() },
+      envelopeRatio: currentSize
+        .toArray()
+        .map((value, axis) => value / Math.max(0.001, originalSize.getComponent(axis))),
+      movedPieceCount: transforms.filter((piece) => Math.hypot(...piece.offset) > 0.0001).length,
+      pieces: transforms,
+      coherentWheels: sets('wheel-'),
+      brakeSets: sets('brake-'),
+    };
+  }
   function getState() {
     const result = {
       ...state,
@@ -207,6 +258,8 @@ export function mountVehicleViewer(container, callbacks = {}) {
     }
     if (canvas && root) {
       root.updateMatrixWorld(true);
+      result.explosionDiagnostics = explosionDiagnostics();
+      result.pieceTransforms = result.explosionDiagnostics.pieces;
       const width = container.clientWidth,
         height = container.clientHeight;
       result.pickPoints = [...pieces.values()]
@@ -412,7 +465,11 @@ export function mountVehicleViewer(container, callbacks = {}) {
     }
     return distance * 1.035;
   }
-  function fit({ immediate = false, selectionOnly = focused || state.isolated } = {}) {
+  function fit({
+    immediate = false,
+    selectionOnly = focused || state.isolated,
+    preserveOrientation = false,
+  } = {}) {
     if (!root || !container.clientWidth || !container.clientHeight) return;
     let bounds = visibleBounds(selectionOnly);
     if (bounds.box.isEmpty()) bounds = visibleBounds(false);
@@ -420,13 +477,15 @@ export function mountVehicleViewer(container, callbacks = {}) {
     hasFramedModel = true;
     const target = bounds.box.getCenter(new THREE.Vector3());
     const direction = (
-      state.camera === 'top'
-        ? new THREE.Vector3(0, 1, 0.001)
-        : state.camera === 'side'
-          ? new THREE.Vector3(0.001, 0.11, 1)
-          : state.camera === 'front'
-            ? new THREE.Vector3(-1, 0.16, 0.001)
-            : new THREE.Vector3(...(state.explosion > 0 ? [-1, 0.78, 1.35] : [-1, 0.44, 1]))
+      preserveOrientation && hasFramedModel
+        ? camera.position.clone().sub(controls.target)
+        : state.camera === 'top'
+          ? new THREE.Vector3(0, 1, 0.001)
+          : state.camera === 'side'
+            ? new THREE.Vector3(0.001, 0.11, 1)
+            : state.camera === 'front'
+              ? new THREE.Vector3(-1, 0.16, 0.001)
+              : new THREE.Vector3(-1, 0.44, 1.2)
     ).normalize();
     const distance = framingDistance(
       bounds.corners,
@@ -458,7 +517,6 @@ export function mountVehicleViewer(container, callbacks = {}) {
   function applyVisualState() {
     if (!root) return;
     updateExplosionPlan();
-    floor.material.opacity = state.explosion > 0 ? (state.isolated ? 0.105 : 0.075) : 0.16;
     const ids = selectionIds();
     const hasSelection = Boolean(state.selection.assemblyId || state.selection.nodeId);
     const internalSelection = pieces.get(state.selection.nodeId)?.section === 'engineInternal';
@@ -467,10 +525,7 @@ export function mountVehicleViewer(container, callbacks = {}) {
       pieces.get(state.selection.nodeId)?.section === 'tractionBattery';
     const reveal =
       state.mode === 'cutaway' ||
-      (hasSelection &&
-        INTERNAL_ASSEMBLIES.has(state.selection.assemblyId) &&
-        state.explosion === 0 &&
-        !state.isolated);
+      (hasSelection && INTERNAL_ASSEMBLIES.has(state.selection.assemblyId) && !state.isolated);
     meshes.forEach((item) => {
       const data = item.userData;
       const active = selected(item);
@@ -489,6 +544,7 @@ export function mountVehicleViewer(container, callbacks = {}) {
       const wheelShell =
         state.selection.assemblyId === 'brakes' &&
         state.explosion === 0 &&
+        !state.isolated &&
         data.partId === 'wheels';
       const shell =
         engineShell ||
@@ -500,9 +556,9 @@ export function mountVehicleViewer(container, callbacks = {}) {
         const original = data.materialStates[index];
         material.color?.copy(original.color);
         if (active)
-          material.color?.lerp(new THREE.Color(0xf26a32), data.mechanicalExample ? 0.08 : 0.13);
-        material.emissive?.copy(active ? new THREE.Color(0x8c3413) : original.emissive);
-        material.emissiveIntensity = active ? 0.09 : original.emissiveIntensity;
+          material.color?.lerp(new THREE.Color(0xffffff), data.mechanicalExample ? 0.055 : 0.1);
+        material.emissive?.copy(active ? new THREE.Color(0xcfd3d8) : original.emissive);
+        material.emissiveIntensity = active ? 0.055 : original.emissiveIntensity;
         const transparent = shell || original.transparent;
         if (material.transparent !== transparent) {
           material.transparent = transparent;
@@ -539,7 +595,7 @@ export function mountVehicleViewer(container, callbacks = {}) {
     focused = false;
     if (!assemblyId) state.isolated = false;
     applyVisualState();
-    if (state.isolated || state.explosion > 0.65) fit();
+    if (state.isolated || state.explosion > 0.65) fit({ preserveOrientation: true });
   }
   function setMode(mode) {
     if (destroyed || !['assembled', 'exploded', 'cutaway'].includes(mode)) return;
@@ -548,7 +604,7 @@ export function mountVehicleViewer(container, callbacks = {}) {
     state.explosion = mode === 'exploded' ? state.explosion || 0.65 : 0;
     focused = false;
     applyVisualState();
-    if (changed) fit();
+    if (changed) fit({ preserveOrientation: true });
     requestRender();
   }
   function setExplosion(value) {
@@ -558,7 +614,7 @@ export function mountVehicleViewer(container, callbacks = {}) {
     else if (state.mode === 'exploded') state.mode = 'assembled';
     focused = false;
     applyVisualState();
-    fit();
+    fit({ preserveOrientation: true });
     requestRender();
   }
   function setIsolated(value) {
@@ -566,7 +622,7 @@ export function mountVehicleViewer(container, callbacks = {}) {
     state.isolated = Boolean(value && (state.selection.assemblyId || state.selection.nodeId));
     focused = false;
     applyVisualState();
-    fit();
+    fit({ preserveOrientation: true });
   }
   function setCamera(value) {
     if (destroyed || !['perspective', 'side', 'top', 'front'].includes(value)) return;
@@ -579,7 +635,7 @@ export function mountVehicleViewer(container, callbacks = {}) {
   function focusSelection() {
     if (destroyed || !state.selection.assemblyId) return;
     focused = true;
-    fit({ selectionOnly: true });
+    fit({ selectionOnly: true, preserveOrientation: true });
   }
   function reset() {
     if (destroyed) return;
@@ -789,12 +845,12 @@ export function mountVehicleViewer(container, callbacks = {}) {
     });
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.08;
+    renderer.toneMappingExposure = 1.16;
     renderer.shadowMap.enabled = true;
     // Variance filtering gives the studio light an area-like soft penumbra.
     // PCFSoftShadowMap ignores DirectionalLight.shadow.radius.
     renderer.shadowMap.type = THREE.VSMShadowMap;
-    renderer.setClearColor(0xedf0f2, 0);
+    renderer.setClearColor(0x060709, 0);
     canvas = renderer.domElement;
     canvas.style.cssText =
       'display:block;width:100%;height:100%;touch-action:none;outline-offset:-4px';
@@ -807,6 +863,7 @@ export function mountVehicleViewer(container, callbacks = {}) {
     canvas.setAttribute('aria-keyshortcuts', 'ArrowLeft ArrowRight ArrowUp ArrowDown + - F Home');
     container.append(canvas);
     scene = new THREE.Scene();
+    scene.fog = new THREE.Fog(0x060709, 12, 36);
     camera = new THREE.PerspectiveCamera(35, 1, 0.015, 200);
     camera.position.set(-5, 3, 5);
     controls = new OrbitControls(camera, canvas);
@@ -818,11 +875,11 @@ export function mountVehicleViewer(container, callbacks = {}) {
     const studio = new RoomEnvironment();
     environment = pmrem.fromScene(studio, 0.055);
     scene.environment = environment.texture;
-    scene.environmentIntensity = 0.82;
+    scene.environmentIntensity = 0.68;
     studio.dispose();
     pmrem.dispose();
-    scene.add(new THREE.HemisphereLight(0xe4edff, 0x343a40, 1.16));
-    keyLight = new THREE.DirectionalLight(0xfff1e5, 2.4);
+    scene.add(new THREE.HemisphereLight(0xffffff, 0x16181b, 1.05));
+    keyLight = new THREE.DirectionalLight(0xffffff, 3.2);
     keyLight.castShadow = true;
     keyLight.position.set(-5, 8, 5);
     keyLight.shadow.mapSize.set(
@@ -834,12 +891,29 @@ export function mountVehicleViewer(container, callbacks = {}) {
     keyLight.shadow.radius = 7;
     keyLight.shadow.blurSamples = 8;
     scene.add(keyLight, keyLight.target);
-    const rim = new THREE.DirectionalLight(0xb3d7ff, 1.4);
+    const rim = new THREE.DirectionalLight(0xffffff, 2.05);
     rim.position.set(4, 3, -4);
     scene.add(rim);
+    const fill = new THREE.DirectionalLight(0xffffff, 0.65);
+    fill.position.set(-2, 2.2, -5);
+    scene.add(fill);
+    const pool = new THREE.SpotLight(0xffffff, 18, 24, Math.PI / 6, 0.85, 2);
+    pool.position.set(-3, 7, 3);
+    pool.target.position.set(0, 0.4, 0);
+    scene.add(pool, pool.target);
     floor = new THREE.Mesh(
       new THREE.PlaneGeometry(60, 60),
-      new THREE.ShadowMaterial({ opacity: 0.16 }),
+      new THREE.MeshPhysicalMaterial({
+        // The studio softboxes belong in the paint reflections, not as a
+        // giant pale rectangle reflected by the floor. Keep this near-black
+        // surface almost diffuse while retaining real contact shadows.
+        color: 0x020304,
+        roughness: 0.88,
+        metalness: 0,
+        clearcoat: 0,
+        specularIntensity: 0.035,
+        envMapIntensity: 0.012,
+      }),
     );
     floor.rotation.x = -Math.PI / 2;
     floor.receiveShadow = true;
@@ -966,11 +1040,11 @@ export function mountVehicleViewer(container, callbacks = {}) {
             // Metallic automotive paint has a diffuse body under its clearcoat;
             // reducing mirror-like reflection makes the CAD panels read as paint.
             if (modelIndex === 0 && /_Paint$/i.test(material.name)) {
-              material.metalness = 0.57;
-              material.roughness = 0.31;
-              material.clearcoat = 0.85;
-              material.clearcoatRoughness = 0.21;
-              material.envMapIntensity = 1.05;
+              material.metalness = 0.6;
+              material.roughness = 0.25;
+              material.clearcoat = 1;
+              material.clearcoatRoughness = 0.17;
+              material.envMapIntensity = 1.1;
             }
             Object.values(material).forEach((value) => {
               if (value?.isTexture)
