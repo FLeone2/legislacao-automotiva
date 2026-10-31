@@ -12,7 +12,7 @@ export const AI_TIMEOUT_MS = 12_000;
 const MAX_BODY_BYTES = 8_192;
 const LIMITATION =
   'Esta consulta não é parecer jurídico. Confirme vigência, aplicabilidade e lacunas na fonte oficial.';
-const SYSTEM_PROMPT = `Você auxilia consultas à legislação automotiva brasileira. Responda em português simples, em um ou dois parágrafos curtos, somando no máximo 110 palavras.
+const SYSTEM_PROMPT = `Você auxilia consultas à legislação automotiva brasileira. Responda em português simples, em até três parágrafos curtos, somando no máximo 110 palavras.
 Use SOMENTE as fontes e os trechos de dados enviados pelo servidor. Retorne SOMENTE JSON no formato {"paragraphs":[{"text":"texto curto","sourceIds":["ID exato da fonte"]}]}.
 Cada parágrafo deve indicar em sourceIds os IDs exatos que fundamentam suas afirmações. Para explicar um serviço, use o ID da orientação oficial e identifique sua natureza. O servidor acrescentará as citações e o aviso jurídico; não escreva colchetes, citações, URLs, HTML ou esse aviso dentro de text. Nunca invente fontes, artigos, limites, datas ou dispensas.
 Resumo da ficha é referência de catálogo, não texto do ato. Orientação oficial ou FAQ não é trecho normativo. Preserve publicação, situação jurídica, profundidade de revisão, aplicabilidade, lacunas e candidatos pendentes como dimensões independentes; nulo significa desconhecido.
@@ -92,7 +92,7 @@ export function prototypeAnswerSchema(sources) {
       paragraphs: {
         type: 'array',
         minItems: 1,
-        maxItems: 2,
+        maxItems: 3,
         items: {
           type: 'object',
           properties: {
@@ -232,7 +232,7 @@ export function inspectPrototypeAnswer(result, sources) {
     Object.keys(payload).some((key) => key !== 'paragraphs') ||
     !Array.isArray(payload.paragraphs) ||
     payload.paragraphs.length < 1 ||
-    payload.paragraphs.length > 2
+    payload.paragraphs.length > 3
   )
     return reject('invalid_structure');
   const sourceMap = new Map(sources.map((source) => [source.id, source]));

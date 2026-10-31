@@ -258,6 +258,12 @@ test('guided JSON validates each paragraph source ID and renders canonical citat
   };
   const expected = validatePrototypeAnswer(JSON.stringify(payload), sources);
   assert.ok(expected);
+  assert.ok(
+    validatePrototypeAnswer(
+      { paragraphs: [...payload.paragraphs, payload.paragraphs[0]] },
+      sources,
+    ),
+  );
   assert.equal(expected.answer.split(/\n\s*\n/).length, 3);
   assert.match(expected.answer, /\[brake-act\]/);
   assert.match(expected.answer, /não é parecer jurídico/);
@@ -290,7 +296,7 @@ test('guided JSON validates each paragraph source ID and renders canonical citat
       'inline_citation',
     ],
     [{ ...payload, ignoredClaim: 'Não pode ser descartada.' }, 'invalid_structure'],
-    [{ paragraphs: [...payload.paragraphs, payload.paragraphs[0]] }, 'invalid_structure'],
+    [{ paragraphs: [...payload.paragraphs, ...payload.paragraphs] }, 'invalid_structure'],
     [`${JSON.stringify(payload)}\nAfirmação adicional sem fonte.`, 'invalid_json'],
     [{ response: '' }, 'empty_response'],
   ]) {
