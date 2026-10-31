@@ -1,0 +1,4212 @@
+{
+  "schemaVersion": 1,
+  "kind": "editorial_workflow_projection",
+  "asOf": "2026-10-31",
+  "scope": "Planejamento de identificação, segurança, certificação de componentes, CAT/SISCAT e cruzamento MDIC. Leitura dirigida; não é consolidação ou aprovação do veículo.",
+  "knowledgeRevision": "1a6eb46277472c906bd5e3d552709e526f83194e3e1ed54a58f6fe8048006b97",
+  "automaticApplicability": false,
+  "steps": [
+    {
+      "id": "sa-01-identity",
+      "title": "Fixar a configuração",
+      "label": "Fixar a configuração",
+      "order": 20,
+      "lane": "seguranca",
+      "status": "conditional",
+      "conditions": {
+        "requiresAssessment": true
+      },
+      "dependencies": [],
+      "inputs": [
+        "Categoria e tipo brasileiro do veículo; PBT/PBTC/CMT, massa em ordem de marcha e lotação.",
+        "Ano/modelo, data de homologação/fabricação, origem, uso, propulsão e combustível.",
+        "Projeto, versão, variantes e estágio: completo, incompleto, encarroçado ou transformado."
+      ],
+      "actions": [
+        "Manter uma ficha mestre comum ao laboratório, ao pedido ambiental e ao dossiê CAT.",
+        "Registrar WMI/VIN/VIS e o esquema de identificação; listar séries individuais quando a hipótese exigir.",
+        "Documentar diferenças entre a amostra ensaiada e cada versão a comercializar."
+      ],
+      "preconditioning": [],
+      "tests": [],
+      "results": [
+        "Configuração identificada e lista controlada de variantes."
+      ],
+      "documents": [
+        "Anexo III: identificação, marca/modelo/versão, fotos e desenho/fotos das gravações.",
+        "Anexo IV: massas/dimensões, eixos, carroçaria, lotação, motor, transmissão, suspensão, direção, freios, pneus, retrovisores, cintos, iluminação e vidros."
+      ],
+      "handover": [
+        "Matriz de segurança e definição das amostras de ensaio."
+      ],
+      "actIds": [
+        "senatran-095",
+        "contran-968-2022"
+      ],
+      "sourceIds": [
+        "guide-senatran-990"
+      ],
+      "sources": [
+        {
+          "sourceId": "guide-senatran-990",
+          "actId": "senatran-095",
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+          "kind": "official_act_targeted_review",
+          "reviewDepth": "directed_reading_only",
+          "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+          "checkedAt": "2026-10-31",
+          "device": "Anexos III e IV; art. 16"
+        }
+      ],
+      "limitations": [
+        "Roteiro de análise. A revisão dirigida não comprova a cadeia integral de alterações ou a incidência de todo item no veículo."
+      ],
+      "gaps": [
+        "A ficha do veículo é entrada declarada do projeto; o desenho 3D não determina categoria, LP/LC, dimensões ou configuração homologada."
+      ],
+      "automaticObligation": false
+    },
+    {
+      "id": "sa-02-matrix",
+      "title": "Definir os itens de segurança",
+      "label": "Definir os itens de segurança",
+      "order": 30,
+      "lane": "seguranca",
+      "status": "conditional",
+      "conditions": {
+        "requiresAssessment": true
+      },
+      "dependencies": [
+        "sa-01-identity"
+      ],
+      "inputs": [
+        "Configuração mestre e datas relevantes."
+      ],
+      "actions": [
+        "Selecionar grupo e coluna do Anexo XI por PBT e tipo brasileiro.",
+        "Relacionar cada item ao ato atual, às suas alterações, ao cronograma, às exceções e ao método admitido.",
+        "Classificar a comprovação em controle 1,2 ou3. Não interpretar esses números como fases cronológicas ou nível tecnológico MOVER.",
+        "Conservar como históricas as referências antigas da tabela; os55atos excluídos não são reativados."
+      ],
+      "preconditioning": [],
+      "tests": [
+        {
+          "id": "sa-brakes",
+          "label": "Frenagem e ABS",
+          "reportControlLevel": 2,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario",
+              "micro-onibus"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-915-2022"
+          ],
+          "methodRefs": [
+            "v-cf1745bf33b468",
+            "v-cdde1d9686cc21",
+            "v-199d614dc6b2e2",
+            "v-2e391301e34b00",
+            "v-62370f70eb7629",
+            "v-ac4de8338258c3",
+            "v-6cc1826910879c",
+            "v-3cb63c7528e5d1"
+          ],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.3"
+            },
+            {
+              "actId": "contran-915-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9152022.pdf",
+              "device": "Arts. 4º–9º",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_provisions_only",
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-18",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-esc",
+          "label": "Controle eletrônico de estabilidade",
+          "reportControlLevel": 2,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario",
+              "micro-onibus"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-954-2022",
+            "senatran-097"
+          ],
+          "methodRefs": [
+            "v-a77317f969a9d4"
+          ],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.3"
+            },
+            {
+              "actId": "contran-954-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9542022.pdf",
+              "device": "Arts. 1º–7º; art. 4º para rotas de ensaio",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_provisions_only",
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-19",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            },
+            {
+              "actId": "senatran-097",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/deliberacoes/Deliberacao2642022.pdf/@@display-file/file",
+              "device": "Dispositivo e escopo do item a conferir no ato de produto.",
+              "kind": "catalog_reference",
+              "reviewDepth": null,
+              "legalStatus": null,
+              "reviewStatus": null,
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [
+            "wf-un-r13h",
+            "wf-un-r13",
+            "wf-un-r140",
+            "wf-us-fmvss126"
+          ],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-lighting",
+          "label": "Iluminação e sinalização",
+          "reportControlLevel": 2,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario",
+              "micro-onibus"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-970-2022",
+            "contran-1024-2026"
+          ],
+          "methodRefs": [],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.3"
+            },
+            {
+              "actId": "contran-970-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao9702022.pdf",
+              "device": "Art. 14 e anexos por dispositivo de iluminação",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_provisions_only",
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-18",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            },
+            {
+              "actId": "contran-1024-2026",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao10242026c.pdf",
+              "device": "Dispositivo e escopo do item a conferir no ato de produto.",
+              "kind": "catalog_reference",
+              "reviewDepth": null,
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-18",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [
+            "wf-un-lighting-unspecified"
+          ],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-mirrors",
+          "label": "Retrovisores",
+          "reportControlLevel": 2,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario",
+              "micro-onibus"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-966-2022",
+            "contran-924-2022"
+          ],
+          "methodRefs": [],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.3"
+            },
+            {
+              "actId": "contran-966-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9662022.pdf",
+              "device": "Dispositivo e escopo do item a conferir no ato de produto.",
+              "kind": "catalog_reference",
+              "reviewDepth": null,
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-18",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            },
+            {
+              "actId": "contran-924-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9242022.pdf",
+              "device": "Dispositivo e escopo do item a conferir no ato de produto.",
+              "kind": "catalog_reference",
+              "reviewDepth": null,
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-18",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-glass",
+          "label": "Vidros de segurança",
+          "reportControlLevel": 2,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario",
+              "micro-onibus"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-960-2022",
+            "contran-989-2022"
+          ],
+          "methodRefs": [
+            "v-6c7b2c92248420",
+            "v-7f7a7a4679c5a4",
+            "v-b1673face32355"
+          ],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.3"
+            },
+            {
+              "actId": "contran-960-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9602022.pdf",
+              "device": "Dispositivo e escopo do item a conferir no ato de produto.",
+              "kind": "catalog_reference",
+              "reviewDepth": null,
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-18",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            },
+            {
+              "actId": "contran-989-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9892022.pdf",
+              "device": "Dispositivo e escopo do item a conferir no ato de produto.",
+              "kind": "catalog_reference",
+              "reviewDepth": null,
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-18",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-doors",
+          "label": "Fechaduras e dobradiças",
+          "reportControlLevel": 2,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-885-2021"
+          ],
+          "methodRefs": [],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.3"
+            },
+            {
+              "actId": "contran-885-2021",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8852021.pdf",
+              "device": "Dispositivo e escopo do item a conferir no ato de produto.",
+              "kind": "catalog_reference",
+              "reviewDepth": null,
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-18",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-power-windows",
+          "label": "Janelas de acionamento energizado",
+          "reportControlLevel": 2,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario",
+              "micro-onibus"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-908-2022"
+          ],
+          "methodRefs": [
+            "v-de8af9c53a359b",
+            "v-250c70cdaba02f",
+            "v-503791b0de6e9b",
+            "v-5918a4e3c24179"
+          ],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.3"
+            },
+            {
+              "actId": "contran-908-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9082022.pdf",
+              "device": "Dispositivo e escopo do item a conferir no ato de produto.",
+              "kind": "catalog_reference",
+              "reviewDepth": null,
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-18",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-spare",
+          "label": "Roda/pneu temporário e sistemas alternativos",
+          "reportControlLevel": 2,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-913-2022"
+          ],
+          "methodRefs": [
+            "v-fbc14167cffcb1"
+          ],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.3"
+            },
+            {
+              "actId": "contran-913-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9132022.pdf",
+              "device": "Dispositivo e escopo do item a conferir no ato de produto.",
+              "kind": "catalog_reference",
+              "reviewDepth": null,
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-18",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-rear-alert",
+          "label": "Alerta ou monitoramento traseiro",
+          "reportControlLevel": 2,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-759-2018"
+          ],
+          "methodRefs": [
+            "v-73e0fae2a1f0bd",
+            "v-c9d89b3ae79110"
+          ],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.3"
+            },
+            {
+              "actId": "contran-759-2018",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7592018.pdf",
+              "device": "Dispositivo e escopo do item a conferir no ato de produto.",
+              "kind": "catalog_reference",
+              "reviewDepth": null,
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-19",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-belt-alert",
+          "label": "Aviso de afivelamento",
+          "reportControlLevel": 2,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario",
+              "micro-onibus"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-936-2022"
+          ],
+          "methodRefs": [],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.3"
+            },
+            {
+              "actId": "contran-936-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9362022.pdf",
+              "device": "Dispositivo e escopo do item a conferir no ato de produto.",
+              "kind": "catalog_reference",
+              "reviewDepth": null,
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-18",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-side-barrier",
+          "label": "Impacto lateral contra barreira",
+          "reportControlLevel": 3,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-949-2022"
+          ],
+          "methodRefs": [
+            "v-de187b12bf3abb",
+            "v-74e84a63ee8492"
+          ],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.5"
+            },
+            {
+              "actId": "contran-949-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9492022.pdf",
+              "device": "Arts. 2º–5º e anexos; conferir retificação",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_provisions_only",
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-19",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [
+            "wf-un-lateral-unspecified"
+          ],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-side-pole",
+          "label": "Impacto lateral em poste",
+          "reportControlLevel": 3,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-949-2022"
+          ],
+          "methodRefs": [
+            "v-de187b12bf3abb",
+            "v-74e84a63ee8492"
+          ],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.5"
+            },
+            {
+              "actId": "contran-949-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9492022.pdf",
+              "device": "Arts. 2º–5º e anexos; conferir retificação",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_provisions_only",
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-19",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [
+            "wf-un-r135",
+            "wf-us-fmvss214"
+          ],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-frontal",
+          "label": "Proteção biomecânica do ocupante e integridade do combustível",
+          "reportControlLevel": 3,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "utilitario"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-910-2022"
+          ],
+          "methodRefs": [
+            "v-03794c9faad9b1",
+            "v-1a117e6db970c6",
+            "v-3ed394f008841e",
+            "v-b63f917f97f282",
+            "v-08a295cfbb89dd",
+            "v-181146b3281915",
+            "v-5e1a355f361dd3",
+            "v-17a66b57b043a7",
+            "v-f0093db9324f8a",
+            "v-7076b6b7f3a32e",
+            "v-dc16e4480d240a",
+            "v-bd4d965715e7d2",
+            "v-f3a34f98b88240"
+          ],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.5"
+            },
+            {
+              "actId": "contran-910-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9102022.pdf",
+              "device": "Arts. 4º–7º e11; arts. 2º–3º são rota histórica com término em31/12/2025",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_provisions_only",
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-19",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [
+            "wf-un-r32",
+            "wf-un-r34",
+            "wf-un-r94",
+            "wf-us-fmvss203208301"
+          ],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não reutilizar como método atual as NBRs dos arts. 2º/3º do ato cuja vigência termina em31/12/2025; a rota dos arts. 4º–6º/anexos tem regime próprio.",
+            "Confirmar escopo por tipo e sistema: a tabela de combustível e a de proteção biomecânica não possuem necessariamente as mesmas colunas."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-restraints",
+          "label": "Cintos, ancoragens, apoios e retenção infantil",
+          "reportControlLevel": 3,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario",
+              "micro-onibus"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-951-2022",
+            "contran-997-2023"
+          ],
+          "methodRefs": [
+            "v-3a2a082403fe93",
+            "v-b540a740bc89bc",
+            "v-2ab3c1390d72b1",
+            "v-9197d1a1b6c6ca"
+          ],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.5"
+            },
+            {
+              "actId": "contran-951-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9512022.pdf",
+              "device": "Dispositivo e escopo do item a conferir no ato de produto.",
+              "kind": "catalog_reference",
+              "reviewDepth": null,
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-19",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            },
+            {
+              "actId": "contran-997-2023",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9972023.pdf",
+              "device": "Art. 2º, redação dos itens3.5.1–3.5.3 do Anexo da Resolução 951/2022",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_provisions_only",
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-19",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [
+            "wf-un-r16-06",
+            "wf-un-r14-07",
+            "wf-un-r145",
+            "wf-un-r44-04",
+            "wf-un-r17-07"
+          ],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-pedestrian",
+          "label": "Proteção ao pedestre",
+          "reportControlLevel": 3,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-752-2018"
+          ],
+          "methodRefs": [
+            "v-f51da113a2c770"
+          ],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.5"
+            },
+            {
+              "actId": "contran-752-2018",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7522018.pdf",
+              "device": "Dispositivo e escopo do item a conferir no ato de produto.",
+              "kind": "catalog_reference",
+              "reviewDepth": null,
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-19",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-electric",
+          "label": "Segurança de propulsão híbrida/elétrica",
+          "reportControlLevel": 3,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario",
+              "micro-onibus"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ],
+            "propulsion": [
+              "hev",
+              "phev",
+              "bev"
+            ]
+          },
+          "actIds": [
+            "contran-749-2018"
+          ],
+          "methodRefs": [],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.5"
+            },
+            {
+              "actId": "contran-749-2018",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7492018.pdf",
+              "device": "Arts. 1º–3º",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_provisions_only",
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-18",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [
+            "wf-un-r100",
+            "wf-749-un-r94",
+            "wf-un-r95",
+            "wf-us-fmvss305"
+          ],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        }
+      ],
+      "results": [
+        "Matriz item→condição→ato/dispositivo→método→amostra→laboratório→evidência."
+      ],
+      "documents": [
+        "Lista de aplicabilidade assinada pelo analista, com justificativas de não aplicação e lacunas."
+      ],
+      "handover": [
+        "Contrato de ensaios e documentação das declarações."
+      ],
+      "actIds": [
+        "senatran-095"
+      ],
+      "sourceIds": [
+        "guide-senatran-990"
+      ],
+      "sources": [
+        {
+          "sourceId": "guide-senatran-990",
+          "actId": "senatran-095",
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+          "kind": "official_act_targeted_review",
+          "reviewDepth": "directed_reading_only",
+          "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+          "checkedAt": "2026-10-31",
+          "device": "Anexo XI, grupos1–4 e itens1.2/1.4/1.6/2.4/2.6"
+        }
+      ],
+      "limitations": [
+        "Roteiro de análise. A revisão dirigida não comprova a cadeia integral de alterações ou a incidência de todo item no veículo."
+      ],
+      "gaps": [
+        "PBT de 3.500 kgdessa tabela não equivale ao limite de 3.856 kgde classificação ambiental.",
+        "Uma marcaX no Anexo XI não dispensa ler o escopo e o cronograma do ato de produto."
+      ],
+      "automaticObligation": false
+    },
+    {
+      "id": "sa-03-laboratory",
+      "title": "Definir laboratório e método",
+      "label": "Definir laboratório e método",
+      "order": 35,
+      "lane": "seguranca",
+      "status": "conditional",
+      "conditions": {
+        "requiresAssessment": true
+      },
+      "dependencies": [
+        "sa-02-matrix"
+      ],
+      "inputs": [
+        "Matriz de aplicabilidade, amostras/variantes e métodos selecionados."
+      ],
+      "actions": [
+        "Confirmar competência, escopo de acreditação e rastreabilidade do laboratório para os ensaios contratados.",
+        "Para controle 2, preparar declaração do sistema de gestão que controla as operações do laboratório.",
+        "Para controle 3, reunir comprovação de terceira parte do sistema de gestão e verificar acompanhamento SENATRAN/INMETRO; ensaio em laboratório acreditado por órgão signatário ILAC dispensa esse acompanhamento nos termos indicados.",
+        "Se houver acompanhamento, combinar o cronograma com o órgão e registrar a hipótese de execução; o procedimento pode interagir com o protocolo e não constitui uma sequência universal de testes após LCVM."
+      ],
+      "preconditioning": [
+        "Obter do laboratório o procedimento autorizado para amostra, montagem, preparação, instrumentos e condições ambientais de cada método."
+      ],
+      "tests": [],
+      "results": [
+        "Plano de ensaio aprovado internamente e responsabilidades/laboratórios definidos."
+      ],
+      "documents": [
+        "Escopo de acreditação, declaração/comprovação de SGQ e programação de acompanhamento quando necessária."
+      ],
+      "handover": [
+        "Execução das avaliações e relatórios."
+      ],
+      "actIds": [
+        "senatran-095"
+      ],
+      "sourceIds": [
+        "guide-senatran-990"
+      ],
+      "sources": [
+        {
+          "sourceId": "guide-senatran-990",
+          "actId": "senatran-095",
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+          "kind": "official_act_targeted_review",
+          "reviewDepth": "directed_reading_only",
+          "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+          "checkedAt": "2026-10-31",
+          "device": "Art. 9º e22; Anexo XI, 1.4/1.6 e2.4/2.6"
+        }
+      ],
+      "limitations": [
+        "Roteiro de análise. A revisão dirigida não comprova a cadeia integral de alterações ou a incidência de todo item no veículo."
+      ],
+      "gaps": [
+        "Não se exige acreditação universal de todo laboratório a partir do mero número do nível.",
+        "A íntegra privada de métodos ABNT não foi reproduzida; tempos, ciclos e critérios específicos permanecem a conferir."
+      ],
+      "automaticObligation": false
+    },
+    {
+      "id": "sa-04-level1",
+      "title": "Preparar as declarações",
+      "label": "Preparar as declarações",
+      "order": 40,
+      "lane": "seguranca",
+      "status": "conditional",
+      "conditions": {
+        "requiresAssessment": true
+      },
+      "dependencies": [
+        "sa-02-matrix"
+      ],
+      "inputs": [
+        "Itens de controle 1 aplicáveis e documentação técnica de suporte."
+      ],
+      "actions": [
+        "Reunir documentação que sustente cada declaração de conformidade.",
+        "Usar a rota ABNT NBR ISO/IEC 17050-1 e17050-2 citada pelo Anexo XI, sem inventar edição ausente.",
+        "Conferir identificação/VIN, controles, buzina, antifurto, equipamentos e inflamabilidade conforme tipo e atos pertinentes."
+      ],
+      "preconditioning": [],
+      "tests": [],
+      "results": [
+        "Declarações de conformidade vinculadas à configuração e aos registros de suporte."
+      ],
+      "documents": [
+        "Declarações do fornecedor e documentação de suporte; itens da tabela de controle 1 efetivamente pertinentes."
+      ],
+      "handover": [
+        "Dossiê de evidências para emissão do Certificado de Segurança."
+      ],
+      "actIds": [
+        "senatran-095",
+        "contran-968-2022",
+        "contran-969-2022",
+        "contran-498-2014",
+        "contran-993-2023"
+      ],
+      "sourceIds": [
+        "guide-senatran-990"
+      ],
+      "sources": [
+        {
+          "sourceId": "guide-senatran-990",
+          "actId": "senatran-095",
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+          "kind": "official_act_targeted_review",
+          "reviewDepth": "directed_reading_only",
+          "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+          "checkedAt": "2026-10-31",
+          "device": "Anexo XI, 1.1–1.2;2.1–2.2;3.1–3.2;4.1–4.2"
+        }
+      ],
+      "limitations": [
+        "Roteiro de análise. A revisão dirigida não comprova a cadeia integral de alterações ou a incidência de todo item no veículo."
+      ],
+      "gaps": [
+        "Autodeclaração não significa ausência de comprovação, projeto ou ensaios previstos no ato do item.",
+        "As referências adicionais são contexto documental dos itens; não resolvem automaticamente as remissões antigas do Anexo XI nem tornam todos os seus requisitos aplicáveis."
+      ],
+      "automaticObligation": false,
+      "methodReferences": [
+        {
+          "designation": "ABNT NBR ISO/IEC 17050-1",
+          "edition": null,
+          "relation": "explicit_normative_reference",
+          "sourceActId": "senatran-095",
+          "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+          "device": "Anexo XI, 1.2 e grupos correspondentes",
+          "fullTextConsulted": false
+        },
+        {
+          "designation": "ABNT NBR ISO/IEC 17050-2",
+          "edition": null,
+          "relation": "explicit_normative_reference",
+          "sourceActId": "senatran-095",
+          "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+          "device": "Anexo XI, 1.2 e grupos correspondentes",
+          "fullTextConsulted": false
+        }
+      ]
+    },
+    {
+      "id": "sa-05-active",
+      "title": "Executar os ensaios de segurança ativa",
+      "label": "Executar os ensaios de segurança ativa",
+      "order": 45,
+      "lane": "seguranca",
+      "status": "conditional",
+      "conditions": {
+        "requiresAssessment": true
+      },
+      "dependencies": [
+        "sa-03-laboratory"
+      ],
+      "inputs": [
+        "Amostras identificadas, métodos, cronogramas e laboratório definidos."
+      ],
+      "actions": [
+        "Executar somente os ensaios pertinentes à configuração e à versão normativa definida na matriz.",
+        "Relacionar os relatórios e identificar o laboratório em cada linha correspondente do Anexo XI.",
+        "Auditar conteúdo dos relatórios, resultados, fotos/filmagens e eventuais não conformidades."
+      ],
+      "preconditioning": [
+        "Conferir preparação e critérios de validade segundo o método selecionado para cada item."
+      ],
+      "tests": [
+        {
+          "id": "sa-brakes",
+          "label": "Frenagem e ABS",
+          "reportControlLevel": 2,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario",
+              "micro-onibus"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-915-2022"
+          ],
+          "methodRefs": [
+            "v-cf1745bf33b468",
+            "v-cdde1d9686cc21",
+            "v-199d614dc6b2e2",
+            "v-2e391301e34b00",
+            "v-62370f70eb7629",
+            "v-ac4de8338258c3",
+            "v-6cc1826910879c",
+            "v-3cb63c7528e5d1"
+          ],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.3"
+            },
+            {
+              "actId": "contran-915-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9152022.pdf",
+              "device": "Arts. 4º–9º",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_provisions_only",
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-18",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-esc",
+          "label": "Controle eletrônico de estabilidade",
+          "reportControlLevel": 2,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario",
+              "micro-onibus"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-954-2022",
+            "senatran-097"
+          ],
+          "methodRefs": [
+            "v-a77317f969a9d4"
+          ],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.3"
+            },
+            {
+              "actId": "contran-954-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9542022.pdf",
+              "device": "Arts. 1º–7º; art. 4º para rotas de ensaio",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_provisions_only",
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-19",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            },
+            {
+              "actId": "senatran-097",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/deliberacoes/Deliberacao2642022.pdf/@@display-file/file",
+              "device": "Dispositivo e escopo do item a conferir no ato de produto.",
+              "kind": "catalog_reference",
+              "reviewDepth": null,
+              "legalStatus": null,
+              "reviewStatus": null,
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [
+            "wf-un-r13h",
+            "wf-un-r13",
+            "wf-un-r140",
+            "wf-us-fmvss126"
+          ],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-lighting",
+          "label": "Iluminação e sinalização",
+          "reportControlLevel": 2,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario",
+              "micro-onibus"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-970-2022",
+            "contran-1024-2026"
+          ],
+          "methodRefs": [],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.3"
+            },
+            {
+              "actId": "contran-970-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao9702022.pdf",
+              "device": "Art. 14 e anexos por dispositivo de iluminação",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_provisions_only",
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-18",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            },
+            {
+              "actId": "contran-1024-2026",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao10242026c.pdf",
+              "device": "Dispositivo e escopo do item a conferir no ato de produto.",
+              "kind": "catalog_reference",
+              "reviewDepth": null,
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-18",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [
+            "wf-un-lighting-unspecified"
+          ],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-mirrors",
+          "label": "Retrovisores",
+          "reportControlLevel": 2,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario",
+              "micro-onibus"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-966-2022",
+            "contran-924-2022"
+          ],
+          "methodRefs": [],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.3"
+            },
+            {
+              "actId": "contran-966-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9662022.pdf",
+              "device": "Dispositivo e escopo do item a conferir no ato de produto.",
+              "kind": "catalog_reference",
+              "reviewDepth": null,
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-18",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            },
+            {
+              "actId": "contran-924-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9242022.pdf",
+              "device": "Dispositivo e escopo do item a conferir no ato de produto.",
+              "kind": "catalog_reference",
+              "reviewDepth": null,
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-18",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-glass",
+          "label": "Vidros de segurança",
+          "reportControlLevel": 2,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario",
+              "micro-onibus"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-960-2022",
+            "contran-989-2022"
+          ],
+          "methodRefs": [
+            "v-6c7b2c92248420",
+            "v-7f7a7a4679c5a4",
+            "v-b1673face32355"
+          ],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.3"
+            },
+            {
+              "actId": "contran-960-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9602022.pdf",
+              "device": "Dispositivo e escopo do item a conferir no ato de produto.",
+              "kind": "catalog_reference",
+              "reviewDepth": null,
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-18",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            },
+            {
+              "actId": "contran-989-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9892022.pdf",
+              "device": "Dispositivo e escopo do item a conferir no ato de produto.",
+              "kind": "catalog_reference",
+              "reviewDepth": null,
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-18",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-doors",
+          "label": "Fechaduras e dobradiças",
+          "reportControlLevel": 2,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-885-2021"
+          ],
+          "methodRefs": [],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.3"
+            },
+            {
+              "actId": "contran-885-2021",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8852021.pdf",
+              "device": "Dispositivo e escopo do item a conferir no ato de produto.",
+              "kind": "catalog_reference",
+              "reviewDepth": null,
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-18",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-power-windows",
+          "label": "Janelas de acionamento energizado",
+          "reportControlLevel": 2,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario",
+              "micro-onibus"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-908-2022"
+          ],
+          "methodRefs": [
+            "v-de8af9c53a359b",
+            "v-250c70cdaba02f",
+            "v-503791b0de6e9b",
+            "v-5918a4e3c24179"
+          ],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.3"
+            },
+            {
+              "actId": "contran-908-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9082022.pdf",
+              "device": "Dispositivo e escopo do item a conferir no ato de produto.",
+              "kind": "catalog_reference",
+              "reviewDepth": null,
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-18",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-spare",
+          "label": "Roda/pneu temporário e sistemas alternativos",
+          "reportControlLevel": 2,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-913-2022"
+          ],
+          "methodRefs": [
+            "v-fbc14167cffcb1"
+          ],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.3"
+            },
+            {
+              "actId": "contran-913-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9132022.pdf",
+              "device": "Dispositivo e escopo do item a conferir no ato de produto.",
+              "kind": "catalog_reference",
+              "reviewDepth": null,
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-18",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-rear-alert",
+          "label": "Alerta ou monitoramento traseiro",
+          "reportControlLevel": 2,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-759-2018"
+          ],
+          "methodRefs": [
+            "v-73e0fae2a1f0bd",
+            "v-c9d89b3ae79110"
+          ],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.3"
+            },
+            {
+              "actId": "contran-759-2018",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7592018.pdf",
+              "device": "Dispositivo e escopo do item a conferir no ato de produto.",
+              "kind": "catalog_reference",
+              "reviewDepth": null,
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-19",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-belt-alert",
+          "label": "Aviso de afivelamento",
+          "reportControlLevel": 2,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario",
+              "micro-onibus"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-936-2022"
+          ],
+          "methodRefs": [],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.3"
+            },
+            {
+              "actId": "contran-936-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9362022.pdf",
+              "device": "Dispositivo e escopo do item a conferir no ato de produto.",
+              "kind": "catalog_reference",
+              "reviewDepth": null,
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-18",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        }
+      ],
+      "results": [
+        "Resultados e relatórios de controle 2, com rastreabilidade das amostras."
+      ],
+      "documents": [
+        "Título e identificação unívoca do relatório, presente nas páginas, com numeração e total de páginas.",
+        "Razão social/endereço do laboratório, local/data dos ensaios e nome/endereço do cliente.",
+        "Método ou norma utilizada, marca/modelo e identificação inequívoca da amostra e de sua condição.",
+        "Requisitos avaliados, resultados e unidades, gráficos pertinentes e declaração de conformidade ou não conformidade.",
+        "Fotos e filmagens; fotos da situação anterior e posterior; registro claro do evento ensaiado.",
+        "Nome, função e assinatura do responsável; revisão/retificação identificada e resultados subcontratados destacados.",
+        "Português; no relatório estrangeiro, tradução juramentada e anuência/assinatura do interessado no Brasil.",
+        "Registros para atender eventual solicitação de calibrações, condições de amostragem e equipe de ensaio."
+      ],
+      "handover": [
+        "Conjunto de registros de segurança ativa pronto para o dossiê."
+      ],
+      "actIds": [
+        "senatran-095"
+      ],
+      "sourceIds": [
+        "guide-senatran-990"
+      ],
+      "sources": [
+        {
+          "sourceId": "guide-senatran-990",
+          "actId": "senatran-095",
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+          "kind": "official_act_targeted_review",
+          "reviewDepth": "directed_reading_only",
+          "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+          "checkedAt": "2026-10-31",
+          "device": "Arts. 12–22; Anexo XI, 1.3–1.4 e2.3–2.4"
+        }
+      ],
+      "limitations": [
+        "Roteiro de análise. A revisão dirigida não comprova a cadeia integral de alterações ou a incidência de todo item no veículo."
+      ],
+      "gaps": [],
+      "automaticObligation": false
+    },
+    {
+      "id": "sa-06-passive",
+      "title": "Executar os ensaios de segurança passiva",
+      "label": "Executar os ensaios de segurança passiva",
+      "order": 46,
+      "lane": "seguranca",
+      "status": "conditional",
+      "conditions": {
+        "requiresAssessment": true
+      },
+      "dependencies": [
+        "sa-03-laboratory"
+      ],
+      "inputs": [
+        "Plano, amostras de mercado brasileiro e comprovação de capacidade do laboratório."
+      ],
+      "actions": [
+        "Executar os itens de controle 3 aplicáveis sem equiparar o nível de controle a atributos tecnológicos novos.",
+        "Registrar identificação dos relatórios e laboratórios e verificar a cobertura das variantes representadas.",
+        "Para resultados estrangeiros, confirmar a rota expressamente admitida pelo ato e cumprir requisitos documentais de tradução/anuência."
+      ],
+      "preconditioning": [
+        "Confirmar condição/configuração e preparação segundo cada método; preparar acompanhamento quando a hipótese exigir."
+      ],
+      "tests": [
+        {
+          "id": "sa-side-barrier",
+          "label": "Impacto lateral contra barreira",
+          "reportControlLevel": 3,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-949-2022"
+          ],
+          "methodRefs": [
+            "v-de187b12bf3abb",
+            "v-74e84a63ee8492"
+          ],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.5"
+            },
+            {
+              "actId": "contran-949-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9492022.pdf",
+              "device": "Arts. 2º–5º e anexos; conferir retificação",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_provisions_only",
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-19",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [
+            "wf-un-lateral-unspecified"
+          ],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-side-pole",
+          "label": "Impacto lateral em poste",
+          "reportControlLevel": 3,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-949-2022"
+          ],
+          "methodRefs": [
+            "v-de187b12bf3abb",
+            "v-74e84a63ee8492"
+          ],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.5"
+            },
+            {
+              "actId": "contran-949-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9492022.pdf",
+              "device": "Arts. 2º–5º e anexos; conferir retificação",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_provisions_only",
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-19",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [
+            "wf-un-r135",
+            "wf-us-fmvss214"
+          ],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-frontal",
+          "label": "Proteção biomecânica do ocupante e integridade do combustível",
+          "reportControlLevel": 3,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "utilitario"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-910-2022"
+          ],
+          "methodRefs": [
+            "v-03794c9faad9b1",
+            "v-1a117e6db970c6",
+            "v-3ed394f008841e",
+            "v-b63f917f97f282",
+            "v-08a295cfbb89dd",
+            "v-181146b3281915",
+            "v-5e1a355f361dd3",
+            "v-17a66b57b043a7",
+            "v-f0093db9324f8a",
+            "v-7076b6b7f3a32e",
+            "v-dc16e4480d240a",
+            "v-bd4d965715e7d2",
+            "v-f3a34f98b88240"
+          ],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.5"
+            },
+            {
+              "actId": "contran-910-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9102022.pdf",
+              "device": "Arts. 4º–7º e11; arts. 2º–3º são rota histórica com término em31/12/2025",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_provisions_only",
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-19",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [
+            "wf-un-r32",
+            "wf-un-r34",
+            "wf-un-r94",
+            "wf-us-fmvss203208301"
+          ],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não reutilizar como método atual as NBRs dos arts. 2º/3º do ato cuja vigência termina em31/12/2025; a rota dos arts. 4º–6º/anexos tem regime próprio.",
+            "Confirmar escopo por tipo e sistema: a tabela de combustível e a de proteção biomecânica não possuem necessariamente as mesmas colunas."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-restraints",
+          "label": "Cintos, ancoragens, apoios e retenção infantil",
+          "reportControlLevel": 3,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario",
+              "micro-onibus"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-951-2022",
+            "contran-997-2023"
+          ],
+          "methodRefs": [
+            "v-3a2a082403fe93",
+            "v-b540a740bc89bc",
+            "v-2ab3c1390d72b1",
+            "v-9197d1a1b6c6ca"
+          ],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.5"
+            },
+            {
+              "actId": "contran-951-2022",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9512022.pdf",
+              "device": "Dispositivo e escopo do item a conferir no ato de produto.",
+              "kind": "catalog_reference",
+              "reviewDepth": null,
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-19",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            },
+            {
+              "actId": "contran-997-2023",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9972023.pdf",
+              "device": "Art. 2º, redação dos itens3.5.1–3.5.3 do Anexo da Resolução 951/2022",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_provisions_only",
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-19",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [
+            "wf-un-r16-06",
+            "wf-un-r14-07",
+            "wf-un-r145",
+            "wf-un-r44-04",
+            "wf-un-r17-07"
+          ],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-pedestrian",
+          "label": "Proteção ao pedestre",
+          "reportControlLevel": 3,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ]
+          },
+          "actIds": [
+            "contran-752-2018"
+          ],
+          "methodRefs": [
+            "v-f51da113a2c770"
+          ],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.5"
+            },
+            {
+              "actId": "contran-752-2018",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7522018.pdf",
+              "device": "Dispositivo e escopo do item a conferir no ato de produto.",
+              "kind": "catalog_reference",
+              "reviewDepth": null,
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-19",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        },
+        {
+          "id": "sa-electric",
+          "label": "Segurança de propulsão híbrida/elétrica",
+          "reportControlLevel": 3,
+          "conditions": {
+            "vehicleType": [
+              "automovel",
+              "camioneta",
+              "caminhonete",
+              "utilitario",
+              "micro-onibus"
+            ],
+            "massRange": {
+              "field": "grossMassKg",
+              "maxInclusive": 3500
+            },
+            "requiresAssessment": true,
+            "notes": [
+              "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+            ],
+            "propulsion": [
+              "hev",
+              "phev",
+              "bev"
+            ]
+          },
+          "actIds": [
+            "contran-749-2018"
+          ],
+          "methodRefs": [],
+          "preconditions": [
+            "Versão e amostra representativas do mercado brasileiro identificadas.",
+            "Laboratório, método e edição definidos antes da execução.",
+            "Condições de preparação e aceitação confirmadas no método aplicável."
+          ],
+          "outputs": [
+            "Relatório identificado, resultados com unidades e declaração de conformidade ou não conformidade.",
+            "Fotos, filmagens e rastreabilidade da amostra; registros arquivados para solicitação do órgão."
+          ],
+          "sources": [
+            {
+              "sourceId": "guide-senatran-990",
+              "actId": "senatran-095",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_reading_only",
+              "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+              "checkedAt": "2026-10-31",
+              "device": "Anexo XI, 1.5"
+            },
+            {
+              "actId": "contran-749-2018",
+              "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7492018.pdf",
+              "device": "Arts. 1º–3º",
+              "kind": "official_act_targeted_review",
+              "reviewDepth": "directed_provisions_only",
+              "legalStatus": {
+                "state": "indicated_current",
+                "asOf": "2026-10-18",
+                "basis": "Indicação nas fontes do recorte revisado; não equivale a consolidação integral."
+              },
+              "reviewStatus": {
+                "state": "directed_text_review",
+                "fullTextReviewed": null,
+                "amendmentChainReviewed": false,
+                "reviewedAt": "2026-10-18",
+                "summary": "Trechos e relações identificadas revisados; cadeia integral não certificada."
+              },
+              "limits": "Este vínculo não comprova cadeia integral, método privado ou aplicação a toda configuração."
+            }
+          ],
+          "foreignReferenceIds": [
+            "wf-un-r100",
+            "wf-749-un-r94",
+            "wf-un-r95",
+            "wf-us-fmvss305"
+          ],
+          "methodStatus": "not_structured",
+          "gaps": [
+            "Não foram transcritos procedimentos privados, limites ou sequência de preparação da norma técnica."
+          ],
+          "automaticObligation": false
+        }
+      ],
+      "results": [
+        "Relatórios de segurança passiva e evidências da capacidade técnica."
+      ],
+      "documents": [
+        "Título e identificação unívoca do relatório, presente nas páginas, com numeração e total de páginas.",
+        "Razão social/endereço do laboratório, local/data dos ensaios e nome/endereço do cliente.",
+        "Método ou norma utilizada, marca/modelo e identificação inequívoca da amostra e de sua condição.",
+        "Requisitos avaliados, resultados e unidades, gráficos pertinentes e declaração de conformidade ou não conformidade.",
+        "Fotos e filmagens; fotos da situação anterior e posterior; registro claro do evento ensaiado.",
+        "Nome, função e assinatura do responsável; revisão/retificação identificada e resultados subcontratados destacados.",
+        "Português; no relatório estrangeiro, tradução juramentada e anuência/assinatura do interessado no Brasil.",
+        "Registros para atender eventual solicitação de calibrações, condições de amostragem e equipe de ensaio."
+      ],
+      "handover": [
+        "Registros de controle 3 e justificativas de representatividade."
+      ],
+      "actIds": [
+        "senatran-095"
+      ],
+      "sourceIds": [
+        "guide-senatran-990"
+      ],
+      "sources": [
+        {
+          "sourceId": "guide-senatran-990",
+          "actId": "senatran-095",
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+          "kind": "official_act_targeted_review",
+          "reviewDepth": "directed_reading_only",
+          "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+          "checkedAt": "2026-10-31",
+          "device": "Arts. 9º,12–22; Anexo XI, 1.5–1.6 e2.5–2.6"
+        }
+      ],
+      "limitations": [
+        "Roteiro de análise. A revisão dirigida não comprova a cadeia integral de alterações ou a incidência de todo item no veículo."
+      ],
+      "gaps": [],
+      "automaticObligation": false
+    },
+    {
+      "id": "sa-07-components",
+      "title": "Conferir os componentes certificados",
+      "label": "Conferir os componentes certificados",
+      "order": 47,
+      "lane": "seguranca",
+      "status": "conditional",
+      "conditions": {
+        "requiresAssessment": true
+      },
+      "dependencies": [
+        "sa-02-matrix"
+      ],
+      "inputs": [
+        "Lista de componentes, fornecedores, variantes, aplicação OEM/reposição e funções de rádio."
+      ],
+      "actions": [
+        "Conferir comprovantes dos itens de avaliação da conformidade pertinentes ao Anexo V: pneus, GNV, cronotacógrafo e demais itens conforme o veículo.",
+        "Relacionar certificado, modelo do componente, fornecedor, escopo e configuração instalada.",
+        "Verificar separadamente a certificação/homologação Anatel de produtos de telecomunicações; aprovação de módulo não comprova automaticamente a configuração final.",
+        "Reavaliar a comprovação se for substituído item especificado no processo de homologação."
+      ],
+      "preconditioning": [],
+      "tests": [],
+      "results": [
+        "Lista de componentes com comprovantes e pendências por configuração."
+      ],
+      "documents": [
+        "Certificados, registros ou outros comprovantes aplicáveis, sem tratar todos como o mesmo mecanismo."
+      ],
+      "handover": [
+        "Anexo V e arquivo de configuração do veículo."
+      ],
+      "actIds": [
+        "senatran-095",
+        "inmetro-145-2022",
+        "anatel-res715"
+      ],
+      "sourceIds": [
+        "guide-senatran-990",
+        "anatel-715-2019"
+      ],
+      "sources": [
+        {
+          "sourceId": "guide-senatran-990",
+          "actId": "senatran-095",
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+          "kind": "official_act_targeted_review",
+          "reviewDepth": "directed_reading_only",
+          "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+          "checkedAt": "2026-10-31",
+          "device": "Anexo V,1 e nota de substituição"
+        },
+        {
+          "sourceId": "anatel-715-2019",
+          "actId": "anatel-res715",
+          "url": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2019/1350-resolucao-715",
+          "kind": "catalog_reference",
+          "reviewDepth": null,
+          "device": "Regulamento de avaliação da conformidade/homologação; escopo a conferir"
+        }
+      ],
+      "limitations": [
+        "Roteiro de análise. A revisão dirigida não comprova a cadeia integral de alterações ou a incidência de todo item no veículo."
+      ],
+      "gaps": [
+        "Não atribuir a Portaria 145/2022 a uma bateria de tração de íons de lítio por analogia com bateria chumbo-ácido.",
+        "As18 referências Inmetro continuam com íntegra pendente; a incidência do programa de cada componente exige revisão."
+      ],
+      "automaticObligation": false
+    },
+    {
+      "id": "sa-08-dossier",
+      "title": "Fechar o dossiê CAT",
+      "label": "Fechar o dossiê CAT",
+      "order": 80,
+      "lane": "seguranca",
+      "status": "conditional",
+      "conditions": {
+        "requiresAssessment": true
+      },
+      "dependencies": [
+        "sa-01-identity",
+        "sa-04-level1",
+        "sa-05-active",
+        "sa-06-passive",
+        "sa-07-components"
+      ],
+      "inputs": [
+        "Configuração final, evidências de segurança e comprovantes ambientais cabíveis."
+      ],
+      "actions": [
+        "Conferir requerimento e Anexos II,III,IV,V e Certificado de SegurançaVI ou VII, conforme a operação.",
+        "Conciliar marca/modelo/versão e configuração do documento ambiental com o veículo solicitado; apontar a licença/declaração/dispensa efetivamente pertinente.",
+        "Verificar SGQ certificado ou, na hipótese do art. 2º, § 7º, CCT emitido por ITL acreditada/licenciada.",
+        "Para transformação sujeita a homologação ou importação sem vínculo, verificar a rota ITL/Anexo VII e os anexos específicos.",
+        "Se espécie misto/tipo utilitário/carroçaria jipe/motor diesel, analisar arts. 23–25 e juntar declarações/relatório Anexos XII/XIII. Não inferir essa condição pela imagemSUV.",
+        "Conferir representação/procuração quando houver, taxas no serviço atual e vínculo com fabricante quando pertinente."
+      ],
+      "preconditioning": [],
+      "tests": [],
+      "results": [
+        "Dossiê consistente e rastreável; lista de pendências e justificativas por hipótese."
+      ],
+      "documents": [
+        "RequerimentoI; cadastroII; identificaçãoIII e fotos/esquemasVIN; dadosIV; legislação complementarV; CSV não substitui automaticamente CS/CAT.",
+        "CS VI ou VII conforme caso; certificado SGQ ou CCT condicionado; documentação de representação; GRU conforme serviço atual.",
+        "Documento ambiental emitido pelo IBAMA na hipótese aplicável e vínculo de configuração; Anexos XII/XIII parajipe diesel quando cabíveis."
+      ],
+      "handover": [
+        "Revisão prévia ao pedido SISCAT."
+      ],
+      "actIds": [
+        "senatran-095"
+      ],
+      "sourceIds": [
+        "guide-senatran-990"
+      ],
+      "sources": [
+        {
+          "sourceId": "guide-senatran-990",
+          "actId": "senatran-095",
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+          "kind": "official_act_targeted_review",
+          "reviewDepth": "directed_reading_only",
+          "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+          "checkedAt": "2026-10-31",
+          "device": "Art. 2º, §§ 2º–8º,arts. 3º,23–25;Anexos I–VII e XII/XIII"
+        }
+      ],
+      "limitations": [
+        "Roteiro de análise. A revisão dirigida não comprova a cadeia integral de alterações ou a incidência de todo item no veículo."
+      ],
+      "gaps": [
+        "O texto do Anexo II, 2.5 remete ao § 6º, enquanto a condição de CCT está no art. 2º, § 7º: conservar essa divergência interna sem inventar consolidação.",
+        "Não foi autenticada a interface SISCAT; esta lista é de conteúdo documental, não espelho dos campos atuais da tela."
+      ],
+      "automaticObligation": false,
+      "conditionalDependencies": [
+        {
+          "stepId": "em-08-lcvm",
+          "when": {
+            "propulsion": [
+              "combustion",
+              "hev",
+              "phev"
+            ]
+          },
+          "basis": "990/2022 Anexo V, 2.1; conferir hipótese ambiental e comprovação cabível.",
+          "automaticBEVExemption": false
+        }
+      ]
+    },
+    {
+      "id": "sa-09-siscat",
+      "title": "Preencher e protocolar no SISCAT",
+      "label": "Preencher e protocolar no SISCAT",
+      "order": 90,
+      "lane": "seguranca",
+      "status": "conditional",
+      "conditions": {
+        "requiresAssessment": true
+      },
+      "dependencies": [
+        "sa-08-dossier"
+      ],
+      "inputs": [
+        "Dossiê revisado, cadastro/perfil de acesso do requerente e modalidade identificada."
+      ],
+      "actions": [
+        "Acessar o portal oficial e escolher o módulo disponível para a modalidade pertinente.",
+        "Preencher identificação e dados técnicos conforme os anexos, relacionar os comprovantes ambientais e de segurança e anexar a documentação solicitada no módulo.",
+        "Conferir os dados antes do envio e conservar cópia do protocolo e do conjunto de arquivos utilizado."
+      ],
+      "preconditioning": [],
+      "tests": [],
+      "results": [
+        "Pedido protocolado com a mesma configuração controlada no processo."
+      ],
+      "documents": [
+        "Comprovante/protocolo SISCAT e pacote de anexos submetido, com revisão/hash de evidências."
+      ],
+      "handover": [
+        "Acompanhamento das exigências e análise do órgão."
+      ],
+      "actIds": [
+        "senatran-095"
+      ],
+      "sourceIds": [
+        "guide-senatran-990",
+        "senatran-cat-service"
+      ],
+      "sources": [
+        {
+          "sourceId": "guide-senatran-990",
+          "actId": "senatran-095",
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+          "kind": "official_act_targeted_review",
+          "reviewDepth": "directed_reading_only",
+          "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+          "checkedAt": "2026-10-31",
+          "device": "Art. 26"
+        },
+        {
+          "sourceId": "senatran-cat-service",
+          "url": "https://www.gov.br/pt-br/servicos/emitir-certificado-de-adequacao-a-legislacao-de-transito-cat",
+          "kind": "official_guidance",
+          "reviewDepth": "public_service_page_only",
+          "checkedAt": "2026-10-31",
+          "device": "Etapas: envio documental; aguardar análise; emissão"
+        }
+      ],
+      "limitations": [
+        "Roteiro de análise. A revisão dirigida não comprova a cadeia integral de alterações ou a incidência de todo item no veículo."
+      ],
+      "gaps": [
+        "Art. 26§§ 1º–2º remete às regras e módulos do próprio sistema. A orientação pública menciona SISCAT eSEI; isso não autoriza escolherSEI universalmente em substituição ao módulo obrigatório.",
+        "Campos, formatos de anexos e percurso autenticado ainda serão conferidos com telas reais."
+      ],
+      "automaticObligation": false
+    },
+    {
+      "id": "sa-10-cat-followup",
+      "title": "Responder às exigências e conferir o CAT",
+      "label": "Responder às exigências e conferir o CAT",
+      "order": 100,
+      "lane": "seguranca",
+      "status": "conditional",
+      "conditions": {
+        "requiresAssessment": true
+      },
+      "dependencies": [
+        "sa-09-siscat"
+      ],
+      "inputs": [
+        "Protocolo, comunicações do órgão e versões dos documentos enviados."
+      ],
+      "actions": [
+        "Acompanhar a análise e responder às exigências com revisão identificada e justificativa técnica.",
+        "Ao receber o documento, conferir interessado, marca/modelo/versão, código, classificações, massas/lotação e restrições registradas.",
+        "Providenciar a etapa de pré-cadastro RENAVAM cabível; CAT não equivale ao registro/licenciamento de cada unidade no DETRAN."
+      ],
+      "preconditioning": [],
+      "tests": [],
+      "results": [
+        "CAT/código compatível com o veículo e pendências encerradas ou formalmente registradas."
+      ],
+      "documents": [
+        "CAT ou documento emitido; versões/revisões de respostas e evidências de pré-cadastro pertinentes."
+      ],
+      "handover": [
+        "Produção, pré-cadastro, registro/licenciamento e manutenção da conformidade conforme responsabilidade de cada agente."
+      ],
+      "actIds": [
+        "senatran-095"
+      ],
+      "sourceIds": [
+        "guide-senatran-990"
+      ],
+      "sources": [
+        {
+          "sourceId": "guide-senatran-990",
+          "actId": "senatran-095",
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+          "kind": "official_act_targeted_review",
+          "reviewDepth": "directed_reading_only",
+          "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+          "checkedAt": "2026-10-31",
+          "device": "Art. 5º, §§ 1º–4º eAnexo VIII"
+        },
+        {
+          "sourceId": "senatran-cat-service",
+          "url": "https://www.gov.br/pt-br/servicos/emitir-certificado-de-adequacao-a-legislacao-de-transito-cat",
+          "kind": "official_guidance",
+          "reviewDepth": "public_service_page_only",
+          "checkedAt": "2026-10-31",
+          "device": "Aguardar análise; cadastrar marca/modelo/versão no RENAVAM"
+        }
+      ],
+      "limitations": [
+        "Roteiro de análise. A revisão dirigida não comprova a cadeia integral de alterações ou a incidência de todo item no veículo."
+      ],
+      "gaps": [],
+      "automaticObligation": false
+    },
+    {
+      "id": "sa-11-cop",
+      "title": "Manter conformidade e cruzar o MOVER",
+      "label": "Manter conformidade e cruzar o MOVER",
+      "order": 110,
+      "lane": "seguranca",
+      "status": "conditional",
+      "conditions": {
+        "requiresAssessment": true
+      },
+      "dependencies": [
+        "sa-10-cat-followup"
+      ],
+      "inputs": [
+        "Configuração aprovada, plano de alterações e incidência dos programas no agente/veículo."
+      ],
+      "actions": [
+        "Manter rastreabilidade da produção e dos componentes e rever mudanças de projeto/configuração antes de reutilizar evidências.",
+        "Disponibilizar amostras e registros quando requisitados pela SENATRAN.",
+        "Abrir frente MDIC/MOVER própria: identificar obrigações da empresa e do produto e comparar método/edição/configuração/critérios com os ensaios CAT.",
+        "Não tratar níveis de controle 1/2/3 do SENATRAN como níveis ou metas MOVER; não considerar CAT como atendimento automático do programa."
+      ],
+      "preconditioning": [],
+      "tests": [],
+      "results": [
+        "Arquivo de conformidade e mapa de evidências reutilizáveis somente após avaliação."
+      ],
+      "documents": [
+        "Plano de manutenção de configuração, registros de produção e matriz de obrigações MDIC separada."
+      ],
+      "handover": [
+        "Controle de alterações, novas versões/extensões e auditorias do ciclo de vida."
+      ],
+      "actIds": [
+        "senatran-095",
+        "mover-001",
+        "mover-002",
+        "mover-006",
+        "mover-014"
+      ],
+      "sourceIds": [
+        "guide-senatran-990",
+        "mdic-mover"
+      ],
+      "sources": [
+        {
+          "sourceId": "guide-senatran-990",
+          "actId": "senatran-095",
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+          "kind": "official_act_targeted_review",
+          "reviewDepth": "directed_reading_only",
+          "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+          "checkedAt": "2026-10-31",
+          "device": "Arts. 4º,10–11 eAnexo VI"
+        },
+        {
+          "actId": "mover-006",
+          "url": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/programa-mover-1/legislacao-programa-mover",
+          "kind": "official_index_and_ementa",
+          "reviewDepth": "ementa_only",
+          "checkedAt": "2026-10-31",
+          "limits": "A ementa oficial confirma categorias M1/N1 e remissão ao Anexo IV, seção A, do Decreto 12.435/2025. O DOU da Portaria 215/2025 retornou HTTP403; critérios e cronograma não extraídos.",
+          "device": "Ementa oficial; Decreto 12.435/2025 Anexo IV seçãoA"
+        },
+        {
+          "sourceId": "mdic-mover",
+          "actId": "mover-002",
+          "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/decreto/d12435.htm",
+          "kind": "catalog_reference",
+          "reviewDepth": null,
+          "checkedAt": "2026-10-31",
+          "limits": "Tentativa atual HTTP503; não apresentada como nova leitura integral.",
+          "device": "Referência de catálogo; íntegra indisponível na tentativa atual"
+        }
+      ],
+      "limitations": [
+        "Roteiro de análise. A revisão dirigida não comprova a cadeia integral de alterações ou a incidência de todo item no veículo."
+      ],
+      "gaps": [
+        "Portaria 215/2025: a ementa oficial confirma desempenho estrutural/tecnologias assistivasM1/N1, mas seus anexos, parâmetros e cronograma não foram extraídos nesta leitura.",
+        "Portaria 68/2026 trata de incentivos/P&D; não transforma critérios técnicos de segurança em condição universal de uma peça.",
+        "Candidatos MDIC 167/2026 e76/2026 permanecem separados, sem novas obrigações por esta projeção."
+      ],
+      "automaticObligation": false
+    }
+  ],
+  "reportControls": [
+    {
+      "level": 1,
+      "label": "Declarações de conformidade",
+      "basis": "Anexo XI, 1.1–1.2 e grupos seguintes",
+      "content": "Declaração do fornecedor com suporte documental segundoABNT NBR ISO/IEC 17050-1 e17050-2; não é dispensa automática de comprovação."
+    },
+    {
+      "level": 2,
+      "label": "Ensaios de segurança ativa",
+      "basis": "Anexo XI, 1.3–1.4;2.3–2.4",
+      "content": "Relatórios e declaração do SGQ que controla as operações do laboratório; verificar linhas específicas por grupo."
+    },
+    {
+      "level": 3,
+      "label": "Ensaios de segurança passiva",
+      "basis": "Anexo XI, 1.5–1.6;2.5–2.6",
+      "content": "Comprovação de terceira parte do SGQ e análise do acompanhamento; exceção para laboratório acreditado por órgão signatário ILAC nos termos do ato."
+    }
+  ],
+  "reportLevelsAreNotChronological": true,
+  "reportLevelsAreNotMoverPerformanceLevels": true,
+  "tableGroups": [
+    {
+      "id": "annex-xi-light",
+      "label": "PBT até 3.500 kg",
+      "device": "Anexo XI, 1",
+      "conditions": {
+        "vehicleType": [
+          "automovel",
+          "camioneta",
+          "caminhonete",
+          "utilitario",
+          "micro-onibus"
+        ],
+        "massRange": {
+          "field": "grossMassKg",
+          "maxInclusive": 3500
+        },
+        "requiresAssessment": true,
+        "notes": [
+          "O tipo brasileiro, o PBT, as datas e o escopo de cada ato definem a coluna e a incidência; LP/LC ambiental e M1/N1 não substituem essa seleção."
+        ]
+      },
+      "levels": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "annex-xi-heavy",
+      "label": "PBT acima de 3.500 kg",
+      "device": "Anexo XI, 2",
+      "conditions": {
+        "massRange": {
+          "field": "grossMassKg",
+          "minExclusive": 3500
+        },
+        "requiresAssessment": true
+      },
+      "levels": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "annex-xi-trailer",
+      "label": "Rebocados",
+      "device": "Anexo XI, 3",
+      "conditions": {
+        "category": [
+          "O1",
+          "O2",
+          "O3",
+          "O4"
+        ],
+        "requiresAssessment": true
+      },
+      "levels": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "annex-xi-L",
+      "label": "CategoriasL",
+      "device": "Anexo XI, 4",
+      "conditions": {
+        "category": [
+          "L"
+        ],
+        "requiresAssessment": true
+      },
+      "levels": [
+        1,
+        2
+      ]
+    }
+  ],
+  "heavyCases": [
+    {
+      "id": "sa-heavy-bus",
+      "Segurança M2/M3": "Categorias de ônibus e micro-ônibus exigem análise própria de uso, PBT e estágio de construção.",
+      "actIds": [
+        "contran-939-2022",
+        "contran-959-2022"
+      ],
+      "sources": [
+        {
+          "sourceId": "guide-senatran-990",
+          "actId": "senatran-095",
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+          "kind": "official_act_targeted_review",
+          "reviewDepth": "directed_reading_only",
+          "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+          "checkedAt": "2026-10-31",
+          "device": "Anexo XI, grupos1 e2"
+        },
+        {
+          "actId": "contran-939-2022",
+          "sourceId": "guide-contran-939",
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9392022.pdf",
+          "kind": "catalog_reference",
+          "reviewDepth": null,
+          "device": "Escopo e retificação de27/05/2022"
+        },
+        {
+          "actId": "contran-959-2022",
+          "sourceId": "guide-contran-959",
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9592022.pdf",
+          "kind": "catalog_reference",
+          "reviewDepth": null,
+          "device": "Arts. 1º–7º e anexos"
+        }
+      ],
+      "gaps": [
+        "M2 com PBT ≤ 3.500 kg aparece no grupo1 da tabela; M2 acima de 3.500 kg no grupo2. A categoria continua M2.",
+        "Não copiar os X de uma coluna leve para ônibus ou micro-ônibus de outra massa/uso."
+      ]
+    },
+    {
+      "id": "sa-heavy-cabin",
+      "label": "Proteção da cabine N2/N3",
+      "category": [
+        "N2",
+        "N3"
+      ],
+      "actIds": [
+        "contran-765-2018"
+      ],
+      "sources": [
+        {
+          "sourceId": "guide-senatran-990",
+          "actId": "senatran-095",
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+          "kind": "official_act_targeted_review",
+          "reviewDepth": "directed_reading_only",
+          "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+          "checkedAt": "2026-10-31",
+          "device": "Anexo XI,2.5"
+        },
+        {
+          "actId": "contran-765-2018",
+          "sourceId": "guide-contran-765",
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7652018.pdf",
+          "kind": "catalog_reference",
+          "reviewDepth": null,
+          "device": "Art. 1º e anexo"
+        }
+      ],
+      "gaps": [
+        "Confirmar configuração da cabine, aplicação e cronograma do ato; o grupo de ensaio não define todos os critérios."
+      ]
+    }
+  ],
+  "reportChecklist": {
+    "source": {
+      "sourceId": "guide-senatran-990",
+      "actId": "senatran-095",
+      "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+      "kind": "official_act_targeted_review",
+      "reviewDepth": "directed_reading_only",
+      "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+      "checkedAt": "2026-10-31",
+      "device": "Arts. 12–22"
+    },
+    "items": [
+      "Título e identificação unívoca do relatório, presente nas páginas, com numeração e total de páginas.",
+      "Razão social/endereço do laboratório, local/data dos ensaios e nome/endereço do cliente.",
+      "Método ou norma utilizada, marca/modelo e identificação inequívoca da amostra e de sua condição.",
+      "Requisitos avaliados, resultados e unidades, gráficos pertinentes e declaração de conformidade ou não conformidade.",
+      "Fotos e filmagens; fotos da situação anterior e posterior; registro claro do evento ensaiado.",
+      "Nome, função e assinatura do responsável; revisão/retificação identificada e resultados subcontratados destacados.",
+      "Português; no relatório estrangeiro, tradução juramentada e anuência/assinatura do interessado no Brasil.",
+      "Registros para atender eventual solicitação de calibrações, condições de amostragem e equipe de ensaio."
+    ]
+  },
+  "foreignReferences": [
+    {
+      "id": "wf-un-r13h",
+      "label": "UN/ECE R13-H",
+      "jurisdiction": "ONU/UNECE",
+      "actId": "contran-954-2022",
+      "device": "Art. 4º",
+      "relation": "explicit_alternative_test_route",
+      "scope": "Desempenho dos sistemas obrigatórios de estabilidade, conforme aplicável.",
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9542022.pdf",
+      "edition": null,
+      "automaticEquivalence": false,
+      "notes": [
+        "Confirmar escopo, série/versão admitida e representatividade antes de utilizar o resultado. Não é declaração de equivalência integral de normas."
+      ]
+    },
+    {
+      "id": "wf-un-r13",
+      "label": "UN/ECE R13",
+      "jurisdiction": "ONU/UNECE",
+      "actId": "contran-954-2022",
+      "device": "Art. 4º",
+      "relation": "explicit_alternative_test_route",
+      "scope": "Desempenho dos sistemas obrigatórios de estabilidade, conforme aplicável.",
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9542022.pdf",
+      "edition": null,
+      "automaticEquivalence": false,
+      "notes": [
+        "Confirmar escopo, série/versão admitida e representatividade antes de utilizar o resultado. Não é declaração de equivalência integral de normas."
+      ]
+    },
+    {
+      "id": "wf-un-r140",
+      "label": "UN/ECE R140",
+      "jurisdiction": "ONU/UNECE",
+      "actId": "contran-954-2022",
+      "device": "Art. 4º",
+      "relation": "explicit_alternative_test_route",
+      "scope": "Desempenho dos sistemas obrigatórios de estabilidade, conforme aplicável.",
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9542022.pdf",
+      "edition": null,
+      "automaticEquivalence": false,
+      "notes": [
+        "Confirmar escopo, série/versão admitida e representatividade antes de utilizar o resultado. Não é declaração de equivalência integral de normas."
+      ]
+    },
+    {
+      "id": "wf-us-fmvss126",
+      "label": "FMVSS 126",
+      "jurisdiction": "Estados Unidos",
+      "actId": "contran-954-2022",
+      "device": "Art. 4º",
+      "relation": "explicit_alternative_test_route",
+      "scope": "Estabilidade; alternativa segundo escopo do ato.",
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9542022.pdf",
+      "edition": null,
+      "automaticEquivalence": false,
+      "notes": [
+        "Confirmar escopo, série/versão admitida e representatividade antes de utilizar o resultado. Não é declaração de equivalência integral de normas."
+      ]
+    },
+    {
+      "id": "wf-un-r32",
+      "label": "UN R32",
+      "jurisdiction": "ONU/UNECE",
+      "actId": "contran-910-2022",
+      "device": "Art. 6º",
+      "relation": "explicit_alternative_test_route",
+      "scope": "Ensaios estrangeiros em veículos representativos, segundo a alternativa do ato.",
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9102022.pdf",
+      "edition": null,
+      "automaticEquivalence": false,
+      "notes": [
+        "Confirmar escopo, série/versão admitida e representatividade antes de utilizar o resultado. Não é declaração de equivalência integral de normas."
+      ]
+    },
+    {
+      "id": "wf-un-r34",
+      "label": "UN R34",
+      "jurisdiction": "ONU/UNECE",
+      "actId": "contran-910-2022",
+      "device": "Art. 6º",
+      "relation": "explicit_alternative_test_route",
+      "scope": "Ensaios estrangeiros em veículos representativos, segundo a alternativa do ato.",
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9102022.pdf",
+      "edition": null,
+      "automaticEquivalence": false,
+      "notes": [
+        "Confirmar escopo, série/versão admitida e representatividade antes de utilizar o resultado. Não é declaração de equivalência integral de normas."
+      ]
+    },
+    {
+      "id": "wf-un-r94",
+      "label": "UN R94",
+      "jurisdiction": "ONU/UNECE",
+      "actId": "contran-910-2022",
+      "device": "Art. 6º",
+      "relation": "explicit_alternative_test_route",
+      "scope": "Ensaios estrangeiros em veículos representativos, segundo a alternativa do ato.",
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9102022.pdf",
+      "edition": null,
+      "automaticEquivalence": false,
+      "notes": [
+        "Confirmar escopo, série/versão admitida e representatividade antes de utilizar o resultado. Não é declaração de equivalência integral de normas."
+      ]
+    },
+    {
+      "id": "wf-us-fmvss203208301",
+      "label": "FMVSS 203/208/301",
+      "jurisdiction": "Estados Unidos",
+      "actId": "contran-910-2022",
+      "device": "Art. 6º",
+      "relation": "explicit_alternative_test_route",
+      "scope": "Ensaios estrangeiros e veículo representativo.",
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9102022.pdf",
+      "edition": null,
+      "automaticEquivalence": false,
+      "notes": [
+        "Confirmar escopo, série/versão admitida e representatividade antes de utilizar o resultado. Não é declaração de equivalência integral de normas."
+      ]
+    },
+    {
+      "id": "wf-un-r135",
+      "label": "UN R135",
+      "jurisdiction": "ONU/UNECE",
+      "actId": "contran-949-2022",
+      "device": "Art. 3º, parágrafo único",
+      "relation": "explicit_alternative_test_route",
+      "scope": "Impacto lateral em poste; escopo e cronograma do art. 3º.",
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9492022.pdf",
+      "edition": null,
+      "automaticEquivalence": false,
+      "notes": [
+        "Confirmar escopo, série/versão admitida e representatividade antes de utilizar o resultado. Não é declaração de equivalência integral de normas."
+      ]
+    },
+    {
+      "id": "wf-us-fmvss214",
+      "label": "FMVSS 214",
+      "jurisdiction": "Estados Unidos",
+      "actId": "contran-949-2022",
+      "device": "Art. 3º, parágrafo único",
+      "relation": "explicit_alternative_test_route",
+      "scope": "Impacto lateral em poste.",
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9492022.pdf",
+      "edition": null,
+      "automaticEquivalence": false,
+      "notes": [
+        "Confirmar escopo, série/versão admitida e representatividade antes de utilizar o resultado. Não é declaração de equivalência integral de normas."
+      ]
+    },
+    {
+      "id": "wf-un-lateral-unspecified",
+      "label": "Regulamentos Técnicos das Nações Unidas — número a conferir",
+      "jurisdiction": "ONU/UNECE",
+      "actId": "contran-949-2022",
+      "device": "Art. 2º, § 2º",
+      "relation": "explicit_alternative_test_route",
+      "scope": "Impacto lateral em barreira; dispositivo não individualiza aqui o regulamento.",
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9492022.pdf",
+      "edition": null,
+      "automaticEquivalence": false,
+      "notes": [
+        "Não inventar um número de regulamento pela semelhança do ensaio."
+      ]
+    },
+    {
+      "id": "wf-un-r100",
+      "label": "UN R100",
+      "jurisdiction": "ONU/UNECE",
+      "actId": "contran-749-2018",
+      "device": "Art. 3º",
+      "relation": "explicit_alternative_test_route",
+      "scope": "Requisitos de híbridos/elétricos, conforme aplicável.",
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7492018.pdf",
+      "edition": null,
+      "automaticEquivalence": false,
+      "notes": [
+        "Confirmar escopo, série/versão admitida e representatividade antes de utilizar o resultado. Não é declaração de equivalência integral de normas."
+      ]
+    },
+    {
+      "id": "wf-un-r95",
+      "label": "UN R95",
+      "jurisdiction": "ONU/UNECE",
+      "actId": "contran-749-2018",
+      "device": "Art. 3º",
+      "relation": "explicit_alternative_test_route",
+      "scope": "Requisitos de híbridos/elétricos, conforme aplicável.",
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7492018.pdf",
+      "edition": null,
+      "automaticEquivalence": false,
+      "notes": [
+        "Confirmar escopo, série/versão admitida e representatividade antes de utilizar o resultado. Não é declaração de equivalência integral de normas."
+      ]
+    },
+    {
+      "id": "wf-us-fmvss305",
+      "label": "FMVSS 305",
+      "jurisdiction": "Estados Unidos",
+      "actId": "contran-749-2018",
+      "device": "Art. 3º",
+      "relation": "explicit_alternative_test_route",
+      "scope": "Requisitos de híbridos/elétricos, conforme aplicável.",
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7492018.pdf",
+      "edition": null,
+      "automaticEquivalence": false,
+      "notes": [
+        "Confirmar escopo, série/versão admitida e representatividade antes de utilizar o resultado. Não é declaração de equivalência integral de normas."
+      ]
+    },
+    {
+      "id": "wf-un-r16-06",
+      "label": "UN R16 série 06 ou posterior",
+      "jurisdiction": "ONU/UNECE",
+      "actId": "contran-997-2023",
+      "device": "Art. 2º, redação dos itens3.5.1–3.5.3 do Anexo da Resolução 951/2022",
+      "relation": "explicit_alternative_test_route",
+      "scope": "Cintos",
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9972023.pdf",
+      "edition": null,
+      "automaticEquivalence": false,
+      "notes": [
+        "Confirmar escopo, série/versão admitida e representatividade antes de utilizar o resultado. Não é declaração de equivalência integral de normas."
+      ]
+    },
+    {
+      "id": "wf-un-r14-07",
+      "label": "UN R14 série 07 ou posterior",
+      "jurisdiction": "ONU/UNECE",
+      "actId": "contran-997-2023",
+      "device": "Art. 2º, redação dos itens3.5.1–3.5.3 do Anexo da Resolução 951/2022",
+      "relation": "explicit_alternative_test_route",
+      "scope": "Ancoragens; observar alternativa específicaISOFIX",
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9972023.pdf",
+      "edition": null,
+      "automaticEquivalence": false,
+      "notes": [
+        "Confirmar escopo, série/versão admitida e representatividade antes de utilizar o resultado. Não é declaração de equivalência integral de normas."
+      ]
+    },
+    {
+      "id": "wf-un-r145",
+      "label": "UN R145",
+      "jurisdiction": "ONU/UNECE",
+      "actId": "contran-997-2023",
+      "device": "Art. 2º, redação dos itens3.5.1–3.5.3 do Anexo da Resolução 951/2022",
+      "relation": "explicit_alternative_test_route",
+      "scope": "ISOFIX/I-Size/LATCH, segundo redação e combinação do dispositivo",
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9972023.pdf",
+      "edition": null,
+      "automaticEquivalence": false,
+      "notes": [
+        "Confirmar escopo, série/versão admitida e representatividade antes de utilizar o resultado. Não é declaração de equivalência integral de normas."
+      ]
+    },
+    {
+      "id": "wf-un-r44-04",
+      "label": "UN R44 série 04 ou posterior",
+      "jurisdiction": "ONU/UNECE",
+      "actId": "contran-997-2023",
+      "device": "Art. 2º, redação dos itens3.5.1–3.5.3 do Anexo da Resolução 951/2022",
+      "relation": "explicit_alternative_test_route",
+      "scope": "Combinação indicada paraISOFIX/I-Size/LATCH",
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9972023.pdf",
+      "edition": null,
+      "automaticEquivalence": false,
+      "notes": [
+        "Confirmar escopo, série/versão admitida e representatividade antes de utilizar o resultado. Não é declaração de equivalência integral de normas."
+      ]
+    },
+    {
+      "id": "wf-un-r17-07",
+      "label": "UN R17 série 07 ou posterior",
+      "jurisdiction": "ONU/UNECE",
+      "actId": "contran-997-2023",
+      "device": "Art. 2º, redação dos itens3.5.1–3.5.3 do Anexo da Resolução 951/2022",
+      "relation": "explicit_alternative_test_route",
+      "scope": "Apoios de cabeça; escopo do item3.5.3",
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9972023.pdf",
+      "edition": null,
+      "automaticEquivalence": false,
+      "notes": [
+        "Confirmar escopo, série/versão admitida e representatividade antes de utilizar o resultado. Não é declaração de equivalência integral de normas."
+      ]
+    },
+    {
+      "id": "wf-un-lighting-unspecified",
+      "label": "Regulamentos ONU/UNECE — conforme item",
+      "jurisdiction": "ONU/UNECE",
+      "actId": "contran-970-2022",
+      "device": "Art. 14",
+      "relation": "foreign_test_results_route_conditioned",
+      "scope": "Iluminação; o dispositivo também mencionaFMVSS e procedimentos similares.",
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao9702022.pdf",
+      "edition": null,
+      "automaticEquivalence": false,
+      "notes": [
+        "O número/série de cada regulamento depende do dispositivo luminoso e do anexo aplicável; não foi inventado um par único."
+      ]
+    },
+    {
+      "id": "wf-749-un-r94",
+      "label": "UN R94",
+      "jurisdiction": "ONU/UNECE",
+      "actId": "contran-749-2018",
+      "device": "Art. 3º",
+      "relation": "explicit_alternative_test_route",
+      "scope": "Requisitos de propulsão híbrida/elétrica, conforme aplicável.",
+      "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7492018.pdf",
+      "edition": null,
+      "automaticEquivalence": false,
+      "notes": [
+        "Confirmar escopo, série/versão admitida e representatividade antes de utilizar o resultado. Não é declaração de equivalência integral de normas."
+      ]
+    }
+  ],
+  "crosswalk": [
+    {
+      "id": "cw-structural-mover",
+      "safetyTopic": "Desempenho estrutural e proteção dos ocupantes",
+      "categoryConditions": {
+        "category": [
+          "M1",
+          "N1"
+        ],
+        "requiresAssessment": true
+      },
+      "senatranActIds": [
+        "contran-910-2022",
+        "contran-949-2022",
+        "contran-951-2022",
+        "contran-997-2023"
+      ],
+      "reportLevel": 3,
+      "methodRefs": [
+        "v-03794c9faad9b1",
+        "v-1a117e6db970c6",
+        "v-3ed394f008841e",
+        "v-b63f917f97f282",
+        "v-08a295cfbb89dd",
+        "v-181146b3281915",
+        "v-5e1a355f361dd3",
+        "v-17a66b57b043a7",
+        "v-f0093db9324f8a",
+        "v-7076b6b7f3a32e",
+        "v-dc16e4480d240a",
+        "v-bd4d965715e7d2",
+        "v-f3a34f98b88240",
+        "v-de187b12bf3abb",
+        "v-74e84a63ee8492",
+        "v-3a2a082403fe93",
+        "v-b540a740bc89bc",
+        "v-2ab3c1390d72b1",
+        "v-9197d1a1b6c6ca"
+      ],
+      "moverRefs": [
+        "mover-001",
+        "mover-002",
+        "mover-006"
+      ],
+      "equivalentRefs": [
+        "wf-un-r94",
+        "wf-un-r135",
+        "wf-un-r16-06",
+        "wf-un-r14-07"
+      ],
+      "relation": "thematic_cross_check_pending_full_text",
+      "reportReusableAutomatically": false,
+      "evidence": [
+        {
+          "sourceId": "guide-senatran-990",
+          "actId": "senatran-095",
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+          "kind": "official_act_targeted_review",
+          "reviewDepth": "directed_reading_only",
+          "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+          "checkedAt": "2026-10-31",
+          "device": "Anexo XI, 1.5"
+        },
+        {
+          "actId": "mover-006",
+          "url": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/programa-mover-1/legislacao-programa-mover",
+          "kind": "official_index_and_ementa",
+          "reviewDepth": "ementa_only",
+          "checkedAt": "2026-10-31",
+          "limits": "A ementa oficial confirma categorias M1/N1 e remissão ao Anexo IV, seção A, do Decreto 12.435/2025. O DOU da Portaria 215/2025 retornou HTTP403; critérios e cronograma não extraídos.",
+          "device": "Ementa oficial: desempenho estrutural; M1/N1; Decreto 12.435 Anexo IV seçãoA"
+        }
+      ],
+      "gaps": [
+        "A ementa não prova que um resultado CAT cumpre a métrica, classificação, cronograma ou mecanismo MOVER. Conferir íntegra215/2025 e anexos antes de pontuar ou dispensar ensaio."
+      ]
+    },
+    {
+      "id": "cw-assistance-mover",
+      "safetyTopic": "Segurança ativa e tecnologias assistivas",
+      "categoryConditions": {
+        "category": [
+          "M1",
+          "N1"
+        ],
+        "requiresAssessment": true
+      },
+      "senatranActIds": [
+        "contran-915-2022",
+        "contran-954-2022",
+        "contran-759-2018",
+        "contran-936-2022"
+      ],
+      "reportLevel": 2,
+      "methodRefs": [
+        "v-cf1745bf33b468",
+        "v-cdde1d9686cc21",
+        "v-199d614dc6b2e2",
+        "v-2e391301e34b00",
+        "v-62370f70eb7629",
+        "v-ac4de8338258c3",
+        "v-6cc1826910879c",
+        "v-3cb63c7528e5d1",
+        "v-a77317f969a9d4"
+      ],
+      "moverRefs": [
+        "mover-002",
+        "mover-006"
+      ],
+      "equivalentRefs": [
+        "wf-un-r13h",
+        "wf-un-r140"
+      ],
+      "relation": "thematic_cross_check_pending_full_text",
+      "reportReusableAutomatically": false,
+      "evidence": [
+        {
+          "sourceId": "guide-senatran-990",
+          "actId": "senatran-095",
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf",
+          "kind": "official_act_targeted_review",
+          "reviewDepth": "directed_reading_only",
+          "documentSha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+          "checkedAt": "2026-10-31",
+          "device": "Anexo XI, 1.3"
+        },
+        {
+          "actId": "mover-006",
+          "url": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/programa-mover-1/legislacao-programa-mover",
+          "kind": "official_index_and_ementa",
+          "reviewDepth": "ementa_only",
+          "checkedAt": "2026-10-31",
+          "limits": "A ementa oficial confirma categorias M1/N1 e remissão ao Anexo IV, seção A, do Decreto 12.435/2025. O DOU da Portaria 215/2025 retornou HTTP403; critérios e cronograma não extraídos.",
+          "device": "Ementa oficial: tecnologias assistivas à direçãoM1/N1"
+        }
+      ],
+      "gaps": [
+        "Não foi extraída a lista de tecnologias ou de níveis MOVER. Não se afirma queESC/ABS/alertas isoladamente satisfaçam o programa."
+      ]
+    },
+    {
+      "id": "cw-electric-safety",
+      "safetyTopic": "Segurança elétrica deHEV/PHEV/BEV",
+      "categoryConditions": {
+        "propulsion": [
+          "hev",
+          "phev",
+          "bev"
+        ],
+        "requiresAssessment": true
+      },
+      "senatranActIds": [
+        "contran-749-2018"
+      ],
+      "reportLevel": 3,
+      "methodRefs": [],
+      "moverRefs": [
+        "mover-002"
+      ],
+      "equivalentRefs": [
+        "wf-un-r100",
+        "wf-749-un-r94",
+        "wf-un-r95"
+      ],
+      "relation": "separate_product_safety_and_program_assessment",
+      "reportReusableAutomatically": false,
+      "evidence": [
+        {
+          "actId": "contran-749-2018",
+          "sourceId": "guide-contran-749",
+          "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7492018.pdf",
+          "kind": "official_act_targeted_review",
+          "reviewDepth": "directed_public_provisions",
+          "device": "Arts. 1º–3º"
+        },
+        {
+          "sourceId": "mdic-mover",
+          "actId": "mover-002",
+          "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/decreto/d12435.htm",
+          "kind": "catalog_reference",
+          "reviewDepth": null,
+          "checkedAt": "2026-10-31",
+          "limits": "Tentativa atual HTTP503; não apresentada como nova leitura integral.",
+          "device": "Referência de programa"
+        }
+      ],
+      "gaps": [
+        "Segurança elétrica e metas de eficiência/rotulagem não são a mesma avaliação;PBEV/ENCE não substitui CAT/LCVM."
+      ]
+    },
+    {
+      "id": "cw-heavy-mover-candidate",
+      "safetyTopic": "Desempenho estrutural e tecnologias assistivas de pesados",
+      "categoryConditions": {
+        "category": [
+          "M2",
+          "M3",
+          "N2",
+          "N3"
+        ],
+        "requiresAssessment": true
+      },
+      "senatranActIds": [
+        "contran-939-2022",
+        "contran-959-2022",
+        "contran-765-2018"
+      ],
+      "reportLevel": null,
+      "methodRefs": [],
+      "moverRefs": [],
+      "candidateIds": [
+        "mdic-gm-76-2026"
+      ],
+      "equivalentRefs": [],
+      "relation": "candidate_working_group_not_product_obligation",
+      "reportReusableAutomatically": false,
+      "evidence": [
+        {
+          "url": "https://www.gov.br/mdic/pt-br/acesso-a-informacao/institucional/atos-normativos/gabinete-do-ministro/portarias/2026",
+          "device": "EmentaPortaria76/2026",
+          "kind": "official_index_and_ementa",
+          "reviewDepth": "index_only"
+        }
+      ],
+      "gaps": [
+        "Instituição de grupo de trabalho não cria por si requisito de produto; candidato não entra como ato ativo desta matriz."
+      ]
+    }
+  ],
+  "reviewLimits": [
+    "Originais e republicação são documentos separados; foi lida a republicação990de19/08/2022. Referências antigas doAnexo XI não comprovam atualidade de cada ato.",
+    "As18 referências Inmetro permanecem sem revisão integral; métodos privados continuam não estruturados.",
+    "Portaria MDIC215/2025: ementa oficial lida; íntegra doDOU não acessível nesta tentativa. Decreto 12.435 retornou503. Critérios, níveis e cronograma não inferidos.",
+    "Campos SISCAT autenticados não foram visualizados; a página pública é orientação de serviço, não prova de telas atuais.",
+    "UNECE/ONU não significa UniãoEuropeia. Não foi atribuída equivalência formalUE sem dispositivo. Nenhuma referência estrangeira implica aceitação universal ou equivalência integral."
+  ]
+}

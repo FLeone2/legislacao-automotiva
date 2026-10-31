@@ -1,0 +1,42 @@
+{
+  "artifacts": {
+    "README.md": "71a159e9c88dc1d40a0168496e4e9bb01594600514a94ebe59e466848e3ab013",
+    "conama-490-2018-official_publication.md": "10aeb45d731972fb149bbeccd72734b13722d8b14eb7342bbc7b70201489b6b4",
+    "conama-492-2018-official_publication.md": "9f9e806f3d10ff7151b04b36c03dedce5d9a084db6b8b955a463c689795e79e9",
+    "contran-749-2018-official-pdf.md": "288f0bbbeb71faea2fe84087c76b970a8a8fdb552ac3a23b61f5b29497e0992b",
+    "contran-882-2021-official-pdf.md": "5a201349c26cf97130ea633b98b78a82c2da8059e0ea143ea643f2d545704d27",
+    "contran-915-2022-original.md": "8dfdf2120f5cd7230bafd0b0479b33ab1ed965f54e438dfd322fcb24324c8547",
+    "contran-954-2022-original.md": "5ca94ce49f0bdc622df65e6c9465463c5c38c69519c831f1a413cc3d4476f40d",
+    "contran-968-2022-official-pdf.md": "8200f0bb0f05331eaab8126fc4e7a568db3b19999c823c160dae374e1e6a56dc",
+    "contran-970-2022-official-pdf.md": "557cca33d65beb09a3fd84a7f0d883cd5aa1ed3e71578e1f5376dba1167088f5",
+    "ibama-in-11-2014-official-html.md": "f3e4da31a80d472fe454a57604fe879187aa5faaaed9b7f2bae4bdd3ee635ff8",
+    "ibama-in-16-2025-official-html.md": "8a24e672917a3923ff57b4d31858cd6b88864a0894631d1e8507891270a963fe",
+    "ibama-in-18-2023-official-html.md": "1dbdaf03bffc96c2adabb227b1b594c84403d39e00806e7b5bf2bd506c42926f",
+    "ibama-in-20-2020-official-html.md": "21861ba1df015438555b982cb05b852c47fd99d375aa1b9366c5e5f626a6dd3b",
+    "ibama-in-20-2021-official-html.md": "99877664e6068c81bc93add9fa84731dd113837db4cad7355c562b5b410df8fa",
+    "ibama-in-22-2020-official-html.md": "85bae9d469662c0b579c083759a9880b1a065ab846287f706b17d3d1b11da7af",
+    "ibama-in-23-2020-official-html.md": "e9f66e6ade19afc7cfcd36a0a72fb3d573b474313694fe687ff6135a4245e6cf",
+    "ibama-in-26-2020-official-pdf.md": "2223b36f426d4311dc9fa51b415473187ff54b66110d007f410e00e3f4778eb3",
+    "ibama-in-3-2021-official-html.md": "b1051c422c401b1e8c51538c97211f105d216a8b8e4ac3e43762b57dc7de6ce0",
+    "ibama-in-3-2023-official-html.md": "80b6c84cd1240201a4930c603e97b98c7ca5c67968d44bb40631cc1af5452423",
+    "ibama-in-5-2024-official-html.md": "d92af55cc87d78926ff265fc7ffbea26f76f4ad508f0b23ab6cf869119de57d9",
+    "ibama-in-6-2025-official-pdf.md": "9e135e9c9a9432621d958885f9e84d3636a3867a4c8922921fb84dab7390778a",
+    "ibama-manual-proconve-promot-2011.md": "a7a0c41d54dd7432a7bbe29424a264ff364a3181f3ae3e94a957dfe8c45090ee",
+    "senatran-095-original.md": "550ed6dc5e49785498f088989f87f76be535a54f7176139800ecaa206f029576",
+    "senatran-095-republication_2022-08-19.md": "98c3f6b77c4aebc5c5439f0ce0a296c7ddb2e2769b46bc39d73eb44d88627450"
+  },
+  "counts": {
+    "acts": 21,
+    "chunks": 1320,
+    "documents": 23,
+    "historicalDocumentsExcludedFromAutomaticIndex": 1,
+    "htmlTexts": 10,
+    "pdfs": 13
+  },
+  "knowledgeRevision": "1a6eb46277472c906bd5e3d552709e526f83194e3e1ed54a58f6fe8048006b97",
+  "legalReviewPromoted": false,
+  "privateStandardsCopied": false,
+  "revision": "a9e7cf6250e1894fcbe2334f2cf4914cd46a725c66d1a2523ef4e3aa86196676",
+  "schemaVersion": 1,
+  "sourceManifestSha256": "6e888da423bc691aa0f4ea7cea0fdd84fc267ec0aef7b52fdb29ef49b61d2240"
+}

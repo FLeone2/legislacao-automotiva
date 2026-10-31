@@ -27,6 +27,37 @@ def copy_knowledge(target):
         output.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(path, output)
     shutil.copy2(source / "manifest.json", target / "knowledge/manifest.json")
+    # Public document extractions have their own checked manifest. Raw receipts
+    # and extraction inputs stay in the repository, outside the published bank.
+    prototype = source / "prototype"
+    if (prototype / "manifest.json").exists():
+        document_manifest = json.loads((prototype / "manifest.json").read_text())
+        if document_manifest.get("knowledgeRevision") != manifest["revision"]:
+            raise ValueError("Document bank uses a stale canonical knowledge revision")
+        receipts = ROOT / "data/prototype/texts-manifest.json"
+        if (
+            document_manifest.get("sourceManifestSha256")
+            != hashlib.sha256(receipts.read_bytes()).hexdigest()
+        ):
+            raise ValueError("Document bank source manifest changed; rebuild the bank")
+        for name, expected in document_manifest["artifacts"].items():
+            path = (prototype / name).resolve()
+            if not path.is_relative_to(prototype.resolve()) or path.suffix not in {
+                ".md",
+                ".json",
+                ".jsonl",
+            }:
+                raise ValueError(
+                    "Document bank publication path is not allowed: " + name
+                )
+            if hashlib.sha256(path.read_bytes()).hexdigest() != expected:
+                raise ValueError("Stale document bank artifact: " + name)
+            output = target / "knowledge/prototype" / name
+            output.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(path, output)
+        shutil.copy2(
+            prototype / "manifest.json", target / "knowledge/prototype/manifest.json"
+        )
 
 
 def build(destination=None):
@@ -50,7 +81,18 @@ def build(destination=None):
         "docs/guide",
         "data/requirements/catalog.json",
         "data/ai",
+        "prototipo",
     ]
+    for name in (
+        "catalog.json",
+        "pdf-review.json",
+        "services-review.json",
+        "workflow.json",
+        "texts-manifest.json",
+        "document-chunks.json",
+    ):
+        if (ROOT / "data/prototype" / name).exists():
+            paths.append("data/prototype/" + name)
     # Official PDF copies are optional until the copy workflow has run.
     if (ROOT / "pdfs/manifest.json").exists():
         paths.append("pdfs")
@@ -66,21 +108,23 @@ def build(destination=None):
     copy_knowledge(target)
     # Each script and stylesheet URL follows its actual bytes. A new release
     # cannot accidentally retain an old hand-written cache version.
-    index = target / "index.html"
     revisions = {}
 
     def version_asset(match):
         path = match[2]
-        digest = hashlib.sha256((target / path).read_bytes()).hexdigest()[:16]
+        digest = hashlib.sha256((target / path.lstrip("/")).read_bytes()).hexdigest()[
+            :16
+        ]
         revisions[path] = digest
         return f'{match[1]}="{path}?v={digest}"'
 
-    html = re.sub(
-        r'(src|href)="([^"?]+\.(?:js|css))(?:\?[^\"]*)?"',
-        version_asset,
-        index.read_text(),
-    )
-    index.write_text(html)
+    for index in (target / "index.html", target / "prototipo/index.html"):
+        html = re.sub(
+            r'(src|href)="([^"?]+\.(?:js|css))(?:\?[^\"]*)?"',
+            version_asset,
+            index.read_text(),
+        )
+        index.write_text(html)
     # Revalidate the entry page/data in browsers, including the stable Pages URL.
     (target / "_headers").write_text(
         "/*\n  Cache-Control: public, max-age=0, must-revalidate\n"
