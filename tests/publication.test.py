@@ -29,12 +29,22 @@ with tempfile.TemporaryDirectory() as directory:
     version = json.loads((target / "version.json").read_text())
     assert re.fullmatch(r"[0-9a-f]{64}", version["revision"])
     html = (target / "index.html").read_text()
-    assets = re.findall(r'(?:src|href)="([^"?]+\.(?:js|css))\?v=([0-9a-f]{16})"', html)
+    prototype_html = (target / "prototipo/index.html").read_text()
+    assets = re.findall(
+        r'(?:src|href)="([^"?]+\.(?:js|css))\?v=([0-9a-f]{16})"',
+        html + prototype_html,
+    )
     assert dict(assets) == version["assets"]
     assert "src/core/theme.js" in version["assets"]
     assert "src/styles/theme-tokens.css" in version["assets"]
     for path, revision in assets:
-        assert hashlib.sha256((target / path).read_bytes()).hexdigest()[:16] == revision
+        assert (
+            hashlib.sha256((target / path.lstrip("/")).read_bytes()).hexdigest()[:16]
+            == revision
+        )
+    assert "/assets/prototype/app.js" in version["assets"]
+    assert "/assets/prototype/app.css" in version["assets"]
+    assert (target / "data/prototype/catalog.json").is_file()
     fingerprint = hashlib.sha256()
     for path in sorted(
         p for p in target.rglob("*") if p.is_file() and p != target / "version.json"
@@ -52,8 +62,32 @@ with tempfile.TemporaryDirectory() as directory:
     assert set(manifest["artifacts"]) == {
         str(path.relative_to(target / "knowledge"))
         for path in (target / "knowledge").rglob("*")
-        if path.is_file() and path.name != "manifest.json"
+        if path.is_file()
+        and path.name != "manifest.json"
+        and not path.is_relative_to(target / "knowledge/prototype")
     }
+    prototype_manifest = target / "knowledge/prototype/manifest.json"
+    if prototype_manifest.exists():
+        extra = json.loads(prototype_manifest.read_text())
+        assert extra["knowledgeRevision"] == manifest["revision"]
+        assert (
+            extra["sourceManifestSha256"]
+            == hashlib.sha256(
+                (ROOT / "data/prototype/texts-manifest.json").read_bytes()
+            ).hexdigest()
+        )
+        assert set(extra["artifacts"]) == {
+            path.relative_to(prototype_manifest.parent).as_posix()
+            for path in prototype_manifest.parent.rglob("*")
+            if path.is_file() and path != prototype_manifest
+        }
+        for name, digest in extra["artifacts"].items():
+            assert (
+                hashlib.sha256(
+                    (prototype_manifest.parent / name).read_bytes()
+                ).hexdigest()
+                == digest
+            )
     unregistered = ROOT / "knowledge/.publication-test-private.sqlite"
     assert not unregistered.exists()
     try:
@@ -71,6 +105,8 @@ with tempfile.TemporaryDirectory() as directory:
         "data/vehicle-visual",
         "data/vehicle-legislation",
         "data/contran/publication-policy.json",
+        "data/prototype/document-texts",
+        "data/prototype/document-receipts",
     ]:
         assert not (target / private).exists(), private
     before = {

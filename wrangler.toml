@@ -8,6 +8,8 @@ binding = "AI"
 
 [vars]
 AI_MODEL = "@cf/mistralai/mistral-small-3.1-24b-instruct"
+# Isolated prototype: structured answers through the existing free AI binding.
+PROTOTYPE_AI_MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
 # Google Gemini is used first when the GEMINI_API_KEY secret exists (never commit the key).
 GEMINI_MODEL = "gemini-3.5-flash-lite"
 # "on" only after enabling billing on the Google project: Search grounding is not free.

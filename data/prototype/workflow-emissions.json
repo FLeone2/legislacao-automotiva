@@ -1,0 +1,2173 @@
+{
+  "schemaVersion": 1,
+  "id": "emissions",
+  "title": "Emissões",
+  "authoredAt": "2026-10-31",
+  "kind": "analyst_workflow_editorial_input",
+  "scope": {
+    "primary": "Planejamento de veículos leves PROCONVE (LP/LC) com ramos ICE/HEV/PHEV/BEV.",
+    "notCompleteFor": [
+      "P8 completo de veículos pesados",
+      "PROMOT/LCM e subcategorias L",
+      "Máquinas/MAR-I",
+      "Históricos de modelos e dispensas não enquadrados",
+      "Métodos privados integrais e campos autenticados do Infoserv 2"
+    ],
+    "automaticApplicability": false
+  },
+  "provenance": {
+    "knowledgeRevision": "1a6eb46277472c906bd5e3d552709e526f83194e3e1ed54a58f6fe8048006b97",
+    "coverageRevision": "6ffac1cc69b633b60030093251a1e613f6505fbab328c9f8024c23743b4f8de2",
+    "canonicalLawStatesChanged": false
+  },
+  "sources": [
+    {
+      "id": "conama-492-2018",
+      "sourceId": "conama-492-2018",
+      "actId": "conama-492-2018",
+      "title": "Resolução CONAMA 492/2018",
+      "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+      "device": "Arts.4–9,13–23,32,35–36; Anexo",
+      "kind": "official_act",
+      "reviewDepth": "targeted_public_act_read",
+      "reviewedAt": "2026-10-31",
+      "amendmentChainReviewed": false,
+      "technicalMethodReviewed": false,
+      "archive": {
+        "path": "data/proconve/sources/evidence.json.gz",
+        "sourceKey": "conama492",
+        "retrievedAt": "2026-10-18T19:51:26.217296+00:00",
+        "sha256": "6145893406a02142fc3f7d78ec4cd188e6669e35dcfe903f8ebb05107ff088e2"
+      },
+      "limitations": "Leitura dirigida dos dispositivos indicados. Não certifica cadeia integral nem conteúdo de normas técnicas privadas."
+    },
+    {
+      "id": "conama-490-2018",
+      "sourceId": "conama-490-2018",
+      "actId": "conama-490-2018",
+      "title": "Resolução CONAMA 490/2018",
+      "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=767",
+      "device": "Art. 23 e âmbito de veículos pesados",
+      "kind": "official_act",
+      "reviewDepth": "targeted_public_act_read",
+      "reviewedAt": "2026-10-31",
+      "amendmentChainReviewed": false,
+      "technicalMethodReviewed": false,
+      "archive": {
+        "path": "data/proconve/sources/evidence.json.gz",
+        "sourceKey": "conama490",
+        "retrievedAt": "2026-10-18T19:51:25.391592+00:00",
+        "sha256": "8166b042a05234fa7f968aa281addc2be33c9dee6525b755852523c523dc0a7d"
+      },
+      "limitations": "Leitura dirigida dos dispositivos indicados. Não certifica cadeia integral nem conteúdo de normas técnicas privadas."
+    },
+    {
+      "id": "ibama-in-11-2014",
+      "sourceId": "ibama-in-11-2014",
+      "actId": "ibama-in-11-2014",
+      "title": "IN IBAMA 11/2014",
+      "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=133670",
+      "device": "Art. 1º §§ 1º–4º e art. 2º, com redações da IN 3/2023",
+      "kind": "official_act",
+      "reviewDepth": "targeted_public_act_read",
+      "reviewedAt": "2026-10-31",
+      "amendmentChainReviewed": false,
+      "technicalMethodReviewed": false,
+      "archive": {
+        "path": "data/proconve/sources/evidence.json.gz",
+        "sourceKey": "133670",
+        "retrievedAt": "2026-10-18T19:51:22.700907+00:00",
+        "sha256": "8f60bbec9963af906b749d90d03922bc9bef7dd04b98951bcf885db3bf22f6d9"
+      },
+      "limitations": "Leitura dirigida dos dispositivos indicados. Não certifica cadeia integral nem conteúdo de normas técnicas privadas."
+    },
+    {
+      "id": "ibama-in-3-2023",
+      "sourceId": "ibama-in-3-2023",
+      "actId": "ibama-in-3-2023",
+      "title": "IN IBAMA 3/2023",
+      "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139279",
+      "device": "Arts.2º–8º: referências ABNT, híbridos, autonomia, evaporativas, NH 3 e ETR",
+      "kind": "official_act",
+      "reviewDepth": "targeted_public_act_read",
+      "reviewedAt": "2026-10-31",
+      "amendmentChainReviewed": false,
+      "technicalMethodReviewed": false,
+      "archive": {
+        "path": "data/proconve/sources/evidence.json.gz",
+        "sourceKey": "139279",
+        "retrievedAt": "2026-10-18T19:51:24.363811+00:00",
+        "sha256": "fa85e995a0f8dbc1f2b4ea1a00fd99d57eaac8bf6dada82e4ae64a1ef2d030b5"
+      },
+      "limitations": "Leitura dirigida dos dispositivos indicados. Não certifica cadeia integral nem conteúdo de normas técnicas privadas."
+    },
+    {
+      "id": "ibama-in-3-2021",
+      "sourceId": "ibama-in-3-2021",
+      "actId": "ibama-in-3-2021",
+      "title": "IN IBAMA 3/2021",
+      "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=138776",
+      "device": "Anexo,2.4–2.9,2.14–2.15, Partes 3–7; ler alterações/retificações em conjunto",
+      "kind": "official_act",
+      "reviewDepth": "targeted_public_act_read",
+      "reviewedAt": "2026-10-31",
+      "amendmentChainReviewed": false,
+      "technicalMethodReviewed": false,
+      "archive": {
+        "path": "data/proconve/sources/evidence.json.gz",
+        "sourceKey": "138776",
+        "retrievedAt": "2026-10-18T19:51:23.372407+00:00",
+        "sha256": "859c967dc340e5d509197e1010aaddc535fc15fd2af1705ba3fb57b5c3e2d440"
+      },
+      "limitations": "Leitura dirigida dos dispositivos indicados. Não certifica cadeia integral nem conteúdo de normas técnicas privadas."
+    },
+    {
+      "id": "ibama-in-26-2020",
+      "sourceId": "ibama-in-26-2020",
+      "actId": "ibama-in-26-2020",
+      "title": "IN IBAMA 26/2020",
+      "url": "https://www.ibama.gov.br/sophia/cnia/legislacao/IBAMA/2020/IN0026-18122020.pdf",
+      "device": "Arts.3º,6º–8º e Anexo; art. 7º alterado por IN 3/2023",
+      "kind": "official_act",
+      "reviewDepth": "targeted_public_act_read",
+      "reviewedAt": "2026-10-31",
+      "amendmentChainReviewed": false,
+      "technicalMethodReviewed": false,
+      "archive": {
+        "path": "data/proconve/sources/evidence.json.gz",
+        "sourceKey": "in26-2020-certified",
+        "retrievedAt": "2026-10-19T20:17:44.519493+00:00",
+        "sha256": "42a3c3004bdf7831e66988ddbe0f44b886a309931febeec6d61fa25d368a912b"
+      },
+      "limitations": "Leitura dirigida dos dispositivos indicados. Não certifica cadeia integral nem conteúdo de normas técnicas privadas."
+    },
+    {
+      "id": "ibama-in-22-2020",
+      "sourceId": "ibama-in-22-2020",
+      "actId": "ibama-in-22-2020",
+      "title": "IN IBAMA 22/2020",
+      "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=138750",
+      "device": "Arts.1º–9º e Anexo; alterações IN 21/2021 e IN 15/2022",
+      "kind": "official_act",
+      "reviewDepth": "targeted_public_act_read",
+      "reviewedAt": "2026-10-31",
+      "amendmentChainReviewed": false,
+      "technicalMethodReviewed": false,
+      "archive": {
+        "path": "data/proconve/sources/evidence.json.gz",
+        "sourceKey": "138750",
+        "retrievedAt": "2026-10-18T19:51:23.215760+00:00",
+        "sha256": "c96ab4dc3e0504f86957b5f0a0de14e1e1611cb38b35f07b6b37ebafa75d1d73"
+      },
+      "limitations": "Leitura dirigida dos dispositivos indicados. Não certifica cadeia integral nem conteúdo de normas técnicas privadas."
+    },
+    {
+      "id": "ibama-in-23-2020",
+      "sourceId": "ibama-in-23-2020",
+      "actId": "ibama-in-23-2020",
+      "title": "IN IBAMA 23/2020",
+      "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=138749",
+      "device": "Art. 11 e Anexo, Partes 4–5,7,9; alterações/retificações indicadas na fonte",
+      "kind": "official_act",
+      "reviewDepth": "targeted_public_act_read",
+      "reviewedAt": "2026-10-31",
+      "amendmentChainReviewed": false,
+      "technicalMethodReviewed": false,
+      "archive": {
+        "path": "data/proconve/sources/evidence.json.gz",
+        "sourceKey": "138749",
+        "retrievedAt": "2026-10-18T19:51:23.169994+00:00",
+        "sha256": "4e9f110dc894151f5f12a5edf98d51378527bf5fdf061b4afc68939642a2c919"
+      },
+      "limitations": "Leitura dirigida dos dispositivos indicados. Não certifica cadeia integral nem conteúdo de normas técnicas privadas."
+    },
+    {
+      "id": "ibama-in-29-2020",
+      "sourceId": "ibama-in-29-2020",
+      "actId": "ibama-in-29-2020",
+      "title": "IN IBAMA 29/2020",
+      "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=138769",
+      "device": "Arts.1º–4º e Anexo; amônia e fator Ki, com alterações da IN 3/2023",
+      "kind": "official_act",
+      "reviewDepth": "targeted_public_act_read",
+      "reviewedAt": "2026-10-31",
+      "amendmentChainReviewed": false,
+      "technicalMethodReviewed": false,
+      "archive": {
+        "path": "data/proconve/sources/evidence.json.gz",
+        "sourceKey": "138769",
+        "retrievedAt": "2026-10-18T19:51:23.272102+00:00",
+        "sha256": "ed74af9a80966e16c43b80d7889de6a33dc458b502dbf5d001cb3b5a39516dfe"
+      },
+      "limitations": "Leitura dirigida dos dispositivos indicados. Não certifica cadeia integral nem conteúdo de normas técnicas privadas."
+    },
+    {
+      "id": "ibama-in-16-2025",
+      "sourceId": "ibama-in-16-2025",
+      "actId": "ibama-in-16-2025",
+      "title": "IN IBAMA 16/2025",
+      "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139520",
+      "device": "Art. 1º: Parte 9 do Anexo da IN 23/2020",
+      "kind": "official_act",
+      "reviewDepth": "targeted_public_act_read",
+      "reviewedAt": "2026-10-31",
+      "amendmentChainReviewed": false,
+      "technicalMethodReviewed": false,
+      "archive": {
+        "path": "data/proconve/sources/evidence.json.gz",
+        "sourceKey": "139520",
+        "retrievedAt": "2026-10-18T19:51:24.577958+00:00",
+        "sha256": "f88cd120964ffd9f5433c163ddcb8fe5b3581968856dbefeea1badbcccacee38"
+      },
+      "limitations": "Leitura dirigida dos dispositivos indicados. Não certifica cadeia integral nem conteúdo de normas técnicas privadas."
+    },
+    {
+      "id": "ibama-in-20-2025",
+      "sourceId": "ibama-in-20-2025",
+      "actId": "ibama-in-20-2025",
+      "title": "IN IBAMA 20/2025",
+      "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139548",
+      "device": "Art. 1º: prazos dos itens 9.2.1–9.2.2 da Parte 9 da IN 23/2020",
+      "kind": "official_act",
+      "reviewDepth": "targeted_public_act_read",
+      "reviewedAt": "2026-10-31",
+      "amendmentChainReviewed": false,
+      "technicalMethodReviewed": false,
+      "archive": {
+        "path": "data/proconve/sources/evidence.json.gz",
+        "sourceKey": "139548",
+        "retrievedAt": "2026-10-18T19:51:24.618427+00:00",
+        "sha256": "1e3be47af7d9686398b0f2015039f5511d89ebc6711f7922b3f2e026bafae96c"
+      },
+      "limitations": "Leitura dirigida dos dispositivos indicados. Não certifica cadeia integral nem conteúdo de normas técnicas privadas."
+    },
+    {
+      "id": "ibama-lcvm-service",
+      "sourceId": "ibama-lcvm-service",
+      "actId": null,
+      "title": "Serviço LCVM/Proconve",
+      "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-para-veiculos-motores-ou-maquinas-lcvm-proconve",
+      "device": "Quem deve solicitar; requisitos; como solicitar; observações",
+      "kind": "official_guidance",
+      "reviewDepth": "public_service_page_read",
+      "checkedAt": "2026-10-31",
+      "retrievalSha256": "40c8d65e2f1a12ae520cfba23d2588a8e90d3ee2b11d70c94999ee47b1c4d456",
+      "authenticated": false,
+      "limitations": "Página pública, não tela interna do Infoserv 2 nem checklist integral da cadeia normativa."
+    },
+    {
+      "id": "ibama-hybrid-energy-guidance",
+      "sourceId": "ibama-hybrid-energy-guidance",
+      "actId": null,
+      "title": "Cálculo de eficiência energética de veículos híbridos",
+      "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/calculo-de-eficiencia-energetica-de-veiculos-hibridos",
+      "device": "Apresentação da planilha: carga sustentada/redução de carga, urbano/estrada",
+      "kind": "official_guidance",
+      "reviewDepth": "public_service_page_read",
+      "checkedAt": "2026-10-31",
+      "retrievalSha256": "6b7d56ce46e8871d4e966ec397b1d0aec28b9aa0aad8ce13256d53a4c7073dc4",
+      "limitations": "A página cita 16567:2016; a IN 3/2023 manda conferir versões mais recentes/sucedâneas. Planilha não reexecutada nem norma privada reproduzida."
+    },
+    {
+      "id": "inmetro-169-guidance",
+      "sourceId": "inmetro-169-guidance",
+      "actId": "inmetro-169-2023",
+      "title": "PBEV — referência oficial à Portaria Inmetro 169/2023",
+      "url": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1692023",
+      "device": "Natureza voluntária; normas técnicas referenciadas",
+      "kind": "official_guidance",
+      "reviewDepth": "existing_official_reference_only",
+      "checkedAt": "2026-10-19",
+      "limitations": "Íntegra consolidada e cadeia não revisadas. A lista contém NBR 10312 e SAEJ 1634:2017, mas não permite inferir edição nem método completo. PBEV não é tornado compulsório por este fluxo."
+    },
+    {
+      "id": "ibama-manual-2011",
+      "sourceId": "ibama-manual-2011",
+      "actId": null,
+      "title": "Manual PROCONVE/PROMOT — edição 2011",
+      "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/arquivos/manual%20proconve%20promot_portugues.pdf",
+      "device": "Compilação histórica, Portaria 167/1997, anexos B1/B3, pp. 343–349",
+      "kind": "historical_official_compilation",
+      "reviewDepth": "targeted_historical_annex_read",
+      "checkedAt": "2026-10-31",
+      "retrievalSha256": "be434aa64aacabb9637c464e043a074c96223d5dfe4aa70b322cbbf36c0aae35",
+      "limitations": "Edição 2011. Usada somente como referência histórica de organização de dados, não como prova dos campos atuais do Infoserv 2, nem atualização automática da Portaria 167/1997."
+    }
+  ],
+  "standards": [
+    {
+      "id": "abnt-nbr-6601",
+      "label": "ABNT NBR 6601",
+      "editionCited": "2012 no texto original da CONAMA 492",
+      "currentEditionConfirmed": false,
+      "sourceIds": [
+        "conama-492-2018",
+        "ibama-in-3-2023"
+      ],
+      "methodStatus": "not_structured",
+      "limitations": "IN 3/2023 art. 3º determina versões mais recentes. Não assumir 2012 como edição atual."
+    },
+    {
+      "id": "abnt-nbr-7024",
+      "label": "ABNT NBR 7024",
+      "editionCited": "2010 ou sucedâneas citadas na IN 3/2023 art. 5º",
+      "currentEditionConfirmed": false,
+      "sourceIds": [
+        "ibama-in-11-2014",
+        "ibama-in-3-2023"
+      ],
+      "methodStatus": "not_structured",
+      "limitations": "Confirmar edição incorporada e usar íntegra autorizada; não há transcrição ou reconstrução de método privado."
+    },
+    {
+      "id": "abnt-nbr-16567",
+      "label": "ABNT NBR 16567",
+      "editionCited": "2020 ou sucedâneas na alteração da IN 11; versão mais recente nos arts. 2º–3º",
+      "currentEditionConfirmed": false,
+      "sourceIds": [
+        "conama-492-2018",
+        "ibama-in-3-2023"
+      ],
+      "methodStatus": "not_structured",
+      "limitations": "Confirmar edição incorporada e usar íntegra autorizada; não há transcrição ou reconstrução de método privado."
+    },
+    {
+      "id": "abnt-nbr-10312",
+      "label": "ABNT NBR 10312",
+      "editionCited": null,
+      "currentEditionConfirmed": false,
+      "sourceIds": [
+        "inmetro-169-guidance"
+      ],
+      "methodStatus": "not_structured",
+      "limitations": "Referência listada na orientação do PBEV. Inteiro teor, edição e incorporação ao caso concreto precisam ser confirmados antes de definir coastdown."
+    },
+    {
+      "id": "abnt-nbr-8689",
+      "label": "ABNT NBR 8689",
+      "editionCited": "2012 no Anexo da IN 22/2020; conferir sucedânea referenciada",
+      "currentEditionConfirmed": false,
+      "sourceIds": [
+        "ibama-in-22-2020"
+      ],
+      "methodStatus": "not_structured",
+      "limitations": "Confirmar edição incorporada e usar íntegra autorizada; não há transcrição ou reconstrução de método privado."
+    },
+    {
+      "id": "abnt-nbr-12026",
+      "label": "ABNT NBR 12026",
+      "editionCited": null,
+      "currentEditionConfirmed": false,
+      "sourceIds": [
+        "conama-492-2018",
+        "ibama-in-3-2023"
+      ],
+      "methodStatus": "not_structured",
+      "limitations": "Confirmar edição incorporada e usar íntegra autorizada; não há transcrição ou reconstrução de método privado."
+    },
+    {
+      "id": "abnt-nbr-15598",
+      "label": "ABNT NBR 15598",
+      "editionCited": null,
+      "currentEditionConfirmed": false,
+      "sourceIds": [
+        "conama-492-2018",
+        "ibama-in-3-2023"
+      ],
+      "methodStatus": "not_structured",
+      "limitations": "Confirmar edição incorporada e usar íntegra autorizada; não há transcrição ou reconstrução de método privado."
+    },
+    {
+      "id": "abnt-nbr-16927",
+      "label": "ABNT NBR 16927",
+      "editionCited": null,
+      "currentEditionConfirmed": false,
+      "sourceIds": [
+        "ibama-in-26-2020"
+      ],
+      "methodStatus": "not_structured",
+      "limitations": "Confirmar edição incorporada e usar íntegra autorizada; não há transcrição ou reconstrução de método privado."
+    },
+    {
+      "id": "abnt-nbr-17011",
+      "label": "ABNT NBR 17011",
+      "editionCited": null,
+      "currentEditionConfirmed": false,
+      "sourceIds": [
+        "ibama-in-3-2023",
+        "ibama-in-3-2021"
+      ],
+      "methodStatus": "not_structured",
+      "limitations": "Norma referenciada pela IN 3/2023 para ETR. Não assumir edição, rota, tempos ou equações privados sem íntegra autorizada."
+    },
+    {
+      "id": "abnt-nbr-16898",
+      "label": "ABNT NBR 16898",
+      "editionCited": "2020 ou sucedânea na IN 3/2023 art. 7º",
+      "currentEditionConfirmed": false,
+      "sourceIds": [
+        "ibama-in-3-2023",
+        "ibama-in-29-2020"
+      ],
+      "methodStatus": "not_structured",
+      "limitations": "Confirmar edição incorporada e usar íntegra autorizada; não há transcrição ou reconstrução de método privado."
+    },
+    {
+      "id": "abnt-nbr-14008",
+      "label": "ABNT NBR 14008",
+      "editionCited": "2012 ou sucedânea referenciada pelo Ibama no art. 16",
+      "currentEditionConfirmed": false,
+      "sourceIds": [
+        "conama-492-2018"
+      ],
+      "methodStatus": "not_structured",
+      "limitations": "Confirmar edição incorporada e usar íntegra autorizada; não há transcrição ou reconstrução de método privado."
+    },
+    {
+      "id": "abnt-nbr-13776",
+      "label": "ABNT NBR 13776",
+      "editionCited": null,
+      "currentEditionConfirmed": false,
+      "sourceIds": [
+        "ibama-in-3-2023"
+      ],
+      "methodStatus": "not_structured",
+      "limitations": "IN 3/2023 art. 4º refere a versão mais recente para a Tabela 5 de ruído da CONAMA 492."
+    },
+    {
+      "id": "sae-j1634",
+      "label": "SAE J 1634",
+      "editionCited": "2017 na lista da orientação oficial",
+      "currentEditionConfirmed": false,
+      "sourceIds": [
+        "inmetro-169-guidance"
+      ],
+      "methodStatus": "not_structured",
+      "limitations": "Somente referência de consulta do programa. Não declarar método de BEV ou edição obrigatória sem íntegra consolidada e enquadramento."
+    }
+  ],
+  "internationalReferences": [
+    {
+      "id": "eu-rde-origin",
+      "label": "Regulamentos (UE)2016/427 e 2016/646",
+      "relation": "conditional_origin_reference",
+      "sourceIds": [
+        "conama-492-2018",
+        "ibama-in-3-2023",
+        "ibama-in-3-2021"
+      ],
+      "device": "CONAMA 492 art 21 § 2; IN 3/2023 art 8",
+      "description": "O ato brasileiro os citou no que aplicável até regulamentação Ibama/norma BR. Atualmente consultar a referência NBR 17011 e as alterações.",
+      "formalEquivalenceConfirmed": false,
+      "reportAcceptanceAutomatic": false
+    },
+    {
+      "id": "un-r83-ki",
+      "label": "UNECE R 83, revisão 5",
+      "relation": "incorporated_method_reference_with_conditions",
+      "sourceIds": [
+        "conama-492-2018",
+        "ibama-in-29-2020"
+      ],
+      "device": "CONAMA 492 art 23 § 1",
+      "description": "Referência expressa para Ki, aplicando-se o ensaio brasileiro e os critérios de família/volume do ato.",
+      "formalEquivalenceConfirmed": false,
+      "reportAcceptanceAutomatic": false
+    }
+  ],
+  "gates": [
+    {
+      "id": "diesel-use-admissibility",
+      "title": "Verificar admissibilidade do uso de diesel",
+      "conditions": {
+        "fuel": [
+          "diesel"
+        ]
+      },
+      "kind": "analyst_check",
+      "decisionRequired": true,
+      "automaticDecision": false,
+      "description": "LP/LC ambiental e admissibilidade do uso do combustível são decisões distintas. Conferir cadeia ANP/DNC, uso e eventuais exceções antes de liberar o exemplo LP+diesel.",
+      "sourceIds": [],
+      "reviewStatus": "not_reviewed",
+      "limitations": [
+        "Esta entrega não confirma vigência/consolidação da Portaria DNC 23/1994 nem a substitui por inferência M1/N1."
+      ]
+    }
+  ],
+  "branches": [
+    {
+      "id": "light",
+      "environmentFamily": "light",
+      "stepIds": [
+        "em-01-enquadramento",
+        "em-02-plano-laboratorio",
+        "em-03-coastdown",
+        "em-04-precondicionamento",
+        "em-05-ensaios",
+        "em-06-consolidacao",
+        "em-07-infoserv",
+        "em-08-lcvm"
+      ],
+      "scope": "LP/LC — aplicar filtros e condições de cada teste."
+    },
+    {
+      "id": "heavy",
+      "environmentFamily": "heavy",
+      "stepIds": [
+        "em-01-enquadramento"
+      ],
+      "sourceIds": [
+        "conama-490-2018"
+      ],
+      "gap": "Encaminhar à matriz P8 de motor/veículo e seus procedimentos próprios; não copiar FTP-75/HEV leve/SHED deste módulo."
+    },
+    {
+      "id": "promot",
+      "environmentFamily": "promot",
+      "stepIds": [
+        "em-01-enquadramento"
+      ],
+      "sourceIds": [
+        "ibama-lcm-service",
+        "conama-493-2019"
+      ],
+      "gap": "Encaminhar ao PROMOT/LCM e sua subcategoria. O pacote integral M 5/OBDM 2 não é desenvolvido por esta trilha L8."
+    },
+    {
+      "id": "trailer",
+      "environmentFamily": "trailer",
+      "stepIds": [
+        "em-01-enquadramento"
+      ],
+      "sourceIds": [],
+      "gap": "Sem propulsão própria, não copiar o pacote de emissões de escapamento de veículo motor. Verificar equipamentos/motores auxiliares e demais frentes quando existirem."
+    }
+  ],
+  "fieldGroups": [
+    {
+      "id": "infoserv-requerente",
+      "title": "Requerente e modalidade",
+      "fields": [
+        "Fabricante/importador e responsável pela solicitação.",
+        "CTF/APP e Certificado de Regularidade quando devidos ao sujeito/operação.",
+        "Finalidade e modalidade de quantidades limitadas/ilimitadas."
+      ],
+      "sourceIds": [
+        "ibama-lcvm-service"
+      ],
+      "verification": "public_service_guidance",
+      "currentUiVerified": false
+    },
+    {
+      "id": "infoserv-configuracao",
+      "title": "Configuração e veículo",
+      "fields": [
+        "Marca/modelo/versão, combustível, propulsão e motor.",
+        "Massas, lotação, carga útil, carroceria, transmissão/tração, pneus e versões representadas.",
+        "Classificação ambiental LP/LC, fase e famílias pertinentes."
+      ],
+      "sourceIds": [
+        "conama-492-2018",
+        "ibama-manual-2011"
+      ],
+      "verification": "technical_dossier_plan_with_historical_annex_reference",
+      "currentUiVerified": false
+    },
+    {
+      "id": "infoserv-sistemas",
+      "title": "Sistemas e diagramas",
+      "fields": [
+        "Esquema do escapamento/pós-tratamento e componentes identificados.",
+        "Circuito de combustível/evaporativas, tanque, canister/purga quando aplicáveis.",
+        "Características OBDBr-3 e calibrações conforme Parte 5.",
+        "Arquitetura híbrida e informações energéticas quando aplicáveis."
+      ],
+      "sourceIds": [
+        "ibama-manual-2011",
+        "ibama-in-23-2020",
+        "conama-492-2018"
+      ],
+      "verification": "mixed_public_act_and_historical_dossier_reference",
+      "currentUiVerified": false
+    },
+    {
+      "id": "infoserv-resultados",
+      "title": "Resultados e relatórios",
+      "fields": [
+        "Resultados por ensaio, combustível, modo, poluente e unidade.",
+        "Quando abrangidos pela IN 11: CO2/CO/THC de estrada e autonomias urbana/estrada/combinada; NMHC/NOx conforme condição.",
+        "Relatórios ETR/ruído/OBD/FD/Ki, declarações e correções pertinentes.",
+        "Memória de cálculo, vínculos dos relatórios e justificativas de itens não aplicáveis."
+      ],
+      "sourceIds": [
+        "ibama-in-11-2014",
+        "ibama-in-3-2023",
+        "ibama-in-3-2021",
+        "ibama-in-23-2020",
+        "conama-492-2018"
+      ],
+      "verification": "public_act_targeted_provisions",
+      "currentUiVerified": false
+    }
+  ],
+  "steps": [
+    {
+      "id": "em-01-enquadramento",
+      "title": "Confirmar LP/LC e ramo ambiental",
+      "label": "Confirmar LP/LC e ramo ambiental",
+      "order": 10,
+      "kind": "analyst_workflow",
+      "dependencies": [],
+      "dependsOn": [],
+      "conditions": {},
+      "inputs": [
+        "Categoria M/N/L/O e tipo do veículo.",
+        "MTMA/PBT, massa em ordem de marcha, carga útil e lotação.",
+        "Derivação de veículo de passageiros e características fora de estrada.",
+        "Propulsão, combustível, modelo novo/extensão, datas e finalidade."
+      ],
+      "actions": [
+        "Usar a classificação ambiental canônica do projeto; não converter M1→LP nem N1→LC.",
+        "Documentar o fundamento da conclusão LP/LC ou encaminhar para P8/PROMOT/outro ramo.",
+        "Se diesel, concluir a verificação independente de admissibilidade do combustível antes de tratar o exemplo como rota liberada.",
+        "Se LC entre 3.500 e 3.856 kg estritos, só considerar a alternativa P8 do art. 23 da CONAMA 490 com origem do motor mestre e autorização prévia Ibama."
+      ],
+      "preconditioning": [],
+      "tests": [],
+      "results": [
+        "Enquadramento ambiental fundamentado, com pendências identificadas.",
+        "Fase/data e pacote inicial de ensaios."
+      ],
+      "documents": [
+        "Ficha técnica versionada.",
+        "Memória de enquadramento e eventuais decisões do Ibama."
+      ],
+      "handover": [
+        "Entregar classificação e configuração ao responsável pelo plano de ensaios."
+      ],
+      "sources": [
+        {
+          "sourceId": "conama-492-2018",
+          "actId": "conama-492-2018",
+          "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+          "device": "Arts.4–9,13–23,32,35–36; Anexo",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "conama-490-2018",
+          "actId": "conama-490-2018",
+          "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=767",
+          "device": "Art. 23 e âmbito de veículos pesados",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "ibama-lcvm-service",
+          "actId": null,
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-para-veiculos-motores-ou-maquinas-lcvm-proconve",
+          "device": "Quem deve solicitar; requisitos; como solicitar; observações",
+          "kind": "official_guidance",
+          "reviewDepth": "public_service_page_read"
+        }
+      ],
+      "sourceIds": [
+        "conama-492-2018",
+        "conama-490-2018",
+        "ibama-lcvm-service"
+      ],
+      "actIds": [
+        "conama-492-2018",
+        "conama-490-2018"
+      ],
+      "standardIds": [],
+      "gaps": [
+        "Admissibilidade legal de uso de diesel depende de revisão própria ANP/DNC e eventuais exceções; a cadeia não foi revista nesta entrega. Não há autorização nem proibição automática por LP/M1."
+      ],
+      "limitations": [
+        "Etapa de trabalho do analista. Aplicabilidade individual depende da configuração, data, método e decisão documentados."
+      ],
+      "automaticApplicability": false
+    },
+    {
+      "id": "em-02-plano-laboratorio",
+      "title": "Fechar configuração e plano de ensaios",
+      "label": "Fechar configuração e plano de ensaios",
+      "order": 20,
+      "kind": "analyst_workflow",
+      "dependencies": [
+        "em-01-enquadramento"
+      ],
+      "dependsOn": [
+        "em-01-enquadramento"
+      ],
+      "conditions": {
+        "environmentFamily": [
+          "light"
+        ]
+      },
+      "inputs": [
+        "Ficha do veículo, motor, transmissão, pneus, massas e versões.",
+        "Famílias propostas de motor/evaporativas/OBD/ETR e pós-tratamento.",
+        "Volumes, operação e modalidade ambiental pretendida."
+      ],
+      "actions": [
+        "Fixar a configuração/versão representativa e o identificador do veículo que acompanhará os relatórios.",
+        "Escolher laboratório/pista/ATC conforme reconhecimento exigido no serviço e no ensaio.",
+        "Aprovar a matriz por ensaio: aplicabilidade, método/edição, combustível, preparação, repetição, testemunho e entrega.",
+        "Separar procedimentos de ICE, HEV, PHEV e BEV; registrar itens não aplicáveis com fundamento.",
+        "Confirmar canal Infoserv 2 para leves/pesados; LCM/PROMOT possui serviço próprio."
+      ],
+      "preconditioning": [],
+      "tests": [],
+      "results": [
+        "Plano de ensaios aceito pelo responsável técnico.",
+        "Lista das entradas faltantes e de quem as fornecerá."
+      ],
+      "documents": [
+        "Especificações/diagramas de admissão, combustível, escapamento/pós-tratamento e componentes.",
+        "Matriz requisito→ensaio→método→laboratório→relatório."
+      ],
+      "handover": [
+        "Entregar ao laboratório ficha congelada, configuração representativa e plano de métodos."
+      ],
+      "sources": [
+        {
+          "sourceId": "conama-492-2018",
+          "actId": "conama-492-2018",
+          "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+          "device": "Arts.4–9,13–23,32,35–36; Anexo",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "ibama-in-3-2023",
+          "actId": "ibama-in-3-2023",
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139279",
+          "device": "Arts.2º–8º: referências ABNT, híbridos, autonomia, evaporativas, NH 3 e ETR",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "ibama-in-3-2021",
+          "actId": "ibama-in-3-2021",
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=138776",
+          "device": "Anexo,2.4–2.9,2.14–2.15, Partes 3–7; ler alterações/retificações em conjunto",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "ibama-lcvm-service",
+          "actId": null,
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-para-veiculos-motores-ou-maquinas-lcvm-proconve",
+          "device": "Quem deve solicitar; requisitos; como solicitar; observações",
+          "kind": "official_guidance",
+          "reviewDepth": "public_service_page_read"
+        },
+        {
+          "sourceId": "ibama-manual-2011",
+          "actId": null,
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/arquivos/manual%20proconve%20promot_portugues.pdf",
+          "device": "Compilação histórica, Portaria 167/1997, anexos B1/B3, pp. 343–349",
+          "kind": "historical_official_compilation",
+          "reviewDepth": "targeted_historical_annex_read"
+        }
+      ],
+      "sourceIds": [
+        "conama-492-2018",
+        "ibama-in-3-2023",
+        "ibama-in-3-2021",
+        "ibama-lcvm-service",
+        "ibama-manual-2011"
+      ],
+      "actIds": [
+        "conama-492-2018",
+        "ibama-in-3-2023",
+        "ibama-in-3-2021"
+      ],
+      "standardIds": [],
+      "gaps": [
+        "Os anexos B1/B3 do manual 2011 apoiam a organização histórica dos dados; não comprovam o formulário atual do Infoserv 2."
+      ],
+      "limitations": [
+        "Etapa de trabalho do analista. Aplicabilidade individual depende da configuração, data, método e decisão documentados."
+      ],
+      "automaticApplicability": false
+    },
+    {
+      "id": "em-03-coastdown",
+      "title": "Definir carga de estrada / coastdown",
+      "label": "Definir carga de estrada / coastdown",
+      "order": 30,
+      "kind": "analyst_workflow",
+      "dependencies": [
+        "em-02-plano-laboratorio"
+      ],
+      "dependsOn": [
+        "em-02-plano-laboratorio"
+      ],
+      "conditions": {
+        "environmentFamily": [
+          "light"
+        ]
+      },
+      "inputs": [
+        "Versão de ensaio, massas, pneus/rodas, pressão e condição acordadas com o laboratório.",
+        "Método de determinação de resistência ao movimento ou alternativa autorizada no caso."
+      ],
+      "actions": [
+        "Confirmar se o plano de ensaios ou programa requer carga de estrada e qual forma de determinação é admitida; documentar a decisão de não aplicação quando pertinente.",
+        "Confirmar a edição e o procedimento de carga de estrada que o laboratório incorporará ao dinamômetro.",
+        "Executar/documentar a determinação aplicável (coastdown ou alternativa admitida), sem escolher coeficientes por aparência do 3 D.",
+        "Conservar dados de medição, unidades, configuração, condições e critérios de validade do método.",
+        "Entregar a curva/parâmetros de resistência e a identificação de massa/versão ao laboratório para validar o ajuste do dinamômetro."
+      ],
+      "preconditioning": [
+        "Configuração mecânica e pneus coerentes com os ensaios seguintes.",
+        "Critérios de pista/ambiente e preparação confirmados na íntegra autorizada do método."
+      ],
+      "tests": [],
+      "results": [
+        "Relatório de carga de estrada aceito pelo laboratório.",
+        "Ajuste de dinamômetro rastreado à configuração e ao relatório."
+      ],
+      "documents": [
+        "Relatório e dados brutos de carga de estrada.",
+        "Ficha dos parâmetros/unidades de resistência e massa adotados."
+      ],
+      "handover": [
+        "Laboratório recebe dados e confirma o setup antes da preparação/ciclos pertinentes."
+      ],
+      "sources": [
+        {
+          "sourceId": "ibama-in-11-2014",
+          "actId": "ibama-in-11-2014",
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=133670",
+          "device": "Art. 1º §§ 1º–4º e art. 2º, com redações da IN 3/2023",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "ibama-in-3-2023",
+          "actId": "ibama-in-3-2023",
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139279",
+          "device": "Arts.2º–8º: referências ABNT, híbridos, autonomia, evaporativas, NH 3 e ETR",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "inmetro-169-guidance",
+          "actId": "inmetro-169-2023",
+          "url": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1692023",
+          "device": "Natureza voluntária; normas técnicas referenciadas",
+          "kind": "official_guidance",
+          "reviewDepth": "existing_official_reference_only"
+        }
+      ],
+      "sourceIds": [
+        "ibama-in-11-2014",
+        "ibama-in-3-2023",
+        "inmetro-169-guidance"
+      ],
+      "actIds": [
+        "ibama-in-11-2014",
+        "ibama-in-3-2023",
+        "inmetro-169-2023"
+      ],
+      "standardIds": [],
+      "gaps": [
+        "NBR 10312 foi localizada como referência em orientação do PBEV, sem edição/método integral revistos. A etapa é planejamento técnico condicionado, não declaração de coastdown físico obrigatório para todo veículo ou todo programa.",
+        "Não há fórmula universal F 0/F1/F2, velocidade, duração, tolerância ou amostra numérica inventada neste banco."
+      ],
+      "limitations": [
+        "Etapa de trabalho do analista. Aplicabilidade individual depende da configuração, data, método e decisão documentados."
+      ],
+      "automaticApplicability": false
+    },
+    {
+      "id": "em-04-precondicionamento",
+      "title": "Preparar o veículo e o laboratório",
+      "label": "Preparar o veículo e o laboratório",
+      "order": 40,
+      "kind": "analyst_workflow",
+      "dependencies": [
+        "em-03-coastdown"
+      ],
+      "dependsOn": [
+        "em-03-coastdown"
+      ],
+      "conditions": {
+        "environmentFamily": [
+          "light"
+        ]
+      },
+      "inputs": [
+        "Configuração congelada, plano de ensaios e ajuste de dinamômetro aceitos.",
+        "Combustíveis de referência e métodos/edições definidos.",
+        "Histórico de amaciamento, regeneração, falhas e estado energético."
+      ],
+      "actions": [
+        "Confirmar checklist e sequência de preparação específicos de cada ensaio antes de executá-lo.",
+        "Registrar abastecimento/drenagem quando exigidos, condicionamento/estabilização, temperatura e tempos medidos conforme método.",
+        "Conferir instrumentos, calibrações e vínculo dos dados brutos.",
+        "Para HEV/PHEV/BEV, registrar a condição de carga e o procedimento energético pertinente; não aplicar preparação térmica por analogia.",
+        "Para ETR, aplicar as restrições próprias após o pré-condicionamento, inclusive vedação de intervenção/recarga até o início do ensaio."
+      ],
+      "preconditioning": [
+        "Plano do laboratório com preparação, sequência e critérios de validade.",
+        "Método privado disponível à equipe responsável; método não lido neste acervo continua pendente."
+      ],
+      "tests": [],
+      "results": [
+        "Registro de prontidão assinado/aceito pelo responsável técnico.",
+        "Rastro de preparação para cada corrida."
+      ],
+      "documents": [
+        "Checklist de preparação e registros de bancada/veículo.",
+        "Certificados/calibrações e justificativas de desvios conforme método."
+      ],
+      "handover": [
+        "Liberar cada ensaio apenas com a preparação correspondente concluída."
+      ],
+      "sources": [
+        {
+          "sourceId": "conama-492-2018",
+          "actId": "conama-492-2018",
+          "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+          "device": "Arts.4–9,13–23,32,35–36; Anexo",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "ibama-in-3-2023",
+          "actId": "ibama-in-3-2023",
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139279",
+          "device": "Arts.2º–8º: referências ABNT, híbridos, autonomia, evaporativas, NH 3 e ETR",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "ibama-in-3-2021",
+          "actId": "ibama-in-3-2021",
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=138776",
+          "device": "Anexo,2.4–2.9,2.14–2.15, Partes 3–7; ler alterações/retificações em conjunto",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "ibama-in-22-2020",
+          "actId": "ibama-in-22-2020",
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=138750",
+          "device": "Arts.1º–9º e Anexo; alterações IN 21/2021 e IN 15/2022",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        }
+      ],
+      "sourceIds": [
+        "conama-492-2018",
+        "ibama-in-3-2023",
+        "ibama-in-3-2021",
+        "ibama-in-22-2020"
+      ],
+      "actIds": [
+        "conama-492-2018",
+        "ibama-in-3-2023",
+        "ibama-in-3-2021",
+        "ibama-in-22-2020"
+      ],
+      "standardIds": [],
+      "gaps": [
+        "Não foram transcritos tempos de soak, distâncias, número de ciclos de pré-condicionamento, faixas de SOC ou tolerâncias de normas ABNT privadas. Esses campos devem receber o protocolo licenciado do laboratório."
+      ],
+      "limitations": [
+        "Etapa de trabalho do analista. Aplicabilidade individual depende da configuração, data, método e decisão documentados."
+      ],
+      "automaticApplicability": false
+    },
+    {
+      "id": "em-05-ensaios",
+      "title": "Executar ensaios aplicáveis",
+      "label": "Executar ensaios aplicáveis",
+      "order": 50,
+      "kind": "analyst_workflow",
+      "dependencies": [
+        "em-04-precondicionamento"
+      ],
+      "dependsOn": [
+        "em-04-precondicionamento"
+      ],
+      "conditions": {
+        "environmentFamily": [
+          "light"
+        ]
+      },
+      "inputs": [
+        "Prontidão por ensaio e autorizações/testemunhos definidos.",
+        "Identificação única de configuração/veículo, combustível, software e família."
+      ],
+      "actions": [
+        "Selecionar os ensaios correspondentes ao perfil e confirmar as condições antes da corrida.",
+        "Conservar cada resultado bruto e a decisão de validade/repetição.",
+        "Não trocar FTP-75, Highway e ETR entre si; cada um tem finalidade, método e preparação próprios.",
+        "Registrar condições especiais e pedidos de ensaios adicionais pelo Ibama/ATC."
+      ],
+      "preconditioning": [],
+      "tests": [
+        {
+          "id": "em-test-urban",
+          "label": "Escapamento em laboratório / FTP-75",
+          "conditions": {
+            "environmentFamily": [
+              "light"
+            ],
+            "propulsion": [
+              "ice",
+              "hev",
+              "phev"
+            ]
+          },
+          "methodRefs": [
+            "abnt-nbr-6601"
+          ],
+          "standardIds": [
+            "abnt-nbr-6601"
+          ],
+          "preconditions": [
+            "Configuração representativa, combustível de referência e carga de estrada aceitos pelo laboratório.",
+            "Veículo amaciado/preparado e estabilizado conforme protocolo da edição aplicável.",
+            "Para HEV/PHEV, aplicar o procedimento específico 16567 e seus modos, em vez de tratar como ICE convencional."
+          ],
+          "outputs": [
+            "Registro de cada corrida e sua validade.",
+            "Resultados por poluente, fase/ciclo, combustível e unidade.",
+            "Relatório assinado com configuração, método/edição, dados brutos e cálculo correspondente."
+          ],
+          "sources": [
+            {
+              "sourceId": "conama-492-2018",
+              "actId": "conama-492-2018",
+              "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+              "device": "Arts.4–9,13–23,32,35–36; Anexo",
+              "kind": "official_act",
+              "reviewDepth": "targeted_public_act_read"
+            },
+            {
+              "sourceId": "ibama-in-3-2023",
+              "actId": "ibama-in-3-2023",
+              "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139279",
+              "device": "Arts.2º–8º: referências ABNT, híbridos, autonomia, evaporativas, NH 3 e ETR",
+              "kind": "official_act",
+              "reviewDepth": "targeted_public_act_read"
+            },
+            {
+              "sourceId": "ibama-in-22-2020",
+              "actId": "ibama-in-22-2020",
+              "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=138750",
+              "device": "Arts.1º–9º e Anexo; alterações IN 21/2021 e IN 15/2022",
+              "kind": "official_act",
+              "reviewDepth": "targeted_public_act_read"
+            }
+          ],
+          "sourceIds": [
+            "conama-492-2018",
+            "ibama-in-3-2023",
+            "ibama-in-22-2020"
+          ],
+          "reviewStatus": {
+            "state": "public_reference_targeted",
+            "technicalMethodReviewed": false,
+            "amendmentChainReviewed": false
+          },
+          "requirementMode": "requires_assessment",
+          "limitations": [
+            "FTP-75 é a designação de navegação do ciclo urbano; o método legal a confirmar é o incorporado pelas referências ABNT. Fases, tempos, tolerâncias e ponderação privados não estão reproduzidos.",
+            "As repetições do art. 13 §§ 1º–3º dizem respeito a flex/bicombustível; não impor duas corridas ou média simples universal ao diesel."
+          ]
+        },
+        {
+          "id": "em-test-road",
+          "label": "Estrada / Highway (HWFET)",
+          "conditions": {
+            "environmentFamily": [
+              "light"
+            ],
+            "propulsion": [
+              "ice",
+              "hev",
+              "phev"
+            ]
+          },
+          "methodRefs": [
+            "abnt-nbr-7024",
+            "abnt-nbr-16567"
+          ],
+          "standardIds": [
+            "abnt-nbr-7024",
+            "abnt-nbr-16567"
+          ],
+          "preconditions": [
+            "Confirmar se o ensaio entra na licença/programa e qual procedimento é aplicável.",
+            "Usar a maior massa em ordem de marcha entre versões representadas e ajustar o dinamômetro com a respectiva potência resistiva no caso da IN 11/2014 art. 1º § 4º.",
+            "Para HEV/Start-Stop, conferir a exceção à invalidação por parada do motor no art. 2º, com redação da IN 3/2023."
+          ],
+          "outputs": [
+            "Quando exigidos: CO2, CO e THC do ciclo estrada; NMHC/NOx conforme condição.",
+            "Autonomias urbana, estrada e combinada; consumo energético combinado conforme referência aplicável."
+          ],
+          "sources": [
+            {
+              "sourceId": "ibama-in-11-2014",
+              "actId": "ibama-in-11-2014",
+              "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=133670",
+              "device": "Art. 1º §§ 1º–4º e art. 2º, com redações da IN 3/2023",
+              "kind": "official_act",
+              "reviewDepth": "targeted_public_act_read"
+            },
+            {
+              "sourceId": "ibama-in-3-2023",
+              "actId": "ibama-in-3-2023",
+              "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139279",
+              "device": "Arts.2º–8º: referências ABNT, híbridos, autonomia, evaporativas, NH 3 e ETR",
+              "kind": "official_act",
+              "reviewDepth": "targeted_public_act_read"
+            }
+          ],
+          "sourceIds": [
+            "ibama-in-11-2014",
+            "ibama-in-3-2023"
+          ],
+          "reviewStatus": {
+            "state": "public_reference_targeted",
+            "technicalMethodReviewed": false,
+            "amendmentChainReviewed": false
+          },
+          "requirementMode": "conditional_or_optional",
+          "limitations": [
+            "A determinação da IN 11/2014 é facultativa com gasool A11H50 e óleo diesel (art. 1º § 1º). Outros programas podem ter escopo próprio; não converter isso em dispensa geral de eficiência.",
+            "Highway/HWFET é designação didática. Não declarar equivalência integral de método estrangeiro ou exigir sequência fixa FTP-75→HWFET sem protocolo."
+          ]
+        },
+        {
+          "id": "em-test-etr",
+          "label": "ETR / RDE",
+          "conditions": {
+            "environmentFamily": [
+              "light"
+            ],
+            "propulsion": [
+              "ice",
+              "hev",
+              "phev"
+            ]
+          },
+          "methodRefs": [
+            "abnt-nbr-17011"
+          ],
+          "standardIds": [
+            "abnt-nbr-17011"
+          ],
+          "preconditions": [
+            "Identificar o mesmo veículo dos ensaios laboratoriais e sua configuração/ajuste declarado.",
+            "Validar com Ibama a rota e com o responsável técnico o laboratório/PEMS aplicável.",
+            "Transmissão em modo padrão; demais modos se solicitados pelo Ibama.",
+            "Se houver regeneração forçada usada para pré-condicionar, registrar; após pré-condicionamento e até o início do ETR não intervir nem recarregar a bateria (IN 3/2021 Anexo 2.6–2.7)."
+          ],
+          "outputs": [
+            "Relatório de rotas/condições e validade do percurso.",
+            "Dados PEMS/ECU e emissões por percurso/temperatura/condição conforme método.",
+            "Cálculos e correções aplicáveis vinculados ao mesmo veículo ensaiado."
+          ],
+          "sources": [
+            {
+              "sourceId": "conama-492-2018",
+              "actId": "conama-492-2018",
+              "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+              "device": "Arts.4–9,13–23,32,35–36; Anexo",
+              "kind": "official_act",
+              "reviewDepth": "targeted_public_act_read"
+            },
+            {
+              "sourceId": "ibama-in-3-2021",
+              "actId": "ibama-in-3-2021",
+              "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=138776",
+              "device": "Anexo,2.4–2.9,2.14–2.15, Partes 3–7; ler alterações/retificações em conjunto",
+              "kind": "official_act",
+              "reviewDepth": "targeted_public_act_read"
+            },
+            {
+              "sourceId": "ibama-in-3-2023",
+              "actId": "ibama-in-3-2023",
+              "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139279",
+              "device": "Arts.2º–8º: referências ABNT, híbridos, autonomia, evaporativas, NH 3 e ETR",
+              "kind": "official_act",
+              "reviewDepth": "targeted_public_act_read"
+            }
+          ],
+          "sourceIds": [
+            "conama-492-2018",
+            "ibama-in-3-2021",
+            "ibama-in-3-2023"
+          ],
+          "reviewStatus": {
+            "state": "public_reference_targeted",
+            "technicalMethodReviewed": false,
+            "amendmentChainReviewed": false
+          },
+          "requirementMode": "requires_assessment",
+          "limitations": [
+            "ETR/RDE não é HWFET. O vínculo ao mesmo veículo não autoriza inventar uma ordem cronológica universal entre todos os ciclos.",
+            "Dispensa por modalidade/volume depende de pedido, hipótese e decisão; não automática.",
+            "A IN 3/2023 indica NBR 17011 ou sucedânea; conservar as retificações da IN 3/2021 e não usar texto revogado como regra atual."
+          ]
+        },
+        {
+          "id": "em-test-hybrid",
+          "label": "HEV/PHEV: modos de energia",
+          "conditions": {
+            "environmentFamily": [
+              "light"
+            ],
+            "propulsion": [
+              "hev",
+              "phev"
+            ]
+          },
+          "methodRefs": [
+            "abnt-nbr-16567",
+            "abnt-nbr-7024"
+          ],
+          "standardIds": [
+            "abnt-nbr-16567",
+            "abnt-nbr-7024"
+          ],
+          "preconditions": [
+            "Fixar topologia e se existe recarga externa.",
+            "Definir plano de carga sustentada/redução de carga aplicável, estado de carga e balanço energético com o laboratório.",
+            "Para PHEV, registrar recarga e energia externa conforme protocolo; isso não autoriza recarregar após pré-condicionamento de ETR."
+          ],
+          "outputs": [
+            "Dados de carga sustentada e redução de carga nos ciclos urbano/estrada quando previstos.",
+            "Balanço energético e resultados por modo, sem misturar medidas de combustível e eletricidade.",
+            "Memória de cálculo e planilha de declaração validada."
+          ],
+          "sources": [
+            {
+              "sourceId": "conama-492-2018",
+              "actId": "conama-492-2018",
+              "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+              "device": "Arts.4–9,13–23,32,35–36; Anexo",
+              "kind": "official_act",
+              "reviewDepth": "targeted_public_act_read"
+            },
+            {
+              "sourceId": "ibama-in-3-2023",
+              "actId": "ibama-in-3-2023",
+              "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139279",
+              "device": "Arts.2º–8º: referências ABNT, híbridos, autonomia, evaporativas, NH 3 e ETR",
+              "kind": "official_act",
+              "reviewDepth": "targeted_public_act_read"
+            },
+            {
+              "sourceId": "ibama-hybrid-energy-guidance",
+              "actId": null,
+              "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/calculo-de-eficiencia-energetica-de-veiculos-hibridos",
+              "device": "Apresentação da planilha: carga sustentada/redução de carga, urbano/estrada",
+              "kind": "official_guidance",
+              "reviewDepth": "public_service_page_read"
+            }
+          ],
+          "sourceIds": [
+            "conama-492-2018",
+            "ibama-in-3-2023",
+            "ibama-hybrid-energy-guidance"
+          ],
+          "reviewStatus": {
+            "state": "public_reference_targeted",
+            "technicalMethodReviewed": false,
+            "amendmentChainReviewed": false
+          },
+          "requirementMode": "requires_assessment",
+          "limitations": [
+            "A página de apoio ainda menciona 16567:2016; prevalece a conferência da referência normativa e da edição incorporada. Não usar automaticamente a edição da página de planilha."
+          ]
+        },
+        {
+          "id": "em-test-evap",
+          "label": "Evaporativas e abastecimento",
+          "conditions": {
+            "environmentFamily": [
+              "light"
+            ],
+            "propulsion": [
+              "ice",
+              "hev",
+              "phev"
+            ],
+            "fuel": [
+              "gasoline",
+              "ethanol",
+              "flex"
+            ]
+          },
+          "methodRefs": [
+            "abnt-nbr-16927"
+          ],
+          "standardIds": [
+            "abnt-nbr-16927"
+          ],
+          "preconditions": [
+            "Confirmar combustível e família do sistema evaporativo.",
+            "Conferir tanque, capacidade, canister, purga/ventilação, tubulações e condição de tanque pressurizado em híbridos.",
+            "Separar preparação, deterioração e abastecimento conforme procedimento aplicável."
+          ],
+          "outputs": [
+            "Relatório de emissões evaporativas e de abastecimento por combustível/condição.",
+            "Família e fator de deterioração utilizados com justificativa.",
+            "Diagramas do circuito de combustível e controle evaporativo para o dossiê."
+          ],
+          "sources": [
+            {
+              "sourceId": "conama-492-2018",
+              "actId": "conama-492-2018",
+              "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+              "device": "Arts.4–9,13–23,32,35–36; Anexo",
+              "kind": "official_act",
+              "reviewDepth": "targeted_public_act_read"
+            },
+            {
+              "sourceId": "ibama-in-26-2020",
+              "actId": "ibama-in-26-2020",
+              "url": "https://www.ibama.gov.br/sophia/cnia/legislacao/IBAMA/2020/IN0026-18122020.pdf",
+              "device": "Arts.3º,6º–8º e Anexo; art. 7º alterado por IN 3/2023",
+              "kind": "official_act",
+              "reviewDepth": "targeted_public_act_read"
+            },
+            {
+              "sourceId": "ibama-in-3-2023",
+              "actId": "ibama-in-3-2023",
+              "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139279",
+              "device": "Arts.2º–8º: referências ABNT, híbridos, autonomia, evaporativas, NH 3 e ETR",
+              "kind": "official_act",
+              "reviewDepth": "targeted_public_act_read"
+            }
+          ],
+          "sourceIds": [
+            "conama-492-2018",
+            "ibama-in-26-2020",
+            "ibama-in-3-2023"
+          ],
+          "reviewStatus": {
+            "state": "public_reference_targeted",
+            "technicalMethodReviewed": false,
+            "amendmentChainReviewed": false
+          },
+          "requirementMode": "requires_assessment",
+          "limitations": [
+            "A tabela 1 nota 5 da CONAMA 492 exclui ensaios com diesel/GNV; a tabela 2 nota 3 remete evaporativas ao ciclo Otto. Não impor SHED ao BEV/diesel apenas por serem veículos leves.",
+            "Para híbridos com controle ativo, alternativas da IN 26 art. 3º § 2º dependem de avaliação/aprovação do Ibama; não são aceitação automática de relatório EPA/CARB."
+          ]
+        },
+        {
+          "id": "em-test-obd",
+          "label": "OBDBr-3 e calibrações",
+          "conditions": {
+            "environmentFamily": [
+              "light"
+            ],
+            "propulsion": [
+              "ice",
+              "hev",
+              "phev"
+            ]
+          },
+          "methodRefs": [],
+          "standardIds": [],
+          "preconditions": [
+            "Confirmar família OBD, ignição por centelha/compressão e versões ECU/software/calibração.",
+            "Preparar documentação da Parte 5 e plano dos ensaios da Parte 4 com falhas/combustível definidos no caso concreto."
+          ],
+          "outputs": [
+            "Características do sistema OBD para cadastro.",
+            "Relatórios dos ensaios comprobatórios e identificação de calibrações.",
+            "Plano de comprovação/relatórios IUMPR quando devidos na fase em uso."
+          ],
+          "sources": [
+            {
+              "sourceId": "ibama-in-23-2020",
+              "actId": "ibama-in-23-2020",
+              "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=138749",
+              "device": "Art. 11 e Anexo, Partes 4–5,7,9; alterações/retificações indicadas na fonte",
+              "kind": "official_act",
+              "reviewDepth": "targeted_public_act_read"
+            },
+            {
+              "sourceId": "ibama-in-16-2025",
+              "actId": "ibama-in-16-2025",
+              "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139520",
+              "device": "Art. 1º: Parte 9 do Anexo da IN 23/2020",
+              "kind": "official_act",
+              "reviewDepth": "targeted_public_act_read"
+            },
+            {
+              "sourceId": "ibama-in-20-2025",
+              "actId": "ibama-in-20-2025",
+              "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139548",
+              "device": "Art. 1º: prazos dos itens 9.2.1–9.2.2 da Parte 9 da IN 23/2020",
+              "kind": "official_act",
+              "reviewDepth": "targeted_public_act_read"
+            }
+          ],
+          "sourceIds": [
+            "ibama-in-23-2020",
+            "ibama-in-16-2025",
+            "ibama-in-20-2025"
+          ],
+          "reviewStatus": {
+            "state": "public_reference_targeted",
+            "technicalMethodReviewed": false,
+            "amendmentChainReviewed": false
+          },
+          "requirementMode": "requires_assessment",
+          "limitations": [
+            "IN 23/2020 art. 11 admite, na hipótese ali prevista, ensaios comprobatórios posteriores à certificação, mas implementação/documentação e relatórios devem estar concluídos antes da comercialização. Não bloquear universalmente a LCVM até todo ensaio OBD nem dispensá-los.",
+            "IUMPR é entrega de acompanhamento em uso, não uma média de FTP/HWFET; IN 20/2025 alterou os prazos da Parte 9."
+          ]
+        },
+        {
+          "id": "em-test-durability",
+          "label": "Durabilidade, FD e regeneração Ki",
+          "conditions": {
+            "environmentFamily": [
+              "light"
+            ],
+            "propulsion": [
+              "ice",
+              "hev",
+              "phev"
+            ]
+          },
+          "methodRefs": [
+            "abnt-nbr-14008"
+          ],
+          "standardIds": [
+            "abnt-nbr-14008"
+          ],
+          "preconditions": [
+            "Definir agrupamento/família e previsão de vendas.",
+            "Identificar pós-tratamento e regeneração periódica; confirmar FD determinado, alternativa permitida e eventuais autorizações."
+          ],
+          "outputs": [
+            "Relatório/justificativa de FD por poluente e família.",
+            "Fator Ki, quando aplicável, e vínculo ao sistema regenerativo.",
+            "Rastro de cálculo que aplica Ki/FD na ordem prevista, sem tratar todos os fatores como média."
+          ],
+          "sources": [
+            {
+              "sourceId": "conama-492-2018",
+              "actId": "conama-492-2018",
+              "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+              "device": "Arts.4–9,13–23,32,35–36; Anexo",
+              "kind": "official_act",
+              "reviewDepth": "targeted_public_act_read"
+            },
+            {
+              "sourceId": "ibama-in-26-2020",
+              "actId": "ibama-in-26-2020",
+              "url": "https://www.ibama.gov.br/sophia/cnia/legislacao/IBAMA/2020/IN0026-18122020.pdf",
+              "device": "Arts.3º,6º–8º e Anexo; art. 7º alterado por IN 3/2023",
+              "kind": "official_act",
+              "reviewDepth": "targeted_public_act_read"
+            },
+            {
+              "sourceId": "ibama-in-29-2020",
+              "actId": "ibama-in-29-2020",
+              "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=138769",
+              "device": "Arts.1º–4º e Anexo; amônia e fator Ki, com alterações da IN 3/2023",
+              "kind": "official_act",
+              "reviewDepth": "targeted_public_act_read"
+            },
+            {
+              "sourceId": "ibama-in-3-2023",
+              "actId": "ibama-in-3-2023",
+              "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139279",
+              "device": "Arts.2º–8º: referências ABNT, híbridos, autonomia, evaporativas, NH 3 e ETR",
+              "kind": "official_act",
+              "reviewDepth": "targeted_public_act_read"
+            }
+          ],
+          "sourceIds": [
+            "conama-492-2018",
+            "ibama-in-26-2020",
+            "ibama-in-29-2020",
+            "ibama-in-3-2023"
+          ],
+          "reviewStatus": {
+            "state": "public_reference_targeted",
+            "technicalMethodReviewed": false,
+            "amendmentChainReviewed": false
+          },
+          "requirementMode": "requires_assessment",
+          "limitations": [
+            "Diferenciar FD de durabilidade, fator Ki de regeneração, fator de amaciamento do RVEP e controle corporativo.",
+            "Não copiar fatores numéricos para todas as configurações ou concluir extensão automática de licença após alteração de peça."
+          ]
+        },
+        {
+          "id": "em-test-nh3",
+          "label": "Amônia quando houver sistema aplicável",
+          "conditions": {
+            "environmentFamily": [
+              "light"
+            ],
+            "propulsion": [
+              "ice",
+              "hev",
+              "phev"
+            ],
+            "fuel": [
+              "diesel"
+            ]
+          },
+          "methodRefs": [
+            "abnt-nbr-16898"
+          ],
+          "standardIds": [
+            "abnt-nbr-16898"
+          ],
+          "preconditions": [
+            "Confirmar sistema SCR/agente redutor líquido e cronograma/escopo do ato."
+          ],
+          "outputs": [
+            "Relatório de NH 3 com método, condições e conclusão aplicáveis."
+          ],
+          "sources": [
+            {
+              "sourceId": "conama-492-2018",
+              "actId": "conama-492-2018",
+              "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+              "device": "Arts.4–9,13–23,32,35–36; Anexo",
+              "kind": "official_act",
+              "reviewDepth": "targeted_public_act_read"
+            },
+            {
+              "sourceId": "ibama-in-29-2020",
+              "actId": "ibama-in-29-2020",
+              "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=138769",
+              "device": "Arts.1º–4º e Anexo; amônia e fator Ki, com alterações da IN 3/2023",
+              "kind": "official_act",
+              "reviewDepth": "targeted_public_act_read"
+            },
+            {
+              "sourceId": "ibama-in-3-2023",
+              "actId": "ibama-in-3-2023",
+              "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139279",
+              "device": "Arts.2º–8º: referências ABNT, híbridos, autonomia, evaporativas, NH 3 e ETR",
+              "kind": "official_act",
+              "reviewDepth": "targeted_public_act_read"
+            }
+          ],
+          "sourceIds": [
+            "conama-492-2018",
+            "ibama-in-29-2020",
+            "ibama-in-3-2023"
+          ],
+          "reviewStatus": {
+            "state": "public_reference_targeted",
+            "technicalMethodReviewed": false,
+            "amendmentChainReviewed": false
+          },
+          "requirementMode": "requires_assessment",
+          "limitations": [
+            "A condição SCR precisa ser confirmada; diesel isoladamente não comprova todo o pacote."
+          ]
+        },
+        {
+          "id": "em-test-noise",
+          "label": "Ruído do veículo",
+          "conditions": {
+            "environmentFamily": [
+              "light"
+            ]
+          },
+          "methodRefs": [
+            "abnt-nbr-13776"
+          ],
+          "standardIds": [
+            "abnt-nbr-13776"
+          ],
+          "preconditions": [
+            "Fixar categoria de segurança, massas/potência, versão e condição de veículo novo ou modelo existente.",
+            "Escolher procedimento e fase da Tabela 5; ruído tem classificação e cronograma próprios."
+          ],
+          "outputs": [
+            "Relatório de ruído aplicável e identificação da configuração/condição.",
+            "Conclusão e declaração correspondente para o dossiê."
+          ],
+          "sources": [
+            {
+              "sourceId": "conama-492-2018",
+              "actId": "conama-492-2018",
+              "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+              "device": "Arts.4–9,13–23,32,35–36; Anexo",
+              "kind": "official_act",
+              "reviewDepth": "targeted_public_act_read"
+            },
+            {
+              "sourceId": "ibama-in-3-2023",
+              "actId": "ibama-in-3-2023",
+              "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139279",
+              "device": "Arts.2º–8º: referências ABNT, híbridos, autonomia, evaporativas, NH 3 e ETR",
+              "kind": "official_act",
+              "reviewDepth": "targeted_public_act_read"
+            }
+          ],
+          "sourceIds": [
+            "conama-492-2018",
+            "ibama-in-3-2023"
+          ],
+          "reviewStatus": {
+            "state": "public_reference_targeted",
+            "technicalMethodReviewed": false,
+            "amendmentChainReviewed": false
+          },
+          "requirementMode": "requires_assessment",
+          "limitations": [
+            "BEV não recebe ensaio de escapamento térmico, mas não ganha dispensa automática de ruído. Não preencher limites a partir do desenho 3 D."
+          ]
+        },
+        {
+          "id": "em-test-bev",
+          "label": "BEV: emissão zero e energia",
+          "conditions": {
+            "environmentFamily": [
+              "light"
+            ],
+            "propulsion": [
+              "bev"
+            ]
+          },
+          "methodRefs": [
+            "sae-j1634"
+          ],
+          "standardIds": [
+            "sae-j1634"
+          ],
+          "preconditions": [
+            "Confirmar propulsão exclusivamente elétrica e escopo administrativo ambiental.",
+            "Separar declaração de emissão zero da avaliação de energia/autonomia do programa pertinente."
+          ],
+          "outputs": [
+            "Declaração do fabricante/importador de emissões de escapamento e evaporação nulas (art. 6º).",
+            "Relatório de energia/autonomia quando integrar o programa aplicável.",
+            "Registro da decisão de enquadramento/licença/dispensa, quando requerida."
+          ],
+          "sources": [
+            {
+              "sourceId": "conama-492-2018",
+              "actId": "conama-492-2018",
+              "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+              "device": "Arts.4–9,13–23,32,35–36; Anexo",
+              "kind": "official_act",
+              "reviewDepth": "targeted_public_act_read"
+            },
+            {
+              "sourceId": "inmetro-169-guidance",
+              "actId": "inmetro-169-2023",
+              "url": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1692023",
+              "device": "Natureza voluntária; normas técnicas referenciadas",
+              "kind": "official_guidance",
+              "reviewDepth": "existing_official_reference_only"
+            },
+            {
+              "sourceId": "ibama-lcvm-service",
+              "actId": null,
+              "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-para-veiculos-motores-ou-maquinas-lcvm-proconve",
+              "device": "Quem deve solicitar; requisitos; como solicitar; observações",
+              "kind": "official_guidance",
+              "reviewDepth": "public_service_page_read"
+            }
+          ],
+          "sourceIds": [
+            "conama-492-2018",
+            "inmetro-169-guidance",
+            "ibama-lcvm-service"
+          ],
+          "reviewStatus": {
+            "state": "public_reference_targeted",
+            "technicalMethodReviewed": false,
+            "amendmentChainReviewed": false
+          },
+          "requirementMode": "requires_assessment",
+          "limitations": [
+            "Não executar FTP-75 de poluentes térmicos, SHED de combustível ou ETR de escapamento por herança de um ICE.",
+            "A declaração de emissão zero não é dispensa automática de LCVM/ruído ou aprovação Inmetro/MOVER. A referência SAE foi localizada apenas na orientação PBEV, sem método integral revisado."
+          ]
+        }
+      ],
+      "results": [
+        "Conjunto de relatórios aplicáveis, com identificação e método rastreáveis.",
+        "Pendências de ensaio, desvios e necessidade de repetição definidos."
+      ],
+      "documents": [
+        "Relatórios de laboratório/pista/ETR/ruído/OBD/FD/Ki e declarações conforme perfil."
+      ],
+      "handover": [
+        "Entregar relatórios e dados brutos para consolidação, mantendo separação por combustível/ciclo/versão."
+      ],
+      "sources": [
+        {
+          "sourceId": "conama-492-2018",
+          "actId": "conama-492-2018",
+          "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+          "device": "Arts.4–9,13–23,32,35–36; Anexo",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "ibama-in-3-2023",
+          "actId": "ibama-in-3-2023",
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139279",
+          "device": "Arts.2º–8º: referências ABNT, híbridos, autonomia, evaporativas, NH 3 e ETR",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "ibama-in-11-2014",
+          "actId": "ibama-in-11-2014",
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=133670",
+          "device": "Art. 1º §§ 1º–4º e art. 2º, com redações da IN 3/2023",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "ibama-in-3-2021",
+          "actId": "ibama-in-3-2021",
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=138776",
+          "device": "Anexo,2.4–2.9,2.14–2.15, Partes 3–7; ler alterações/retificações em conjunto",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "ibama-in-26-2020",
+          "actId": "ibama-in-26-2020",
+          "url": "https://www.ibama.gov.br/sophia/cnia/legislacao/IBAMA/2020/IN0026-18122020.pdf",
+          "device": "Arts.3º,6º–8º e Anexo; art. 7º alterado por IN 3/2023",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "ibama-in-23-2020",
+          "actId": "ibama-in-23-2020",
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=138749",
+          "device": "Art. 11 e Anexo, Partes 4–5,7,9; alterações/retificações indicadas na fonte",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "ibama-in-29-2020",
+          "actId": "ibama-in-29-2020",
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=138769",
+          "device": "Arts.1º–4º e Anexo; amônia e fator Ki, com alterações da IN 3/2023",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "ibama-lcvm-service",
+          "actId": null,
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-para-veiculos-motores-ou-maquinas-lcvm-proconve",
+          "device": "Quem deve solicitar; requisitos; como solicitar; observações",
+          "kind": "official_guidance",
+          "reviewDepth": "public_service_page_read"
+        }
+      ],
+      "sourceIds": [
+        "conama-492-2018",
+        "ibama-in-3-2023",
+        "ibama-in-11-2014",
+        "ibama-in-3-2021",
+        "ibama-in-26-2020",
+        "ibama-in-23-2020",
+        "ibama-in-29-2020",
+        "ibama-lcvm-service"
+      ],
+      "actIds": [
+        "conama-492-2018",
+        "ibama-in-3-2023",
+        "ibama-in-11-2014",
+        "ibama-in-3-2021",
+        "ibama-in-26-2020",
+        "ibama-in-23-2020",
+        "ibama-in-29-2020"
+      ],
+      "standardIds": [
+        "abnt-nbr-6601",
+        "abnt-nbr-7024",
+        "abnt-nbr-16567",
+        "abnt-nbr-17011",
+        "abnt-nbr-16927",
+        "abnt-nbr-14008",
+        "abnt-nbr-16898",
+        "abnt-nbr-13776",
+        "sae-j1634"
+      ],
+      "gaps": [],
+      "limitations": [
+        "Etapa de trabalho do analista. Aplicabilidade individual depende da configuração, data, método e decisão documentados."
+      ],
+      "automaticApplicability": false
+    },
+    {
+      "id": "em-06-consolidacao",
+      "title": "Validar cálculos e relatórios",
+      "label": "Validar cálculos e relatórios",
+      "order": 60,
+      "kind": "analyst_workflow",
+      "dependencies": [
+        "em-05-ensaios"
+      ],
+      "dependsOn": [
+        "em-05-ensaios"
+      ],
+      "conditions": {
+        "environmentFamily": [
+          "light"
+        ]
+      },
+      "inputs": [
+        "Relatórios, dados brutos e critérios de validade de cada ensaio.",
+        "Identificação das versões, combustíveis, modos, famílias e métodos.",
+        "Fatores/correções e respectivas bases aprovadas."
+      ],
+      "actions": [
+        "Conferir identidade e representatividade do veículo em todos os relatórios.",
+        "Separar cálculo ponderado do ciclo, média entre repetições autorizadas e controle corporativo; não misturar FTP-75, HWFET e ETR numa média genérica.",
+        "Aplicar os critérios de repetição/média específicos: o art. 13 §§ 1º–3º trata expressamente de flex/bicombustível.",
+        "Conferir NMOG e alterações/retificações aplicáveis; para diesel a IN 22/2020 art. 9º considera NMOG igual a NMHC.",
+        "Aplicar Ki/FD e outras correções somente quando previstas, na ordem e com os fatores aprovados.",
+        "Reconciliar dados urbano/estrada/combinado e modos híbridos com as planilhas de declaração."
+      ],
+      "preconditioning": [],
+      "tests": [],
+      "results": [
+        "Memória de cálculo reproduzível e relatórios validados para declaração.",
+        "Tabela final por configuração, combustível, poluente, unidade e ensaio."
+      ],
+      "documents": [
+        "Memória de cálculo e revisão dos relatórios.",
+        "Matriz de conformidade com limites/fase/categoria citados e pendências."
+      ],
+      "handover": [
+        "Entregar valores declarativos com referência de página/tabela/arquivo de origem."
+      ],
+      "sources": [
+        {
+          "sourceId": "conama-492-2018",
+          "actId": "conama-492-2018",
+          "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+          "device": "Arts.4–9,13–23,32,35–36; Anexo",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "ibama-in-22-2020",
+          "actId": "ibama-in-22-2020",
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=138750",
+          "device": "Arts.1º–9º e Anexo; alterações IN 21/2021 e IN 15/2022",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "ibama-in-26-2020",
+          "actId": "ibama-in-26-2020",
+          "url": "https://www.ibama.gov.br/sophia/cnia/legislacao/IBAMA/2020/IN0026-18122020.pdf",
+          "device": "Arts.3º,6º–8º e Anexo; art. 7º alterado por IN 3/2023",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "ibama-in-3-2023",
+          "actId": "ibama-in-3-2023",
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139279",
+          "device": "Arts.2º–8º: referências ABNT, híbridos, autonomia, evaporativas, NH 3 e ETR",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "ibama-in-11-2014",
+          "actId": "ibama-in-11-2014",
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=133670",
+          "device": "Art. 1º §§ 1º–4º e art. 2º, com redações da IN 3/2023",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "ibama-hybrid-energy-guidance",
+          "actId": null,
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/calculo-de-eficiencia-energetica-de-veiculos-hibridos",
+          "device": "Apresentação da planilha: carga sustentada/redução de carga, urbano/estrada",
+          "kind": "official_guidance",
+          "reviewDepth": "public_service_page_read"
+        }
+      ],
+      "sourceIds": [
+        "conama-492-2018",
+        "ibama-in-22-2020",
+        "ibama-in-26-2020",
+        "ibama-in-3-2023",
+        "ibama-in-11-2014",
+        "ibama-hybrid-energy-guidance"
+      ],
+      "actIds": [
+        "conama-492-2018",
+        "ibama-in-22-2020",
+        "ibama-in-26-2020",
+        "ibama-in-3-2023",
+        "ibama-in-11-2014"
+      ],
+      "standardIds": [],
+      "gaps": [
+        "A média corporativa L8 é controle próprio por fabricante/importador e categoria, não média das corridas de homologação.",
+        "Equações/métodos privados e limites não revisados permanecem campos pendentes, não números preenchidos automaticamente."
+      ],
+      "limitations": [
+        "Etapa de trabalho do analista. Aplicabilidade individual depende da configuração, data, método e decisão documentados."
+      ],
+      "automaticApplicability": false
+    },
+    {
+      "id": "em-07-infoserv",
+      "title": "Preencher e submeter no Infoserv",
+      "label": "Preencher e submeter no Infoserv",
+      "order": 70,
+      "kind": "analyst_workflow",
+      "dependencies": [
+        "em-06-consolidacao"
+      ],
+      "dependsOn": [
+        "em-06-consolidacao"
+      ],
+      "conditions": {
+        "environmentFamily": [
+          "light"
+        ]
+      },
+      "inputs": [
+        "Dados cadastrais do requerente segundo fabricante/importador e finalidade.",
+        "Ficha da configuração e versões; diagramas e relação de componentes.",
+        "Valores finais e relatórios/declarações aplicáveis."
+      ],
+      "actions": [
+        "Conferir titular/cadastro/regularidade e modalidade antes da submissão.",
+        "Preparar os grupos de informação técnica listados neste arquivo, reconciliando-os com o formulário real disponível.",
+        "Transcrever os resultados validados para o campo correspondente, conservando unidade, método e vínculo ao relatório.",
+        "Anexar diagramas e relatórios conforme exigência do caso e do canal oficial.",
+        "Registrar protocolo, versão do dossiê, exigências e respostas; não sobrescrever silenciosamente a evidência anterior."
+      ],
+      "preconditioning": [],
+      "tests": [],
+      "results": [
+        "Solicitação ambiental submetida com evidência rastreável.",
+        "Protocolo e pendências acompanhados no canal oficial."
+      ],
+      "documents": [
+        "Dossiê técnico versionado e comprovantes de submissão.",
+        "Relatórios, declarações e diagramas aplicáveis ao caso."
+      ],
+      "handover": [
+        "Responder exigências antes da emissão; após deferimento/pagamento quando devido, obter a licença pelo sistema oficial."
+      ],
+      "sources": [
+        {
+          "sourceId": "ibama-lcvm-service",
+          "actId": null,
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-para-veiculos-motores-ou-maquinas-lcvm-proconve",
+          "device": "Quem deve solicitar; requisitos; como solicitar; observações",
+          "kind": "official_guidance",
+          "reviewDepth": "public_service_page_read"
+        },
+        {
+          "sourceId": "ibama-in-11-2014",
+          "actId": "ibama-in-11-2014",
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=133670",
+          "device": "Art. 1º §§ 1º–4º e art. 2º, com redações da IN 3/2023",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "ibama-in-3-2023",
+          "actId": "ibama-in-3-2023",
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139279",
+          "device": "Arts.2º–8º: referências ABNT, híbridos, autonomia, evaporativas, NH 3 e ETR",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "ibama-in-23-2020",
+          "actId": "ibama-in-23-2020",
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=138749",
+          "device": "Art. 11 e Anexo, Partes 4–5,7,9; alterações/retificações indicadas na fonte",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "ibama-manual-2011",
+          "actId": null,
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/arquivos/manual%20proconve%20promot_portugues.pdf",
+          "device": "Compilação histórica, Portaria 167/1997, anexos B1/B3, pp. 343–349",
+          "kind": "historical_official_compilation",
+          "reviewDepth": "targeted_historical_annex_read"
+        }
+      ],
+      "sourceIds": [
+        "ibama-lcvm-service",
+        "ibama-in-11-2014",
+        "ibama-in-3-2023",
+        "ibama-in-23-2020",
+        "ibama-manual-2011"
+      ],
+      "actIds": [
+        "ibama-in-11-2014",
+        "ibama-in-3-2023",
+        "ibama-in-23-2020"
+      ],
+      "standardIds": [],
+      "gaps": [
+        "Não houve autenticação no Infoserv 2. Os grupos são roteiro de preparação; nomes, obrigatoriedade, telas, arquivos aceitos e campos exatos devem ser confrontados com o sistema real."
+      ],
+      "limitations": [
+        "Etapa de trabalho do analista. Aplicabilidade individual depende da configuração, data, método e decisão documentados."
+      ],
+      "automaticApplicability": false
+    },
+    {
+      "id": "em-08-lcvm",
+      "title": "Conferir LCVM e entregar ao CAT",
+      "label": "Conferir LCVM e entregar ao CAT",
+      "order": 80,
+      "kind": "analyst_workflow",
+      "dependencies": [
+        "em-07-infoserv"
+      ],
+      "dependsOn": [
+        "em-07-infoserv"
+      ],
+      "conditions": {
+        "environmentFamily": [
+          "light"
+        ]
+      },
+      "inputs": [
+        "Decisão do Ibama e documento emitido.",
+        "Dossiê ambiental e identificação da configuração/versões."
+      ],
+      "actions": [
+        "Conferir número, titular, configuração, versões, propulsão/combustível e condições do documento emitido.",
+        "Guardar o PDF e conciliar seus dados com o dossiê que seguirá ao SISCAT.",
+        "Se a licença tiver restrição/modalidade específica, conservar essa condição na etapa seguinte.",
+        "Planejar manutenção da configuração, conformidade de produção, acompanhamento OBD/IUMPR e revalidação após alterações.",
+        "Tratar anuência de importação/LPCO como controle separado, quando a operação exigir."
+      ],
+      "preconditioning": [],
+      "tests": [],
+      "results": [
+        "Documento ambiental e vínculo à configuração disponíveis para o processo de trânsito.",
+        "Pendências e controles posteriores atribuídos a responsáveis."
+      ],
+      "documents": [
+        "PDF da LCVM ou decisão administrativa aplicável.",
+        "Quadro de correspondência da configuração ambiental com marca/modelo/versão do dossiê CAT."
+      ],
+      "handover": [
+        "Entregar à etapa CAT/SISCAT: documento ambiental, número/titular, identificação da configuração e referências dos relatórios pertinentes.",
+        "Segurança/CAT, importação e produção mantêm requisitos próprios; a LCVM não substitui essas frentes."
+      ],
+      "sources": [
+        {
+          "sourceId": "ibama-lcvm-service",
+          "actId": null,
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-para-veiculos-motores-ou-maquinas-lcvm-proconve",
+          "device": "Quem deve solicitar; requisitos; como solicitar; observações",
+          "kind": "official_guidance",
+          "reviewDepth": "public_service_page_read"
+        },
+        {
+          "sourceId": "conama-492-2018",
+          "actId": "conama-492-2018",
+          "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
+          "device": "Arts.4–9,13–23,32,35–36; Anexo",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "conama-490-2018",
+          "actId": "conama-490-2018",
+          "url": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=767",
+          "device": "Art. 23 e âmbito de veículos pesados",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "ibama-in-23-2020",
+          "actId": "ibama-in-23-2020",
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=138749",
+          "device": "Art. 11 e Anexo, Partes 4–5,7,9; alterações/retificações indicadas na fonte",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "ibama-in-16-2025",
+          "actId": "ibama-in-16-2025",
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139520",
+          "device": "Art. 1º: Parte 9 do Anexo da IN 23/2020",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        },
+        {
+          "sourceId": "ibama-in-20-2025",
+          "actId": "ibama-in-20-2025",
+          "url": "https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139548",
+          "device": "Art. 1º: prazos dos itens 9.2.1–9.2.2 da Parte 9 da IN 23/2020",
+          "kind": "official_act",
+          "reviewDepth": "targeted_public_act_read"
+        }
+      ],
+      "sourceIds": [
+        "ibama-lcvm-service",
+        "conama-492-2018",
+        "conama-490-2018",
+        "ibama-in-23-2020",
+        "ibama-in-16-2025",
+        "ibama-in-20-2025"
+      ],
+      "actIds": [
+        "conama-492-2018",
+        "conama-490-2018",
+        "ibama-in-23-2020",
+        "ibama-in-16-2025",
+        "ibama-in-20-2025"
+      ],
+      "standardIds": [],
+      "gaps": [
+        "BEV exige decisão administrativa pertinente; não converter declaração do art. 6º em licença/dispensa automaticamente.",
+        "Prazos de controle em uso e médias corporativas pertencem ao acompanhamento pós-homologação, com critérios próprios."
+      ],
+      "limitations": [
+        "Etapa de trabalho do analista. Aplicabilidade individual depende da configuração, data, método e decisão documentados."
+      ],
+      "automaticApplicability": false
+    }
+  ],
+  "unresolvedTerminology": [
+    {
+      "term": "raio-X",
+      "status": "awaiting_user_clarification",
+      "description": "Não inferir se o usuário quis dizer Highway/HWFET ou ETR/RDE. Ambos foram modelados como testes distintos e condicionais."
+    }
+  ],
+  "limitations": [
+    "Fluxo linear de organização do trabalho, não cronograma universal de execução de todos os ensaios. Laboratório e analista definem dependências e hipóteses concretas.",
+    "Fontes de orientação, compilação histórica, ato e norma privada são classes diferentes. A interface deve preservá-las.",
+    "Acesso HTTP/hash não certifica vigência integral; os estados jurídicos canônicos do projeto não foram alterados."
+  ]
+}

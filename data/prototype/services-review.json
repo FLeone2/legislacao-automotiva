@@ -1,0 +1,39 @@
+{
+  "checkedAt": "2026-10-31",
+  "scope": "public_service_navigation",
+  "records": [
+    {
+      "checkedAt": "2026-10-31",
+      "verification": "public_official_guidance",
+      "authenticated": false,
+      "limitations": "Consulta pública. Campos e anexos internos não conferidos; sem integração ou protocolo autenticado. Orientação de serviço não comprova aplicabilidade universal.",
+      "id": "ibama-infoserv2",
+      "label": "Infoserv 2 · LCVM",
+      "url": "https://infoserv.ibama.gov.br/",
+      "sourceUrl": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-para-veiculos-motores-ou-maquinas-lcvm-proconve",
+      "description": "Solicitação e acompanhamento de LCVM para veículos leves e pesados. Modalidade e documentos dependem do enquadramento."
+    },
+    {
+      "checkedAt": "2026-10-31",
+      "verification": "public_official_guidance",
+      "authenticated": false,
+      "limitations": "Consulta pública. Campos e anexos internos não conferidos; sem integração ou protocolo autenticado. Orientação de serviço não comprova aplicabilidade universal.",
+      "id": "ibama-infoserv1",
+      "label": "Infoserv · LCM e máquinas",
+      "url": "https://www.gov.br/ibama/pt-br/servicos/sistemas/inforserv-proconve-promot",
+      "sourceUrl": "https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/emissoes/licenca-para-ciclomotores-motociclos-e-similares-lcm-promot",
+      "description": "Orientação para acesso ao sistema legado. LCM/PROMOT e LCVM de máquinas têm caminhos próprios."
+    },
+    {
+      "checkedAt": "2026-10-31",
+      "verification": "public_official_guidance",
+      "authenticated": false,
+      "limitations": "Consulta pública. Campos e anexos internos não conferidos; sem integração ou protocolo autenticado. Orientação de serviço não comprova aplicabilidade universal.",
+      "id": "senatran-siscat",
+      "label": "SISCAT · CAT",
+      "url": "https://siscat.senatran.serpro.gov.br/#/autenticacao/login",
+      "sourceUrl": "https://www.gov.br/pt-br/servicos/emitir-certificado-de-adequacao-a-legislacao-de-transito-cat",
+      "description": "Peticionamento de CAT e código marca/modelo/versão, conforme categoria, operação e documentação aplicável."
+    }
+  ]
+}

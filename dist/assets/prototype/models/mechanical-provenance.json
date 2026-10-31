@@ -1,0 +1,2383 @@
+{
+  "title": "Prototype: selectable generic hybrid mechanical systems",
+  "creator": "Project-authored 3D illustration",
+  "license": "Project-authored illustration; original 2D references retained under their existing provenance",
+  "notice": "Generic educational mechanical example based on the existing 2D boards. It does not describe actual BMW X5 internal architecture, dimensions, required tests or regulatory conformity.",
+  "coordinateSystem": "Three.js Y up, front negative X, visual proportional scale",
+  "parts": [
+    "airbag",
+    "battery12v",
+    "batteryHV",
+    "brakeFluid",
+    "chassis",
+    "cooling",
+    "electronics",
+    "engine",
+    "exhaust",
+    "motorElectric",
+    "steering",
+    "tank"
+  ],
+  "pieces": [
+    {
+      "partId": "chassis",
+      "section": "frontSuspension",
+      "pieceId": "front-subframe",
+      "pieceLabel": "Subchassi dianteiro",
+      "semanticPath": "chassis/frontSuspension/front-subframe",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          -1.9300000667572021,
+          0.1771290898323059,
+          -0.5069422721862793
+        ],
+        "max": [
+          -1.2300000190734863,
+          0.3026636838912964,
+          0.5069422721862793
+        ]
+      },
+      "meshCount": 1
+    },
+    {
+      "partId": "chassis",
+      "section": "frontSuspension",
+      "pieceId": "front-right-control-arm",
+      "pieceLabel": "Braço de suspensão dianteiro direito",
+      "semanticPath": "chassis/frontSuspension/front-right-control-arm",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          -1.8703804016113281,
+          0.18249042332172394,
+          -0.8268816471099854
+        ],
+        "max": [
+          -1.2001179456710815,
+          0.3164691627025604,
+          -0.14565908908843994
+        ]
+      },
+      "meshCount": 1
+    },
+    {
+      "partId": "chassis",
+      "section": "frontSuspension",
+      "pieceId": "front-right-arm-mounts",
+      "pieceLabel": "Buchas do braço dianteiro direito",
+      "semanticPath": "chassis/frontSuspension/front-right-arm-mounts",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          -1.8825000524520874,
+          0.19199997186660767,
+          -0.4480000138282776
+        ],
+        "max": [
+          -1.277500033378601,
+          0.30800002813339233,
+          -0.3319999575614929
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "chassis",
+      "section": "frontSuspension",
+      "pieceId": "front-right-upper-link",
+      "pieceLabel": "Tirante superior dianteiro direito",
+      "semanticPath": "chassis/frontSuspension/front-right-upper-link",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          -1.780293345451355,
+          0.4163587689399719,
+          -0.7967959046363831
+        ],
+        "max": [
+          -1.2651598453521729,
+          0.5031257271766663,
+          -0.24646848440170288
+        ]
+      },
+      "meshCount": 1
+    },
+    {
+      "partId": "chassis",
+      "section": "frontSuspension",
+      "pieceId": "front-right-knuckle",
+      "pieceLabel": "Manga de eixo e cubo dianteiro direito",
+      "semanticPath": "chassis/frontSuspension/front-right-knuckle",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          -1.693000078201294,
+          0.24300000071525574,
+          -0.8654999732971191
+        ],
+        "max": [
+          -1.4670000076293945,
+          0.49300000071525574,
+          -0.7325000166893005
+        ]
+      },
+      "meshCount": 4
+    },
+    {
+      "partId": "chassis",
+      "section": "frontSuspension",
+      "pieceId": "front-right-damper",
+      "pieceLabel": "Amortecedor dianteiro direito",
+      "semanticPath": "chassis/frontSuspension/front-right-damper",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          -1.6230714321136475,
+          0.375,
+          -0.783998966217041
+        ],
+        "max": [
+          -1.4413774013519287,
+          1.0121796131134033,
+          -0.6367508769035339
+        ]
+      },
+      "meshCount": 3
+    },
+    {
+      "partId": "chassis",
+      "section": "frontSuspension",
+      "pieceId": "front-right-spring",
+      "pieceLabel": "Mola helicoidal dianteiro direito",
+      "semanticPath": "chassis/frontSuspension/front-right-spring",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          -1.6296347379684448,
+          0.6074088215827942,
+          -0.8067308068275452
+        ],
+        "max": [
+          -1.3800233602523804,
+          1.0026583671569824,
+          -0.5675162672996521
+        ]
+      },
+      "meshCount": 1
+    },
+    {
+      "partId": "chassis",
+      "section": "frontSuspension",
+      "pieceId": "front-right-strut-mount",
+      "pieceLabel": "Pratos e coxim da suspensão dianteiro direito",
+      "semanticPath": "chassis/frontSuspension/front-right-strut-mount",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          -1.689785122871399,
+          0.5770605206489563,
+          -0.8645748496055603
+        ],
+        "max": [
+          -1.298038363456726,
+          1.0781753063201904,
+          -0.49885064363479614
+        ]
+      },
+      "meshCount": 4
+    },
+    {
+      "partId": "chassis",
+      "section": "frontSuspension",
+      "pieceId": "front-right-drop-link",
+      "pieceLabel": "Bieleta dianteiro direito",
+      "semanticPath": "chassis/frontSuspension/front-right-drop-link",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          -1.4453812837600708,
+          0.2840023338794708,
+          -0.7446629405021667
+        ],
+        "max": [
+          -1.3346186876296997,
+          0.6059976816177368,
+          -0.5553370118141174
+        ]
+      },
+      "meshCount": 1
+    },
+    {
+      "partId": "chassis",
+      "section": "frontSuspension",
+      "pieceId": "front-right-halfshaft",
+      "pieceLabel": "Semieixo e coifa dianteiro direito",
+      "semanticPath": "chassis/frontSuspension/front-right-halfshaft",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          -1.633500099182129,
+          0.30649998784065247,
+          -0.7200000286102295
+        ],
+        "max": [
+          -1.5264999866485596,
+          0.41350001096725464,
+          -0.12999999523162842
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "chassis",
+      "section": "frontSuspension",
+      "pieceId": "front-left-control-arm",
+      "pieceLabel": "Braço de suspensão dianteiro esquerdo",
+      "semanticPath": "chassis/frontSuspension/front-left-control-arm",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          -1.8703804016113281,
+          0.1824905425310135,
+          0.14565902948379517
+        ],
+        "max": [
+          -1.200117826461792,
+          0.31646913290023804,
+          0.8268815875053406
+        ]
+      },
+      "meshCount": 1
+    },
+    {
+      "partId": "chassis",
+      "section": "frontSuspension",
+      "pieceId": "front-left-arm-mounts",
+      "pieceLabel": "Buchas do braço dianteiro esquerdo",
+      "semanticPath": "chassis/frontSuspension/front-left-arm-mounts",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          -1.8825000524520874,
+          0.19199997186660767,
+          0.3319999575614929
+        ],
+        "max": [
+          -1.277500033378601,
+          0.30800002813339233,
+          0.4480000138282776
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "chassis",
+      "section": "frontSuspension",
+      "pieceId": "front-left-upper-link",
+      "pieceLabel": "Tirante superior dianteiro esquerdo",
+      "semanticPath": "chassis/frontSuspension/front-left-upper-link",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          -1.780293345451355,
+          0.4163587689399719,
+          0.2464684695005417
+        ],
+        "max": [
+          -1.2651598453521729,
+          0.5031257271766663,
+          0.7967958450317383
+        ]
+      },
+      "meshCount": 1
+    },
+    {
+      "partId": "chassis",
+      "section": "frontSuspension",
+      "pieceId": "front-left-knuckle",
+      "pieceLabel": "Manga de eixo e cubo dianteiro esquerdo",
+      "semanticPath": "chassis/frontSuspension/front-left-knuckle",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          -1.693000078201294,
+          0.24300000071525574,
+          0.7325000166893005
+        ],
+        "max": [
+          -1.4670000076293945,
+          0.49300000071525574,
+          0.8654999732971191
+        ]
+      },
+      "meshCount": 4
+    },
+    {
+      "partId": "chassis",
+      "section": "frontSuspension",
+      "pieceId": "front-left-damper",
+      "pieceLabel": "Amortecedor dianteiro esquerdo",
+      "semanticPath": "chassis/frontSuspension/front-left-damper",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          -1.623071312904358,
+          0.375,
+          0.6367508172988892
+        ],
+        "max": [
+          -1.4413771629333496,
+          1.0121796131134033,
+          0.7839990258216858
+        ]
+      },
+      "meshCount": 3
+    },
+    {
+      "partId": "chassis",
+      "section": "frontSuspension",
+      "pieceId": "front-left-spring",
+      "pieceLabel": "Mola helicoidal dianteiro esquerdo",
+      "semanticPath": "chassis/frontSuspension/front-left-spring",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          -1.629694938659668,
+          0.6072173714637756,
+          0.5654237270355225
+        ],
+        "max": [
+          -1.3801159858703613,
+          0.991360604763031,
+          0.8052147626876831
+        ]
+      },
+      "meshCount": 1
+    },
+    {
+      "partId": "chassis",
+      "section": "frontSuspension",
+      "pieceId": "front-left-strut-mount",
+      "pieceLabel": "Pratos e coxim da suspensão dianteiro esquerdo",
+      "semanticPath": "chassis/frontSuspension/front-left-strut-mount",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          -1.689785122871399,
+          0.5770605206489563,
+          0.4988507032394409
+        ],
+        "max": [
+          -1.2980382442474365,
+          1.0781753063201904,
+          0.8645748496055603
+        ]
+      },
+      "meshCount": 4
+    },
+    {
+      "partId": "chassis",
+      "section": "frontSuspension",
+      "pieceId": "front-left-drop-link",
+      "pieceLabel": "Bieleta dianteiro esquerdo",
+      "semanticPath": "chassis/frontSuspension/front-left-drop-link",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          -1.4453812837600708,
+          0.28400230407714844,
+          0.5553370118141174
+        ],
+        "max": [
+          -1.3346186876296997,
+          0.6059976816177368,
+          0.7446629405021667
+        ]
+      },
+      "meshCount": 1
+    },
+    {
+      "partId": "chassis",
+      "section": "frontSuspension",
+      "pieceId": "front-left-halfshaft",
+      "pieceLabel": "Semieixo e coifa dianteiro esquerdo",
+      "semanticPath": "chassis/frontSuspension/front-left-halfshaft",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          -1.633500099182129,
+          0.30650001764297485,
+          0.12999999523162842
+        ],
+        "max": [
+          -1.5264999866485596,
+          0.413500040769577,
+          0.7200000286102295
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "chassis",
+      "section": "frontSuspension",
+      "pieceId": "front-antiroll-bar",
+      "pieceLabel": "Barra estabilizadora dianteiro",
+      "semanticPath": "chassis/frontSuspension/front-antiroll-bar",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          -1.356064796447754,
+          0.20657850801944733,
+          -0.6658573746681213
+        ],
+        "max": [
+          -1.1944613456726074,
+          0.29599976539611816,
+          0.6658573746681213
+        ]
+      },
+      "meshCount": 1
+    },
+    {
+      "partId": "chassis",
+      "section": "frontSuspension",
+      "pieceId": "front-differential",
+      "pieceLabel": "Diferencial ilustrativo dianteiro",
+      "semanticPath": "chassis/frontSuspension/front-differential",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          -1.7300000190734863,
+          0.2199999988079071,
+          -0.17000000178813934
+        ],
+        "max": [
+          -1.4300000667572021,
+          0.47999998927116394,
+          0.17100000381469727
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "steering",
+      "section": "steeringRack",
+      "pieceId": "steering-rack",
+      "pieceLabel": "Caixa de direção assistida",
+      "semanticPath": "steering/steeringRack/steering-rack",
+      "parentAssemblyId": "steering",
+      "bounds": {
+        "min": [
+          -1.6793010234832764,
+          0.2006978541612625,
+          -0.8028862476348877
+        ],
+        "max": [
+          -1.2595694065093994,
+          0.5384652018547058,
+          0.8063877820968628
+        ]
+      },
+      "meshCount": 4
+    },
+    {
+      "partId": "chassis",
+      "section": "rearSuspension",
+      "pieceId": "rear-subframe",
+      "pieceLabel": "Subchassi traseiro",
+      "semanticPath": "chassis/rearSuspension/rear-subframe",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          1.065999984741211,
+          0.1771290898323059,
+          -0.5069422721862793
+        ],
+        "max": [
+          1.7660000324249268,
+          0.3026636838912964,
+          0.5069422721862793
+        ]
+      },
+      "meshCount": 1
+    },
+    {
+      "partId": "chassis",
+      "section": "rearSuspension",
+      "pieceId": "rear-right-control-arm",
+      "pieceLabel": "Braço de suspensão traseiro direito",
+      "semanticPath": "chassis/rearSuspension/rear-right-control-arm",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          1.125619649887085,
+          0.18249042332172394,
+          -0.8268815875053406
+        ],
+        "max": [
+          1.795881748199463,
+          0.3164691627025604,
+          -0.14565905928611755
+        ]
+      },
+      "meshCount": 1
+    },
+    {
+      "partId": "chassis",
+      "section": "rearSuspension",
+      "pieceId": "rear-right-arm-mounts",
+      "pieceLabel": "Buchas do braço traseiro direito",
+      "semanticPath": "chassis/rearSuspension/rear-right-arm-mounts",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          1.1134999990463257,
+          0.19199997186660767,
+          -0.4480000138282776
+        ],
+        "max": [
+          1.718500018119812,
+          0.30800002813339233,
+          -0.3319999873638153
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "chassis",
+      "section": "rearSuspension",
+      "pieceId": "rear-right-upper-link",
+      "pieceLabel": "Tirante superior traseiro direito",
+      "semanticPath": "chassis/rearSuspension/rear-right-upper-link",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          1.215706467628479,
+          0.41635870933532715,
+          -0.7967958450317383
+        ],
+        "max": [
+          1.7308400869369507,
+          0.5031257271766663,
+          -0.2464684098958969
+        ]
+      },
+      "meshCount": 1
+    },
+    {
+      "partId": "chassis",
+      "section": "rearSuspension",
+      "pieceId": "rear-right-knuckle",
+      "pieceLabel": "Manga de eixo e cubo traseiro direito",
+      "semanticPath": "chassis/rearSuspension/rear-right-knuckle",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          1.3029999732971191,
+          0.24300000071525574,
+          -0.8654999732971191
+        ],
+        "max": [
+          1.5290000438690186,
+          0.49300000071525574,
+          -0.7325000166893005
+        ]
+      },
+      "meshCount": 4
+    },
+    {
+      "partId": "chassis",
+      "section": "rearSuspension",
+      "pieceId": "rear-right-damper",
+      "pieceLabel": "Amortecedor traseiro direito",
+      "semanticPath": "chassis/rearSuspension/rear-right-damper",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          1.3729287385940552,
+          0.375,
+          -0.7839988470077515
+        ],
+        "max": [
+          1.5546228885650635,
+          1.0121796131134033,
+          -0.6367508172988892
+        ]
+      },
+      "meshCount": 3
+    },
+    {
+      "partId": "chassis",
+      "section": "rearSuspension",
+      "pieceId": "rear-right-spring",
+      "pieceLabel": "Mola helicoidal traseiro direito",
+      "semanticPath": "chassis/rearSuspension/rear-right-spring",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          1.3663651943206787,
+          0.6074087619781494,
+          -0.8067308068275452
+        ],
+        "max": [
+          1.6159765720367432,
+          1.0026583671569824,
+          -0.5675162672996521
+        ]
+      },
+      "meshCount": 1
+    },
+    {
+      "partId": "chassis",
+      "section": "rearSuspension",
+      "pieceId": "rear-right-strut-mount",
+      "pieceLabel": "Pratos e coxim da suspensão traseiro direito",
+      "semanticPath": "chassis/rearSuspension/rear-right-strut-mount",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          1.3062148094177246,
+          0.5770605206489563,
+          -0.8645748496055603
+        ],
+        "max": [
+          1.6979615688323975,
+          1.0781753063201904,
+          -0.49885064363479614
+        ]
+      },
+      "meshCount": 4
+    },
+    {
+      "partId": "chassis",
+      "section": "rearSuspension",
+      "pieceId": "rear-right-drop-link",
+      "pieceLabel": "Bieleta traseiro direito",
+      "semanticPath": "chassis/rearSuspension/rear-right-drop-link",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          1.5506186485290527,
+          0.28400230407714844,
+          -0.7446629405021667
+        ],
+        "max": [
+          1.6613812446594238,
+          0.6059976816177368,
+          -0.5553370118141174
+        ]
+      },
+      "meshCount": 1
+    },
+    {
+      "partId": "chassis",
+      "section": "rearSuspension",
+      "pieceId": "rear-right-halfshaft",
+      "pieceLabel": "Semieixo e coifa traseiro direito",
+      "semanticPath": "chassis/rearSuspension/rear-right-halfshaft",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          1.3624999523162842,
+          0.30649998784065247,
+          -0.7200000286102295
+        ],
+        "max": [
+          1.4695000648498535,
+          0.41350001096725464,
+          -0.12999999523162842
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "chassis",
+      "section": "rearSuspension",
+      "pieceId": "rear-left-control-arm",
+      "pieceLabel": "Braço de suspensão traseiro esquerdo",
+      "semanticPath": "chassis/rearSuspension/rear-left-control-arm",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          1.125619649887085,
+          0.1824905127286911,
+          0.14565901458263397
+        ],
+        "max": [
+          1.7958818674087524,
+          0.31646913290023804,
+          0.826881468296051
+        ]
+      },
+      "meshCount": 1
+    },
+    {
+      "partId": "chassis",
+      "section": "rearSuspension",
+      "pieceId": "rear-left-arm-mounts",
+      "pieceLabel": "Buchas do braço traseiro esquerdo",
+      "semanticPath": "chassis/rearSuspension/rear-left-arm-mounts",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          1.1134999990463257,
+          0.19199997186660767,
+          0.3319999575614929
+        ],
+        "max": [
+          1.718500018119812,
+          0.30800002813339233,
+          0.4479999840259552
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "chassis",
+      "section": "rearSuspension",
+      "pieceId": "rear-left-upper-link",
+      "pieceLabel": "Tirante superior traseiro esquerdo",
+      "semanticPath": "chassis/rearSuspension/rear-left-upper-link",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          1.215706467628479,
+          0.4163586497306824,
+          0.24646838009357452
+        ],
+        "max": [
+          1.7308403253555298,
+          0.503125786781311,
+          0.7967960238456726
+        ]
+      },
+      "meshCount": 1
+    },
+    {
+      "partId": "chassis",
+      "section": "rearSuspension",
+      "pieceId": "rear-left-knuckle",
+      "pieceLabel": "Manga de eixo e cubo traseiro esquerdo",
+      "semanticPath": "chassis/rearSuspension/rear-left-knuckle",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          1.3029999732971191,
+          0.24300000071525574,
+          0.7325000166893005
+        ],
+        "max": [
+          1.5290000438690186,
+          0.49300000071525574,
+          0.8654999732971191
+        ]
+      },
+      "meshCount": 4
+    },
+    {
+      "partId": "chassis",
+      "section": "rearSuspension",
+      "pieceId": "rear-left-damper",
+      "pieceLabel": "Amortecedor traseiro esquerdo",
+      "semanticPath": "chassis/rearSuspension/rear-left-damper",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          1.3729287385940552,
+          0.375,
+          0.6367507576942444
+        ],
+        "max": [
+          1.5546228885650635,
+          1.0121796131134033,
+          0.7839990258216858
+        ]
+      },
+      "meshCount": 3
+    },
+    {
+      "partId": "chassis",
+      "section": "rearSuspension",
+      "pieceId": "rear-left-spring",
+      "pieceLabel": "Mola helicoidal traseiro esquerdo",
+      "semanticPath": "chassis/rearSuspension/rear-left-spring",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          1.3663051128387451,
+          0.6072173118591309,
+          0.5654237270355225
+        ],
+        "max": [
+          1.6158839464187622,
+          0.9913606643676758,
+          0.8052148222923279
+        ]
+      },
+      "meshCount": 1
+    },
+    {
+      "partId": "chassis",
+      "section": "rearSuspension",
+      "pieceId": "rear-left-strut-mount",
+      "pieceLabel": "Pratos e coxim da suspensão traseiro esquerdo",
+      "semanticPath": "chassis/rearSuspension/rear-left-strut-mount",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          1.3062148094177246,
+          0.5770605206489563,
+          0.4988507032394409
+        ],
+        "max": [
+          1.697961688041687,
+          1.0781753063201904,
+          0.8645748496055603
+        ]
+      },
+      "meshCount": 4
+    },
+    {
+      "partId": "chassis",
+      "section": "rearSuspension",
+      "pieceId": "rear-left-drop-link",
+      "pieceLabel": "Bieleta traseiro esquerdo",
+      "semanticPath": "chassis/rearSuspension/rear-left-drop-link",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          1.5506186485290527,
+          0.28400230407714844,
+          0.5553370118141174
+        ],
+        "max": [
+          1.6613812446594238,
+          0.6059976816177368,
+          0.7446629405021667
+        ]
+      },
+      "meshCount": 1
+    },
+    {
+      "partId": "chassis",
+      "section": "rearSuspension",
+      "pieceId": "rear-left-halfshaft",
+      "pieceLabel": "Semieixo e coifa traseiro esquerdo",
+      "semanticPath": "chassis/rearSuspension/rear-left-halfshaft",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          1.3624999523162842,
+          0.30650001764297485,
+          0.12999999523162842
+        ],
+        "max": [
+          1.4695000648498535,
+          0.413500040769577,
+          0.7200000286102295
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "chassis",
+      "section": "rearSuspension",
+      "pieceId": "rear-antiroll-bar",
+      "pieceLabel": "Barra estabilizadora traseiro",
+      "semanticPath": "chassis/rearSuspension/rear-antiroll-bar",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          1.6399352550506592,
+          0.20657850801944733,
+          -0.6658573746681213
+        ],
+        "max": [
+          1.8015387058258057,
+          0.29599976539611816,
+          0.6658573746681213
+        ]
+      },
+      "meshCount": 1
+    },
+    {
+      "partId": "chassis",
+      "section": "rearSuspension",
+      "pieceId": "rear-differential",
+      "pieceLabel": "Diferencial ilustrativo traseiro",
+      "semanticPath": "chassis/rearSuspension/rear-differential",
+      "parentAssemblyId": "chassis",
+      "bounds": {
+        "min": [
+          1.2660000324249268,
+          0.2199999988079071,
+          -0.17000000178813934
+        ],
+        "max": [
+          1.565999984741211,
+          0.47999998927116394,
+          0.17100000381469727
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "motorElectric",
+      "section": "tractionMotor",
+      "pieceId": "electric-motor",
+      "pieceLabel": "Motor elétrico de tração",
+      "semanticPath": "motorElectric/tractionMotor/electric-motor",
+      "parentAssemblyId": "motorElectric",
+      "bounds": {
+        "min": [
+          -0.7030000686645508,
+          0.38499993085861206,
+          -0.20500001311302185
+        ],
+        "max": [
+          -0.08999998867511749,
+          0.7949999570846558,
+          0.20500001311302185
+        ]
+      },
+      "meshCount": 5
+    },
+    {
+      "partId": "motorElectric",
+      "section": "inverter",
+      "pieceId": "traction-inverter",
+      "pieceLabel": "Inversor e cabos de alta tensão",
+      "semanticPath": "motorElectric/inverter/traction-inverter",
+      "parentAssemblyId": "motorElectric",
+      "bounds": {
+        "min": [
+          -0.6925000548362732,
+          0.33077120780944824,
+          -0.20899999141693115
+        ],
+        "max": [
+          0.45163893699645996,
+          0.9470000267028809,
+          0.5851426720619202
+        ]
+      },
+      "meshCount": 7
+    },
+    {
+      "partId": "batteryHV",
+      "section": "tractionBattery",
+      "pieceId": "battery-tray",
+      "pieceLabel": "Bandeja e vedações da bateria",
+      "semanticPath": "batteryHV/tractionBattery/battery-tray",
+      "parentAssemblyId": "batteryHV",
+      "bounds": {
+        "min": [
+          -0.7199999094009399,
+          0.17999999225139618,
+          -0.7000000476837158
+        ],
+        "max": [
+          1.399999976158142,
+          0.36299997568130493,
+          0.7000000476837158
+        ]
+      },
+      "meshCount": 4
+    },
+    {
+      "partId": "batteryHV",
+      "section": "tractionBattery",
+      "pieceId": "battery-module-01",
+      "pieceLabel": "Módulo de células 01",
+      "semanticPath": "batteryHV/tractionBattery/battery-module-01",
+      "parentAssemblyId": "batteryHV",
+      "bounds": {
+        "min": [
+          -0.5789999961853027,
+          0.35499998927116394,
+          -0.574999988079071
+        ],
+        "max": [
+          -0.2409999966621399,
+          0.49399998784065247,
+          -0.04500001668930054
+        ]
+      },
+      "meshCount": 6
+    },
+    {
+      "partId": "batteryHV",
+      "section": "tractionBattery",
+      "pieceId": "battery-busbars",
+      "pieceLabel": "Barramentos de interligação",
+      "semanticPath": "batteryHV/tractionBattery/battery-busbars",
+      "parentAssemblyId": "batteryHV",
+      "bounds": {
+        "min": [
+          -0.2849999964237213,
+          0.47699999809265137,
+          -0.12250000238418579
+        ],
+        "max": [
+          1.1449999809265137,
+          0.48500001430511475,
+          0.512499988079071
+        ]
+      },
+      "meshCount": 1
+    },
+    {
+      "partId": "batteryHV",
+      "section": "tractionBattery",
+      "pieceId": "battery-module-02",
+      "pieceLabel": "Módulo de células 02",
+      "semanticPath": "batteryHV/tractionBattery/battery-module-02",
+      "parentAssemblyId": "batteryHV",
+      "bounds": {
+        "min": [
+          -0.20899999141693115,
+          0.35499998927116394,
+          -0.574999988079071
+        ],
+        "max": [
+          0.1290000081062317,
+          0.49399998784065247,
+          -0.04500001668930054
+        ]
+      },
+      "meshCount": 6
+    },
+    {
+      "partId": "batteryHV",
+      "section": "tractionBattery",
+      "pieceId": "battery-module-03",
+      "pieceLabel": "Módulo de células 03",
+      "semanticPath": "batteryHV/tractionBattery/battery-module-03",
+      "parentAssemblyId": "batteryHV",
+      "bounds": {
+        "min": [
+          0.16100001335144043,
+          0.35499998927116394,
+          -0.574999988079071
+        ],
+        "max": [
+          0.49900001287460327,
+          0.49399998784065247,
+          -0.04500001668930054
+        ]
+      },
+      "meshCount": 6
+    },
+    {
+      "partId": "batteryHV",
+      "section": "tractionBattery",
+      "pieceId": "battery-module-04",
+      "pieceLabel": "Módulo de células 04",
+      "semanticPath": "batteryHV/tractionBattery/battery-module-04",
+      "parentAssemblyId": "batteryHV",
+      "bounds": {
+        "min": [
+          0.531000018119812,
+          0.35499998927116394,
+          -0.574999988079071
+        ],
+        "max": [
+          0.8689999580383301,
+          0.49399998784065247,
+          -0.04500001668930054
+        ]
+      },
+      "meshCount": 6
+    },
+    {
+      "partId": "batteryHV",
+      "section": "tractionBattery",
+      "pieceId": "battery-module-05",
+      "pieceLabel": "Módulo de células 05",
+      "semanticPath": "batteryHV/tractionBattery/battery-module-05",
+      "parentAssemblyId": "batteryHV",
+      "bounds": {
+        "min": [
+          0.9010000228881836,
+          0.35499998927116394,
+          -0.574999988079071
+        ],
+        "max": [
+          1.2390000820159912,
+          0.49399998784065247,
+          -0.04500001668930054
+        ]
+      },
+      "meshCount": 6
+    },
+    {
+      "partId": "batteryHV",
+      "section": "tractionBattery",
+      "pieceId": "battery-module-06",
+      "pieceLabel": "Módulo de células 06",
+      "semanticPath": "batteryHV/tractionBattery/battery-module-06",
+      "parentAssemblyId": "batteryHV",
+      "bounds": {
+        "min": [
+          -0.5789999961853027,
+          0.35499998927116394,
+          0.0350000262260437
+        ],
+        "max": [
+          -0.2409999966621399,
+          0.49399998784065247,
+          0.5649999976158142
+        ]
+      },
+      "meshCount": 6
+    },
+    {
+      "partId": "batteryHV",
+      "section": "tractionBattery",
+      "pieceId": "battery-module-07",
+      "pieceLabel": "Módulo de células 07",
+      "semanticPath": "batteryHV/tractionBattery/battery-module-07",
+      "parentAssemblyId": "batteryHV",
+      "bounds": {
+        "min": [
+          -0.20899999141693115,
+          0.35499998927116394,
+          0.0350000262260437
+        ],
+        "max": [
+          0.1290000081062317,
+          0.49399998784065247,
+          0.5649999976158142
+        ]
+      },
+      "meshCount": 6
+    },
+    {
+      "partId": "batteryHV",
+      "section": "tractionBattery",
+      "pieceId": "battery-module-08",
+      "pieceLabel": "Módulo de células 08",
+      "semanticPath": "batteryHV/tractionBattery/battery-module-08",
+      "parentAssemblyId": "batteryHV",
+      "bounds": {
+        "min": [
+          0.16100001335144043,
+          0.35499998927116394,
+          0.0350000262260437
+        ],
+        "max": [
+          0.49900001287460327,
+          0.49399998784065247,
+          0.5649999976158142
+        ]
+      },
+      "meshCount": 6
+    },
+    {
+      "partId": "batteryHV",
+      "section": "tractionBattery",
+      "pieceId": "battery-module-09",
+      "pieceLabel": "Módulo de células 09",
+      "semanticPath": "batteryHV/tractionBattery/battery-module-09",
+      "parentAssemblyId": "batteryHV",
+      "bounds": {
+        "min": [
+          0.531000018119812,
+          0.35499998927116394,
+          0.0350000262260437
+        ],
+        "max": [
+          0.8689999580383301,
+          0.49399998784065247,
+          0.5649999976158142
+        ]
+      },
+      "meshCount": 6
+    },
+    {
+      "partId": "batteryHV",
+      "section": "tractionBattery",
+      "pieceId": "battery-module-10",
+      "pieceLabel": "Módulo de células 10",
+      "semanticPath": "batteryHV/tractionBattery/battery-module-10",
+      "parentAssemblyId": "batteryHV",
+      "bounds": {
+        "min": [
+          0.9010000228881836,
+          0.35499998927116394,
+          0.0350000262260437
+        ],
+        "max": [
+          1.2390000820159912,
+          0.49399998784065247,
+          0.5649999976158142
+        ]
+      },
+      "meshCount": 6
+    },
+    {
+      "partId": "batteryHV",
+      "section": "tractionBattery",
+      "pieceId": "battery-bms",
+      "pieceLabel": "Unidade de gerenciamento da bateria",
+      "semanticPath": "batteryHV/tractionBattery/battery-bms",
+      "parentAssemblyId": "batteryHV",
+      "bounds": {
+        "min": [
+          -0.5900000333786011,
+          0.375,
+          -0.5870000123977661
+        ],
+        "max": [
+          1.1699999570846558,
+          0.4975000023841858,
+          0.5869999527931213
+        ]
+      },
+      "meshCount": 3
+    },
+    {
+      "partId": "batteryHV",
+      "section": "tractionBattery",
+      "pieceId": "battery-hv-junction",
+      "pieceLabel": "Caixa de distribuição de alta tensão",
+      "semanticPath": "batteryHV/tractionBattery/battery-hv-junction",
+      "parentAssemblyId": "batteryHV",
+      "bounds": {
+        "min": [
+          0.7249999642372131,
+          0.35499998927116394,
+          -0.05999999865889549
+        ],
+        "max": [
+          1.0549999475479126,
+          0.5160000324249268,
+          0.05999999865889549
+        ]
+      },
+      "meshCount": 3
+    },
+    {
+      "partId": "batteryHV",
+      "section": "tractionBattery",
+      "pieceId": "battery-hv-connectors",
+      "pieceLabel": "Conectores de alta tensão",
+      "semanticPath": "batteryHV/tractionBattery/battery-hv-connectors",
+      "parentAssemblyId": "batteryHV",
+      "bounds": {
+        "min": [
+          -0.7290000319480896,
+          0.24699999392032623,
+          -0.16249999403953552
+        ],
+        "max": [
+          -0.637499988079071,
+          0.3330000042915344,
+          0.16249999403953552
+        ]
+      },
+      "meshCount": 3
+    },
+    {
+      "partId": "batteryHV",
+      "section": "tractionBattery",
+      "pieceId": "battery-cooling-plate",
+      "pieceLabel": "Placa de arrefecimento",
+      "semanticPath": "batteryHV/tractionBattery/battery-cooling-plate",
+      "parentAssemblyId": "batteryHV",
+      "bounds": {
+        "min": [
+          -0.6050000190734863,
+          0.3540000021457672,
+          -0.5849999785423279
+        ],
+        "max": [
+          1.284999966621399,
+          0.37800002098083496,
+          0.5849999785423279
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "batteryHV",
+      "section": "tractionBattery",
+      "pieceId": "battery-cooling-connectors",
+      "pieceLabel": "Conexões de arrefecimento",
+      "semanticPath": "batteryHV/tractionBattery/battery-cooling-connectors",
+      "parentAssemblyId": "batteryHV",
+      "bounds": {
+        "min": [
+          -0.7699999809265137,
+          0.32899999618530273,
+          -0.5109999775886536
+        ],
+        "max": [
+          -0.6549999713897705,
+          0.39100000262260437,
+          -0.2889999747276306
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "batteryHV",
+      "section": "batteryCover",
+      "pieceId": "battery-cover",
+      "pieceLabel": "Tampa da bateria de tração",
+      "semanticPath": "batteryHV/batteryCover/battery-cover",
+      "parentAssemblyId": "batteryHV",
+      "bounds": {
+        "min": [
+          -0.6649999618530273,
+          0.512499988079071,
+          -0.6349999904632568
+        ],
+        "max": [
+          1.3450000286102295,
+          0.5615000128746033,
+          0.6349999904632568
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "batteryHV",
+      "section": "batteryCover",
+      "pieceId": "battery-service-disconnect",
+      "pieceLabel": "Desconector de serviço",
+      "semanticPath": "batteryHV/batteryCover/battery-service-disconnect",
+      "parentAssemblyId": "batteryHV",
+      "bounds": {
+        "min": [
+          0.8350000381469727,
+          0.550000011920929,
+          0.38499999046325684
+        ],
+        "max": [
+          0.9850000143051147,
+          0.60999995470047,
+          0.4950000047683716
+        ]
+      },
+      "meshCount": 1
+    },
+    {
+      "partId": "cooling",
+      "section": "radiator",
+      "pieceId": "radiator",
+      "pieceLabel": "Radiador e eletroventiladores",
+      "semanticPath": "cooling/radiator/radiator",
+      "parentAssemblyId": "cooling",
+      "bounds": {
+        "min": [
+          -2.0940001010894775,
+          0.4212011694908142,
+          -0.675000011920929
+        ],
+        "max": [
+          -1.41975998878479,
+          1.0218653678894043,
+          0.6749999523162842
+        ]
+      },
+      "meshCount": 4
+    },
+    {
+      "partId": "cooling",
+      "section": "coolantReservoir",
+      "pieceId": "coolant-reservoir",
+      "pieceLabel": "Reservatório de arrefecimento",
+      "semanticPath": "cooling/coolantReservoir/coolant-reservoir",
+      "parentAssemblyId": "cooling",
+      "bounds": {
+        "min": [
+          -1.3799998760223389,
+          0.8400000333786011,
+          -0.7300000190734863
+        ],
+        "max": [
+          -1.0600000619888306,
+          1.1345000267028809,
+          -0.47000008821487427
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "exhaust",
+      "section": "exhaust",
+      "pieceId": "exhaust-assembly",
+      "pieceLabel": "Escapamento e pós-tratamento",
+      "semanticPath": "exhaust/exhaust/exhaust-assembly",
+      "parentAssemblyId": "exhaust",
+      "bounds": {
+        "min": [
+          -1.3722810745239258,
+          0.10500000417232513,
+          0.3050000071525574
+        ],
+        "max": [
+          2.213020086288452,
+          0.724018931388855,
+          0.6500000953674316
+        ]
+      },
+      "meshCount": 3
+    },
+    {
+      "partId": "tank",
+      "section": "fuelTank",
+      "pieceId": "fuel-tank",
+      "pieceLabel": "Tanque e alimentação de combustível",
+      "semanticPath": "tank/fuelTank/fuel-tank",
+      "parentAssemblyId": "tank",
+      "bounds": {
+        "min": [
+          0.7199999094009399,
+          0.20250000059604645,
+          -0.8101742267608643
+        ],
+        "max": [
+          1.8050000667572021,
+          0.9750000238418579,
+          0.21250000596046448
+        ]
+      },
+      "meshCount": 6
+    },
+    {
+      "partId": "battery12v",
+      "section": "auxiliaryBattery",
+      "pieceId": "battery-12v",
+      "pieceLabel": "Bateria auxiliar de 12 V",
+      "semanticPath": "battery12v/auxiliaryBattery/battery-12v",
+      "parentAssemblyId": "battery12v",
+      "bounds": {
+        "min": [
+          -1.6463642120361328,
+          0.7125000357627869,
+          0.4830000102519989
+        ],
+        "max": [
+          -0.9717652797698975,
+          1.0857136249542236,
+          0.7599999904632568
+        ]
+      },
+      "meshCount": 6
+    },
+    {
+      "partId": "brakeFluid",
+      "section": "brakeHydraulics",
+      "pieceId": "brake-hydraulics",
+      "pieceLabel": "Cilindro mestre e fluido de freio",
+      "semanticPath": "brakeFluid/brakeHydraulics/brake-hydraulics",
+      "parentAssemblyId": "brakeFluid",
+      "bounds": {
+        "min": [
+          -1.243924617767334,
+          0.33731478452682495,
+          0.4339999854564667
+        ],
+        "max": [
+          -0.6800000071525574,
+          1.1125000715255737,
+          0.7059999704360962
+        ]
+      },
+      "meshCount": 8
+    },
+    {
+      "partId": "electronics",
+      "section": "OBDAndHarness",
+      "pieceId": "electronics-harness",
+      "pieceLabel": "Eletrônica e conexão de diagnóstico",
+      "semanticPath": "electronics/OBDAndHarness/electronics-harness",
+      "parentAssemblyId": "electronics",
+      "bounds": {
+        "min": [
+          -1.5930842161178589,
+          0.8774999976158142,
+          -0.7150000333786011
+        ],
+        "max": [
+          -0.6525000333786011,
+          1.0525000095367432,
+          0.4399999976158142
+        ]
+      },
+      "meshCount": 3
+    },
+    {
+      "partId": "airbag",
+      "section": "airbagModule",
+      "pieceId": "airbag-module",
+      "pieceLabel": "Módulo ilustrativo de airbag",
+      "semanticPath": "airbag/airbagModule/airbag-module",
+      "parentAssemblyId": "airbag",
+      "bounds": {
+        "min": [
+          -0.41749998927116394,
+          1.024999976158142,
+          0.328000009059906
+        ],
+        "max": [
+          -0.33250001072883606,
+          1.165000081062317,
+          0.46799999475479126
+        ]
+      },
+      "meshCount": 4
+    },
+    {
+      "partId": "engine",
+      "section": "engineExample",
+      "pieceId": "engine-block",
+      "pieceLabel": "Bloco de quatro cilindros",
+      "semanticPath": "engine/engineExample/engine-block",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -1.8650000095367432,
+          0.38750001788139343,
+          -0.3149999976158142
+        ],
+        "max": [
+          -0.9549999237060547,
+          0.8149999976158142,
+          0.3149999976158142
+        ]
+      },
+      "meshCount": 3
+    },
+    {
+      "partId": "engine",
+      "section": "engineExample",
+      "pieceId": "engine-sump",
+      "pieceLabel": "Cárter de óleo",
+      "semanticPath": "engine/engineExample/engine-sump",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -1.759526252746582,
+          0.26499998569488525,
+          -0.29574185609817505
+        ],
+        "max": [
+          -1.020473599433899,
+          0.41499996185302734,
+          0.29574188590049744
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "engine",
+      "section": "engineExample",
+      "pieceId": "engine-head",
+      "pieceLabel": "Cabeçote e junta",
+      "semanticPath": "engine/engineExample/engine-head",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -1.875,
+          0.815000057220459,
+          -0.3100000023841858
+        ],
+        "max": [
+          -0.9449999332427979,
+          0.965999960899353,
+          0.3100000023841858
+        ]
+      },
+      "meshCount": 3
+    },
+    {
+      "partId": "engine",
+      "section": "engineExample",
+      "pieceId": "engine-cam-cover",
+      "pieceLabel": "Tampa de válvulas",
+      "semanticPath": "engine/engineExample/engine-cam-cover",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -1.8599998950958252,
+          0.9450000524520874,
+          -0.29499998688697815
+        ],
+        "max": [
+          -0.9799999594688416,
+          1.057999849319458,
+          0.2849999964237213
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "engine",
+      "section": "engineExample",
+      "pieceId": "engine-ignition-coil-01",
+      "pieceLabel": "Bobina de ignição 1",
+      "semanticPath": "engine/engineExample/engine-ignition-coil-01",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -1.7825000286102295,
+          1.0499999523162842,
+          -0.03700000047683716
+        ],
+        "max": [
+          -1.6775000095367432,
+          1.0829999446868896,
+          0.13449999690055847
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "engine",
+      "section": "engineExample",
+      "pieceId": "engine-ignition-coil-02",
+      "pieceLabel": "Bobina de ignição 2",
+      "semanticPath": "engine/engineExample/engine-ignition-coil-02",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -1.5924999713897705,
+          1.0499999523162842,
+          -0.03700000047683716
+        ],
+        "max": [
+          -1.4874999523162842,
+          1.0829999446868896,
+          0.13449999690055847
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "engine",
+      "section": "engineExample",
+      "pieceId": "engine-ignition-coil-03",
+      "pieceLabel": "Bobina de ignição 3",
+      "semanticPath": "engine/engineExample/engine-ignition-coil-03",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -1.402500033378601,
+          1.0499999523162842,
+          -0.03700000047683716
+        ],
+        "max": [
+          -1.2975000143051147,
+          1.0829999446868896,
+          0.13449999690055847
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "engine",
+      "section": "engineExample",
+      "pieceId": "engine-ignition-coil-04",
+      "pieceLabel": "Bobina de ignição 4",
+      "semanticPath": "engine/engineExample/engine-ignition-coil-04",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -1.212499976158142,
+          1.0499999523162842,
+          -0.03700000047683716
+        ],
+        "max": [
+          -1.1074999570846558,
+          1.0829999446868896,
+          0.13449999690055847
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "engine",
+      "section": "engineExample",
+      "pieceId": "engine-ignition-harness",
+      "pieceLabel": "Chicote de ignição",
+      "semanticPath": "engine/engineExample/engine-ignition-harness",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -1.8005926609039307,
+          1.0236341953277588,
+          0.12807825207710266
+        ],
+        "max": [
+          -1.0180914402008057,
+          1.0798075199127197,
+          0.18467630445957184
+        ]
+      },
+      "meshCount": 1
+    },
+    {
+      "partId": "engine",
+      "section": "engineExample",
+      "pieceId": "engine-oil-cap",
+      "pieceLabel": "Bocal e tampa de óleo",
+      "semanticPath": "engine/engineExample/engine-oil-cap",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -1.1169999837875366,
+          1.035499930381775,
+          -0.18700000643730164
+        ],
+        "max": [
+          -1.0029999017715454,
+          1.1044999361038208,
+          -0.0729999840259552
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "engine",
+      "section": "engineExample",
+      "pieceId": "engine-intake-manifold",
+      "pieceLabel": "Coletor de admissão",
+      "semanticPath": "engine/engineExample/engine-intake-manifold",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -1.784000039100647,
+          0.6819999814033508,
+          -0.5519999861717224
+        ],
+        "max": [
+          -1.024999976158142,
+          0.9696961045265198,
+          -0.25855180621147156
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "engine",
+      "section": "engineExample",
+      "pieceId": "engine-throttle",
+      "pieceLabel": "Corpo de borboleta",
+      "semanticPath": "engine/engineExample/engine-throttle",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -1.0350000858306885,
+          0.671999990940094,
+          -0.5619999766349792
+        ],
+        "max": [
+          -0.9249999523162842,
+          0.8799999952316284,
+          -0.35999998450279236
+        ]
+      },
+      "meshCount": 3
+    },
+    {
+      "partId": "engine",
+      "section": "engineExample",
+      "pieceId": "engine-exhaust-manifold",
+      "pieceLabel": "Coletor de escape",
+      "semanticPath": "engine/engineExample/engine-exhaust-manifold",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -1.7662925720214844,
+          0.45499998331069946,
+          0.2878108620643616
+        ],
+        "max": [
+          -1.0832328796386719,
+          0.8799505829811096,
+          0.5300000309944153
+        ]
+      },
+      "meshCount": 1
+    },
+    {
+      "partId": "engine",
+      "section": "engineExample",
+      "pieceId": "engine-exhaust-connection",
+      "pieceLabel": "Saída do coletor de escape",
+      "semanticPath": "engine/engineExample/engine-exhaust-connection",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -1.2198225259780884,
+          0.2789999842643738,
+          0.32999998331069946
+        ],
+        "max": [
+          -0.8503462672233582,
+          0.5703085064888,
+          0.5159242749214172
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "engine",
+      "section": "engineExample",
+      "pieceId": "engine-timing-cover",
+      "pieceLabel": "Tampa da distribuição",
+      "semanticPath": "engine/engineExample/engine-timing-cover",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -1.8895000219345093,
+          0.4300000071525574,
+          -0.2849999964237213
+        ],
+        "max": [
+          -1.844499945640564,
+          0.9100000262260437,
+          0.29499998688697815
+        ]
+      },
+      "meshCount": 1
+    },
+    {
+      "partId": "engine",
+      "section": "engineExample",
+      "pieceId": "engine-accessory-drive",
+      "pieceLabel": "Polias e correia de acessórios",
+      "semanticPath": "engine/engineExample/engine-accessory-drive",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -1.9730000495910645,
+          0.3389599919319153,
+          -0.32652848958969116
+        ],
+        "max": [
+          -1.8940000534057617,
+          0.9239017367362976,
+          0.45740261673927307
+        ]
+      },
+      "meshCount": 3
+    },
+    {
+      "partId": "engine",
+      "section": "engineExample",
+      "pieceId": "engine-alternator",
+      "pieceLabel": "Alternador e ventilação",
+      "semanticPath": "engine/engineExample/engine-alternator",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -1.879499912261963,
+          0.6629999876022339,
+          0.2460000067949295
+        ],
+        "max": [
+          -1.257936716079712,
+          0.9753074049949646,
+          0.484000027179718
+        ]
+      },
+      "meshCount": 4
+    },
+    {
+      "partId": "engine",
+      "section": "engineExample",
+      "pieceId": "engine-bellhousing",
+      "pieceLabel": "Campana da transmissão",
+      "semanticPath": "engine/engineExample/engine-bellhousing",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -1.0724999904632568,
+          0.2640000283718109,
+          -0.2709999978542328
+        ],
+        "max": [
+          -0.7644999623298645,
+          0.8160000443458557,
+          0.2809999883174896
+        ]
+      },
+      "meshCount": 3
+    },
+    {
+      "partId": "engine",
+      "section": "engineExample",
+      "pieceId": "engine-transmission",
+      "pieceLabel": "Carcaça da transmissão",
+      "semanticPath": "engine/engineExample/engine-transmission",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -0.8450000286102295,
+          0.28700000047683716,
+          -0.21800000965595245
+        ],
+        "max": [
+          -0.2709999680519104,
+          0.7329999804496765,
+          0.2279999852180481
+        ]
+      },
+      "meshCount": 3
+    },
+    {
+      "partId": "engine",
+      "section": "engineExample",
+      "pieceId": "engine-transmission-output",
+      "pieceLabel": "Flange de saída da transmissão",
+      "semanticPath": "engine/engineExample/engine-transmission-output",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -0.2680000066757202,
+          0.414000004529953,
+          -0.08100000023841858
+        ],
+        "max": [
+          -0.18199999630451202,
+          0.5860000252723694,
+          0.09100000560283661
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "engine",
+      "section": "engineExample",
+      "pieceId": "engine-mounts",
+      "pieceLabel": "Coxins e suportes do motor",
+      "semanticPath": "engine/engineExample/engine-mounts",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -1.5099999904632568,
+          0.3700000047683716,
+          -0.4620000123977661
+        ],
+        "max": [
+          -1.309999942779541,
+          0.5149999856948853,
+          0.4620000123977661
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "engine",
+      "section": "engineExample",
+      "pieceId": "engine-oil-filter",
+      "pieceLabel": "Filtro de óleo",
+      "semanticPath": "engine/engineExample/engine-oil-filter",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -1.6260000467300415,
+          0.35600000619888306,
+          -0.41200003027915955
+        ],
+        "max": [
+          -1.5140000581741333,
+          0.5119999647140503,
+          -0.29999998211860657
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "engine",
+      "section": "engineExample",
+      "pieceId": "engine-coolant-outlet",
+      "pieceLabel": "Saída de arrefecimento",
+      "semanticPath": "engine/engineExample/engine-coolant-outlet",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -2.0153729915618896,
+          0.6651846766471863,
+          -0.3707718551158905
+        ],
+        "max": [
+          -1.8165901899337769,
+          0.8790000677108765,
+          -0.20399999618530273
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "engine",
+      "section": "engineExample",
+      "pieceId": "engine-oil-dipstick",
+      "pieceLabel": "Vareta de nível de óleo",
+      "semanticPath": "engine/engineExample/engine-oil-dipstick",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -1.1575406789779663,
+          0.49252498149871826,
+          0.31222259998321533
+        ],
+        "max": [
+          -1.0080000162124634,
+          0.968000054359436,
+          0.36786705255508423
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "engine",
+      "section": "engineInternal",
+      "pieceId": "engine-crankshaft",
+      "pieceLabel": "Virabrequim ilustrativo",
+      "semanticPath": "engine/engineInternal/engine-crankshaft",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -1.850000023841858,
+          0.4000000059604645,
+          -0.08000002056360245
+        ],
+        "max": [
+          -1.03000009059906,
+          0.5600000619888306,
+          0.08000002056360245
+        ]
+      },
+      "meshCount": 3
+    },
+    {
+      "partId": "engine",
+      "section": "engineInternal",
+      "pieceId": "engine-piston-01",
+      "pieceLabel": "Pistão e biela 1",
+      "semanticPath": "engine/engineInternal/engine-piston-01",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -1.8044999837875366,
+          0.4819999635219574,
+          -0.07450001686811447
+        ],
+        "max": [
+          -1.655500054359436,
+          0.7775000333786011,
+          0.09800001233816147
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "engine",
+      "section": "engineInternal",
+      "pieceId": "engine-piston-02",
+      "pieceLabel": "Pistão e biela 2",
+      "semanticPath": "engine/engineInternal/engine-piston-02",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -1.6144999265670776,
+          0.3919999897480011,
+          -0.09800001233816147
+        ],
+        "max": [
+          -1.465499997138977,
+          0.6875,
+          0.07450001686811447
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "engine",
+      "section": "engineInternal",
+      "pieceId": "engine-piston-03",
+      "pieceLabel": "Pistão e biela 3",
+      "semanticPath": "engine/engineInternal/engine-piston-03",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -1.4244999885559082,
+          0.3919999897480011,
+          -0.09800001233816147
+        ],
+        "max": [
+          -1.2755000591278076,
+          0.6875,
+          0.07450001686811447
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "engine",
+      "section": "engineInternal",
+      "pieceId": "engine-piston-04",
+      "pieceLabel": "Pistão e biela 4",
+      "semanticPath": "engine/engineInternal/engine-piston-04",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -1.2344999313354492,
+          0.4819999635219574,
+          -0.07450001686811447
+        ],
+        "max": [
+          -1.0855000019073486,
+          0.7775000333786011,
+          0.09800001233816147
+        ]
+      },
+      "meshCount": 2
+    },
+    {
+      "partId": "engine",
+      "section": "engineInternal",
+      "pieceId": "engine-camshafts",
+      "pieceLabel": "Comandos de válvulas ilustrativos",
+      "semanticPath": "engine/engineInternal/engine-camshafts",
+      "parentAssemblyId": "engine",
+      "bounds": {
+        "min": [
+          -1.8250000476837158,
+          0.8919999003410339,
+          -0.15700002014636993
+        ],
+        "max": [
+          -1.0550000667572021,
+          0.9459999799728394,
+          0.15700003504753113
+        ]
+      },
+      "meshCount": 2
+    }
+  ],
+  "pieceCount": 102,
+  "drawMeshCount": 283,
+  "sourceBaseline": "ba37f60338c0565384e7e31f6e8115c4545d06ce",
+  "bounds": {
+    "chassis": {
+      "min": [
+        -1.9300000667572021,
+        0.1771290898323059,
+        -0.8654999732971191
+      ],
+      "max": [
+        1.8015387058258057,
+        1.0781753063201904,
+        0.8654999732971191
+      ]
+    },
+    "steering": {
+      "min": [
+        -1.6793010234832764,
+        0.2006978541612625,
+        -0.8028862476348877
+      ],
+      "max": [
+        -1.2595694065093994,
+        0.5384652018547058,
+        0.8063877820968628
+      ]
+    },
+    "motorElectric": {
+      "min": [
+        -0.7030000686645508,
+        0.33077120780944824,
+        -0.20899999141693115
+      ],
+      "max": [
+        0.45163893699645996,
+        0.9470000267028809,
+        0.5851426720619202
+      ]
+    },
+    "batteryHV": {
+      "min": [
+        -0.7699999809265137,
+        0.17999999225139618,
+        -0.7000000476837158
+      ],
+      "max": [
+        1.399999976158142,
+        0.60999995470047,
+        0.7000000476837158
+      ]
+    },
+    "cooling": {
+      "min": [
+        -2.0940001010894775,
+        0.4212011694908142,
+        -0.7300000190734863
+      ],
+      "max": [
+        -1.0600000619888306,
+        1.1345000267028809,
+        0.6749999523162842
+      ]
+    },
+    "exhaust": {
+      "min": [
+        -1.3722810745239258,
+        0.10500000417232513,
+        0.3050000071525574
+      ],
+      "max": [
+        2.213020086288452,
+        0.724018931388855,
+        0.6500000953674316
+      ]
+    },
+    "tank": {
+      "min": [
+        0.7199999094009399,
+        0.20250000059604645,
+        -0.8101742267608643
+      ],
+      "max": [
+        1.8050000667572021,
+        0.9750000238418579,
+        0.21250000596046448
+      ]
+    },
+    "battery12v": {
+      "min": [
+        -1.6463642120361328,
+        0.7125000357627869,
+        0.4830000102519989
+      ],
+      "max": [
+        -0.9717652797698975,
+        1.0857136249542236,
+        0.7599999904632568
+      ]
+    },
+    "brakeFluid": {
+      "min": [
+        -1.243924617767334,
+        0.33731478452682495,
+        0.4339999854564667
+      ],
+      "max": [
+        -0.6800000071525574,
+        1.1125000715255737,
+        0.7059999704360962
+      ]
+    },
+    "electronics": {
+      "min": [
+        -1.5930842161178589,
+        0.8774999976158142,
+        -0.7150000333786011
+      ],
+      "max": [
+        -0.6525000333786011,
+        1.0525000095367432,
+        0.4399999976158142
+      ]
+    },
+    "airbag": {
+      "min": [
+        -0.41749998927116394,
+        1.024999976158142,
+        0.328000009059906
+      ],
+      "max": [
+        -0.33250001072883606,
+        1.165000081062317,
+        0.46799999475479126
+      ]
+    },
+    "engine": {
+      "min": [
+        -2.0153729915618896,
+        0.2640000283718109,
+        -0.5619999766349792
+      ],
+      "max": [
+        -0.18199999630451202,
+        1.1044999361038208,
+        0.5300000309944153
+      ]
+    }
+  },
+  "referenceImages": [
+    {
+      "path": "assets/motor.webp",
+      "sha256": "bcd5ca524834f62f4b1b3c5894fc738de506c664407528c2d671e3b468dd6aa9"
+    },
+    {
+      "path": "assets/chassi.webp",
+      "sha256": "62c147280a808a9631c1f126b53284e81509ac1c615af54ce4bf09c59be8d0f7"
+    },
+    {
+      "path": "assets/bateria.webp",
+      "sha256": "9ee3f2dd8d3b37a75c998eb0268f3df16adc3d84a0394f09b5e018dd508f4218"
+    },
+    {
+      "path": "assets/escapamento.webp",
+      "sha256": "b0a3867f15ecd1f2922a8300a1059c554b6daf7e52ac098eda21116f9e811c9d"
+    },
+    {
+      "path": "assets/tanque.webp",
+      "sha256": "58b11cec3ae46c581ec7a0719f6f18b9bd7bd23ee0db15643abf1721eb9c1f53"
+    },
+    {
+      "path": "assets/vehicle-vector/previews/vehicle.webp",
+      "sha256": "523b2e8dff9dc9008b24d8c918e5aff9a1a051d8357689a82e1cdd0aba269caf"
+    }
+  ],
+  "method": "Authored Blender geometry; beveled cast parts, tubular manifolds, coil springs, modular battery and hybrid drive; no external 3D asset.",
+  "sourceScript": "scripts/models/prototype_build_mechanical.py and scripts/models/prototype_engine_geometry.py and scripts/models/prototype_compress_mechanical.mjs",
+  "asset": "assets/prototype/models/mechanical-supplement.glb",
+  "sha256": "867525b78d79da28f8f00591cd92a15b61e4559e33f5645ff3799869922112a9",
+  "bytes": 1403808,
+  "compression": "Draco edge-breaker, position16/normal12/UV14/color10; no decimation",
+  "mechanicalExample": true,
+  "assembledInstallation": {
+    "engineTranslation": [
+      0,
+      -0.185,
+      0
+    ],
+    "radiatorTranslation": [
+      0,
+      -0.045,
+      0
+    ],
+    "purpose": "Visual clearance below the actual reference hood; not CAD dimensions or manufacturer architecture"
+  },
+  "authoredSources": [
+    {
+      "path": "scripts/models/prototype_build_mechanical.py",
+      "sha256": "bec92a6d2214d1e7d4674dfdc86044f033699f17070edfe3092e2018cda89296"
+    },
+    {
+      "path": "scripts/models/prototype_engine_geometry.py",
+      "sha256": "d1112e268b7754255f011eb17a198b9663098902e71f0457eb6733c319c7b127"
+    },
+    {
+      "path": "scripts/models/prototype_compress_mechanical.mjs",
+      "sha256": "70c140eceab34753b06c0ccbfbb71789fccef73c878b1de72c1b97a8bb9265d2"
+    }
+  ],
+  "semanticManifest": "assets/prototype/models/semantic-pieces.json",
+  "baseAsset": {
+    "path": "assets/models/suv/bmw-x5.glb",
+    "sha256": "25c74e4411872932dee468a1d2f533ca5d7e7e448ef55244c2c7bb5e152a37e2",
+    "license": "CC-BY-4.0",
+    "creator": "BMW Car IT / contributors to bmwcarit/digital-car-3d",
+    "sourceUrl": "https://github.com/bmwcarit/digital-car-3d",
+    "attribution": "The reference SUV remains unchanged. Generic mechanical additions are independently project-authored educational illustrations."
+  }
+}
