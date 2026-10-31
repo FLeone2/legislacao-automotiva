@@ -1,12 +1,18 @@
 import { build } from 'esbuild';
-import { copyFileSync, mkdirSync } from 'node:fs';
+import { copyFileSync, mkdirSync, rmSync } from 'node:fs';
+
+// Renderer chunks load only when the vehicle is opened. Remove stale generated
+// chunks without touching the authored models in the same asset directory.
+rmSync('assets/prototype/chunks', { recursive: true, force: true });
 
 await build({
-  entryPoints: ['src/prototype/PrototypeApp.jsx'],
+  entryPoints: { app: 'src/prototype/PrototypeApp.jsx' },
   bundle: true,
   minify: true,
   sourcemap: false,
-  outfile: 'assets/prototype/app.js',
+  outdir: 'assets/prototype',
+  splitting: true,
+  chunkNames: 'chunks/[name]-[hash]',
   format: 'esm',
   target: ['es2020'],
   legalComments: 'eof',

@@ -7,7 +7,13 @@ import baseSource from '../../assets/models/suv/provenance.json';
 import { PARTS } from '../guide/vehicle-parts.js';
 import { ALL_SUBSYSTEMS } from '../guide/subsystem-coverage.js';
 import { disposeModel, materialSnapshot } from '../guide/reference-suv.js';
-import { pieceDescriptor, explosionOffset, wheelCorner } from './vehicle-layout.js';
+import {
+  pieceDescriptor,
+  createExplosionPlan,
+  explosionPhases,
+  wheelCorner,
+  rectanglesOverlap,
+} from './vehicle-layout.js';
 
 const ASSEMBLIES = new Map(PARTS.map((part) => [part.id, part]));
 const LABELS = Object.fromEntries(PARTS.map((part) => [part.id, part.label]));
@@ -74,6 +80,11 @@ export function mountVehicleViewer(container, callbacks = {}) {
   let viewportSize = { width: 0, height: 0 };
   let hasFramedModel = false;
   let wasHidden = false;
+  let explosionPlan = null;
+  let planKey = '';
+  let layoutTween = null;
+  const layoutRows = [];
+  const planCache = new Map();
   const meshes = [];
   const pieces = new Map();
   const roadWheels = new Map();
@@ -81,6 +92,67 @@ export function mountVehicleViewer(container, callbacks = {}) {
   const raycaster = new THREE.Raycaster();
   const pointer = new THREE.Vector2();
   const lightDirection = new THREE.Vector3(-5, 8, 5).normalize();
+
+  function layoutDirection() {
+    return state.camera === 'top'
+      ? [0, 1, 0.001]
+      : state.camera === 'side'
+        ? [0.001, 0.11, 1]
+        : state.camera === 'front'
+          ? [-1, 0.16, 0.001]
+          : [-1, 0.78, 1.35];
+  }
+  function translation(item, amount) {
+    const phases = explosionPhases(amount);
+    return item.userData.overviewOffset
+      .clone()
+      .multiplyScalar(phases.assemblies)
+      .addScaledVector(item.userData.detailOffset, phases.detail)
+      .addScaledVector(item.userData.overviewOffset, -phases.detail);
+  }
+  function updateExplosionPlan() {
+    if (!layoutRows.length) return;
+    const detailAssemblyId = state.explosion > 0.65 ? state.selection.assemblyId : '';
+    const aspect = camera?.aspect || 1.5;
+    const key = [
+      state.camera,
+      aspect < 1 ? 'portrait' : 'landscape',
+      detailAssemblyId,
+      detailAssemblyId ? state.selection.nodeId : '',
+      detailAssemblyId ? state.isolated : false,
+    ].join('|');
+    if (key === planKey) return;
+    const from =
+      state.ready && currentExplosion > 0 && explosionPlan
+        ? new Map(meshes.map((item) => [item.uuid, item.position.clone()]))
+        : null;
+    if (!planCache.has(key))
+      planCache.set(
+        key,
+        createExplosionPlan(layoutRows, {
+          direction: layoutDirection(),
+          aspect: aspect < 1 ? 0.8 : 1.7,
+          detailAssemblyId,
+          nodeId: state.selection.nodeId,
+          isolated: state.isolated,
+        }),
+      );
+    explosionPlan = planCache.get(key);
+    planKey = key;
+    const assemblyOffsets = new Map();
+    for (const unit of explosionPlan.overview.units)
+      for (const id of unit.assemblyIds)
+        if (!assemblyOffsets.has(id)) assemblyOffsets.set(id, unit.offset);
+    meshes.forEach((item) => {
+      const overview = explosionPlan.overview.offsets.get(item.userData.nodeId) ||
+        assemblyOffsets.get(item.userData.partId) || [0, 0, 0];
+      const detail = explosionPlan.detail.offsets.get(item.userData.nodeId) || overview;
+      item.userData.overviewOffset.set(...overview);
+      item.userData.detailOffset.set(...detail);
+    });
+    layoutTween =
+      from && !motionPreference.matches ? { from, start: performance.now(), progress: 0 } : null;
+  }
 
   function selectionIds() {
     const sub = SUBSYSTEMS.get(state.selection.subsystemId);
@@ -98,7 +170,7 @@ export function mountVehicleViewer(container, callbacks = {}) {
     const box = new THREE.Box3();
     piece.meshes.forEach((item) => {
       const b = item.geometry.boundingBox.clone().applyMatrix4(item.matrixWorld);
-      const delta = item.userData.explosionOffset.clone().multiplyScalar(amount - currentExplosion);
+      const delta = translation(item, amount).sub(translation(item, currentExplosion));
       box.union(b.translate(delta));
     });
     return box.getCenter(new THREE.Vector3());
@@ -153,6 +225,40 @@ export function mountVehicleViewer(container, callbacks = {}) {
               Math.abs(projected.y) < 1,
           };
         });
+      if (explosionPlan && currentExplosion >= 0.6499) {
+        const activePlan =
+          explosionPhases(currentExplosion).detail > 0 && state.selection.assemblyId
+            ? explosionPlan.detail
+            : explosionPlan.overview;
+        result.explosionGroups = activePlan.units
+          .map((unit) => {
+            const ids = new Set(unit.nodeIds);
+            const members = meshes.filter((item) => item.visible && ids.has(item.userData.nodeId));
+            if (!members.length) return null;
+            const rect = { minX: Infinity, maxX: -Infinity, minY: Infinity, maxY: -Infinity };
+            for (const item of members) {
+              const box = item.geometry.boundingBox.clone().applyMatrix4(item.matrixWorld);
+              for (const x of [box.min.x, box.max.x])
+                for (const y of [box.min.y, box.max.y])
+                  for (const z of [box.min.z, box.max.z]) {
+                    projected.set(x, y, z).project(camera);
+                    rect.minX = Math.min(rect.minX, projected.x);
+                    rect.maxX = Math.max(rect.maxX, projected.x);
+                    rect.minY = Math.min(rect.minY, projected.y);
+                    rect.maxY = Math.max(rect.maxY, projected.y);
+                  }
+            }
+            return { id: unit.id, assemblyIds: unit.assemblyIds, nodeIds: unit.nodeIds, rect };
+          })
+          .filter(Boolean);
+        result.explosionOverlaps = [];
+        result.explosionGroups.forEach((group, index) =>
+          result.explosionGroups.slice(index + 1).forEach((other) => {
+            if (rectanglesOverlap(group.rect, other.rect))
+              result.explosionOverlaps.push([group.id, other.id]);
+          }),
+        );
+      }
     }
     return result;
   }
@@ -195,11 +301,12 @@ export function mountVehicleViewer(container, callbacks = {}) {
     renderer.render(scene, camera);
   }
   function pose() {
-    meshes.forEach((item) =>
-      item.position
-        .copy(item.userData.basePosition)
-        .addScaledVector(item.userData.explosionOffset, currentExplosion),
-    );
+    meshes.forEach((item) => {
+      const target = item.userData.basePosition.clone().add(translation(item, currentExplosion));
+      const from = layoutTween?.from.get(item.uuid);
+      if (from) item.position.lerpVectors(from, target, layoutTween.progress);
+      else item.position.copy(target);
+    });
     root?.updateMatrixWorld(true);
     if (canvas) canvas.dataset.actualExplosion = String(currentExplosion);
   }
@@ -209,6 +316,7 @@ export function mountVehicleViewer(container, callbacks = {}) {
     const dt = Math.min(64, lastTime ? time - lastTime : 16);
     lastTime = time;
     let ongoing = false;
+    let poseChanged = false;
     const delta = state.explosion - currentExplosion;
     if (Math.abs(delta) > 0.0001) {
       currentExplosion = motionPreference.matches
@@ -216,8 +324,16 @@ export function mountVehicleViewer(container, callbacks = {}) {
         : currentExplosion + delta * (1 - Math.exp(-dt / 65));
       if (Math.abs(state.explosion - currentExplosion) < 0.0005) currentExplosion = state.explosion;
       else ongoing = true;
-      pose();
+      poseChanged = true;
     }
+    if (layoutTween) {
+      const progress = Math.min(1, (time - layoutTween.start) / 320);
+      layoutTween.progress = progress * progress * (3 - 2 * progress);
+      poseChanged = true;
+      if (progress === 1) layoutTween = null;
+      else ongoing = true;
+    }
+    if (poseChanged) pose();
     if (cameraTween) {
       const progress = motionPreference.matches ? 1 : Math.min(1, (time - cameraTween.start) / 260);
       const eased = 1 - (1 - progress) ** 4;
@@ -242,10 +358,7 @@ export function mountVehicleViewer(container, callbacks = {}) {
     root?.updateMatrixWorld(true);
     meshes.forEach((item) => {
       if (!item.visible || (selectionOnly && !selected(item))) return;
-      const bounds = item.geometry.boundingBox.clone().applyMatrix4(item.matrixWorld);
-      bounds.translate(
-        item.userData.explosionOffset.clone().multiplyScalar(amount - currentExplosion),
-      );
+      const bounds = item.userData.baseBounds.clone().translate(translation(item, amount));
       box.union(bounds);
       for (const x of [bounds.min.x, bounds.max.x])
         for (const y of [bounds.min.y, bounds.max.y])
@@ -344,6 +457,8 @@ export function mountVehicleViewer(container, callbacks = {}) {
   }
   function applyVisualState() {
     if (!root) return;
+    updateExplosionPlan();
+    floor.material.opacity = state.explosion > 0 ? (state.isolated ? 0.105 : 0.075) : 0.16;
     const ids = selectionIds();
     const hasSelection = Boolean(state.selection.assemblyId || state.selection.nodeId);
     const internalSelection = pieces.get(state.selection.nodeId)?.section === 'engineInternal';
@@ -365,7 +480,7 @@ export function mountVehicleViewer(container, callbacks = {}) {
         !((state.explosion > 0 || reveal || state.isolated) && data.contextOccluder) &&
         (!isInternal ||
           state.mode === 'cutaway' ||
-          state.explosion > 0 ||
+          (state.explosion > 0.65 && state.selection.assemblyId === 'engine') ||
           (active && Boolean(state.selection.nodeId)));
       const engineShell =
         internalSelection &&
@@ -424,7 +539,7 @@ export function mountVehicleViewer(container, callbacks = {}) {
     focused = false;
     if (!assemblyId) state.isolated = false;
     applyVisualState();
-    if (state.isolated) fit();
+    if (state.isolated || state.explosion > 0.65) fit();
   }
   function setMode(mode) {
     if (destroyed || !['assembled', 'exploded', 'cutaway'].includes(mode)) return;
@@ -456,6 +571,8 @@ export function mountVehicleViewer(container, callbacks = {}) {
   function setCamera(value) {
     if (destroyed || !['perspective', 'side', 'top', 'front'].includes(value)) return;
     state.camera = value;
+    updateExplosionPlan();
+    pose();
     notify();
     fit();
   }
@@ -520,6 +637,16 @@ export function mountVehicleViewer(container, callbacks = {}) {
         previousViewport.width,
         previousViewport.height,
       );
+      const previousCenter = bounds.box.getCenter(new THREE.Vector3());
+      const pan = controls.target.clone().sub(previousCenter);
+      if (state.explosion > 0) {
+        updateExplosionPlan();
+        pose();
+        bounds = visibleBounds(focused || state.isolated);
+        if (bounds.box.isEmpty()) bounds = visibleBounds(false);
+        controls.target.copy(bounds.box.getCenter(new THREE.Vector3()).add(pan));
+        fitShadow(bounds);
+      }
       const newDistance = framingDistance(
         bounds.corners,
         controls.target,
@@ -862,14 +989,9 @@ export function mountVehicleViewer(container, callbacks = {}) {
           basePosition: node.position.clone(),
           baseCenter: center.clone(),
           materialStates: materials.map(materialSnapshot),
-          explosionOffset: new THREE.Vector3(
-            ...explosionOffset({
-              ...descriptor,
-              sourceMesh: extras.sourceMesh,
-              sourceFile: extras.sourceFile,
-              center,
-            }),
-          ),
+          overviewOffset: new THREE.Vector3(),
+          detailOffset: new THREE.Vector3(),
+          baseBounds: node.geometry.boundingBox.clone().applyMatrix4(world),
           contextOccluder: /(?:_none|_void)/i.test(extras.sourceMesh || node.name),
           mechanicalExample: modelIndex === 1,
         };
@@ -897,6 +1019,19 @@ export function mountVehicleViewer(container, callbacks = {}) {
       );
     scene.add(root);
     root.updateMatrixWorld(true);
+    for (const piece of pieces.values()) {
+      const box = new THREE.Box3();
+      const eligible = piece.meshes.filter((item) => !item.userData.contextOccluder);
+      if (!eligible.length) continue;
+      eligible.forEach((item) => box.union(item.userData.baseBounds));
+      layoutRows.push({
+        ...piece,
+        meshes: undefined,
+        sourceMesh: eligible[0].userData.sourceMesh || eligible[0].name,
+        sourceFile: eligible[0].userData.sourceFile || '',
+        bounds: { min: box.min.toArray(), max: box.max.toArray() },
+      });
+    }
     if (state.selection.nodeId && !pieces.has(state.selection.nodeId)) state.selection.nodeId = '';
     applyVisualState();
     currentExplosion = state.explosion;

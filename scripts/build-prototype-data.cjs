@@ -31,6 +31,9 @@ const sourceContexts = jsonl('knowledge/source-contexts.jsonl');
 const pdfReview = fs.existsSync(path.join(ROOT, 'data/prototype/pdf-review.json'))
   ? read('data/prototype/pdf-review.json')
   : { records: [] };
+const documentIndex = fs.existsSync(path.join(ROOT, 'data/prototype/document-chunks.json'))
+  ? read('data/prototype/document-chunks.json')
+  : { documents: [] };
 
 // The source file intentionally stays an ES module for the 3D application.
 const partsContext = vm.createContext({});
@@ -57,9 +60,30 @@ function verifiedPdf(record) {
 const acts = cards
   .filter((card) => card.publication?.included !== false)
   .map((card) => {
-    const copies = pdfReview.records.filter(
-      (record) => record.actId === card.id && verifiedPdf(record),
-    );
+    const documents = documentIndex.documents.filter((document) => document.actId === card.id);
+    const fullText = documents.find((document) => document.indexable) || documents[0];
+    const bankCopies = documents
+      .filter((document) => document.format === 'pdf')
+      .map((document) => ({
+        status: 'verified_pdf',
+        actId: card.id,
+        path: document.pdfUrl?.split('#')[0]?.replace(/^\//, ''),
+        titleEvidence: document.titleEvidence || document.title,
+        byteLength: document.byteLength,
+        sha256: document.documentSha256,
+        url: document.url,
+        finalUrl: document.finalUrl || document.url,
+        primary: document.indexable,
+        variant: document.documentId,
+        checkedAt: document.retrievedAt,
+        extractionIsNotLegalReview: true,
+      }));
+    const copies = [...pdfReview.records, ...bankCopies]
+      .filter((record) => record.actId === card.id && verifiedPdf(record))
+      .filter(
+        (record, index, records) =>
+          records.findIndex((other) => other.path === record.path) === index,
+      );
     const primary = copies.find((record) => record.primary) || copies[0];
     return {
       ...pick(card, [
@@ -89,6 +113,8 @@ const acts = cards
       description: card.summary || card.title,
       detailPath: card.detailPath ? `/${card.detailPath}` : null,
       markdownPath: `/knowledge/${card.markdownPath}`,
+      fullTextMarkdownPath: fullText?.markdownPath || null,
+      documentIds: documents.map((document) => document.documentId),
       pdfUrl: primary ? `/${primary.path}` : null,
       pdfOfficialUrl: primary?.url || null,
       pdfStatus: primary ? 'verified_pdf' : 'official_source_only',

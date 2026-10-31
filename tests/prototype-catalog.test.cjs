@@ -132,7 +132,18 @@ test('all cross references resolve and workflow dependencies follow the actual p
 });
 
 test('PDF labels require verified official bytes, identity, length and hash; HTML stays source-only', () => {
-  assert.equal(catalog.counts.verifiedPdfActs, 5);
+  const bank = JSON.parse(
+    fs.readFileSync(path.join(ROOT, 'data/prototype/document-chunks.json'), 'utf8'),
+  );
+  const pdfActs = new Set(
+    bank.documents
+      .filter(
+        (document) =>
+          document.format === 'pdf' && catalog.acts.some((act) => act.id === document.actId),
+      )
+      .map((document) => document.actId),
+  );
+  assert.equal(catalog.counts.verifiedPdfActs, pdfActs.size);
   for (const act of catalog.acts) {
     if (act.pdfStatus !== 'verified_pdf') {
       assert.equal(act.pdfUrl, null);

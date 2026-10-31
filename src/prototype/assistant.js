@@ -1,4 +1,5 @@
 import prototypeCatalog from './catalog.js';
+import { buildConsultationCatalog } from './consultation-catalog.js';
 import {
   normalizePrototypeQuestion,
   prototypeSourceResponse,
@@ -64,7 +65,13 @@ export async function askPrototype(input, { signal, fetch: fetcher = globalThis.
   } catch (error) {
     if (signal?.aborted || error.status === 400 || error.status === 403 || error.status === 413)
       throw error;
-    const catalog = await loadPrototypeCatalog();
+    const baseCatalog = await loadPrototypeCatalog();
+    let workflow = {};
+    if (request.stageId && !baseCatalog.stages.some((stage) => stage.id === request.stageId)) {
+      const response = await fetcher('/data/prototype/workflow.json');
+      if (response.ok) workflow = await response.json();
+    }
+    const catalog = buildConsultationCatalog(baseCatalog, workflow);
     return prototypeSourceResponse(retrievePrototypeSources(request, catalog), 'local_sources');
   }
 }

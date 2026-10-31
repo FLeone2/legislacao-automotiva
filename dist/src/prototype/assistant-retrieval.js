@@ -46,6 +46,16 @@ const PROFILE_KEYS = new Set([
   'application',
   'componentApplication',
   'manufacturingDate',
+  'vehicleType',
+  'massRunningKg',
+  'payloadKg',
+  'derivedFromPassenger',
+  'offroad',
+  'purpose',
+  'componentMarket',
+  'usage',
+  'powertrain',
+  'radio',
 ]);
 const STOP_WORDS = new Set(
   'a o as os de do da dos das em no na nos nas para por e ou um uma que qual quais como quando onde quem sao ser esta este esse essa se ao aos minha meu sobre preciso precisa necessario necessaria obrigatorio obrigatoria requisitos requisito normas norma leis lei legislacao homologacao homologar veiculo veiculos aplica aplicam aplicavel verificar conferir consulta consultar fontes fonte referencia referencias selecao peca pecas conjunto devo deve devem gostaria quero saber entender pode podem posso voce texto textos oficial oficiais documento documentos relatorio relatorios evidencia evidencias ato atos resolucao resolucoes portaria portarias instrucao instrucoes normativa normativas decreto decretos deliberacao deliberacoes diferenca diferencas entre distinguir diferenciar comparar comparacao explique explicar'.split(
@@ -101,7 +111,12 @@ const wordRoot = (word) => word.replace(/^frenagem$/, 'freio').replace(/s$/, '')
 export function prototypeQueryWords(value) {
   return [
     ...new Set(
-      (normalized(value).match(/[a-z0-9]+/g) || [])
+      (
+        normalized(value)
+          .replace(/\bftp[ -]*75\b/g, 'ftp75')
+          .replace(/\bcost[ -]*down\b/g, 'coastdown')
+          .match(/[a-z0-9]+/g) || []
+      )
         .filter(
           (word) => (word.length > 2 || SHORT_REGULATORY_LABELS.has(word)) && !STOP_WORDS.has(word),
         )
@@ -113,10 +128,17 @@ function scoreText(queryWords, value, weight) {
   const textWords = new Set(prototypeQueryWords(value));
   return queryWords.reduce((sum, word) => sum + (textWords.has(word) ? weight : 0), 0);
 }
-function actScore(act, queryWords, sourceHints = []) {
+function actScore(act, queryWords, sourceHints = [], documentWords, frequency) {
+  const documentScore = queryWords.reduce((score, word) => {
+    if (!documentWords?.has(word)) return score;
+    const count = frequency?.get(word) || 0;
+    return score + (count <= 2 ? 4 : count <= 5 ? 1.5 : 0.2);
+  }, 0);
   return (
     scoreText(queryWords, `${act.id} ${act.title}`, 6) +
     scoreText(queryWords, act.description || act.scope, 3) +
+    scoreText(queryWords, act.searchTerms, 4) +
+    Math.min(8, documentScore) +
     scoreText(queryWords, sourceHints.map((source) => source.title).join(' '), 6) +
     scoreText(queryWords, sourceHints.map((source) => source.scope).join(' '), 3)
   );
@@ -132,6 +154,8 @@ function sourceOf(act) {
     pdfUrl: act.pdfUrl || null,
     pdfOfficialUrl: act.pdfOfficialUrl || null,
     pdfStatus: act.pdfStatus || null,
+    markdownPath: act.markdownPath || null,
+    fullTextMarkdownPath: act.fullTextMarkdownPath || null,
     evidenceType: act.evidenceType || 'catalog_reference',
     publication: act.publication ?? null,
     legalStatus: act.legalStatus ?? null,
@@ -217,7 +241,13 @@ export function retrievePrototypeSources(input, catalog) {
         scoreText(queryWords, `${act.id} ${act.title}`, 6) +
         scoreText(queryWords, sourceHints.map((source) => source.title).join(' '), 6),
       score:
-        actScore(act, queryWords, sourceHints) +
+        actScore(
+          act,
+          queryWords,
+          sourceHints,
+          catalog.documentWordIndex?.get(act.id),
+          catalog.documentWordFrequency,
+        ) +
         contextReferences
           .filter((reference) => reference.id === act.id)
           .reduce((sum, reference) => sum + scoreText(queryWords, reference.topic, 4), 0),
@@ -275,6 +305,7 @@ export function retrievePrototypeSources(input, catalog) {
       subsystemLabel: subsystem?.label || null,
       stageId: stage?.id || null,
       stageLabel: stage?.label || null,
+      workflowGuide: stage?.workflowGuide || null,
       applied: contextApplied,
       relation: 'consultation_context',
       references: contextApplied
@@ -287,6 +318,8 @@ export function retrievePrototypeSources(input, catalog) {
     dataset: {
       revision: catalog.revision || null,
       knowledgeRevision: catalog.knowledgeRevision || catalog.provenance?.knowledgeRevision || null,
+      documentRevision: catalog.documentRevision || null,
+      workflowRevision: catalog.workflowRevision || null,
       asOf: catalog.asOf || null,
       scopeNote:
         catalog.scopeNote ||

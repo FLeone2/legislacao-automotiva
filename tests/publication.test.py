@@ -62,8 +62,32 @@ with tempfile.TemporaryDirectory() as directory:
     assert set(manifest["artifacts"]) == {
         str(path.relative_to(target / "knowledge"))
         for path in (target / "knowledge").rglob("*")
-        if path.is_file() and path.name != "manifest.json"
+        if path.is_file()
+        and path.name != "manifest.json"
+        and not path.is_relative_to(target / "knowledge/prototype")
     }
+    prototype_manifest = target / "knowledge/prototype/manifest.json"
+    if prototype_manifest.exists():
+        extra = json.loads(prototype_manifest.read_text())
+        assert extra["knowledgeRevision"] == manifest["revision"]
+        assert (
+            extra["sourceManifestSha256"]
+            == hashlib.sha256(
+                (ROOT / "data/prototype/texts-manifest.json").read_bytes()
+            ).hexdigest()
+        )
+        assert set(extra["artifacts"]) == {
+            path.relative_to(prototype_manifest.parent).as_posix()
+            for path in prototype_manifest.parent.rglob("*")
+            if path.is_file() and path != prototype_manifest
+        }
+        for name, digest in extra["artifacts"].items():
+            assert (
+                hashlib.sha256(
+                    (prototype_manifest.parent / name).read_bytes()
+                ).hexdigest()
+                == digest
+            )
     unregistered = ROOT / "knowledge/.publication-test-private.sqlite"
     assert not unregistered.exists()
     try:
@@ -81,6 +105,8 @@ with tempfile.TemporaryDirectory() as directory:
         "data/vehicle-visual",
         "data/vehicle-legislation",
         "data/contran/publication-policy.json",
+        "data/prototype/document-texts",
+        "data/prototype/document-receipts",
     ]:
         assert not (target / private).exists(), private
     before = {
