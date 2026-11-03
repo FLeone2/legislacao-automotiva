@@ -1,0 +1,4599 @@
+# Portaria Inmetro 111/2022 — componentes de GNV
+
+- ID: `inmetro-111-2022-http`
+- Consulta/aquisição: 2026-11-02
+- [Fonte oficial](http://sistema-sil.inmetro.gov.br/rtac/RTAC002953.pdf)
+- [Arquivo preservado](../fontes/inmetro-111-2022-http.pdf) — PDF
+- SHA-256 do arquivo: `7fcb32543b6ceb9149943c30e6bcb85d9c97c30023cc43b9162063280e18cf3d`
+- Disponibilidade: arquivo obtido. Isso não certifica vigência, aplicação ou revisão integral.
+- Revisão: dispositivos_citados_revisados; anexos completos não integralmente parametrizados
+- Extração: texto por página; tabelas, fórmulas, desenhos e leitura em colunas devem ser consultados no PDF
+- Uso em IA: **transcrição documental bruta; não tratar todos os parágrafos como regra atual.**
+
+## Página 1
+
+ 
+Serviço Público Federal 
+MINISTÉRIO DA ECONOMIA 
+INSTITUTO NACIONAL DE METROLOGIA, QUALIDADE E TECNOLOGIA-INMETRO 
+ 
+ 
+ 
+PORTARIA Nº 111, DE 17 DE MARÇO DE 2022 
+ 
+Aprova o Regulamento Técnico da Qualidade  e os 
+Requisitos de Avaliação da Conformidade para  
+Componentes do Sistema para Gás Natural Veicular  
+- Consolidado. 
+ 
+ 
+O PRESIDENTE DO INSTITUTO NACIONAL DE METROLOGIA, QUALIDADE E TECNOLOGIA - INMETRO, 
+no exercício da competência que lhe foi outorgada pelos artigos 4º, § 2º, da Lei nº 5.966, de 11 de 
+dezembro de 1973, e 3º, incisos I e IV, da Lei nº 9.933, de 20 de dezembro de 1999, combinado com o 
+disposto nos artigos 18, inci so V, do Anexo I ao Decreto nº 6.275, de 28 de novembro de 2007 , e 105, 
+inciso V, do Anexo à Portaria nº 2, de 4 de janeiro de 2017, do então Ministério da Indústria, Comércio 
+Exterior e Serviços , considerando o Decreto nº 1.787, de 12 de janeiro de 1996 ,  o que determina o 
+Decreto nº 10.139, de 28 de novembro de 2019, e o que consta no Processo SEI nº 0052600.009605/2021-
+33, resolve: 
+Objeto e âmbito de aplicação 
+Art. 1º Fica aprovado o Regulamento Consolidado para Componentes do Sistema para Gás Natural 
+Veicular, na forma do Regulamento Técnico da Qualidade, dos Requisitos de Avaliação da Conformidade 
+e das Especificações para o Selo de Identificação da Conformidade, fixados, respectivamente, nos Anexos 
+I, II e III desta Portaria. 
+Art. 2º O Regulamento Técnico da Qualidade, estabelecido no Anexo I, determina os requisitos, de 
+cumprimento obrigatório, referentes à segurança do produto. 
+Art. 3º Os componentes do sistema para gás natural veicular deverão atender integralmente ao 
+disposto no presente Regulamento. 
+Art. 4º Os componentes do sistema para gás natural veicular deverão ser fabricados, importados, 
+distribuídos e comercializados, de forma a não oferecer riscos que comprometam a segurança do usuário, 
+independentemente do atendimento integral aos requisitos ora publicados. 
+§  1º Aplica-se o presente Regulamento aos seguintes componentes do sistema para gás natural 
+veicular: 
+I - válvula de cilindro; 
+II - válvula de abastecimento; 
+III - válvula de fechamento rápido;  
+IV - tubo de alta pressão e suas conexões;  
+V - indicador de pressão;  
+VI - duto de baixa pressão, suas conexões e elementos de fixação; 
+VII - redutor de pressão;  
+VIII - suporte de cilindro; e 
+IX - sistema de ventilação e suas conexões. 
+
+## Página 2
+
+Fl.2 da Portaria n°111/Presi, de 17/03/2022 
+ 
+ 
+ 
+Art. 5º A cadeia produtiva d o fornecedor dos componentes do sistema para gás natural veicular  
+fica sujeita às seguintes obrigações e responsabilidades: 
+I – o fabricante nacional deve fabricar e disponibilizar, a título gratuito ou oneroso, componentes 
+do sistema para gás natural veicular conforme o disposto neste Regulamento; 
+II – o importador deve impor tar e disponibilizar, a título gratuito ou oneroso, componentes do 
+sistema para gás natural veicular conforme o disposto neste Regulamento; 
+III – os demais entes da cadeia produtiva e de fornecimento de componentes do sistema para gás 
+natural veicular , inc luindo o comércio em estabelecimentos físicos ou virtuais, deve m manter a 
+integridade do produto, das suas  marcações obrigatórias, preservando o atendimento aos requisitos 
+deste Regulamento. 
+Parágrafo único. Caso um ente exerça mais de uma função na cadeia produtiva e de fornecimento, 
+entre as anteriormente listadas, suas responsabilidades são acumuladas.  
+Exigências Pré-Mercado 
+Art. 6º Os componentes do sistema para gás natural veicular  importados, distribuíd os e 
+comercializados em território nacional, a título gr atuito ou oneroso, devem ser submetid os, 
+compulsoriamente, à avaliação da conformidade, por meio do mecanismo de certificação, observado os 
+termos deste Regulamento. 
+§ 1º Os Requisitos de Avaliação da Conformidade para  Componentes do Sistema para Gás Natur al 
+Veicular estão fixados no Anexo II desta Portaria. 
+§ 2º A certificação não exime o fornecedor da responsabilidade exclusiva pela segurança do 
+produto. 
+§  3º A obtenção da certificação  é condicionante para a autorização do uso do Selo de Identificação 
+da Conformidade nos produtos  e para sua disponibilização no mercado nacional. 
+§  4º O modelo de Selo de Identificação da Conformidade aplicável para componentes do sistema 
+para gás natural veicular, encontra-se no Anexo III desta Portaria.  
+Vigilância de Mercado 
+Art. 7º Os componentes do sistema para gás natural veicular , objeto deste Regulamento, estão 
+sujeitos, em todo o território nacional, às ações de vigilância de mercado executadas pelo Inmetro e 
+entidades de direito público a ele vinculadas por convênio de delegação. 
+Art. 8º Constitui infração a ação ou omissão contrária ao disposto nesta Portaria, podendo ensejar 
+as penalidades previstas na Lei nº 9.933, de 1999.  
+Art. 9º O fornecedor, quando submetido a ações de vigilância de merc ado, deverá prestar ao 
+Inmetro as informações requeridas em um prazo máximo de 15 dias. 
+Prazos e disposições transitórias 
+Art. 10. A publicação desta Portaria não implica na necessidade de que seja iniciado novo processo 
+de certificação com base nos requisitos ora consolidados. 
+Parágrafo único. Os certificados já emitidos deverão ser revisados, para referência à Portaria ora 
+publicada, na próxima etapa de avaliação. 
+Art. 11. Os certificados emitidos c om base na Portaria Inmetro nº 257 , de 2007, deverão ter sua 
+validade ajustada, nos termos do item 6.1.1.6 do RAC, estabelecido no Anexo II desta Portaria, tendo por 
+referência a data de concessão. 
+
+## Página 3
+
+Fl.3 da Portaria n°111/Presi, de 17/03/2022 
+ 
+ 
+ 
+Art. 12 Os fabricantes e importadores de componentes do sistema para gás natural veicular  terão 
+até 12 (doze) meses, contados da data de vigência dest a Portaria, para atualizarem o layout do Selo de 
+Identificação da Conformidade, conforme previsto no Anexo III do Regulamento ora aprovado. 
+Cláusula de revogação  
+Art. 13. Ficam revogadas, na data de vigência desta Portaria, as Portarias Inmetro: 
+I - nº 257, de 30 de dezembro de 2002, publicada no Diário Oficial da União de 6 de janeiro de 2003, 
+seção 1, páginas 66 a 68; 
+II - nº 417, de 22 de novembro de 2007, publicada no Diário Oficial da União de 22 de novembro de 
+2007, seção 1, página 94; 
+III - nº 233, de 28 de junho de 2020, publicada no Diário Oficial da União de 13 de julho de 2020, 
+seção 1, página 23; e 
+IV - nº 357, de 17 de novembro de 2020, publicada no Diário Oficial da União de 24 de novembro 
+de 2007, seção 1, página 20.  
+Vigência 
+Art. 14. Esta P ortaria entra em vigor em 02 de maio de 2022, conforme determina o art. 4º do 
+Decreto nº 10.139, de 2019. 
+ 
+MARCOS HELENO GUERSON DE OLIVEIRA JÚNIOR 
+Presidente
+
+## Página 4
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+1 
+ 
+ 
+ANEXO I - REGULAMENTO TÉCNICO DA QUALIDADE PARA  
+COMPONENTES DO SISTEMA PARA GÁS NATURAL VEICULAR 
+ 
+1. OBJETIVO 
+Estabelecer requisitos de segurança obrigatórios para fabricação dos componentes para o sistema para 
+GNV, utilizados a bordo de veículos rodoviários automotores , a serem atendidos por toda cadeia 
+fornecedora do produto no mercado nacional. 
+ 
+2. SIGLAS 
+Para efeitos deste RTQ são adotadas as siglas contidas no documento citados no item 3. 
+ 
+3. DOCUMENTOS 
+ABNT NBR 11353-1:2020  Veículos rodoviários e veículos automotores - Sistemas de gás natural veicular 
+(GNV) - Parte 1: Terminologia 
+ 
+4 DEFINIÇÕES 
+Para fins deste RTQ são adotadas as definições contidas no documento citado no item 3. 
+ 
+5. REQUISITOS TÉCNICOS 
+5.1 Válvula de Cilindro e suas Conexões 
+A válvula de cilindro deve ser especificada quanto às exigências de segurança e resistência ao 
+funcionamento. 
+A rosca da válvula deve atender aos requisitos estabelecidos nas normas ISO 11363-1 para roscas cônicas 
+ou ISO 15245-1 para roscas paralelas. 
+As conexões da válvula de cilindro devem atender os requisitos para o tubo de alta pressão. 
+As válvulas e Dispositivos de Alívio de Pressão (DAP) devem ser protegidos contra a entrada de impurezas 
+e água e posicionados de forma a dirigir o gás o mais longe possível de fontes de centelha e calor. 
+A válvula de cilindro deve possuir uma válvula de excesso de fluxo posicionada diretamente no interior do 
+cilindro e que, caso ocorra rompimento de um componente da instalação, restringindo automaticamente 
+o vazamento de gás a menos de 10% da máxima vazão volumétrica, sem interrompê -lo totalmente. A 
+válvula de excesso de fluxo não deve restringir o fluxo a vazão regular de consumo do motor, em qualquer 
+regime de rotação. 
+As canalizações internas da válvula de cilindro referentes à válvula de excesso de fluxo e ao DAP 
+incorporado devem ser independentes. 
+5.1.1 Dispositivo de Alívio de Pressão (DAP)  
+5.1.1.1 Para os  cilindros manufaturados em aço e a cilindros manufaturados com outros materiais , é 
+aplicável o requisito a seguir. 
+Deve atuar quando a temperatura atingir entre 74 oC e 120 oC para os dispositivos por ação da (elevação 
+da) temperatura e/ou a pressão interna do cilindro atingir entre 29,0 e 34,0 MPa para os dispositivos por 
+ação da (elevação da) pressão, ou ainda, atuar nas duas situações para os dispositivos mistos (elevação 
+da temperatura e pressão). A atuação  deve ser satisfatória sob condições de fogo, a fim de prevenir a 
+ruptura dos cilindros para os quais foi projetado. 
+
+
+## Página 5
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+2 
+ 
+5.1.1.2 Para cilindros manufaturados com outros materiais, é aplicável o requisito a seguir. 
+A vazão mínima do DAP deve ser especificada co nforme parâmetros definidos e informados pelo 
+fabricante do cilindro, e atuar satisfatoriamente sob condições de fogo, a fim de prevenir a ruptura do 
+cilindro para os quais foi projetado. Esta informação deve ser expressa em etiqueta colada no cilindro.  
+As canalizações internas da válvula de cilindro de armazenamento de GNV referentes à válvula de excesso 
+de fluxo e ao DAP incorporado devem ser independentes. 
+5.1.1.3 Os Dis positivos de Alívio de P ressão devem possuir uma das seguintes características de 
+montagem e/ou atuação abaixo:  
+a) em série (ou combinado): quando o dispositivo térmico e o disco de ruptura estão juntos num único 
+dispositivo. Sua atuação se dá com a fusão do tampão fusível ou rompimento de um dispositivo térmico 
+de bulbo de vidro permitindo o rompimento do disco de ruptura, pelo efeito simultâneo da elevação da 
+temperatura e pressão; 
+b) em paralelo (ou independente ou isoladamente): quando o dispositivo térmico e o disco de ruptura 
+estão separados, montados em dispositivos independentes. A atuação se dá, de modo independente, pela 
+fusão/rompimento do tampão fusível ou dispositivo térmico de bulbo de vidro, ou pelo rompimento do 
+disco de ruptura, devido a, respectivamente, elevação da temperatura e/ou da pressão; 
+c) térmico: atua pela fusão do tampão fusível ou rompimento de um dispositivo térmico de bulbo de vidro, 
+em decorrência da elevação da temperatura.  
+Nota: É permitida uma associação entre os DAP acima.  
+5.1.2 Tampão Fusível e Disco de Ruptura 
+O tampão fusível e o disco de ruptura de vem ser instalados na válvula d e cilindro, em série ou 
+isoladamente, desde que atendam aos requisitos técnicos. 
+ 
+5.1.3 Dispositivo de Acionamento Manual 
+O dispositivo de comando de abertura e fechamento deve ser por  intermédio de manípulo. O torque de 
+abertura e fechamento do manípulo não pode exceder 6 Nm, e deve ter a indicação das posições “Aberta” 
+e “Fechada”. 
+ 
+5.2 Válvula de Abastecimento, Válvula de Fechamento Rápido e suas Conexões 
+A válvula de abastecimento e a v álvula de fechamento r ápido devem ser  especificadas quanto às 
+exigências de segurança e resistência ao funcionamento. 
+A válvula de fechamento rápido deve ter a indicações de posição “Aberta” e “Fechada”. 
+A válvula de abastecimento, qualquer que seja o tipo, deve possuir elemento de proteção q ue previna a 
+entrada de poeira, líquido, ou material estranho no seu interior. 
+As especificações das conexões  das válvulas de abastecimento e de fechamento r ápido devem atender 
+aos requisitos para o tubo de alta pressão. 
+5.3 Tubo de Alta Pressão de suas Conexões 
+Deve conduzir o GNV  à pressão de serviço, sem comprometer sua resistência, sem qualquer tipo de 
+costura e com tratamento superficial externo para proteção contra corrosão.  
+5.4 Indicador de Pressão e Suas Conexões  
+O Indicador de pressão de GNV deve ser especificado quanto às exigências de segurança e resistência 
+ao funcionamento. 
+
+## Página 6
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+3 
+ 
+Para o indicador de p ressão de GNV provido de dispositivo elétrico de leitura indireta, os  componentes 
+elétricos devem ser compatíveis para utilização automotiva em relação  à resistência mecânica, 
+isolamento, capacidade de condução elétrica e risco de incêndio e/ou acidentes. 
+O indicador de pressão do tipo por elemento sensor Bourdon deve possuir um dispositivo de  alívio de 
+pressão (“Blow-Out”) na parte traseira do invólucro. 
+5.5 Duto de Baixa Pressão, suas Conexões e Elementos de Fixação 
+Os elementos constituintes (mangueira, conexões e elementos de fixação ) do duto de baixa pressão 
+devem ser constituído por materiais compatíveis com o GNV , resistentes às temperaturas ge radas no 
+compartimento do motor e: possuir flexibilidade suficiente para absorver os movimentos decorrentes do 
+funcionamento do motor , não podendo possuir qualquer tipo de costura ; devendo oferecer resistência 
+mecânica suficiente para absorver os movimentos decorrentes do funcionamento do motor. 
+5.6 Redutor de Pressão e Suas Conexões 
+Deve ser projetado para pressão máxima de serviço de 22,0 MPa e para operar normalmente no intervalo 
+de temperaturas entre - 20o C a 120o C. 
+Quando o redutor possuir válvula de cor te na entrada de alta pressão, não é necessária a utilização de 
+dispositivo de alívio de pressão. Quando o redutor possuir válvula de corte entre os estágios, deve possuir 
+dispositivo de alívio de pressão com canal de descarga direcionado para a atmosfera. 
+Todos os redutores devem ser providos de sistemas que impeçam o bloqueio do fluxo do gás por 
+congelamento. 
+O redutor deve possuir dreno para remoção de óleos e condensados. 
+5.7 Suporte de Cilindro 
+Deve garantir a fixação do cilindro em, pelo menos, duas secções de apoio. 
+Os elementos do suporte de cilindro (abraçadeiras, cintas, batentes, elementos de proteção e elementos 
+de fixação) devem garantir a rigidez da montagem de tal forma a impedir o deslocamento do cilindro em 
+relação ao suporte. 
+Deve ser projetado de forma a não considerar o cilindro como elemento estrutural. 
+Deve ser compatível com o veículo para o qual foi projetado, onde seus pontos de fixação devem ser 
+dimensionados de acordo com o local apropriado, conforme os pontos resistentes da estrutura do veículo, 
+de acordo com o fabricante deste. 
+Deve ser fabricado de forma a não proporcionar locais de concentração de tensões. 
+Todas as soldas presentes nos elementos do suporte do cilindro devem ser realizadas por meio de cordões 
+contínuos. 
+Após insta lado, durante o uso, não pode gerar pontos de desgaste e ou corrosão e ou deformação ao 
+cilindro. 
+Os elementos de proteção devem ser de borracha ou material equivalente, providos de guias, e serem 
+instalados entre o berço e o cilindro, entre as cintas e o cilindro e, quando existentes, entre os batentes 
+limitadores e o cilindro. 
+5.8 Sistema de Ventilação e suas Conexões 
+O sistema de ventilação deve ser especificado quanto às exigências de segurança e resistência ao 
+funcionamento, e constituído de matérias não permeáveis. 
+
+## Página 7
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+4 
+ 
+Na configuração de montagem final, o sistema de ventilação deve possuir saídas livres com área unitária 
+transversal mínima equivalente a 450 mm2. 
+Na configuração de montagem final , o sistema de ventilação deve permitir o acesso aos dispositi vos de 
+acionamento manual ou automático da válvula d e cilindro sem interferir no torque máximo de abertura 
+e fechamento permissível de 6 Nm. 
+As especificações dos componentes do sistema de ventilação são de responsabilidade do fabricante e 
+devem atender os  requisitos de compatibilidade com o GNV e das condições de operação a que estão 
+submetidos. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+## Página 8
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+5 
+ 
+ 
+ANEXO II – REQUISITOS DE AVALIAÇÃO DA CONFORMIDADE PARA  
+COMPONENTES DO SISTEMA PARA GÁS NATURAL VEICULAR 
+ 
+1. OBJETIVO  
+Estabelecer o s critérios e procedimentos para a avaliação da conformidade de componentes dos 
+sistemas do sistema para gás natural veicular, com foco na segurança, por meio do mecanismo de 
+certificação, visando a prevenção de acidentes, quando de suas utilizações. 
+Nota 1: Para simplicidade de texto, os “componentes do sistema para gás natural veicu lar”, são 
+referenciados neste RAC como “componentes do sistema para GNV”. 
+1.1 Agrupamento para efeitos de certificação  
+Para certificação do objeto deste RAC, aplica-se o conceito de modelo, conforme definição do item 4.11. 
+ 
+2. SIGLAS 
+Para efeito desse RAC são adotadas as siglas dos documentos listados no item 3, complementadas pelas 
+que seguem: 
+ASTM American Society for Testing and Materials 
+CGA Compress Gas Association 
+DIN Deutsches Institut für Normung 
+GN Gás Natural 
+GNV Gás Natural Veicular 
+ 
+3. DOCUMENTOS  
+Portaria Inmetro nº 200, de 2021 Aprova os Requisitos Gerais de Certificação de Produto - RGCP 
+ABNT NBR NM ISO 9001:2015 Sistema de gestão da qualidade - Requisitos 
+ABNT NBR 11353-1: 2020  Veículos rodoviários e veículos automotores - Sistemas de gás natural veicular (GNV) - Parte 1: Terminologia 
+DIN 1630:1984 High Performance Seamless  Circular  Unalloyed  Steel  Tubes  - 
+Technical Delivery Conditions 
+DIN 2391:1988 Parts 1 and 2 - Seamless Precision Steel Tubes 
+ISO 15500-6:2020 Road  Vehicles - Compressed  natural gas (CNG) fuel system components -  Part 5: Automatic valve. 
+ISO 15500-6:2020 
+ 
+ISO 15500-13:2012/Amd 1:2016 
+Road Vehicles - Compressed natural gas (CNG) fuel system 
+components - Part 6: Automatic valve". 
+Road  vehicles  - Compressed  natural gas (CNG) fuel system 
+components - Pressure relief device (PRD)   
+ISO 15500-17:2012/Amd 1:2016 Road  vehicles - Compressed  natural gas (CNG) fuel system 
+components - Part 17: Flexible Fuel Line 
+
+
+## Página 9
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+6 
+ 
+  
+ASTM A-36:2019 Standard specification for carbon structural steel  
+Retificação publicada no Diário Oficial da União de 20/05/2022.  
+ 
+4. DEFINIÇÕES 
+São aplicadas as definições constantes nos documentos listados no item 3, acrescidas das que seguem: 
+4.1 Alta pressão 
+Pressão manométrica superior a 1,0 MPa. 
+4.2 Baixa pressão 
+Pressão manométrica inferior ou igual a 1,0 MPa. 
+4.3 Cilindro de GNV 
+Reservatório destinado ao armazenamento de GNV. 
+4.4 Dispositivo de acionamento manual 
+Dispositivo de acionamento manual incorporado à válvula de cilindro destinado a interromper totalmente 
+o fluxo de GNV proveniente do cilindro para a Linha de Alta Pressão. 
+4.5 Dispositivo de acionamento Automático 
+Dispositivo de segurança de acionamento automático incorporado à válvula de cilindro ou à linha de alta 
+pressão ou ao redutor de pressão, com a função de interromper o fluxo de GNV. 
+4.6 Dispositivo de Alívio de Pressão (DAP)  
+Dispositivo de segurança de atuação estática que não permite ajuste de abertura e fechamento. 
+4.6.1 Disco de ruptura  
+Disco metálico que bloqueia o canal de alívio do DAP da válvula de cilindro que o contém. Atua através de 
+seu rompimento, quando submetido à determinada faixa de pressão. 
+4.6.2 Tampão fusível  
+Componente consti tuído de uma liga fusível a temperaturas entre 74 oC e 120 oC para permitir a 
+desobstrução ou acesso do/ao canal de alívio do DAP da válvula de cilindro que o contém.  
+4.6.3 Bulbo de vidro  
+Componente de um dispositivo térmico de alívio de pressão que se r ompe, quando da elevação da 
+temperatura e consequente expansão do fluido contido em seu interior, permitindo a desobstrução do 
+canal de alívio do DAP da válvula de cilindro que o contém.  
+4.7 Elementos de fixação dos componentes 
+Elementos utilizados para a fixação dos componentes do sistema de instalação de GNV. 
+4.8 Indicador de pressão 
+Instrumento destinado a indicar de forma direta a pressão do GNV proveniente do cilindro. A concepção 
+de construção pode ser do tipo sensor Bourdon, transdutor de pressão, entre outros. 
+4.9 Lote de fabricação 
+
+## Página 10
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+7 
+ 
+Grupo de não mais  de 5.000 unidades fabricadas, produzidas em série, oriundas do mesmo material 
+(composição química), projeto, processo e equipamentos de fabricação. 
+4.10 Memorial descritivo 
+Documento no idioma português , apresentado pelo fornecedor que descreve o projeto do objeto a ser 
+avaliado e o identifica sem ambiguidade, com o objetivo de explicitar, de forma sucinta, as informações 
+mais importantes, em especial as relativas aos detalhes construtivos e funcionais do produto. 
+4.11 Modelo de componente 
+Componente do sistema de GNV, fabricado ou montado pelo mesmo fabricante, na mesma unidade fabril, 
+com especificações próprias, estabelecidas por características construtivas, ou seja, mesmo projeto e 
+idênticos quanto a os aspectos de segurança , processo produtivo, matéria -prima e demais requisitos 
+normativos. 
+4.12 Pressão de ensaio 
+Pressão manométrica que deve ser aplicada nos ensaios para verificação da resistência dos componentes 
+do sistema de instalação de GNV. 
+4.13 Pressão de ajuste 
+Pressão na qual a Válvula de Alívio de Pressão deve ser regulada para início de abertura. 
+4.14 Pressão de fechamento 
+Pressão na qual a Válvula de Alívio de Pressão deve estar totalmente fechada. 
+4.15 Pressão de serviço 
+Pressão manométrica fixada em 20,0 MPa. 
+4.16 Pressão de regime 
+Pressão na qual a Válvula de Alívio de Pressão deve estar totalmente aberta. 
+4.17 Pressão Máxima de Abastecimento (PMA) 
+Pressão manométrica regulada a 22,0 MPa. 
+4.18 Pressão nominal 
+Pressão manométrica utilizada p ara o dimensionamento de componentes do sistema de instalação de 
+GNV. 
+4.19 Responsável Técnico 
+Engenheiro contratado através de vínculo empregatício com o fabricante , legalmente habilitado e 
+devidamente registrado no respectivo Conselho Regional de Classe,  e que tem como atribuição a 
+responsabilidade técnica sobre projetos de componentes do sistema para GNV. 
+4.20 Redutor de pressão 
+Componente destinado a reduzir a pressão do GNV, a partir do cilindro, às compatíveis com as condições 
+de alimentação requeridas ao desempenho do motor do veículo rodoviário automotor. 
+4.20.1 Estágio 
+Compartimento ou câmara do redutor de pressão onde a pressão é reduzida em relação à pressão de 
+alimentação ou à pressão de um compartimento ou câmara imediatamente anterior no sentido do fluxo. 
+4.21 Sistema de instalação de GNV 
+
+## Página 11
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+8 
+ 
+Conjunto de componentes destinados aos veículos rodoviários automotor es, para fins de utilização do 
+GNV como combustível. 
+4.22  Sistema de ventilação 
+Conjunto de componentes com a finalidade de direcionar vazamentos de GNV provenientes da válvula de 
+cilindro e/ou de suas conexões, para a atmosfera. 
+4.22.1  Invólucro 
+Componente do sistema de ventilação que envolve a válvula de cilindro e o tubo de alta pressão. 
+4.22.2  Dutos flexíveis 
+Componentes do sistema de ventilação conectados ao Invólucro e envolvendo o tubo de alta pressão 
+interligado à válvula de cilindro. 
+4.22.3  Flanges 
+Componentes do sistema de ventilação fixados à carroçaria do veículo, interligados aos dutos flexíveis. 
+4.22.4 Elementos de fixação de sistema de ventilação 
+Componentes do Sistema de Ventilação com a finalidade de fixar os componentes deste sistema e 
+promover a estanqueidade do conjunto. 
+4.23  Suporte de cilindro  
+Estrutura de fixação e sustentação do(s) cilindro(s), constituído de cintas abraçadeiras, cintas ou batentes 
+limitadores, berços e travessas. 
+4.23.1  Cintas abraçadeiras 
+Elementos que envolvem o cilindro com o objetivo de fixá-lo ao berço. 
+4.23.2  Cintas ou batentes limitadores 
+Elementos destinados a evitar o deslocamento do cilin dro no sentido transversal ou longitudinal, 
+respectivamente ao veículo rodoviário automotor. 
+4.23.3  Berços 
+Elementos de forma côncava destinados a acomodar o cilindro propiciando uma maior área de contato 
+entre o cilindro e o suporte, com o comprimento de  superfície (arco) correspondente à metade da 
+circunferência do cilindro. 
+4.23.4  Travessas 
+Elementos destinados a fixar os berços e as abraçadeiras ao veículo rodoviário automotor. 
+4.23.5  Elemento de proteção 
+Elemento de borracha sintética ou equivalente , disposta entre a superfície do s berços de apoio e a 
+superfície do cilindro apoiada nos berços e entre a superfície das abraçadeiras e do cilindro. Componentes 
+do suporte destinados a evitar deslocamentos longitudinais do cilindro em relação à base de apoio do 
+suporte. 
+4.23.6  Elementos de fixação 
+Componentes com a finalidade de fixar os componentes do conjunto do suporte do cilindro, exceto 
+aqueles vinculados através de processo de soldagem e fixar o conjunto do suporte à estrutura do veículo. 
+4.24 Temperatura ambiente 
+
+## Página 12
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+9 
+ 
+Temperatura igual a 20oC ± 5o C. 
+4.25 Terminal de abastecimento 
+Componente da Estação do Posto de Abastecimento com a finalidade de permitir o enchimento do 
+cilindro instalado no veículo rodoviário automotor com GNV. 
+4.26 Tubo de alta pressão  
+Componente, que pode ser de material rígido (sem costura) ou flexível, destinado a conduzir o GNV da 
+válvula de abastecimento ao cilindro e do cilindro ao redutor de pressão.  
+4.27 Tubo de baixa pressão 
+Componente Flexível destinado a conduzir o GNV do redutor de pressão ao misturador ou injetor. 
+4.27.1 Conexões de baixa pressão 
+Componentes com a finalidade de, juntamente com o tubo de baixa pressão, interligar o redutor de 
+pressão ao misturador ou injetor. 
+4.28  Válvula de Alívio de Pressão (VAP) 
+Dispositivo de segurança de atuação dinâmica que possui mecanismo de ajuste de abertura e fechamento, 
+para permitir a descarga de GNV no intervalo das pressões estabelecidas. O VAP não pode ser aplicado às 
+válvulas de cilindros.  
+4.29  Válvula de abastecimento 
+Componente cuja função é permitir o abastecimento de GNV no cilindro. 
+4.29.1  Adaptador de abastecimento 
+Dispositivo cuja função é permitir o acoplamento do terminal de abastecimento com válvulas de 
+abastecimento que não atendem a regulamentação técnica brasileira. 
+4.30 Válvula de excesso de fluxo 
+Dispositivo de segurança de acionamento automático incorporado à válvula de cilindro que restringe a 
+descarga de GNV provenien te do cilindro, quando da ruptura de qualquer componente da linha de alta 
+pressão. 
+4.31 Válvula de fechamento rápido 
+Componente destinado a interromper o fluxo de GNV para o redutor de pressão em situações de 
+emergência ou manutenção. 
+4.32 Válvula de cilindro 
+Componente a ser montado no cilindro para permitir a condução do GNV à linha de consumo e que deve 
+possuir em sua constituição, obrigatoriamente, válvula de excesso de fluxo, dispositivo(s) de alívio de 
+pressão, dispositivo de acionamento manual e as respectivas conexões.   
+ 
+5. MECANISMO DE AVALIAÇAO DA CONFORMIDADE 
+O mecanismo de avaliação da conformidade para componentes do sistema para gás natural veicular  é a 
+certificação.  
+ 
+6. ETAPAS DA AVALIAÇAO DA CONFORMIDADE 
+Este RAC estabelece o seguinte modelo de certificação: 
+Modelo de Certificação 5 - Avaliação inicial consistindo de ensaios e m amostras retiradas no fabricante 
+incluindo auditoria do Sistema de Gestão da Qualidade - SGQ, seguida de avaliação de manutenção 
+
+## Página 13
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+10 
+ 
+periódica através de coleta de amostra s na fábrica e no  comércio, para realização das atividades de 
+avaliação da conformidade, e auditoria do SGQ. 
+6.1 Modelo de Certificação 5 
+6.1.1 Avaliação Inicial 
+6.1.1.1 Solicitação de Certificação 
+6.1.1.1.1 O fornecedor solicitante da certificação deve encaminhar uma solicitação formal ao OCP na qual 
+deve constar, juntamente com a documenta ção descrita no RGCP para cada componente, objet o da 
+certificação, o Memorial Descritivo, incluindo, no mínimo, as seguintes informações essenciais: 
+a) memorial de cálculo, quando aplicável; 
+b) desenho básico do modelo com vistas e cortes; 
+c) material utilizado na fabricação; 
+d) limite de temperatura de serviço; 
+e) processo de fabricação;  
+f) pressões de ensaios;  e 
+g) instruções de aplicação, montagem, operação e manutenção. 
+6.1.1.1.2 O memorial descritivo para a válvula de cilindro deve conter as seguinte s informações 
+complementares: 
+a) pressão de Serviço; 
+b) pressão de atuação e vazão dos dispositivos de segurança incorporados; e 
+c) identificação do tipo da válvula (“ Ventilada” ou “ Não Ventilada”). 
+6.1.1.1.3 O memorial descritivo para o duto de baixa pr essão deve conte r as seguintes informações 
+complementares: 
+a) especificações básicas dos elementos constituintes (mangueira, conexões e elementos de fixação); 
+b) Pressão Máxima de Serviço (PS); e 
+c) Classificação dos elementos constituintes (alimentação po r pressão positiva ou negativa), conforme 
+item 1 do Anexo E deste RAC. 
+ 
+6.1.1.1.4 O memorial descritivo para a redutor de pressão deve conter  as seguintes informações 
+complementares: 
+a) pressão de serviço na entrada (máxima); 
+b) pressão de saída; 
+c) pressões nominais de todos os estágios; 
+d) pressão de abertura do dispositivo de alívio; 
+e) características principais de operação dos dispositivos elétricos incorporados; 
+f) período de garantia declarado; e 
+g) classificação do redutor de pressão, conforme a Tabela 1 do Anexo F deste RAC. 
+ 
+6.1.1.1.5 O memorial descritivo para a suporte d e cilindro deve conter  as seguintes informações 
+complementares: 
+a) código ou referência do modelo do suporte, com a respectiva denominação, conforme classificação 
+estabelecida nas Tabelas 1 e 2 do Anexo G deste RAC; 
+b) desenho técnico com dimensões contendo planta , elevação e vista lateral do conjunto montado com 
+indicação da região frontal do veículo e tabela de cilindros aplicáveis contendo diâmetro nominal, 
+comprimento nominal e massa (em kg); 
+c) lista de materiais contendo os principais componentes (denominação, quantidade e especificação 
+básica do material); 
+
+## Página 14
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+11 
+ 
+d) relação dos modelos de veículos para o qual o modelo do suporte é aplicado com respectiva indicação 
+da disposição de montagem conforme as Figuras 1, 2, 3 e 4 do Anexo G deste RAC; 
+e) massa nominal do suporte (em kg); e 
+f) Peso Bruto Total (PBT) do veículo para o qual foi projetado. 
+6.1.1.1.6 O memorial descritivo para o invólucro deve conter as seguintes informações complementares: 
+a) especificações dos componentes; e 
+b) indicação do tipo do invólucro, conforme Tabela 1 e nas Figuras 1 e 2 do Anexo H deste RAC. 
+6.1.1.2 Análise da Solicitação e da Conformidade da Documentação 
+Os critérios de análise da solicitação e da conf ormidade da documentação devem seguir os requisitos 
+estabelecidos no RGCP. 
+6.1.1.3 Auditoria Inicial do Sistema de Gestão 
+6.1.1.3.1 Os critérios de auditoria inicial do S istema de Gestão da Qualidade devem seguir os requisitos 
+estabelecidos no RGCP. 
+6.1.1.3.2 A avaliação do Sistema de Gestão da Qualidade do fabricante deve ter como referência a norma 
+ISO 9001 ou a norma ABNT NBR ISO 9001, em sua versão 2015 ou posterior, tendo como requisitos 
+mínimos os definidos nas  Tabelas 2 e 3 do subitem 6. 2.3.1 do RCP , com exceção dos fabricantes de 
+suportes de cilindro que devem ter a avaliação do SGQ baseada nos requisitos definidos no item 6.1.1.3.3 
+deste RAC. 
+6.1.1.3.2.1 A auditoria do SGQ deve ser realizada no processo produtivo do fabricante, e deve incluir a 
+busca por evidências de que esse processo se encontra sistematizado e monitorado de forma eficaz.  
+6.1.1.3.2.2 O fabricante deve possuir infraestrutura de pessoal, equipamentos, instrumentos e afins, e, 
+quando aplicável, terceirização avaliada e/ou monitorada, capazes e adequados à realização do produto. 
+6.1.1.3.3 Para os fabricantes de suporte s de cilindro, de vem ser avaliados os seguintes r equisitos do 
+Sistema de Gestão da Qualidade: 
+a) Contexto da Organização (itens 4.1 e 4.3); 
+b) Papéis, responsabilidades e autoridades organizacionais (item 5.3); 
+c) Recursos de Monitoramento e Medição (itens 7.1.5.1 e 7.1.5.2); 
+d) Informação Documentada (itens 7.5.2 e 7.5.3); 
+e) Planejamento e Controle Operacionais (item 8.1); 
+f) Controle  de Processos, Produtos e Serviços Providos Externamente (itens 8.4.1 e 8.4.2 e 8.4.3); 
+g) Produção e Provisão de serviço (itens 8.5.1, 8.5.2 e 8.5.5); 
+h) Controle de Saídas não Conformes (item 8.7); 
+i) Análise Crítica pela Direção (itens 9.3.1, 9.3.2 e 9.3.3); e 
+j) Melhoria (item 10.2). 
+  
+6.1.1.3.4 Para Válvulas de Cilindros manufaturadas com materiais não forjados a quente, o fabricante 
+deve apresentar documentos comprobatórios com, no mínimo, as seguintes informações: 
+a) Registros de Corrida do Material utilizado na fabricação (Laudo ou Relatório de Análise); e 
+b) Registros de Isenção de Tensões Residuais (Laudo ou Relatório de Análise). 
+6.1.1.3.5 Para Válvulas de Abastecimento e Válvulas de Fechamento Rápido manufaturadas com materiais 
+não forjados a quente, o fabricante deve apresentar do cumentos comprobatórios com, no mínimo, as 
+seguintes informações: 
+a) Registros de Corrida do Material utilizado na fabricação (Laudo ou Relatório de Análise); 
+b) Registros de Isenção de Tensões Residuais (Laudo ou Relatório de Análise). 
+
+## Página 15
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+12 
+ 
+6.1.1.3.6 Para o tubo de alta pressão, devem ser apresentados pelo fabricante os certificados de corrida 
+do material (Laudo ou Relatório de Análise) contendo os requisitos gerais conforme ABNT NBR 8476, 
+análise química, propriedades mecânicas e tolerâncias dimensionais conforme Tabelas 1, 2 e 3 do Anexo 
+C deste RAC. 
+6.1.1.3.7 Quando houver, nos Anexos A, B, C, D e F, G e H deste RAC, a exigência de realização de ensaio 
+em 100% do lote de fabricação, devem ser apresentados ao OCP as evid ências de sua realização pelo 
+fabricante. 
+6.1.1.3.8 O fabricante deve comprovar que mantém os  registros do controle sequencial, da numeração 
+dos componentes certificados, devendo conter no, mínimo, as seguintes informações: 
+a) número de série ou identificação do lote; 
+b) data de fabricação; e 
+c) modelo. 
+6.1.1.4 Plano de Ensaios Iniciais 
+Os critérios do plano de ensaios iniciais devem seguir os requisitos estabelecidos no RGCP. 
+6.1.1.4.1 Definição dos ensaios a serem realizados 
+6.1.1.4.1.1 Os ensaios devem ser realizados por modelo de componente, de acordo com o descrito na 
+Tabela 1, a seguir: 
+Tabela 1 - Ensaios dos Componentes 
+Componente Ensaios Documento Normativo 
+Linha de Alta Pressão Resistência Hidrostática; Estanqueidade; Operação Continuada; Resistência à Corrosão; e Dobramento. Anexo C deste RAC 
+Conexões (Alta 
+Pressão) 
+Resistência Hidrostática; Estanqueidade; Operação Continuada; e 
+Resistência à Corrosão. Anexo C deste RAC 
+Linha de Baixa 
+Pressão 
+Resistência Hidrostática; Estanqueidade;      Operação Continuada; 
+Resistência à Corrosão; Dobramento; Resistência ao torque 
+excessivo; Envelhecimento ao oxigênio; Imersão do material 
+sintético não metálico; Compatibilidade do latão; Aderência 
+“Pull-Off”; Condutividade; e Permeabilidade. 
+Anexo E deste RAC 
+ 
+Redutor de Pressão 
+Resistência hidrostática; Operação continuada (ensaio cíclico); 
+Estanqueidade do conjunto; Resistência hidrostática da carcaça; 
+Pressão de abertura da válvula de alívio de pressão; Imersão em 
+hidrocarbonetos de material sintético não metálico; 
+Compatibilidade de componentes de latão; Resistência à 
+corrosão; Envelhecimento por oxigênio; Vibração; Tensões 
+elétricas máximas e mínimas de operação; Resistência do 
+isolamento elétrico; Choque por pressão; e Resistência à baixas 
+temperaturas. 
+Anexo F deste RAC 
+Sistema de 
+Ventilação e suas 
+Conexões 
+Estanqueidade; Resistência ao torque excessivo (apenas para 
+itens roscados); Resistência à corrosão; Envelhecimento ao 
+oxigênio; Imersão de material sintético não metálico; Resistência 
+à vibração (apenas para componentes metálicos); e Aderência 
+“Pull-Off”. 
+Anexo H deste RAC 
+Indicador de Pressão 
+Resistência hidrostática; Estanqueidade; Resistência ao torque 
+excessivo; Momento de torção; Operação continuada; 
+Resistência à corrosão; Envelhecimento ao oxigênio; Sobretensão 
+Anexo D deste RAC 
+
+## Página 16
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+13 
+ 
+elétrica; Imersão de material sintético não metálico; Resistência à 
+vibração; Compatibilidade do latão; Resistência do isolamento; e 
+Voltagem mínima de abertura. 
+Válvula de cilindro 
+Resistência hidrostática; Operação continuada (ensaio cíclico); 
+Estanqueidade; Torque de abertura e fechamento; Resistência à 
+corrosão; Pressão, temperatura de 
+atuação e vazão dos dispositivos de alívio de pressão; Pressão de 
+atuação e vazão da válvula de excesso 
+de fluxo. 
+Nota: A válvula de cilindro com acionamento automático deve 
+atender aos requisitos estabelecidos para a válvula de cilindro e, 
+também, para o dispositivo de acionamento automático 
+constantes desta Tabela. 
+Anexo A deste RAC 
+Válvula de 
+Abastecimento Estanqueidade; Ensaio cíclico; Ensaio de resistência hidrostática. Anexo B deste RAC 
+Dispositivo de 
+Acionamento 
+Automático 
+Ensaio de resistência hidrostática; Estanqueidade; Resistência ao 
+torque excessivo; Momento de torção; Resistência à corrosão; 
+Envelhecimento ao oxigênio; Sobretensão elétrica; Imersão do 
+material sintético não metálico; Resistência à vibração; 
+Compatibilidade do latão; Operação continuada; Resistência do 
+isolamento; Voltagem de abertura mínima. 
+ISO 15500-6 
+Suporte de Cilindro 
+(apresentando, no 
+mínimo, uma junta 
+soldada) 
+Corrosão; Envelhecimento por Oxigênio; e Resistência a esforços 
+mecânicos. 
+ 
+Anexo G deste RAC 
+ 
+6.1.1.4.1.2  Deve ser assegurado ainda que o componente ou embalagem possui marcação ou gravação, 
+contendo a identificação da produção. Esta deve estar local visível, em forma de chapa, em alto ou baixo 
+relevo, ou tinta indelével, por algum meio de impressão, constando, no mínimo, as informações conforme 
+estabelecidas na Tabela - 2, a seguir:  
+ 
+Tabela - 2 - Marcação ou Gravação da Identificação do Produto 
+Componente Método de Identificação Identificação da  Produção 
+1. Linha de Alta Pressão   
+Tubulação Tinta indelével Nº de lote 
+Niple Tinta indelével Nº de lote 
+Tampão Tinta indelével Nº de lote 
+Anilha Tinta indelével Nº de lote 
+Indicador de pressão Tinta indelével Nº de lote ou série 
+Conexão em forma de “T” Tinta indelével Nº de lote 
+2. Linha de Baixa Pressão   
+Tubulação Tinta indelével Nº de lote 
+3. Redutor de Pressão Chapa ou relevo Nº de série 
+Válvula de Abastecimento Chapa ou punção Nº de série 
+
+## Página 17
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+14 
+ 
+Válvula de fechamento  rápido Chapa ou punção Nº de série 
+4. Válvula de Cilindro Chapa ou punção Nº de série 
+5. Suporte de Cilindro   
+Berço Chapa ou punção Nº de lote 
+Cintas Chapa ou punção Nº de lote 
+6. Sistema de Ventilação   
+Invólucro estanque Em relevo ou tinta        indelével Nº de lote 
+Conduto flexível (tubo e  flange) Em relevo ou tinta  indelével Nº de lote 
+ 
+6.1.1.4.2 Definição da Amostragem 
+6.1.1.4.2.1 Os critérios para definição da amostragem devem seguir os requisitos estabelecidos no RGCP. 
+6.1.1.4.2.2 A coleta da amostra deve ser realizada pelo OCP de forma aleatória no processo produtivo do 
+produto objeto da solicitação, desde que o produto já tenha sido inspecionado e liberado pelo controle 
+de qualidade da fábrica, ou na área de expedição, em embalagens prontas para comercialização. 
+6.1.1.4.2.3 Para os ensaios no produto, o OCP deve coletar, para amostra de prova, 1 (uma) amostra de 
+cada modelo de componente. Devem ser coletadas ainda amostras de contraprova e testemunha, 
+totalizando 3 (três) corpos de prova, para cada modelo. 
+6.1.1.4.2.4 Constatada alguma não conformidade no ensaio, este deve ser repetido, para o atributo não 
+conforme, nas amostras de contraprova e testemunha 
+6.1.1.4.3 Definição do Laboratório 
+Os critérios para a definição de laboratório devem seguir os requisitos estabelecidos no RGCP. 
+6.1.1.5 Tratamento de Não Conformidades na Etapa de Avaliação Inicial 
+Os critérios para tratamento de não conformidades na etapa de avaliação inicial devem seguir os 
+requisitos estabelecidos no RGCP. 
+6.1.1.6 Emissão do Certificado de Conformidade 
+6.1.1.6.1 Os critérios para emissão do Certificado de Conformidade devem seguir os requisitos 
+estabelecidos no RGCP.  
+6.1.1.6.2 O Certificado de Conformidade deve ter validade de 4 (quatro) anos. 
+6.1.1.6.2 O Certificado de Conformidade deve ter validade de 3 (três) anos. 
+Retificação publicada no Diário Oficial da União de 20/05/2022 
+6.1.1.6.3 No certificado de conformidade, o modelo deve ser notado da seguinte forma: 
+ 
+Quadro - Informações mínimas do Certificado de Conformidade 
+Marca 
+Modelo 
+(Designação comercial do 
+modelo e código de 
+referência comercial, de 
+Descrição 
+(Descrição técnica do modelo, contendo, no 
+mínimo) 
+Código de 
+barras 
+comercial 
+(quando 
+
+## Página 18
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+15 
+ 
+todas as versões, se 
+existentes). 
+- tipo do componente; 
+- material; 
+- dimensões; 
+- pressão de operação, classificação, capacidades 
+e tipo de construção, quando aplicáveis. 
+ 
+existente) de 
+todas as 
+versões. 
+ 
+6.1.2 Avaliação de Manutenção 
+Depois da concessão do Certificado de Conformidade, o acompanhamento da Certificação é realizado 
+pelo OCP para constatar se as condições técnico-organizacionais que deram origem à concessão inicial da 
+certificação continuam sendo cumpridas. 
+6.1.2.1 Auditoria de Manutenção 
+Os critérios para auditoria de manutenção devem seguir os requisitos estabelecidos no RGCP. A Auditoria 
+de Manutenção deve ser realizada a cada 12 (doze) meses, contados da data de emissão do certificado. 
+Deve ser realizada uma avaliação do Sistema de Gestão da Qualidade do fabricante de acordo com o 
+estabelecido no item 6.1.1.3 deste Regulamento. 
+6.1.2.2 Plano de Ensaios de Manutenção 
+Os critérios para o plano de ensaios de manutenção devem seguir os requisitos estabelecidos no RGCP. 
+Os ensaios de manutenção devem ser realizados e concluídos em até 12 (doze) meses, contados a partir 
+da emissão do Certificado de Conformidade. Além disso, os ensaios de manutenção devem ser realizados 
+sempre que existirem fatos que recomendem a sua realização, antes deste período. 
+6.1.2.2.1 Definição dos Ensaios a serem realizados 
+Os ensaios para cada componente, na aval iação de manutenção, devem ser realizados de acordo com o 
+estabelecido no item 6.1.1.4.1.2 deste RAC. 
+6.1.2.2.2 Definição da Amostragem de Manutenção 
+As amostra s do modelo  certificado devem ser coletadas no comércio  e na fábrica , perfazendo duas 
+coletas distintas, devendo ser observados os requisitos estabelecidos no RGCP e no item 6.1.1.4.3 deste 
+RAC. 
+6.1.2.2.3 Definição do Laboratório 
+Os critérios para a definição de laboratório devem seguir os requisitos estabelecidos no RGCP. 
+6.1.2.3 Tratamento de não conformidades na etapa de Avaliação de Manutenção 
+Os critérios para tratamento de não conformidades na etapa de avaliação de manutenção devem seguir 
+os requisitos estabelecidos no RGCP. 
+6.1.2.4 Confirmação da Manutenção 
+Os critérios de confirmação da manutenção devem seguir os requisitos estabelecidos no RGCP. 
+6.1.3 Avaliação de Recertificação 
+Os critérios para avaliação de recertificação estão estabelecidos no RGCP. A Avaliação de Recertificação 
+deve ser realizada a cada 3 (três) anos, devendo ser finaliza da até a data de validade do Certificado de 
+Conformidade. 
+ 
+
+## Página 19
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+16 
+ 
+7. TRATAMENTO DE RECLAMAÇÕES 
+Os critérios para tratamento de reclamações devem seguir os requisitos estabelecidos no RGCP. 
+ 
+8. ATIVIDADES EXECUTADAS POR OCP ACREDITADO POR MEMBRO DO MLA DO IAF 
+Os critérios para atividades executadas por OCP acreditado por membro do MLA do IAF devem seguir os 
+requisitos estabelecidos no RGCP. 
+ 
+9. TRANSFERÊNCIA DA CERTIFICAÇÃO 
+Os critérios para transferência da certificação devem seguir os requisitos estabelecidos no RGCP. 
+10. ENCERRAMENTO DA CERTIFICAÇÃO 
+Os critérios para encerramento da certificação devem seguir os requisitos estabelecidos no RGCP. 
+ 
+11. SELO DE IDENTIFICAÇÃO DA CONFORMIDADE 
+11.1 Os critérios para o Selo de Identificação da Conformidade estão contempl ados no RGCP e no Anexo 
+III. 
+11.2 O Selo de Identificação da Conformidade deve ser gravado no componente ou embalagem, em local 
+visível, em forma de chapa, em alto ou baixo relevo, ou tinta indelével, por algum meio de impressão, 
+conforme estabelecido na Tabela - 3 a seguir:  
+ 
+Tabela 3 – Localização Método de Identificação da Conformidade 
+COMPONENTE Local da Identificação da Conformidade Método de Identificação 
+1. Linha de Alta Pressão   
+Tubulação Superfície do produto Tinta indelével 
+Niple Embalagem Tinta indelével 
+Tampão Embalagem Tinta indelével 
+Anilha Embalagem Tinta indelével 
+Indicador de Pressão Produto Tinta indelével 
+Conexão em forma de “T” Superfície Tinta indelével 
+2. Linha de Baixa Pressão   
+Tubulação Superfície do produto Tinta indelével 
+3. Redutor de Pressão Superfície visível Chapa ou relevo 
+Válvula de Abastecimento Superfície visível Chapa ou punção 
+Válvula de Fechamento 
+Rápido 
+Superfície do produto Chapa ou punção 
+4. Válvula de Cilindro Superfície do produto Chapa ou punção 
+5. Suporte de Cilindro   
+Berço Superfície do produto Chapa ou punção 
+Cintas Superfície do produto Chapa ou punção 
+6. Sistema de Ventilação   
+Invólucro Estanque Superfície do produto Em relevo ou tinta 
+indelével 
+
+## Página 20
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+17 
+ 
+Conduto Flexível (Tubo 
+e F flange) 
+Superfície do produto Em relevo ou tinta 
+indelével 
+ 
+12. AUTORIZAÇÃO PARA USO DO SELO DE IDENTIFICAÇÃO DA CONFORMIDADE 
+Os critérios para autorização do uso do Selo de Identificação da Conformidade devem seguir o 
+estabelecido no RGCP. 
+ 
+13. RESPONSABILIDADES E OBRIGAÇÕES 
+Os critérios para responsabilidades e obrigações devem seguir os requisitos estabelecidos no RGCP. 
+ 
+14. ACOMPANHAMENTO NO MERCADO 
+Os critérios para acompanhamento no mercado devem seguir os requisitos estabelecidos no RGCP. 
+ 
+15. PENALIDADES 
+Os critérios para aplicação de penalidades devem seguir os requisitos estabelecidos no RGCP. 
+ 
+16. DENÚNCIAS, RECLAMAÇÕES E SUGESTÕES 
+Os critérios para denúncias, reclamações e sugestões devem seguir os requisitos estabelecidos no RGCP. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+## Página 21
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+18 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ANEXO A - VÁLVULA DE CILINDRO E SUAS CONEXÕES 
+Ensaios, Métodos de Ensaios e Aceitação 
+ 
+1.  ENSAIOS 
+Deve atender aos requisitos definidos neste regulamento para os seguintes ensaios, onde aplicáveis: 
+a) Resistência Hidrostática; 
+b) Operação Continuada; 
+c) Estanqueidade; 
+d) Torque de Abertura e Fechamento; 
+e) Resistência à Corrosão; 
+f) Pressão, Temperatura de Atuação e Vazão dos Dispositivos de Alívio de Pressão; 
+g) Pressão de Atuação e Vazão da Válvula de Excesso de Fluxo. 
+ 
+Os ensaios aplicáveis para cada componente, conforme suas concepções, estão descritos na Tabela 1 a 
+seguir: 
+ 
+Tabela 1 
+Ensaios Aplicáveis 
+Tipo do Componente Ensaios 
+Conjunto montado com todos  os componentes, inclusive conexões e dispositivos de 
+segurança 
+a, b, c, d, g 
+Conexões e 
+Dispositivos de Alívio de Pressão (DAP) f(*) 
+(*) Para DAP com dispositivo térmico de bulbo de vidro, aplicam-se os ensaios prescritos na norma ISO 15500-13 + Amd 
+1:2016. 
+  
+Nota 1: Os ensaios onde as temperaturas não sejam especificadas deverão ser realizados à temperatura 
+ambiente.  
+Nota 2: Devem ser realizados ensaios de estanqueidade em 100% do lote de fabricação à temperatura 
+ambiente. 
+ 
+As conexões das válvulas de cilindros devem atender aos requisitos para o tubo de alta pressão, conforme 
+estabelecidos neste RAC.  
+
+## Página 22
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+19 
+ 
+Nota: Para a realização dos ensaios, o fornecimento das conexões é de responsabilidade do fabricante da 
+válvula de cilindro. 
+ 
+2 MÉTODOS DE ENSAIOS 
+2.1 Ensaio de Resistência Hidrostática 
+Para este ensaio devem ser utilizados  água ou óleo como fluidos de testes em um dispositivo de testes 
+conforme a Figura 1. A amostra ensaiada não pode apresentar rupturas ou vazamentos quando submetida 
+à pressã o mínima 80,0 MPa durante um período mínimo de 3 minutos com o manipulo da válvula 
+totalmente aberto e o bocal de saída tamponado. Durante o período do ensaio os manômetros 1 e 2 não 
+podem apresentar variações de pressão. Caso ocorra variação de pressão nos manômetros 1 e 2 a amostra 
+deve ser considerada reprovada. 
+A amostra utilizada neste ensaio não pode ser utilizada para quaisquer outros ensaios. 
+ 
+Figura 1  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+2.2 Estanqueidade 
+Para este e nsaio devem ser utilizados ar,  nitrogênio ou GN como fluido de testes, conforme o 
+procedimento descrito no item 2.2.1 deste Anexo. 
+O ensaio de estanqueidade deve contemplar também a válvula de alívio de pressão e/ou o dispositivo de 
+alívio de pressão 
+2.2.1 Procedimento de ensaio 
+2.2.1.1 Este ensaio deverá ser realizado com a válvula fechada e bocal de saída aberto e com a válvula na 
+posição aberta e seu bocal de saída tamponado. 
+2.2.1.2 A válvula deve ser pressurizada, no mínimo, a 22,0 MP a e submersa em água por um período 
+mínimo de 2 minutos. 
+2.2.2 Aceitação 
+Em quaisquer  das condições a amostra não pode  apresentar bolhas. Caso sejam obse rvadas bolhas o 
+vazamento deve ser medido e deve ser inferior a 20 cm3/h. Como método alternativo para a detecção de 
+vazamentos podem ser utilizados ensaios a vácuo de hélio (método de acumulação global) ou outro 
+método equivalente. 
+2.3 Torque de Abertura e Fechamento 
+O torque de abertura fechamento do manipulo não pode exceder 6 Nm com a válvula submetida à pressão 
+máxima de abastecimento utilizando o dispositivo de ensaio conforme a Figura 2. Para este ensaio devem 
+
+## Página 23
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+20 
+ 
+ser utilizados ar, nitrogênio ou GN como fluido de testes. O ensaio deve ser desenvolvido conforme o 
+procedimento descrito no item 2.4.1 deste Anexo. 
+2.3.1 Procedimento do ensaio 
+2.3.1.1 Com a amostra montada no dispositivo da Figura 2 , fechar totalmente a válvula através do 
+dispositivo de abertura e fechamento (manípulo); 
+2.3.1.2 Com a Válvula 1 aberta e a Válvula 2 (Descarga) fechada, pressurizar a amostra com 22,0 - 0 ,0 
+MPa; 
+2.3.1.3 Utilizando um torquímetro apropriado realizar cinco medições sucessivas do torque necessário 
+para abertura total (Ta). O valor de Ta deve ser calculado como sendo: 
+Ta = (Ta1 + Ta2 + Ta3 + Ta4 + Ta5) / 5 
+2.3.1.4 Fechar a Válvula 1 e abrir a Válvula 2 (Descarga) despressurizando a linha; 
+2.3.1.5 Mantendo a o manípulo da amostra na posição totalmente aberto, fechar a Válvula 2 e abrir a 
+Válvula 1 pressurizando a linha com 22,0 - 0,0 MPa; 
+2.3.1.6 Utilizando um torquímetro apropriado realizar cinco medições sucessivas do torque necessário 
+para fechamento total (Tf). O valor de Tf deve ser calculado como sendo: 
+Tf = (Tf1 + Tf2 + Tf3 + Tf4 + Tf5) / 5 
+2.3.1.7 Fechar a Válvula 1,  abrir totalmente o manípulo da amostra e a Válvula 2 (Descarga) 
+despressurizando a linha. 
+ 
+2.3.2 Aceitação 
+Os valores dos torques de Abertura (Ta) e de Fechamento (Tf) devem ser de no máximo 6 Nm. 
+2.4 Operação continuada 
+2.4.1 Submeter a amostra aos ensaios de Estanqueidade conforme descrito no item 2.2 e de Torque  de 
+Abertura e Fechamento conforme descrito no item 2.3 deste Anexo antes de submetê -la ao ensaio de 
+operação continuada registrando os valores encontrados nos respectivos ensaios. A amostra deve atender 
+os requisitos dos ensaios mencionados. 
+No caso de reprovação da amostra em quaisquer dos ensaios mencionados a amostra deve ser  
+considerada reprovada dispensando a execução de quaisquer outros ensaios. 
+2.4.2 Para o ensaio de operação continuada devem ser utilizados ar, nitrogênio ou GN como fluido de 
+testes. A amostra deve ser submetida a ensaio de operação continuada à temperatura ambiente através 
+de dispositivo de teste conforme a Figura 2. 
+Figura 2  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+## Página 24
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+21 
+ 
+Nota: os ciclos devem ser desenvolvidos confor me as condições e valores indicados nas Tabelas 1 
+(Vedação em relação à atmosfera) e 2  (Vedação da Válvula em relação à linha e à atmosfera com 
+solicitação do dispositivo de abertura e fechamento). 
+  Tabela 1 
+Válvula FASE Válvula 1  Válvula 2 Manômetro Ensaiada       
+ 1 Aberta  Fechada 22,0 - 0,0 MPa 
+Aberta com o orifício de 
+saída fechado 
+2 Fechada  Aberta 0,0 MPa 
+N° de Ciclos  5.000  (Mínimo)       
+Frequência Máxima   10 ciclos / minuto 
+ 
+ 
+ 
+ 
+Tabela 2 
+Válvula 
+FASE Válvula 1 Válvula 2 Manômetro Ensaiada     
+Fechada 1 Aberta Fechada 22,0 -0,0 MPa 
+Aberta 2 Aberta Fechada 22,0 -0,0 MPa 
+Aberta 3 Fechada Aberta 0,0 -0,0 MPa 
+ 
+N° de Ciclos  100  (Mínimo)      
+Frequência Máxima  10 ciclos / minuto 
+ 
+2.4.3 Após os ensaios de operação continuada a amostra deve ser submetida aos ensaios de  
+Estanqueidade conforme descrito no item 2.4 deste Anexo  e de Torque de Abertura e Fechamento 
+conforme descrito no item 2.3 deste A nexo. A amostra deve atender os requisitos dos ensaios 
+mencionados. 
+ 
+2.5 Resistência à Corrosão 
+A amostra deve ser submetida a ensaio em ambiente de névoa salina conforme o procedimento descrito 
+em 2.5.1. 
+2.5.1 Procedimento do ensaio 
+2.5.1.1 Acomodar a amostra no interior da câmara de ensaio e submetê-la ao ensaio de névoa salina por 
+um período de 96 horas. 
+2.5.1.2 Manter a temperatura no interior da câmara de névoa salina entre 33o C e 36o C. 
+2.5.1.3 A solução salina consiste de 5% de Cloreto de Sódio e 95% de água destilada, em massa. 
+2.5.1.4 Imediatamente após o término da exposição à névoa salina a amostra deve ser cuidadosamente  
+limpa com a remoção dos depósitos de sais. 
+2.5.2 Aceitação 
+A amostra não pode apresentar evidências de pontos de corrosão verm elha em superfície com área 
+maior do que 5% da área total exposta. 
+
+## Página 25
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+22 
+ 
+2.6 Pressão e temperatura de atuação do dispositivo estático de alívio de pressão - tampão fusível e 
+disco de ruptura 
+Este ensaio deve ser executado através dos métodos 1, 2 ou 3. Para este ensaio devem ser utilizados ar, 
+nitrogênio ou GN como fluido de testes. 
+2.6.1 Ensaio do Tampão Fusível 
+2.6.1.1 Método 1 
+2.6.1.1.1 Anotar a temperatura de fusão nominal do elemento (TF) informada pelo fabricante. 
+2.6.1.1.2 A amostra deve ser submersa num recipiente contendo água ou glicerina à temperatura TF -2,8o 
+C e submetido a pressões entre 21,0 MPa a 22,5 MP a por um período não inferior a 10 minutos e após 
+esse período o dispositivo não pode apresentar evidências de escoamento. 
+2.6.1.1.3 A temperatura do fluido de imersão deve ser acrescida a taxa máxima de 0,6% de Tf por minuto 
+até à temperatura TF e durante o incremento a pressão deve permanecer estabilizada. A uniformidade da 
+temperatura do banho deve ser mantida através de agitação do meio de imersã o. Nessas condições o 
+escoamento do elemento fusível deve ser atingido em um período máximo de 10 minutos. O escoamento 
+deve ser considerado no início da fusão do elemento sem vazamento de fluido de teste. 
+2.6.1.2 Método 2 
+2.6.1.2.1 Submeter a amostra à pressão de fluido de teste nã o inferior à 21 kPa, aplicada no orifício  de 
+entrada da amostra. 
+2.6.1.2.2 Enquanto submetida à pressão de 21 kPa, a amostra deve ser submersa em um recipiente  com 
+água ou glicerina líquida à temperatura T F - 2,8o C e mantida nes ta temperatura por um período não 
+inferior a 10 minutos. A uniformidade da temperatura do banho deve ser mantida através de agitação do 
+meio de imersão. 
+2.6.1.2.3 Elevar a temperatura do banho à razão de 0,6o C por minuto durante a qual a pressão pode ser 
+aumentada até o máximo de 345 kPa. A uniformidade da temperatura do banho deve ser mantida através 
+de agitação do meio de imersão. Quando a liga metálica atingir o ponto de fusão suficiente para produzir 
+vazamento do fluido de teste, a temperatura deve ser registrada como a temperatura de escoamento da 
+liga fusível da amostra. 
+2.6.1.2.4 O escoamento deve ocorrer num período máximo de 10 minutos após a máxima temperatura 
+de escoamento permitida ter sido atingida e estabilizada. O valor da temperatura de fusão da liga metálica 
+observado não pode exceder ao limite especificado (TF). 
+2.6.1.3 Método 3 
+2.6.1.3.1 Submeter à a mostra à pressão de fluido de teste não inferior a 21 kPa, aplicada no orifício  de 
+entrada da amostra. 
+2.6.1.3.2 Enquanto submetida à pressão de 21 kPa, a amostra deve ser submersa em um recipiente  com 
+água ou glicerina líquida à temperatura T F -2,8o C e mantida nesta temperatura por um período não 
+inferior a 10 minutos. A uniformidade da temperatura do banho deve ser mantida através de agitação do 
+meio de imersão. 
+2.6.1.3.3 Após o condicionamento da amostra conforme o item 2.6.1.3.2, submergi-la em um recipiente 
+com água ou glicerina líquida mantido a uma temperatura estabilizada não superior à temperatura T f 
+especificada pelo fabricante. Nessas condições o vazamento do fluido de teste deve ocorrer num período 
+máximo de 10 minutos. 
+
+## Página 26
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+23 
+ 
+2.6.2 Ensaio do Disco de Ruptura 
+Para este ensaio devem ser utilizados água ou óleo como fluido de testes e o elemento fusível deve ser 
+removido. O ensaio deve ser desenvolvido conforme o procedimento descrito no item 2.6.2.1. 
+2.6.2.1 Procedimento de ensaio 
+2.6.2.1.1 O Dispositivo com o Disco de Ruptura deve ser montado conforme as especificaç ões do  
+fabricante no dispositivo de ensaio da Figura 4. 
+Figura 4 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+2.6.2.1.2 A amostra deve ser submetida à pressão de ensaio de 22,0 MPa à temperatura de ensaio cujo 
+valor deve ser maior ou igual a 15o C e menor ou igual a 25o C e mantida nessa condição por um período 
+mínimo 30 segundos. 
+2.6.2.1.3 Após o condicionamento menc ionado no item 2.6.2.1.2 a pressão deve ser acrescida à taxa  
+máxima de 1,0 MPa por minuto até ocorrer à ruptura do disco (Pr). 
+2.6.2.2 Aceitação 
+   As amostras são consideradas aprovadas se: 
+29,0 MPa < PR < 34,0 MPa 
+ 
+2.6.3 Vazão Mínima 
+Para este ensaio devem ser utilizados ar, nitrogênio ou GN como fluido de testes e a amostra deve ser 
+montada na válvula de cilindro  para a qual foi projetada conforme a Figura 6 . O ensaio deve ser 
+desenvolvido conforme o procedimento descrito no item 2.6.3.1 deste Anexo. 
+Conforme a natureza do fluido de testes utilizado , devem ser aplicados os Fatores de Correção 
+mencionados na Tabela 3 deste Anexo. 
+Como Fonte d e Pressão  deve ser utilizado um cilindro de alta pressão para aplicação veicular com 
+capacidade hidráulica nominal de 60 litros. Durante o ensaio deve ser utilizada uma fonte de calor do tipo 
+Resistor Elétrico com capacidade para irradiar calor para a amostra de tal forma que a temperatura a 50 
+mm de distância da amostra se mantenha a 30o C + 5%. 
+ 
+Figura 6  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+## Página 27
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+24 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+2.6.3.1 Procedimento de ensaio 
+2.6.3.1.1 Fechar a válvula de saída do cilindro e a Válvula de Bloqueio e pressurizar o cilindro com o fluido 
+de testes a 20,0 + 0,5 MPa; 
+2.6.3.1.2 Remover o elemento fusível e o selo de ruptura da amostra a ser ensaiada; 
+2.6.3.1.3 Abrir a válvula de saída do cilindro até que a pressão indicada no manômetro permaneça 
+estabilizada a 20,0 + 0,5 MPa e registrá-la como P1; 
+2.6.3.1.4 Abrir a Válvula de Bloqueio, acionar o Cronômetro (T1) e observar a queda de pressão através 
+do manômetro até que a pressão atinja o valor de 19,0 + 0,5 MPa, fechando a Válvula De Bloqueio e 
+travando o Cronômetro (T2). Registrar a pressão P2 e o intervalo de tempo decorrido ΔT (T2 - T1). 
+2.6.3.1.5 Repetir o procedimento descrito em 3.6.3.1.4 no intervalo de 19,0 + 0,5 MPa a 18,0 + 0,5 MPa. 
+2.6.3.1.6 Calcular a vazão do fluido de testes em cada uma das etapas conforme a seguinte fórmula: 
+Onde: 
+Q = (C x ΔP / ΔT ) x 60 
+Vazão Calculada (m3 / minuto) Q = 
+ΔP = P1 - P2 (bar) 
+ΔT = T2 - T1  (s) 
+C = Constante Dimensional = 1,1623 x 10-1 (m3.Kmol) 
+ 
+Calcular a vazão média QM 
+QM = (Q1 + Q2) / 2 
+  
+2.6.3.1.6 Calcular a Vazão Média Corrigida aplicando a seguinte fórmula: 
+QMc = QM x FC 
+Onde: 
+QMc =  Vazão Média Corrigida (m3/minuto) 
+Fc =Fator de Correção (kg.m3/kg) -  conforme a Tabela 3 
+ 
+Tabela 3 
+FATOR DE CORREÇÃO -  Fc  
+ Fluidos de Testes   
+Gás Natural (GN)  Ar  Nitrogênio 
+1,000  1,073  1,075 
+  
+
+## Página 28
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+25 
+ 
+Nota 1: Os fatores de correção foram determinados considerando a utilização de um cilindro com 
+volume hidráulico nominal de 120 litros;  
+Nota 2: Valores Característicos adotados para os fluidos de testes: 
+ 
+  Fluido de 
+Testes 
+Massa Molecular 
+(M) em kg 
+Peso Específico 
+Kgf/m3 
+ 
+   
+   
+  Gás Natural (GN) 18,05 0,75   
+  Ar 29,00 1,29   
+  Nitrogênio 28,00 1,25   
+ 
+2.6.3.2 Aceitação         
+Conforme a Tabela 4. 
+ 
+ 
+         
+    Tabela 4      
+ Tipo de Cilindro (ISO 11439)  QMc (m3/minuto) 
+  Em Aço    > 0,200   
+       
+ Em Material Compósito 
+(Composite) 
+ Conforme especificação do fabricante do cilindro  
+  
+    
+ 
+ 
+2.7 Válvula de Excesso de Fluxo 
+Para este ensaio devem ser utilizados ar, nitrogênio ou GN como fluido de testes e a amostra deve ser 
+montada em um dispositivo de ensaio conforme a Figura 6. O ensaio deve ser desenvolvido conforme o 
+procedimento descrito no item 2.7.1 deste Anexo. 
+2.7.1 Procedimento de ensaio 
+2.7.1.1 Relação entre Vazão Máxima e Vazão Residual. 
+Para este ensaio deve ser utilizado um dispositivo com os componentes instalados conforme indicado na 
+Figura 7. 
+ 
+ 
+Figura 7 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+## Página 29
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+26 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Especificações dos componentes do Dispositivo de Ensaio: 
+ 
+1 - Fonte de Pressão (cilindro de alta pressão com válvula de alta pressão); 
+2 - Manômetro de 0,0 -40,0 MPa; 
+3 - Redutor de Pressão com pressão de entrada de 22,0 MPa e pressão de saída máxima de 1,0 
+  MPa; 
+4 - Manômetro 0,0 -1,5 MPa; 
+5 -  Regulador de Pressão com manômetro de 0,0 a 1,0 MPa; 
+ 
+ 6 - Dispositivo com rosca de ataque 3/4” NGT-14 fios por polegada com a válvula de cilindro 
+incorporando o dispositivo de excesso de fluxo;  
+7 - Tubo de Alta Pressão sem costura com diâmetro nominal de 6 mm. 
+ 
+Abastecer o cilindro com o fluido de testes à pressão de 22,0 + 0,1 MPa, indicada pelo manômetro 2. 
+ 
+Nota: executar ensaio de estanqueidade na instalação antes da execução do ensaio na amostra 
+ 
+2.7.1.1.1 Condição de Vazão Máxima 
+2.7 1.1.1.1 Abrir totalmente o Regulador de Pressão 5 (0,0 MPa); 
+2.7.1.1.1.2 Abrir a Válvula do Cilindro da Fonte de Pressão. A pressão indicada no Manômetro 4 não pode 
+ser superior a 1,0 MPa; 
+2.7.1.1.1.3 Com a Válvula do Cilindro da Fonte de Pressão  1 totalmente aberta, elevar lentamente a  
+pressão o de saída no Regulador de Pressão 5 até ocorrer o disparo do Dispositivo de Excesso de Fluxo 6, 
+anotando a pressão de disparo P1 indicada no manômetro do Regulador de Pressão 5. 
+Calcular a pressão P2 conforme a fórmula abaixo e registrar o valor obtido. 
+P2 = 0,95 . P1 
+O diferencial de pressão ΔP 1-2 deve ser considerado como o máximo diferencial de pressão permitido 
+pelo Dispositivo de Excesso de Fluxo sem o seu acionamento automático, portanto é a condição de Vazão 
+Máxima (VM). 
+2.7.1.1.1.4 Diminuir a pressão no Regulador de Pressão 5 até “zero” e elevá-la novamente até a pressão 
+P2. 
+2.7.1.1.1.5 Observar a queda de pressão indicada pelo manômetro 2 até atingir 20,0 MPa, acionar o  
+Cronômetro até a pressão atingir 18,0 MPa e anotar o intervalo de tempo ΔT1 decorrido. 
+2.7.1.1.2 Condição de Vazão Residual 
+2.7.1.1.2.1 Desconectar o Tubo de Alta Pressão 7 da amostra, conectar a linha de alta pressão e  
+reabastecer o cilindro com o fluido de teste até a pressão de 22,0 +0,1 MPa. 
+2.7.1.1.2.2 Reinstalar os componentes conforme a Figura 7. 
+2.7.1.1.2.3 Com a  Válvula do Cilindro da Fonte d e Pressão 1 totalmente aberta, elevar lentamente a  
+pressão de saída no Regulador de Pressão 5 até ocorrer o disparo do Dispositivo de Excesso de Fluxo 6. 
+
+## Página 30
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+27 
+ 
+Observar a queda de pressão indicada pelo manômetro 2 até atingir 20,0 MPa, acionar o Cronômetro até 
+a pressão atingir 18,0 MPa e anotar o intervalo de tempo ΔT2 decorrido. 
+2.7.1.1.3 Aceitação 
+O Dispositivo de Excesso de Fluxo é considerado aprovado se: 
+ΔT2 > 0,10 . ΔT1 
+ 
+2.7.1.2 Disparo do Dispositivo de Excesso de Fluxo  
+O objetivo do ensaio é a  simulação do rompimento na linha de alta pressão . Para este ensaio deve ser 
+utilizado o dispositivo conforme a Figura 8. Para a instalação da Válvula do Cilindro com o Dispositivo de 
+Excesso de Fluxo 2 no cilindro utilizado como Fonte  de Pressão 1 e o Tubo de A lta Pressão 3, proceder 
+conforme as instruções de instalação fornecidas pelo fabricante da Válvula. 
+ 
+ 
+ 
+ 
+ 
+ 
+Figura 8  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+2.7.1.2.1 Procedimento de ensaio 
+2.7.1.2.1.1 Fechar a Válvula do Cilindro que incorpora o Dispos itivo de Excesso de Fluxo e  abastecer a 
+Fonte de Pressão 1 com o fluido de testes a 22,0 + 0,1 MPa; 
+2.7.1.2.1.2 Com a Válvula do  Cilindro 2 fechada, conectar um segmento de tubo de alta pressão de  
+diâmetro nominal de 6 mm e comprimento linear mínimo de 6 m etros na saída da Válvula do Cilindro 
+incorporando o Dispositivo de Excesso de Fluxo a ser ensaiado mantendo a extremidade livre do tubo 
+aberta. 
+2.7.1.2.1.3 Abrir totalmente a Válvula do Cilindro até o acionamento automático do Dispositivo de Excesso 
+de Fluxo. 
+2.7.1.2.2 Aceitação 
+O Dispositivo de Exces so de Fluxo submetido à condiçã o do item 2.7.1.2.1.3 deste Anexo, deve acionar 
+automaticamente. 
+ 
+
+## Página 31
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+28 
+ 
+3. ACEITAÇÃO  
+As amostras ensaiadas devem atender a todos os ensaios descritos no item 1.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ANEXO B - VÁLVULA DE ABASTECIMENTO, VÁLVULA DE FECHAMENTO RÁPIDO E SUAS CONEXÕES 
+Métodos de Ensaios, Ensaios e Aceitação 
+ 
+1.  ENSAIOS 
+Devem atender aos requisitos definidos neste regulamento para os seguintes ensaios: 
+a) Resistência Hidrostática; 
+b) Operação Continuada; e 
+c) Estanqueidade. 
+ 
+Nota 1: Os ensaios onde as temperaturas não sejam especificadas deverão ser realizados à temperatura 
+ambiente. 
+Nota 2: Devem ser realizados ensaios de estanqueidade em 100% do lote de fabricação à temperatura 
+ambiente. 
+ 
+2. MÉTODOS DE ENSAIOS 
+2.1 Ensaio de Resistência Hidrostática 
+2.1.1 Resistência do Corpo e das Vedações 
+Para este ensaio devem ser utilizados água ou óleo como fluidos de testes em um dispositivo de testes 
+conforme a Figura 1 . A amostra ensaiada não pode  apresentar rupturas quando submetida à pressão  
+mínima de 30,0 MPa (150% da pressão de serviço do cilindro) durante um período mínimo de 3 minutos 
+com o manipulo da válvula totalmente aberto e o bocal de saída tamponado. Durante o período do ensaio 
+os manômetros 1 e 2 não podem apresentar variações de pressão. A amostra utilizada neste ensaio não 
+pode ser utilizada para quaisquer outros ensaios. 
+2.1.2 Aprovação de Protótipos 
+Para este ensaio devem ser utilizados água ou óleo como fluidos de testes em um dispositivo de test es 
+conforme a Figura 1 . A amostra ensaiada não pode  apresentar rupturas quando submetida à pressão 
+mínima de 80,0 MPa durante um período mínimo de 3 minutos com o manipulo da válvula totalmente 
+aberto e o bocal de saída tamponado. Durante o período do ensa io os manômetros 1 e 2 não podem 
+apresentar variações de pressão. 
+A amostra utilizada neste ensaio não pode ser utilizada para quaisquer outros ensaios. 
+ 
+Figura 1  
+
+## Página 32
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+29 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+2.2 Operação Continuada 
+A amostra deve ser submetida a ensaio de operação continuada à temperatura ambiente de 20o C através 
+de dispositivo de teste conforme a Figura 2. 
+Para válvula de abastecimento provida de dispositivo de abertura e fechamento, o ensaio de operação 
+continuada deve ser realizado primeiramente na retenção da v álvula com o dispositivo de abertura / 
+fechamento aberto. A seguir deve -se realizar o ensaio de operação continuada por 100 ciclos no 
+dispositivo de abertura e fechamento, removendo-se o dispositivo de retenção. 
+2.2.1 Ensaio 
+2.2.1.1 Para a execução do ensaio de operação continuada de Abertura e Fechamento deve ser utilizado 
+um dispositivo conforme os requisitos mínimos da Figura 2. 
+ 
+Figura 2 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+2.2.1.2 Os ciclos devem ser desenvolvidos conforme as condições e valores indicados na Tabela 1. 
+ 
+Tabela 1 
+FASE Válvula 1 Válvula 2 Válvula 3 
+VÁLVULA 
+ENSAIADA 
+(Aberta) 
+Manômetro Manômetro 
+1 2     
+      
+22,0 +1,0 22,0 +1,0 
+
+## Página 33
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+30 
+ 
+1 Aberta Fechada Fechada Aberta 
+MPa MPa      
+2 Fechada Aberta Fechada Aberta 0,0 MPa 22,0 +1,0 MPa       
+3     
+2,42 +0,11 
+ 
+(Final do 
+Ciclo) Fechada Fechada Aberta Aberta 0,0 MPa MPa (Max.)      
+      
+Número de 
+Ciclos 
+  1000 (Mínimo)       
+      
+Frequência  Não superior a 10 ciclos por minuto   
+ 
+Após a execução do número de ciclos o comp onente ensaiado deve ser submetido às condições da FASE 2, 
+solicitando o dispositivo de retenção à pressão máxima de serviço que nessa condição não pode apresentar 
+bolhas. Caso sejam observadas bolhas o vazamento deve ser medido e deve ser inferior a 20 cm3/h.  Executar 
+novo ensaio nas condições da FASE 2 submetendo a válvula à pressão maior do que 0,0 MPa e menor ou igual 
+a 0,5 MPa que nessa condição não pode apresentar bolhas. Caso sejam observadas bolhas o vazamento deve 
+ser medido e deve ser inferior a 20 cm3/h. 
+2.2.1.3 A força de fechamento do manipulo não pode exceder 6 Nm. 
+2.2.1.4 Após este ensaio o componente deve ser submetido ao Ensaio de Estanqueidade prescrito no item 
+2.3. 
+2.3 Estanqueidade 
+Para este ensaio devem ser utilizados ar, nitrogênio ou GN como fluido de testes, conforme o 
+procedimento descrito no item 2.3.1 deste regulamento. 
+Este ensaio deverá ser realizado com a válvula fechada e bocal de saída aberto e com a válvula na posição 
+aberta e seu bocal de saída tamponado. 
+2.3.1 Procedimento de Ensaio 
+2.3.1.1 Pressurizar a amostra com o fluido de testes no mínimo, a 23,0 MPa e submersa em água por um 
+período mínimo de 2 minutos. 
+2.3.2 Aceitação 
+Em quaisquer das condições a amostra não pode  apresentar bolhas. Caso sejam observadas bolhas o 
+vazamento deve ser medido e deve ser inferior a 20 cm3/h. Como método alternativo para a detecção de 
+vazamentos podem ser utilizados ensaios a vácuo de hélio (método de acumulação global) ou outro 
+método equivalente. 
+ 
+3 ACEITAÇÃO 
+As amostras ensaiadas devem atender a todos os ensaios descritos no item 1. 
+ 
+ 
+ 
+ 
+ 
+
+## Página 34
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+31 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ANEXO C - TUBO DE ALTA PRESSÃO   
+Documentos e Verificações Preliminares, Métodos de Ensaios, Ensaios e Aceitação 
+ 
+1 DOCUMENTOS E VERIFICAÇÕES PRELIMINARES 
+1.1 Devem ser apresentados pelo fabrican te os certificados de corrida do material contendo  requisitos 
+gerais conforme NBR 8476, análise química, propriedades mecânicas e tol erâncias dimensionais 
+conforme Tabelas 1, 2 e 3, respectivamente: 
+Tabela 1 - Composição Química 
+ 
+ 
+Composição Química e Tipos de Aço Recomendados Para Aplicação em Tubulações de GNV   
+Análise Química de Panela - % em massa 
+Tipo de Aço C (máx.) Si (máx.) Mn P (máx.) S (máx.) 
+DIN St 35 0,17 0,35 >= 0,40 0,025 0,025 
+DIN St 37.4 O,17 0,35 >= 0,35 0,040 0,040 
+ABNT Gr A1 0,18 0,35 0,25 / 0,60 0,040 0,040 
+ 
+ 
+Tabela 2 - Propriedades Mecânicas  
+ 
+Propriedades Mecânicas de Tubos na Condição de Fornecimento à Temperatura 
+Ambiente dos Tipos de Aço Recomendados Para Aplicação em Tubulações de GNV 
+Valores para Materiais Trefilados a Frio no Estado de Fornecimento NBK  
+ 
+Limite de Escoamento Resistência à Tração  
+Alongamento 
+Tipo de Aço Longitudinal (MPa min.) (MPa)  
+(% min.)    
+DIN St 35 235 (1) 340 a 470 25 
+DIN St 37.4 235 340 a 470 25 
+ABNT Gr A1 240 (2) 350 a 450 25 
+Notas :     
+1 - Para tubos com diâmetro externo menor ou igual a 30 mm e espessura de parede menor ou igual a 3 mm, 
+o valor mínimo do Limite de Escoamento pode ser 10 MPa menor do que o da Tabela.  
+2 - Para tubos com diâmetro externo menor ou igual a 30 mm e espessura de parede menor ou igual a 3 mm, 
+o valor mínimo do Limite de Escoamento pode ser 20 MPa menor do que o da Tabela. 
+
+## Página 35
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+32 
+ 
+   Tabela 3 -Tolerâncias Dimensionais   
+   Tolerâncias dimensionais dos tubos aplicáveis para GNV (1) 
+Serão adotados os valo res definidos pela Norma DIN 2391, como segue:   
+Norma  
+Diâmetro Externo (mm) Espessura de Parede 
+(mm) 
+ABNT NBR 8476   6,00   ± 0,10     1,00  ± 0,10 
+DIN 1630   6,00 ± 0,06 (2)     1,00 + 0,15/-0,10 
+DIN 2391   6,00 ±0,08    1,00 ±0,10 
+Notas:        
+1 - Os tubos normalmente utilizados apresentam diâmetro externo igual a 6,00 mm e espessura de parede igual a 
+1,00 mm 
+2 - Valores até ± 0,50 mm são permitidos; nas extremidades dos tubos, em um comprimento até  
+100 mm, valores até ±0,40 mm são admissíveis, mediante acordo prévio. 
+ 
+1.2 O material deve ser submetido à verificação por macrografia para a constatação da inexistência  de 
+costura, por ataque através de um dos quatro reagentes químicos abaixo: 
+a) Reativo de Iodo; 
+b) Reativo de Ácido Sulfúrico; 
+c) Reativo de Fry; 
+d) Impressão de Baumann. 
+O corpo de Prova deverá ser preparado conforme as seguintes fases: 
+a) Obtenção de Amostra tubular do lote a ser avaliado com 50 mm de comprimento, mediante cortes na 
+direção transversal ao eixo longitudinal do tubo a ser ensaiado; 
+b) Preparação da superfície do Corpo de Prova através de polimento de uma das seções transversais; 
+c) Ataque da superfície polida por meio de um dos reagentes químicos 
+  
+1.3 Admite-se a utilização de tubo flexível para condução de GN à alta pressão desde: 
+a) seja apto para uso com GN; 
+b) seja eletricamente condutivo por meio de seu núcleo; 
+c) conduza o GN à pressão de trabalho sem comprometer sua resistência na faixa de temp eratura 
+compreendida: entre -40 oC e +85 oC, quando utilizado fora do compartimento do motor; ou entre -40 oC 
+a +120 oC, quando utilizado no compartimento do motor.  
+d) atenda aos critérios de aceitação dos ensaios prescritos na norma ISO 15500-17:2012 + Amd 1:2016. 
+Nota: A pressão de trabalho deve ser de, no mínimo, 1,25 vezes a pressão de serviço de 20 MPa (200 bar).  
+ 
+2 ENSAIOS 
+Deve atender os requisitos definidos neste regulamento para os seguintes ensaios: 
+a) Resistência Hidrostática;  
+b) Operação Continuada; 
+c) Resistência à Corrosão;  
+d) Estanqueidade; e 
+e) Dobramento  
+ 
+Nota 1: Os ensaios onde as temperaturas não sejam especificadas deverão ser realizados à temperatura 
+ambiente. 
+ 
+ 
+
+## Página 36
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+33 
+ 
+3 MÉTODOS DE ENSAIOS 
+3.1 Resistência Hidrostática 
+Para este ensaio devem ser utilizados água ou óleo como fluidos de testes em um dispositivo de testes 
+conforme a Figura 1. A amostra ensaiada não pode apresentar rupturas quando submetida à pressão de 
+ensaio de 100 MPa (1000 bar) durante um período mínimo de 3 minutos. Durante o período do ensaio 
+os manômetros 1 e 2 não podem apresentar variações de pressão. A amostra utilizada neste ensaio não 
+pode ser utilizada para quaisquer outros ensaios. 
+  
+Figura 1  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3.2 Operação Continuada 
+Para este ensaio devem ser utilizados ar, nitrogênio ou GN como fluido de testes. A amostra deve ser 
+submetida a ensaio de oper ação continuada à temperatura ambiente através de dispositivo de teste 
+conforme a Figura 2. 
+3.2.1 A amostra deve ser submetida a um ensaio de operação continuada de 100.000 ciclos à temperatura 
+ambiente de 20 o C através de dispositivo de teste conforme a Figura 2. 
+ 
+Figura 2  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3.2.2 Os ciclos devem ser desenvolvidos conforme as condições e valores indicados na Tabela 4. 
+ 
+Tabela 4 
+FASE Válvula 1 
+ Válvula 2 Amostra Manômetro  
+Ensaiada      
+1 Aberta  Fechada Pressurizada 22,0+1,0  
+MPa      
+2 Fechada  Aberta Despressurizada  0,0 MPa 
+Nº de 
+Ciclos 
+  100.000 (mínimo)     
+     
+Frequência  Não superior a 10 ciclos por minuto  
+
+## Página 37
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+34 
+ 
+ 
+3.2.3 Após o ensaio de operação continuada a amostra deve atender aos requisitos de Estanqueidade  
+prescritos no item 3.4 deste Anexo. 
+3.3 Resistência à Corrosão 
+A amostra deve ser submetida a ensaio em ambiente de névoa salina conforme o seguinte procedimento: 
+3.3.1 Acomodar a amostra no interior da câmara de ensaio e submetê -la ao ensaio de névoa salina  por 
+um período de 96 horas. 
+3.3.2 Manter a temperatura no interior da câmara de névoa salina entre 33o C e 36o C. 
+3.3.3 A solução salina consiste de 5% de Cloreto de Sódio e 95% de água destilada, em massa. 
+3.3.4 Imediatamente após o término da exposição à névoa s alina a amostra deve ser cuidadosamente  limpa 
+com a remoção dos depósitos de sais. A amostra não pode  apresentar evidências de pontos de corrosão 
+vermelha em superfície com área maior do que 5% da área total exposta. 
+3.3.5 Após o ensaio de corrosão a amost ra deve atender aos requisitos de Estanqueidade prescritos  no 
+item 3.4 deste Anexo. 
+3.4 Estanqueidade 
+Para este ensaio devem ser utilizados ar, nitrogênio ou GN como fluido de testes. 
+3.4.1 Preparação da amostra 
+Antes do condicionamento nas condições de ensaio deve ser efetuada a purga da amostra a ser ensaiada 
+utilizando nitrogênio e em seguida pressurizada com o fluido de testes a 30% da pressão de serviço. 
+3.4.2 Condicionamento e Execução dos Ensaios 
+Os condicionamentos e ensaios devem ser realizados com  a amostra continuamente submetida às 
+temperaturas especificadas e às pressões aplicadas através do fluido de testes em cada condição 
+conforme a Tabela 5.  
+Em cada condição de temperatura e pressões especificadas na Tabela 5, a amostra deve ser submersa em 
+água por um período mínimo de 2 minutos. 
+Tabela 5 
+Condição do Ensaio Temperatura ( oC ) Pressão (bar) 
+Baixa Temperatura -20 5 
+150   
+Temperatura Ambiente 20 5 
+300   
+Alta Temperatura 120 10 
+300   
+ 
+3.4.3 Aceitação 
+Em quaisquer das condiçõe s a amostra não pode apresentar bolhas. Caso sejam observadas bolhas, o 
+vazamento deve ser medido e deve ser inferior a 20 cm3/h.  Como método alternativo para a detecção de 
+vazamentos podem ser utilizados ensaios a vácuo de hélio (método de acumulação glo bal) ou outro 
+método equivalente. 
+3.5 Dobramento 
+
+## Página 38
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+35 
+ 
+A amostra deve ser submetida ao ensaio de dobramento utilizando o dispositivo conforme a Figura 3 e 
+conforme a Tabela 6. 
+Figura 3  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+Tabela 6 
+d (mm) D (mm) 
+≤ 8 3 x d 
+> 8 5 x D 
+ 
+Realizar o ensaio da amostra do tubo de alta pressão conforme o seguinte procedimento: 
+a) Selecionar um eixo redondo com diâmetro conforme a Tabela 6.  
+b) Executar dobra na amostra em formato de “U” conformando através da superfície do eixo 
+selecionado conforme a Figura 3.  
+c) Bloquear a saída de uma das extremidades da amostra. Para este ensaio devem ser utilizados água ou 
+óleo como fluidos de testes em um dispositivo de testes conforme a Figura 4. 
+ 
+ 
+Figura 4  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+## Página 39
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+36 
+ 
+A amostra ensaiada não pode apresentar rupturas quando submetida à pressão de ensaio de 80 MPa (800 
+bar) durante um período mínimo de 3 minutos. Durante o período do ensaio os manômetros 1 e 2 não 
+podem apresentar variações de pressão. 
+A amostra utilizada neste ensaio não pode ser utilizada para quaisquer outros ensaios. 
+ 
+4 Aceitação 
+As amostras ensaiadas devem atender a todos os ensaios descritos no item 3 deste Anexo. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+## Página 40
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+37 
+ 
+ 
+ 
+ 
+ANEXO D - INDICADOR DE PRESSÃO E SUAS CONEXÕES  
+Ensaios, Métodos de Ensaios e Aceitação 
+ 
+1 ENSAIOS 
+Deve atender aos requisitos definidos neste regulamento para os seguintes ensaios, onde aplicáveis: 
+a) Resistência Hidrostática; 
+b) Operação Continuada; 
+c) Resistência à Corrosão; 
+d) Resistência a Torque Excessivo; 
+e) Momento de Torção; 
+f) Envelhecimento por Oxigênio; 
+g) Imersão de Material Sintético Não Metálico; 
+h) Resistência a Vibração; 
+i) Estanqueidade; 
+j) Compatibilidade do latão; 
+k) Resistência do Isolamento Elétrico; 
+l) Voltagem Mínima de Operação; e 
+m) Sobretensão Elétrica. 
+ 
+Os ensaios aplicáveis para o Indicador, conforme sua concepção, estão descritos na Tabela 1 abaixo. 
+ 
+Tabela 1 
+ 
+Ensaios Aplicáveis 
+Componente Mecânico Eletromecânico  
+Indicador de Pressão a, b, c, d , e, f, g, h, i, j do item 
+1 
+Todos os ensaios prescritos no item 
+1  
+ 
+Nota 1: Os ensaios onde as temperaturas não sejam especificadas deverão ser realizados à temperatura 
+ambiente. 
+Nota 2: Devem ser realizados ensaios de estanqueidade em 100% do lote de fabricação à temperatura 
+ambiente. 
+  
+ 
+2 MÉTODOS DE ENSAIOS 
+2.1 Ensaio de Resistência Hidrostática 
+Para este ensaio devem ser utilizados água ou óleo como fluidos de testes em um dispositivo conforme 
+a Figura 1. A amostra ensaiada não pode apresentar rupturas quando submetida à pressão mínima 80,0 
+MPa durante um período mínimo de 3 minutos. Durante o período do ensaio os manômetros 1 e 2 não 
+podem apresentar variações de pressão. 
+A amostra utilizada neste ensaio não pode ser utilizada para quaisquer outros ensaios. 
+ 
+
+## Página 41
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+38 
+ 
+ 
+ 
+ 
+Figura 1 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+2.2 Operação Continuada 
+2.2.1 A amo stra deve ser sub metida a ensaios de operação  continuada conforme as temperaturas e  
+pressões indicadas na Tabela 2. Para este ensaio devem ser utilizados ar, nitrogênio ou GN como fluidos 
+de teste. 
+Tabela 2 
+Tipo de Ensaio Temperaturas (o C) Pressão máxima Nº de Ciclos 
+  (MPa) (mínimo) 
+Ciclo de Temperatura 
+Ambiente 20 22,0 19.200 
+   
+Ciclo de Alta Temperatura  120 22,0 400 
+Ciclo de Baixa Temperatura -20 11,0 400 
+ 
+2.2.2 Para a execução do ensaio de operação continuada deve ser utilizado um dispositivo de ensaio 
+conforme a Figura 2 
+Figura 2  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+2.2.3 Os ciclos devem ser desenvolvidos conforme as condições e valores indicados na Tabela 3. 
+ 
+   Tabela 3   
+FASE Válvula 1  Válvula 2 Amostra Manômetro   
+Ensaiada 
+ 
+      
+1 Aberta  Fechada Pressurizada Conforme   
+Tabela 2 
+ 
+      
+
+## Página 42
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+39 
+ 
+2 Fechada  Aberta Despressurizada 0,0 MPa  
+Nº de 
+Ciclos 
+  Conforme a Tabela 2       
+      
+Frequência  Não superior a 10 ciclos por minuto   
+2.2.4 Após o ensaio de operação continuada a amostra deve atend er aos requisitos de Estanqueidade  
+prescritos no item 2.9 deste Anexo. 
+2.3 Resistência à Corrosão 
+A amostra deve ser submetida a ensaio em ambiente de névoa salina conforme o seguinte procedimento: 
+2.3.1 Acomodar a amostra no interior da câmara de ensaio e  submetê-la ao ensaio de névoa salina  por 
+um período de 96 horas. 
+2.3.2 Manter a temperatura no interior da câmara de névoa salina entre 33o C e 36o C. 
+2.3.3 A solução salina consiste de 5% de Cloreto de Sódio e 95% de água destilada, em massa. 
+2.3.4 Imediatamente após o término da exposição à névoa salina a amostra deve ser cuidadosamente  limpa 
+com a remoçã o dos depósitos de sais. A amostra não pode  apresentar evidências de pontos de corrosão 
+vermelha na superfície de base com área maior do que 5% da área total exposta. 
+2.3.5 Após o ensaio de corrosão a amostra deve atender aos requisitos de Estanqueidade prescritos  no 
+item 2.9 deste Anexo. 
+2.4 Resistência a Torque Excessivo 
+ 
+O Indicador projetado para ser conectado através de conexões rosqueadas deve resis tir a torques de 
+fixação de no mínimo 150% do torque de fixação especificado pelo fabricante. 
+2.4.1 O ensaio deve ser realizado conforme o dispositivo de ensaios e dimensões da Figura 3 
+ 
+Figura 3  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Onde: 
+Tf = Torque especificado pelo fabricante 
+Te = Torque de ensaio  
+D > 5d 
+Te > 1,5. Tf 
+ 
+2.4.2 A base de Fixação do dispositivo de ensaio deve ser constituída de material com resistência mecânica 
+igual ou superior à da amostra ensaiada. 
+
+## Página 43
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+40 
+ 
+2.4.3 O Torque Te deve ser aplicado por um período mínimo de 15 minutos. Após o período de aplicação 
+do torque de ensaio, remover a amostra e examiná-la quanto à existência de deformações ou rupturas. 
+2.4.4 Após o ensaio a amostra deve atender aos requisitos de Estanqueidade prescritos no item 2.9 deste 
+Anexo. 
+2.5 Resistência a Momento Fletor 
+A amostra deve ser submetida aos ensaios de resistência a esforços gerados por momentos fletores 
+conforme o seguinte procedimento: 
+2.5.1 A amostra deve ser fixada através de suas conexões de forma a garantir a estanqueidade no 
+dispositivo de ensaio indicado na Figura 4, devendo ser observadas as distâncias mínimas indicadas. 
+2.5.2 Pressurizar a instalação com 10 KPa. Verificar e eliminar eventuais vazamentos. Ao término  da 
+verificação despressurizar a instalação. 
+2.5.3 Pressurizar a instalaç ão com 5 KPa e aplicar a carga durante um período mínimo de 15  minutos 
+conforme a Tabela 4. O ponto de aplicação da carga deve estar a pelo menos 300 mm de distância do 
+ponto de fixação da amostra conforme indicado na Figura 4. Com a carga aplicada, verificar a existência 
+de vazamentos conforme os métodos prescritos no item 2.9 deste Anexo. 
+2.5.4 Repetir o procedimento descrito no item 2.5.3 a cada 90o de rotação em relação ao eixo do  ponto 
+de fixação da amostra até a  posição inicial do ensa io, removendo a carga, despressurizando e 
+pressurizando a instalação a cada alteração de posição. 
+ 
+2.5.5 Após a execução dos ensaios, desmontar a amostra do dispositivo de ensaio, verificar a  existência 
+de deformações e submetê-la ao ensaio de Estanqueidade descrito no item 2.9 deste Anexo. 
+ 
+Figura 4 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Tabela 4   
+d (mm) D (mm)  P (KPa)  F (N) 
+   6    3,4 
+> 300 8  5,0  9,0       
+   > 12    17,0 
+          
+ 
+ 
+ 
+
+## Página 44
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+41 
+ 
+ 
+2.6 Envelhecimento por Oxigênio 
+Todas as partes sintéticas ou não metálicas dos componentes com finalidade de vedação do combustível 
+cujos fabricantes não apresentem declaração de conformidade satisfatória quando expostos a oxigênio 
+devem ter amostras representativas ensaiadas conforme o procedimento descrito neste Anexo. As 
+amostras não podem apresentar evidências visíveis de degradação quando expostas ao oxigênio por 96 
+horas, à temperatura de 70 oC e pressão de 2 MPa (20 bar). 
+2.7 Resistência a Hidrocarbonetos dos Componentes Não-Metálicos 
+2.7.1 Um componente não metálico utilizado como parte de um conjunto, cujo fabricante não apresente 
+relatórios de ensaios do material, deverá ser submetido ao ensaio de resistência a hidrocarbonetos. 
+2.7.2 Um componente não metálico que na aplicação esteja exposto a GN não pode apresentar variações 
+significativas de volume e ou massa quando submetido a ensaios conforme o seguinte procedimento: 
+2.7.2.1 Realizar medições para determinação da massa e do volume em amostras do componente a  ser 
+ensaiado. 
+2.7.2.2 Introduzir as amostras numa câmara, conforme a Figura 5, nas condições de ensaio descritas na 
+Tabela 6. 
+Figura 5  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Tabela 6 
+Fluido no Interior da Câmara Pressão no interior da Câmara Período de Exposição (Mínimo)  
+Gás Natural (GN) 20,0 MPa 70 horas 
+ 
+2.7.2.3 Após o períod o mínimo de exposição retirar as amostras da câmara de ensaio e verificar as  
+dimensões das amostras. 
+2.7.2.4 Após o ensaio as amostras não podem apresentar dilatação volumétrica maior do que 25%  ou 
+retração o volumétrica maior do que 1% em relação ao volum e inicial. A variação de massa não pode 
+exceder a 10%. 
+2.8 Vibração 
+2.8.1 A amostra deve ser submetida a ensaio de vibração conforme o seguinte procedimento: 
+2.8.1.1 Fixar a amostra no dispositivo de ensaio e submetê-la a vibrações por um período de 2 horas com 
+frequência de 17 Hz amplitude de 1,5 mm em cada um dos três eixos de orientação. 
+
+## Página 45
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+42 
+ 
+2.8.1.2 Após o período completo de 6 horas dos ensaios descritos no item 2.8.1.1, a amostra deve  ser 
+submetida ao ensaio de Estanqueidade prescrito no item 2.9 deste Anexo. 
+ 
+2.9 Estanqueidade 
+Para este ensaio devem ser utilizados ar, nitrogênio ou GN como fluidos de teste 
+2.9.1 Este ensaio deve ser realizado conforme as temperaturas e pressões definidas na Tabela 5. Em cada 
+condição de temperatura e pressões especificadas  na Tabela 5, a amostra deve ser submersa em água 
+por um período mínimo de 2 minutos. 
+Tabela 5 
+Tipo de Ensaio Temperaturas (o C) Pressões de Ensaio (MPa) Primeiro Segundo 
+Temperatura Ambiente 20 0,5 30,0 
+Alta Temperatura 120 1,0 30,0 
+Baixa Temperatura -20 15,0 0,5 
+ 
+2.9.2 Aceitação 
+Em quaisquer das condições a amostra não pode apresentar bolhas. Caso sejam observadas bolhas o 
+vazamento deve ser medido e deve ser inferior a 20 cm3/h. Como método alternativo para a detecção 
+de vazamentos podem ser utili zados ensaios a vácuo de hélio (método de acumulação global) ou outro 
+método equivalente. 
+2.10 Compatibilidade de Componentes de Latão 
+Todos os componentes manufaturados em latão, cujos fabricantes não apresentem declaração de 
+conformidade com relação a es te requisito deverão ser submetidos a ensaios de acordo com o 
+procedimento descrito (fabricantes de componentes capazes de apresentar documentação 
+comprobatória da “field-worthiness” dos seus produtos estão isentos deste requisito). 
+a) Submeter à a mostra às tensões impostas como resultado da montagem com outros componentes 
+conforme as instruções de montagem do fabricante. As tensões aplicadas devem ser mantidas durante 
+todo o ensaio. As amostras com roscas, devem ser acopladas a componentes que reproduzam a  
+montagem final com o torque de aperto conforme as instruções de montagem do fabricante e nenhum 
+tipo de elemento para vedação das roscas deve ser aplicado; 
+b) A amostra deve ser desengraxada e continuamente exposta por 240 horas na condição regular de 
+utilização no interior de uma câmara de vidro com capacidade aproximada de 30 litros, dotada de tampa 
+contendo uma solução de amônia, água e ar à pressão atmosférica e temperatura de 34°C ± 2oC. Manter 
+na câmara aproximadamente 600 cm³ da solução de amônia e água com densidade relativa igual a 0,94. 
+A amostra deve estar posicionada a distância de 40 mm acima do nível da solução de amônia e água e 
+mantida suspensa através de suporte resistente à ação de amônia. 
+ 
+A amostra não pode apresentar evidências de trincas quando examinada com aumento de 25 vezes após 
+ser submetida ao este ensaio nas condições descritas. 
+2.11 Resistência do Isolamento Elétrico 
+Este ensaio é realizado com o objetivo de detectar falhas de isolamento elétrico da am ostra quando 
+aplicada uma tensão elétrica, conforme o seguinte procedimento: 
+
+## Página 46
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+43 
+ 
+2.11.1 Utilizando instrumento de medição de resistências elétricas ( Figura 6) aplicar um valor de  tensão 
+equivalente a 1.000 VDC entre os terminais elétricos e o corpo da amostra por um período mínimo de 2 
+segundos. A resistência elétrica mínima admissível deve ser de 240 kW. 
+ 
+Figura 6 
+ 
+2.12 Voltagem Mínima de Operação 
+A tensão elétrica mínima de operação da amostra à temperatura ambiente deve ser menor ou igual a 6 V 
+para sistemas de 12 V e menor ou igual a 16 V para sistemas de 24 V. 
+ 
+2.13 Sobretensão Elétrica 
+A amostra deve manter suas características de operação quando aplicada tensão elétrica igual a 1,5 vezes 
+a tensão nominal de operação ± 5% por um período mínimo de 3 minutos. 
+ 
+3 ACEITAÇÃO 
+As amostras ensaiadas devem atender a todos os ensaios descritos no item 2.   
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+## Página 47
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+44 
+ 
+ 
+ 
+ 
+ANEXO E - DUTO DE BAIXA PRESSÃO, SUAS CONEXÕES E ELEMENTOS DE FIXAÇÃO 
+Classificação, Ensaios, Métodos de Ensaios e Aceitação 
+ 
+1 CLASSIFICAÇÃO 
+Os elementos consti tuintes (mangueira, conexões e elementos de fixação) do duto de baixa pressão,  
+definidos nos itens 1.1, 1.2 e 1.3 deste Anexo, devem ser classificados de acordo com a pressão de serviço 
+(Ps), conforme Tabela 1 a seguir: 
+Tabela 1 
+ Tipo de Sistema de Alimentação PS (MPa) 
+I Alimentação por pressão negativa (aspiração)   < 0,1      
+II Alimentação por pressão positiva (injeção)  > 0,1 
+ 
+1.1 Duto de Baixa Pressão (Mangueira) 
+O material empregado deve atender aos ensaios definidos neste regulamento técnico. 
+1.2 Conexões de Baixa Pressão 
+O material empregado deve atender aos ensaios definidos neste regulamento técnico. 
+Os terminais de acoplamento projetados para f ixação do duto de baixa pressã o através de abraçadeiras 
+devem atender as dimensões principais definidas na Figura 1 e na Tabela 2 abaixo. 
+ 
+Figura 1 
+
+## Página 48
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+45 
+ 
+ 
+Tabela 2 
+Diâmetro 
+Interno 
+do Duto 
+(mm) 
+                DIMENSÕES (mm)          
+                                  
+Interferência 
+Nominal 
+L (mm) 
+                                  
+A B C 
+ 
+D E (raio) F (raio) G (raio) H  
+                                  
+                                  
+                                     
+2,9 – 3,3 3,7 +                                                                    
+0,1 
+  
+20 + 
+ 
+3,0 + 
+ 
+0,4 + 
+ 
+0,4 + 
+ 
+1,0+ 0,2 0,5 + 
+ 
+25o + 3o 0,50                       
+4,4 – 4,8 5,3 + 
+ 
+0,5 
+ 
+0,2 
+  
+0,1 
+ 
+0,1 
+ 
+0,2 
+ 
+                
+                                   
+0,1 
+                                 
+                                    
+6,1 – 6,5 7,1 +                                                                    
+0,2 
+  
+21 + 
+ 
+4,0 + 
+ 
+0,5+ 0,2 0,5 + 
+ 
+1,2 + 
+ 
+0,6+ 0,2 22o + 3o 0,75                     
+7,8 – 8,2 8,7+ 
+  
+0,5 
+ 
+0,2 
+  
+0,2 
+ 
+0,2 
+ 
+                     
+                                   
+0,2 
+                                 
+                                    
+9,3 – 9,7                                    
+12,5 – 
+12,
+9 10,5 
++ 
+ 22 
++ 
+ 5 
++ 
+ 
+ 
+0,6 
++ 
+ 0,6 
++ 
+ 1,4 
++ 
+ 0,7+ 0,2 19o + 3o 1,00        
+15,7 – 
+16,
+1 0,2 
+  
+0,5 
+ 
+0,2 
+  
+0,2 
+ 
+0,2 
+ 
+0,2 
+ 
+                 
+18,8 – 
+18,
+2                                    
+ 
+1.3 Elementos de Fixação do Duto de Baixa Pressão 
+Os materiais empregados devem atender aos ensaios definidos neste regulamento. 
+ 
+2 ENSAIOS 
+Os componentes definidos neste regulamento técnico devem atender aos requisitos para os seguintes 
+ensaios, onde aplicáveis: 
+a) Resistência Hidrostática; 
+b) Operação Continuada; 
+c) Resistência à Corrosão; 
+d) Resistência a Torque Excessivo; 
+e) Estanqueidade; 
+f) Dobramento; 
+g) Envelhecimento por Oxigênio; 
+h) Imersão em Hidrocarbonetos de Material Sintético Não Metálico; 
+i) Compatibilidade de Componentes e Subcomponentes de latão 
+j) Aderência (“Pull off” ) 
+k) Condutividade Elétrica; e 
+l) Permeabilidade. 
+ 
+Os ensaios aplicáveis para cada componente, conforme suas concepções, estão descritos na Tabela 3 a 
+seguir: 
+ 
+ 
+ 
+ 
+ 
+
+## Página 49
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+46 
+ 
+ 
+Tabela 3 
+ 
+Ensaios Aplicáveis 
+Tipo do Componente Ensaios 
+Duto de Baixa Pressão  a, b, d, e, f, g, h, j, k, l 
+Conexões de Baixa Pressão (Latão)  a, b, e, i, j, k 
+Conexões de Baixa Pressão (Aço C)  a, b, c, e, j, k, 
+Conexões de Baixa Pressão a, b, e, g, h, j, l 
+(Termoplásticos)  
+Elementos de Fixação a, b, c, j 
+ 
+Nota 1: Para os ensa ios que requeiram aplicação de pressão, considerar como P S a pressão de 
+alimentação maior que 0,1 MPa. 
+Nota 2: Os ensaios onde as temperaturas não sejam especificadas deverão ser realizados à temperatura 
+ambiente. 
+Nota 3: Devem ser realizados ensaios de es tanqueidade em 100% do lote de fabricação à temperatura 
+ambiente. 
+ 
+3 MÉTODOS DE ENSAIOS 
+3.1 Resistência Hidrostática 
+Para este ensaio devem ser utilizados água ou óleo como fluidos de testes em um dispositivo de testes 
+conforme a Figura 2 . As amostras ensa iadas não pode m apresentar rupturas quando submetidas à 
+pressão mínima de ensaio maior ou igual a 4P S durante um período mínimo de 3 minutos. Durante o 
+período do ensaio os manômetros 1 e 2 não podem apresentar variações de pressão. 
+O ensaio deve ser realizado com todos os componentes montados reproduzindo a situação de montagem 
+no veículo, conforme a Figura 2. 
+As amostras utilizadas neste ensaio não podem ser utilizadas para quaisquer outros ensaios. 
+ 
+Figura 2  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3.2 Operação Continuada 
+3.2.1 A amostra deve ser submetida a ensaios de operação continuada conforme as temperaturas e  
+pressões indicadas na Tabela 4. 
+
+## Página 50
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+47 
+ 
+Tabela 4 
+Tipo de Ensaio Temperatura (o C) Pressão máxima Nº de Ciclos 
+     (bar) (mínimo) 
+Ciclo de Temperatura 15 a 20 PS 19.200 Ambiente 
+      
+Ciclo de Alta Temperatura  120 + 5% PS 400 
+      
+Ciclo de Baixa Temperatura -20 + 5% 0,5.PS 400 
+       
+ 
+3.2.2 Para a execução do ensaio de operação continuada deve ser utilizado um dispositivo de ensaio 
+conforme a Figura 3: 
+ 
+  
+Figura 3 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3.2.3 Os ciclos devem ser desenvolvidos conforme as condições e valores indicados na Tabela 5. 
+ 
+Tabela 5 
+FASE Válvula Válvula Amostra Manômetro 1 Manômetro 2 
+1 2 Ensaiada    
+1 Aberta Fechada Pressurizada Conforme Conforme 
+Tabela 3 Tabela 3     
+2 Fechada Aberta Despressurizada Conforme 0,0 MPa Tabela 3      
+Nº de 
+Ciclos 
+  Conforme a Tabela 3     
+     
+Frequência  Não superior a 10 ciclos por minuto   
+ 
+3.2.4 Após o ensaio de operação continuada a amostra dev e atender aos requisitos de Estanqueidade  
+prescritos no item 3.5 deste Anexo. 
+3.3 Resistência à Corrosão 
+A amostra deve ser submetida a ensaio em ambiente de névoa salina conforme o seguinte procedimento: 
+3.3.1 Acomodar a amostra no interior da câmara de e nsaio e submetê-la ao ensaio de névoa salina  por 
+um período de 96 horas. 
+3.3.2 Manter a temperatura no interior da câmara de névoa salina entre 33o C e 36o C. 
+3.3.3 A solução salina consiste de 5% de Cloreto de Sódio e 95% de água destilada, em massa. 
+
+## Página 51
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+48 
+ 
+3.3.4 Imediatamente após o término da exposição à névoa salina a amostra deve ser cuidadosamente  
+limpa com a remoção dos depósitos de sais. 
+3.3.5 Após o ensaio de corrosão a amostra deve atender aos requisitos de Resistência Hidrostática  
+prescritos no item 3.1 deste Anexo. 
+3.4 Resistência a Torque Excessivo 
+O componente projetado para ser conectado através de conexões rosqueadas deve resistir a torques de 
+fixação de no mínimo 150% do torque de fixação especificado pelo fabricante. 
+3.4.1 O ensaio deve ser realizado conforme o dispositivo de ensaios e dimensões da Figura 4. 
+ 
+ 
+Figura 4 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Onde: 
+Tf = Torque especificado pelo fabricante 
+Te = Torque de ensaio 
+D > 5d 
+Te > 1,5. Tf 
+ 
+3.4.2 A base de Fixação do dispositivo de ensaio deve ser constituída de mat erial com resistência  
+mecânica igual ou superior à da amostra ensaiada. 
+3.4.3 O Torque Te deve ser aplicado por um período mínimo de 15 minutos. Após o período de aplicação 
+do torque de ensaio, remover a amostra e examiná-la quanto à existência de deformações ou rupturas. 
+3.4.4  Após o ensaio a amostra deve atender aos requisitos de Resistência Hidrostática prescritos no item 
+3.1 deste Anexo. 
+3.5 Estanqueidade 
+Para este ensaio devem ser utilizados ar ou nitrogênio ou GNV  como fluido de testes, conforme o 
+procedimento descrito no item 3.5.1 deste Anexo. 
+3.5.1 Procedimento de ensaio 
+3.5.1.1 Este ensaio deve ser realizado conforme as temperaturas e pressões definidas na Tabela 6. 
+ 
+ 
+ 
+ 
+ 
+ 
+
+## Página 52
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+49 
+ 
+ 
+ 
+Tabela 6 
+Tipo de Ensaio Temperatura (o C) Pressões de Ensaio Primeiro Segundo 
+Temperatura Ambiente 15 a 20 0,025.Ps 1,5. Ps 
+Alta Temperatura 120 + 5% 0,05. Ps 1,5. Ps 
+      
+Baixa Temperatura -20 + 5% 0,75. Ps 0,025.Ps 
+       
+ 
+3.5.2 Aceitação  
+Em quaisquer das condições a amostra não pode apresentar bolhas. Caso sejam ob servadas bolhas o 
+vazamento deve ser medido e deve ser inferior a 20 cm3/h. Como método alternativo para a detecção 
+de vazamentos podem ser utilizados ensaios a vácuo de hélio (método de acumulação global) ou outro 
+método equivalente. 
+3.6 Dobramento 
+Para a realização deste ensaio deve ser utilizado o dispositivo da Figura 4. 
+3.6.1 Fixar a amostra no dispositivo e mantê-la nessa condição por um período mínimo de 5 minutos. 
+3.6.2 Após o período indicado no item 3.6.1, introduzir a esfera com as dimensões indicadas na Figura 5 
+em uma das extremidades da amostra. O diâmetro interno livre da amostra deve permitir a passagem 
+da esfera até a outra extremidade sem interferências. 
+Figura 5 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Onde:  
+D = Diâmetro Externo da Amostra (mm) 
+Di = Diâmetro Nominal Interno da Amostra (mm)  
+A < 20 x Di 
+ 
+3.7 Envelhecimento por Oxigênio 
+Todas as partes sintéticas ou não metálicas dos componentes com finalidade de vedação do combustível 
+cujos fabricantes não apresentem declaração de conformidade satisfatória quan do expostos a oxigênio 
+devem ter amostras representativas ensaiadas conforme o procedimento descrito neste Anexo. As 
+amostras não podem apresentar evidências visíveis de degradação quando expostas ao oxigênio por 96 
+horas, à temperatura de 70 oC e pressão de 2 MPa (20 bar). 
+
+## Página 53
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+50 
+ 
+ 
+ 
+3.8 Imersão em Hidrocarbonetos de Material Sintético Não -Metálico 
+3.8.1 Um componente não metálico utilizado como parte de um conjunto, cujo fabricante não apresente 
+relatórios de ensaios do material, deverá ser submetido ao ensaio de resistência a hidrocarbonetos. 
+3.8.2 Um componente não metálico que na aplicação esteja exposto a GN não pode apresentar varia õ es 
+significativas de volume e ou massa quando submetido a ensaios conforme o seguinte procedimento: 
+3.8.2.1 Realizar medições para determinação da massa e do volume em amostras do componente a  ser 
+ensaiado. 
+3.8.2.2 Introduzir as amostras numa câmara, conforme a Figura 6, nas condições de ensaio  descritas na 
+Tabela 7. 
+ 
+Figura 6 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Tabela 7 
+Fluido no Interior da Câmara Pressão no interior da Câmara Período de Exposição (Mínimo)  
+Gás Natural (GN) 20 MPa 70 horas 
+ 
+3.8.2.3 Após o período mínimo de exposição retirar as amostras da câmara de ensaio e verificar as  
+dimensões das amostras. 
+3.8.2.4 Após o ensaio as amostras não podem apresentar dilatação volumétrica maior do que 25%  ou 
+retração volumétrica maior do que 1% em relação ao volume inicial. A variação de massa não pode 
+exceder a 10%. 
+3.9 Compatibilidade de Componentes ou Subcomponentes de Latão 
+Todos os componentes manufaturados em latão, cujos fabricantes não apresentem declaração de 
+conformidade com relação a este requisito deverão ser submetidos a ensaios de acordo com o 
+procedimento descrito (fabricantes de componentes capazes de apresentar documentação 
+comprobatória da “field-worthiness” dos seus produtos estão isentos deste requisito). 
+a) Submeter à a mostra à s tensões impostas como resultado da montagem com outros componentes 
+conforme as instruções de montagem do fabricante. As tensões aplicadas devem ser mantida s durante 
+todo o ensaio. As amostras com roscas, devem ser acopladas a componentes que reproduzam a 
+montagem final com o torque de aperto conforme as instruções de montagem do fabricante e nenhum 
+tipo de elemento para vedação das roscas deve ser aplicado. 
+
+## Página 54
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+51 
+ 
+b) A amostra deve ser desengraxada e continuamente e xposta por 240 horas na condição regular de 
+utilização no interior de uma câmara de vidro com capacidade aproximada de 30 litros, dotada de tampa 
+contendo uma solução de amônia, água e ar à pressão atmosférica e temperatura de 34°C ± 2oC. Manter 
+na câmara aproximadamente 600 cm³ da solução de amônia e água com densidade relativa igual a 0,94. 
+A amostra deve estar posicionada a distância de 40 mm acimado nível da solução de amônia e água e 
+mantida suspensa através de suporte resistente à ação de amônia. 
+A amostra não pode apresentar evidências de trincas quando examinada com aumento de 25 vezes após 
+ser submetida ao este ensaio nas condições descritas. 
+3.10 Aderência (“Pull-Off” ) 
+Este ensaio deve ser realizado com todos os componentes descritos no item 1 deste Anexo. 
+3.10.1 Os componentes devem ser montados e fixados conforme as especificações do fabricante no  
+dispositivo de ensaio da Figura 7. 
+3.10.2 Através da extremidade A aplicar progressivamente a carga F de tração na direção  longitudinal do 
+conjunto montado na razão máxima de 250 N/min até a separação dos componentes. 
+ 
+ 
+Figura 7 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3.10.3 A carga de separação requerida é calculada por:  
+F > (π . Di2. P) / 4 
+Onde: 
+F = Carga de Tração aplicada (N) 
+Di = Diâmetro Interno nominal do Duto de Baixa Pressão (mm) 
+P = Pressão de Serviço (MPa) 
+ 
+3.11 Resistência a Condutividade Elétrica 
+Para este ensaio deve ser utilizado o dispositivo da Figura 8. 
+Este ensaio é realizado com o objetivo de verificar a resistência elétrica da amostra quando aplicada uma 
+tensão elétrica, conforme o seguinte procedimento: 
+3.11.1 Submeter à a mostra à pressão de serviço especificada (P S). Verificar a resistência elétrica da  
+amostra aplicando uma Diferença de Potencial (DDP) de 500 VDC e medir o valor da corrente elétrica 
+correspondente. A resistência elétrica entre as conexões em cada extremidade da amostra deve ser 
+menor ou igual a 1.  
+3.11.1 Submeter à a mostra à pressão de serviço especificada (P S). Verificar a resistência elé trica da 
+amostra aplicando uma Diferença de Potencial (DDP) de 500 VDC e medir o valor da corrente elétrica 
+
+## Página 55
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+52 
+ 
+correspondente. A resistência elétrica ent re as conexões em cada extremidade da amostra deve ser 
+menor ou igual a 1 MΩ/m. 
+Retificação publicada no Diário Oficial da União de 20/05/2022 
+ 
+ 
+ 
+ 
+Figura 8 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3.12 Permeabilidade 
+Este  ensaio  deve  ser  realizado  com todos  os  componentes  descritos  no  item  1  deste  Anexo. 
+Selecionar um segmento de duto de baixa pressão com comprimento L. 
+3.12.1 Determinar o volume hidráulico em cm 3 do conjunto a ser ensaiado utilizando água e  registrar o 
+valor encontrado (Vh) 
+3.12.1 Os componente s devem ser montados e fixados conforme as especificações do fabricante no  
+dispositivo de ensaio da Figura 9. 
+ 
+3.12.2 Verificar e Eliminar eventuais vazamentos aplicando a pressão de serviço. Monitorar  eventuais 
+vazamentos através dos manômetros 1 e 5. Após a verificação despressurizar o sistema. 
+3.12.3 Anotar o Diâmetro Interno (DI) e Comprimento (L) da amostra a ser ensaiada. 
+3.12.4 Aplicar a pressão de serviço no conjunto montado, fechar as válvulas V 1 e V2 e anotar a Pressão 
+Inicial (Pi) indicada no Manômetro 5. Monitorar os vazamentos no interior da câmara A durante 336 horas 
+contínuas (14 dias) através dos manômetros 5. 
+3.12.5 Após o período de submissão descrito no item 3.12.2  anotar a Pressão final (P f) indicada no  
+Manômetro 5. 
+3.12.6 Calcular o Volume Total liberado por unidade de comprimento aplicando a formula: 
+ 
+ 
+
+## Página 56
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+53 
+ 
+ 
+ 
+ 
+Onde: 
+L 
+PI 
+PF 
+Vh 
+ΔP  
+K  
+T 
+VTmVT = ΔP . Vh .K.105  
+T 
+ 
+= Comprimento da Amostra (m) 
+= Pressão Inicial (MPa)  
+= Pressão Final (MPa) 
+= Volume hidráulico da Amostra (cm3) 
+= PI - PF (MPa) 
+= Constante Dimensional para GNV a 20 o C (kmol.oK.m2/kgf) = 2,948 x 10-2 
+= Temperatura do Ensaio (oK) 
+= Volume Total de GMV liberado por metro (cm3/m)
+VTm = VT / L 
+VTm <  25 cm3 / m  
+Figura 9  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+4 ACEITAÇÃO  
+As amostras ensaiadas devem atender a todos os ensaios descritos no item 3. 
+ 
+ 
+ 
+ 
+ 
+ 
+
+## Página 57
+
+ANEXO DA PORTARIA INMETRO Nº XX/2022 
+ 
+54 
+ 
+ 
+ 
+ 
+ 
+ 
+ANEXO F - REDUTOR DE PRESSÃO E SUAS CONEXÕES 
+Classificação, Ensaios, Métodos de Ensaios e Aceitação 
+ 
+1 CLASSIFICAÇÃO 
+O redutor de pressão deve ser classificado conforme a Tabela 1 a seguir 
+ 
+Tabela 1 
+Tipo de Sistema de Alimentação PSaída (MPa) 
+I Alimentação por pressão negativa (aspiração)  < 0,1      
+II Alimentação por pressão positiva (injeção) > 0,1 
+ 
+ 
+2 ENSAIOS 
+Os redutores de pressão definidos neste regulamento técnico devem atender aos requisitos para os 
+seguintes ensaios, onde aplicáveis: 
+a) Resistência Hidrostática; 
+b) Operação Continuada; 
+c) Estanqueidade do Conjunto; 
+d) Resistência Hidrostática da Carcaça; 
+e) Pressão de Abertura da Válvula de Alívio de Pressão; 
+f) Imersão em Hidrocarbonetos de Material Sintético Não Metálico; 
+g) Compatibilidade de Componentes de latão; 
+h) Resistência à Corrosão; 
+i) Envelhecimento por Oxigênio; 
+j) Vibração; 
+k) Tensões Elétricas Máximas e Mínimas de Operação; 
+l) Resistência do Isolamento Elétrico; 
+m) Choque por Pressão; e 
+n) Resistência à Baixas Temperaturas. 
+ 
+Os ensaios aplicáveis para cada componente , conforme suas concepções, estão descritos na Tabela 2 a 
+seguir: 
+ 
+ 
+   Tabela 2   
+  Ensaios Aplicáveis  
+Tipo do Componente  Ensaios  
+Conjunto Montado    a, b, c, j, k, l, m, n  
+Carcaça     d  
+Conexões de Alta Pressã o (Latão)   a, g  
+Conexões de Alta Pressão (Aço C)    a, h  
+Conexões de Baixa Pressão (Termoplásticos)  a, g, j    
+   
+Membranas e Componentes de Vedação  g, j  
+
+## Página 58
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+    
+ 
+55 
+ 
+Componentes Elétricos    l, n  
+Elementos de Fixação    i, h  
+Tampas da Carcaça    i, j  
+Válvula de Alívio de Pressão   c, d, e, f  
+  
+Nota 1: Os ensaios onde as temperaturas não sejam especificadas devem ser realizados à temperatura 
+ambiente. 
+Nota 2: Devem ser realizados ensaios de estanqueida de em 100% do  lote de fabricaçã o à temperatura 
+ambiente. 
+ 
+3 MÉTODOS DE ENSAIOS 
+3.1 Resistência Hidrostática 
+3.1.1 Conjunto Montado 
+Para este ensaio devem ser utilizados água ou óleo como fluidos de testes à temperatura ambiente em 
+um dispositivo de testes conforme a Figura 1 , conforme o Procedimento de Ensaio descrito no item 
+3.1.1.1 deste Anexo. As amostras utilizadas neste ensaio não podem ser utilizadas para quaisquer outros 
+ensaios. 
+ 
+Figura 1 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3.1.1.1 Procedimento de Ensaio 
+3.1.1.1.1 Instalar instrumentos de medição de pressão em cada estágio do redutor de pressão. 
+3.1.1.1.2 Aplicar na entrada do redutor a pressão hidrostática de 20,0 MPa por um período mínimo de 3 
+minutos. As pressões indicadas nos manômetros 1 e 2 não podem variar durante o período do ensaio. 
+Observar as pressões indicadas em cada estágio e registrá-las no relatório. 
+3.1.1.1.3 Adotar o procedimento descrito em 3.1.1.1, aplicando na entrada do redutor de pressão as  
+pressões de 40,0 MPa, 60,0 MPa e 80,0 MPa, registrando os valores de pressão indicados em cada estágio 
+em cada condição de pressão de entrada. 
+3.1.1.2 Aceitação 
+3.1.1.2.1 A amostra ensaiada não pode apresentar rupturas ou vazamentos. 
+3.1.2 Carcaça 
+Para este ensaio os requisitos do item 3.1.1 devem ser atendidos. O ensaio dev e ser realizado conforme 
+o procedimento de ensaio descrito em 3.1.2.1, utilizando o Dispositivo de Ensaio da Figura 2. 
+ 
+
+## Página 59
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+    
+ 
+56 
+ 
+Figura 2  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3.1.2.1 Procedimento de Ensaio 
+3.1.2.1.1 Desmontar o conjunto do redutor de pressão. 
+3.1.2.1.2 Tamponar todas os orifícios de saída da carcaça e os orifícios de passagem entre os estágios. 
+3.1.2.1.3 Retirar a válvula de alívio de pressão e tamponar o orifício. 
+3.1.2.1.4 Tamponar cada um dos estágios. 
+3.1.2.1.5 Instalar os Indicadores de Pressão em cada um dos estágios. 
+3.1.2.1.6 Instalar a carcaça no Dispositivo de Ensaio da Figura 2. 
+3.1.2.1.7 Aplicar em cada estágio a pressão correspondente a 4 vezes à pressão registrada em cada estágio 
+conforme obtida na condição de pressão de entrada de 20,0 MPa no item 3.1.1.1.2 deste Anexo. As 
+pressões indicadas nos manômetros 1 e 2 não podem variar durante o período do ensaio. 
+3.1.2.2 Aceitação 
+A carcaça ensaiada não pode apresentar rupturas ou vazamentos em quaisquer dos estágios. 
+3.2 Operação Continuada 
+3.2.1 A amostra dev e ser submetida a ensaios de operação continuada conforme as temperaturas e  
+pressões indicadas na Tabela 3. Durante o ensaio a válvula de corte automático deve ser mantida aberta 
+e o fluxo deve ser capaz de provocar o máximo de deslocamento dos componentes  móveis internos do 
+redutor de pressão. Para este ensaio devem ser utilizados ar, nitrogênio ou GN como fluidos de teste. Os 
+ensaios devem ser desenvolvidos conforme descrito no Procedimento de Ensaios do item 3.2.1. 
+  
+Tabela 3 
+ Tipo de Ensaio 
+Temperaturas 
+(oC) Pressão máxima Nº de Ciclos 
+       (MPa) (mínimo) 
+Ciclo de Temperatura Ambiente 15 a 25 22,0 + 0,05 48000 
+        
+Ciclo de Alta Temperatura 120 + 5% 22,0 + 0,05 1000 
+        
+Ciclo de Baixa Temperatura -20 + 5% 11,0 + 0,05 1000 
+           
+ 
+ 
+3.2.2 Para a execução do ensaio de operação continuada deve ser utilizado um dispositivo de ensaio  
+conforme a Figura 3  
+
+## Página 60
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+    
+ 
+57 
+ 
+ 
+Figura 3 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3.2.3 Procedimento de Ensaio 
+3.2.3.1 Preparação da amostra para ensaio 
+3.2.3.1.1 Submeter à a mostra ao ens aio de estanqueidade descrito no item 3.4 deste Anexo à  
+temperatura ambiente. 
+3.2.3.1.2 Após o ensaio de estanqueidade descrito em 3.2.1.1.1 submeter à a mostra à exposição de  
+névoa salina, conforme descrito no item 3.3 deste Anexo. 
+3.2.3.1.3 Após o período de exposição mencionado em 3.2.1.1.2, independente da ocorrência de pontos 
+de corrosão, submeter à a mostra ao ensaio de estanqueidade descrito no item 3.4 deste Anexo à 
+temperatura ambiente. Caso os requisitos de estanqueidade não sejam atendidos, o ens aio deve ser 
+interrompido. O ensaio de estanqueidade nesta fase é facultativo, devendo ser realizado apenas  com a 
+aceitação do fabricante. 
+3.2.3.1.4 Após a realização das etapas descritas em 3.2.1.1.1, 3.2.1.1.2 e 3.2.1.1.3 submeter a amostra às 
+condições mencionadas  na Tabela  III.  Os ciclos devem ser desenvolvidos conforme as condições e 
+valores indicados na Tabela 4.   
+Tabela 4 
+ FASE Válvula 1  Válvula 2 Amostra Ensaiada Manômetro          
+ 1 Aberta  Fechada Pressurizada Conforme Tabela 3          
+ 2 Aberta  Aberta Pressurizada em Regime Conforme Tabela 3          
+ Nº de 
+Ciclos                            Conforme a Tabela 3 Não superior a 10 ciclos por minuto       
+ Frequência  
+ 
+3.2.3.1.5 Após a realização do ens aio de operação continuada a amostra deve ser submetida ao ensaio 
+de estanqueidade conforme descrito no item 3.4 deste Anexo. 
+Nota: a critério do fabricante, podem ser realizados ensaios de estanqueidade parciais  interrompendo-
+se o ciclo, desde que a amost ra ensaiada seja condicionada conforme as condições mencionadas na 
+
+## Página 61
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+    
+ 
+58 
+ 
+Tabela 3  para a continuidade dos ensaios. No caso da amostra não atender aos requisitos de 
+estanqueidade no ensaio parcial, o ensaio deve ser interrompido. 
+3.3 Resistência à Corrosão 
+Os componentes externos fabricados em Aço Carbono devem ser submetidos a ensaio em ambiente de 
+névoa salina conforme o seguinte procedimento: 
+3.3.1 Acomodar a amostra no interior da câmara de ensaio e submetê -la ao ensaio de névoa salina  por 
+um período de 96 horas. 
+3.3.2 Manter a temperatura no interior da câmara de névoa salina entre 33 e 36 oC. 
+3.3.3 A solução salina consiste de 5% de Cloreto de Sódio e 95% de água destilada, em massa. 
+3.3.4 Imediatamente após o término da exposição à névoa salina a amostra deve ser cuidadosamente limpa 
+com a remoção dos depósitos de sais. A amostra não pode apresentar evidências de pontos de corrosão 
+vermelha em superfície com área maior do que 5% da área total exposta. 
+3.3.5 Após o ensaio de corrosão a amostra deve atender aos  requisitos de Estanqueidade prescritos no 
+item 3.5 deste Anexo. 
+3.4 Estanqueidade 
+Para este ensaio devem ser utilizados ar, nitrogênio ou GN como fluidos de teste. Os ensaios devem ser 
+desenvolvidos conforme descrito no Procedimento de Ensaio do item 3.4. 1. Este  ensaio deve ser 
+realizado conforme as temperaturas e pressões definidas na Tabela 5, utilizando o dispositivo de ensaio 
+da Figura 4. 
+ 
+Tabela 5 
+Condições de Ensaio Temperaturas 
+Condicionamento Pressão (MPa) (h)       
+Temperatura Ambiente 15 a 25 oC - 30,0 
+Alta Temperatura 120 + 5% 2 30,0 
+      
+Baixa Temperatura -20 + 5% 2 30,0 
+       
+ 
+Figura 4 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+## Página 62
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+    
+ 
+59 
+ 
+3.4.1 Procedimento de Ensaio 
+3.4.1.1 Instalar os Indicadores de Pressão em cada um dos estágios do redutor de pressão. Essa  medida 
+permite a verificação de atuação da pressão aplicada em todos os estágios durante a realização dos 
+ensaios. 
+3.4.1.2 Instalar a amostra no dispositivo de ensaio 
+3.4.1.3 Na temperatura ambiente aplicar a pressão indicada na Tabela 5 por um período mínimo de 
+2 minutos. 
+3.4.1.4 Submergir a amostra em água por um período mínimo de 2 minutos e verificar a ocorrência  de 
+vazamentos. 
+3.4.1.5 Após o ensaio mencionado no item 3.4.1.4 condicionar  a amostra em cada condição de  
+temperatura mencionada na Tabela 5 e adotar o mesmo procedimento descrito naquele item. 
+3.4.2 Aceitação 
+Em quaisquer das condições a amostra não pode  apresentar bolhas. Caso sejam observadas bolhas o 
+vazamento deve ser medido e deve ser inferior a 20 cm3/h. Como método alternativo para a detecção de 
+vazamentos podem ser utilizados ensaios a vácuo de hélio (método de acumulação global) ou outro 
+método equivalente. 
+3.5 Determinação da temperatura de amolecimento do componente de vedação da válvula de alívio 
+de pressão 
+Este ensaio deve ser realizado  caso o fabricante não apresente um relatório de ensaio evidenciando as 
+características do produto quando aplicável como elemento de vedação direta em dispositivos de alívio 
+de pressão. 
+3.5.1 Retirar uma amostra do polímero a ser aplicado no componente de vedação com comprimento de 100 
+mm e diâmetro não superior a 2 mm ao  diâmetro utilizado na peça. As faces devem ser usinadas com bom 
+acabamento superficial para permitir a leitura da dureza. A face da amostra que utilizada para leitura da 
+dureza deve ser novamente usinada para não provocar distorções de leitura. 
+3.5.2 Realizar no mínimo 3 medições de dureza no corpo de prova a 20o C, utilizando a escala “Shore D”. 
+3.5.3 Após as medições do item 3.5.2 deste Anexo , introduzir o corpo de prova em uma estufa à 
+temperatura de 60o C durante um período não inferior a 10 minutos e realizar medições de dureza a essa 
+temperatura. 
+3.5.4 Repetir o procedimento mencionado no item 3.5.3 deste Anexo, com incrementos de 10 o C até a 
+temperatura de amolecimento do corpo de prova. A temperatura de amolecimento TA é aquela na qual a 
+dureza apresente um valor inferior a 90% em relação à dureza inicial e não pode ser superior a 120o C. A 
+temperatura de derretimento TD é aquela na qual a dureza apresente um valor inferior a 60% em relação 
+à dureza inicial. A dureza medida deve ser registrada em cada temperatura a que o corpo de prova for 
+submetido até que a temperatura de derretimento seja atingida. Caso as amostras sejam aprovadas, o 
+lote correspondente é considerado aprovado, caso contrário deve ser rejeitado. 
+3.6 Ensaio de abertura da válvula de alívio de pressão 
+A válvula de alivio a ser ensaiada deve ser instalada simulando sua aplicação ao redutor de pressão num 
+recipiente contendo ar comprimido, nitrogênio ou GN conforme ilustrado na (Figura 5) com o seguinte 
+procedimento: 
+ 
+ 
+
+## Página 63
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+    
+ 
+60 
+ 
+  
+Figura 5 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3.6.1 A amostra da válvula deve estar calibrada conforme especificado pelo fabricante, e anotada a sua a 
+pressão de ajuste declarada (P1). 
+3.6.2 Condicionar a amostra à temperatur a TA -10o C por um período nã o inferior a 10 minutos.  Após 
+permanecer na estufa a válvula deve ser submetida ao dispositivo de ensaio ( Figura E) e verificada a sua 
+pressão de abertura (P 2), que não pode ser maior e nem inferior a 95% da pressão inicialment e obtida 
+(P1). O mesmo procedimento deve ser adotado com a estufa na temperatura de amolecimento do 
+polímero. A nova pressão de abertura (P3) deve ser, no máximo, 95% da Pressão Inicial (P1). 
+3.6.3 Aceitação 
+3.6.3.1         P2 < 0,95. P1 
+3.6.3.2         P3 < 0,95. P1  
+ 
+3.7 Envelhecimento por Oxigênio 
+Todas as partes sintéticas ou não metálicas dos componentes com finalidade de vedação do combustível 
+cujos fabricantes não apresentem declaração de conformidade satisfatória quando expostos a oxigênio 
+devem t er amostras representativas ensaiadas conforme  o procedimento descrito neste A nexo. As 
+amostras não podem apresentar evidências visíveis de degradação quando expostas ao oxigênio por 96 
+horas, à temperatura de 70o C e pressão de 2 MPa (20 bar). 
+3.8 Resistência a Hidrocarbonetos dos Componentes Não -Metálicos 
+3.8.1 Um componente não metálico utilizado como parte de um conjunto, cujo fabricante não apresente 
+relatórios de ensaios do material, deverá ser submetido ao ensaio de resistência a hidrocarbonetos. 
+3.8.2 Um componente não metálico que na aplicação esteja exposto a GN não pode apresentar variações 
+significativas de volume e ou massa quando submetido a ensaios conforme o seguinte procedimento: 
+3.8.2.1Realizar medições para determinação da massa e do volu me em amostras do componente a  ser 
+ensaiado. 
+3.8.2.2 Introduzir as amostras numa câmara, conforme a Figura 5, nas condições de ensaio  descritas na 
+Tabela 6. 
+ 
+ 
+
+## Página 64
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+    
+ 
+61 
+ 
+Figura 6 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Tabela 6 
+Fluido no Interior da Câmara Pressão no interior da Câmara Período de Exposição (Mínimo) 
+Gás Natural (GN) 20 MPa 70 horas 
+ 
+3.8.2.3 Após o período mínimo de exposição retirar as amostras da c âmara de ensaio e verificar as  
+dimensões es das amostras. 
+3.8.2.4 Após o ensaio as amostras não podem apresentar dilatação volu métrica maior do que 25%  ou 
+retração volumétrica maior do que 1% em relação ao volume inicial. A variação de massa não pode  
+exceder a 10%. 
+3.9 Compatibilidade de Componentes de Latão 
+Todos os componentes manufaturados em latão, cujos fabricantes não aprese ntem declaração de 
+conformidade com relação a este requisito deverão ser submetidos a ensaios de acordo com o 
+procedimento descrito (fabricantes de componentes capazes de apresentar documentação 
+comprobatória da “field-worthiness” dos seus produtos estão isentos deste requisito): 
+a) Submeter à a mostra à s tensões impostas como resultado da montagem com outros componentes 
+conforme as instruções de montagem do fabricante. As tensões aplicadas devem ser mantidas durante todo 
+o ensaio. As amostras com roscas d evem ser acopladas a componentes que reproduzam a montagem final 
+com o torque de aperto conforme as instruções de montagem do fabricante e nenhum tipo de elemento para 
+vedação das roscas deve ser aplicado. 
+b) A amostra deve ser desengraxada e continuamente exposta por 240 horas na condição regular de utilização 
+no interior de uma câmara de vidro com capacidade aproximada de 30 litros, dotada de tampa contendo uma 
+solução de amônia, água e ar à pressão atmosférica e temperatura de 34°C ± 2oC. Manter na câmar a 
+aproximadamente 600 cm³ da solução de amônia e água com  densidade relativa igual a 0,94. A  amostra 
+deve estar posicionada a distância de 40 mm acima do nível da solução de amônia e água e mantida 
+suspensa através de suporte resistente à ação de amônia. 
+A amostra não pode apresentar evidências de trincas quando examinada com aumento de 25 vezes após 
+ser submetida ao este ensaio nas condições descritas. 
+3.10 Vibração 
+A amostra deve ser submetida a ensaio de vibração conforme o procedimento de ensaio descrito no item 
+3. 10.1 deste Anexo 
+3.10.1 Procedimento de Ensaio 
+3.10.1.1 Fixar a amostra no dispositivo de ensaio da Figura 7 e submetê-la a vibrações por um  período 
+de 2 horas com frequência de 17 Hz e amplitude de 1,5 mm em cada um dos três eixos de orientação. 
+
+## Página 65
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+    
+ 
+62 
+ 
+ 
+ 
+Figura 7  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3.10.1.2 Após o período completo de 6 horas dos ensaios descritos no item 3.8.1.1 deste Anexo, a amostra 
+deve ser submetida ao ensaio de Estanqueidade à temperatura ambiente prescrito no item 3.4 deste 
+Anexo. 
+3.10.2 Aceitação 
+Aprovação no ensaio de Estanqueidade 
+3.11 Resistência do Isolamento Elétrico 
+Este ensaio é realizado com o objetivo de detectar falhas de isolamento elétrico da amostra quando 
+aplicada uma tensão elétrica, conforme o seguinte procedimento: 
+3.11.1 Submeter à a mostra à pressão de serviço especificada (PS). 
+3.11.2 Utilizando instrumento de medição de resistências elétricas ( Figura 8) aplicar um valor de tensão 
+equivalente a 1.000 VDC entre os terminais elétricos e o corpo da amostra por um período mínimo  de 2 
+segundos. 
+ 
+Figura 8  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3.11.3 Aceitação 
+A resistência elétrica mínima admissível deve ser de 240 k 
+3.11.3 Aceitação 
+A resistência elétrica mínima admissível deve ser de 240 kΩ. 
+
+## Página 66
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+    
+ 
+63 
+ 
+Retificação publicada no Diário Oficial da União de 20/05/2022 
+3.12 Tensões Elétricas Máxima e Mínima de Operação 
+ 
+Para este ensaio devem ser utilizados ar, nitrogênio ou GN como fluidos de teste na temperatura 
+ambiente. Os ensaios devem ser desenvolvidos conforme descrito no Procedimento de Ensaio do item 3. 
+12.1. Este ensaio deve ser realizado utilizando o dispositivo de ensaio da Figura 9. 
+ 
+  
+Figura 9  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3.12.1 Procedimento de ensaio 
+3.12.1.1 Tensão Elétrica Máxima (Sobrecarga) 
+3.12.1.1.1 Com a Válvula de Bloqueio fechada, instalar a amostra no dispositivo de ensaio da  Figura 9 e 
+conectar os terminais de alimentação da válvula solenóide a uma fonte de tensão compatível à tensão 
+nominal de serviço informada pelo fabricante. 
+3.12.1.1.2 Com a Válvula de Bloqueio fechada, manter a amostra despressurizada e aplicar a tensão  de 
+ensaio equivalente a 150% da tensão de serviço com tolerância de + 1,0 V por um período não inferior a 
+3 minutos. 
+3.12.1.1.3 Após o período de aplicação mencionado em 3. 12.1.1.2 deste Anexo, suprimir a alimentação 
+da fonte de tensão e abrir a Válvula de Bloqueio submetendo a amostra à pressão de serviço na entrada 
+do redutor de pressão (20,0 MPa). 
+3.12.1.1.4 Ajustar a fonte de tensão para a tensão nominal de serviço, aplicá -la à válvula solenóide  e 
+verificar sua abertura. 
+3.12.1.2 Tensão Elétrica Mínima 
+3.12.1.2.1 Proceder conforme os itens 3.12.1.1.1 e 3.12.1.1.2 deste Anexo. 
+ 
+3.12.1.2.2 Após os procedimentos mencionados em 3. 12.1.2.1 deste Anexo, suprimir a alimentação  da 
+fonte de tensão e abrir a Válvula de Bloqueio submetendo a amostra à pressão de serviço na entrada do 
+redutor de pressão (20,0 MPa). 
+3.12.1.2.3 Ajustar a fonte de tensão para a tensão equivalente a 85% da tensão nominal de serviço, aplicá-
+la à válvula solenóide e verificar sua abertura. 
+3.12.2 Aceitação 
+A válvula solenóide deve operar normalmente quando submetidas às condições mencionadas nos itens 
+3.12.1.1 e 3.12.1.2 deste Anexo. 
+
+## Página 67
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+    
+ 
+64 
+ 
+3.13 Choque por pressão 
+Para este ensaio devem ser utilizados ar, ni trogênio ou GN como fluidos de teste na temperatura 
+ambiente utilizando o dispositivo de ensaio da Figura 10. Os ensaios devem ser desenvolvidos conforme 
+descrito no Procedimento de Ensaio do item 3. 13.1 deste Anexo. O número de ciclos a serem realizados 
+deve ser o período de garantia declarado pelo fabricante (n° de anos) multiplicado por 1.500. 
+N = 1500.G 
+Onde: 
+N = n° de ciclos a serem aplicados  
+G = Período de garantia declarado pelo fabricante (anos) 
+Nota: O fator 1500 corresponde à estimativa de 4 abastecimentos diários em um período de 1 ano. 
+ 
+Figura 10  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+O ensaio deve ser desenvolvido conforme as condições da Tabela 7. 
+ 
+  
+Tabela 7 
+FASE Válvula 1 
+ Válvula de Amostra Manômetro  
+Descarga Ensaiada       
+1 Aberta 
+ Fechada Pressurizada 22,0 + 0,05     
+ 
+MPa      
+2 Fechada  Aberta Despressurizada 0,0 MPa 
+Nº de 
+Ciclos 
+  N = 1500.G         
+       
+Frequência  Não superior a 10 ciclos por minuto  
+ 
+3.13.1 Procedimento de ensaio 
+3.13.1.1 Instalar os indicadores de pressão em cada estágio do redutor de pressão. 
+
+## Página 68
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+    
+ 
+65 
+ 
+3.13.1.2 Submeter à a mostra ao ensaio de Estanqueidade à temperatura ambiente prescrito no item 3.4 
+deste Anexo e registrar o valor de pressão do 1° estágio. 
+3.13.1.3 Instalar a amostra no dispositivo de ensaio conf orme a Figura 10 . Verificar a ocorrência de  
+eventuais vazamentos na instalação e eliminá-los. 
+3.13.1.4 Energizar a válvula solenóide aplicando a tensão nominal de serviço. A válvula solenóide deve ser 
+mantida energizada durante todo o período do ensaio. 
+3.13.1.5 Iniciar o ensaio aplicando o número de ciclos correspondentes conforme a Tabela 7. 
+3.13.1.6 Após a realização do número de ciclos a amostra deve ser submetida ao ensaio de Estanqueidade 
+à temperatura ambiente prescrito no item 3.4 deste Anexo. No ensaio de Estanqueidade registrar o valor 
+de pressão do 1° estágio. 
+3.13.2 Aceitação 
+3.13.2.1 Aprovação no ensaio de Estanqueidade. 
+ 
+3.13.2.2 O valor de pressão observado no 1° estágio após a realização do ensaio de ciclos mencionado no 
+item 3.13.1.5 deste Anexo, não pode ser superior a 150% da pressão do mesmo estágio observada no 
+início do ensaio como descrito no item 3.13.1.2 deste Anexo. 
+3.14 RESISTÊNCIA À BAIXAS TEMPERATURAS 
+A amostra deve ser submetida às condições e procedimentos descritos no item 3.14.1 deste Anexo. 
+3.14.1 Procedimento de ensaio 
+3.14.1.1 Preencher completamente as câmaras do sistema de aquecimento do redutor de pressão  com 
+água e tamponar as saídas. 
+3.14.1.2 Submeter à a mostra nas condições descritas no item 3.14.1.1 deste Anexo à temperatura de 
+20 oC + 5 oC por um período mínimo de 24 horas. 
+3.14.1.3 Após a exposição da amostra descrito no item 3. 14.1.2 deste Anexo, condicionar a amostra à 
+temperatura ambiente e realizar ensaio de estanqueidade nas câmaras do sistema de arrefecimento  
+aplicando a pressão pneumática de ensaio de 0,3 MPa utilizando ar comprimido ou nitrogênio e observar 
+a ocorrência de vazamentos. 
+3.14.2 Aceitação 
+A amostra não pode apresentar rupturas e ou vazamentos 
+4 ACEITAÇÃO 
+As amostras ensaiadas devem atender a todos os ensaios descritos no item 2. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+## Página 69
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+    
+ 
+66 
+ 
+ 
+ 
+ 
+ 
+ANEXO G -SUPORTE DE CILINDRO 
+Classificação, Ensaios, Métodos de Ensaios e Aceitação 
+ 
+1 CLASSIFICAÇÃO 
+O suporte de cilindro deve ser classificado e verificado conforme os requisitos das Tabelas 1 e 2 e das 
+Figuras 1, 2, 3, 4 deste Anexo. 
+ 
+Tabela 1 
+POSIÇÃO  
+MASSA DO 
+CILINDRO 
+(KG) 
+Nº DE 
+CINTAS           MATERIAL 
+SECÇÃO 
+MÍNIMA 
+(mm) 
+DIÂMETRO 
+DO 
+FURO NA 
+BASE Vide 
+3 
+(mm) 
+DIÂMETRO 
+MÍNIMO 
+DO 
+PARAFUSO 
+Vide 1 e 2 
+(mm) 
+CHAPAS 
+OU 
+ARRUELAS 
+DE 
+REFÔRÇO 
+Vide 2 
+(mm) 
+ 
+ 
+Sobre o 
+Assoalho 
+ 
+ 
+Até120 2 
+ASTM A- 36 
+ou 
+Equivalente 
+30x3 12 10 
+50x50 
+x4,7 
+ ou 
+50x4,7 
+Acima de     
+120 e 
+2 50x3 14 12 Abaixo de     
+150     
+Igual ou     
+Acima de 2 50x6 14 12 
+150     
+Até70 2 30x3 12 10     
+Sob o 
+Assoalho 
+Acima de 70   
+e Abaixo de 
+120 3 
+ASTM A- 36 
+ou 
+Equivalente 
+50x3 14 12 
+50x50 
+x4,7 
+ ou 
+50x4,7 
+Acima de     
+120 e 
+3 50x6 14 12 Abaixo de     
+150     
+Igual ou     
+Acima de 4 50x6 14 12 
+150     
+Até70 2 30x3 12 10      
+Notas: 
+1. Parafusos e Porcas Autotravantes de Classe 8.8. 
+2. Parafusos, Porcas e Arruelas com proteção superficial contra corrosão.  
+3. 4 furos de Fixação nas extremidades da base (mínimo). 
+4. A comprovação de dimensionamento por elementos finitos do conjunto do suporte montado, 
+dispensa as dimensões prescritas na Tabela 1 nas respectivas configurações de montagem da 
+Tabela 2. 
+
+## Página 70
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+    
+ 
+67 
+ 
+ 
+ 
+ 
+Tabela 2 
+ 
+CONFIGURAÇÕES DE MONTAGEM 
+TIPO DE 
+CONFIGURAÇÃO  
+DISPOSIÇÃO EM 
+CONSTRUÇÃ O  RELAÇÃO AO VEÍCULO   
+Simples Figura 1  Transversal 
+Figura 2 
+ 
+Longitudinal   
+ Figura 3  Transversal Vertical 
+Agrupada Figura 4  Longitudinal Vertical 
+Figura 5 
+ 
+Transversal Horizontal   
+ Figura 6  Longitudinal Horizontal 
+ 
+ 
+Figura 1  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figura 2  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figura 3  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figura 4  
+ 
+ 
+ 
+ 
+ 
+ 
+
+## Página 71
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+    
+ 
+68 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figura 5  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figura 6  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+2 ENSAIOS 
+a) Deve atender seguintes ensaios, onde aplicáveis. 
+b) Verificação Dimensional e Classificação; 
+c) Corrosão; 
+d) Envelhecimento por Oxigênio; 
+e) Resistência a esforços mecânicos 
+ 
+Os ensaios aplicáveis para cada componente, conforme suas concepções, estão descritos na Tabela 3 a 
+seguir: 
+Tabela 3 
+ 
+Ensaios Aplicáveis 
+Tipo do Componente Ensaios 
+Conjunto Montado (Base, Berço de Apoio, Abraçadeiras,  
+Cintas, Batentes e Elementos de Proteção e Elementos de a, b, d 
+Fixação)  
+Elemento de Proteção c 
+  
+Nota 1: Os ensaios onde as temperaturas não sejam especificadas deverã o ser realizados à temperatura 
+ambiente.  
+ 
+3 MÉTODOS DE ENSAIOS 
+ 
+3.1 Verificação Dimensional e Classificação da Amostra 
+Uma amostra é definida como sendo um conjunto de suporte de cilindro com todos os seus componentes 
+montados exceto o cilindro. Deve ser realizada a verificação dimensional da amostra conforme os 
+
+## Página 72
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+    
+ 
+69 
+ 
+requisitos da Tabela 1. A amostra d eve ser classificada por tipo conforme o item 2.2 deste Anexo. As 
+dimensões observadas e a classificação devem ser registradas no relatório de ensaio. 
+ 
+ 
+3.2 Corrosão 
+A amostra deve ser submetida a ensaio em ambiente de névoa salina conforme o procedimento descrito 
+em 3.2.1. 
+3.2.1 Procedimento de Ensaio 
+3.2.1.1 Acomodar a amostra no interior da câmara de ensaio e submetê-la ao ensaio de névoa salina por 
+um período de 96 horas. Nos casos em que  as dimensões da amostra sejam incompatíveis com as 
+dimensões da câmara de ensaio podem ser selecionados corpos de prova da mesma amostra. Os corpos 
+de prova devem ser obtidos de secções que contenham solda e ou dobras. As  regiões seccionadas onde 
+ocorrer comprometimento do tratamento superficial devem ser protegidas. 
+3.2.1.2 Manter a temperatura no interior da câmara de névoa salina entre 33o C e 36o C. 
+3.2.1.3 A solução salina consiste em 5% de Cloreto de Sódio e 95% de água destilada, em massa. 
+3.2.1.4 Imediatamente após o término da exposição à névoa salina a amostra deve ser cuidadosamente 
+limpa com a remoção dos depósitos de sais. 
+3.2.2 Aceitação 
+A amostra não pode apresentar evidências de pontos de corrosão vermelha em superfície com área maior 
+do que 5% da área total exposta. Nas regiões soldadas e ou dobradas não podem ocorrer pontos de 
+corrosão vermelha. 
+3.3 Envelhecimento por Oxigênio  
+As amostras não podem apresentar evidências visíveis de degradação quando expostas ao oxigênio por 
+96 horas, à temperatura de 70o C e pressão de 2 MPa (20 bar). 
+ 
+3.4 RESISTÊNCIA A ESFORÇOS MECÂNICOS 
+3.4.1 Preparação do Ensaio 
+3.4.1.1 Para a realização dos ensaios deve ser utilizado um dispositivo para fixação do conjunto do suporte 
+de cilindro que reproduza sua fixação e o diâmetro externo nominal do cilindro ou grupo de cilindros para 
+o qual foi projetado e classificado conforme o item 2.2 deste Anexo. 
+3.4.1.2 Montar o conjunto do suporte (amostra) no dispositivo de ensaio utilizando apenas os  
+componentes que compõe o conjunto fornecido pelo fabricante conforme as instruções de montagem. 
+3.4.1.3 Montar o(s) modelo(s) de cilindro(s) representativo(s) no suporte e fixá -lo apenas com os  
+componentes e elementos de proteção e de fixação fornecidos pelo fabricante conforme as instruções de 
+montagem. 
+3.4.1.4 Instalar os atuadores e instrumentos de medição conforme as Figuras 7-A, 7-B ou 8. 
+As cargas devem ser aplicadas na direção do centro de gravidade do conjunto montado. 
+ 
+ 
+ 
+ 
+
+## Página 73
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+    
+ 
+70 
+ 
+ 
+ 
+ 
+ 
+ 
+Figura 7-A  
+Para Conjuntos Simples ou Agrupados dispostos horizontalmente  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figura 7-B 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Para Conjuntos Simples ou Agrupados dispostos na posição horizontal 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figura 8  
+Para Conjuntos Agrupados dispostos na posição vertical  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+## Página 74
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+    
+ 
+71 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3.4.2 Aplicação das cargas 
+3.4.2.1 Os valores das cargas devem ser calculados considerando a seguinte fórmula: 
+ 
+ 
+Onde: 
+F = MT . n . g  (N)  
+  
+MT = Massa Total do Conjunto = M C + MGNV  + MS (kg)  MC = Massa do Cilindro (kg)  
+M
+TGNV = Massa do GNV (kg)  
+MS = Massa do Suporte (kg)  
+g = Aceleração da gravidade = 9,8 m/s2  
+n = Fator de Multiplicação (Tabela 4)  
+ 
+3.4.2.2 A Intensidade, Direção e Sentido das cargas devem ser adotadas conforme a Tabela 4 e as Figuras 
+de 1 a 6, conforme a configuração de montagem classificada. 
+ 
+Tabela 4 
+Massa do Veículo Disposição Em Relação 
+Ao Veículo 
+Fator de Multiplicação (n) 
+   
+  
+(kg) FL FT FV   
+      
+   Figura 1     
+   Figura 2     
+< 3.500 Figura 3 20,0 8,0 4,5 
+Figura 4       
+   Figura 5    
+   Figura 6    
+   Figura 1     
+   Figura 2     
+> 3.500 Figura 3 10,0 5,0 4,5 
+Figura 4       
+   Figura 5    
+   Figura 6    
+As cargas devem ser aplicadas na direção do centro de gravidade do conjunto conforme a disposição de 
+montagem em relação ao veículo definidas nas Figuras de 1 a 6. 
+ 
+3.4.2.3 Ajustar os instrumentos de medição de des locamento (relógio comparador) conforme  definido 
+nas Figura 7-A, VII-B e VIII registrando a referência (D0). 
+ 
+3.4.2.4 Aplicar a carga por um período mínimo de 60 segundos e registrar no relatório de ensaio o  
+deslocamento (DF). 
+ 
+3.4.2.5 Calcular o deslocamento máximo (DMAX) conforme a fórmula: 
+ 
+DMAX = DF - D0 
+ 
+
+## Página 75
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+    
+ 
+72 
+ 
+3.4.3 Aceitação 
+a) Os valores máximos de deslocamento definidos na Tabela 5. 
+ 
+ 
+ 
+Tabela 5 
+Deslocamento Máximo (DMÁX)  - (mm)  
+ FL  FT  FV 
+< 50 < 20 < 20 
+         
+ 
+b) O conjunto do suporte não pode apresentar trincas e ou rupturas. Para a detecção de trincas e ou 
+rupturas pode ser utilizado o método através de liquido penetrante ou outro método equivalente. 
+4 Aceitação 
+As amostras ensaiadas devem atender a todos os ensaios descritos no item 2. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+## Página 76
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+    
+ 
+73 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ANEXO H - SISTEMA DE VENTILAÇÃO 
+Classificação, Ensaios, Métodos de Ensaios e Aceitação 
+ 
+1. CLASSIFICAÇÃO 
+O sistema de ventilação deve ser classificado,  conforme apresentado pelo fabricante no memorial 
+descritivo, pelo tipo conforme indicado na Tabela 1 e nas Figuras 1 e 2. 
+ 
+ Tabela 1 
+TIPO Aplicação em Válvula de Cilindro  
+I Do tipo Ventilada (Figura 1) 
+II Do tipo Não Ventilada (Figura 2) 
+ Figura 1  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+1 - Flange 
+2 -  Elemento de Fixação  
+3 -  Duto Flexível 
+4 -  Válvula de Cilindro do Tipo I (Ventilada) 
+ 
+ 
+ 
+Figura 2  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+
+## Página 77
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+    
+ 
+74 
+ 
+1 -  Flange  
+2 -  Elemento de Fixação 
+3 -  Duto Flexível  
+4 -  Invólucro 
+5 -  Válvula de Cilindro do Tipo II (Não Ventilada) 
+ 
+ 
+ 
+2  ENSAIOS 
+Deve atender aos requisitos definidos neste regulamento para os seguintes ensaios, onde aplicáveis. 
+a) Estanqueidade; 
+b) Resistência à Corrosão (apenas para componentes metálicos) 
+c) Resistência a Torque Excessivo (apenas para componentes roscados) 
+d) Envelhecimento por Oxigênio 
+e) Imersão de Material Sintético Não-Metálico 
+f) Resistência a Vibração (apenas para sistemas metálicos) 
+g) Aderência (“Pull-Off”) 
+ 
+Os ensaios aplicáveis para cada componente , conforme suas concepções, estão descritos na Tabela 2 a 
+seguir: 
+  
+Tabela 2  
+Ensaios Aplicáveis  
+Tipo do Componente  Ensaios 
+Sistema na Configuração de 
+Montagem 
+ a, f, g  
+  
+Flange em Aço C  B 
+Flange em material termoplástico  d, e 
+Elemento de Fixação  b, c 
+Duto Flexível  d, e 
+Invólucro (1)  d, e  (1) Para os sistemas de ventilação do Tipo I a válvula de cilindro deve  
+atender os Requisitos do Anexo A deste RAC.  
+  
+Nota 1: Os ensaios onde as temperaturas não sejam especificadas deverão ser realizados à temperatura 
+ambiente.  
+ 
+ 
+3 MÉTODOS DE ENSAIOS 
+ 
+3.1 Estanqueidade 
+Para este ensaio devem ser utilizados ar, nitrogênio ou GN como fluidos de teste. 
+ 
+3.1.1 Estanqueidade em Sistemas de Ventilação do Tipo I 
+Para a realização do ensaio o fabricante deve fornecer a válvula de cilindro ventilada para o qual o sistema 
+foi projetado. 
+ 
+3.1.1.1 Dispositivo de Ensaio 
+
+## Página 78
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+    
+ 
+75 
+ 
+Utilizando todos os componentes de Sistema de Ventilação, executar a montagem conforme as instruções 
+do fabricante no dispositivo de ensaio da Figura 3. As conexões para tamponamento devem possuir o 
+mesmo diâmetro nominal de ataque aos flanges. A conexão de entrada para a fixação da válvula de 
+cilindro deve possuir rosca no padrão 3/4" NGT - 14 fios por polegada 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figura 3  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3.1.1.2 Condicionamento da amostra  
+Os condicionamentos devem ser realizados com a amostra continuamente submetida à s temperaturas 
+especificadas conforme a Tabela 3. 
+ 
+Tabela 3 
+Tipo de Ensaio Temperaturas (o C) Pressões de Ensaio  
+      (MPa) 
+Temperatura Ambiente 15 a 25 0,05 
+Alta Temperatura 85 + 5% 0,05 
+     
+Baixa Temperatura -20 + 5% 0,05 
+       
+ 
+3.1.1.3 Execução do Ensaio 
+Em cada condição de temperatura e pressão especificada na Tabela 3, a amostra deve ser submersa em 
+água ou outro meio adequado por um período mínimo de 2 minutos na posição Aberta e observar a 
+ocorrência de vazamentos. 
+ 
+3.1.1.3.1 Ensaio da Válvula Ventilada 
+Este ensaio deve ser realizado com a válvula de cilindro submetida a 22,0 MP a à temperatura ambiente 
+conforme o dispositivo de ensaio da Figura 4. 
+ 
+Figura 1 
+ 
+ 
+Figura 4 
+Retificação publicada no Diário Oficial da União de 20/05/2022 
+ 
+ 
+
+## Página 79
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+    
+ 
+76 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3.1.1.3.1.1 Com a válvula de cilindr o na posição Aberta, fechar Válvula de Descarga, abrir a Válvula de 
+Bloqueio e submeter à a mostra à pressão de 22,0 MPa durante 2 minutos e observar a ocorrência de 
+vazamentos.  
+3.1.2.3.1.2 Fechar a Válvula de Bloqueio e abrir a Válvula de Descarga para despressurizar a linha. 
+3.1.2.3.1.3 Com a válvula de cilindro na posição fechada, fechar a Válvula de Descarga, abrir a Válvula de 
+Bloqueio e submeter à a mostra à pressão de 22,0 MPa durante 2 minutos e observar a ocorrência de 
+vazamentos. 
+3.1.1.4 Aceitação 
+Em quaisquer das condições a amostra não pode apresentar vazamento superior a 20 cm3/h ou apresentar 
+bolhas. 
+3.1.2 Estanqueidade em Sistemas de Ventilação do Tipo II 
+3.1.2.1 Dispositivo de Ensaio 
+Utilizando todos os componentes de Sistema de Ventilação, executar a montagem conforme as instruções 
+do fabricante no dispositivo de ensaio da Figura 5. As conexões para tamponamento devem possuir o 
+mesmo diâmetro nominal de ataque aos flanges. A conexão de entrada para a fixação do invólucro deve 
+possuir o mesmo diâmetro nominal do pescoço do cilindro. 
+ 
+ 
+Figura 5 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+## Página 80
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+    
+ 
+77 
+ 
+ 
+3.1.2.2 Condicionamento da amostra 
+Conforme item 3.1.1.2 deste Anexo. 
+3.1.2.3 Execução do Ensaio 
+3.1.2.3.1 Ensaio do Sistema na configuração de montagem 
+Em cada condição de temperatura e pressão especificada na Tabela 3, a amostra deve ser submersa em 
+água ou outro meio adequado por um período mínimo de 2 minutos e observar a ocorrência de 
+vazamentos. 
+3.1.2.4 Aceitação 
+Em quaisquer das condições a amostra não pode  apresentar vazamento sup erior a 20 cm 3/h ou 
+apresentar bolhas. 
+ 
+3.2 Resistência à Corrosão 
+A amostra deve ser submetida a ensaio em ambiente de névoa salina conforme o seguinte procedimento: 
+3.2.1 Acomodar a amostra no interior da câmara de ensaio e submetê -la ao ensaio de névoa salina por 
+um período de 96 horas. 
+3.2.2 Manter a temperatura no interior da câmara de névoa salina entre 33o C e 36o C. 
+3.2.3 A solução salina consiste de 5% de Cloreto de Sódio e 95% de água destilada, em massa. 
+3.2.4 Imediatamente após o término da expo sição à névoa salina a amostra deve ser cuidadosamente  limpa 
+com a remoção dos depósitos de sais. A amostra não pode  apresentar evidências de pontos de corrosão 
+vermelha na superfície de base com área maior do que 5% da área total exposta. 
+3.3 Resistência a Torque Excessivo 
+O componente projetado para ser conectado através de conexões rosqueadas deve resistir a torques de 
+fixação de no mínimo 150% do torque de fixação especificado pelo fabricante. 
+3.3.1 O ensaio deve ser realizado conforme o dispositivo de ensaios e dimensões da Figura 6. 
+ 
+Figura 6  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Onde: 
+Tf = Torque especificado pelo fabricante 
+
+## Página 81
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+    
+ 
+78 
+ 
+Te = Torque de ensaio 
+D > 5d 
+Te > 1,5. Tf 
+ 
+3.3.2 A base de Fixação do dispositivo de ensaio deve ser constituída de material com resistência mecânica 
+igual ou superior à da amostra ensaiada. 
+3.3.3 O Torque Te deve ser aplicado por um período mínimo de 15 minutos. Após o período de aplicação 
+do torque de ensaio, remover a amostra e examiná-la quanto à existência de deformações ou rupturas. 
+3.3.4 Após o ensaio a amostra deve atender aos requisitos de Estanqueidade prescritos no item 3.1 deste 
+Anexo. 
+3.4 Envelhecimento por Oxigênio 
+Todas as partes sintéticas ou não metálicas dos componentes com finalidade de vedação do combustível 
+cujos fabricantes não apresentem declaração de conformidade satisfatória quando expostos a oxigênio 
+devem ter amostras representativas ensaiadas conforme  o procedimento descrito neste A nexo. As 
+amostras não podem apresentar evidências visíveis de degradação quando expostas ao ox igênio por 96 
+horas, à temperatura de 70 oC e pressão de 2 MPa (20 bar). 
+3.5 Resistência a Hidrocarbonetos dos Componentes Não -Metálicos 
+3.5.1 Um componente não metálico utilizado como parte de um conjunto, cujo fabricante não apresente 
+relatórios de ensaios do material, deverá ser submetido ao ensaio de resistência a hidrocarbonetos. 
+3.5.2 Um componente não metálico que na aplicação esteja exposto a GN não pode apresentar variações 
+significativas de volume e ou massa quando submetido a ensaios conforme o seguinte procedimento: 
+3.5.2.1 Realizar medições para determinação da massa e do volume em amostras do componente a  ser 
+ensaiado. 
+3.5.2.2 Introduzir as amostras numa câmara, conforme a Figura 7, nas condições de ensaio descritas na 
+Tabela 4. 
+ 
+Figura 7  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Tabela 4 
+Fluido no Interior da Câmara Pressão no interior da Câmara Período de Exposição  (Mínimo) 
+Gás Natural (GN) 20 MPa 70 horas 
+ 
+
+## Página 82
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+    
+ 
+79 
+ 
+3.5.2.3 Após o período mínimo de exposição retirar as amostras da câmara de ensaio e verificar as  
+dimensões das amostras. 
+3.5.2.4 Após o ensaio as amostras não podem apresentar dilatação volumétrica maior do que 25%  ou 
+retração volumétrica maior do que 1% em relação ao volume inicial. A variação de massa não pode  
+exceder a 10%. 
+3.6 Vibração 
+3.6.1 A amostra deve ser submetida a ensaio de vibração conforme o seguinte procedimento: 
+3.6.1.1 Fixar a amostra no dispositivo de ensaio e submetê-la a vibrações por um período de 2 horas com 
+frequência de 17 Hz amplitude de 1,5 mm em cada um dos três eixos de orientação. 
+3.6.1.2 Após o período completo de 6 horas dos ensaios descritos no item 3.6.1.1, a amostra deve  ser 
+submetida ao ensaio de Estanqueidade prescrito no item 3.1 deste Anexo. 
+3.7 Aderência (“Pull-Off” ) 
+3.7.1 Procedimento de ensaio 
+3.7.1.1 Os componentes devem ser montados e fixados conforme as especificações do fabricante no  
+dispositivo de ensaio específico para o Tipo a ser ensaiado conforme itens 3.1.1.1 ou 3.1.2.1. 
+3.7.1.2 Os adaptadores para fixação do Duto Flexível devem possuir diâmet ros nominais externos  
+equivalentes aos diâmetros nominais das conexões fornecidas pelo fabricante. 
+3.7.1.3 Os componentes devem ser montados no dispositivo de ensaio da Figura 8. 
+ 
+Figura 8  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Onde:  
+1 -  Base de Fixação 
+2 -  Elementos de Fixação  
+3 -  Duto Flexível 
+4 -  Conexão de Tração  
+F = Carga de Tração aplicada (N) 
+FS = Carga de Separação aplicada (N) 
+ 
+3.7.1.4 Aplicar uma carga de tração (F) na extremidade livre da amostra a uma taxa máxima de 100 N/min 
+até ocorrer à separação da amostra em relação ao dispositivo de ensaio e registrar a Carga de Separação 
+(FS). 
+ 
+3.7.2 Aceitação 
+FS > F 
+ 
+4 ACEITAÇÃO 
+
+## Página 83
+
+ANEXO DA PORTARIA INMETRO Nº 111/2022 
+    
+ 
+80 
+ 
+As amostras ensaiadas devem atender a todos os ensaios descritos no item 2. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ANEXO III – SELO DE IDENTIFICAÇÃO DA CONFORMIDADE 
+ 
+1. O Selo de Identificação da Conformidade , a ser aposto nos componentes, deve ser do tipo compacto, 
+de tamanho mínimo 20 mm, conforme Figura 1 deste A nexo. O Selo Compacto deve ser utilizado 
+exclusivamente no produto. 
+ 
+2. A gravação do Selo de Identificação  da Conformidade, na embalagem do componente, deve ser feita 
+por meio de impressão direta na mesma, observando-se: 
+a) deve-se utilizar sempre que possível o Selo de Identificação da Conformidade colorido, de tamanho 
+mínimo de 50 mm; 
+b) a versão em uma cor (transparente) ou em tons de cinza somente poderá ser utilizada, em substituição 
+à versão colorida, quando a cor de fundo da embalagem for semelhante à do Selo de Identificação da 
+Conformidade colorido, não permitindo, assim, uma adequada visualização dess e Selo, ou quando todas 
+as impressões contidas na embalagem forem de uma só cor. O tamanho mínimo também é de 50mm. 
+ 
+Nota: O Selo de Identificação da Conformidade, na versão em uma só cor, pode ser impresso em preto ou 
+na cor utilizada para as impressões contidas na embalagem. 
+   
+ 
+Figura 1: Selo de Identificação da Conformidade (Completo e Compacto)

@@ -1,0 +1,420 @@
+{
+  "data": "2026-11-02",
+  "requisitos": [
+    {
+      "id": "GNV-C01",
+      "titulo": "Válvula de cilindro",
+      "pai": "SEG-024",
+      "fase": "componente e construção",
+      "obrigacao": "Componente incluído no regulamento de segurança e certificação compulsória do sistema GNV.",
+      "entrega": "Comprovação de conformidade do componente; marcações e certificado aplicável, sem substituir prova da instalação ou inspeção do veículo.",
+      "condicao": "Se o veículo tem sistema GNV e o componente está no escopo do art. 4º.",
+      "fontes": [
+        {
+          "fonte": "inmetro-111-2022-http",
+          "dispositivo": "art. 4º, § 1º, inciso I; arts. 5º e 6º",
+          "paginas_pdf": [
+            1,
+            2
+          ]
+        },
+        {
+          "fonte": "contran-280-2008",
+          "dispositivo": "art. 1º, parágrafo único",
+          "paginas_pdf": [
+            1
+          ]
+        }
+      ],
+      "partes_3d": [
+        "gnv-valvula-cilindro"
+      ],
+      "vinculo_3d": "semântico, a conferir no modelo"
+    },
+    {
+      "id": "GNV-C02",
+      "titulo": "Válvula de abastecimento",
+      "pai": "SEG-024",
+      "fase": "componente e construção",
+      "obrigacao": "Componente incluído no regulamento de segurança e certificação compulsória do sistema GNV.",
+      "entrega": "Comprovação de conformidade do componente; marcações e certificado aplicável, sem substituir prova da instalação ou inspeção do veículo.",
+      "condicao": "Se o veículo tem sistema GNV e o componente está no escopo do art. 4º.",
+      "fontes": [
+        {
+          "fonte": "inmetro-111-2022-http",
+          "dispositivo": "art. 4º, § 1º, inciso II; arts. 5º e 6º",
+          "paginas_pdf": [
+            1,
+            2
+          ]
+        },
+        {
+          "fonte": "contran-280-2008",
+          "dispositivo": "art. 1º, parágrafo único",
+          "paginas_pdf": [
+            1
+          ]
+        }
+      ],
+      "partes_3d": [
+        "gnv-valvula-abastecimento"
+      ],
+      "vinculo_3d": "semântico, a conferir no modelo"
+    },
+    {
+      "id": "GNV-C03",
+      "titulo": "Válvula de fechamento rápido",
+      "pai": "SEG-024",
+      "fase": "componente e construção",
+      "obrigacao": "Componente incluído no regulamento de segurança e certificação compulsória do sistema GNV.",
+      "entrega": "Comprovação de conformidade do componente; marcações e certificado aplicável, sem substituir prova da instalação ou inspeção do veículo.",
+      "condicao": "Se o veículo tem sistema GNV e o componente está no escopo do art. 4º.",
+      "fontes": [
+        {
+          "fonte": "inmetro-111-2022-http",
+          "dispositivo": "art. 4º, § 1º, inciso III; arts. 5º e 6º",
+          "paginas_pdf": [
+            1,
+            2
+          ]
+        },
+        {
+          "fonte": "contran-280-2008",
+          "dispositivo": "art. 1º, parágrafo único",
+          "paginas_pdf": [
+            1
+          ]
+        }
+      ],
+      "partes_3d": [
+        "gnv-valvula-fechamento"
+      ],
+      "vinculo_3d": "semântico, a conferir no modelo"
+    },
+    {
+      "id": "GNV-C04",
+      "titulo": "Tubo de alta pressão e conexões",
+      "pai": "SEG-024",
+      "fase": "componente e construção",
+      "obrigacao": "Componente incluído no regulamento de segurança e certificação compulsória do sistema GNV.",
+      "entrega": "Comprovação de conformidade do componente; marcações e certificado aplicável, sem substituir prova da instalação ou inspeção do veículo.",
+      "condicao": "Se o veículo tem sistema GNV e o componente está no escopo do art. 4º.",
+      "fontes": [
+        {
+          "fonte": "inmetro-111-2022-http",
+          "dispositivo": "art. 4º, § 1º, inciso IV; arts. 5º e 6º",
+          "paginas_pdf": [
+            1,
+            2
+          ]
+        },
+        {
+          "fonte": "contran-280-2008",
+          "dispositivo": "art. 1º, parágrafo único",
+          "paginas_pdf": [
+            1
+          ]
+        }
+      ],
+      "partes_3d": [
+        "gnv-tubo-alta-pressao"
+      ],
+      "vinculo_3d": "semântico, a conferir no modelo"
+    },
+    {
+      "id": "GNV-C05",
+      "titulo": "Indicador de pressão",
+      "pai": "SEG-024",
+      "fase": "componente e construção",
+      "obrigacao": "Componente incluído no regulamento de segurança e certificação compulsória do sistema GNV.",
+      "entrega": "Comprovação de conformidade do componente; marcações e certificado aplicável, sem substituir prova da instalação ou inspeção do veículo.",
+      "condicao": "Se o veículo tem sistema GNV e o componente está no escopo do art. 4º.",
+      "fontes": [
+        {
+          "fonte": "inmetro-111-2022-http",
+          "dispositivo": "art. 4º, § 1º, inciso V; arts. 5º e 6º",
+          "paginas_pdf": [
+            1,
+            2
+          ]
+        },
+        {
+          "fonte": "contran-280-2008",
+          "dispositivo": "art. 1º, parágrafo único",
+          "paginas_pdf": [
+            1
+          ]
+        }
+      ],
+      "partes_3d": [
+        "gnv-indicador-pressao"
+      ],
+      "vinculo_3d": "semântico, a conferir no modelo"
+    },
+    {
+      "id": "GNV-C06",
+      "titulo": "Duto de baixa pressão, conexões e fixações",
+      "pai": "SEG-024",
+      "fase": "componente e construção",
+      "obrigacao": "Componente incluído no regulamento de segurança e certificação compulsória do sistema GNV.",
+      "entrega": "Comprovação de conformidade do componente; marcações e certificado aplicável, sem substituir prova da instalação ou inspeção do veículo.",
+      "condicao": "Se o veículo tem sistema GNV e o componente está no escopo do art. 4º.",
+      "fontes": [
+        {
+          "fonte": "inmetro-111-2022-http",
+          "dispositivo": "art. 4º, § 1º, inciso VI; arts. 5º e 6º",
+          "paginas_pdf": [
+            1,
+            2
+          ]
+        },
+        {
+          "fonte": "contran-280-2008",
+          "dispositivo": "art. 1º, parágrafo único",
+          "paginas_pdf": [
+            1
+          ]
+        }
+      ],
+      "partes_3d": [
+        "gnv-duto-baixa-pressao"
+      ],
+      "vinculo_3d": "semântico, a conferir no modelo"
+    },
+    {
+      "id": "GNV-C07",
+      "titulo": "Redutor de pressão",
+      "pai": "SEG-024",
+      "fase": "componente e construção",
+      "obrigacao": "Componente incluído no regulamento de segurança e certificação compulsória do sistema GNV.",
+      "entrega": "Comprovação de conformidade do componente; marcações e certificado aplicável, sem substituir prova da instalação ou inspeção do veículo.",
+      "condicao": "Se o veículo tem sistema GNV e o componente está no escopo do art. 4º.",
+      "fontes": [
+        {
+          "fonte": "inmetro-111-2022-http",
+          "dispositivo": "art. 4º, § 1º, inciso VII; arts. 5º e 6º",
+          "paginas_pdf": [
+            1,
+            2
+          ]
+        },
+        {
+          "fonte": "contran-280-2008",
+          "dispositivo": "art. 1º, parágrafo único",
+          "paginas_pdf": [
+            1
+          ]
+        }
+      ],
+      "partes_3d": [
+        "gnv-redutor-pressao"
+      ],
+      "vinculo_3d": "semântico, a conferir no modelo"
+    },
+    {
+      "id": "GNV-C08",
+      "titulo": "Suporte de cilindro",
+      "pai": "SEG-024",
+      "fase": "componente e construção",
+      "obrigacao": "Componente incluído no regulamento de segurança e certificação compulsória do sistema GNV.",
+      "entrega": "Comprovação de conformidade do componente; marcações e certificado aplicável, sem substituir prova da instalação ou inspeção do veículo.",
+      "condicao": "Se o veículo tem sistema GNV e o componente está no escopo do art. 4º.",
+      "fontes": [
+        {
+          "fonte": "inmetro-111-2022-http",
+          "dispositivo": "art. 4º, § 1º, inciso VIII; arts. 5º e 6º",
+          "paginas_pdf": [
+            1,
+            2
+          ]
+        },
+        {
+          "fonte": "contran-280-2008",
+          "dispositivo": "art. 1º, parágrafo único",
+          "paginas_pdf": [
+            1
+          ]
+        }
+      ],
+      "partes_3d": [
+        "gnv-suporte-cilindro"
+      ],
+      "vinculo_3d": "semântico, a conferir no modelo"
+    },
+    {
+      "id": "GNV-C09",
+      "titulo": "Sistema de ventilação e conexões",
+      "pai": "SEG-024",
+      "fase": "componente e construção",
+      "obrigacao": "Componente incluído no regulamento de segurança e certificação compulsória do sistema GNV.",
+      "entrega": "Comprovação de conformidade do componente; marcações e certificado aplicável, sem substituir prova da instalação ou inspeção do veículo.",
+      "condicao": "Se o veículo tem sistema GNV e o componente está no escopo do art. 4º.",
+      "fontes": [
+        {
+          "fonte": "inmetro-111-2022-http",
+          "dispositivo": "art. 4º, § 1º, inciso IX; arts. 5º e 6º",
+          "paginas_pdf": [
+            1,
+            2
+          ]
+        },
+        {
+          "fonte": "contran-280-2008",
+          "dispositivo": "art. 1º, parágrafo único",
+          "paginas_pdf": [
+            1
+          ]
+        }
+      ],
+      "partes_3d": [
+        "gnv-ventilacao"
+      ],
+      "vinculo_3d": "semântico, a conferir no modelo"
+    },
+    {
+      "id": "GNV-01",
+      "titulo": "Cilindro de armazenamento",
+      "pai": "SEG-024",
+      "fase": "componente e construção",
+      "obrigacao": "Cilindro deve atender à segurança e certificação compulsória de seu regulamento; tipo de gás e aplicação precisam ser compatíveis.",
+      "entrega": "Certificado, identificação/marcações, rastreabilidade e selo aplicáveis.",
+      "condicao": "Somente veículo com sistema GNV; separar fabricação original, uso e modificação posterior.",
+      "fontes": [
+        {
+          "fonte": "inmetro-436-2021-http",
+          "dispositivo": "arts. 4º a 9º",
+          "paginas_pdf": []
+        },
+        {
+          "fonte": "inmetro-409-2026-dou-p111",
+          "dispositivo": "art. 3º: selo do cilindro",
+          "paginas_pdf": [
+            1
+          ]
+        }
+      ],
+      "partes_3d": [
+        "gnv-cilindro"
+      ],
+      "vinculo_3d": "semântico, a conferir no modelo"
+    },
+    {
+      "id": "GNV-02",
+      "titulo": "Instalação, desinstalação, substituição e manutenção",
+      "pai": "SEG-024",
+      "fase": "serviço de instalação",
+      "obrigacao": "Fornecedores sujeitos à declaração compulsória e registro; art. 4º inclui original de fábrica e alteração posterior.",
+      "entrega": "Declaração/registro do fornecedor e documentação do serviço prevista no RTQ/RAC; conferir ramo original ou modificação.",
+      "condicao": "Somente veículo com sistema GNV; separar fabricação original, uso e modificação posterior.",
+      "fontes": [
+        {
+          "fonte": "inmetro-130-2022-http",
+          "dispositivo": "arts. 3º a 6º; Anexos I e II",
+          "paginas_pdf": [
+            1,
+            2
+          ]
+        }
+      ],
+      "partes_3d": [
+        "combustivel",
+        "veiculo"
+      ],
+      "vinculo_3d": "semântico, a conferir no modelo"
+    },
+    {
+      "id": "GNV-03",
+      "titulo": "Inspeção periódica do veículo original de fábrica",
+      "pai": "SEG-024",
+      "fase": "veículo em uso",
+      "obrigacao": "Inspeção a cada 12 meses a partir do primeiro registro/licenciamento, conforme 280/2008; a partir do segundo licenciamento comprovar por CSV.",
+      "entrega": "CSV emitido eletronicamente por instituição técnica licenciada, no momento aplicável.",
+      "condicao": "Somente veículo com sistema GNV; separar fabricação original, uso e modificação posterior.",
+      "fontes": [
+        {
+          "fonte": "contran-280-2008",
+          "dispositivo": "arts. 2º e 3º",
+          "paginas_pdf": [
+            1,
+            2
+          ]
+        },
+        {
+          "fonte": "inmetro-147-2022-http",
+          "dispositivo": "arts. 1º a 4º e Anexo I",
+          "paginas_pdf": []
+        },
+        {
+          "fonte": "inmetro-106-2025-dou-p16",
+          "dispositivo": "arts. 1º a 5º",
+          "paginas_pdf": [
+            1
+          ]
+        }
+      ],
+      "partes_3d": [
+        "combustivel",
+        "veiculo"
+      ],
+      "vinculo_3d": "semântico, a conferir no modelo"
+    },
+    {
+      "id": "GNV-04",
+      "titulo": "Requalificação do cilindro",
+      "pai": "SEG-024",
+      "fase": "veículo em uso",
+      "obrigacao": "Periodicidade de 5 anos ou menor por necessidade técnica; não ultrapassar fim da vida útil do cilindro. Fornecedor sujeito a declaração e registro.",
+      "entrega": "Relatório técnico de requalificação e documentos definidos pelo regulamento; selo aplicável.",
+      "condicao": "Somente veículo com sistema GNV; separar fabricação original, uso e modificação posterior.",
+      "fontes": [
+        {
+          "fonte": "inmetro-133-2022-http",
+          "dispositivo": "arts. 6º e 7º; Anexo I, itens 5.4.2 e 7.4",
+          "paginas_pdf": []
+        },
+        {
+          "fonte": "inmetro-409-2026-dou-p111",
+          "dispositivo": "art. 3º: selo da requalificação",
+          "paginas_pdf": [
+            1
+          ]
+        }
+      ],
+      "partes_3d": [
+        "gnv-cilindro"
+      ],
+      "vinculo_3d": "semântico, a conferir no modelo"
+    },
+    {
+      "id": "GNV-05",
+      "titulo": "Informações técnicas ao Inmetro no CAT/MMV",
+      "pai": "SEG-024",
+      "fase": "homologação original",
+      "obrigacao": "Fabricante/importador deve fornecer especificações técnicas do GNV ao obter o MMV, nos termos da 280/2008.",
+      "entrega": "Especificações técnicas do sistema; documentação de conformidade do Anexo V da 990/2022 quando aplicável.",
+      "condicao": "Somente veículo com sistema GNV; separar fabricação original, uso e modificação posterior.",
+      "fontes": [
+        {
+          "fonte": "contran-280-2008",
+          "dispositivo": "art. 2º",
+          "paginas_pdf": [
+            1
+          ]
+        },
+        {
+          "fonte": "portaria-senatran-990-2022-republicacao",
+          "dispositivo": "Anexo V, item 1.4",
+          "paginas_pdf": [
+            11
+          ]
+        }
+      ],
+      "partes_3d": [
+        "combustivel",
+        "veiculo"
+      ],
+      "vinculo_3d": "semântico, a conferir no modelo"
+    }
+  ],
+  "limite": "Revisão dos dispositivos citados; não é parametrização integral dos métodos técnicos nem avaliação de um serviço concreto."
+}

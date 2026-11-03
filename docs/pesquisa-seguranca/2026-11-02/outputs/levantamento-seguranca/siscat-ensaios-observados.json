@@ -1,0 +1,836 @@
+{
+  "data": "2026-10-31",
+  "contexto": {
+    "tipo_cat": "Fabricação",
+    "tipo_veiculo": "AUTOMOVEL",
+    "especie": "PASSAGEIRO",
+    "categoria": "M1",
+    "propulsao": "Elétrico com fonte externa",
+    "situacao_processo": "Deferido"
+  },
+  "niveis": {
+    "nivel2": [
+      {
+        "ajuda": true,
+        "item": "Sistemas de freio",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": true,
+        "item": "Sistemas de limpador e lavador do pára-brisa",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": true,
+        "item": "Instalação dos dispositivos de Iluminação",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": true,
+        "item": "Espelhos retrovisores internos e Externos",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": true,
+        "item": "Vidros de segurança",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": true,
+        "item": "Fechaduras e Dobradiças portas Laterais",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": true,
+        "item": "Mangueiras flexíveis do freio hidráulico",
+        "relatorio_anexado": false
+      },
+      {
+        "ajuda": true,
+        "item": "Janela de acionamento energizado",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": true,
+        "item": "Controle eletrônico de estabilidade",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": true,
+        "item": "Conjunto roda e pneu sobressalente de uso temporário e sistemas alternativos",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": true,
+        "item": "Sistema de Alerta ou Monitoramento Traseiro",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": true,
+        "item": "Aviso de afivelamento dos Cintos de Segurança",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": true,
+        "item": "Sistema de redução de spray",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": true,
+        "item": "Dispositivo Protetor de Roda",
+        "relatorio_anexado": true
+      }
+    ],
+    "nivel3": [
+      {
+        "ajuda": true,
+        "item": "Deslocamento do sistema de coluna de direção",
+        "relatorio_anexado": false
+      },
+      {
+        "ajuda": true,
+        "item": "Sistema de Controle de Direção Absorvedor de Energia",
+        "relatorio_anexado": false
+      },
+      {
+        "ajuda": true,
+        "item": "Sistema de combustível",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": true,
+        "item": "Proteção ao ocupante (critério biomecânico)",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": true,
+        "item": "Ancoragem dos assentos",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": true,
+        "item": "Ancoragem dos cintos de segurança",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": true,
+        "item": "Cintos de segurança",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": true,
+        "item": "Apoio de cabeça",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": true,
+        "item": "Impacto Lateral",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": true,
+        "item": "Isofix/Latch",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": true,
+        "item": "Protecao ao Pedestre",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": true,
+        "item": "Impacto Lateral Poste",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": true,
+        "item": "Requisitos específicos para Veiculos movidos a propulsão Híbrida e Elétrica",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": true,
+        "item": "Sistema de frenagem automático de emergência - obstáculo móvel",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": true,
+        "item": "Sistema de frenagem automático de emergência - obstáculo fixo",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": true,
+        "item": "Aviso de afastamento de faixa de rodagem (LDWS)",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": true,
+        "item": "Impacto frontal - camionetas e utilitários",
+        "relatorio_anexado": false
+      },
+      {
+        "ajuda": true,
+        "item": "Sistema de frenagem automático de emergência - pedestres",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": false,
+        "item": "Sistema de frenagem automático de emergência - ciclistas",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": true,
+        "item": "Assistente de permanência em faixa de rodagem (LKAS)",
+        "relatorio_anexado": true
+      },
+      {
+        "ajuda": false,
+        "item": "Monitor de sonolência ou distração do motorista",
+        "relatorio_anexado": false
+      },
+      {
+        "ajuda": true,
+        "item": "Controle de cruzeiro adaptativo.",
+        "relatorio_anexado": false
+      }
+    ]
+  },
+  "ajudas": [
+    {
+      "item": "Sistemas de freio",
+      "ajuda": "Dispositivo legal: CONTRAN no.777/93"
+    },
+    {
+      "item": "Sistemas de limpador e lavador do pára-brisa",
+      "ajuda": "Dispositivo legal: CONTRAN no.224/07"
+    },
+    {
+      "item": "Instalação dos dispositivos de Iluminação",
+      "ajuda": "Dispositivo legal: CONTRAN no.227/07; 294/08"
+    },
+    {
+      "item": "Espelhos retrovisores internos e Externos",
+      "ajuda": "Dispositivo legal: CONTRAN no.636/84; 226/07"
+    },
+    {
+      "item": "Vidros de segurança",
+      "ajuda": "Dispositivo legal: CONTRAN no.254/07"
+    },
+    {
+      "item": "Fechaduras e Dobradiças portas Laterais",
+      "ajuda": "Dispositivo legal: CONTRAN no.463/73; CONTRAN 885/2021 (anexo 11)"
+    },
+    {
+      "item": "Mangueiras flexíveis do freio hidráulico",
+      "ajuda": "Dispositivo legal: CONTRAN no.461/72; 636/84"
+    },
+    {
+      "item": "Janela de acionamento energizado",
+      "ajuda": "Dispositivo legal: CONTRAN no.649/85;762/92"
+    },
+    {
+      "item": "Controle eletrônico de estabilidade",
+      "ajuda": "Dispositivo legal: CONTRAN no. 641/16"
+    },
+    {
+      "item": "Conjunto roda e pneu sobressalente de uso temporário e sistemas alternativos",
+      "ajuda": "Dispositivo legal: CONTRAN no. 540/15"
+    },
+    {
+      "item": "Sistema de Alerta ou Monitoramento Traseiro",
+      "ajuda": "Dispositivo legal: CONTRAN no. 759/18. Obrigatório a partir de jan/2025."
+    },
+    {
+      "item": "Aviso de afivelamento dos Cintos de Segurança",
+      "ajuda": "Dispositivo legal: CONTRAN no. 760/18."
+    },
+    {
+      "item": "Sistema de redução de spray",
+      "ajuda": "Dispositivo legal: CONTRAN no. 717/17."
+    },
+    {
+      "item": "Dispositivo Protetor de Roda",
+      "ajuda": "Dispositivo legal: CONTRAN no. 888/21."
+    },
+    {
+      "item": "Deslocamento do sistema de coluna de direção",
+      "ajuda": "Dispositivo legal: CONTRAN no.463/73"
+    },
+    {
+      "item": "Sistema de Controle de Direção Absorvedor de Energia",
+      "ajuda": "Dispositivo legal: CONTRAN no.463/73"
+    },
+    {
+      "item": "Sistema de combustível",
+      "ajuda": "Dispositivo legal: CONTRAN no. 486/74; 221/07"
+    },
+    {
+      "item": "Proteção ao ocupante (critério biomecânico)",
+      "ajuda": "Dispositivo legal: CONTRAN no. 221/07"
+    },
+    {
+      "item": "Ancoragem dos assentos",
+      "ajuda": "Dispositivo legal: CONTRAN no. 463/73; 220/07, 316/09"
+    },
+    {
+      "item": "Ancoragem dos cintos de segurança",
+      "ajuda": "Dispositivo legal: CONTRAN no. 48/98, 316/09"
+    },
+    {
+      "item": "Cintos de segurança",
+      "ajuda": "Dispositivo legal: CONTRAN no. 48/98"
+    },
+    {
+      "item": "Apoio de cabeça",
+      "ajuda": "Dispositivo legal: CONTRAN no. 44/98; 220/07"
+    },
+    {
+      "item": "Impacto Lateral",
+      "ajuda": "Dispositivo legal: CONTRAN no. 721/18"
+    },
+    {
+      "item": "Isofix/Latch",
+      "ajuda": "Dispositivo legal: CONTRAN no. 518/15"
+    },
+    {
+      "item": "Protecao ao Pedestre",
+      "ajuda": "Dispositivo legal: CONTRAN no. 752/18. Obrigatório a partir de jan/2025."
+    },
+    {
+      "item": "Impacto Lateral Poste",
+      "ajuda": "Dispositivo legal: CONTRAN no. 751/18. Obrigatório a partir de jan/2026."
+    },
+    {
+      "item": "Requisitos específicos para Veiculos movidos a propulsão Híbrida e Elétrica",
+      "ajuda": "Dispositivo legal: CONTRAN no. 750/18. Obrigatório a partir de jan/2022."
+    },
+    {
+      "item": "Sistema de frenagem automático de emergência - obstáculo móvel",
+      "ajuda": null
+    },
+    {
+      "item": "Sistema de frenagem automático de emergência - obstáculo fixo",
+      "ajuda": null
+    },
+    {
+      "item": "Aviso de afastamento de faixa de rodagem (LDWS)",
+      "ajuda": null
+    },
+    {
+      "item": "Impacto frontal - camionetas e utilitários",
+      "ajuda": null
+    },
+    {
+      "item": "Sistema de frenagem automático de emergência - pedestres",
+      "ajuda": null
+    },
+    {
+      "item": "Sistema de frenagem automático de emergência - ciclistas",
+      "ajuda": null,
+      "observacao": "Sem ícone de ajuda na tela."
+    },
+    {
+      "item": "Assistente de permanência em faixa de rodagem (LKAS)",
+      "ajuda": null
+    },
+    {
+      "item": "Monitor de sonolência ou distração do motorista",
+      "ajuda": null,
+      "observacao": "Sem ícone de ajuda na tela."
+    },
+    {
+      "item": "Controle de cruzeiro adaptativo.",
+      "ajuda": null
+    }
+  ],
+  "detalhes": [
+    {
+      "item": "Sistemas de freio",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ],
+      "registros": 1,
+      "texto_sem_valores": [],
+      "titulo": "Sistemas de freio"
+    },
+    {
+      "item": "Sistemas de limpador e lavador do pára-brisa",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ],
+      "registros": 1,
+      "titulo": "Sistemas de limpador e lavador do pára-brisa"
+    },
+    {
+      "item": "Instalação dos dispositivos de Iluminação",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ],
+      "registros": 1,
+      "titulo": "Instalação dos dispositivos de Iluminação"
+    },
+    {
+      "item": "Espelhos retrovisores internos e Externos",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ],
+      "registros": 1,
+      "titulo": "Espelhos retrovisores internos e Externos"
+    },
+    {
+      "item": "Vidros de segurança",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ],
+      "registros": 1,
+      "titulo": "Vidros de segurança"
+    },
+    {
+      "item": "Fechaduras e Dobradiças portas Laterais",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ],
+      "registros": 1,
+      "titulo": "Fechaduras e Dobradiças portas Laterais"
+    },
+    {
+      "item": "Mangueiras flexíveis do freio hidráulico",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ],
+      "registros": 1,
+      "titulo": "Mangueiras flexíveis do freio hidráulico"
+    },
+    {
+      "item": "Janela de acionamento energizado",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ],
+      "registros": 1,
+      "titulo": "Janela de acionamento energizado"
+    },
+    {
+      "item": "Controle eletrônico de estabilidade",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ],
+      "registros": 1,
+      "titulo": "Controle eletrônico de estabilidade"
+    },
+    {
+      "item": "Conjunto roda e pneu sobressalente de uso temporário e sistemas alternativos",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ],
+      "registros": 1,
+      "titulo": "Conjunto roda e pneu sobressalente de uso temporário e sistemas alternativos"
+    },
+    {
+      "item": "Sistema de Alerta ou Monitoramento Traseiro",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ],
+      "registros": 1,
+      "titulo": "Sistema de Alerta ou Monitoramento Traseiro"
+    },
+    {
+      "item": "Aviso de afivelamento dos Cintos de Segurança",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ],
+      "registros": 1,
+      "titulo": "Aviso de afivelamento dos Cintos de Segurança"
+    },
+    {
+      "item": "Sistema de redução de spray",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ],
+      "registros": 1,
+      "titulo": "Sistema de redução de spray"
+    },
+    {
+      "item": "Dispositivo Protetor de Roda",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ],
+      "registros": 1,
+      "titulo": "Dispositivo Protetor de Roda"
+    },
+    {
+      "item": "Deslocamento do sistema de coluna de direção",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ],
+      "linhas": 1,
+      "registros_visualizaveis": 0,
+      "titulo": "Deslocamento do sistema de coluna de direção"
+    },
+    {
+      "item": "Sistema de Controle de Direção Absorvedor de Energia",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ],
+      "linhas": 1,
+      "registros_visualizaveis": 0,
+      "titulo": "Sistema de Controle de Direção Absorvedor de Energia"
+    },
+    {
+      "item": "Sistema de combustível",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ],
+      "linhas": 1,
+      "registros_visualizaveis": 1,
+      "titulo": "Sistema de combustível"
+    },
+    {
+      "item": "Proteção ao ocupante (critério biomecânico)",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ],
+      "linhas": 1,
+      "registros_visualizaveis": 1,
+      "titulo": "Proteção ao ocupante (critério biomecânico)"
+    },
+    {
+      "item": "Ancoragem dos assentos",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ],
+      "linhas": 1,
+      "registros_visualizaveis": 1,
+      "titulo": "Ancoragem dos assentos"
+    },
+    {
+      "item": "Ancoragem dos cintos de segurança",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ],
+      "linhas": 1,
+      "registros_visualizaveis": 1,
+      "titulo": "Ancoragem dos cintos de segurança"
+    },
+    {
+      "item": "Cintos de segurança",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ],
+      "linhas": 1,
+      "registros_visualizaveis": 1,
+      "titulo": "Cintos de segurança"
+    },
+    {
+      "item": "Apoio de cabeça",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ],
+      "linhas": 1,
+      "registros_visualizaveis": 1,
+      "titulo": "Apoio de cabeça"
+    },
+    {
+      "item": "Impacto Lateral",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ],
+      "linhas": 1,
+      "registros_visualizaveis": 1,
+      "titulo": "Impacto Lateral"
+    },
+    {
+      "item": "Isofix/Latch",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ],
+      "linhas": 1,
+      "registros_visualizaveis": 1,
+      "titulo": "Isofix/Latch"
+    },
+    {
+      "item": "Protecao ao Pedestre",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ],
+      "linhas": 1,
+      "registros_visualizaveis": 1,
+      "titulo": "Protecao ao Pedestre"
+    },
+    {
+      "item": "Impacto Lateral Poste",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ],
+      "linhas": 3,
+      "registros_visualizaveis": 3,
+      "titulo": "Impacto Lateral Poste"
+    },
+    {
+      "item": "Requisitos específicos para Veiculos movidos a propulsão Híbrida e Elétrica",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ],
+      "linhas": 2,
+      "registros_visualizaveis": 2,
+      "titulo": "Requisitos específicos para Veiculos movidos a propulsão Híbrida e Elétrica"
+    },
+    {
+      "item": "Sistema de frenagem automático de emergência - obstáculo móvel",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ],
+      "linhas": 1,
+      "registros_visualizaveis": 1,
+      "titulo": "Sistema de frenagem automático de emergência - obstáculo móvel"
+    },
+    {
+      "item": "Sistema de frenagem automático de emergência - obstáculo fixo",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ],
+      "linhas": 1,
+      "registros_visualizaveis": 1,
+      "titulo": "Sistema de frenagem automático de emergência - obstáculo fixo"
+    },
+    {
+      "item": "Aviso de afastamento de faixa de rodagem (LDWS)",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ],
+      "linhas": 1,
+      "registros_visualizaveis": 1,
+      "titulo": "Aviso de afastamento de faixa de rodagem (LDWS)"
+    },
+    {
+      "item": "Impacto frontal - camionetas e utilitários",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ],
+      "linhas": 1,
+      "registros_visualizaveis": 0,
+      "titulo": "Impacto frontal - camionetas e utilitários"
+    },
+    {
+      "item": "Sistema de frenagem automático de emergência - pedestres",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ],
+      "linhas": 1,
+      "registros_visualizaveis": 1,
+      "titulo": "Sistema de frenagem automático de emergência - pedestres"
+    },
+    {
+      "item": "Sistema de frenagem automático de emergência - ciclistas",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ],
+      "linhas": 1,
+      "registros_visualizaveis": 1,
+      "titulo": "Sistema de frenagem automático de emergência - ciclistas"
+    },
+    {
+      "item": "Assistente de permanência em faixa de rodagem (LKAS)",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ],
+      "linhas": 1,
+      "registros_visualizaveis": 1,
+      "titulo": "Assistente de permanência em faixa de rodagem (LKAS)"
+    },
+    {
+      "item": "Monitor de sonolência ou distração do motorista",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ],
+      "linhas": 1,
+      "registros_visualizaveis": 0,
+      "titulo": "Monitor de sonolência ou distração do motorista"
+    },
+    {
+      "item": "Controle de cruzeiro adaptativo.",
+      "campos": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ],
+      "linhas": 1,
+      "registros_visualizaveis": 0,
+      "titulo": "Controle de cruzeiro adaptativo."
+    }
+  ],
+  "etiqueta": {
+    "gerais": [
+      {
+        "condicao_exemplo": "Série",
+        "item": "Aviso de não afivelamento do cinto - motorista"
+      },
+      {
+        "condicao_exemplo": "Não Disponível",
+        "item": "Dispositivo Protetor de Roda"
+      },
+      {
+        "condicao_exemplo": "Série",
+        "item": "Farol de rodagem diurna"
+      },
+      {
+        "condicao_exemplo": "Série",
+        "item": "Impacto Lateral"
+      },
+      {
+        "condicao_exemplo": "Série",
+        "item": "Indicador de direção lateral"
+      },
+      {
+        "condicao_exemplo": "Série",
+        "item": "Indicação de frenagem de emergência (ESS)"
+      },
+      {
+        "condicao_exemplo": "Série",
+        "item": "Sistema de alerta ou visibilidade traseira (câmera ou aviso sonoro)"
+      },
+      {
+        "condicao_exemplo": "Série",
+        "item": "Sistema de controle de estabilidade (ESC)"
+      },
+      {
+        "condicao_exemplo": "Não se Aplica",
+        "item": "Sistema de redução de spray"
+      }
+    ],
+    "inovadores": [
+      {
+        "condicao_exemplo": "Série",
+        "item": "Assistente de permanência em faixa de rodagem (LKAS)"
+      },
+      {
+        "condicao_exemplo": "Série",
+        "item": "Aviso de afastamento de faixa de rodagem (LDWS)"
+      },
+      {
+        "condicao_exemplo": "Não Disponível",
+        "item": "Controle de cruzeiro adaptativo"
+      },
+      {
+        "condicao_exemplo": "Não se Aplica",
+        "item": "Impacto frontal - camionetas e utilitários"
+      },
+      {
+        "condicao_exemplo": "Série",
+        "item": "Impacto lateral poste"
+      },
+      {
+        "condicao_exemplo": "Não Disponível",
+        "item": "Monitor de sonolência ou distração do motorista"
+      },
+      {
+        "condicao_exemplo": "Série",
+        "item": "Proteção para pedestre"
+      },
+      {
+        "condicao_exemplo": "Série",
+        "item": "Sistema de frenagem automático de emergência - obstáculo fixo"
+      },
+      {
+        "condicao_exemplo": "Série",
+        "item": "Sistema de frenagem automático de emergência - obstáculo móvel"
+      },
+      {
+        "condicao_exemplo": "Série",
+        "item": "Sistema de frenagem automático de emergência – ciclistas"
+      },
+      {
+        "condicao_exemplo": "Série",
+        "item": "Sistema de frenagem automático de emergência – pedestres"
+      }
+    ]
+  },
+  "limites": [
+    "A presença de um item na interface não confirma obrigatoriedade universal.",
+    "As marcações do processo de exemplo não são regras de aplicabilidade.",
+    "Contagens de linhas podem incluir a mensagem de tabela vazia.",
+    "O modelo de Nível 1 não produziu arquivo acessível pelo mecanismo de download nesta tentativa."
+  ]
+}

@@ -1,0 +1,15 @@
+LEVANTAMENTO DE SEGURANÇA — SISCAT
+Consulta: 31/10/2026
+
+Abra relatorio.html para consultar o levantamento e suas pendências.
+A captura das dez guias do exemplo foi concluída. A revisão normativa integral não está encerrada.
+
+Conteúdo:
+- inventario-seguranca.json: guias, campos, 36 ensaios, requisitos complementares, condições, conexões semânticas 3D e pendências.
+- siscat-ensaios-observados.json: rótulos e ajudas preservados da interface.
+- indice-contran-observado.json: inventário do índice público consultado; não significa revisão integral dos atos.
+- manifesto-fontes.json: origem, aquisição, SHA-256 e escopo da revisão.
+- fontes/ no ZIP: arquivos oficiais públicos adquiridos.
+
+Não foram copiados anexos privados, dados pessoais ou nomes de relatórios do processo exemplo.
+Não houve alteração nem submissão no SISCAT. Os arquivos 3D existentes não foram alterados.

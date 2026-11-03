@@ -6,3 +6,6 @@ assets/
 tests/artifacts/
 
 assets/guide/
+
+# Pesquisa arquivada: preservar transcrições e arquivos de origem.
+docs/pesquisa-seguranca/

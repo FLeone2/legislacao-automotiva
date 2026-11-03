@@ -1,0 +1,820 @@
+{
+  "data": "2026-11-02",
+  "escopo": "M1 e N1 nos termos dos atos MOVER; produto foca M1",
+  "novos_registros": [
+    {
+      "id": "MOVER-A1",
+      "codigo_oficial": "A1",
+      "grupo": "A",
+      "titulo": "Impacto lateral",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p27",
+        "contran-949-2022"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "CONTRAN 949/2022",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": "ENS-3-09",
+      "ausencia_de_linha_na_captura": false,
+      "substitui_no_calculo": null,
+      "condicao_substituicao": null,
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "requisito contabilizável na meta ponderada da empresa; verificar obrigação individual por norma específica",
+      "partes_3d": [
+        "lateral",
+        "estrutura"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": null
+    },
+    {
+      "id": "MOVER-A2",
+      "codigo_oficial": "A2",
+      "grupo": "A",
+      "titulo": "Controle eletrônico de estabilidade (ESC)",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p27",
+        "contran-954-2022"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "CONTRAN 954/2022, com ato posterior de cronograma aplicável",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": "ENS-2-09",
+      "ausencia_de_linha_na_captura": false,
+      "substitui_no_calculo": null,
+      "condicao_substituicao": null,
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "requisito contabilizável na meta ponderada da empresa; verificar obrigação individual por norma específica",
+      "partes_3d": [
+        "freios",
+        "painel"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": null
+    },
+    {
+      "id": "MOVER-A3",
+      "codigo_oficial": "A3",
+      "grupo": "A",
+      "titulo": "Indicador de direção lateral",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p27",
+        "contran-970-2022"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "CONTRAN 970/2022, com alterações aplicáveis",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": "ENS-2-03",
+      "ausencia_de_linha_na_captura": false,
+      "substitui_no_calculo": null,
+      "condicao_substituicao": null,
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "requisito contabilizável na meta ponderada da empresa; verificar obrigação individual por norma específica",
+      "partes_3d": [
+        "iluminacao-lateral"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": null
+    },
+    {
+      "id": "MOVER-A4",
+      "codigo_oficial": "A4",
+      "grupo": "A",
+      "titulo": "Farol de rodagem diurna (DRL)",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p27",
+        "contran-970-2022"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "CONTRAN 970/2022, com alterações aplicáveis",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": "ENS-2-03",
+      "ausencia_de_linha_na_captura": false,
+      "substitui_no_calculo": null,
+      "condicao_substituicao": null,
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "requisito contabilizável na meta ponderada da empresa; verificar obrigação individual por norma específica",
+      "partes_3d": [
+        "iluminacao-frontal"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": null
+    },
+    {
+      "id": "MOVER-A5",
+      "codigo_oficial": "A5",
+      "grupo": "A",
+      "titulo": "Aviso de cinto: condutor",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p27",
+        "contran-936-2022"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "CONTRAN 936/2022",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": "ENS-2-12",
+      "ausencia_de_linha_na_captura": false,
+      "substitui_no_calculo": null,
+      "condicao_substituicao": null,
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "requisito contabilizável na meta ponderada da empresa; verificar obrigação individual por norma específica",
+      "partes_3d": [
+        "cintos",
+        "painel"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": null
+    },
+    {
+      "id": "MOVER-A6",
+      "codigo_oficial": "A6",
+      "grupo": "A",
+      "titulo": "Indicação de frenagem de emergência (ESS)",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p27",
+        "contran-970-2022"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "CONTRAN 970/2022, com alterações aplicáveis",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": "ENS-2-03",
+      "ausencia_de_linha_na_captura": false,
+      "substitui_no_calculo": null,
+      "condicao_substituicao": null,
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "requisito contabilizável na meta ponderada da empresa; verificar obrigação individual por norma específica",
+      "partes_3d": [
+        "iluminacao-traseira",
+        "freios"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": null
+    },
+    {
+      "id": "MOVER-A7",
+      "codigo_oficial": "A7",
+      "grupo": "A",
+      "titulo": "Alerta ou visibilidade traseira",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p27",
+        "contran-759-2018"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "CONTRAN 759/2018",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": "ENS-2-11",
+      "ausencia_de_linha_na_captura": false,
+      "substitui_no_calculo": null,
+      "condicao_substituicao": null,
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "requisito contabilizável na meta ponderada da empresa; verificar obrigação individual por norma específica",
+      "partes_3d": [
+        "traseira",
+        "painel"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": null
+    },
+    {
+      "id": "MOVER-B1",
+      "codigo_oficial": "B1",
+      "grupo": "B",
+      "titulo": "Impacto lateral em poste",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p27",
+        "contran-949-2022"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "CONTRAN 949/2022",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": "ENS-3-12",
+      "ausencia_de_linha_na_captura": false,
+      "substitui_no_calculo": null,
+      "condicao_substituicao": null,
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "requisito contabilizável na meta ponderada da empresa; verificar obrigação individual por norma específica",
+      "partes_3d": [
+        "lateral",
+        "estrutura"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": null
+    },
+    {
+      "id": "MOVER-B2",
+      "codigo_oficial": "B2",
+      "grupo": "B",
+      "titulo": "Proteção de pedestres",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p27",
+        "contran-752-2018"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "CONTRAN 752/2018",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": "ENS-3-11",
+      "ausencia_de_linha_na_captura": false,
+      "substitui_no_calculo": null,
+      "condicao_substituicao": null,
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "requisito contabilizável na meta ponderada da empresa; verificar obrigação individual por norma específica",
+      "partes_3d": [
+        "frente",
+        "estrutura"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": null
+    },
+    {
+      "id": "MOVER-B3",
+      "codigo_oficial": "B3",
+      "grupo": "B",
+      "titulo": "Frenagem automática: obstáculo móvel",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p27"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "UN R152; MoU Automatic Emergency Braking Voluntary Commitment; ou FMVSS 127",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": "ENS-3-14",
+      "ausencia_de_linha_na_captura": false,
+      "substitui_no_calculo": null,
+      "condicao_substituicao": null,
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "requisito contabilizável na meta ponderada da empresa; verificar obrigação individual por norma específica",
+      "partes_3d": [
+        "freios",
+        "frente",
+        "painel"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": null
+    },
+    {
+      "id": "MOVER-B4",
+      "codigo_oficial": "B4",
+      "grupo": "B",
+      "titulo": "Frenagem automática: obstáculo fixo",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p27"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "UN R152; MoU Automatic Emergency Braking Voluntary Commitment; ou FMVSS 127",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": "ENS-3-15",
+      "ausencia_de_linha_na_captura": false,
+      "substitui_no_calculo": null,
+      "condicao_substituicao": null,
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "requisito contabilizável na meta ponderada da empresa; verificar obrigação individual por norma específica",
+      "partes_3d": [
+        "freios",
+        "frente",
+        "painel"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": null
+    },
+    {
+      "id": "MOVER-B5",
+      "codigo_oficial": "B5",
+      "grupo": "B",
+      "titulo": "Aviso de afastamento de faixa (LDWS)",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p27"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "ISO 17361:2017; UN R79.03; ou Regulamento de Execução UE 2021/646",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": "ENS-3-16",
+      "ausencia_de_linha_na_captura": false,
+      "substitui_no_calculo": null,
+      "condicao_substituicao": null,
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "requisito contabilizável na meta ponderada da empresa; verificar obrigação individual por norma específica",
+      "partes_3d": [
+        "vidros",
+        "painel"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": null
+    },
+    {
+      "id": "MOVER-B6",
+      "codigo_oficial": "B6",
+      "grupo": "B",
+      "titulo": "Impacto frontal: camionetas e utilitários",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p27",
+        "contran-910-2022"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "CONTRAN 910/2022; observar tipo e PBT inferior a 2500 kg no texto citado",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": "ENS-3-17",
+      "ausencia_de_linha_na_captura": false,
+      "substitui_no_calculo": null,
+      "condicao_substituicao": null,
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "requisito contabilizável na meta ponderada da empresa; verificar obrigação individual por norma específica",
+      "partes_3d": [
+        "frente",
+        "estrutura"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": null
+    },
+    {
+      "id": "MOVER-B7",
+      "codigo_oficial": "B7",
+      "grupo": "B",
+      "titulo": "Monitoramento da pressão de pneus (TPMS)",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p27"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "UN R141 Amend. 1; ou FMVSS 138",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": null,
+      "ausencia_de_linha_na_captura": true,
+      "substitui_no_calculo": null,
+      "condicao_substituicao": null,
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "requisito contabilizável na meta ponderada da empresa; verificar obrigação individual por norma específica",
+      "partes_3d": [
+        "pneus",
+        "painel"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": null
+    },
+    {
+      "id": "MOVER-B8",
+      "codigo_oficial": "B8",
+      "grupo": "B",
+      "titulo": "Aviso de cinto: condutor e passageiro frontal",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p27",
+        "contran-936-2022"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "CONTRAN 936/2022, observado o escopo do requisito contado no MOVER",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": "ENS-2-12",
+      "ausencia_de_linha_na_captura": false,
+      "substitui_no_calculo": null,
+      "condicao_substituicao": null,
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "requisito contabilizável na meta ponderada da empresa; verificar obrigação individual por norma específica",
+      "partes_3d": [
+        "cintos",
+        "painel"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": null
+    },
+    {
+      "id": "MOVER-C1",
+      "codigo_oficial": "C1",
+      "grupo": "C",
+      "titulo": "Frenagem automática: pedestres",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p28"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "UN R152; ou FMVSS 127",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": "ENS-3-18",
+      "ausencia_de_linha_na_captura": false,
+      "substitui_no_calculo": "B4",
+      "condicao_substituicao": "Art. 5º: regulamentado e constante do MMV na aferição; Grupo D também depende de viabilidade e definição técnica.",
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "requisito contabilizável na meta ponderada da empresa; verificar obrigação individual por norma específica",
+      "partes_3d": [
+        "freios",
+        "frente",
+        "painel"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": null
+    },
+    {
+      "id": "MOVER-C2",
+      "codigo_oficial": "C2",
+      "grupo": "C",
+      "titulo": "Frenagem automática: ciclistas",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p28"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "UN R152; alternativa temporária de dossiê no texto oficial contém inconsistência semântica e terminou em setembro de 2026",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": "ENS-3-19",
+      "ausencia_de_linha_na_captura": false,
+      "substitui_no_calculo": "B3",
+      "condicao_substituicao": "Art. 5º: regulamentado e constante do MMV na aferição; Grupo D também depende de viabilidade e definição técnica.",
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "requisito contabilizável na meta ponderada da empresa; verificar obrigação individual por norma específica",
+      "partes_3d": [
+        "freios",
+        "frente",
+        "painel"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": "C2 menciona monitoramento de motoristas no parágrafo de alternativa para ciclistas; literalidade preservada, sem correção por inferência."
+    },
+    {
+      "id": "MOVER-C3",
+      "codigo_oficial": "C3",
+      "grupo": "C",
+      "titulo": "Assistente de permanência em faixa (LKAS)",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p28"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "UN R79 Revision 4; ou Regulamento de Execução UE 2021/646",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": "ENS-3-20",
+      "ausencia_de_linha_na_captura": false,
+      "substitui_no_calculo": "B5",
+      "condicao_substituicao": "Art. 5º: regulamentado e constante do MMV na aferição; Grupo D também depende de viabilidade e definição técnica.",
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "requisito contabilizável na meta ponderada da empresa; verificar obrigação individual por norma específica",
+      "partes_3d": [
+        "coluna-direcao",
+        "vidros",
+        "painel"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": null
+    },
+    {
+      "id": "MOVER-C4",
+      "codigo_oficial": "C4",
+      "grupo": "C",
+      "titulo": "Aviso de sonolência e atenção (DDAW)",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p28"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "Regulamento Delegado UE 2021/1341; alternativa temporária de dossiê até setembro de 2026 não tratada como vigente em novembro",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": "ENS-3-21",
+      "ausencia_de_linha_na_captura": false,
+      "substitui_no_calculo": "B5",
+      "condicao_substituicao": "Art. 5º: regulamentado e constante do MMV na aferição; Grupo D também depende de viabilidade e definição técnica.",
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "requisito contabilizável na meta ponderada da empresa; verificar obrigação individual por norma específica",
+      "partes_3d": [
+        "painel",
+        "bancos"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": null
+    },
+    {
+      "id": "MOVER-C5",
+      "codigo_oficial": "C5",
+      "grupo": "C",
+      "titulo": "Aviso avançado de distração (ADDW)",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p28"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "Regulamento Delegado UE 2023/2590",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": null,
+      "ausencia_de_linha_na_captura": true,
+      "substitui_no_calculo": "B5",
+      "condicao_substituicao": "Art. 5º: regulamentado e constante do MMV na aferição; Grupo D também depende de viabilidade e definição técnica.",
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "requisito contabilizável na meta ponderada da empresa; verificar obrigação individual por norma específica",
+      "partes_3d": [
+        "painel",
+        "bancos"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": null
+    },
+    {
+      "id": "MOVER-C6",
+      "codigo_oficial": "C6",
+      "grupo": "C",
+      "titulo": "Sensor de ponto cego",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p28"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "ISO 17387:2008; ou SAE J2802_202110",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": null,
+      "ausencia_de_linha_na_captura": true,
+      "substitui_no_calculo": "B7",
+      "condicao_substituicao": "Art. 5º: regulamentado e constante do MMV na aferição; Grupo D também depende de viabilidade e definição técnica.",
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "requisito contabilizável na meta ponderada da empresa; verificar obrigação individual por norma específica",
+      "partes_3d": [
+        "retrovisores",
+        "lateral",
+        "painel"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": null
+    },
+    {
+      "id": "MOVER-C7",
+      "codigo_oficial": "C7",
+      "grupo": "C",
+      "titulo": "Aviso de cinto: todos os passageiros",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p28",
+        "contran-936-2022"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "CONTRAN 936/2022, observado o escopo do requisito contado no MOVER",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": null,
+      "ausencia_de_linha_na_captura": true,
+      "substitui_no_calculo": "B8",
+      "condicao_substituicao": "Art. 5º: regulamentado e constante do MMV na aferição; Grupo D também depende de viabilidade e definição técnica.",
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "requisito contabilizável na meta ponderada da empresa; verificar obrigação individual por norma específica",
+      "partes_3d": [
+        "cintos",
+        "bancos",
+        "painel"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": null
+    },
+    {
+      "id": "MOVER-C8",
+      "codigo_oficial": "C8",
+      "grupo": "C",
+      "titulo": "Controle de cruzeiro adaptativo (ACC)",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p28"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "ISO 15622:2018; ou SAE J2399_202110",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": "ENS-3-22",
+      "ausencia_de_linha_na_captura": false,
+      "substitui_no_calculo": "B5",
+      "condicao_substituicao": "Art. 5º: regulamentado e constante do MMV na aferição; Grupo D também depende de viabilidade e definição técnica.",
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "requisito contabilizável na meta ponderada da empresa; verificar obrigação individual por norma específica",
+      "partes_3d": [
+        "frente",
+        "painel",
+        "freios"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": null
+    },
+    {
+      "id": "MOVER-D1",
+      "codigo_oficial": "D1",
+      "grupo": "D",
+      "titulo": "Chamada de emergência a bordo (eCall)",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p28"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "Definição técnica depende do processo previsto no art. 5º, § 1º",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": null,
+      "ausencia_de_linha_na_captura": true,
+      "substitui_no_calculo": null,
+      "condicao_substituicao": "Art. 5º: regulamentado e constante do MMV na aferição; Grupo D também depende de viabilidade e definição técnica.",
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "catálogo condicionado a definição técnica",
+      "partes_3d": [
+        "painel",
+        "veiculo"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": null
+    },
+    {
+      "id": "MOVER-D2",
+      "codigo_oficial": "D2",
+      "grupo": "D",
+      "titulo": "Assistente inteligente de velocidade (ISA)",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p28"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "Definição técnica depende do processo previsto no art. 5º, § 1º",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": null,
+      "ausencia_de_linha_na_captura": true,
+      "substitui_no_calculo": null,
+      "condicao_substituicao": "Art. 5º: regulamentado e constante do MMV na aferição; Grupo D também depende de viabilidade e definição técnica.",
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "catálogo condicionado a definição técnica",
+      "partes_3d": [
+        "painel",
+        "propulsao"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": null
+    },
+    {
+      "id": "MOVER-D3",
+      "codigo_oficial": "D3",
+      "grupo": "D",
+      "titulo": "Pré-instalação de bloqueio da ignição sensível ao álcool",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p28"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "Definição técnica depende do processo previsto no art. 5º, § 1º",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": null,
+      "ausencia_de_linha_na_captura": true,
+      "substitui_no_calculo": null,
+      "condicao_substituicao": "Art. 5º: regulamentado e constante do MMV na aferição; Grupo D também depende de viabilidade e definição técnica.",
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "catálogo condicionado a definição técnica",
+      "partes_3d": [
+        "painel",
+        "propulsao"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": null
+    },
+    {
+      "id": "MOVER-D4",
+      "codigo_oficial": "D4",
+      "grupo": "D",
+      "titulo": "Comunicação carro-carro",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p28"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "Definição técnica depende do processo previsto no art. 5º, § 1º",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": null,
+      "ausencia_de_linha_na_captura": true,
+      "substitui_no_calculo": null,
+      "condicao_substituicao": "Art. 5º: regulamentado e constante do MMV na aferição; Grupo D também depende de viabilidade e definição técnica.",
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "catálogo condicionado a definição técnica",
+      "partes_3d": [
+        "veiculo"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": null
+    },
+    {
+      "id": "MOVER-D5",
+      "codigo_oficial": "D5",
+      "grupo": "D",
+      "titulo": "Comunicação carro-infraestrutura",
+      "fontes": [
+        "decreto-12435-2025-dou-p5",
+        "mdic-215-2025-dou-p26",
+        "mdic-215-2025-dou-p28"
+      ],
+      "dispositivo": "Decreto 12.435/2025, Anexo IV, item 2; GM/MDIC 215/2025, Anexo II",
+      "metodos_citados": "Definição técnica depende do processo previsto no art. 5º, § 1º",
+      "texto_metodo_internacional_revisado_integralmente": false,
+      "correspondencia_siscat": null,
+      "ausencia_de_linha_na_captura": true,
+      "substitui_no_calculo": null,
+      "condicao_substituicao": "Art. 5º: regulamentado e constante do MMV na aferição; Grupo D também depende de viabilidade e definição técnica.",
+      "obrigatoriedade_individual_universal": false,
+      "natureza": "catálogo condicionado a definição técnica",
+      "partes_3d": [
+        "veiculo"
+      ],
+      "vinculo_3d": "semântico; sem mesh validada",
+      "alerta": null
+    }
+  ],
+  "metas": {
+    "A": [
+      {
+        "data": "2025-10-01",
+        "intec_minimo_percentual": 85
+      },
+      {
+        "data": "2026-10-01",
+        "intec_minimo_percentual": 90
+      },
+      {
+        "data": "2027-10-01",
+        "intec_minimo_percentual": 100
+      }
+    ],
+    "B": [
+      {
+        "data": "2027-10-01",
+        "intec_minimo_percentual": 50
+      },
+      {
+        "data": "2028-10-01",
+        "intec_minimo_percentual": 65
+      },
+      {
+        "data": "2029-10-01",
+        "intec_minimo_percentual": 75
+      },
+      {
+        "data": "2030-10-01",
+        "intec_minimo_percentual": 80
+      },
+      {
+        "data": "2031-10-01",
+        "intec_minimo_percentual": 90
+      }
+    ]
+  },
+  "formula": "Média dos percentuais de atendimento dos 7 requisitos A ou 8 requisitos B; percentuais ponderados por emplacamentos. Não é exigência de cada equipamento em todo carro.",
+  "prova_por_mmv": "Presença e características nos pedidos CAT/MMV; equipamentos contados devem ser de série em todos os veículos do MMV.",
+  "prova_empresa": "Anexo I da 215/2025: planilhas de MMV/CAT/LCVM/volume/itens S-N-NA, índice, PDF assinado e Excel; apresentação anual até 1º de novembro de 2025 a 2031 pelo SEI.",
+  "periodo": "Doze meses anteriores ao mês do cálculo; aferição anual de referência de outubro: 1º de outubro do ano anterior a 30 de setembro do ano da aferição.",
+  "exclusoes": "Verificar art. 3º do Decreto e condições próprias: pequena série, artesanal, especiais e demais hipóteses, sem generalizar para todo fabricante.",
+  "substituicoes": {
+    "C1": "B4",
+    "C2": "B3",
+    "C3": "B5",
+    "C4": "B5",
+    "C5": "B5",
+    "C6": "B7",
+    "C7": "B8",
+    "C8": "B5"
+  },
+  "fontes_metodologia": [
+    {
+      "fonte": "decreto-12435-2025-dou-p6",
+      "dispositivo": "Anexo IV, itens 6 e 11",
+      "paginas_pdf": [
+        1
+      ]
+    },
+    {
+      "fonte": "mdic-215-2025-dou-p26",
+      "dispositivo": "arts. 1º a 10",
+      "paginas_pdf": [
+        1
+      ]
+    }
+  ],
+  "limite": "Métodos internacionais foram identificados no Anexo II brasileiro; não foram todos baixados nem revisados em suas edições atuais nesta rodada."
+}

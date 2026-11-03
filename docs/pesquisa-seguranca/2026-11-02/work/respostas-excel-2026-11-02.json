@@ -1,0 +1,179 @@
+{
+  "fonte": ".\\outputs\\fechamento-seguranca\\Confirmacoes-seguranca.xlsx",
+  "sha256": "ea4979c84d9d19f561f84cb6eb4bd26ded6687c7289e482287e398138a995abd",
+  "data_leitura": "2026-11-02",
+  "respostas": [
+    {
+      "linha": 10,
+      "id": "C01",
+      "tema": "Coluna de direção: deslocamento",
+      "resposta": "Nessas situações mandar o relatório de acordo com fmvss ou UN R já suficiente. Aplicação de UNR ou FMVSS é suficiente. Se uma dessas duas o relatorio ou ensaio estiver dentro é validado",
+      "evidencia": "",
+      "situacao": "Pendente",
+      "registro": "Em aberto"
+    },
+    {
+      "linha": 11,
+      "id": "C02",
+      "tema": "Direção: absorção de energia",
+      "resposta": "Nessas situações mandar o relatório de acordo com fmvss ou UN R já suficiente ",
+      "evidencia": "",
+      "situacao": "Pendente",
+      "registro": "Em aberto"
+    },
+    {
+      "linha": 12,
+      "id": "C03",
+      "tema": "Ancoragem dos assentos",
+      "resposta": "Sim é suficiente, ancoragem e apoio de cabeça, como no texto da legislação ",
+      "evidencia": "",
+      "situacao": "Pendente",
+      "registro": "Em aberto"
+    },
+    {
+      "linha": 13,
+      "id": "C04",
+      "tema": "Mangueiras de freio",
+      "resposta": "915 e deve ser informado conforme as normas descritas na 915",
+      "evidencia": "",
+      "situacao": "Pendente",
+      "registro": "Em aberto"
+    },
+    {
+      "linha": 14,
+      "id": "C05",
+      "tema": "Limpador e lavador: ano da 224",
+      "resposta": "Usar a legislação que está no site das resoluções. O siscat pode cometer alguns pequenos erros ",
+      "evidencia": "",
+      "situacao": "Pendente",
+      "registro": "Em aberto"
+    },
+    {
+      "linha": 15,
+      "id": "C06",
+      "tema": "Modelo atual da declaração nível 1",
+      "resposta": "basta apenas um relato no formato das linhas do anexo XI",
+      "evidencia": "",
+      "situacao": "Pendente",
+      "registro": "Em aberto"
+    },
+    {
+      "linha": 16,
+      "id": "C07",
+      "tema": "Propulsões da primeira versão",
+      "resposta": "atender todos os tipos de propulsão. As normas são praticamente as mesmas, com algumas coisas adicionais para eltricos e outro para combustão ou híbridos",
+      "evidencia": "",
+      "situacao": "Pendente",
+      "registro": "Em aberto"
+    },
+    {
+      "linha": 17,
+      "id": "C08",
+      "tema": "Faixa de massa e configuração",
+      "resposta": "vamos limitar até M1 para até 7 pessoas com PBT de até 3500kg. Com uma exceção se o veiculo for M1 porém ele´trico e a bateria fazer passar de 3500 kg",
+      "evidencia": "",
+      "situacao": "Pendente",
+      "registro": "Em aberto"
+    },
+    {
+      "linha": 18,
+      "id": "C09",
+      "tema": "Datas e enquadramento como novo projeto",
+      "resposta": "aplicativo apenas para consulta de informações ",
+      "evidencia": "",
+      "situacao": "Pendente",
+      "registro": "Em aberto"
+    },
+    {
+      "linha": 19,
+      "id": "C10",
+      "tema": "Acessórios e itens instalados",
+      "resposta": "ativar quando existir. Podemos ter um local para indicar os diversos tipos de acessrios que a legislação cobre",
+      "evidencia": "",
+      "situacao": "Pendente",
+      "registro": "Em aberto"
+    },
+    {
+      "linha": 20,
+      "id": "C11",
+      "tema": "Quebra-mato: Inmetro e fornecedor",
+      "resposta": "quebra mato tem q ter certificação inmetro e vc deve verificar isso. Quebra mato tem uma contran que fala sobre ele. Se eu n estiver errado é só para orgãos de policia. Você deve verificar isso poxa",
+      "evidencia": "",
+      "situacao": "Pendente",
+      "registro": "Em aberto"
+    },
+    {
+      "linha": 21,
+      "id": "C12",
+      "tema": "Engate: Inmetro e fornecedor",
+      "resposta": "forncer registro do inmetro e que o veículo tem capacidade no relatório de freio para rebocar e frear a capacidade do reboque ",
+      "evidencia": "",
+      "situacao": "Pendente",
+      "registro": "Em aberto"
+    },
+    {
+      "linha": 22,
+      "id": "C13",
+      "tema": "Pneus: regulamento e comprovação",
+      "resposta": "vc deve verificar as legislações do inmetro mas se eu n me engono é DOT do pneu e logo do inmetro",
+      "evidencia": "",
+      "situacao": "Pendente",
+      "registro": "Em aberto"
+    },
+    {
+      "linha": 23,
+      "id": "C14",
+      "tema": "Extintor: produto quando instalado",
+      "resposta": "autodeclarado",
+      "evidencia": "",
+      "situacao": "Pendente",
+      "registro": "Em aberto"
+    },
+    {
+      "linha": 24,
+      "id": "C15",
+      "tema": "GNV: cadeia de componentes, se incluído",
+      "resposta": "faça a sua pesquisa",
+      "evidencia": "",
+      "situacao": "Pendente",
+      "registro": "Em aberto"
+    },
+    {
+      "linha": 25,
+      "id": "C16",
+      "tema": "ENSV e atos posteriores de rotulagem",
+      "resposta": "a instalação vem do mover dos requisitos do item B. A forma de comprovar segue a regra do COTRAN, caso n tenha uma especifica pegar uma UNR ou FMVSS ou caso n tenha pegar uma ISSO",
+      "evidencia": "",
+      "situacao": "Pendente",
+      "registro": "Em aberto"
+    },
+    {
+      "linha": 26,
+      "id": "C17",
+      "tema": "Publicações recentes e atualização do índice",
+      "resposta": "está em discussão mas nada publicado, apenas as novas exigências de etiquetagem que são os itens do grupo B",
+      "evidencia": "",
+      "situacao": "Pendente",
+      "registro": "Em aberto"
+    },
+    {
+      "linha": 27,
+      "id": "C18",
+      "tema": "Métodos, edições e cobertura de relatórios",
+      "resposta": "o mapa tem todas as obrigações que devem ser cumpridas e em seguida as legislações que regem essas obrigações e o que deve ser entregue. Importante é ter o conhecimento ",
+      "evidencia": "",
+      "situacao": "Pendente",
+      "registro": "Em aberto"
+    },
+    {
+      "linha": 28,
+      "id": "C19",
+      "tema": "Campos condicionais de outros perfis",
+      "resposta": "não muda nada. São todos iguais ",
+      "evidencia": "",
+      "situacao": "Pendente",
+      "registro": "Em aberto"
+    }
+  ],
+  "nota": "Respostas do usuário preservadas; não representam confirmação normativa independente."
+}

@@ -1,0 +1,788 @@
+{
+  "data": "2026-10-31",
+  "escopo": "Automóvel novo de passageiros fabricado no Brasil; categoria M1. Massa, propulsão e condições específicas ainda são parâmetros, não pressupostos universais.",
+  "decisao": {
+    "captura_do_exemplo_concluida": true,
+    "inventario_base_para_arquitetura_disponivel": true,
+    "seguranca_normativa_integral_fechada": false,
+    "pode_iniciar_captura_infoserv_em_paralelo": true,
+    "explicacao": "Encerrar a captura do exemplo não equivale a encerrar toda a revisão de segurança. A próxima fonte pode ser captada preservando as pendências de segurança e sem apresentar a base como completa."
+  },
+  "contagens": {
+    "guias_siscat": 10,
+    "linhas_ensaio": 36,
+    "ajudas_legais_nao_vazias": 27,
+    "linhas_nivel1_complementadas_por_fonte_oficial": 12,
+    "requisitos_complementares": 35,
+    "fichas_no_catalogo_geral": 251,
+    "referencias_contran_distintas_no_inventario": 57,
+    "situacoes_das_referencias": {
+      "vigencia_indicada": 56,
+      "fora_do_indice_consultado": 1
+    },
+    "relacoes_de_alteracao_revogacao_suspensao_nao_citadas_detectadas_no_indice": 0
+  },
+  "limite_do_cruzamento": "Conferência de identidade e situação dos atos citados, com procura de relações no índice. Não equivale a revisão integral de cada anexo ou norma incorporada; não prova completude dos temas de segurança.",
+  "privacidade_e_preservacao": {
+    "guias_visitadas": 10,
+    "linhas_ensaio": 36,
+    "nivel2": 14,
+    "nivel3": 22,
+    "ajudas_nao_vazias": 27,
+    "contexto_exemplo": {
+      "tipo_cat": "Fabricação",
+      "tipo_veiculo": "AUTOMOVEL",
+      "especie": "PASSAGEIRO",
+      "categoria": "M1",
+      "propulsao": "Elétrico com fonte externa",
+      "situacao_processo": "Deferido"
+    },
+    "mutacoes_no_processo": false,
+    "dados_pessoais_e_relatorios_do_processo_copiados": false
+  },
+  "pendencias_classificadas": [
+    {
+      "id": "P-01",
+      "tema": "Correspondência documental das linhas legadas de direção e assentos",
+      "itens": [
+        "ENS-3-01",
+        "ENS-3-02",
+        "ENS-3-05"
+      ],
+      "questao": "Para direção, confirmar a correspondência técnica atual das linhas legadas. Para ancoragem, a base atual 951/2022 com 997/2023 está confirmada; resta delimitar a cobertura do método e da linha documental Ancoragem dos assentos sem confundir banco, cinto, apoio de cabeça e ISOFIX.",
+      "efeito": "Manter as referências atuais identificadas e separar dúvida de entrega documental de existência de legislação. Não criar relatório independente por simples rótulo legado.",
+      "fonte_para_resolver": "Dispositivos e escopo dos métodos da 951/2022 alterada pela 997/2023; regras procedimentais de comprovação do CAT.",
+      "classificacao_para_fechamento": "revisao_documental_aberta",
+      "parecer": "Direção e cobertura da ancoragem de assentos: a base 951/2022 + 997/2023 está identificada; falta fechar a equivalência entre escopo técnico, método e linha de comprovação. Isso não é ausência de legislação atual de ancoragem."
+    },
+    {
+      "id": "P-02",
+      "tema": "Mangueiras flexíveis como relatório separado",
+      "itens": [
+        "ENS-2-07"
+      ],
+      "questao": "A linha do SISCAT não corresponde a uma linha separada na tabela 1.3 do Anexo XI revisado.",
+      "efeito": "Manter componente ligado ao freio; entrega autônoma pendente de fundamento.",
+      "classificacao_para_fechamento": "revisao_documental_aberta",
+      "parecer": "Mangueiras de freio: componente vinculado ao sistema de freios. A exigência de relatório autônomo na linha legada não foi demonstrada; não dispensar nem criar entrega por inferência."
+    },
+    {
+      "id": "P-03",
+      "tema": "Metadados da Resolução 224",
+      "itens": [
+        "ENS-2-02"
+      ],
+      "questao": "Índice/base/PDF e publicação HTML apresentam divergência de ano. Anexo XI e SISCAT citam 224/2007.",
+      "efeito": "Usar identificador estável e mostrar a divergência; não fabricar data única saneada.",
+      "classificacao_para_fechamento": "divergencia_preservada",
+      "parecer": "Resolução 224: conflito de ano permanece exposto e rastreável. Não bloqueia a captura ou a arquitetura, mas requer aviso na ficha e identificação documental consistente."
+    },
+    {
+      "id": "P-05",
+      "tema": "Métodos de ensaio e normas técnicas incorporadas",
+      "itens": [],
+      "questao": "Esta entrega mapeia atos e dispositivos. Nem todos os métodos extensos dos anexos e textos privados ABNT/ISO foram convertidos em critérios executáveis; edições somente podem vir do ato ou de fonte licenciada.",
+      "efeito": "Não apresentar esta matriz como certificação de engenharia ou motor completo de aprovação de relatórios.",
+      "classificacao_para_fechamento": "validacao_tecnica_posterior",
+      "parecer": "Métodos, amostras e critérios de aceitação precisam ser detalhados antes de o aplicativo avaliar suficiência de relatórios. O catálogo de requisitos pode ser usado como base de implementação."
+    },
+    {
+      "id": "P-06",
+      "tema": "Atualidade e fronteiras de cobertura",
+      "itens": [],
+      "questao": "Índice CONTRAN consultado em 31/10/2026, cuja última alteração anunciada era 06/10/2026. A busca adicional não equivale a varredura certificada de todas as edições do DOU posteriores; o índice tem inconsistências demonstradas, como a situação da 220/2007.",
+      "efeito": "Não declarar fechamento integral de toda a legislação CONTRAN. Confirmar publicações recentes e regras complementares antes de liberar respostas automáticas.",
+      "classificacao_para_fechamento": "atualidade_aberta",
+      "parecer": "O índice foi conferido em 31/10/2026 e anuncia alteração em 06/10/2026. Não houve varredura integral do DOU posterior nem certificação de todos os atos complementares. Não declarar cobertura legal integral até 31/10."
+    },
+    {
+      "id": "P-07",
+      "tema": "Escopos condicionais não exercitados na interface",
+      "itens": [],
+      "questao": "Captura feita em um processo deferido elétrico M1. Não houve submissão nem alteração para outros combustíveis, PBT, carrocerias ou tipos de CAT.",
+      "efeito": "A captura é completa das dez guias visitadas; não prova exaustividade de todos os campos condicionais do SISCAT.",
+      "classificacao_para_fechamento": "validacao_de_outros_perfis",
+      "parecer": "As dez guias estão captadas para o exemplo elétrico M1. Outros combustíveis, massas e modalidades precisam de verificação própria; não mudar o exemplo para testar um processo real."
+    },
+    {
+      "id": "P-08",
+      "tema": "Inmetro e novos regimes da rotulagem",
+      "itens": [
+        "SEG-002",
+        "SEG-003",
+        "SEG-017",
+        "SEG-024",
+        "SEG-034"
+      ],
+      "questao": "As ligações de competência foram identificadas. A cadeia integral dos regulamentos de produto/fornecedor Inmetro, do decreto de rotulagem e de eventuais atos de execução posteriores não está certificada nesta entrega.",
+      "efeito": "Não tratar a referência CONTRAN como prova suficiente de registro/certificação de componente ou de dispensa de adesão.",
+      "classificacao_para_fechamento": "cadeias_complementares_abertas",
+      "parecer": "Regulamentos Inmetro de produtos/fornecedores e atos posteriores de rotulagem precisam de cadeia própria. A obrigação do veículo, a conformidade do produto e a declaração na ENSV são relações diferentes."
+    },
+    {
+      "id": "P-09",
+      "tema": "Vínculo com o arquivo 3D existente",
+      "itens": [],
+      "questao": "IDs de componentes abaixo são semânticos. Ainda é necessário conferir quais peças existem de fato no modelo e associar seus identificadores de malha.",
+      "efeito": "Não declarar o vínculo visual implementado nem inferir conformidade de medidas a partir do modelo ilustrativo.",
+      "classificacao_para_fechamento": "implementacao_3d",
+      "parecer": "Associar os identificadores semânticos às malhas reais do modelo na implementação. Esta tarefa não bloqueia o encerramento da captura SISCAT."
+    }
+  ],
+  "referencias_conferidas": [
+    {
+      "referencia_inventario": "contran-26-1998",
+      "id_catalogo": "contran-0026-1998",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao026_98.doc/@@download/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-26-1998-doc",
+      "sha256_fonte_original": "5f3438121f0f2d327afdb30a7b45bd96f049354ddd2ae545d36991e2e0d2f6ce",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0026-1998.md"
+    },
+    {
+      "referencia_inventario": "contran-36-1998",
+      "id_catalogo": "contran-0036-1998",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao036_98.doc/@@download/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-36-1998-doc",
+      "sha256_fonte_original": "dc3a5b3c3b86a2498e8727e9fd25ebe28403daedffabc6ea15c0e4310abf5216",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0036-1998.md"
+    },
+    {
+      "referencia_inventario": "contran-37-1998",
+      "id_catalogo": "contran-0037-1998",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao037_98.doc/@@download/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-37-1998-doc",
+      "sha256_fonte_original": "8dc90b62d39ff96e8abde34071da5de690587cf162daf398950b2254d5cb6724",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0037-1998.md"
+    },
+    {
+      "referencia_inventario": "contran-215-2006",
+      "id_catalogo": "contran-0215-2006",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao_215.doc/@@download/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-215-2006-doc",
+      "sha256_fonte_original": "76e5dac7020eb1711ccd45c5ea0484e0cc29523bcb83b953eac7abf735c1bbf3",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0215-2006.md"
+    },
+    {
+      "referencia_inventario": "contran-224-2006",
+      "id_catalogo": "contran-0224-2006",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao_224.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-224-2006",
+      "sha256_fonte_original": "f309dcfcb60ad5519af9ce2f79d5e8fe01bb8020cd4773072d71858d3e7680f4",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0224-2006.md"
+    },
+    {
+      "referencia_inventario": "contran-242-2007",
+      "id_catalogo": "contran-0242-2007",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao_contran_242.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-242-2007",
+      "sha256_fonte_original": "ef9cb8f5e59c03fb30b3bb05fdb3e01ac3d5bf2e48885bc40e5bbfbe34042c5e",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0242-2007.md"
+    },
+    {
+      "referencia_inventario": "contran-280-2008",
+      "id_catalogo": "contran-0280-2008",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao_contran_280.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-280-2008",
+      "sha256_fonte_original": "b7645bd9454fbbc5565f7556918e7ffd323ad9e459d674db25db3016658461d6",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0280-2008.md"
+    },
+    {
+      "referencia_inventario": "contran-498-2014",
+      "id_catalogo": "contran-0498-2014",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao4982014.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-498-2014",
+      "sha256_fonte_original": "6aac277d2ea2b001cb64a2cc237fd1c40d9655ccb67ef17d96875eb68b3e32d2",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0498-2014.md"
+    },
+    {
+      "referencia_inventario": "contran-528-2015",
+      "id_catalogo": "contran-0528-2015",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao5282015.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-528-2015",
+      "sha256_fonte_original": "9f32fe77bcd40e33607f1cb7d0d61286688eaa8e14b4fa10000905449b94ca19",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0528-2015.md"
+    },
+    {
+      "referencia_inventario": "contran-537-2015",
+      "id_catalogo": "contran-0537-2015",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao5372015.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-537-2015",
+      "sha256_fonte_original": "54c53cd11115da948094b5b4ea510038920982c0126a9f604f523f92add6773b",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0537-2015.md"
+    },
+    {
+      "referencia_inventario": "contran-559-2015",
+      "id_catalogo": "contran-0559-2015",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao5592015.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-559-2015",
+      "sha256_fonte_original": "ec7fb7d5f9a34ec7e547973edbc4314e4f2bd2633e428275b02e4a0f1061b162",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0559-2015.md"
+    },
+    {
+      "referencia_inventario": "contran-711-2017",
+      "id_catalogo": "contran-0711-2017",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7112017.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-711-2017",
+      "sha256_fonte_original": "d9a631a0fbe349511c64104eee39f7fb07e92f948f5da6fba3739a8c630c16b2",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0711-2017.md"
+    },
+    {
+      "referencia_inventario": "contran-749-2018",
+      "id_catalogo": "contran-0749-2018",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7492018.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-749-2018",
+      "sha256_fonte_original": "630d21b7ce3df8bedbae8ad93da15ba8c97fe3c2941b08b472f809422a82ba30",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0749-2018.md"
+    },
+    {
+      "referencia_inventario": "contran-752-2018",
+      "id_catalogo": "contran-0752-2018",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7522018.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-752-2018",
+      "sha256_fonte_original": "af20e63b39c7d738b40147df8d794481a2f2619f287f63eba88d6b057e54c704",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0752-2018.md"
+    },
+    {
+      "referencia_inventario": "contran-758-2018",
+      "id_catalogo": "contran-0758-2018",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7582018.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-758-2018",
+      "sha256_fonte_original": "1ceec18731baf4f236603303961215ec24d26d70a15c425d809f2114298cf8cd",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0758-2018.md"
+    },
+    {
+      "referencia_inventario": "contran-759-2018",
+      "id_catalogo": "contran-0759-2018",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7592018.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-759-2018",
+      "sha256_fonte_original": "42cf5666ae5efb82e326cb67738aa7153043e78909d75a45b6e5f720a7c2014d",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0759-2018.md"
+    },
+    {
+      "referencia_inventario": "contran-764-2018",
+      "id_catalogo": "contran-0764-2018",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7642018.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-764-2018",
+      "sha256_fonte_original": "44ea6019ef401970b7c8e5246ef257187221d798dd262ab7558a1af76108d3db",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0764-2018.md"
+    },
+    {
+      "referencia_inventario": "contran-819-2021",
+      "id_catalogo": "contran-0819-2021",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8192021.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-819-2021",
+      "sha256_fonte_original": "394b1830f69a2f15b71e227ea15ff13689ae40af159c5df4c02d88d795ca00da",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0819-2021.md"
+    },
+    {
+      "referencia_inventario": "contran-827-1997-doc",
+      "id_catalogo": "contran-0827-1997",
+      "situacao_indice": "fora_do_indice_consultado",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucoes-anteriores-a-2000/r827-97.doc",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-827-1997-doc",
+      "sha256_fonte_original": "5a9272e3acd8a0ec5bc844dea8aad5c33dc3bb7f63222f3238b79a30b6830d43",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "nota": "Resolução histórica de 1997 recuperada no arquivo oficial; não confundir com a 827/2021. Ausência neste índice não comprova vigência ou revogação."
+    },
+    {
+      "referencia_inventario": "contran-882-2021",
+      "id_catalogo": "contran-0882-2021",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8822021.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-882-2021",
+      "sha256_fonte_original": "393930b1b943a95a2110bd64176f627c50c8b6b253ccbd7366e9b78fce8d9f65",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0882-2021.md"
+    },
+    {
+      "referencia_inventario": "contran-885-2021",
+      "id_catalogo": "contran-0885-2021",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8852021.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-885-2021",
+      "sha256_fonte_original": "e9c234f0dcf23074148483469b115775aceeb5be0acd07731bd28b8ed44b54dc",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0885-2021.md"
+    },
+    {
+      "referencia_inventario": "contran-888-2021",
+      "id_catalogo": "contran-0888-2021",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8882021.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-888-2021",
+      "sha256_fonte_original": "a6dad3602f6ac0b26412df6d3929485e7f28b3a61f79e3579ae2f0b3315f8639",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0888-2021.md"
+    },
+    {
+      "referencia_inventario": "contran-899-2022",
+      "id_catalogo": "contran-0899-2022",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8992022.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-899-2022",
+      "sha256_fonte_original": "66509ec2a44003b039f67897f661c2fe7cd8109a3f133bb22def10642372a35d",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0899-2022.md"
+    },
+    {
+      "referencia_inventario": "contran-908-2022",
+      "id_catalogo": "contran-0908-2022",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9082022.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-908-2022",
+      "sha256_fonte_original": "122d901b3302015515e37e2947fd5124fcefc195a1aefe23699ea5da70917fe7",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0908-2022.md"
+    },
+    {
+      "referencia_inventario": "contran-910-2022",
+      "id_catalogo": "contran-0910-2022",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9102022.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-910-2022",
+      "sha256_fonte_original": "734d98a11036edb2d6b9a0b3e9b8f749d5afa7b632ade8818fa7b603cc2888af",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0910-2022.md"
+    },
+    {
+      "referencia_inventario": "contran-913-2022",
+      "id_catalogo": "contran-0913-2022",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9132022.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-913-2022",
+      "sha256_fonte_original": "3542071abf17e71c2e858712bd2e53b0348c59d129aa70ae4f79198e07622637",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0913-2022.md"
+    },
+    {
+      "referencia_inventario": "contran-915-2022",
+      "id_catalogo": "contran-0915-2022",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9152022.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-915-2022",
+      "sha256_fonte_original": "07b53ce129b94e6a5fc9b3cba7039af2c7f6cef5097ab89f74b7e9c85425ebc6",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0915-2022.md"
+    },
+    {
+      "referencia_inventario": "contran-916-2022",
+      "id_catalogo": "contran-0916-2022",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9162022.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-916-2022",
+      "sha256_fonte_original": "a52f98b3134d0e92f6f104ca329199b914e1a74f5abc941a03dc36e6efa49d21",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0916-2022.md"
+    },
+    {
+      "referencia_inventario": "contran-919-2022",
+      "id_catalogo": "contran-0919-2022",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9192022.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-919-2022",
+      "sha256_fonte_original": "7804d14417f6cbf42e38cc0a01ae538ed9479aaa5c991778f51d717f74c3f120",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0919-2022.md"
+    },
+    {
+      "referencia_inventario": "contran-921-2022",
+      "id_catalogo": "contran-0921-2022",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9212022.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-921-2022",
+      "sha256_fonte_original": "c2d4543478c7cd706a4a82e20e9ffe1f055c263b8341425500244d60bfc3098e",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0921-2022.md"
+    },
+    {
+      "referencia_inventario": "contran-936-2022",
+      "id_catalogo": "contran-0936-2022",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9362022.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-936-2022",
+      "sha256_fonte_original": "376ed27631ac85bdeadf8bd75030286e0f7eed7c414739bdc4bad2bfe6b2a664",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0936-2022.md"
+    },
+    {
+      "referencia_inventario": "contran-937-2022",
+      "id_catalogo": "contran-0937-2022",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9372022.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-937-2022",
+      "sha256_fonte_original": "2a4bfdbadcfc7408dfca9c43cd977effa8c5d32992b5ea252542ee999f78068d",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0937-2022.md"
+    },
+    {
+      "referencia_inventario": "contran-939-2022",
+      "id_catalogo": "contran-0939-2022",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9392022.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-939-2022",
+      "sha256_fonte_original": "a1e7da37e6b9e6daa45e862b3fbbd19eb1513ad3213b9be8e0305b6c0a144d57",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0939-2022.md"
+    },
+    {
+      "referencia_inventario": "contran-944-2022",
+      "id_catalogo": "contran-0944-2022",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9442022.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-944-2022",
+      "sha256_fonte_original": "eb16406adc5734b417b1524ddb8c9f338c4824e069b315a1cb7b943782694d27",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0944-2022.md"
+    },
+    {
+      "referencia_inventario": "contran-949-2022",
+      "id_catalogo": "contran-0949-2022",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9492022.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-949-2022",
+      "sha256_fonte_original": "9b1505055be305a5358bded0622340a69a1c3ee11d762a9a6dffaa20f91a09cf",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0949-2022.md"
+    },
+    {
+      "referencia_inventario": "contran-951-2022",
+      "id_catalogo": "contran-0951-2022",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9512022.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-951-2022",
+      "sha256_fonte_original": "a41b468b4fadc5428cf6a8eb73994c24e057f5293277781bea06845388504369",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0951-2022.md"
+    },
+    {
+      "referencia_inventario": "contran-954-2022",
+      "id_catalogo": "contran-0954-2022",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9542022.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-954-2022",
+      "sha256_fonte_original": "56fa725fd66a8943186dcbe62f6e5f8e6fb9145e481117b281b4048288c19897",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0954-2022.md"
+    },
+    {
+      "referencia_inventario": "contran-955-2022",
+      "id_catalogo": "contran-0955-2022",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9552022.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-955-2022",
+      "sha256_fonte_original": "09d9fc332a39b19014e59a3e305df6685520f1eabe442a78d305cc8739695335",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0955-2022.md"
+    },
+    {
+      "referencia_inventario": "contran-958-2022",
+      "id_catalogo": "contran-0958-2022",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9582022.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-958-2022",
+      "sha256_fonte_original": "821add1770727840c9c6730377ca91460733a0151f03824dea4c8614228e0cae",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0958-2022.md"
+    },
+    {
+      "referencia_inventario": "contran-960-2022",
+      "id_catalogo": "contran-0960-2022",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9602022.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-960-2022",
+      "sha256_fonte_original": "f2523e474d2c0b959375284261338a86a334e415c8355ea1426db17a612774c2",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0960-2022.md"
+    },
+    {
+      "referencia_inventario": "contran-963-2022",
+      "id_catalogo": "contran-0963-2022",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9632022.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-963-2022",
+      "sha256_fonte_original": "edc0bf70666d3b98a94e927e4a1c700ad85fe38f3c8696aeeb61a58f6726acca",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0963-2022.md"
+    },
+    {
+      "referencia_inventario": "contran-964-2022",
+      "id_catalogo": "contran-0964-2022",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9642022.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-964-2022",
+      "sha256_fonte_original": "57413c13be140bb7a3bd42b6a6a4449a90ead53282d4f7bde3fde0f21d9d0989",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0964-2022.md"
+    },
+    {
+      "referencia_inventario": "contran-966-2022",
+      "id_catalogo": "contran-0966-2022",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9662022.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-966-2022",
+      "sha256_fonte_original": "cc4ec391bc8d869733a37c39e4a61fdefa1a4ba9bb7e53ec39703fd61266bed9",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0966-2022.md"
+    },
+    {
+      "referencia_inventario": "contran-968-2022",
+      "id_catalogo": "contran-0968-2022",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao9682022.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-968-2022",
+      "sha256_fonte_original": "9202086a67b4d85f9b239a6b0d2a6db10d9207ebbe42b3c6fc9b1031ecb63d0f",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0968-2022.md"
+    },
+    {
+      "referencia_inventario": "contran-969-2022",
+      "id_catalogo": "contran-0969-2022",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao9692022.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-969-2022",
+      "sha256_fonte_original": "c0e48ed8cef1cf155df26cfde04a91c9670dd2b773d986b7efcaee387d48d8a8",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0969-2022.md"
+    },
+    {
+      "referencia_inventario": "contran-970-2022",
+      "id_catalogo": "contran-0970-2022",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao9702022.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-970-2022",
+      "sha256_fonte_original": "311838ffba73e35468132ed0b4c4c50098420c7fbc58a3cdf36472670e861fb4",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0970-2022.md"
+    },
+    {
+      "referencia_inventario": "contran-988-2022",
+      "id_catalogo": "contran-0988-2022",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9882022.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-988-2022",
+      "sha256_fonte_original": "952301d5caa7b06d4870f51d171cb350c6de8b07e4c252fc948bb15c6fe36e3f",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0988-2022.md"
+    },
+    {
+      "referencia_inventario": "contran-989-2022",
+      "id_catalogo": "contran-0989-2022",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9892022.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-989-2022",
+      "sha256_fonte_original": "55a4e87fe08690f6e072143a978697661a48251ba2bcaaf1239a1683a70e4ab5",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0989-2022.md"
+    },
+    {
+      "referencia_inventario": "contran-993-2023",
+      "id_catalogo": "contran-0993-2023",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9932023.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-993-2023",
+      "sha256_fonte_original": "9e135fddd4fa3b6f897ec7836b9fdf991a5803770fc3b504bebfcecebb4d465f",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0993-2023.md"
+    },
+    {
+      "referencia_inventario": "contran-994-2023",
+      "id_catalogo": "contran-0994-2023",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9942023.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-994-2023",
+      "sha256_fonte_original": "239ecdb10b99bc9d3740d72213b18e0b1c8ec3757a6961e1adf72a8c919af105",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0994-2023.md"
+    },
+    {
+      "referencia_inventario": "contran-997-2023",
+      "id_catalogo": "contran-0997-2023",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9972023.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-997-2023",
+      "sha256_fonte_original": "1dea17df18181cdd3f5b5e3e89d810424cd4dcfae453d5a3cd5ecbf64307af58",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-0997-2023.md"
+    },
+    {
+      "referencia_inventario": "contran-1005-2024",
+      "id_catalogo": "contran-1005-2024",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10052024.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-1005-2024",
+      "sha256_fonte_original": "f6ca91db8cab012af92eceaff37a88070a754c51892ed063f2d9fa73c1bf7b35",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-1005-2024.md"
+    },
+    {
+      "referencia_inventario": "contran-1010-2024",
+      "id_catalogo": "contran-1010-2024",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10102024.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-1010-2024",
+      "sha256_fonte_original": "12eb4684a6886b63584ccb3609ff890b3bc8a07a67646afb59d1786f67683fb6",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-1010-2024.md"
+    },
+    {
+      "referencia_inventario": "contran-1015-2024",
+      "id_catalogo": "contran-1015-2024",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10152024.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-1015-2024",
+      "sha256_fonte_original": "bd7b0f6ce3d20cf067a3ceacbdafe8a66e4d6032b9348bcb728722cf9eec788a",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-1015-2024.md"
+    },
+    {
+      "referencia_inventario": "contran-1021-2026",
+      "id_catalogo": "contran-1021-2026",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10212026.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-1021-2026",
+      "sha256_fonte_original": "066b2d37c42826a88da8605c347ceb1647a8f182110dc759d43e02b1af5fe9de",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-1021-2026.md"
+    },
+    {
+      "referencia_inventario": "contran-1024-2026",
+      "id_catalogo": "contran-1024-2026",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao10242026c.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-1024-2026",
+      "sha256_fonte_original": "b79ac6eb4b82407b4cf7b881c3736e81b0e2480ef975eca7fbb4b9b7010337b7",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-1024-2026.md"
+    },
+    {
+      "referencia_inventario": "contran-1030-2026",
+      "id_catalogo": "contran-1030-2026",
+      "situacao_indice": "vigencia_indicada",
+      "url_oficial": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao10302026.pdf/@@display-file/file",
+      "fonte_original_salva": true,
+      "registro_manifesto_fonte_original": "contran-1030-2026",
+      "sha256_fonte_original": "859f258a9fb32876ae829523a7fa6695928cffbfb7797a947c3a22faebe342f9",
+      "limite": "Situação do ato inteiro no catálogo; não atesta aplicação ao veículo nem consolidação dos dispositivos.",
+      "ficha_markdown": "../contran-vigentes/resolucoes/contran-1030-2026.md"
+    }
+  ],
+  "arquivos_conferidos": [
+    {
+      "arquivo": "levantamento-seguranca/inventario-seguranca.json",
+      "sha256": "39e3b99c48e779baf389ef0f482f4d58f2af3f8cfb7a0ddc0435e3ae4de6a51b",
+      "bytes": 119277
+    },
+    {
+      "arquivo": "levantamento-seguranca/siscat-ensaios-observados.json",
+      "sha256": "09d2fbbe348087ee177b559851c04ae1e87d0624e9ce1737e15db1b32931e061",
+      "bytes": 22696
+    },
+    {
+      "arquivo": "levantamento-seguranca/manifesto-fontes.json",
+      "sha256": "ecebf0cfc618a67987a88c8c473445a738e99a051ceca63fd2f8363d9b39c4af",
+      "bytes": 84287
+    },
+    {
+      "arquivo": "contran-vigentes/catalogo.json",
+      "sha256": "94a4b336e1dd16027a0b6f04ab16c01d1498e1252e7dadaaad66df0e183018ce",
+      "bytes": 2550131
+    },
+    {
+      "arquivo": "contran-vigentes/validacao.json",
+      "sha256": "862cf836efe939a34a45dc40e0bece7f640e96293ea548370ef1e88d332a9365",
+      "bytes": 591
+    }
+  ]
+}

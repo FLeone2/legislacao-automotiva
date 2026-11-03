@@ -1,0 +1,20 @@
+{
+  "active_count": 251,
+  "markdown_files": 251,
+  "main_documents_downloaded": 251,
+  "text_extracted": 251,
+  "missing_documents": [],
+  "classification_counts": {
+    "vigencia_indicada": 244,
+    "vigencia_com_revogacao_parcial": 6,
+    "revogada_indice": 765,
+    "revogada_por_conferencia_cruzada": 5,
+    "suspensa_indice": 3,
+    "vigencia_com_suspensao_parcial": 1,
+    "efeitos_encerrados_indice": 4,
+    "revogada_por_condicao_publicada": 1,
+    "anulada_ou_sem_efeito": 1
+  },
+  "classified_full_revocations_in_active": [],
+  "all_source_rows_grouped": true
+}

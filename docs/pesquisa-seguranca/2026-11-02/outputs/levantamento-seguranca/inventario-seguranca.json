@@ -1,0 +1,3015 @@
+{
+  "versao": "0.1-pesquisa",
+  "data_consulta": "2026-10-31",
+  "escopo_pretendido": "Automóvel novo de passageiros fabricado no Brasil; categoria M1. Massa, propulsão e condições específicas ainda são parâmetros, não pressupostos universais.",
+  "status": "captura_siscat_concluida_no_exemplo; revisao_normativa_ampliada_com_pendencias",
+  "seguranca_integral_fechada": false,
+  "captura": {
+    "guias_visitadas": 10,
+    "linhas_ensaio": 36,
+    "nivel2": 14,
+    "nivel3": 22,
+    "ajudas_nao_vazias": 27,
+    "contexto_exemplo": {
+      "tipo_cat": "Fabricação",
+      "tipo_veiculo": "AUTOMOVEL",
+      "especie": "PASSAGEIRO",
+      "categoria": "M1",
+      "propulsao": "Elétrico com fonte externa",
+      "situacao_processo": "Deferido"
+    },
+    "mutacoes_no_processo": false,
+    "dados_pessoais_e_relatorios_do_processo_copiados": false
+  },
+  "guias": [
+    {
+      "id": "DOS-01",
+      "titulo": "Representantes/ Responsáveis",
+      "origem": "Interface SISCAT observada em leitura, em processo deferido de Fabricação / AUTOMOVEL / PASSAGEIRO / M1 / elétrico com fonte externa",
+      "grupos": [
+        {
+          "grupo": "Representantes legais",
+          "campos": [
+            "Seleção de representante",
+            "CPF",
+            "Nome"
+          ]
+        },
+        {
+          "grupo": "Responsável técnico",
+          "campos": [
+            "Seleção de responsável",
+            "CPF",
+            "Nome"
+          ]
+        }
+      ],
+      "anexos_ou_comprovacoes": [],
+      "notas": [
+        "Captados rótulos e estrutura; dados pessoais do processo não foram reproduzidos."
+      ],
+      "validacao_de_obrigatoriedade_dos_campos": "Não testada por submissão. Regras de outros perfis e de edição não foram exercitadas."
+    },
+    {
+      "id": "DOS-02",
+      "titulo": "Guia de Recolhimento",
+      "origem": "Interface SISCAT observada em leitura, em processo deferido de Fabricação / AUTOMOVEL / PASSAGEIRO / M1 / elétrico com fonte externa",
+      "grupos": [
+        {
+          "grupo": "Recolhimento",
+          "campos": [
+            "Total a pagar",
+            "Indicação de isenção"
+          ],
+          "observacao": "A tela do exemplo exibiu R$ 266,00 e Isento de Pagamento. Essa combinação não estabelece isenção para outros processos."
+        }
+      ],
+      "anexos_ou_comprovacoes": [
+        "Comprovante de recolhimento, quando devido"
+      ],
+      "notas": [
+        "Referência procedimental: Portaria SENATRAN 990/2022, art. 8º e Anexo I. Nenhuma guia foi gerada ou paga."
+      ],
+      "validacao_de_obrigatoriedade_dos_campos": "Não testada por submissão. Regras de outros perfis e de edição não foram exercitadas."
+    },
+    {
+      "id": "DOS-03",
+      "titulo": "Dados do Requerente",
+      "origem": "Interface SISCAT observada em leitura, em processo deferido de Fabricação / AUTOMOVEL / PASSAGEIRO / M1 / elétrico com fonte externa",
+      "grupos": [
+        {
+          "grupo": "Dados cadastrais",
+          "campos": [
+            "CNPJ",
+            "Razão social",
+            "Endereço",
+            "Número",
+            "Complemento",
+            "CEP",
+            "UF",
+            "Município",
+            "Bairro"
+          ]
+        },
+        {
+          "grupo": "Lista de CNPJs",
+          "campos": [
+            "CNPJ",
+            "Razão social"
+          ]
+        },
+        {
+          "grupo": "Pessoas de contato",
+          "campos": [
+            "Nome",
+            "Função",
+            "Telefone",
+            "Ramal",
+            "E-mail"
+          ]
+        }
+      ],
+      "anexos_ou_comprovacoes": [
+        "Instrumento de constituição da empresa, alterações e CNPJ",
+        "Autorização do representante legal",
+        "Inscrição no CREA e declaração da empresa ou ART do técnico emitente do CS",
+        "Vínculo do responsável técnico com a empresa",
+        "Certificado de gestão da qualidade",
+        "Comprovante de capacitação técnica",
+        "Vínculo entre importador e fabricante/encarroçadora"
+      ],
+      "notas": [
+        "Há opção Não se aplica para qualidade, capacitação e vínculo importador/fabricante na interface observada.",
+        "Qualidade e capacitação não são uma exigência cumulativa universal: confrontar Portaria 990, art. 2º, §§ 7º e 8º e Anexo II. Sem sistema certificado, analisar a via do CCT por ITL licenciada/acreditada.",
+        "Representação e responsabilidade técnica são relações diferentes."
+      ],
+      "validacao_de_obrigatoriedade_dos_campos": "Não testada por submissão. Regras de outros perfis e de edição não foram exercitadas."
+    },
+    {
+      "id": "DOS-04",
+      "titulo": "Identificação Veicular",
+      "origem": "Interface SISCAT observada em leitura, em processo deferido de Fabricação / AUTOMOVEL / PASSAGEIRO / M1 / elétrico com fonte externa",
+      "grupos": [
+        {
+          "grupo": "Designação",
+          "campos": [
+            "Marca",
+            "Modelo",
+            "Versão",
+            "Marca/Modelo/Versão resumido (24 posições)",
+            "MMV"
+          ]
+        },
+        {
+          "grupo": "Classificação",
+          "campos": [
+            "Tipo",
+            "Espécie",
+            "Tração",
+            "Classificação internacional / categoria",
+            "ARM – Reconhecimento Mútuo de Homologações Veiculares"
+          ],
+          "observacao": "A opção ARM foi observada; seu benefício jurídico e seus critérios não foram validados nesta captura."
+        },
+        {
+          "grupo": "Fotografias",
+          "campos": [
+            "Laterais ou 3/4",
+            "Dianteira",
+            "Traseira",
+            "Lateral direita",
+            "Lateral esquerda",
+            "Outros"
+          ]
+        },
+        {
+          "grupo": "Locais de gravação",
+          "campos": [
+            "Gravação",
+            "Descrição",
+            "Fonte",
+            "Tamanho",
+            "Documento"
+          ],
+          "observacao": "Linhas observadas: VIN, VIS, MOTOR, ANO MODELO, caixa de câmbio, NIEV, NICV, cabine e eixos. Algumas dependem de PBT/tipo de veículo."
+        },
+        {
+          "grupo": "VIN",
+          "campos": [
+            "WMI",
+            "VIN",
+            "Ações",
+            "Caracter e descrição por cada uma das 17 posições",
+            "Seções WMI, VDS e VIS",
+            "WMI de seis dígitos"
+          ]
+        },
+        {
+          "grupo": "Origem",
+          "campos": [
+            "País de origem do WMI",
+            "País de fabricação"
+          ]
+        }
+      ],
+      "anexos_ou_comprovacoes": [
+        "Fotografias de identificação",
+        "Documentos dos locais de gravação",
+        "Documento WMI"
+      ],
+      "notas": [
+        "A Resolução 968/2022 e seus anexos devem orientar a regra atual. Não reativar automaticamente a 24/1998, revogada a partir de 2025."
+      ],
+      "validacao_de_obrigatoriedade_dos_campos": "Não testada por submissão. Regras de outros perfis e de edição não foram exercitadas."
+    },
+    {
+      "id": "DOS-05",
+      "titulo": "Informações Técnicas",
+      "origem": "Interface SISCAT observada em leitura, em processo deferido de Fabricação / AUTOMOVEL / PASSAGEIRO / M1 / elétrico com fonte externa",
+      "grupos": [
+        {
+          "grupo": "Natureza técnica",
+          "campos": [
+            "Descrição/material do chassi ou monobloco",
+            "Nº de eixos",
+            "Localização dos eixos motrizes",
+            "Nº de eixos motrizes",
+            "Observação"
+          ]
+        },
+        {
+          "grupo": "Pneus e rodas",
+          "campos": [
+            "Nº de pneus",
+            "Nº de rodas",
+            "Nome da configuração",
+            "Sistemas alternativos",
+            "Eixo dianteiro",
+            "Eixo traseiro",
+            "Sobressalente",
+            "Outros",
+            "Tipo diagonal/radial",
+            "Dimensões do pneu",
+            "Dimensões da roda",
+            "Material construtivo"
+          ]
+        },
+        {
+          "grupo": "Dimensões",
+          "campos": [
+            "Comprimento mínimo/máximo (mm)",
+            "Largura (mm)",
+            "Balanço traseiro mínimo/máximo (mm)",
+            "Altura em ordem de marcha mínima/máxima (mm)",
+            "Distância entre eixos mínima/máxima (mm)",
+            "Observação",
+            "Possui AET"
+          ]
+        },
+        {
+          "grupo": "Pesos",
+          "campos": [
+            "Massa em ordem de marcha máxima (kg)",
+            "Capacidade de carga máxima (kg)",
+            "Massa máxima do reboque com freio mínima/máxima (kg)",
+            "Massa máxima do reboque sem freio mínima/máxima (kg)",
+            "CMT (kg)",
+            "PBT (kg)",
+            "PBTC (kg)",
+            "Observação"
+          ]
+        },
+        {
+          "grupo": "Carroceria",
+          "campos": [
+            "Tipo",
+            "Configuração / número de volumes",
+            "Compartimento de bagagem",
+            "Nº e descrição de portas",
+            "Nº e descrição de bancos",
+            "Material construtivo"
+          ]
+        },
+        {
+          "grupo": "Lotação",
+          "campos": [
+            "Quantidade de passageiros",
+            "Capacidade de carga (t)"
+          ]
+        },
+        {
+          "grupo": "Motorização",
+          "campos": [
+            "Nome da configuração",
+            "Fabricante",
+            "Local frontal/central/traseiro",
+            "Cilindrada (cm³)",
+            "RPM máxima",
+            "Alimentação",
+            "Observação",
+            "Tipo de combustível",
+            "Potência (kW)",
+            "Torque (daNm)",
+            "Potência combinada"
+          ],
+          "observacao": "Combustíveis observados no seletor: álcool, gasolina, diesel, GNV, gasogênio, gás metano, gás natural liquefeito, elétrico de fonte interna e elétrico de fonte externa. A lista foi preservada; sua presença não autoriza a configuração."
+        },
+        {
+          "grupo": "Transmissão",
+          "campos": [
+            "Descrição",
+            "Quantidade de marchas",
+            "Observação"
+          ]
+        },
+        {
+          "grupo": "Suspensão",
+          "campos": [
+            "Descrição do sistema dianteiro",
+            "Descrição do sistema traseiro"
+          ]
+        },
+        {
+          "grupo": "Direção",
+          "campos": [
+            "Descrição"
+          ]
+        },
+        {
+          "grupo": "Freios",
+          "campos": [
+            "Descrição",
+            "ABS",
+            "ESC"
+          ]
+        },
+        {
+          "grupo": "Retrovisores",
+          "campos": [
+            "Local direito/esquerdo/interno",
+            "Descrição / tipo / regulagem"
+          ]
+        },
+        {
+          "grupo": "Cintos",
+          "campos": [
+            "Tipo",
+            "Descrição",
+            "Esquema de ancoragem e fixações"
+          ]
+        },
+        {
+          "grupo": "Vidros",
+          "campos": [
+            "Local",
+            "Descrição"
+          ]
+        },
+        {
+          "grupo": "Local da placa",
+          "campos": [
+            "Local",
+            "Altura (mm)",
+            "Comprimento (mm)"
+          ]
+        },
+        {
+          "grupo": "Monitoramento traseiro",
+          "campos": [
+            "Descrição",
+            "Anexo"
+          ]
+        },
+        {
+          "grupo": "Airbag",
+          "campos": [
+            "Descrição",
+            "Anexo"
+          ]
+        }
+      ],
+      "anexos_ou_comprovacoes": [
+        "Esquema de ancoragem de cintos",
+        "Monitoramento traseiro",
+        "Airbag",
+        "Viabilidade de engate e pontos de fixação (há Não se aplica)",
+        "Descrição dos sistemas de iluminação e sinalização"
+      ],
+      "notas": [
+        "Descrição de um sistema não equivale à aprovação do ensaio correspondente. Configuração, versão e amostra ensaiada precisam de vínculo rastreável."
+      ],
+      "validacao_de_obrigatoriedade_dos_campos": "Não testada por submissão. Regras de outros perfis e de edição não foram exercitadas."
+    },
+    {
+      "id": "DOS-06",
+      "titulo": "Legislação Complementar",
+      "origem": "Interface SISCAT observada em leitura, em processo deferido de Fabricação / AUTOMOVEL / PASSAGEIRO / M1 / elétrico com fonte externa",
+      "grupos": [
+        {
+          "grupo": "Conformidade compulsória",
+          "campos": [
+            "Extintor",
+            "Pneu",
+            "Componentes de GNV",
+            "Dispositivo de transporte eventual de cargas/bicicletas",
+            "Anexo ou Não se aplica"
+          ]
+        },
+        {
+          "grupo": "Meio ambiente",
+          "campos": [
+            "Comprovação de atendimento à legislação ambiental / IBAMA",
+            "Não se aplica"
+          ]
+        }
+      ],
+      "anexos_ou_comprovacoes": [
+        "Comprovantes de conformidade dos produtos aplicáveis",
+        "Comprovação ambiental aplicável"
+      ],
+      "notas": [
+        "Não se aplica no exemplo elétrico não é regra geral de dispensa ambiental. O fechamento ambiental será tratado com a fonte específica.",
+        "Requisitos do produto e do fornecedor Inmetro podem existir além das resoluções CONTRAN."
+      ],
+      "validacao_de_obrigatoriedade_dos_campos": "Não testada por submissão. Regras de outros perfis e de edição não foram exercitadas."
+    },
+    {
+      "id": "DOS-07",
+      "titulo": "Ensaios e Avaliações",
+      "origem": "Interface SISCAT observada em leitura, em processo deferido de Fabricação / AUTOMOVEL / PASSAGEIRO / M1 / elétrico com fonte externa",
+      "grupos": [
+        {
+          "grupo": "Nível 1",
+          "campos": [
+            "Botão para download do modelo",
+            "Declaração de conformidade assinada"
+          ],
+          "observacao": "O arquivo do modelo não foi recuperado. O conteúdo complementar abaixo deriva do Anexo XI oficial, não de um download da interface."
+        },
+        {
+          "grupo": "Nível 2",
+          "campos": [
+            "Item veicular",
+            "Laboratório",
+            "Responsável",
+            "Relatórios",
+            "Ações"
+          ],
+          "observacao": "14 linhas visitadas, com abertura das respectivas janelas de detalhes."
+        },
+        {
+          "grupo": "Detalhe de relatório nível 2",
+          "campos": [
+            "Laboratório",
+            "Nº identificador do relatório",
+            "Responsável",
+            "Observação",
+            "Anexo"
+          ]
+        },
+        {
+          "grupo": "Nível 3",
+          "campos": [
+            "Item veicular",
+            "Laboratório",
+            "Relatórios",
+            "Ações"
+          ],
+          "observacao": "22 linhas visitadas. A presença da linha não confirma obrigatoriedade para o veículo."
+        },
+        {
+          "grupo": "Detalhe de relatório nível 3",
+          "campos": [
+            "Laboratório",
+            "Nº identificador do relatório",
+            "Observação",
+            "Anexo"
+          ]
+        },
+        {
+          "grupo": "Controle do laboratório",
+          "campos": [
+            "Declaração sobre controle das operações do laboratório pelo sistema de gestão da empresa",
+            "Identificador do laboratório",
+            "Documento do laboratório"
+          ]
+        },
+        {
+          "grupo": "Tecnologias inovadoras",
+          "campos": [
+            "Declaração",
+            "Relatórios",
+            "Não se aplica"
+          ]
+        }
+      ],
+      "anexos_ou_comprovacoes": [
+        "Declaração nível 1",
+        "Relatórios de ensaio aplicáveis",
+        "Declaração de controle do laboratório",
+        "Identificação/documentação de laboratórios",
+        "Declaração e relatórios das tecnologias inovadoras aplicáveis"
+      ],
+      "notas": [
+        "36 linhas e seus detalhes foram captados; 27 referências de ajuda não vazias foram lidas.",
+        "A interface informa que não será necessário enviar relatório se o item não enquadrar o tipo de veículo.",
+        "Níveis são formas de controle da comprovação. O catálogo técnico deve manter sua própria classificação de sistemas."
+      ],
+      "validacao_de_obrigatoriedade_dos_campos": "Não testada por submissão. Regras de outros perfis e de edição não foram exercitadas."
+    },
+    {
+      "id": "DOS-08",
+      "titulo": "Etiqueta de Segurança",
+      "origem": "Interface SISCAT observada em leitura, em processo deferido de Fabricação / AUTOMOVEL / PASSAGEIRO / M1 / elétrico com fonte externa",
+      "grupos": [
+        {
+          "grupo": "Participação",
+          "campos": [
+            "Veículo não participa da ENSV"
+          ]
+        },
+        {
+          "grupo": "Requisitos gerais",
+          "campos": [
+            "Aviso de não afivelamento do cinto - motorista",
+            "Dispositivo Protetor de Roda",
+            "Farol de rodagem diurna",
+            "Impacto Lateral",
+            "Indicador de direção lateral",
+            "Indicação de frenagem de emergência (ESS)",
+            "Sistema de alerta ou visibilidade traseira (câmera ou aviso sonoro)",
+            "Sistema de controle de estabilidade (ESC)",
+            "Sistema de redução de spray"
+          ]
+        },
+        {
+          "grupo": "Requisitos inovadores",
+          "campos": [
+            "Assistente de permanência em faixa de rodagem (LKAS)",
+            "Aviso de afastamento de faixa de rodagem (LDWS)",
+            "Controle de cruzeiro adaptativo",
+            "Impacto frontal - camionetas e utilitários",
+            "Impacto lateral poste",
+            "Monitor de sonolência ou distração do motorista",
+            "Proteção para pedestre",
+            "Sistema de frenagem automático de emergência - obstáculo fixo",
+            "Sistema de frenagem automático de emergência - obstáculo móvel",
+            "Sistema de frenagem automático de emergência – ciclistas",
+            "Sistema de frenagem automático de emergência – pedestres"
+          ]
+        }
+      ],
+      "anexos_ou_comprovacoes": [
+        "Informações e comprovações das tecnologias declaradas"
+      ],
+      "notas": [
+        "Foram observadas as marcações Série, Não disponível e Não se aplica. A Portaria 1.554/2022, art. 10, também prevê Opcional.",
+        "A participação no programa e a obrigação de instalar cada tecnologia são decisões separadas. Aplicar o regime de adesão, as exceções e os arts. 5º, 9º, 10, 13 e 28 da portaria."
+      ],
+      "validacao_de_obrigatoriedade_dos_campos": "Não testada por submissão. Regras de outros perfis e de edição não foram exercitadas."
+    },
+    {
+      "id": "DOS-09",
+      "titulo": "Certificado de Segurança",
+      "origem": "Interface SISCAT observada em leitura, em processo deferido de Fabricação / AUTOMOVEL / PASSAGEIRO / M1 / elétrico com fonte externa",
+      "grupos": [
+        {
+          "grupo": "Assinatura",
+          "campos": [
+            "Digital gov.br avançada",
+            "Manual ou assinador externo",
+            "Gerar modelo de CS",
+            "Anexar CS assinado"
+          ]
+        }
+      ],
+      "anexos_ou_comprovacoes": [
+        "Certificado de Segurança assinado"
+      ],
+      "notas": [
+        "O rótulo do anexo menciona representante legal. Conferir o conteúdo e a responsabilidade conjunta do representante e do técnico no Anexo VI da Portaria 990.",
+        "CS do dossiê não é o CSV de uma inspeção veicular."
+      ],
+      "validacao_de_obrigatoriedade_dos_campos": "Não testada por submissão. Regras de outros perfis e de edição não foram exercitadas."
+    },
+    {
+      "id": "DOS-10",
+      "titulo": "Diferenças Processos",
+      "origem": "Interface SISCAT observada em leitura, em processo deferido de Fabricação / AUTOMOVEL / PASSAGEIRO / M1 / elétrico com fonte externa",
+      "grupos": [
+        {
+          "grupo": "Comparação",
+          "campos": [
+            "Verificar alterações"
+          ],
+          "observacao": "A ação de consulta foi acionada, sem resultado adicional visível no exemplo."
+        }
+      ],
+      "anexos_ou_comprovacoes": [],
+      "notas": [
+        "É uma função de comparação de versões/processos; não constitui requisito técnico independente."
+      ],
+      "validacao_de_obrigatoriedade_dos_campos": "Não testada por submissão. Regras de outros perfis e de edição não foram exercitadas."
+    }
+  ],
+  "matriz_ensaios": [
+    {
+      "id": "ENS-2-01",
+      "rotulo_siscat": "Sistemas de freio",
+      "nivel_observado": 2,
+      "ajuda_original": "Dispositivo legal: CONTRAN no.777/93",
+      "significado": "Desempenho de frenagem e ABS, conforme categoria.",
+      "fontes": [
+        "contran-915-2022"
+      ],
+      "dispositivo": "arts. 4º, 5º, 7º e 9º",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "M1: avaliar sistema de serviço, estacionamento e ABS; método/equivalência conforme o ato."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "Referência atual identificada; 777/1993 da ajuda é histórica."
+      },
+      "partes_3d": [
+        "freios",
+        "pneus",
+        "painel"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 2 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-2-02",
+      "rotulo_siscat": "Sistemas de limpador e lavador do pára-brisa",
+      "nivel_observado": 2,
+      "ajuda_original": "Dispositivo legal: CONTRAN no.224/07",
+      "significado": "Área varrida e desempenho dos limpadores/lavadores do para-brisa.",
+      "fontes": [
+        "contran-224-2006"
+      ],
+      "dispositivo": "arts. 1º a 3º e anexos",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Veículo automotor com para-brisa, conforme escopo do ato."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "Referência de número confirmada; divergência de ano nos metadados oficiais mantida para saneamento."
+      },
+      "partes_3d": [
+        "limpadores",
+        "vidros"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 2 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-2-03",
+      "rotulo_siscat": "Instalação dos dispositivos de Iluminação",
+      "nivel_observado": 2,
+      "ajuda_original": "Dispositivo legal: CONTRAN no.227/07; 294/08",
+      "significado": "Instalação e especificações de iluminação e sinalização.",
+      "fontes": [
+        "contran-970-2022",
+        "contran-1024-2026"
+      ],
+      "dispositivo": "arts. 3º e 16 a 20 da 970; anexos; alteração 1024/2026",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Separar funções obrigatórias e opcionais, categoria e fase de introdução. A alteração de 2026 trata de veículos de utilidade pública."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "227/2007 e 294/2008 não devem ser referência operacional para um projeto atual."
+      },
+      "partes_3d": [
+        "iluminacao-frontal",
+        "iluminacao-lateral",
+        "iluminacao-traseira",
+        "painel",
+        "placa"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 2 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-2-04",
+      "rotulo_siscat": "Espelhos retrovisores internos e Externos",
+      "nivel_observado": 2,
+      "ajuda_original": "Dispositivo legal: CONTRAN no.636/84; 226/07",
+      "significado": "Visão indireta: dispositivos, instalação e campo de visão.",
+      "fontes": [
+        "contran-966-2022"
+      ],
+      "dispositivo": "arts. 1º, 2º e 5º; anexos",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Selecionar classe/quantidade/dispositivo admitido para a categoria. Regra de escolares é ramo próprio."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "Referência atual identificada; não copiar 636/1984 e 226/2007 como regra presente."
+      },
+      "partes_3d": [
+        "retrovisores",
+        "vidros",
+        "sensores"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 2 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-2-05",
+      "rotulo_siscat": "Vidros de segurança",
+      "nivel_observado": 2,
+      "ajuda_original": "Dispositivo legal: CONTRAN no.254/07",
+      "significado": "Vidros de segurança, visibilidade, película e transmitância.",
+      "fontes": [
+        "contran-960-2022",
+        "contran-989-2022"
+      ],
+      "dispositivo": "arts. 2º a 4º e 8º da 960; art. 2º da 989; anexo",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Material, área indispensável à dirigibilidade, película e blindagem devem ser distinguidos."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "A 989/2022 altera a 960/2022; considerar ambas no lugar da 254/2007."
+      },
+      "partes_3d": [
+        "vidros"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 2 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-2-06",
+      "rotulo_siscat": "Fechaduras e Dobradiças portas Laterais",
+      "nivel_observado": 2,
+      "ajuda_original": "Dispositivo legal: CONTRAN no.463/73; CONTRAN 885/2021 (anexo 11)",
+      "significado": "Retenção de portas, fechaduras e dobradiças.",
+      "fontes": [
+        "contran-885-2021"
+      ],
+      "dispositivo": "arts. 1º a 5º e anexo",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Categoria, tipo de porta e alternativas de comprovação previstas no ato."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "885/2021 é a referência atual do sistema de portas; não é substituta geral de todo conteúdo antigo da 463/1973."
+      },
+      "partes_3d": [
+        "portas",
+        "estrutura"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 2 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-2-07",
+      "rotulo_siscat": "Mangueiras flexíveis do freio hidráulico",
+      "nivel_observado": 2,
+      "ajuda_original": "Dispositivo legal: CONTRAN no.461/72; 636/84",
+      "significado": "Mangueiras como componentes do freio hidráulico.",
+      "fontes": [
+        "contran-915-2022"
+      ],
+      "dispositivo": "Integração ao sistema de freios; Portaria 990, Anexo XI, item 1.3",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Verificar o sistema hidráulico. A linha antiga não tem correspondência autônoma confirmada na tabela atual do Anexo XI."
+      },
+      "revisao": {
+        "estado": "pendencia",
+        "conclusao": "PENDENTE: definir fundamento atual e método para eventual relatório separado; não impor ensaio autônomo pela ajuda antiga."
+      },
+      "partes_3d": [
+        "freios"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 2 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-2-08",
+      "rotulo_siscat": "Janela de acionamento energizado",
+      "nivel_observado": 2,
+      "ajuda_original": "Dispositivo legal: CONTRAN no.649/85;762/92",
+      "significado": "Acionadores de janelas, teto solar e divisória energizados.",
+      "fontes": [
+        "contran-908-2022"
+      ],
+      "dispositivo": "arts. 2º a 4º e anexo",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Ativa-se pela presença e pelo modo de acionamento desses mecanismos."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "908/2022 é a referência atual; os números antigos da ajuda não bastam."
+      },
+      "partes_3d": [
+        "vidros-energizados",
+        "portas"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 2 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-2-09",
+      "rotulo_siscat": "Controle eletrônico de estabilidade",
+      "nivel_observado": 2,
+      "ajuda_original": "Dispositivo legal: CONTRAN no. 641/16",
+      "significado": "Controle eletrônico de estabilidade (ESC).",
+      "fontes": [
+        "contran-954-2022",
+        "deliberacao-264-2022"
+      ],
+      "dispositivo": "arts. 2º a 8º da 954; art. 2º da Deliberação 264",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Para M1, aplicar o calendário do art. 7º, suas exceções e o texto alterado. Não transportar o calendário de veículos pesados."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "641/2016 foi substituída no tratamento atual; a deliberação posterior foi incluída."
+      },
+      "partes_3d": [
+        "freios",
+        "sensores",
+        "painel"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 2 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-2-10",
+      "rotulo_siscat": "Conjunto roda e pneu sobressalente de uso temporário e sistemas alternativos",
+      "nivel_observado": 2,
+      "ajuda_original": "Dispositivo legal: CONTRAN no. 540/15",
+      "significado": "Pneus, conjunto sobressalente temporário e sistemas alternativos.",
+      "fontes": [
+        "contran-913-2022"
+      ],
+      "dispositivo": "arts. 2º a 5º e anexo; retificação",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Distinguir estepe, temporário, run-flat e solução alternativa; a dispensa de estepe tem condições e instruções próprias."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "540/2015 substituída na referência atual pela 913/2022."
+      },
+      "partes_3d": [
+        "estepe",
+        "pneus",
+        "manual"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 2 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-2-11",
+      "rotulo_siscat": "Sistema de Alerta ou Monitoramento Traseiro",
+      "nivel_observado": 2,
+      "ajuda_original": "Dispositivo legal: CONTRAN no. 759/18. Obrigatório a partir de jan/2025.",
+      "significado": "Alerta traseiro e/ou monitoramento traseiro na manobra.",
+      "fontes": [
+        "contran-759-2018"
+      ],
+      "dispositivo": "arts. 2º a 5º e anexos",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Novos projetos desde 01/01/2025; todos em produção desde 01/01/2027, ressalvadas dispensas do art. 4º."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "Ajuda cita o ato certo, mas reduz indevidamente o calendário a jan/2025."
+      },
+      "partes_3d": [
+        "traseira",
+        "sensores",
+        "painel"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 2 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-2-12",
+      "rotulo_siscat": "Aviso de afivelamento dos Cintos de Segurança",
+      "nivel_observado": 2,
+      "ajuda_original": "Dispositivo legal: CONTRAN no. 760/18.",
+      "significado": "Aviso de não afivelamento dos cintos.",
+      "fontes": [
+        "contran-936-2022"
+      ],
+      "dispositivo": "arts. 2º a 5º; anexo; retificação",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Obrigação de instalação para o condutor conforme o ato; desempenho de aviso de passageiros quando instalado também tem tratamento."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "760/2018 deve ser lida por meio da consolidação 936/2022."
+      },
+      "partes_3d": [
+        "cintos",
+        "bancos",
+        "painel"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 2 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-2-13",
+      "rotulo_siscat": "Sistema de redução de spray",
+      "nivel_observado": 2,
+      "ajuda_original": "Dispositivo legal: CONTRAN no. 717/17.",
+      "significado": "Sistema antispray para classes de veículos indicadas.",
+      "fontes": [
+        "contran-888-2021"
+      ],
+      "dispositivo": "art. 1º, §§ 1º a 4º; arts. 3º e 4º; anexos II a IV",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "O sistema antispray do § 1º tem escopo diferente do protetor de roda do § 2º. AUTOMOVEL exige avaliação pela linha de protetor, não por equivalência automática com caminhão."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "717/2017 é cronograma de estudos, não fundamento suficiente de instalação. A referência técnica é a 888/2021."
+      },
+      "partes_3d": [
+        "caixas-rodas",
+        "pneus"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 2 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-2-14",
+      "rotulo_siscat": "Dispositivo Protetor de Roda",
+      "nivel_observado": 2,
+      "ajuda_original": "Dispositivo legal: CONTRAN no. 888/21.",
+      "significado": "Proteção das rodas para automóvel, camioneta e utilitário.",
+      "fontes": [
+        "contran-888-2021"
+      ],
+      "dispositivo": "art. 1º, § 2º; art. 4º, III e §§; Anexo V",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Novos projetos desde 01/01/2026; todos os veículos do inciso desde 01/01/2028, observadas definições e dispensas."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "A norma da ajuda está correta; Não disponível no exemplo não significa dispensa universal."
+      },
+      "partes_3d": [
+        "caixas-rodas",
+        "pneus"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 2 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Responsável",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-3-01",
+      "rotulo_siscat": "Deslocamento do sistema de coluna de direção",
+      "nivel_observado": 3,
+      "ajuda_original": "Dispositivo legal: CONTRAN no.463/73",
+      "significado": "Limitação do deslocamento da coluna na proteção do ocupante.",
+      "fontes": [
+        "contran-910-2022"
+      ],
+      "dispositivo": "art. 6º e anexos; situação da referência antiga",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Ligar ao conjunto de segurança frontal. Não criar nova obrigação de ensaio isolado por simples persistência da linha legada."
+      },
+      "revisao": {
+        "estado": "pendencia",
+        "conclusao": "PENDENTE: correspondência autônoma atual da linha 463/1973 não confirmada."
+      },
+      "partes_3d": [
+        "coluna-direcao",
+        "estrutura",
+        "airbags"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 3 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-3-02",
+      "rotulo_siscat": "Sistema de Controle de Direção Absorvedor de Energia",
+      "nivel_observado": 3,
+      "ajuda_original": "Dispositivo legal: CONTRAN no.463/73",
+      "significado": "Absorção de energia do sistema de direção no impacto.",
+      "fontes": [
+        "contran-910-2022"
+      ],
+      "dispositivo": "art. 6º e anexos; situação da referência antiga",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Mapear em conjunto com proteção frontal; a alternativa FMVSS 203 aparece no art. 6º, sem autorizar equivalência automática para qualquer relatório."
+      },
+      "revisao": {
+        "estado": "pendencia",
+        "conclusao": "PENDENTE: fundamento autônomo e modo de entrega da linha legada não confirmados."
+      },
+      "partes_3d": [
+        "coluna-direcao",
+        "estrutura"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 3 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-3-03",
+      "rotulo_siscat": "Sistema de combustível",
+      "nivel_observado": 3,
+      "ajuda_original": "Dispositivo legal: CONTRAN no. 486/74; 221/07",
+      "significado": "Integridade de combustível após impacto e separação da segurança de alta tensão.",
+      "fontes": [
+        "contran-910-2022",
+        "contran-749-2018"
+      ],
+      "dispositivo": "art. 4º, parágrafo único; arts. 6º e 11 da 910; art. 1º da 749",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Se há sistema de combustível, avaliar impacto traseiro e seu método; se híbrido/elétrico, avaliar também 749. Não converter ausência de tanque em dispensa de proteção elétrica."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "221/2007 é referência histórica; a ajuda ainda traz 486/74. Regimes atuais separados por sistema."
+      },
+      "partes_3d": [
+        "combustivel",
+        "traseira",
+        "bateria-tracao"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 3 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-3-04",
+      "rotulo_siscat": "Proteção ao ocupante (critério biomecânico)",
+      "nivel_observado": 3,
+      "ajuda_original": "Dispositivo legal: CONTRAN no. 221/07",
+      "significado": "Proteção dos ocupantes e comportamento estrutural em impactos.",
+      "fontes": [
+        "contran-910-2022"
+      ],
+      "dispositivo": "arts. 4º a 7º e 11; anexos e retificação",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "A proteção frontal do art. 4º usa PBT inferior a 2.500 kg. Há regras para impacto traseiro e dispensas próprias. Os arts. 2º e 3º expiraram em 31/12/2025."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "Enquadrar pelo texto aplicável na data; não perpetuar o calendário antigo da 221/2007."
+      },
+      "partes_3d": [
+        "frente",
+        "estrutura",
+        "bancos",
+        "cintos",
+        "airbags",
+        "traseira"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 3 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-3-05",
+      "rotulo_siscat": "Ancoragem dos assentos",
+      "nivel_observado": 3,
+      "ajuda_original": "Dispositivo legal: CONTRAN no. 463/73; 220/07, 316/09",
+      "significado": "Resistência/ancoragem dos assentos e interface com apoios de cabeça. A legislação atual do conjunto de retenção foi identificada: 951/2022 com alteração 997/2023.",
+      "fontes": [
+        "contran-951-2022",
+        "contran-997-2023"
+      ],
+      "dispositivo": "art. 2º da 997; art. 8º e Anexo I, item 3.5.3, da 951 alterados",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "A 997/2023 inclui expressamente a 220/2007 na revogação da 951. O item 3.5.3 atual admite NBR 15283:2013, UN R17 série 07 ou posteriores, ou FMVSS 202 e 207, no escopo ali definido para apoios de cabeça."
+      },
+      "revisao": {
+        "estado": "pendencia",
+        "conclusao": "PENDENTE apenas o enquadramento da entrega: distinguir a cobertura do conjunto banco/apoio no método escolhido de eventual relatório autônomo da linha Ancoragem dos assentos. A existência de legislação atual está confirmada."
+      },
+      "partes_3d": [
+        "bancos",
+        "estrutura",
+        "apoios-cabeca"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 3 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-3-06",
+      "rotulo_siscat": "Ancoragem dos cintos de segurança",
+      "nivel_observado": 3,
+      "ajuda_original": "Dispositivo legal: CONTRAN no. 48/98, 316/09",
+      "significado": "Localização e resistência das ancoragens dos cintos.",
+      "fontes": [
+        "contran-951-2022",
+        "contran-997-2023"
+      ],
+      "dispositivo": "Anexo I, itens 3.4.1 e 3.5.1, com redação da 997",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Distinguir ancoragem do cinto, do assento e do dispositivo infantil; ligar posições e amostra."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "Referência atual identificada; alternativas e séries das normas foram modificadas em 2023."
+      },
+      "partes_3d": [
+        "cintos",
+        "bancos",
+        "estrutura"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 3 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-3-07",
+      "rotulo_siscat": "Cintos de segurança",
+      "nivel_observado": 3,
+      "ajuda_original": "Dispositivo legal: CONTRAN no. 48/98",
+      "significado": "Tipo, instalação e desempenho dos cintos.",
+      "fontes": [
+        "contran-951-2022",
+        "contran-997-2023"
+      ],
+      "dispositivo": "Anexo I, itens 3.1 a 3.3 e 3.5.1, com redação da 997",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Avaliar por posição/orientação do assento. Não usar um único resultado para configurações diferentes sem justificativa."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "Referência atual identificada; 48/1998 da ajuda é histórica."
+      },
+      "partes_3d": [
+        "cintos",
+        "bancos"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 3 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-3-08",
+      "rotulo_siscat": "Apoio de cabeça",
+      "nivel_observado": 3,
+      "ajuda_original": "Dispositivo legal: CONTRAN no. 44/98; 220/07",
+      "significado": "Presença, posição e comprovação dos apoios de cabeça.",
+      "fontes": [
+        "contran-951-2022",
+        "contran-997-2023"
+      ],
+      "dispositivo": "Anexo I, itens 3.1, 3.2 e 3.5.3, com redação da 997",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Considerar posições dos bancos, orientação e regras específicas de esportivos/conversíveis."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "Métodos equivalentes atualizados em 2023; não usar a 220/2007 como ato vigente."
+      },
+      "partes_3d": [
+        "apoios-cabeca",
+        "bancos"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 3 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-3-09",
+      "rotulo_siscat": "Impacto Lateral",
+      "nivel_observado": 3,
+      "ajuda_original": "Dispositivo legal: CONTRAN no. 721/18",
+      "significado": "Proteção no impacto lateral contra barreira deformável.",
+      "fontes": [
+        "contran-949-2022"
+      ],
+      "dispositivo": "arts. 2º, 4º, 5º, I, e 7º; anexos e retificação",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Verificar algum assento com ponto R até 700 mm e as dispensas. Calendário: novos projetos definidos no ato desde 2020; todos desde 2024."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "721/2018 foi revogada; tratar pela 949/2022."
+      },
+      "partes_3d": [
+        "lateral",
+        "bancos",
+        "cintos",
+        "estrutura"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 3 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-3-10",
+      "rotulo_siscat": "Isofix/Latch",
+      "nivel_observado": 3,
+      "ajuda_original": "Dispositivo legal: CONTRAN no. 518/15",
+      "significado": "Ancoragens para dispositivo de retenção infantil.",
+      "fontes": [
+        "contran-951-2022",
+        "contran-997-2023"
+      ],
+      "dispositivo": "Anexo I, itens 3.4.2 a 3.4.2.3 e 3.5.2, com redação da 997",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Banco traseiro, número de fileiras e hipóteses de esportivo/conversível alteram o enquadramento. Não presumir quantidade apenas pelo nome ISOFIX."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "518/2015 revogada; alternativas e séries técnicas atualizadas em 2023."
+      },
+      "partes_3d": [
+        "isofix",
+        "bancos",
+        "estrutura"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 3 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-3-11",
+      "rotulo_siscat": "Protecao ao Pedestre",
+      "nivel_observado": 3,
+      "ajuda_original": "Dispositivo legal: CONTRAN no. 752/18. Obrigatório a partir de jan/2025.",
+      "significado": "Redução de lesões ao pedestre na região frontal.",
+      "fontes": [
+        "contran-752-2018"
+      ],
+      "dispositivo": "arts. 1º a 5º; anexos",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Novos projetos desde 01/01/2025; todos os veículos do escopo desde 01/01/2030; avaliar tipos e dispensas do ato."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "Ajuda com ano inicial incompleto; não confundir todo veículo novo com projeto novo."
+      },
+      "partes_3d": [
+        "frente",
+        "vidros",
+        "quebra-mato"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 3 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-3-12",
+      "rotulo_siscat": "Impacto Lateral Poste",
+      "nivel_observado": 3,
+      "ajuda_original": "Dispositivo legal: CONTRAN no. 751/18. Obrigatório a partir de jan/2026.",
+      "significado": "Proteção no impacto lateral contra poste.",
+      "fontes": [
+        "contran-949-2022"
+      ],
+      "dispositivo": "arts. 3º a 5º, II, e 7º; anexos e retificação",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Automóvel com PBT até 3.500 kg: projetos com MMV a partir de 31/12/2018 entram em 01/01/2026; demais em 01/01/2030, observadas dispensas e derivações."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "751/2018 foi revogada; a ajuda omite parte das condições do calendário."
+      },
+      "partes_3d": [
+        "lateral",
+        "estrutura",
+        "bancos",
+        "cintos"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 3 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-3-13",
+      "rotulo_siscat": "Requisitos específicos para Veiculos movidos a propulsão Híbrida e Elétrica",
+      "nivel_observado": 3,
+      "ajuda_original": "Dispositivo legal: CONTRAN no. 750/18. Obrigatório a partir de jan/2022.",
+      "significado": "Segurança elétrica e pós-impacto de híbridos, plug-in e elétricos.",
+      "fontes": [
+        "contran-749-2018"
+      ],
+      "dispositivo": "arts. 1º a 3º e anexos",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Para automóvel, aplicar 749/2018; art. 2º estabelece produção/importação desde 01/01/2023. Capítulos de impacto seguem o escopo de impacto pertinente."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "ERRO DE ENQUADRAMENTO NA AJUDA: 750/2018 é de categorias L; também há divergência no ano de início."
+      },
+      "partes_3d": [
+        "bateria-tracao",
+        "propulsao",
+        "estrutura",
+        "combustivel"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 3 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-3-14",
+      "rotulo_siscat": "Sistema de frenagem automático de emergência - obstáculo móvel",
+      "nivel_observado": 3,
+      "ajuda_original": null,
+      "significado": "Tecnologia assistiva declarada no programa de rotulagem.",
+      "fontes": [
+        "portaria-senatran-1554-2022"
+      ],
+      "dispositivo": "arts. 5º, 9º, 10, 13 e 28; Anexo I",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Se disponível/declarada, identificar o normativo e a prova de desempenho; a presença na tela não prova obrigação universal de instalação."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "Não foi identificada, nas fontes revisadas, imposição universal de instalação desta tecnologia para todo M1. O ato técnico de prova depende da tecnologia declarada."
+      },
+      "partes_3d": [
+        "sensores",
+        "painel",
+        "freios"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 3 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-3-15",
+      "rotulo_siscat": "Sistema de frenagem automático de emergência - obstáculo fixo",
+      "nivel_observado": 3,
+      "ajuda_original": null,
+      "significado": "Tecnologia assistiva declarada no programa de rotulagem.",
+      "fontes": [
+        "portaria-senatran-1554-2022"
+      ],
+      "dispositivo": "arts. 5º, 9º, 10, 13 e 28; Anexo I",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Se disponível/declarada, identificar o normativo e a prova de desempenho; a presença na tela não prova obrigação universal de instalação."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "Não foi identificada, nas fontes revisadas, imposição universal de instalação desta tecnologia para todo M1. O ato técnico de prova depende da tecnologia declarada."
+      },
+      "partes_3d": [
+        "sensores",
+        "painel",
+        "freios"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 3 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-3-16",
+      "rotulo_siscat": "Aviso de afastamento de faixa de rodagem (LDWS)",
+      "nivel_observado": 3,
+      "ajuda_original": null,
+      "significado": "Tecnologia assistiva declarada no programa de rotulagem.",
+      "fontes": [
+        "portaria-senatran-1554-2022"
+      ],
+      "dispositivo": "arts. 5º, 9º, 10, 13 e 28; Anexo I",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Se disponível/declarada, identificar o normativo e a prova de desempenho; a presença na tela não prova obrigação universal de instalação."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "Não foi identificada, nas fontes revisadas, imposição universal de instalação desta tecnologia para todo M1. O ato técnico de prova depende da tecnologia declarada."
+      },
+      "partes_3d": [
+        "sensores",
+        "painel",
+        "freios"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 3 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-3-17",
+      "rotulo_siscat": "Impacto frontal - camionetas e utilitários",
+      "nivel_observado": 3,
+      "ajuda_original": null,
+      "significado": "Proteção frontal de camionetas e utilitários no histórico da ENSV.",
+      "fontes": [
+        "contran-910-2022",
+        "portaria-senatran-1554-2022"
+      ],
+      "dispositivo": "arts. 4º, 5º, 7º e 11 da 910; arts. 5º e 9º da Portaria 1.554",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Para AUTOMOVEL, usar a avaliação da proteção frontal correspondente; não duplicar obrigação só por constar no grupo de inovadores."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "A mesma tecnologia pode deixar a condição inovadora ao tornar-se obrigatória; reavaliar por tipo e fase."
+      },
+      "partes_3d": [
+        "frente",
+        "estrutura",
+        "airbags"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 3 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-3-18",
+      "rotulo_siscat": "Sistema de frenagem automático de emergência - pedestres",
+      "nivel_observado": 3,
+      "ajuda_original": null,
+      "significado": "Tecnologia assistiva declarada no programa de rotulagem.",
+      "fontes": [
+        "portaria-senatran-1554-2022"
+      ],
+      "dispositivo": "arts. 5º, 9º, 10, 13 e 28; Anexo I",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Se disponível/declarada, identificar o normativo e a prova de desempenho; a presença na tela não prova obrigação universal de instalação."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "Não foi identificada, nas fontes revisadas, imposição universal de instalação desta tecnologia para todo M1. O ato técnico de prova depende da tecnologia declarada."
+      },
+      "partes_3d": [
+        "sensores",
+        "painel",
+        "freios"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 3 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-3-19",
+      "rotulo_siscat": "Sistema de frenagem automático de emergência - ciclistas",
+      "nivel_observado": 3,
+      "ajuda_original": null,
+      "significado": "Tecnologia assistiva declarada no programa de rotulagem.",
+      "fontes": [
+        "portaria-senatran-1554-2022"
+      ],
+      "dispositivo": "arts. 5º, 9º, 10, 13 e 28; Anexo I",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Se disponível/declarada, identificar o normativo e a prova de desempenho; a presença na tela não prova obrigação universal de instalação."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "Não foi identificada, nas fontes revisadas, imposição universal de instalação desta tecnologia para todo M1. O ato técnico de prova depende da tecnologia declarada."
+      },
+      "partes_3d": [
+        "sensores",
+        "painel",
+        "freios"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 3 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-3-20",
+      "rotulo_siscat": "Assistente de permanência em faixa de rodagem (LKAS)",
+      "nivel_observado": 3,
+      "ajuda_original": null,
+      "significado": "Tecnologia assistiva declarada no programa de rotulagem.",
+      "fontes": [
+        "portaria-senatran-1554-2022"
+      ],
+      "dispositivo": "arts. 5º, 9º, 10, 13 e 28; Anexo I",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Se disponível/declarada, identificar o normativo e a prova de desempenho; a presença na tela não prova obrigação universal de instalação."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "Não foi identificada, nas fontes revisadas, imposição universal de instalação desta tecnologia para todo M1. O ato técnico de prova depende da tecnologia declarada."
+      },
+      "partes_3d": [
+        "sensores",
+        "painel",
+        "freios"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 3 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-3-21",
+      "rotulo_siscat": "Monitor de sonolência ou distração do motorista",
+      "nivel_observado": 3,
+      "ajuda_original": null,
+      "significado": "Tecnologia assistiva declarada no programa de rotulagem.",
+      "fontes": [
+        "portaria-senatran-1554-2022"
+      ],
+      "dispositivo": "arts. 5º, 9º, 10, 13 e 28; Anexo I",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Se disponível/declarada, identificar o normativo e a prova de desempenho; a presença na tela não prova obrigação universal de instalação."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "Não foi identificada, nas fontes revisadas, imposição universal de instalação desta tecnologia para todo M1. O ato técnico de prova depende da tecnologia declarada."
+      },
+      "partes_3d": [
+        "sensores",
+        "painel",
+        "freios"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 3 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ]
+    },
+    {
+      "id": "ENS-3-22",
+      "rotulo_siscat": "Controle de cruzeiro adaptativo.",
+      "nivel_observado": 3,
+      "ajuda_original": null,
+      "significado": "Tecnologia assistiva declarada no programa de rotulagem.",
+      "fontes": [
+        "portaria-senatran-1554-2022"
+      ],
+      "dispositivo": "arts. 5º, 9º, 10, 13 e 28; Anexo I",
+      "aplicabilidade": {
+        "estado": "a_enquadrar",
+        "condicao": "Se disponível/declarada, identificar o normativo e a prova de desempenho; a presença na tela não prova obrigação universal de instalação."
+      },
+      "revisao": {
+        "estado": "vinculo_revisado_no_recorte",
+        "conclusao": "Não foi identificada, nas fontes revisadas, imposição universal de instalação desta tecnologia para todo M1. O ato técnico de prova depende da tecnologia declarada."
+      },
+      "partes_3d": [
+        "sensores",
+        "painel",
+        "freios"
+      ],
+      "entrega": {
+        "secao": "DOS-07",
+        "tipo": "Relatório nível 3 quando aplicável",
+        "observacao": "O rótulo e o nível da tela foram preservados; isso não decide sozinho a obrigação técnica."
+      },
+      "detalhe_visitado": true,
+      "campos_detalhe": [
+        "Laboratório",
+        "Nro Ident. Relatório",
+        "Ações"
+      ]
+    }
+  ],
+  "requisitos_complementares": [
+    {
+      "id": "SEG-001",
+      "titulo": "Equipamentos obrigatórios e requisitos gerais",
+      "fontes": [
+        "contran-993-2023"
+      ],
+      "dispositivo": "arts. 2º a 5º, 7º e 10; Anexos I e II",
+      "requisito_em_linguagem_simples": "Verificar o conjunto obrigatório conforme tipo, massa, data e características.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "O Anexo I, tabela 1, é de leves com PBT até 3.500 kg; não é definição universal de M1. O Anexo II é índice, devendo ser atualizado pelos atos posteriores."
+      },
+      "comprovacao_ou_acao": "Checklist técnico, declaração nível 1 aplicável e registros de suporte; não basta consultar as linhas de relatórios.",
+      "partes_3d": [
+        "veiculo"
+      ],
+      "fase": "construcao",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-002",
+      "titulo": "Quebra-mato",
+      "fontes": [
+        "contran-215-2006"
+      ],
+      "dispositivo": "arts. 1º a 5º e anexo",
+      "requisito_em_linguagem_simples": "A peça instalada deve atender às regras de construção/montagem, compatibilidade, identificação e fornecedor registrado.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "Dispositivo presente e PBT até 3.500 kg; há exceções expressas no art. 4º. O equipamento não é de instalação obrigatória."
+      },
+      "comprovacao_ou_acao": "Portaria 990, Anexo XI, item 1.1: integra a declaração nível 1. Conferir manual, fixações, massa, dimensões e registro do fornecedor; a conformidade Inmetro é vínculo adicional.",
+      "partes_3d": [
+        "quebra-mato",
+        "frente",
+        "estrutura",
+        "airbags",
+        "manual"
+      ],
+      "fase": "construcao",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-003",
+      "titulo": "Engate para reboque instalado como acessório",
+      "fontes": [
+        "contran-937-2022"
+      ],
+      "dispositivo": "arts. 1º a 5º e 8º",
+      "requisito_em_linguagem_simples": "Compatibilizar capacidade do veículo, pontos de fixação, engate e rastreabilidade.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "PBT até 3.500 kg, capacidade de tracionar declarada e engate não original de fábrica, conforme art. 1º. A instalação original exige enquadramento próprio, sem extensão automática da regra do acessório."
+      },
+      "comprovacao_ou_acao": "Dados de capacidade e pontos de fixação no manual; fornecedor registrado, produto conforme regulamento Inmetro e plaqueta, conforme aplicável. Vínculo com ficha técnica e anexos do dossiê.",
+      "partes_3d": [
+        "engate",
+        "traseira",
+        "estrutura",
+        "freios",
+        "manual"
+      ],
+      "fase": "construcao",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-004",
+      "titulo": "Bagageiro e suporte para bicicletas",
+      "fontes": [
+        "contran-955-2022",
+        "contran-969-2022"
+      ],
+      "dispositivo": "arts. 2º a 10 da 955; regras da segunda PIV na 969",
+      "requisito_em_linguagem_simples": "Respeitar limites e instalação do fabricante, visibilidade, amarração, luzes e placa.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "Quando se transporta carga/bicicleta externamente. Instalação proibida se o fabricante não recomendar ou proibir."
+      },
+      "comprovacao_ou_acao": "Instruções de instalação/uso; se houver encobrimento, avaliar régua de sinalização e segunda placa. Não tratar como novo crash-test universal do CAT.",
+      "partes_3d": [
+        "bagageiro",
+        "traseira",
+        "iluminacao-traseira",
+        "placa",
+        "manual"
+      ],
+      "fase": "uso_e_acessorios",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-005",
+      "titulo": "Airbags frontais",
+      "fontes": [
+        "contran-964-2022"
+      ],
+      "dispositivo": "arts. 2º a 4º",
+      "requisito_em_linguagem_simples": "Instalar o sistema suplementar frontal para condutor e passageiro dianteiro no escopo do ato.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "M1/N1 fabricados desde 01/01/2014, observadas dispensas expressas de configuração/produção."
+      },
+      "comprovacao_ou_acao": "Caracterização e anexo de airbag na ficha; vincular ao conjunto de proteção do ocupante e sua prova aplicável, sem inventar uma linha autônoma de ensaio.",
+      "partes_3d": [
+        "airbags",
+        "frente",
+        "bancos",
+        "cintos"
+      ],
+      "fase": "construcao",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-006",
+      "titulo": "Comandos, indicadores e lâmpadas piloto",
+      "fontes": [
+        "contran-758-2018"
+      ],
+      "dispositivo": "arts. 1º a 3º e anexo",
+      "requisito_em_linguagem_simples": "Identificar, localizar e iluminar corretamente os comandos e alertas.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "Aplicação desde 01/01/2021, conforme escopo técnico do anexo."
+      },
+      "comprovacao_ou_acao": "Declaração nível 1, documentação de suporte e método/equivalência permitido no ato.",
+      "partes_3d": [
+        "painel",
+        "coluna-direcao",
+        "manual"
+      ],
+      "fase": "construcao",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-007",
+      "titulo": "Buzina e comando",
+      "fontes": [
+        "contran-764-2018",
+        "contran-993-2023"
+      ],
+      "dispositivo": "arts. 1º a 3º da 764 e anexo; Anexo I da 993",
+      "requisito_em_linguagem_simples": "Garantir dispositivo sonoro e desempenho regulamentar.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "Conforme tipo e método do ato."
+      },
+      "comprovacao_ou_acao": "Declaração nível 1 e suporte de comprovação do desempenho.",
+      "partes_3d": [
+        "buzina",
+        "coluna-direcao"
+      ],
+      "fase": "construcao",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-008",
+      "titulo": "Alarme e acessórios antifurto",
+      "fontes": [
+        "contran-37-1998",
+        "contran-988-2022",
+        "contran-559-2015"
+      ],
+      "dispositivo": "arts. 1º a 3º da 37 com alteração da 988; art. 1º da 559",
+      "requisito_em_linguagem_simples": "O acessório não pode comprometer a segurança; o alarme sonoro obedece às restrições.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "Quando instalado. A 559 suspendeu efeitos das imposições de equipamento antifurto da 245/2007 e correlatas; não presumir rastreador obrigatório."
+      },
+      "comprovacao_ou_acao": "Declaração nível 1 aplicável; separar regra de funcionamento de obrigação de instalação.",
+      "partes_3d": [
+        "alarme",
+        "painel",
+        "manual"
+      ],
+      "fase": "construcao",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-009",
+      "titulo": "Trava do capô",
+      "fontes": [
+        "contran-993-2023"
+      ],
+      "dispositivo": "Anexo I, tabela 1 e nota 22",
+      "requisito_em_linguagem_simples": "Garantir retenção adequada do capô na configuração prevista.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "Automóvel com a configuração de abertura descrita na nota de aplicação."
+      },
+      "comprovacao_ou_acao": "Checklist do equipamento e declaração nível 1, atualizando a referência antiga à 912/2022.",
+      "partes_3d": [
+        "frente",
+        "estrutura"
+      ],
+      "fase": "construcao",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-010",
+      "titulo": "Para-choques dianteiro e traseiro do automóvel",
+      "fontes": [
+        "contran-993-2023"
+      ],
+      "dispositivo": "Anexo I, tabela 1",
+      "requisito_em_linguagem_simples": "Garantir os equipamentos previstos para a classe.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "Não transportar requisitos específicos de anti-intrusão de caminhões para o automóvel."
+      },
+      "comprovacao_ou_acao": "Checklist e documentação técnica do veículo; requisitos adicionais de impacto seguem seus próprios atos.",
+      "partes_3d": [
+        "frente",
+        "traseira",
+        "estrutura"
+      ],
+      "fase": "construcao",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-011",
+      "titulo": "Para-sol do condutor",
+      "fontes": [
+        "contran-993-2023"
+      ],
+      "dispositivo": "Anexo I, tabela 1",
+      "requisito_em_linguagem_simples": "Prever a pala interna de proteção contra o sol para o condutor.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "Conforme tipo de veículo da tabela aplicável."
+      },
+      "comprovacao_ou_acao": "Checklist do equipamento e registros do projeto.",
+      "partes_3d": [
+        "para-sol",
+        "vidros"
+      ],
+      "fase": "construcao",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-012",
+      "titulo": "Velocímetro",
+      "fontes": [
+        "contran-993-2023"
+      ],
+      "dispositivo": "Anexo I, tabela 1",
+      "requisito_em_linguagem_simples": "Prever o instrumento obrigatório de indicação de velocidade.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "Conforme tipo e tabela aplicável."
+      },
+      "comprovacao_ou_acao": "Checklist técnico; não confundir velocímetro com cronotacógrafo.",
+      "partes_3d": [
+        "painel"
+      ],
+      "fase": "construcao",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-013",
+      "titulo": "Sinalização independente de emergência",
+      "fontes": [
+        "contran-993-2023",
+        "contran-36-1998",
+        "contran-827-1997-doc"
+      ],
+      "dispositivo": "Anexo I, tabela 1 e nota 46 da 993; art. 1º da 36; arts. 1º a 7º e anexos da 827/1997",
+      "requisito_em_linguagem_simples": "Disponibilizar o dispositivo conforme e orientar a sinalização de veículo imobilizado.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "Conforme veículo e instrução de uso. O arquivo histórico oficial da 827/1997 foi recuperado; não confundir com a 827/2021, de outro assunto."
+      },
+      "comprovacao_ou_acao": "Declaração nível 1 / checklist. O dispositivo tem laudo técnico, identificação do fabricante e instruções nos termos da resolução histórica.",
+      "partes_3d": [
+        "triangulo",
+        "manual"
+      ],
+      "fase": "construcao_e_uso",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-014",
+      "titulo": "Ferramentas e alternativa ao estepe",
+      "fontes": [
+        "contran-993-2023",
+        "contran-913-2022"
+      ],
+      "dispositivo": "Anexo I, tabela 1 e notas 31 a 36 e 46 da 993; 913 e anexo",
+      "requisito_em_linguagem_simples": "Compatibilizar solução de mobilidade, estepe, macaco e ferramentas.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "As dispensas dependem da solução efetivamente instalada e de suas instruções; não bastam as marcações do processo exemplo."
+      },
+      "comprovacao_ou_acao": "Checklist por configuração; manual e comprovação do sistema alternativo quando escolhido.",
+      "partes_3d": [
+        "estepe",
+        "pneus",
+        "manual"
+      ],
+      "fase": "construcao",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-015",
+      "titulo": "Inflamabilidade dos revestimentos internos",
+      "fontes": [
+        "contran-498-2014"
+      ],
+      "dispositivo": "arts. 1º a 4º e anexo",
+      "requisito_em_linguagem_simples": "Avaliar a propagação de chama dos materiais abrangidos do habitáculo.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "Materiais/locais cobertos pelo ato e suas alternativas técnicas."
+      },
+      "comprovacao_ou_acao": "Declaração nível 1 com documentação de suporte e rastreabilidade do material.",
+      "partes_3d": [
+        "revestimentos",
+        "bancos",
+        "estrutura"
+      ],
+      "fase": "construcao",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-016",
+      "titulo": "Telas e equipamentos geradores de imagens",
+      "fontes": [
+        "contran-242-2007",
+        "contran-1030-2026"
+      ],
+      "dispositivo": "arts. 2º e 3º da 242, com redação de 2026",
+      "requisito_em_linguagem_simples": "Distinguir informação de condução e entretenimento; controlar a visualização durante o movimento.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "Tela presente e localização/perspectiva do condutor. A alteração de 2026 admite solução tecnológica nas condições descritas no inciso II."
+      },
+      "comprovacao_ou_acao": "Declaração nível 1 e demonstração funcional por modo de operação.",
+      "partes_3d": [
+        "painel",
+        "sensores",
+        "manual"
+      ],
+      "fase": "construcao",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-017",
+      "titulo": "Extintor e local de instalação",
+      "fontes": [
+        "contran-919-2022"
+      ],
+      "dispositivo": "art. 2º, §§ 1º a 3º; art. 3º e anexo",
+      "requisito_em_linguagem_simples": "Em automóvel, a instalação é facultativa; fabricante/importador deve disponibilizar local adequado para o suporte.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "Se instalado, cumprir especificação e conformidade. Uso coletivo pode alterar o enquadramento do veículo."
+      },
+      "comprovacao_ou_acao": "Ficha/configuração e comprovante de conformidade quando aplicável. Não marcar o local do suporte como facultativo só porque o extintor é.",
+      "partes_3d": [
+        "extintor",
+        "estrutura",
+        "manual"
+      ],
+      "fase": "construcao",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-018",
+      "titulo": "Rodas especiais",
+      "fontes": [
+        "contran-963-2022"
+      ],
+      "dispositivo": "arts. 2º a 5º e anexo",
+      "requisito_em_linguagem_simples": "Rodas usadas para substituir as originais/opcionais devem atender aos requisitos específicos.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "Roda especial conforme definição do art. 3º; não é categoria automática das rodas originais de fábrica."
+      },
+      "comprovacao_ou_acao": "Comprovação do fabricante da roda e verificação do conjunto modificado.",
+      "partes_3d": [
+        "pneus"
+      ],
+      "fase": "uso_e_modificacao",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-019",
+      "titulo": "Identificação: VIN, gravações e marcações",
+      "fontes": [
+        "contran-968-2022"
+      ],
+      "dispositivo": "arts. 2º a 9º, disposições de transição/revogação e anexos",
+      "requisito_em_linguagem_simples": "Projetar identificação e marcações correspondentes à configuração.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "Considerar tipo e massa; a referência 24/1998 foi revogada a partir de 01/01/2025."
+      },
+      "comprovacao_ou_acao": "Ficha de VIN/WMI, diagramas e documentos dos locais de gravação; declaração nível 1 aplicável.",
+      "partes_3d": [
+        "identificacao",
+        "estrutura",
+        "vidros",
+        "propulsao"
+      ],
+      "fase": "construcao",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-020",
+      "titulo": "Placa e espaço para instalação",
+      "fontes": [
+        "contran-969-2022"
+      ],
+      "dispositivo": "regras de PIV e anexos",
+      "requisito_em_linguagem_simples": "Compatibilizar espaço, posição, visibilidade e iluminação da identificação.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "Conforme tipo de veículo e PIV aplicável."
+      },
+      "comprovacao_ou_acao": "Caracterização do alojamento e iluminação; declaração nível 1 pertinente.",
+      "partes_3d": [
+        "placa",
+        "iluminacao-traseira",
+        "frente",
+        "traseira"
+      ],
+      "fase": "construcao",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-021",
+      "titulo": "Dispositivo auxiliar de identificação",
+      "fontes": [
+        "contran-944-2022"
+      ],
+      "dispositivo": "arts. 2º e 3º; anexo",
+      "requisito_em_linguagem_simples": "Tratar a identificação auxiliar como dispositivo distinto da placa de registro.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "Uso facultativo nos termos do art. 2º; não impor como equipamento geral de fábrica ao M1."
+      },
+      "comprovacao_ou_acao": "Se utilizado, respeitar as especificações do anexo.",
+      "partes_3d": [
+        "identificacao",
+        "traseira"
+      ],
+      "fase": "uso_e_acessorios",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-022",
+      "titulo": "Massas, dimensões e capacidades",
+      "fontes": [
+        "contran-882-2021",
+        "contran-899-2022",
+        "contran-994-2023",
+        "contran-1005-2024",
+        "contran-1015-2024",
+        "deliberacao-250-2021",
+        "deliberacao-270-2023"
+      ],
+      "dispositivo": "arts. 2º a 8º da 882 e dispositivos alteradores",
+      "requisito_em_linguagem_simples": "Compatibilizar limites técnicos, legais, eixos e capacidades declaradas.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "Usar o menor limite aplicável. As alterações posteriores não concedem automaticamente aumento de massa a todo veículo elétrico."
+      },
+      "comprovacao_ou_acao": "Ficha técnica, cálculos e documentação do fabricante; enquadramento específico antes de automatizar números.",
+      "partes_3d": [
+        "veiculo",
+        "pneus",
+        "estrutura",
+        "engate"
+      ],
+      "fase": "construcao",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-023",
+      "titulo": "Posição do volante",
+      "fontes": [
+        "contran-528-2015"
+      ],
+      "dispositivo": "art. 1º",
+      "requisito_em_linguagem_simples": "O registro/licenciamento de veículo com volante do sistema de direção à direita é proibido, salvo exceção do ato.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "Automóvel novo brasileiro não se enquadra na exceção de coleção com mais de 30 anos."
+      },
+      "comprovacao_ou_acao": "Conferência da configuração, fotografias e ficha técnica.",
+      "partes_3d": [
+        "coluna-direcao",
+        "painel"
+      ],
+      "fase": "construcao",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-024",
+      "titulo": "Sistema GNV original de fábrica",
+      "fontes": [
+        "contran-280-2008"
+      ],
+      "dispositivo": "arts. 1º a 3º",
+      "requisito_em_linguagem_simples": "O sistema e os componentes têm conformidade e inspeções periódicas próprias.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "Somente configuração com GNV. Distinguir instalação original de conversão posterior."
+      },
+      "comprovacao_ou_acao": "Especificações para Inmetro e conformidade de componentes; inspeção periódica/CSV na fase de uso conforme ato.",
+      "partes_3d": [
+        "combustivel",
+        "propulsao",
+        "manual"
+      ],
+      "fase": "construcao_e_uso",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-025",
+      "titulo": "Múltiplos tanques e tanque suplementar",
+      "fontes": [
+        "contran-921-2022"
+      ],
+      "dispositivo": "arts. 2º a 6º",
+      "requisito_em_linguagem_simples": "Separar tanques instalados antes do registro de reservatório suplementar após o registro.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "A instalação de tanque suplementar do art. 3º é restrita aos tipos ali previstos; não é uma autorização geral para automóvel."
+      },
+      "comprovacao_ou_acao": "Nota fiscal com quantidades/capacidades dos múltiplos tanques; regularização específica quando autorizada.",
+      "partes_3d": [
+        "combustivel",
+        "estrutura",
+        "manual"
+      ],
+      "fase": "construcao_e_modificacao",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-026",
+      "titulo": "Escapamento e controle de ruído do motor",
+      "fontes": [
+        "contran-993-2023",
+        "contran-958-2022"
+      ],
+      "dispositivo": "Anexo I, tabela 1 da 993; dispositivos pertinentes da 958",
+      "requisito_em_linguagem_simples": "Prever o dispositivo de controle de ruído para veículo com motor a combustão.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "Não se aplica por existência de motor de combustão ao elétrico puro; limites ambientais e sua prova serão tratados no ramo ambiental."
+      },
+      "comprovacao_ou_acao": "Checklist de construção e conexão com a avaliação ambiental, sem confundir emissão de gases com teste de segurança.",
+      "partes_3d": [
+        "escapamento",
+        "propulsao"
+      ],
+      "fase": "construcao_e_uso",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-027",
+      "titulo": "Luzes: funções dianteiras",
+      "fontes": [
+        "contran-970-2022",
+        "contran-1024-2026",
+        "contran-993-2023"
+      ],
+      "dispositivo": "Anexo I da 993; anexos da 970 e alterações",
+      "requisito_em_linguagem_simples": "Organizar farol principal, posição, indicadores e luz de rodagem diurna como funções distintas.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "O calendário e a categoria definem o conjunto obrigatório; dispositivo opcional, se instalado, também deve cumprir sua regulamentação."
+      },
+      "comprovacao_ou_acao": "Vincular ao ENS-2-03; não exigir relatório duplicado por cada representação no 3D.",
+      "partes_3d": [
+        "iluminacao-frontal",
+        "painel"
+      ],
+      "fase": "construcao",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-028",
+      "titulo": "Luzes: funções laterais",
+      "fontes": [
+        "contran-970-2022",
+        "contran-993-2023"
+      ],
+      "dispositivo": "Anexo I da 993; anexos da 970",
+      "requisito_em_linguagem_simples": "Identificar sinalização de direção lateral e dispositivos laterais aplicáveis.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "Separar automóvel das exigências vinculadas a dimensões e veículos de transporte coletivo."
+      },
+      "comprovacao_ou_acao": "Vincular ao ENS-2-03 e registrar a localização de cada função.",
+      "partes_3d": [
+        "iluminacao-lateral"
+      ],
+      "fase": "construcao",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-029",
+      "titulo": "Luzes: funções traseiras",
+      "fontes": [
+        "contran-970-2022",
+        "contran-993-2023"
+      ],
+      "dispositivo": "Anexo I da 993; anexos da 970",
+      "requisito_em_linguagem_simples": "Organizar posição, freio, terceira luz, direção, marcha à ré, advertência, refletores e luz de placa.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "Avaliar categoria, função e notas; a régua acessória de sinalização tem condição própria na 955."
+      },
+      "comprovacao_ou_acao": "Vincular ao ENS-2-03; cada função mantém seu dispositivo técnico.",
+      "partes_3d": [
+        "iluminacao-traseira",
+        "placa",
+        "traseira"
+      ],
+      "fase": "construcao",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-030",
+      "titulo": "Transporte de carga no compartimento de passageiros",
+      "fontes": [
+        "contran-26-1998"
+      ],
+      "dispositivo": "arts. 1º a 4º",
+      "requisito_em_linguagem_simples": "A carga deve ficar em compartimento próprio e separado dos passageiros no escopo do ato.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "Quando o veículo de passageiros transporta carga, observadas regras do ato."
+      },
+      "comprovacao_ou_acao": "Projeto/compartimento e instruções para utilização.",
+      "partes_3d": [
+        "estrutura",
+        "bancos",
+        "manual"
+      ],
+      "fase": "construcao_e_uso",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-031",
+      "titulo": "Transporte de crianças no uso do veículo",
+      "fontes": [
+        "contran-819-2021"
+      ],
+      "dispositivo": "arts. 1º a 4º e anexo",
+      "requisito_em_linguagem_simples": "Escolher a retenção infantil adequada ao ocupante e ao veículo.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "Uso: idade/altura e exceções do ato. Não confundir o dispositivo infantil com a ancoragem que integra o veículo."
+      },
+      "comprovacao_ou_acao": "Instruções de uso e conexão ao ramo ISOFIX/cinto; não é relatório de ensaio de todo veículo no CAT.",
+      "partes_3d": [
+        "isofix",
+        "bancos",
+        "cintos",
+        "manual"
+      ],
+      "fase": "uso",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-032",
+      "titulo": "Manual básico de segurança no trânsito",
+      "fontes": [
+        "contran-711-2017"
+      ],
+      "dispositivo": "arts. 1º a 3º e anexo",
+      "requisito_em_linguagem_simples": "Disponibilizar o conteúdo obrigatório do manual de segurança no trânsito.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "Obrigações de fabricantes/importadores e meios de disponibilização conforme o ato."
+      },
+      "comprovacao_ou_acao": "Manual/conteúdo para o consumidor; vincular instruções dos equipamentos ao respectivo requisito.",
+      "partes_3d": [
+        "manual"
+      ],
+      "fase": "comercializacao",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-033",
+      "titulo": "Homologação, MMV e modificações",
+      "fontes": [
+        "contran-916-2022",
+        "contran-958-2022",
+        "contran-1021-2026",
+        "contran-1010-2024"
+      ],
+      "dispositivo": "arts. 1º a 5º da 916 e anexos; atos modificadores",
+      "requisito_em_linguagem_simples": "Distinguir obtenção do MMV/CAT do processo de modificação posterior de um veículo.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "A mudança de 2026 sobre motor elétrico auxiliar é de caminhão/caminhão-trator; não deve ser aplicada ao automóvel por proximidade temática."
+      },
+      "comprovacao_ou_acao": "Processo e categoria corretos; separar CAT, CS e CSV.",
+      "partes_3d": [
+        "veiculo"
+      ],
+      "fase": "processo",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-034",
+      "titulo": "ENSV e comprovação das tecnologias informadas",
+      "fontes": [
+        "portaria-senatran-1554-2022"
+      ],
+      "dispositivo": "arts. 2º a 13 e 28",
+      "requisito_em_linguagem_simples": "Informar as tecnologias disponíveis e vincular cada declaração à sua prova.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "Adesão e exceções têm regras próprias; Série/Opcional/Não disponível/Não aplicável não são sinônimos de obrigatório/dispensado."
+      },
+      "comprovacao_ou_acao": "Seção DOS-08 e relatórios correspondentes, com hierarquia normativa do art. 5º.",
+      "partes_3d": [
+        "veiculo",
+        "sensores",
+        "painel"
+      ],
+      "fase": "comercializacao",
+      "revisao": "vinculo_revisado_no_recorte"
+    },
+    {
+      "id": "SEG-035",
+      "titulo": "SINIAV e identificação eletrônica",
+      "fontes": [
+        "contran-537-2015"
+      ],
+      "dispositivo": "arts. 1º a 6º",
+      "requisito_em_linguagem_simples": "Manter o ramo de identificação eletrônica e seus atos de implementação separado do VIN e da PIV.",
+      "aplicabilidade": {
+        "estado": "condicional_a_enquadrar",
+        "condicao": "A 537 revoga expressamente 412/2012 e 433/2013; arts. 4º e 5º remetem a cronograma e especificações do órgão executivo. Não presumir implantação universal efetiva nem obrigação de relatório CAT a partir do índice."
+      },
+      "comprovacao_ou_acao": "Conferir atos de execução e estágio de implantação antes de ativar orientação operacional; vínculo ao sistema de identificação.",
+      "partes_3d": [
+        "identificacao",
+        "vidros"
+      ],
+      "fase": "registro_e_uso",
+      "revisao": "pendencia_atos_de_execucao"
+    }
+  ],
+  "partes_3d_semanticas": {
+    "veiculo": "Veículo completo / configuração",
+    "estrutura": "Estrutura e habitáculo",
+    "frente": "Região frontal",
+    "lateral": "Estrutura lateral",
+    "traseira": "Região traseira",
+    "coluna-direcao": "Volante e coluna de direção",
+    "bancos": "Bancos e fixações",
+    "cintos": "Cintos e ancoragens",
+    "apoios-cabeca": "Apoios de cabeça",
+    "isofix": "Ancoragens infantis",
+    "airbags": "Airbags frontais",
+    "freios": "Sistema de freios",
+    "pneus": "Pneus e rodas",
+    "caixas-rodas": "Para-lamas / protetores de roda",
+    "estepe": "Estepe / sistema alternativo / ferramentas",
+    "iluminacao-frontal": "Faróis e lanternas dianteiras",
+    "iluminacao-lateral": "Sinalização lateral",
+    "iluminacao-traseira": "Lanternas traseiras e refletores",
+    "placa": "Placa e seu alojamento",
+    "vidros": "Vidros e visibilidade",
+    "limpadores": "Limpadores e lavadores",
+    "retrovisores": "Retrovisores / visão indireta",
+    "portas": "Portas, fechaduras e dobradiças",
+    "vidros-energizados": "Acionamento dos vidros / teto solar",
+    "painel": "Painel, comandos e indicadores",
+    "buzina": "Buzina e comando",
+    "alarme": "Alarme / antifurto",
+    "revestimentos": "Revestimentos internos",
+    "combustivel": "Reservatórios e sistema de combustível",
+    "bateria-tracao": "Bateria de tração / alta tensão",
+    "propulsao": "Motor / propulsão",
+    "sensores": "Sensores, câmeras e controladores",
+    "quebra-mato": "Quebra-mato / proteção frontal acessória",
+    "engate": "Engate / acoplamento",
+    "bagageiro": "Bagageiro / suporte de bicicleta",
+    "extintor": "Local do suporte / extintor",
+    "identificacao": "VIN / gravações / etiquetas",
+    "manual": "Manual / instruções de uso",
+    "triangulo": "Triângulo / sinalização de emergência",
+    "para-sol": "Para-sol do condutor",
+    "escapamento": "Escapamento / controle de ruído"
+  },
+  "modelo_de_relacoes": {
+    "principio": "Um catálogo de requisitos com múltiplas relações; vistas separadas de sistemas do veículo, dossiê do CAT e instruções de uso.",
+    "entidades": {
+      "perfil_veiculo": [
+        "tipo",
+        "especie",
+        "categoria",
+        "PBT",
+        "MOM",
+        "datas_fabricacao",
+        "data_primeiro_MMV_modelo_base",
+        "novo_projeto_conforme_ato",
+        "derivacao",
+        "propulsao",
+        "configuracoes",
+        "numero_fileiras",
+        "orientacao_assentos",
+        "uso_especial",
+        "escala_producao",
+        "equipamentos_instalados"
+      ],
+      "requisito": [
+        "id",
+        "titulo_leigo",
+        "sistema",
+        "condicao",
+        "excecoes",
+        "periodos",
+        "fontes_e_dispositivos",
+        "estado_revisao",
+        "efeitos_de_alteracoes"
+      ],
+      "comprovacao": [
+        "tipo_declaracao_ensaio_documento",
+        "nivel_controle",
+        "norma_metodo_edicao",
+        "amostra_configuracao",
+        "laboratorio_escopo",
+        "relatorio_versao",
+        "resultado",
+        "secao_dossie",
+        "assinaturas"
+      ],
+      "componente_3d": [
+        "id_semantico",
+        "ids_malha_verificados",
+        "hotspots",
+        "sistema",
+        "vista_camera",
+        "requisitos_relacionados",
+        "versoes_modelo"
+      ]
+    },
+    "relacoes": [
+      "veiculo ENQUADRA requisito",
+      "ato REGULAMENTA requisito",
+      "ato ALTERA/REVOGA dispositivo",
+      "requisito AFETA componente/sistema",
+      "requisito COMPROVADO_POR evidência",
+      "evidência INTEGRA dossiê",
+      "evidência COBRE configuração",
+      "requisito INFORMADO_NA ENSV",
+      "requisito INTERAGE_COM outro requisito"
+    ],
+    "regra_de_decisao": [
+      "Avaliar os fatos conhecidos contra cada condição específica do ato.",
+      "Retornar aplica / não aplica com fundamento / falta informação / revisão pendente.",
+      "Exibir os fatos e os dispositivos que produziram a decisão.",
+      "Separar necessidade de instalar, desempenho se instalado, entrega ao CAT, guarda de evidência e obrigação de uso.",
+      "Não transformar ausência de relatório na interface em dispensa de construção."
+    ],
+    "exemplo_quebra_mato": {
+      "pergunta": "Existe quebra-mato nesta configuração?",
+      "se_nao": "Sem obrigação de instalar; manter o ramo consultável como acessório condicional.",
+      "se_sim": "Avaliar PBT, exceções, geometria/montagem, instruções, fornecedor e identificação; relacionar à declaração nível 1 quando aplicável.",
+      "interacoes": [
+        "proteção de pedestres",
+        "airbag e estrutura frontal",
+        "massas e dimensões",
+        "manual e fornecedor Inmetro"
+      ],
+      "fundamentos": [
+        "Resolução 215/2006, arts. 1º a 5º e anexo",
+        "Portaria 990/2022, Anexo XI, item 1.1"
+      ],
+      "natureza_interacoes": "Conexões de projeto a avaliar; a associação visual não cria por si só um novo ensaio obrigatório."
+    },
+    "comportamento_3d": [
+      "Selecionar componente mostra todos os requisitos aplicáveis e condicionais, com justificativa.",
+      "Selecionar requisito destaca todas as regiões afetadas; uma regra pode atingir várias peças.",
+      "Se o componente não existir na malha, usar hotspot/região explicativa identificada como ilustração.",
+      "Só permitir explosão de peças cuja hierarquia, pivô e direção de afastamento tenham sido verificados.",
+      "Carregar 3D sob demanda, mantendo a consulta textual disponível durante todo o fluxo.",
+      "Mostrar o estado de revisão normativa separadamente do estado de envio documental e da disponibilidade do equipamento."
+    ],
+    "fluxo_para_leigos": [
+      "Caracterizar o veículo",
+      "Consultar decisão de aplicação por sistema",
+      "Entender a exigência e ver os componentes",
+      "Planejar teste/documento, método e configuração",
+      "Obter a evidência e revisar sua cobertura",
+      "Montar o dossiê e as declarações",
+      "Enviar para análise, tratar exigências e registrar o deferimento",
+      "Manter instruções e obrigações de uso/comercialização"
+    ]
+  },
+  "pendencias": [
+    {
+      "id": "P-01",
+      "tema": "Correspondência documental das linhas legadas de direção e assentos",
+      "itens": [
+        "ENS-3-01",
+        "ENS-3-02",
+        "ENS-3-05"
+      ],
+      "questao": "Para direção, confirmar a correspondência técnica atual das linhas legadas. Para ancoragem, a base atual 951/2022 com 997/2023 está confirmada; resta delimitar a cobertura do método e da linha documental Ancoragem dos assentos sem confundir banco, cinto, apoio de cabeça e ISOFIX.",
+      "efeito": "Manter as referências atuais identificadas e separar dúvida de entrega documental de existência de legislação. Não criar relatório independente por simples rótulo legado.",
+      "fonte_para_resolver": "Dispositivos e escopo dos métodos da 951/2022 alterada pela 997/2023; regras procedimentais de comprovação do CAT."
+    },
+    {
+      "id": "P-02",
+      "tema": "Mangueiras flexíveis como relatório separado",
+      "itens": [
+        "ENS-2-07"
+      ],
+      "questao": "A linha do SISCAT não corresponde a uma linha separada na tabela 1.3 do Anexo XI revisado.",
+      "efeito": "Manter componente ligado ao freio; entrega autônoma pendente de fundamento."
+    },
+    {
+      "id": "P-03",
+      "tema": "Metadados da Resolução 224",
+      "itens": [
+        "ENS-2-02"
+      ],
+      "questao": "Índice/base/PDF e publicação HTML apresentam divergência de ano. Anexo XI e SISCAT citam 224/2007.",
+      "efeito": "Usar identificador estável e mostrar a divergência; não fabricar data única saneada."
+    },
+    {
+      "id": "P-05",
+      "tema": "Métodos de ensaio e normas técnicas incorporadas",
+      "itens": [],
+      "questao": "Esta entrega mapeia atos e dispositivos. Nem todos os métodos extensos dos anexos e textos privados ABNT/ISO foram convertidos em critérios executáveis; edições somente podem vir do ato ou de fonte licenciada.",
+      "efeito": "Não apresentar esta matriz como certificação de engenharia ou motor completo de aprovação de relatórios."
+    },
+    {
+      "id": "P-06",
+      "tema": "Atualidade e fronteiras de cobertura",
+      "itens": [],
+      "questao": "Índice CONTRAN consultado em 31/10/2026, cuja última alteração anunciada era 06/10/2026. A busca adicional não equivale a varredura certificada de todas as edições do DOU posteriores; o índice tem inconsistências demonstradas, como a situação da 220/2007.",
+      "efeito": "Não declarar fechamento integral de toda a legislação CONTRAN. Confirmar publicações recentes e regras complementares antes de liberar respostas automáticas."
+    },
+    {
+      "id": "P-07",
+      "tema": "Escopos condicionais não exercitados na interface",
+      "itens": [],
+      "questao": "Captura feita em um processo deferido elétrico M1. Não houve submissão nem alteração para outros combustíveis, PBT, carrocerias ou tipos de CAT.",
+      "efeito": "A captura é completa das dez guias visitadas; não prova exaustividade de todos os campos condicionais do SISCAT."
+    },
+    {
+      "id": "P-08",
+      "tema": "Inmetro e novos regimes da rotulagem",
+      "itens": [
+        "SEG-002",
+        "SEG-003",
+        "SEG-017",
+        "SEG-024",
+        "SEG-034"
+      ],
+      "questao": "As ligações de competência foram identificadas. A cadeia integral dos regulamentos de produto/fornecedor Inmetro, do decreto de rotulagem e de eventuais atos de execução posteriores não está certificada nesta entrega.",
+      "efeito": "Não tratar a referência CONTRAN como prova suficiente de registro/certificação de componente ou de dispensa de adesão."
+    },
+    {
+      "id": "P-09",
+      "tema": "Vínculo com o arquivo 3D existente",
+      "itens": [],
+      "questao": "IDs de componentes abaixo são semânticos. Ainda é necessário conferir quais peças existem de fato no modelo e associar seus identificadores de malha.",
+      "efeito": "Não declarar o vínculo visual implementado nem inferir conformidade de medidas a partir do modelo ilustrativo."
+    }
+  ],
+  "criterios_para_fechamento": [
+    "Categoria/tipo/espécie, PBT e configuração explicitamente informados.",
+    "Obrigação técnica separada da entrega documental e da informação na ENSV.",
+    "Fonte primária, artigo/anexo, alteração/revogação e calendário registrados por requisito.",
+    "Condições e exceções avaliadas sem copiar a resposta do processo exemplo.",
+    "Método, amostra/configuração e evidência associados sem duplicação de relatórios.",
+    "Publicações posteriores ao índice e regulamentos complementares confrontados.",
+    "Pendências normativas saneadas ou expressamente delimitadas com justificativa verificável; integração de malhas 3D verificada em sua etapa própria."
+  ],
+  "observacoes": [
+    "Itens preservados com os rótulos da interface; o filtro de tipos de veículo continua para decisão posterior.",
+    "Não há inferência de obrigatoriedade a partir de relatório presente ou de Não se aplica no exemplo.",
+    "Fontes adquiridas não equivalem a todas as páginas revisadas nem a cadeia normativa certificada."
+  ],
+  "suplemento_nivel1_fonte_oficial": [
+    {
+      "rotulo_anexo_xi": "Controles indicadores e lâmpadas piloto",
+      "fontes_para_revisao_atual": [
+        "contran-758-2018"
+      ],
+      "vinculo_requisito": "SEG-006",
+      "fonte_da_lista": "Portaria SENATRAN 990/2022 republicada, Anexo XI, item 1.1; não é captura do arquivo de modelo da interface.",
+      "condicao": "Conforme o requisito associado; a lista não obriga a instalar todo acessório."
+    },
+    {
+      "rotulo_anexo_xi": "Buzina",
+      "fontes_para_revisao_atual": [
+        "contran-764-2018"
+      ],
+      "vinculo_requisito": "SEG-007",
+      "fonte_da_lista": "Portaria SENATRAN 990/2022 republicada, Anexo XI, item 1.1; não é captura do arquivo de modelo da interface.",
+      "condicao": "Conforme o requisito associado; a lista não obriga a instalar todo acessório."
+    },
+    {
+      "rotulo_anexo_xi": "Antifurto",
+      "fontes_para_revisao_atual": [
+        "contran-37-1998",
+        "contran-988-2022",
+        "contran-559-2015"
+      ],
+      "vinculo_requisito": "SEG-008",
+      "fonte_da_lista": "Portaria SENATRAN 990/2022 republicada, Anexo XI, item 1.1; não é captura do arquivo de modelo da interface.",
+      "condicao": "Conforme o requisito associado; a lista não obriga a instalar todo acessório."
+    },
+    {
+      "rotulo_anexo_xi": "Triângulo de segurança",
+      "fontes_para_revisao_atual": [
+        "contran-827-1997-doc",
+        "contran-993-2023",
+        "contran-36-1998"
+      ],
+      "vinculo_requisito": "SEG-013",
+      "fonte_da_lista": "Portaria SENATRAN 990/2022 republicada, Anexo XI, item 1.1; não é captura do arquivo de modelo da interface.",
+      "condicao": "Conforme o requisito associado; a lista não obriga a instalar todo acessório."
+    },
+    {
+      "rotulo_anexo_xi": "Trava do capuz",
+      "fontes_para_revisao_atual": [
+        "contran-993-2023"
+      ],
+      "vinculo_requisito": "SEG-009",
+      "fonte_da_lista": "Portaria SENATRAN 990/2022 republicada, Anexo XI, item 1.1; não é captura do arquivo de modelo da interface.",
+      "condicao": "Conforme o requisito associado; a lista não obriga a instalar todo acessório."
+    },
+    {
+      "rotulo_anexo_xi": "Placa de Identificação Veicular",
+      "fontes_para_revisao_atual": [
+        "contran-969-2022"
+      ],
+      "vinculo_requisito": "SEG-020",
+      "fonte_da_lista": "Portaria SENATRAN 990/2022 republicada, Anexo XI, item 1.1; não é captura do arquivo de modelo da interface.",
+      "condicao": "Conforme o requisito associado; a lista não obriga a instalar todo acessório."
+    },
+    {
+      "rotulo_anexo_xi": "Equipamentos Geradores de Imagem",
+      "fontes_para_revisao_atual": [
+        "contran-242-2007",
+        "contran-1030-2026"
+      ],
+      "vinculo_requisito": "SEG-016",
+      "fonte_da_lista": "Portaria SENATRAN 990/2022 republicada, Anexo XI, item 1.1; não é captura do arquivo de modelo da interface.",
+      "condicao": "Conforme o requisito associado; a lista não obriga a instalar todo acessório."
+    },
+    {
+      "rotulo_anexo_xi": "Quebra mato",
+      "fontes_para_revisao_atual": [
+        "contran-215-2006"
+      ],
+      "vinculo_requisito": "SEG-002",
+      "fonte_da_lista": "Portaria SENATRAN 990/2022 republicada, Anexo XI, item 1.1; não é captura do arquivo de modelo da interface.",
+      "condicao": "Conforme o requisito associado; a lista não obriga a instalar todo acessório."
+    },
+    {
+      "rotulo_anexo_xi": "Equipamentos obrigatórios",
+      "fontes_para_revisao_atual": [
+        "contran-993-2023"
+      ],
+      "vinculo_requisito": "SEG-001",
+      "fonte_da_lista": "Portaria SENATRAN 990/2022 republicada, Anexo XI, item 1.1; não é captura do arquivo de modelo da interface.",
+      "condicao": "Conforme o requisito associado; a lista não obriga a instalar todo acessório."
+    },
+    {
+      "rotulo_anexo_xi": "Número de identificação veicular (VIN)",
+      "fontes_para_revisao_atual": [
+        "contran-968-2022"
+      ],
+      "vinculo_requisito": "SEG-019",
+      "fonte_da_lista": "Portaria SENATRAN 990/2022 republicada, Anexo XI, item 1.1; não é captura do arquivo de modelo da interface.",
+      "condicao": "Conforme o requisito associado; a lista não obriga a instalar todo acessório."
+    },
+    {
+      "rotulo_anexo_xi": "Flamabilidade de materiais de revestimento interno",
+      "fontes_para_revisao_atual": [
+        "contran-498-2014"
+      ],
+      "vinculo_requisito": "SEG-015",
+      "fonte_da_lista": "Portaria SENATRAN 990/2022 republicada, Anexo XI, item 1.1; não é captura do arquivo de modelo da interface.",
+      "condicao": "Conforme o requisito associado; a lista não obriga a instalar todo acessório."
+    },
+    {
+      "rotulo_anexo_xi": "Número de identificação da carroceria",
+      "fontes_para_revisao_atual": [
+        "contran-939-2022"
+      ],
+      "vinculo_requisito": "fora_do_primeiro_escopo_M1",
+      "fonte_da_lista": "Portaria SENATRAN 990/2022 republicada, Anexo XI, item 1.1; não é captura do arquivo de modelo da interface.",
+      "condicao": "Tabela de veículos leves com PBT até 3.500 kg. Confirmar aplicabilidade de cada item; NICV é linha de micro-ônibus, fora do primeiro escopo M1."
+    }
+  ],
+  "pendencias_resolvidas": [
+    {
+      "id": "P-04",
+      "tema": "Referência histórica do triângulo",
+      "resolucao": "Recuperado arquivo oficial r827-97.doc com texto da Resolução 827/1997 e anexos; referência separada da 827/2021.",
+      "fonte": "contran-827-1997-doc"
+    }
+  ],
+  "levantamento_indices_portarias": [
+    {
+      "ano": 2023,
+      "fonte": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/portarias-2023",
+      "estado": "index_screened",
+      "linhas_indice_observadas": 359,
+      "limite": "Triagem de ementas e referências; não substitui cadeia normativa completa."
+    },
+    {
+      "ano": 2024,
+      "fonte": "https://www.gov.br/transportes/pt-br/assuntos/transito/senatran/portarias-2024",
+      "estado": "index_screened",
+      "linhas_indice_observadas": 277,
+      "limite": "Triagem de ementas e referências; não substitui cadeia normativa completa."
+    },
+    {
+      "ano": 2025,
+      "fonte": "https://www.gov.br/transportes/pt-br/assuntos/transito/senatran/portarias-2025",
+      "estado": "index_screened",
+      "linhas_indice_observadas": 335,
+      "limite": "Triagem de ementas e referências; não substitui cadeia normativa completa."
+    },
+    {
+      "ano": 2026,
+      "fonte": "https://www.gov.br/transportes/pt-br/assuntos/transito/senatran/portarias-2026",
+      "estado": "index_screened",
+      "linhas_indice_observadas": 349,
+      "limite": "Triagem de ementas e referências; não substitui cadeia normativa completa."
+    }
+  ]
+}
