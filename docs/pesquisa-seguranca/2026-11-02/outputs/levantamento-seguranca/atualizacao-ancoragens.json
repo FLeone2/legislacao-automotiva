@@ -1,0 +1,16 @@
+{
+  "data_consulta": "2026-10-31",
+  "resultado": "legislacao_atual_identificada_e_reconferida",
+  "base_atual": ["Resolução CONTRAN 951/2022", "Resolução CONTRAN 997/2023"],
+  "fontes_oficiais": [
+    "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+    "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9512022.pdf",
+    "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9972023.pdf"
+  ],
+  "ramos_distintos": [
+    {"tema": "Ancoragem dos cintos", "dispositivos": "Anexo I da 951, itens 3.4.1 e 3.5.1, considerando a redação da 997", "referencia": "ABNT NBR 6091 vigente; alternativas de comprovação conforme o item 3.5.1 atual"},
+    {"tema": "Ancoragem de retenção infantil", "dispositivos": "Anexo I da 951, itens 3.4.2 e subitens e 3.5.2, considerando a redação da 997", "referencia": "Condições próprias para ISOFIX/LATCH e alternativas de comprovação previstas no ato"},
+    {"tema": "Bancos, suas ancoragens e apoios de cabeça", "dispositivos": "Art. 8º e Anexo I, item 3.5.3, da 951 com alteração da 997", "referencia": "A 997 revoga a 220/2007 e atualiza o item 3.5.3, que trata de comprovação dos apoios de cabeça por NBR 15283:2013, UN R17 série 07 ou versões posteriores, ou FMVSS 202 e 207, observado o escopo dessas normas", "limite": "A cobertura do conjunto banco/apoio pelo método e a entrega da linha autônoma do SISCAT devem ser delimitadas. Não há dúvida genérica sobre a existência de legislação atual de ancoragem."}
+  ],
+  "correcao_da_comunicacao": "A pergunta anterior ao usuário agrupou temas diferentes de ancoragem. A revisão passa a explicitar que a legislação atual foi identificada; a pendência remanescente é específica de correspondência técnica/documental da linha legada de assentos."
+}

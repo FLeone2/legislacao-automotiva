@@ -1,0 +1,33 @@
+{
+  "pais": "Brasil",
+  "origem": "fabricação nacional",
+  "condicao": "veículo novo",
+  "tipo_principal": "automóvel de passageiros",
+  "categoria": "M1",
+  "ocupantes_maximos_produto": 7,
+  "inclui_motorista": true,
+  "pbt_padrao_max_kg": 3500,
+  "ramo_adicional": "M1 elétrico acima de 3500 kg, sem desconto automático da bateria; reenquadrar cada requisito por sua própria massa/escopo.",
+  "propulsoes": "Consulta deve comportar todas as propulsões; cobertura comum + elétrica/híbrida + GNV revisadas nesta rodada. Demais gases/tecnologias não recebem aprovação automática.",
+  "uso_app": "Consulta e orientação documental; sem aprovar relatórios, certificar engenharia ou protocolar processos.",
+  "datas_obrigatorias_consulta": [
+    "data do primeiro CAT/MMV do projeto básico",
+    "data de fabricação/importação",
+    "data de referência normativa",
+    "novo projeto ou derivado"
+  ],
+  "excecoes_a_perguntar": [
+    "pequena série",
+    "artesanal",
+    "réplica",
+    "buggy",
+    "especial",
+    "fora de estrada",
+    "uso bélico"
+  ],
+  "confirmacao_ocupantes": {
+    "fonte": "resposta direta do usuário",
+    "texto": "Sim, 7 ocupantes no total",
+    "data": "2026-11-02"
+  }
+}

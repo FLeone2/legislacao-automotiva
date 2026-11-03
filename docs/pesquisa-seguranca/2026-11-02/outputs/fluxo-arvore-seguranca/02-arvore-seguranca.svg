@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3000" height="2380" viewBox="0 0 3000 2380">
+<rect width="3000" height="2380" fill="#F3F6FA"/>
+<text x="90" y="54" font-family="Segoe UI, Arial, sans-serif" font-size="23" font-weight="600" fill="#087F88" dominant-baseline="text-before-edge">LEGISLAÇÃO AUTOMOTIVA / SEGURANÇA / 02</text>
+<text x="90" y="108" font-family="Segoe UI, Arial, sans-serif" font-size="62" font-weight="700" fill="#172E47" dominant-baseline="text-before-edge">Uma base de requisitos. Três formas de consultar.</text>
+<text x="90" y="194" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">Árvore de navegação proposta: veículo, dossiê e 3D compartilham as mesmas regras e evidências.</text>
+<rect x="1080" y="285" width="840" height="145" rx="24" fill="#172E47"/>
+<text x="1120" y="312" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700" fill="#FFFFFF" dominant-baseline="text-before-edge">SEGURANÇA DO AUTOMÓVEL</text>
+<text x="1120" y="368" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="400" fill="#D7E6F3" dominant-baseline="text-before-edge">Novo • fabricado no Brasil • categoria M1</text>
+<polyline points="1500,430 1500,480" fill="none" stroke="#087F88" stroke-width="5" stroke-linejoin="round"/>
+<polygon points="1500.0,480.0 1508.5,463.0 1491.5,463.0" fill="#087F88"/>
+<rect x="720" y="480" width="1560" height="150" rx="20" fill="#E6F4F3"/>
+<text x="760" y="503" font-family="Segoe UI, Arial, sans-serif" font-size="33" font-weight="700" fill="#172E47" dominant-baseline="text-before-edge">O perfil determina o que se aplica</text>
+<text x="760" y="559" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">Massa, propulsão, datas, configuração, equipamentos instalados e exceções de cada ato.</text>
+<polyline points="1500,630 1500,685" fill="none" stroke="#087F88" stroke-width="5" stroke-linejoin="round"/>
+<polyline points="500,685 2500,685" fill="none" stroke="#087F88" stroke-width="5" stroke-linejoin="round"/>
+<polyline points="500,685 500,745" fill="none" stroke="#087F88" stroke-width="5" stroke-linejoin="round"/>
+<polygon points="500.0,745.0 508.5,728.0 491.5,728.0" fill="#087F88"/>
+<polyline points="1500,685 1500,745" fill="none" stroke="#087F88" stroke-width="5" stroke-linejoin="round"/>
+<polygon points="1500.0,745.0 1508.5,728.0 1491.5,728.0" fill="#087F88"/>
+<polyline points="2500,685 2500,745" fill="none" stroke="#087F88" stroke-width="5" stroke-linejoin="round"/>
+<polygon points="2500.0,745.0 2508.5,728.0 2491.5,728.0" fill="#087F88"/>
+<rect x="90" y="745" width="820" height="1210" rx="24" fill="#FFFFFF"/>
+<text x="126" y="779" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700" fill="#087F88" dominant-baseline="text-before-edge">01  VEÍCULO E SISTEMAS</text>
+<text x="126" y="830" font-family="Segoe UI, Arial, sans-serif" font-size="27" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">O que o carro precisa cumprir</text>
+<polyline points="127,900 127,998" fill="none" stroke="#087F88" stroke-width="4" stroke-linejoin="round"/>
+<text x="150" y="895" font-family="Segoe UI, Arial, sans-serif" font-size="29" font-weight="600" fill="#172E47" dominant-baseline="text-before-edge">Ocupantes e impactos</text>
+<text x="150" y="941" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">Bancos, cintos, ISOFIX, airbags, proteção frontal e lateral,</text>
+<text x="150" y="973" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">pedestres.</text>
+<polyline points="127,1040 127,1138" fill="none" stroke="#087F88" stroke-width="4" stroke-linejoin="round"/>
+<text x="150" y="1035" font-family="Segoe UI, Arial, sans-serif" font-size="29" font-weight="600" fill="#172E47" dominant-baseline="text-before-edge">Freios, estabilidade e rodas</text>
+<text x="150" y="1081" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">Freios, mangueiras, ESC, pneus, estepe e proteções de roda.</text>
+<polyline points="127,1180 127,1278" fill="none" stroke="#087F88" stroke-width="4" stroke-linejoin="round"/>
+<text x="150" y="1175" font-family="Segoe UI, Arial, sans-serif" font-size="29" font-weight="600" fill="#172E47" dominant-baseline="text-before-edge">Visibilidade e sinalização</text>
+<text x="150" y="1221" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">Vidros, limpadores, retrovisores, iluminação e visão traseira.</text>
+<polyline points="127,1320 127,1418" fill="none" stroke="#087F88" stroke-width="4" stroke-linejoin="round"/>
+<text x="150" y="1315" font-family="Segoe UI, Arial, sans-serif" font-size="29" font-weight="600" fill="#172E47" dominant-baseline="text-before-edge">Carroceria e interior</text>
+<text x="150" y="1361" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">Portas, vidros energizados, revestimentos, capô e para-sol.</text>
+<polyline points="127,1460 127,1558" fill="none" stroke="#087F88" stroke-width="4" stroke-linejoin="round"/>
+<text x="150" y="1455" font-family="Segoe UI, Arial, sans-serif" font-size="29" font-weight="600" fill="#172E47" dominant-baseline="text-before-edge">Propulsão e energia</text>
+<text x="150" y="1501" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">Combustível, bateria de tração, alta tensão, GNV, tanques e</text>
+<text x="150" y="1533" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">escapamento.</text>
+<polyline points="127,1600 127,1698" fill="none" stroke="#087F88" stroke-width="4" stroke-linejoin="round"/>
+<text x="150" y="1595" font-family="Segoe UI, Arial, sans-serif" font-size="29" font-weight="600" fill="#172E47" dominant-baseline="text-before-edge">Identificação e capacidades</text>
+<text x="150" y="1641" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">VIN, placa, massas, dimensões, lotação, MMV e modificações.</text>
+<polyline points="127,1740 127,1838" fill="none" stroke="#087F88" stroke-width="4" stroke-linejoin="round"/>
+<text x="150" y="1735" font-family="Segoe UI, Arial, sans-serif" font-size="29" font-weight="600" fill="#172E47" dominant-baseline="text-before-edge">Acessórios e uso</text>
+<text x="150" y="1781" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">Quebra-mato, engate, bagageiro, transporte de crianças e</text>
+<text x="150" y="1813" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">manual.</text>
+<rect x="1090" y="745" width="820" height="1210" rx="24" fill="#FFFFFF"/>
+<text x="1126" y="779" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700" fill="#346CA3" dominant-baseline="text-before-edge">02  DOSSIÊ SISCAT</text>
+<text x="1126" y="830" font-family="Segoe UI, Arial, sans-serif" font-size="27" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">Como comprovar e organizar a entrega</text>
+<text x="1128" y="900" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="700" fill="#346CA3" dominant-baseline="text-before-edge">01</text>
+<text x="1190" y="900" font-family="Segoe UI, Arial, sans-serif" font-size="27" font-weight="400" fill="#172E47" dominant-baseline="text-before-edge">Representantes e responsáveis</text>
+<polyline points="1128,953 1870,953" fill="none" stroke="#E6ECF2" stroke-width="2" stroke-linejoin="round"/>
+<text x="1128" y="973" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="700" fill="#346CA3" dominant-baseline="text-before-edge">02</text>
+<text x="1190" y="973" font-family="Segoe UI, Arial, sans-serif" font-size="27" font-weight="400" fill="#172E47" dominant-baseline="text-before-edge">Guia de recolhimento</text>
+<polyline points="1128,1026 1870,1026" fill="none" stroke="#E6ECF2" stroke-width="2" stroke-linejoin="round"/>
+<text x="1128" y="1046" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="700" fill="#346CA3" dominant-baseline="text-before-edge">03</text>
+<text x="1190" y="1046" font-family="Segoe UI, Arial, sans-serif" font-size="27" font-weight="400" fill="#172E47" dominant-baseline="text-before-edge">Dados do requerente</text>
+<polyline points="1128,1099 1870,1099" fill="none" stroke="#E6ECF2" stroke-width="2" stroke-linejoin="round"/>
+<text x="1128" y="1119" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="700" fill="#346CA3" dominant-baseline="text-before-edge">04</text>
+<text x="1190" y="1119" font-family="Segoe UI, Arial, sans-serif" font-size="27" font-weight="400" fill="#172E47" dominant-baseline="text-before-edge">Identificação veicular</text>
+<polyline points="1128,1172 1870,1172" fill="none" stroke="#E6ECF2" stroke-width="2" stroke-linejoin="round"/>
+<text x="1128" y="1192" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="700" fill="#346CA3" dominant-baseline="text-before-edge">05</text>
+<text x="1190" y="1192" font-family="Segoe UI, Arial, sans-serif" font-size="27" font-weight="400" fill="#172E47" dominant-baseline="text-before-edge">Informações técnicas</text>
+<polyline points="1128,1245 1870,1245" fill="none" stroke="#E6ECF2" stroke-width="2" stroke-linejoin="round"/>
+<text x="1128" y="1265" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="700" fill="#346CA3" dominant-baseline="text-before-edge">06</text>
+<text x="1190" y="1265" font-family="Segoe UI, Arial, sans-serif" font-size="27" font-weight="400" fill="#172E47" dominant-baseline="text-before-edge">Legislação complementar</text>
+<polyline points="1128,1318 1870,1318" fill="none" stroke="#E6ECF2" stroke-width="2" stroke-linejoin="round"/>
+<text x="1128" y="1338" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="700" fill="#346CA3" dominant-baseline="text-before-edge">07</text>
+<text x="1190" y="1338" font-family="Segoe UI, Arial, sans-serif" font-size="27" font-weight="400" fill="#172E47" dominant-baseline="text-before-edge">Ensaios e avaliações</text>
+<polyline points="1128,1391 1870,1391" fill="none" stroke="#E6ECF2" stroke-width="2" stroke-linejoin="round"/>
+<text x="1128" y="1411" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="700" fill="#346CA3" dominant-baseline="text-before-edge">08</text>
+<text x="1190" y="1411" font-family="Segoe UI, Arial, sans-serif" font-size="27" font-weight="400" fill="#172E47" dominant-baseline="text-before-edge">Etiqueta de Segurança (ENSV)</text>
+<polyline points="1128,1464 1870,1464" fill="none" stroke="#E6ECF2" stroke-width="2" stroke-linejoin="round"/>
+<text x="1128" y="1484" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="700" fill="#346CA3" dominant-baseline="text-before-edge">09</text>
+<text x="1190" y="1484" font-family="Segoe UI, Arial, sans-serif" font-size="27" font-weight="400" fill="#172E47" dominant-baseline="text-before-edge">Certificado de Segurança</text>
+<polyline points="1128,1537 1870,1537" fill="none" stroke="#E6ECF2" stroke-width="2" stroke-linejoin="round"/>
+<text x="1128" y="1557" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="700" fill="#346CA3" dominant-baseline="text-before-edge">10</text>
+<text x="1190" y="1557" font-family="Segoe UI, Arial, sans-serif" font-size="27" font-weight="400" fill="#172E47" dominant-baseline="text-before-edge">Diferenças entre processos</text>
+<rect x="1125" y="1680" width="750" height="210" rx="18" fill="#EAF0F9"/>
+<text x="1153" y="1705" font-family="Segoe UI, Arial, sans-serif" font-size="27" font-weight="600" fill="#172E47" dominant-baseline="text-before-edge">Dentro de Ensaios e Avaliações</text>
+<text x="1153" y="1760" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">14 linhas N2 + 22 linhas N3.</text>
+<text x="1153" y="1792" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">12 linhas N1 complementadas pelo Anexo XI.</text>
+<text x="1153" y="1824" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">Uma evidência pode cobrir vários requisitos.</text>
+<rect x="2090" y="745" width="820" height="1210" rx="24" fill="#FFFFFF"/>
+<text x="2126" y="779" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700" fill="#087F88" dominant-baseline="text-before-edge">03  COMPONENTES NO 3D</text>
+<text x="2126" y="830" font-family="Segoe UI, Arial, sans-serif" font-size="27" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">Onde a exigência aparece no veículo</text>
+<text x="2128" y="900" font-family="Segoe UI, Arial, sans-serif" font-size="29" font-weight="600" fill="#172E47" dominant-baseline="text-before-edge">Estrutura</text>
+<text x="2128" y="946" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">Frente, laterais, traseira e habitáculo.</text>
+<text x="2128" y="1026" font-family="Segoe UI, Arial, sans-serif" font-size="29" font-weight="600" fill="#172E47" dominant-baseline="text-before-edge">Proteção das pessoas</text>
+<text x="2128" y="1072" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">Bancos, cintos, apoios, ISOFIX e airbags.</text>
+<text x="2128" y="1152" font-family="Segoe UI, Arial, sans-serif" font-size="29" font-weight="600" fill="#172E47" dominant-baseline="text-before-edge">Rodagem e frenagem</text>
+<text x="2128" y="1198" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">Freios, pneus, estepe e caixas de roda.</text>
+<text x="2128" y="1278" font-family="Segoe UI, Arial, sans-serif" font-size="29" font-weight="600" fill="#172E47" dominant-baseline="text-before-edge">Visibilidade e comandos</text>
+<text x="2128" y="1324" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">Vidros, espelhos, luzes, painel e sensores.</text>
+<text x="2128" y="1404" font-family="Segoe UI, Arial, sans-serif" font-size="29" font-weight="600" fill="#172E47" dominant-baseline="text-before-edge">Energia e propulsão</text>
+<text x="2128" y="1450" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">Motor, tanques e bateria de tração.</text>
+<text x="2128" y="1530" font-family="Segoe UI, Arial, sans-serif" font-size="29" font-weight="600" fill="#172E47" dominant-baseline="text-before-edge">Acessórios e identificação</text>
+<text x="2128" y="1576" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">Quebra-mato, engate, bagageiro, VIN e placa.</text>
+<rect x="2125" y="1680" width="750" height="210" rx="18" fill="#E6F4F3"/>
+<text x="2153" y="1705" font-family="Segoe UI, Arial, sans-serif" font-size="29" font-weight="600" fill="#172E47" dominant-baseline="text-before-edge">41 identificadores semânticos</text>
+<text x="2153" y="1760" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">Selecionar peça revela regras e documentos.</text>
+<text x="2153" y="1792" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">Selecionar regra destaca as regiões afetadas.</text>
+<text x="2153" y="1824" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">Associação às malhas ainda por implementar.</text>
+<rect x="90" y="2025" width="2820" height="175" rx="22" fill="#172E47"/>
+<text x="128" y="2051" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#9ED7D9" dominant-baseline="text-before-edge">BASE COMPARTILHADA</text>
+<text x="128" y="2101" font-family="Segoe UI, Arial, sans-serif" font-size="35" font-weight="600" fill="#FFFFFF" dominant-baseline="text-before-edge">Ato e dispositivo ↔ Requisito e condição ↔ Evidência e configuração ↔ Peça ou sistema</text>
+<text x="128" y="2160" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="400" fill="#D7E6F3" dominant-baseline="text-before-edge">Relações múltiplas: o mesmo documento pode atender a mais de uma regra; uma regra pode afetar várias peças.</text>
+<polyline points="90,2254 2910,2254" fill="none" stroke="#CCD6E1" stroke-width="2" stroke-linejoin="round"/>
+<text x="90" y="2276" font-family="Segoe UI, Arial, sans-serif" font-size="23" font-weight="400" fill="#53667B" dominant-baseline="text-before-edge">35 ramos complementares e 36 linhas de ensaio mapeados. Pendências normativas preservadas. Agrupamentos acima são de navegação, não novas obrigações.</text>
+</svg>

@@ -1,0 +1,157 @@
+{
+  "escopo": "Automóvel de passageiros novo, fabricado no Brasil",
+  "finalidade": "Levantamento da navegação e das exigências para futura árvore de segurança",
+  "capturas": [
+    {
+      "id": "SISCAT-001",
+      "data_observacao": "2026-10-31",
+      "fonte": "Interface autenticada do SISCAT, leitura da acessibilidade e conferência visual",
+      "url": "https://siscat.denatran.serpro.gov.br/#/requerente/processo-cat-usuario/novo",
+      "titulo": "Novo CAT",
+      "caminho": [
+        "Meus processos",
+        "Novo"
+      ],
+      "campos": [
+        {
+          "rotulo": "Tipo de CAT",
+          "tipo": "selecao",
+          "opcoes_observadas": [
+            "Encarroçamento",
+            "Fabricação",
+            "Importação Oficial",
+            "MRE",
+            "Importação Independente",
+            "Transformação",
+            "Leilão",
+            "Coleção"
+          ],
+          "valor_observado": null,
+          "obrigatoriedade_validada": false
+        },
+        {
+          "rotulo": "Tipo de Veículo",
+          "tipo": "selecao",
+          "opcoes_observadas": null,
+          "valor_observado": null,
+          "obrigatoriedade_validada": false
+        }
+      ],
+      "acoes_exibidas": [
+        "Criar novo processo de CAT",
+        "Cancelar"
+      ],
+      "acoes_executadas_pelo_assistente": [],
+      "referencias_legais_exibidas": [],
+      "interpretacao_para_arvore": {
+        "ramo": "Enquadramento do processo",
+        "sequencia_observada": [
+          "Tipo de CAT",
+          "Tipo de Veículo"
+        ],
+        "tipo_cat_compativel_com_escopo": "Fabricação",
+        "nota": "Compatibilidade do tipo de CAT com o escopo é interpretação; a opção não foi selecionada pelo assistente. A lista de veículos e as validações dos campos ainda não foram observadas."
+      },
+      "pendencias": [
+        "Captar as opções de Tipo de Veículo",
+        "Observar campos e documentos após o enquadramento",
+        "Confirmar obrigatoriedade por indicações ou validações do sistema",
+        "Vincular os requisitos captados aos dispositivos oficiais revisados"
+      ],
+      "limite": "Esta tela define a abertura do processo. Não permite concluir a lista de requisitos técnicos de segurança."
+    },
+    {
+      "id": "SISCAT-002",
+      "data_observacao": "2026-10-31",
+      "fonte": "Interface autenticada do SISCAT, lista de acessibilidade do seletor aberto",
+      "url": "https://siscat.denatran.serpro.gov.br/#/requerente/processo-cat-usuario/novo",
+      "titulo": "Novo CAT - Tipos de Veiculo",
+      "contexto_observado": {
+        "tipo_cat": "Fabricação",
+        "tipo_veiculo_selecionado": null
+      },
+      "campos": [
+        {
+          "rotulo": "Tipo de Veículo",
+          "tipo": "selecao",
+          "opcoes_observadas": [
+            "AUTOMOVEL",
+            "BICICLETA",
+            "BONDE",
+            "CAMINHAO",
+            "CAMINHAO TRATOR",
+            "CAMINHONETE",
+            "CAMIONETA",
+            "CARRO DE MAO",
+            "CARROCA",
+            "CHARRETE",
+            "CHASSI/PLATAFORMA",
+            "CICLOMOTOR",
+            "MICROONIBUS",
+            "MOTOCICLETA",
+            "MOTONETA",
+            "MOTOR-CASA",
+            "ONIBUS",
+            "QUADRICICLO",
+            "REBOQUE",
+            "SEMI-REBOQUE",
+            "SIDE-CAR",
+            "TRATOR DE ESTEIRAS",
+            "TRATOR DE RODAS",
+            "TRATOR MISTO",
+            "TRICICLO",
+            "UTILITARIO"
+          ],
+          "total_opcoes_observadas": 26,
+          "filtro_aplicado_pelo_assistente": false,
+          "obrigatoriedade_validada": false
+        }
+      ],
+      "acoes_executadas_pelo_assistente": [],
+      "referencias_legais_exibidas": [],
+      "interpretacao_para_arvore": {
+        "ramo": "Enquadramento do processo / Tipo de veículo",
+        "nota": "Lista original preservada integralmente, sem decidir quais tipos integrarao o aplicativo. A existencia de uma opcao no seletor nao confirma aplicabilidade de requisitos ou elegibilidade a um processo."
+      },
+      "pendencias": [
+        "Definir posteriormente com o usuario os tipos incluidos no aplicativo",
+        "Captar campos e exigencias da modalidade selecionada",
+        "Vincular requisitos tecnicos a dispositivos oficiais revisados"
+      ]
+    },
+    {
+      "id": "SISCAT-003",
+      "data_observacao": "2026-10-31",
+      "titulo": "Processo de exemplo — navegação das dez guias",
+      "contexto": {
+        "tipo_cat": "Fabricação",
+        "tipo_veiculo": "AUTOMOVEL",
+        "especie": "PASSAGEIRO",
+        "categoria": "M1",
+        "propulsao": "Elétrico com fonte externa",
+        "situacao_processo": "Deferido"
+      },
+      "guias": [
+        "Representantes/ Responsáveis",
+        "Guia de Recolhimento",
+        "Dados do Requerente",
+        "Identificação Veicular",
+        "Informações Técnicas",
+        "Legislação Complementar",
+        "Ensaios e Avaliações",
+        "Etiqueta de Segurança",
+        "Certificado de Segurança",
+        "Diferenças Processos"
+      ],
+      "linhas_ensaios": 36,
+      "nivel2": 14,
+      "nivel3": 22,
+      "ajudas_legais_nao_vazias": 27,
+      "mutacao": false,
+      "inventario": "levantamento-seguranca/inventario-seguranca.json",
+      "relatorio": "levantamento-seguranca/relatorio.html",
+      "limite": "Captura do exemplo concluída; fechamento normativo integral ainda pendente, conforme inventário."
+    }
+  ],
+  "politica_de_captura": "Capturar todas as opcoes originais; o usuario definira o filtro posteriormente. Preservar os rotulos do SISCAT."
+}

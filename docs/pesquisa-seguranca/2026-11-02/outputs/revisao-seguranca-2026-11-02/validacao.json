@@ -1,0 +1,31 @@
+{
+  "data": "2026-11-02",
+  "resultado": "aprovado nos controles de integridade e rastreabilidade",
+  "contagens": {
+    "documentos_preservados": 137,
+    "pdf": 127,
+    "doc": 5,
+    "html": 5,
+    "fichas_markdown": 137,
+    "fontes_adicionais": 40,
+    "conclusoes_ia": 59,
+    "respostas_excel": 19,
+    "requisitos_mover": 28,
+    "guias_capturadas": 10,
+    "linhas_ensaio_capturadas": 36,
+    "requisitos_complementares_base": 35,
+    "linhas_nivel1_base": 12,
+    "requisitos_gnv": 14
+  },
+  "criterios": [
+    "19 respostas preservadas integralmente",
+    "Excel respondido com mesmo SHA-256",
+    "36 linhas e 10 guias preservadas",
+    "28 itens MOVER: A7/B8/C8/D5",
+    "fontes de todas as conclusões existentes no pacote",
+    "hashes dos arquivos conferidos",
+    "segurança integral não marcada como fechada",
+    "sete ocupantes incluem motorista"
+  ],
+  "limite": "Controle documental e de referências. Não é certificação jurídica/engenharia de todos os métodos ou garantia de completude normativa."
+}

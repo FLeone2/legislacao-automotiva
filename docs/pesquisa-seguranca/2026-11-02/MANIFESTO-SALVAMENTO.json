@@ -1,0 +1,4295 @@
+{
+  "data": "2026-11-02",
+  "repositorio": "FLeone2/legislacao-automotiva",
+  "branch": "docs/seguranca-pesquisa-2026-11-02",
+  "base_commit": "72a290eded7061edfa5a7d5f24809180c0b08b76",
+  "seguranca_integral_fechada": false,
+  "arquivos": [
+    {
+      "path": "outputs/01-entrada-guiada.png",
+      "bytes": 1304864,
+      "sha256": "b2299a1627bf5c77c19e68165355dbdda43dd19002e00a6738339a454fb4cf26",
+      "sha256_origem": "b2299a1627bf5c77c19e68165355dbdda43dd19002e00a6738339a454fb4cf26",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/02-mapa-do-processo.png",
+      "bytes": 1341130,
+      "sha256": "aa05ceca5472627d2178ade17a01cb5c6d4acfd820b4c25b7296a5065bf04cc7",
+      "sha256_origem": "aa05ceca5472627d2178ade17a01cb5c6d4acfd820b4c25b7296a5065bf04cc7",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/03-veiculo-e-requisitos.png",
+      "bytes": 1621729,
+      "sha256": "98da5954fcadd32e44fc5fd4adc56d8c0bed3b8e64ceed3c47f4520f0ef6083a",
+      "sha256_origem": "98da5954fcadd32e44fc5fd4adc56d8c0bed3b8e64ceed3c47f4520f0ef6083a",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/04-tarefa-e-comprovacao.png",
+      "bytes": 1425129,
+      "sha256": "7acb20a1be8fc2556e10f1791f69647c4dd014634b5324b9330593b3dc92ba90",
+      "sha256_origem": "7acb20a1be8fc2556e10f1791f69647c4dd014634b5324b9330593b3dc92ba90",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/CATALOGO-RESOLUCOES-VIGENTES.md",
+      "bytes": 109912,
+      "sha256": "24ff84f34fc21f69e604fe924c0b31fd221e815f736f887fec8849924336f04d",
+      "sha256_origem": "24ff84f34fc21f69e604fe924c0b31fd221e815f736f887fec8849924336f04d",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/catalogo.json",
+      "bytes": 2550131,
+      "sha256": "94a4b336e1dd16027a0b6f04ab16c01d1498e1252e7dadaaad66df0e183018ce",
+      "sha256_origem": "94a4b336e1dd16027a0b6f04ab16c01d1498e1252e7dadaaad66df0e183018ce",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/DIVERGENCIAS-E-CRITERIOS.md",
+      "bytes": 2969,
+      "sha256": "0226910d4e0f1735ac5a784f7df9e065ecea9776b7022cf5d14fbc57dd0fbd9d",
+      "sha256_origem": "0226910d4e0f1735ac5a784f7df9e065ecea9776b7022cf5d14fbc57dd0fbd9d",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/LEIA-ME.md",
+      "bytes": 498,
+      "sha256": "409cccc100d275731c19a592ac10f4544ba46efbeaea7d6b09581686ff837da1",
+      "sha256_origem": "409cccc100d275731c19a592ac10f4544ba46efbeaea7d6b09581686ff837da1",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/manifesto-fontes.json",
+      "bytes": 205446,
+      "sha256": "bd13e2048b481fc22821bf885e413d102c23a3abd8201d46f609d0a4c1df27c4",
+      "sha256_origem": "bd13e2048b481fc22821bf885e413d102c23a3abd8201d46f609d0a4c1df27c4",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0003-1998.md",
+      "bytes": 2934,
+      "sha256": "993d1a29cf22e609907971575b7046d76a093e19fc49763a88a8deb023538e58",
+      "sha256_origem": "993d1a29cf22e609907971575b7046d76a093e19fc49763a88a8deb023538e58",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0006-1998.md",
+      "bytes": 2770,
+      "sha256": "7d79383bc7157c3d264a96fd46e7b9f1c6cf1afd6b388428576469fb1c81a2f9",
+      "sha256_origem": "7d79383bc7157c3d264a96fd46e7b9f1c6cf1afd6b388428576469fb1c81a2f9",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0026-1998.md",
+      "bytes": 3895,
+      "sha256": "5985e073ee308db33649e73ae10605ae6d95c34e3cd2a1b36ae881844638d2d6",
+      "sha256_origem": "5985e073ee308db33649e73ae10605ae6d95c34e3cd2a1b36ae881844638d2d6",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0030-1998.md",
+      "bytes": 3839,
+      "sha256": "a772d2c4438fdffe9666810567fdad3823145fbf53ffff0672bb2bb38d482750",
+      "sha256_origem": "a772d2c4438fdffe9666810567fdad3823145fbf53ffff0672bb2bb38d482750",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0036-1998.md",
+      "bytes": 3394,
+      "sha256": "c006f40d4f03eace1a60030dd6bd8eaeab8ad1471d6aa177f19325db078a9fba",
+      "sha256_origem": "c006f40d4f03eace1a60030dd6bd8eaeab8ad1471d6aa177f19325db078a9fba",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0037-1998.md",
+      "bytes": 4270,
+      "sha256": "6a6886afa04e883a45ffbb2f58b5b37e1da97e0f608634b39bc092b04cc7e13b",
+      "sha256_origem": "6a6886afa04e883a45ffbb2f58b5b37e1da97e0f608634b39bc092b04cc7e13b",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0108-1999.md",
+      "bytes": 3565,
+      "sha256": "a5a67396f7e30dc8c1ef903b8b61a64a98aa59372af3e9af5de8fb06b9b9b251",
+      "sha256_origem": "a5a67396f7e30dc8c1ef903b8b61a64a98aa59372af3e9af5de8fb06b9b9b251",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0110-2000.md",
+      "bytes": 4453,
+      "sha256": "c6ed2603ab93e04a8ec5a382d9243fcc1b7a5fe5c0567a4118949bd6e0061f0b",
+      "sha256_origem": "c6ed2603ab93e04a8ec5a382d9243fcc1b7a5fe5c0567a4118949bd6e0061f0b",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0116-2000.md",
+      "bytes": 3091,
+      "sha256": "333bd578f90642b2d9c7416a3355d817a70986693bc165964ae03ab55806fb9b",
+      "sha256_origem": "333bd578f90642b2d9c7416a3355d817a70986693bc165964ae03ab55806fb9b",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0129-2001.md",
+      "bytes": 5942,
+      "sha256": "f1efc67fee423a5d4bbe15b9275a9653eb0d193a078f2cb9a80c58e6d5056b2b",
+      "sha256_origem": "f1efc67fee423a5d4bbe15b9275a9653eb0d193a078f2cb9a80c58e6d5056b2b",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0140-2002.md",
+      "bytes": 3231,
+      "sha256": "86fd62b65a4f43be9d1d71fdabb816dce456312e15bf7257aff685d723a1ce08",
+      "sha256_origem": "86fd62b65a4f43be9d1d71fdabb816dce456312e15bf7257aff685d723a1ce08",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0148-2003.md",
+      "bytes": 3369,
+      "sha256": "daddc024aa311d71be90f3479e989d30ccf3272f2022825547e155adee8eb011",
+      "sha256_origem": "daddc024aa311d71be90f3479e989d30ccf3272f2022825547e155adee8eb011",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0149-2003.md",
+      "bytes": 14114,
+      "sha256": "b2effcb846e94dad57e052b64c54b0714a65c1d1691c99597a1ef73434b244ca",
+      "sha256_origem": "b2effcb846e94dad57e052b64c54b0714a65c1d1691c99597a1ef73434b244ca",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0202-2006.md",
+      "bytes": 8119,
+      "sha256": "711d8cc8cc2df7d61120273fd68c5a60fd08c26f130d6c97398d085c4e254656",
+      "sha256_origem": "711d8cc8cc2df7d61120273fd68c5a60fd08c26f130d6c97398d085c4e254656",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0209-2006.md",
+      "bytes": 4415,
+      "sha256": "7140d87ad908837ae7700916737fafee7323b8b23c6e5f497d760081f61c7eae",
+      "sha256_origem": "7140d87ad908837ae7700916737fafee7323b8b23c6e5f497d760081f61c7eae",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0215-2006.md",
+      "bytes": 9447,
+      "sha256": "a2e5fc21ec2f065717f61f9c951d6083edc98c4e691fc93ee5ce6a9482d1e1c1",
+      "sha256_origem": "a2e5fc21ec2f065717f61f9c951d6083edc98c4e691fc93ee5ce6a9482d1e1c1",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0217-2006.md",
+      "bytes": 4621,
+      "sha256": "c08bfabd71d1986f074dc92af8810bc4c17817315023f45a0c2e992a68a90ce4",
+      "sha256_origem": "c08bfabd71d1986f074dc92af8810bc4c17817315023f45a0c2e992a68a90ce4",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0224-2006.md",
+      "bytes": 32142,
+      "sha256": "cda8b8021bc8dfb4469c8743f10479ccaae4e4e87492093ee77cdda9e4c99396",
+      "sha256_origem": "cda8b8021bc8dfb4469c8743f10479ccaae4e4e87492093ee77cdda9e4c99396",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0238-2007.md",
+      "bytes": 4007,
+      "sha256": "b48555fdde8c71139183dfbf414b8c0af496f24b2ff86b77bd08bb9756cb0cb7",
+      "sha256_origem": "b48555fdde8c71139183dfbf414b8c0af496f24b2ff86b77bd08bb9756cb0cb7",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0242-2007.md",
+      "bytes": 5531,
+      "sha256": "fcf33d3112553c6ec8837dfb13477410a147cafeb01e9bb138324098506c96dd",
+      "sha256_origem": "fcf33d3112553c6ec8837dfb13477410a147cafeb01e9bb138324098506c96dd",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0257-2007.md",
+      "bytes": 4336,
+      "sha256": "ca3ce0eb6eb7a56a17c1c4e60eb8dd0c0cc75ed50ec2af3227bf126dac404c02",
+      "sha256_origem": "ca3ce0eb6eb7a56a17c1c4e60eb8dd0c0cc75ed50ec2af3227bf126dac404c02",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0270-2008.md",
+      "bytes": 4211,
+      "sha256": "06d52009bdbabe7d6ae9a5ca6595b0296dafbd5ea697ecd9437becc68a0953f4",
+      "sha256_origem": "06d52009bdbabe7d6ae9a5ca6595b0296dafbd5ea697ecd9437becc68a0953f4",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0280-2008.md",
+      "bytes": 4827,
+      "sha256": "7e24e996b530195264948602df53b7093a52a90ee860e76ae80d5faf039f8490",
+      "sha256_origem": "7e24e996b530195264948602df53b7093a52a90ee860e76ae80d5faf039f8490",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0289-2008.md",
+      "bytes": 5828,
+      "sha256": "49aef8a662625f7b2d2b5ecb6a7f0f28587fe898eb8090861dacbf80cb2364c1",
+      "sha256_origem": "49aef8a662625f7b2d2b5ecb6a7f0f28587fe898eb8090861dacbf80cb2364c1",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0298-2008.md",
+      "bytes": 4608,
+      "sha256": "583549b7a93a1bb4b681de39685d36fa00602ea1d2addd6b2a6b0d1631236f7a",
+      "sha256_origem": "583549b7a93a1bb4b681de39685d36fa00602ea1d2addd6b2a6b0d1631236f7a",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0300-2008.md",
+      "bytes": 13040,
+      "sha256": "0c469792812bc6e9df8d37814bc2ad2944c1794803738854fc5d137c275f455d",
+      "sha256_origem": "0c469792812bc6e9df8d37814bc2ad2944c1794803738854fc5d137c275f455d",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0314-2009.md",
+      "bytes": 13173,
+      "sha256": "81c5782b6acaff38948df25f90fe9872c226e12d951da566471115320564b9e2",
+      "sha256_origem": "81c5782b6acaff38948df25f90fe9872c226e12d951da566471115320564b9e2",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0324-2009.md",
+      "bytes": 5397,
+      "sha256": "543c0652814fcbcd80bd7f6b74de903b7324a72337c82b88516ac5932513fa53",
+      "sha256_origem": "543c0652814fcbcd80bd7f6b74de903b7324a72337c82b88516ac5932513fa53",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0329-2009.md",
+      "bytes": 5595,
+      "sha256": "80882090854d63bf434416afeebd40ea912c8e7b33a20bd5b0ff20e4b171765c",
+      "sha256_origem": "80882090854d63bf434416afeebd40ea912c8e7b33a20bd5b0ff20e4b171765c",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0330-2009.md",
+      "bytes": 8294,
+      "sha256": "68fc450460a4adf52a80ebb26f9f09cad1f3d5714467bd4985d3dd40a0e3909e",
+      "sha256_origem": "68fc450460a4adf52a80ebb26f9f09cad1f3d5714467bd4985d3dd40a0e3909e",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0332-2009.md",
+      "bytes": 4554,
+      "sha256": "978b71e0d05b652807e60a4ee5526ca8ae1788e2770937171be80eff2f1b7ccd",
+      "sha256_origem": "978b71e0d05b652807e60a4ee5526ca8ae1788e2770937171be80eff2f1b7ccd",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0339-2010.md",
+      "bytes": 5853,
+      "sha256": "a4dedf07a9924a47ca25f5931d6f27d3f48fdc86b1c8dc5518d8774d6280db40",
+      "sha256_origem": "a4dedf07a9924a47ca25f5931d6f27d3f48fdc86b1c8dc5518d8774d6280db40",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0343-2010.md",
+      "bytes": 6842,
+      "sha256": "80f09270caec61a60e4e988278466b4324b1e952a69048f5f37e774267817a24",
+      "sha256_origem": "80f09270caec61a60e4e988278466b4324b1e952a69048f5f37e774267817a24",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0346-2010.md",
+      "bytes": 4827,
+      "sha256": "f9dcfeac8492101e0f10004f75a9e737f18d5119512fc1ac3a8aa4eeb2d2cba4",
+      "sha256_origem": "f9dcfeac8492101e0f10004f75a9e737f18d5119512fc1ac3a8aa4eeb2d2cba4",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0351-2010.md",
+      "bytes": 8006,
+      "sha256": "91c2ac273d4d7be2d76acf31159d6e75183578b20356f51aa1401188451d22bf",
+      "sha256_origem": "91c2ac273d4d7be2d76acf31159d6e75183578b20356f51aa1401188451d22bf",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0357-2010.md",
+      "bytes": 9994,
+      "sha256": "387b84a7a8b161de3573327ef1466fdf93b3a3e3cd80b937d49e0a580f17d727",
+      "sha256_origem": "387b84a7a8b161de3573327ef1466fdf93b3a3e3cd80b937d49e0a580f17d727",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0364-2010.md",
+      "bytes": 8026,
+      "sha256": "1e5cdda43b2dd7d19a124128615ea8ba4a80148b64d0d54212455780c634e900",
+      "sha256_origem": "1e5cdda43b2dd7d19a124128615ea8ba4a80148b64d0d54212455780c634e900",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0382-2011.md",
+      "bytes": 12567,
+      "sha256": "8b73cf877d573d29c2cd90a689669beaff7ea5729668769801085239d5466a77",
+      "sha256_origem": "8b73cf877d573d29c2cd90a689669beaff7ea5729668769801085239d5466a77",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0400-2012.md",
+      "bytes": 4841,
+      "sha256": "a2df8eb78e720d68bf13d30e64da4ae868bb6dde551baa69fc221bc74565b532",
+      "sha256_origem": "a2df8eb78e720d68bf13d30e64da4ae868bb6dde551baa69fc221bc74565b532",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0443-2013.md",
+      "bytes": 7955,
+      "sha256": "9adfe1e4fb27d016bfcae33bb0472f37fce637be6111b9de0e4ace9b406907e0",
+      "sha256_origem": "9adfe1e4fb27d016bfcae33bb0472f37fce637be6111b9de0e4ace9b406907e0",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0456-2013.md",
+      "bytes": 6046,
+      "sha256": "0e36534c80936abb5b02ab680f5f086369abfe0704e1b55d49f0f476614695e2",
+      "sha256_origem": "0e36534c80936abb5b02ab680f5f086369abfe0704e1b55d49f0f476614695e2",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0472-2013.md",
+      "bytes": 3784,
+      "sha256": "714b8229733d9095545c81e9b15b1ca9b0d4021e21998c554fa354e099050960",
+      "sha256_origem": "714b8229733d9095545c81e9b15b1ca9b0d4021e21998c554fa354e099050960",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0477-2014.md",
+      "bytes": 3361,
+      "sha256": "0dd8c5540cccefba287dbf9a3179ee8e937270be645db60c7507674ec85597ea",
+      "sha256_origem": "0dd8c5540cccefba287dbf9a3179ee8e937270be645db60c7507674ec85597ea",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0478-2014.md",
+      "bytes": 3353,
+      "sha256": "7e27c7de002561cd851791fd7e0b27d7f2470579f6eb71bf97b1a64542486f68",
+      "sha256_origem": "7e27c7de002561cd851791fd7e0b27d7f2470579f6eb71bf97b1a64542486f68",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0481-2014.md",
+      "bytes": 3800,
+      "sha256": "c814356b3fa0c971cca534536c326203c0d5a9838f59f24ebc709cae5d691f0f",
+      "sha256_origem": "c814356b3fa0c971cca534536c326203c0d5a9838f59f24ebc709cae5d691f0f",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0482-2014.md",
+      "bytes": 4380,
+      "sha256": "f6b3e9623d2cca95b3f3ae40694ddafd8872341bb5d15d3b96e639a3cdfd3ed2",
+      "sha256_origem": "f6b3e9623d2cca95b3f3ae40694ddafd8872341bb5d15d3b96e639a3cdfd3ed2",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0498-2014.md",
+      "bytes": 19624,
+      "sha256": "dd8cf160a9dbc0f243cc9c0fe10fe8290fbde9ce33a54e37aa7a596c1bf0e13c",
+      "sha256_origem": "dd8cf160a9dbc0f243cc9c0fe10fe8290fbde9ce33a54e37aa7a596c1bf0e13c",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0501-2014.md",
+      "bytes": 3699,
+      "sha256": "73846ebc3709f7138c77ed7d4e828ce520f8331bd9745c1ef379445f3386899e",
+      "sha256_origem": "73846ebc3709f7138c77ed7d4e828ce520f8331bd9745c1ef379445f3386899e",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0506-2014.md",
+      "bytes": 10469,
+      "sha256": "49720ad77a316380a70dbc4b4271f324162fd179de859c35b81cf1effbb89daa",
+      "sha256_origem": "49720ad77a316380a70dbc4b4271f324162fd179de859c35b81cf1effbb89daa",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0507-2014.md",
+      "bytes": 4527,
+      "sha256": "3238933c9e0c24856d3915d44ffb196f210486e0af742226560fe8499efd0935",
+      "sha256_origem": "3238933c9e0c24856d3915d44ffb196f210486e0af742226560fe8499efd0935",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0508-2014.md",
+      "bytes": 9847,
+      "sha256": "fd0ad4c0949ac15925f9d07520e5e2e0a23f6d805641cd8bbbb2f5681731e344",
+      "sha256_origem": "fd0ad4c0949ac15925f9d07520e5e2e0a23f6d805641cd8bbbb2f5681731e344",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0514-2014.md",
+      "bytes": 11992,
+      "sha256": "28e5eac6e3ebb2845b5cf9060894ef021bbfe733b8085ab19f769cc9ecdc4f42",
+      "sha256_origem": "28e5eac6e3ebb2845b5cf9060894ef021bbfe733b8085ab19f769cc9ecdc4f42",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0525-2015.md",
+      "bytes": 19015,
+      "sha256": "54bcda4d9a07118c65b25125112d2f87f236e27b4e546a0269c073c3617ecacd",
+      "sha256_origem": "54bcda4d9a07118c65b25125112d2f87f236e27b4e546a0269c073c3617ecacd",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0528-2015.md",
+      "bytes": 4192,
+      "sha256": "2af207a985c8583536fb1adfc8484e184b499cdf036098671511e99188540eb5",
+      "sha256_origem": "2af207a985c8583536fb1adfc8484e184b499cdf036098671511e99188540eb5",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0537-2015.md",
+      "bytes": 6039,
+      "sha256": "890e57a25e750a6ec89b8fc934332172a74cbb1c9c20ea4fff08c146b1ad5e42",
+      "sha256_origem": "890e57a25e750a6ec89b8fc934332172a74cbb1c9c20ea4fff08c146b1ad5e42",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0545-2015.md",
+      "bytes": 3323,
+      "sha256": "18e781d44b379b65d9d863a2e7647be288a077a07cbf5f2894227b457f195640",
+      "sha256_origem": "18e781d44b379b65d9d863a2e7647be288a077a07cbf5f2894227b457f195640",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0547-2015.md",
+      "bytes": 12343,
+      "sha256": "733f562a8292721a8ca6c5a97a14ed14b8cd27bab52ee91652e1f4f8dab2236b",
+      "sha256_origem": "733f562a8292721a8ca6c5a97a14ed14b8cd27bab52ee91652e1f4f8dab2236b",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0559-2015.md",
+      "bytes": 5083,
+      "sha256": "6d99af9b299b8bb4baf97b77a8d99534d7b3ba41b7cb5e6e76e877ffe74a3bae",
+      "sha256_origem": "6d99af9b299b8bb4baf97b77a8d99534d7b3ba41b7cb5e6e76e877ffe74a3bae",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0570-2015.md",
+      "bytes": 5770,
+      "sha256": "ddccb0f40d8ecee60b6f0c2de7ebb7c944c098036d03240aefec5e21d1ed34a7",
+      "sha256_origem": "ddccb0f40d8ecee60b6f0c2de7ebb7c944c098036d03240aefec5e21d1ed34a7",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0576-2016.md",
+      "bytes": 10357,
+      "sha256": "7e69fc61210ac6e22b4fb52bec808a3cdd0a08a1a63c63679dddae6621faa7e8",
+      "sha256_origem": "7e69fc61210ac6e22b4fb52bec808a3cdd0a08a1a63c63679dddae6621faa7e8",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0585-2016.md",
+      "bytes": 22039,
+      "sha256": "cf3fb5cf5b6b8df68462fbe054d2fa5b660cf1269b9ee622044573bf4081f920",
+      "sha256_origem": "cf3fb5cf5b6b8df68462fbe054d2fa5b660cf1269b9ee622044573bf4081f920",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0602-2016.md",
+      "bytes": 6569,
+      "sha256": "d081d82a7a59597dae08c82a2cca69c32802cbc1eb637b5dd0e9638c3ef1310b",
+      "sha256_origem": "d081d82a7a59597dae08c82a2cca69c32802cbc1eb637b5dd0e9638c3ef1310b",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0611-2016.md",
+      "bytes": 46439,
+      "sha256": "2e07a70f5fb9c2f6e35bb5dcdfdb77a1c25dbb0d5f56a0434f2100b284605889",
+      "sha256_origem": "2e07a70f5fb9c2f6e35bb5dcdfdb77a1c25dbb0d5f56a0434f2100b284605889",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0612-2016.md",
+      "bytes": 7644,
+      "sha256": "817755b269d1f6383486eb0e338b80c001f03ab2c4caafbd6efa81f9f0ab347c",
+      "sha256_origem": "817755b269d1f6383486eb0e338b80c001f03ab2c4caafbd6efa81f9f0ab347c",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0613-2016.md",
+      "bytes": 3778,
+      "sha256": "269114a049700757e90695f0ddb991b2ab5a2f4e2442f9fb6598b0d997ea77a0",
+      "sha256_origem": "269114a049700757e90695f0ddb991b2ab5a2f4e2442f9fb6598b0d997ea77a0",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0626-2016.md",
+      "bytes": 4907,
+      "sha256": "693f2175408f9bef6522e064f2973fba4fea2783063ce2707b0b87594869c141",
+      "sha256_origem": "693f2175408f9bef6522e064f2973fba4fea2783063ce2707b0b87594869c141",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0672-2017.md",
+      "bytes": 4930,
+      "sha256": "6fdd18188f3bb836a22c3e1ec00a69e232e5f9045df8f0693272d4aaf5919747",
+      "sha256_origem": "6fdd18188f3bb836a22c3e1ec00a69e232e5f9045df8f0693272d4aaf5919747",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0694-2017.md",
+      "bytes": 4924,
+      "sha256": "3db8fcabe4466fd605c01b57f92ee05090557ddef7e1a3d7dc50441c287de24a",
+      "sha256_origem": "3db8fcabe4466fd605c01b57f92ee05090557ddef7e1a3d7dc50441c287de24a",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0696-2017.md",
+      "bytes": 5121,
+      "sha256": "48c7c77fb166be2416befc2c7be1ce1f9d392498064b6202229ae4ab1a6ba0c2",
+      "sha256_origem": "48c7c77fb166be2416befc2c7be1ce1f9d392498064b6202229ae4ab1a6ba0c2",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0699-2017.md",
+      "bytes": 13993,
+      "sha256": "43b372ef66c0e4cf94188d23fdb1178991e43b1cfa0b98817628d4769725c007",
+      "sha256_origem": "43b372ef66c0e4cf94188d23fdb1178991e43b1cfa0b98817628d4769725c007",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0710-2017.md",
+      "bytes": 9075,
+      "sha256": "f35d115e1b1786e0aa0d1570c4ae6a43fb8314649879c3ac9bd4bd73357ae726",
+      "sha256_origem": "f35d115e1b1786e0aa0d1570c4ae6a43fb8314649879c3ac9bd4bd73357ae726",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0711-2017.md",
+      "bytes": 27614,
+      "sha256": "78ce9a6b72c83c1a74506a301f5652f89e4ad7d055e623cd954b180c9d659e46",
+      "sha256_origem": "78ce9a6b72c83c1a74506a301f5652f89e4ad7d055e623cd954b180c9d659e46",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0717-2017.md",
+      "bytes": 7532,
+      "sha256": "d4a2d960d1830d433f1b9fb8018a5620015830fb187842fdf529b0a99e9ee98b",
+      "sha256_origem": "d4a2d960d1830d433f1b9fb8018a5620015830fb187842fdf529b0a99e9ee98b",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0723-2018.md",
+      "bytes": 30229,
+      "sha256": "f3a2ca55382dde6404f7119a5813b10517ca979af1ee53a05241c1af473329e4",
+      "sha256_origem": "f3a2ca55382dde6404f7119a5813b10517ca979af1ee53a05241c1af473329e4",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0735-2018.md",
+      "bytes": 24363,
+      "sha256": "dd7b0389cb82b7c97042ece66e7544c2c007cfd71ecf6fab75373571a542fe62",
+      "sha256_origem": "dd7b0389cb82b7c97042ece66e7544c2c007cfd71ecf6fab75373571a542fe62",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0738-2018.md",
+      "bytes": 10989,
+      "sha256": "baf4783ea7d7ce9ad9d5c6ad7ceb476965de242b4f0ab34dc7c48b4488497b4c",
+      "sha256_origem": "baf4783ea7d7ce9ad9d5c6ad7ceb476965de242b4f0ab34dc7c48b4488497b4c",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0743-2018.md",
+      "bytes": 11224,
+      "sha256": "fd5855752a440d7a8174363321752f25e6de27249c92dcac5c190557990984ea",
+      "sha256_origem": "fd5855752a440d7a8174363321752f25e6de27249c92dcac5c190557990984ea",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0749-2018.md",
+      "bytes": 175793,
+      "sha256": "cb1a641fb7273bdb84dab2ce0c9b89d5df1b2d010ffbadac8d77fcfc30176618",
+      "sha256_origem": "cb1a641fb7273bdb84dab2ce0c9b89d5df1b2d010ffbadac8d77fcfc30176618",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0750-2018.md",
+      "bytes": 127511,
+      "sha256": "c2fe832a7a0363a6c38a4f9e4e437a871270aefcef9b325e08e6d3f322a9e695",
+      "sha256_origem": "c2fe832a7a0363a6c38a4f9e4e437a871270aefcef9b325e08e6d3f322a9e695",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0752-2018.md",
+      "bytes": 88982,
+      "sha256": "eacbbd0ef7fcdc665b8e793402b8a404577ee43b94abf30080354f21033f0b1d",
+      "sha256_origem": "eacbbd0ef7fcdc665b8e793402b8a404577ee43b94abf30080354f21033f0b1d",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0755-2018.md",
+      "bytes": 22236,
+      "sha256": "02688b9664de053cb46f4a9af377ddfd19bce664868ed72698aee9b62ca00096",
+      "sha256_origem": "02688b9664de053cb46f4a9af377ddfd19bce664868ed72698aee9b62ca00096",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0758-2018.md",
+      "bytes": 24798,
+      "sha256": "ae7324ec439022e66a0d834382cd1a8406d45a55a55168a8ca9a39f298ab8498",
+      "sha256_origem": "ae7324ec439022e66a0d834382cd1a8406d45a55a55168a8ca9a39f298ab8498",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0759-2018.md",
+      "bytes": 27013,
+      "sha256": "f1106d309f7fe2aa9d04edee48f776bda5e5aee2c51f04805fe7dd3b95d8b172",
+      "sha256_origem": "f1106d309f7fe2aa9d04edee48f776bda5e5aee2c51f04805fe7dd3b95d8b172",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0764-2018.md",
+      "bytes": 18113,
+      "sha256": "34759ed546b0754a0d5ed7589428843e462dabb8cb0a861800bea927d4398ea9",
+      "sha256_origem": "34759ed546b0754a0d5ed7589428843e462dabb8cb0a861800bea927d4398ea9",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0765-2018.md",
+      "bytes": 38047,
+      "sha256": "85207b1d98eb608c16e3165423f9bea7f88fb09ec5fc2ab652fa6d762e4cab16",
+      "sha256_origem": "85207b1d98eb608c16e3165423f9bea7f88fb09ec5fc2ab652fa6d762e4cab16",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0772-2019.md",
+      "bytes": 4916,
+      "sha256": "e61c71f088657779b534bef8a60bc9cbf85fb7da93d9038902a26d87b841fc81",
+      "sha256_origem": "e61c71f088657779b534bef8a60bc9cbf85fb7da93d9038902a26d87b841fc81",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0774-2019.md",
+      "bytes": 3887,
+      "sha256": "553c374239ed43af93e5b0781a50d009a18a86cb655345e036280795489dc47f",
+      "sha256_origem": "553c374239ed43af93e5b0781a50d009a18a86cb655345e036280795489dc47f",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0783-2020.md",
+      "bytes": 9176,
+      "sha256": "8c303e842825a8ed55b0df69f6ef125a1cde1c8a21fcfab1af2a84fe05732f5d",
+      "sha256_origem": "8c303e842825a8ed55b0df69f6ef125a1cde1c8a21fcfab1af2a84fe05732f5d",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0791-2020.md",
+      "bytes": 8761,
+      "sha256": "68329582a05f089b19e94fb07360d8bbbf299c18d5d2de1c5a9a9d27aa34e398",
+      "sha256_origem": "68329582a05f089b19e94fb07360d8bbbf299c18d5d2de1c5a9a9d27aa34e398",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0794-2020.md",
+      "bytes": 7832,
+      "sha256": "2aefda52687906e582be35379d878b7516acb760be35888a33b0cc21ba5da4e0",
+      "sha256_origem": "2aefda52687906e582be35379d878b7516acb760be35888a33b0cc21ba5da4e0",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0798-2020.md",
+      "bytes": 32832,
+      "sha256": "077ec7d2232cb49b18195212ea849f16a9eee48947f49c77e8e05942a886b6ef",
+      "sha256_origem": "077ec7d2232cb49b18195212ea849f16a9eee48947f49c77e8e05942a886b6ef",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0804-2020.md",
+      "bytes": 5791,
+      "sha256": "38ba72db6df1c6e1949995250b870b380a0728ef95970f9a487346d647fa4438",
+      "sha256_origem": "38ba72db6df1c6e1949995250b870b380a0728ef95970f9a487346d647fa4438",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0805-2020.md",
+      "bytes": 13500,
+      "sha256": "28a48e4ed198d72e180471f502936c1d9d9e248e3d5bbe54c4b76016d6540a12",
+      "sha256_origem": "28a48e4ed198d72e180471f502936c1d9d9e248e3d5bbe54c4b76016d6540a12",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0807-2020.md",
+      "bytes": 34185,
+      "sha256": "bd5feec4b5013b3079b6b022c76609dbf59eb346b9ba6600b71e2db01c472f5b",
+      "sha256_origem": "bd5feec4b5013b3079b6b022c76609dbf59eb346b9ba6600b71e2db01c472f5b",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0808-2020.md",
+      "bytes": 15314,
+      "sha256": "ea02796e2963d973ae3a19f1d74d93847ec112ea354b1cb746fa80e168a86339",
+      "sha256_origem": "ea02796e2963d973ae3a19f1d74d93847ec112ea354b1cb746fa80e168a86339",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0810-2020.md",
+      "bytes": 57715,
+      "sha256": "6736f708b10a45d59d026bc9fb94b3eb8900e76d58ced136fc1837087577037d",
+      "sha256_origem": "6736f708b10a45d59d026bc9fb94b3eb8900e76d58ced136fc1837087577037d",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0811-2020.md",
+      "bytes": 17769,
+      "sha256": "596fba46da6e86dc9a340d12390e21a67f6392c9d7e6d4aef8ac7acc55f22eeb",
+      "sha256_origem": "596fba46da6e86dc9a340d12390e21a67f6392c9d7e6d4aef8ac7acc55f22eeb",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0812-2020.md",
+      "bytes": 9704,
+      "sha256": "84d241c985f8a899391bade423d58535295d5fe221cfc17f9a12df405c74c076",
+      "sha256_origem": "84d241c985f8a899391bade423d58535295d5fe221cfc17f9a12df405c74c076",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0813-2020.md",
+      "bytes": 9530,
+      "sha256": "566bf4f470b0a13c2e7c35152ce9bd55d883554521183d116ab74132f4ad7453",
+      "sha256_origem": "566bf4f470b0a13c2e7c35152ce9bd55d883554521183d116ab74132f4ad7453",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0819-2021.md",
+      "bytes": 12181,
+      "sha256": "efeb048100f04d991ffce170c3120b88bbba84d6b58e5b6932b969dc22f147c6",
+      "sha256_origem": "efeb048100f04d991ffce170c3120b88bbba84d6b58e5b6932b969dc22f147c6",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0820-2021.md",
+      "bytes": 23830,
+      "sha256": "17ecd7f86d133774ac620e6a2aba9880e1ccb3d77172e240ea698de1c875ab93",
+      "sha256_origem": "17ecd7f86d133774ac620e6a2aba9880e1ccb3d77172e240ea698de1c875ab93",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0844-2021.md",
+      "bytes": 26011,
+      "sha256": "95a81e1e0ca0af70be96def7e5cc1be3fca905d9b3a9219111c582ed661d29cb",
+      "sha256_origem": "95a81e1e0ca0af70be96def7e5cc1be3fca905d9b3a9219111c582ed661d29cb",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0848-2021.md",
+      "bytes": 4131,
+      "sha256": "e91228cd262cfd69f2889ae00e9ea9cca561f944963b4647c0c82563514efee7",
+      "sha256_origem": "e91228cd262cfd69f2889ae00e9ea9cca561f944963b4647c0c82563514efee7",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0851-2021.md",
+      "bytes": 5521,
+      "sha256": "283f0d0bdf4f7a3f87b2ec386c4e0937088e60613ee89170298bab6a93c8a83e",
+      "sha256_origem": "283f0d0bdf4f7a3f87b2ec386c4e0937088e60613ee89170298bab6a93c8a83e",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0855-2021.md",
+      "bytes": 10672,
+      "sha256": "3de93f35c78f3f58d50523845466e798077ed0e298545ff2cb7de7082874db07",
+      "sha256_origem": "3de93f35c78f3f58d50523845466e798077ed0e298545ff2cb7de7082874db07",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0856-2021.md",
+      "bytes": 7569,
+      "sha256": "a22f982f72daf6bc6a443a25934f74f14e499b3703f3f73f77bf9bdfa1b44e76",
+      "sha256_origem": "a22f982f72daf6bc6a443a25934f74f14e499b3703f3f73f77bf9bdfa1b44e76",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0859-2021.md",
+      "bytes": 10276,
+      "sha256": "4fbf2f300c57a38d8e5d4ffe3478ad8a2562b2dcda9c7fcd50d775f94d6413b3",
+      "sha256_origem": "4fbf2f300c57a38d8e5d4ffe3478ad8a2562b2dcda9c7fcd50d775f94d6413b3",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0860-2021.md",
+      "bytes": 11135,
+      "sha256": "63351412d684f976ebda7433f7839c9a1619c19c148c8112b5a12af0ad0b58b7",
+      "sha256_origem": "63351412d684f976ebda7433f7839c9a1619c19c148c8112b5a12af0ad0b58b7",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0861-2021.md",
+      "bytes": 11156,
+      "sha256": "d54057bd1f56df7c3fab4b1bcaae2bc0d250761d96c847979399960664a0f048",
+      "sha256_origem": "d54057bd1f56df7c3fab4b1bcaae2bc0d250761d96c847979399960664a0f048",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0862-2021.md",
+      "bytes": 11261,
+      "sha256": "6d94c2a97a5d483894176401fcd92b586611f21ecf5f70b12304710145c3b622",
+      "sha256_origem": "6d94c2a97a5d483894176401fcd92b586611f21ecf5f70b12304710145c3b622",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0863-2021.md",
+      "bytes": 11206,
+      "sha256": "d7a417f2661626efcd5203b0f1364ad1b65abacf9b18e245e815fd632ed611d0",
+      "sha256_origem": "d7a417f2661626efcd5203b0f1364ad1b65abacf9b18e245e815fd632ed611d0",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0864-2021.md",
+      "bytes": 11103,
+      "sha256": "5b5918d79dd44f18c340d4a31729516090119390a9fbe27d554a7bea1a947bcd",
+      "sha256_origem": "5b5918d79dd44f18c340d4a31729516090119390a9fbe27d554a7bea1a947bcd",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0865-2021.md",
+      "bytes": 11277,
+      "sha256": "b03e9903c9b479bb4b13e7be78490e3461846e22755814d519eede2a55ad9162",
+      "sha256_origem": "b03e9903c9b479bb4b13e7be78490e3461846e22755814d519eede2a55ad9162",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0866-2021.md",
+      "bytes": 11288,
+      "sha256": "bef0890de49af1634c88a239ef5e1163724399238cfce969de2cbdea090d4f3f",
+      "sha256_origem": "bef0890de49af1634c88a239ef5e1163724399238cfce969de2cbdea090d4f3f",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0867-2021.md",
+      "bytes": 11128,
+      "sha256": "5aa3f9d142a8d1e3956fd5244342fff424a89da5930c50d86a3cb859f3f03e69",
+      "sha256_origem": "5aa3f9d142a8d1e3956fd5244342fff424a89da5930c50d86a3cb859f3f03e69",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0868-2021.md",
+      "bytes": 11197,
+      "sha256": "20959017a8f4c4ed0983e8aada600d636de54c4eacb00394cedcdbae5e545957",
+      "sha256_origem": "20959017a8f4c4ed0983e8aada600d636de54c4eacb00394cedcdbae5e545957",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0872-2021.md",
+      "bytes": 28209,
+      "sha256": "5cdd8b7623830f8bd9beeb778d83eb2f97bf0d90c695c0753d2b072fefeac2c5",
+      "sha256_origem": "5cdd8b7623830f8bd9beeb778d83eb2f97bf0d90c695c0753d2b072fefeac2c5",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0875-2021.md",
+      "bytes": 20277,
+      "sha256": "0bed2fb47e677ec6d1d72ac403acbdb8c03cb7cf8de2bc8418a85f9ddb7e6092",
+      "sha256_origem": "0bed2fb47e677ec6d1d72ac403acbdb8c03cb7cf8de2bc8418a85f9ddb7e6092",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0876-2021.md",
+      "bytes": 7703,
+      "sha256": "1f61ce92b01de94d5a25f86b924054961da854a8a269a030cb865389773f1f22",
+      "sha256_origem": "1f61ce92b01de94d5a25f86b924054961da854a8a269a030cb865389773f1f22",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0877-2021.md",
+      "bytes": 7714,
+      "sha256": "5d81cba9eb1d97d148b61ea41f983b60306edd056998aee952e4bcea19d16528",
+      "sha256_origem": "5d81cba9eb1d97d148b61ea41f983b60306edd056998aee952e4bcea19d16528",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0878-2021.md",
+      "bytes": 11441,
+      "sha256": "276b4a356474c2ec8a53fda7595ac82f68510beebdca34ea2477d7c210db4dc6",
+      "sha256_origem": "276b4a356474c2ec8a53fda7595ac82f68510beebdca34ea2477d7c210db4dc6",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0879-2021.md",
+      "bytes": 11287,
+      "sha256": "bdb8045fdd407f6519415ddcf11bf853ce7b4bb8c18d2e21726968e36e10e3ef",
+      "sha256_origem": "bdb8045fdd407f6519415ddcf11bf853ce7b4bb8c18d2e21726968e36e10e3ef",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0881-2021.md",
+      "bytes": 4788,
+      "sha256": "dc001e60ef255d0bc97bd12a1a48151d8c78146abcdaf42c6b7717b7af740d77",
+      "sha256_origem": "dc001e60ef255d0bc97bd12a1a48151d8c78146abcdaf42c6b7717b7af740d77",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0882-2021.md",
+      "bytes": 92224,
+      "sha256": "d10de43bf697174c6f93fb5f973bd30bbfa947420062947913c18c4ae79c2eed",
+      "sha256_origem": "d10de43bf697174c6f93fb5f973bd30bbfa947420062947913c18c4ae79c2eed",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0884-2021.md",
+      "bytes": 13042,
+      "sha256": "10bc5146e2f1de9b76387329a513d078c41b5f00283b622e93ef3dd73b4523b8",
+      "sha256_origem": "10bc5146e2f1de9b76387329a513d078c41b5f00283b622e93ef3dd73b4523b8",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0885-2021.md",
+      "bytes": 57004,
+      "sha256": "6da8da02cb0d13b6dacdf4110db0be8d6ff06dd6a6d853264b54d2e443736eb5",
+      "sha256_origem": "6da8da02cb0d13b6dacdf4110db0be8d6ff06dd6a6d853264b54d2e443736eb5",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0886-2021.md",
+      "bytes": 15400,
+      "sha256": "356bf3617e274c49c87c2845340ad3cc14ec504e282b538d129f9dcc46036d76",
+      "sha256_origem": "356bf3617e274c49c87c2845340ad3cc14ec504e282b538d129f9dcc46036d76",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0888-2021.md",
+      "bytes": 43227,
+      "sha256": "d7c21c1934520c719f007d6c11e7d419365c360fd9fe9ec09a1388c650b7b52d",
+      "sha256_origem": "d7c21c1934520c719f007d6c11e7d419365c360fd9fe9ec09a1388c650b7b52d",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0890-2021.md",
+      "bytes": 7676,
+      "sha256": "453deb5f4582d13d2d75520c7a293070e4abcb20a29940185792b6aa3fcac3b1",
+      "sha256_origem": "453deb5f4582d13d2d75520c7a293070e4abcb20a29940185792b6aa3fcac3b1",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0891-2021.md",
+      "bytes": 10990,
+      "sha256": "a44ecad0576c52b26bfc4f1a46a45d4a18098c3f7a6977e1396f815ec26e26e8",
+      "sha256_origem": "a44ecad0576c52b26bfc4f1a46a45d4a18098c3f7a6977e1396f815ec26e26e8",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0892-2021.md",
+      "bytes": 10838,
+      "sha256": "45ee3be416496884a079b7dc3434e20de970c69ccff08c7ce23dd98dc0a99dba",
+      "sha256_origem": "45ee3be416496884a079b7dc3434e20de970c69ccff08c7ce23dd98dc0a99dba",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0893-2021.md",
+      "bytes": 10772,
+      "sha256": "5b56f3f9621c1c1498f2d8fba9a1f6296a3eb8cb2b32f78bd05d1850ad3f9d14",
+      "sha256_origem": "5b56f3f9621c1c1498f2d8fba9a1f6296a3eb8cb2b32f78bd05d1850ad3f9d14",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0894-2021.md",
+      "bytes": 8630,
+      "sha256": "fbf50fbe4a203afdf59a8071f58541e2bc048568b5feabd8f3398e86cac55245",
+      "sha256_origem": "fbf50fbe4a203afdf59a8071f58541e2bc048568b5feabd8f3398e86cac55245",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0895-2021.md",
+      "bytes": 10790,
+      "sha256": "943d690743f8547920f02e40e4899eba5a046736a28189c4f25c4fcb11327019",
+      "sha256_origem": "943d690743f8547920f02e40e4899eba5a046736a28189c4f25c4fcb11327019",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0896-2021.md",
+      "bytes": 8453,
+      "sha256": "b4ae7d9ac06256974d6d0e111dcb4dd18f4459994865758eaecf5011382a84d8",
+      "sha256_origem": "b4ae7d9ac06256974d6d0e111dcb4dd18f4459994865758eaecf5011382a84d8",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0897-2022.md",
+      "bytes": 13811,
+      "sha256": "2734d0d071c6394e3e7c1ae8e398b8cd2d239a1efb6675a17c25118aca4fbd90",
+      "sha256_origem": "2734d0d071c6394e3e7c1ae8e398b8cd2d239a1efb6675a17c25118aca4fbd90",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0899-2022.md",
+      "bytes": 21047,
+      "sha256": "424e29d21cf89179fc51846aa13e28da21394cd935c725886f9cccb028de2e24",
+      "sha256_origem": "424e29d21cf89179fc51846aa13e28da21394cd935c725886f9cccb028de2e24",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0900-2022.md",
+      "bytes": 10387,
+      "sha256": "2e5f9edd99905ed87b8eaa747f6752d9b92d72be2a1ad449e8bf043772f278a1",
+      "sha256_origem": "2e5f9edd99905ed87b8eaa747f6752d9b92d72be2a1ad449e8bf043772f278a1",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0901-2022.md",
+      "bytes": 20009,
+      "sha256": "9d900ec475c41e8c0b787558711f8a0f2c41a705ae4a861781d94c1e2b6a2a98",
+      "sha256_origem": "9d900ec475c41e8c0b787558711f8a0f2c41a705ae4a861781d94c1e2b6a2a98",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0902-2022.md",
+      "bytes": 16169,
+      "sha256": "e1ecc1548e84f5a81e8e80f3738f5156c352f577f7b467abf2eaa48ed74ab7e9",
+      "sha256_origem": "e1ecc1548e84f5a81e8e80f3738f5156c352f577f7b467abf2eaa48ed74ab7e9",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0903-2022.md",
+      "bytes": 10461,
+      "sha256": "a4f13c0d05b13cffa23d5eb2dc3fed52b80e82868a936862a7124c40df474db5",
+      "sha256_origem": "a4f13c0d05b13cffa23d5eb2dc3fed52b80e82868a936862a7124c40df474db5",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0904-2022.md",
+      "bytes": 10718,
+      "sha256": "62df2f7a24845c6f500bc19016d90435e94b35a2d7f3b41bdad50bd717e0d895",
+      "sha256_origem": "62df2f7a24845c6f500bc19016d90435e94b35a2d7f3b41bdad50bd717e0d895",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0905-2022.md",
+      "bytes": 10629,
+      "sha256": "6ed30149463b3e87ce6e04be19b2727bc9e3ffd013272a3e386979b4f6bba896",
+      "sha256_origem": "6ed30149463b3e87ce6e04be19b2727bc9e3ffd013272a3e386979b4f6bba896",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0906-2022.md",
+      "bytes": 21347,
+      "sha256": "ffff202345f9bca28c41967367279a75786558b1c672f7b29c53c1f3cb042ada",
+      "sha256_origem": "ffff202345f9bca28c41967367279a75786558b1c672f7b29c53c1f3cb042ada",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0907-2022.md",
+      "bytes": 6422,
+      "sha256": "421e940dd7d1b4f0857104ef0f9fb9305a147f4452d71f565cdcdfc65577f6df",
+      "sha256_origem": "421e940dd7d1b4f0857104ef0f9fb9305a147f4452d71f565cdcdfc65577f6df",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0908-2022.md",
+      "bytes": 12837,
+      "sha256": "6bffbbe057aa1ebe59323e0af0e5bb1a95e28116d83b9db788933f4aa10e6674",
+      "sha256_origem": "6bffbbe057aa1ebe59323e0af0e5bb1a95e28116d83b9db788933f4aa10e6674",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0909-2022.md",
+      "bytes": 5051,
+      "sha256": "46cc2397f82281763c8fcbfe6f98b2e58eb59e0ba2516aec628389e7bdd99502",
+      "sha256_origem": "46cc2397f82281763c8fcbfe6f98b2e58eb59e0ba2516aec628389e7bdd99502",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0910-2022.md",
+      "bytes": 11331,
+      "sha256": "110b397b8a85f9a10df5b64f02eeb9bb528100e6e98e83a1853233b1f2c8f990",
+      "sha256_origem": "110b397b8a85f9a10df5b64f02eeb9bb528100e6e98e83a1853233b1f2c8f990",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0911-2022.md",
+      "bytes": 20225,
+      "sha256": "e19d4f2b6c1f18d8f23ee8f79d5a6abc7ecb4f13bcf148f9e712c91b2b330c4e",
+      "sha256_origem": "e19d4f2b6c1f18d8f23ee8f79d5a6abc7ecb4f13bcf148f9e712c91b2b330c4e",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0913-2022.md",
+      "bytes": 17338,
+      "sha256": "06fec1a2e67f96cd03bfb553a2df179a93075fb8aa9baab0b30022ea220e6c01",
+      "sha256_origem": "06fec1a2e67f96cd03bfb553a2df179a93075fb8aa9baab0b30022ea220e6c01",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0914-2022.md",
+      "bytes": 7613,
+      "sha256": "76f12cc01bcf824838d6d97c370cefef9694115bf872f207fd5c271a43de9b43",
+      "sha256_origem": "76f12cc01bcf824838d6d97c370cefef9694115bf872f207fd5c271a43de9b43",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0915-2022.md",
+      "bytes": 16763,
+      "sha256": "bddbd318c797f387095eb9ae33240b09f8e3c446f5f49f81a869bb8e17f8d3d9",
+      "sha256_origem": "bddbd318c797f387095eb9ae33240b09f8e3c446f5f49f81a869bb8e17f8d3d9",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0916-2022.md",
+      "bytes": 26593,
+      "sha256": "674ca3304fbe72ee2c26b1c50982642930a10f65e1544af3cae1bd0d2f46f496",
+      "sha256_origem": "674ca3304fbe72ee2c26b1c50982642930a10f65e1544af3cae1bd0d2f46f496",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0917-2022.md",
+      "bytes": 12853,
+      "sha256": "bcc52e2d1a8fcc1cb47d9918a64138ffd891c7a70ddb6df67a5b4e59d828f27c",
+      "sha256_origem": "bcc52e2d1a8fcc1cb47d9918a64138ffd891c7a70ddb6df67a5b4e59d828f27c",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0918-2022.md",
+      "bytes": 47215,
+      "sha256": "53e7f1d2a24e0bb1d796ff2c8487dd16ae611720084d77ecf45e83cbecd1b38b",
+      "sha256_origem": "53e7f1d2a24e0bb1d796ff2c8487dd16ae611720084d77ecf45e83cbecd1b38b",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0919-2022.md",
+      "bytes": 12469,
+      "sha256": "34cc5a1eb2f6cb086ab89d1f07511916655b6d458ccf8568ebf96c0c8534ec0e",
+      "sha256_origem": "34cc5a1eb2f6cb086ab89d1f07511916655b6d458ccf8568ebf96c0c8534ec0e",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0920-2022.md",
+      "bytes": 8547,
+      "sha256": "fbede82169f90337ac75e16eec1f53ede04a982993fe5344af57129abe7565de",
+      "sha256_origem": "fbede82169f90337ac75e16eec1f53ede04a982993fe5344af57129abe7565de",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0921-2022.md",
+      "bytes": 7709,
+      "sha256": "f57eb7d829375d62a283eb9dd38464ad26e4dda95fa2cfe24b045dce16781552",
+      "sha256_origem": "f57eb7d829375d62a283eb9dd38464ad26e4dda95fa2cfe24b045dce16781552",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0922-2022.md",
+      "bytes": 36567,
+      "sha256": "adbf9c303da1e7c79cd01e94ef0aec4dab6f390cc443c440df4a44130a469098",
+      "sha256_origem": "adbf9c303da1e7c79cd01e94ef0aec4dab6f390cc443c440df4a44130a469098",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0923-2022.md",
+      "bytes": 129043,
+      "sha256": "c308f1d0a909970019d96c3d539f73400e2de3bb89f02588f017374a5bec57eb",
+      "sha256_origem": "c308f1d0a909970019d96c3d539f73400e2de3bb89f02588f017374a5bec57eb",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0924-2022.md",
+      "bytes": 7777,
+      "sha256": "a9ff270d1164169df5b5efcc86fd82f91db9dc53ee51363c78ade2e65009ef2a",
+      "sha256_origem": "a9ff270d1164169df5b5efcc86fd82f91db9dc53ee51363c78ade2e65009ef2a",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0926-2022.md",
+      "bytes": 13069,
+      "sha256": "f11e959e2a967b92dae9899129724d80f91359abec9c041d4f7e660d224c9fc5",
+      "sha256_origem": "f11e959e2a967b92dae9899129724d80f91359abec9c041d4f7e660d224c9fc5",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0927-2022.md",
+      "bytes": 26264,
+      "sha256": "de35917b901147aa2bb1dafd7fb67ddabcf561c0d3c63a84566ac009354a8f79",
+      "sha256_origem": "de35917b901147aa2bb1dafd7fb67ddabcf561c0d3c63a84566ac009354a8f79",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0931-2022.md",
+      "bytes": 11655,
+      "sha256": "bd3255d92314d001e958d43619c7cf44a5349a838e57f1674a52cd152600cdae",
+      "sha256_origem": "bd3255d92314d001e958d43619c7cf44a5349a838e57f1674a52cd152600cdae",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0932-2022.md",
+      "bytes": 14168,
+      "sha256": "9f0fb5c1cf8bf6754704188a90fdba937d00431a976f12ee61a6f8f3d4185e0b",
+      "sha256_origem": "9f0fb5c1cf8bf6754704188a90fdba937d00431a976f12ee61a6f8f3d4185e0b",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0935-2022.md",
+      "bytes": 23176,
+      "sha256": "2982de9bc0bd4b44553bb93f4295a93a765a2f2fb02f2306cc61f6411101ec54",
+      "sha256_origem": "2982de9bc0bd4b44553bb93f4295a93a765a2f2fb02f2306cc61f6411101ec54",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0936-2022.md",
+      "bytes": 18762,
+      "sha256": "22c4ef2d725cd1cd7c78fa6cf0212b53857ab77b4217b1fe0250ae37122e0e63",
+      "sha256_origem": "22c4ef2d725cd1cd7c78fa6cf0212b53857ab77b4217b1fe0250ae37122e0e63",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0937-2022.md",
+      "bytes": 7597,
+      "sha256": "cf23b041557f1c558fade0f98322bcd1ccd1566c5f9a252298652e4939bf2232",
+      "sha256_origem": "cf23b041557f1c558fade0f98322bcd1ccd1566c5f9a252298652e4939bf2232",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0938-2022.md",
+      "bytes": 43002,
+      "sha256": "0b0d8f42a72852d8ff742adc21906985cbaacb0b7d439e6689b1d635d7ade0b1",
+      "sha256_origem": "0b0d8f42a72852d8ff742adc21906985cbaacb0b7d439e6689b1d635d7ade0b1",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0939-2022.md",
+      "bytes": 15207,
+      "sha256": "5de2324e8bb0ff0149d251c170ffbc278b1b404624c9076052d51d8f08474226",
+      "sha256_origem": "5de2324e8bb0ff0149d251c170ffbc278b1b404624c9076052d51d8f08474226",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0940-2022.md",
+      "bytes": 10563,
+      "sha256": "b4f215b54e762c977e9db0532164e8cb5dfec3dcb7b4ce188952692d2567ee1c",
+      "sha256_origem": "b4f215b54e762c977e9db0532164e8cb5dfec3dcb7b4ce188952692d2567ee1c",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0941-2022.md",
+      "bytes": 33269,
+      "sha256": "597383323a6eb0bcc4448b4ef46e8f2660ca22ccb346b36cf8f477cc7ae09020",
+      "sha256_origem": "597383323a6eb0bcc4448b4ef46e8f2660ca22ccb346b36cf8f477cc7ae09020",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0942-2022.md",
+      "bytes": 29434,
+      "sha256": "b5cf75bb0730037d4818b0a4ec5575df15611db4b7e07aa302ba4e0b9723266e",
+      "sha256_origem": "b5cf75bb0730037d4818b0a4ec5575df15611db4b7e07aa302ba4e0b9723266e",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0943-2022.md",
+      "bytes": 16286,
+      "sha256": "0a112370de27ffbb3d113de93658eb1aba7c78f7004d60651b98b7b9bfd6f628",
+      "sha256_origem": "0a112370de27ffbb3d113de93658eb1aba7c78f7004d60651b98b7b9bfd6f628",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0944-2022.md",
+      "bytes": 6814,
+      "sha256": "63747f4a0ffe9ac55573ab89c671c14587b83e00ab5d1c5735f0ce87583bc93a",
+      "sha256_origem": "63747f4a0ffe9ac55573ab89c671c14587b83e00ab5d1c5735f0ce87583bc93a",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0945-2022.md",
+      "bytes": 13583,
+      "sha256": "4f61c167bfb81b77d6f6f2a842e377b5a9984365fe6aae34de652b584e35d345",
+      "sha256_origem": "4f61c167bfb81b77d6f6f2a842e377b5a9984365fe6aae34de652b584e35d345",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0946-2022.md",
+      "bytes": 8082,
+      "sha256": "3fd4d8793a7c4894caa51878b9f45ee8361be07f253e0df6a069927ea689c10e",
+      "sha256_origem": "3fd4d8793a7c4894caa51878b9f45ee8361be07f253e0df6a069927ea689c10e",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0948-2022.md",
+      "bytes": 6526,
+      "sha256": "08223da9850ee61f2c807b7f84b9ed85183011e1be9f9c5ac317e5f98c1c9dc7",
+      "sha256_origem": "08223da9850ee61f2c807b7f84b9ed85183011e1be9f9c5ac317e5f98c1c9dc7",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0949-2022.md",
+      "bytes": 9779,
+      "sha256": "0efc834724af293ee8faa2adaa1d1def15333e7f95b7c8a758fa7e7aa9ed9c08",
+      "sha256_origem": "0efc834724af293ee8faa2adaa1d1def15333e7f95b7c8a758fa7e7aa9ed9c08",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0950-2022.md",
+      "bytes": 5937,
+      "sha256": "a528471c60fb2954d96a20b6c6d77845e313401abb8a9dab9845752580bb2b73",
+      "sha256_origem": "a528471c60fb2954d96a20b6c6d77845e313401abb8a9dab9845752580bb2b73",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0951-2022.md",
+      "bytes": 7372,
+      "sha256": "0c4464c431cb702c9b0e83f10d238d0bb14c52307d55824f6c34cd39ef59f2fe",
+      "sha256_origem": "0c4464c431cb702c9b0e83f10d238d0bb14c52307d55824f6c34cd39ef59f2fe",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0952-2022.md",
+      "bytes": 21639,
+      "sha256": "fb0e50663be96040f4f6ffd47433fe05b7faf73ff50ceda00340c64f3130c1df",
+      "sha256_origem": "fb0e50663be96040f4f6ffd47433fe05b7faf73ff50ceda00340c64f3130c1df",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0953-2022.md",
+      "bytes": 8675,
+      "sha256": "c201a5a8b50c85a9538f8ccf84bb5ae457400a109e8fa6bec9bccd9e8769b056",
+      "sha256_origem": "c201a5a8b50c85a9538f8ccf84bb5ae457400a109e8fa6bec9bccd9e8769b056",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0954-2022.md",
+      "bytes": 14600,
+      "sha256": "bbc91e4ceb50a4068dbf4bf0ee921cdb51dd185587e1e1d975b732e202fc73c9",
+      "sha256_origem": "bbc91e4ceb50a4068dbf4bf0ee921cdb51dd185587e1e1d975b732e202fc73c9",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0955-2022.md",
+      "bytes": 15433,
+      "sha256": "159385c64e0572989e13059fad64012f810f9e6bc71c3d45b0e6be5834d9aeb2",
+      "sha256_origem": "159385c64e0572989e13059fad64012f810f9e6bc71c3d45b0e6be5834d9aeb2",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0956-2022.md",
+      "bytes": 5073,
+      "sha256": "6cee0b4ca59df22845dccaeb726651ae828b36575a739648fa101fb1f1a2b005",
+      "sha256_origem": "6cee0b4ca59df22845dccaeb726651ae828b36575a739648fa101fb1f1a2b005",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0957-2022.md",
+      "bytes": 22465,
+      "sha256": "ee57db89c39c1685f48a0398a197d1432f7557829b2fa11eb1d6db80eaaabe58",
+      "sha256_origem": "ee57db89c39c1685f48a0398a197d1432f7557829b2fa11eb1d6db80eaaabe58",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0958-2022.md",
+      "bytes": 24737,
+      "sha256": "d7f28d897ae7d6ca56a1c4fd802c9595c89d59f820731320cef752940a105954",
+      "sha256_origem": "d7f28d897ae7d6ca56a1c4fd802c9595c89d59f820731320cef752940a105954",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0959-2022.md",
+      "bytes": 19452,
+      "sha256": "ed4ff107e7cf5620ed7d9082f49335b91787ebe127ecc09ba80004542f92b6ee",
+      "sha256_origem": "ed4ff107e7cf5620ed7d9082f49335b91787ebe127ecc09ba80004542f92b6ee",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0960-2022.md",
+      "bytes": 21507,
+      "sha256": "147a55d23cce07c2ef4c5db049147131ba07b777ff606c2c2ae5825323c2d466",
+      "sha256_origem": "147a55d23cce07c2ef4c5db049147131ba07b777ff606c2c2ae5825323c2d466",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0961-2022.md",
+      "bytes": 13677,
+      "sha256": "f26058779b6f20f75fc06b41c1ed9e7f2b2328b2e95482a26be930b526ee02fc",
+      "sha256_origem": "f26058779b6f20f75fc06b41c1ed9e7f2b2328b2e95482a26be930b526ee02fc",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0962-2022.md",
+      "bytes": 6686,
+      "sha256": "c801d0465dec2d16eb3a311ce59e8ab07537916a0ff87345ff9106bfaa70bef2",
+      "sha256_origem": "c801d0465dec2d16eb3a311ce59e8ab07537916a0ff87345ff9106bfaa70bef2",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0963-2022.md",
+      "bytes": 5592,
+      "sha256": "e78899514bec4063802c36770f594b260b318c8de246217d211af19a6c206cfd",
+      "sha256_origem": "e78899514bec4063802c36770f594b260b318c8de246217d211af19a6c206cfd",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0964-2022.md",
+      "bytes": 8233,
+      "sha256": "be8a3e8c10628786da16f357ed8aec5cf9aaeb766f2663c7e3b0fe3c6dabbe01",
+      "sha256_origem": "be8a3e8c10628786da16f357ed8aec5cf9aaeb766f2663c7e3b0fe3c6dabbe01",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0965-2022.md",
+      "bytes": 17923,
+      "sha256": "b6004442ebe6ec4b894d5d27625159e4c75910190d7fe6bd2fc831fea6d9bc67",
+      "sha256_origem": "b6004442ebe6ec4b894d5d27625159e4c75910190d7fe6bd2fc831fea6d9bc67",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0966-2022.md",
+      "bytes": 8569,
+      "sha256": "6f33bc3b376dcf4bc67a363aee50036b13548f2edb5618074bdc1a82ddad16e3",
+      "sha256_origem": "6f33bc3b376dcf4bc67a363aee50036b13548f2edb5618074bdc1a82ddad16e3",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0967-2022.md",
+      "bytes": 13197,
+      "sha256": "317edc022c594f9172aa99b60e0cfe7de26168735d95459e3bd76d60c7b28015",
+      "sha256_origem": "317edc022c594f9172aa99b60e0cfe7de26168735d95459e3bd76d60c7b28015",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0968-2022.md",
+      "bytes": 59599,
+      "sha256": "031b008bb8daf19099d4cc9d98f90c24e8732e3361f52d8ce62ac84dd0733482",
+      "sha256_origem": "031b008bb8daf19099d4cc9d98f90c24e8732e3361f52d8ce62ac84dd0733482",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0969-2022.md",
+      "bytes": 58341,
+      "sha256": "0008ae2e540ffffc5a592f8e461dc40690c392ebc7cab2771109f79f3a2c5855",
+      "sha256_origem": "0008ae2e540ffffc5a592f8e461dc40690c392ebc7cab2771109f79f3a2c5855",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0970-2022.md",
+      "bytes": 28893,
+      "sha256": "f7c5659a4fefdd0f58481955fcc2762143ca1db4d5a447796c1ae83d01f43af7",
+      "sha256_origem": "f7c5659a4fefdd0f58481955fcc2762143ca1db4d5a447796c1ae83d01f43af7",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0971-2022.md",
+      "bytes": 10825,
+      "sha256": "7ec75921be675d68e39843bb5b77bf6a4369fdbc2cf70acd630f1f54dfb5a34d",
+      "sha256_origem": "7ec75921be675d68e39843bb5b77bf6a4369fdbc2cf70acd630f1f54dfb5a34d",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0972-2022.md",
+      "bytes": 10594,
+      "sha256": "ac7c62b865b436e9d419bf286692ee4734f8c34b930be5c6a25cf6d9f49d92ef",
+      "sha256_origem": "ac7c62b865b436e9d419bf286692ee4734f8c34b930be5c6a25cf6d9f49d92ef",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0973-2022.md",
+      "bytes": 19832,
+      "sha256": "34b8f7ae7711b254724fc388ea94dd2eaed744ae0023c71819f91b3834e1de57",
+      "sha256_origem": "34b8f7ae7711b254724fc388ea94dd2eaed744ae0023c71819f91b3834e1de57",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0974-2022.md",
+      "bytes": 5015,
+      "sha256": "b3e3936dd76445639a6b006e768d986f771595ff51f35ffd3e69fac30dc18bc4",
+      "sha256_origem": "b3e3936dd76445639a6b006e768d986f771595ff51f35ffd3e69fac30dc18bc4",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0975-2022.md",
+      "bytes": 6586,
+      "sha256": "e3be49708ce9057a952a1087d81ddf3e796bb163fb8b3c8b1a8b770f88066edf",
+      "sha256_origem": "e3be49708ce9057a952a1087d81ddf3e796bb163fb8b3c8b1a8b770f88066edf",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0976-2022.md",
+      "bytes": 4472,
+      "sha256": "c509ad53af524fb5ae98aa0c5065ce8f2d75964ce05f461c95bb6ca93c969363",
+      "sha256_origem": "c509ad53af524fb5ae98aa0c5065ce8f2d75964ce05f461c95bb6ca93c969363",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0977-2022.md",
+      "bytes": 6473,
+      "sha256": "7f332284d8464cb41d4db0f0754193eec050849999691a4085a22153cbba8619",
+      "sha256_origem": "7f332284d8464cb41d4db0f0754193eec050849999691a4085a22153cbba8619",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0979-2022.md",
+      "bytes": 6104,
+      "sha256": "b0cc21c7c11eea904cb02086b0774a6af0a8c243b008486a228e69fde71ada3a",
+      "sha256_origem": "b0cc21c7c11eea904cb02086b0774a6af0a8c243b008486a228e69fde71ada3a",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0981-2022.md",
+      "bytes": 4063,
+      "sha256": "1115259c140b00ea1b46a3fcf1a603224f5786ccc022c1b95928278a8f1422e8",
+      "sha256_origem": "1115259c140b00ea1b46a3fcf1a603224f5786ccc022c1b95928278a8f1422e8",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0985-2022.md",
+      "bytes": 6857,
+      "sha256": "c24e4baeaafe5fcd6ffcf5c1cf70ea97a6d28a1036e365b33a2d09a9fcef91ea",
+      "sha256_origem": "c24e4baeaafe5fcd6ffcf5c1cf70ea97a6d28a1036e365b33a2d09a9fcef91ea",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0986-2022.md",
+      "bytes": 5897,
+      "sha256": "c7bfc8275387a62c6bb8f5a5699b50baf4d5be478fcbe24797b9fcd6508728b2",
+      "sha256_origem": "c7bfc8275387a62c6bb8f5a5699b50baf4d5be478fcbe24797b9fcd6508728b2",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0987-2022.md",
+      "bytes": 4493,
+      "sha256": "2feedacefe59745f8933664493ba9000514bc72607b99bb03c6aa70939ba33ee",
+      "sha256_origem": "2feedacefe59745f8933664493ba9000514bc72607b99bb03c6aa70939ba33ee",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0988-2022.md",
+      "bytes": 4247,
+      "sha256": "b729ae6dbc565ebc6154a7ad57cb15d9428762721b8322cf9a505336d9e47201",
+      "sha256_origem": "b729ae6dbc565ebc6154a7ad57cb15d9428762721b8322cf9a505336d9e47201",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0989-2022.md",
+      "bytes": 4953,
+      "sha256": "eb48e549ef2c14bff1497a2cf81955f7930e2042cbee82a8faa1ced9c3aa0093",
+      "sha256_origem": "eb48e549ef2c14bff1497a2cf81955f7930e2042cbee82a8faa1ced9c3aa0093",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0990-2023.md",
+      "bytes": 6131,
+      "sha256": "f8f36554e8864ad96c003a238fe96128aa3d48d79dd42a7c847076da416b4cfe",
+      "sha256_origem": "f8f36554e8864ad96c003a238fe96128aa3d48d79dd42a7c847076da416b4cfe",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0991-2023.md",
+      "bytes": 5314,
+      "sha256": "0b1b05f6fc490a3718bc7a9b809900a199b80639239abda2881b1e1afd03dd85",
+      "sha256_origem": "0b1b05f6fc490a3718bc7a9b809900a199b80639239abda2881b1e1afd03dd85",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0992-2023.md",
+      "bytes": 5456,
+      "sha256": "51e1a0835e37e0d0b8da18366151228f82d99ac808c0f5bc865e73d25e6a0c9e",
+      "sha256_origem": "51e1a0835e37e0d0b8da18366151228f82d99ac808c0f5bc865e73d25e6a0c9e",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0993-2023.md",
+      "bytes": 6385,
+      "sha256": "19462054790b5a6f99335234c3d7b8a6f0562c381530827ec9f2567d7b48ec69",
+      "sha256_origem": "19462054790b5a6f99335234c3d7b8a6f0562c381530827ec9f2567d7b48ec69",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0994-2023.md",
+      "bytes": 4636,
+      "sha256": "ef32f9d64c4723963b223e028c0bf357aeec932437b6e0920d2642da69f354aa",
+      "sha256_origem": "ef32f9d64c4723963b223e028c0bf357aeec932437b6e0920d2642da69f354aa",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0996-2023.md",
+      "bytes": 18375,
+      "sha256": "750e0c599d9d0c83013ec163e3cca3034eb991ddf60e91de0da97357a8840f1c",
+      "sha256_origem": "750e0c599d9d0c83013ec163e3cca3034eb991ddf60e91de0da97357a8840f1c",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0997-2023.md",
+      "bytes": 6683,
+      "sha256": "0c81f6af0aadd79d93b24b2af6a4beceef382dfad8cf801fcc7702501356c32e",
+      "sha256_origem": "0c81f6af0aadd79d93b24b2af6a4beceef382dfad8cf801fcc7702501356c32e",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-0998-2023.md",
+      "bytes": 5287,
+      "sha256": "306a8b4cd830b2826c8034661f315921d9a44863190aff3905bd8d76a85c019b",
+      "sha256_origem": "306a8b4cd830b2826c8034661f315921d9a44863190aff3905bd8d76a85c019b",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1002-2023.md",
+      "bytes": 4156,
+      "sha256": "042426d1f8b0cff55e351d1b0262e5b4d9b8fdcf872ecde8f7b179732e15e91b",
+      "sha256_origem": "042426d1f8b0cff55e351d1b0262e5b4d9b8fdcf872ecde8f7b179732e15e91b",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1003-2023.md",
+      "bytes": 3986,
+      "sha256": "66cc88768fa341b6c1c942a2c2dfd3a50e754c7fc14fda005b5283d5f44e03f3",
+      "sha256_origem": "66cc88768fa341b6c1c942a2c2dfd3a50e754c7fc14fda005b5283d5f44e03f3",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1004-2023.md",
+      "bytes": 10053,
+      "sha256": "019b4c19a6b525d79abc26a73ced270a07b75bcf106ac6b6498cbc7e66296b45",
+      "sha256_origem": "019b4c19a6b525d79abc26a73ced270a07b75bcf106ac6b6498cbc7e66296b45",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1005-2024.md",
+      "bytes": 4369,
+      "sha256": "be575b8fd08241b6a0612adb4c46478f365b475aa65d988bb153edb98107688f",
+      "sha256_origem": "be575b8fd08241b6a0612adb4c46478f365b475aa65d988bb153edb98107688f",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1006-2024.md",
+      "bytes": 5372,
+      "sha256": "08a05150a101d5d427a30f65bc8e609bc727789f90c674bef0dfeafe5003d212",
+      "sha256_origem": "08a05150a101d5d427a30f65bc8e609bc727789f90c674bef0dfeafe5003d212",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1007-2024.md",
+      "bytes": 4805,
+      "sha256": "711ade7813ee424ad18f0edea6e3877fec1d40227e250b5d104ab703ce0aa0b2",
+      "sha256_origem": "711ade7813ee424ad18f0edea6e3877fec1d40227e250b5d104ab703ce0aa0b2",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1009-2024.md",
+      "bytes": 12150,
+      "sha256": "7b8266c28e2cbf444c0627ddb49da43c3ebdcb5b9a8135fdff600a6e89596e4a",
+      "sha256_origem": "7b8266c28e2cbf444c0627ddb49da43c3ebdcb5b9a8135fdff600a6e89596e4a",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1010-2024.md",
+      "bytes": 3801,
+      "sha256": "a299b44651e4e1ef536d9ffdd3bcbd5bf8e15c6e192f996ebd49429432b5ef60",
+      "sha256_origem": "a299b44651e4e1ef536d9ffdd3bcbd5bf8e15c6e192f996ebd49429432b5ef60",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1011-2024.md",
+      "bytes": 11268,
+      "sha256": "0c67824ecf29c76792b144b0d5b93d91055aceedf5caf8d3ae91d2d8028ca936",
+      "sha256_origem": "0c67824ecf29c76792b144b0d5b93d91055aceedf5caf8d3ae91d2d8028ca936",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1012-2024.md",
+      "bytes": 10807,
+      "sha256": "ae66440f5b151f50af17c8a1ed51815015537d1fe6267b3026c15dba85760b35",
+      "sha256_origem": "ae66440f5b151f50af17c8a1ed51815015537d1fe6267b3026c15dba85760b35",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1013-2024.md",
+      "bytes": 22058,
+      "sha256": "89bd96000e1f7fdb2b719169d2688c9f51e122b3e2c09d13b59dd7902f8b5c91",
+      "sha256_origem": "89bd96000e1f7fdb2b719169d2688c9f51e122b3e2c09d13b59dd7902f8b5c91",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1014-2024.md",
+      "bytes": 40313,
+      "sha256": "a9b063c3797eb32048c9587d05e02c2cbe4d95f3ae7965b9ab02b888a4d7bf39",
+      "sha256_origem": "a9b063c3797eb32048c9587d05e02c2cbe4d95f3ae7965b9ab02b888a4d7bf39",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1015-2024.md",
+      "bytes": 5714,
+      "sha256": "27efd13197a563e5393fbb8f4089fb630049cd88d4e629dd21a1a78f55c3bf85",
+      "sha256_origem": "27efd13197a563e5393fbb8f4089fb630049cd88d4e629dd21a1a78f55c3bf85",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1016-2024.md",
+      "bytes": 17206,
+      "sha256": "568727a306b850bfeaa927f0222918126750b191ee74788c7f5fa0ab5c0489df",
+      "sha256_origem": "568727a306b850bfeaa927f0222918126750b191ee74788c7f5fa0ab5c0489df",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1017-2024.md",
+      "bytes": 28748,
+      "sha256": "c378b93f22cd6a8f843cfb0d86f4c554966dd7ebafbc8e8a273da516036fa7b6",
+      "sha256_origem": "c378b93f22cd6a8f843cfb0d86f4c554966dd7ebafbc8e8a273da516036fa7b6",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1018-2025.md",
+      "bytes": 18902,
+      "sha256": "86243bf2a210f7706b263fa304291a9475c180789e6e08fb8eb4d632b84aeccd",
+      "sha256_origem": "86243bf2a210f7706b263fa304291a9475c180789e6e08fb8eb4d632b84aeccd",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1019-2025.md",
+      "bytes": 26022,
+      "sha256": "19f35f015415958cc01d65ade905fa8f4cc7bafd9d73b0c52a5b255e7d69bdcd",
+      "sha256_origem": "19f35f015415958cc01d65ade905fa8f4cc7bafd9d73b0c52a5b255e7d69bdcd",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1020-2025.md",
+      "bytes": 127589,
+      "sha256": "c86304f28f6a8f465114c5dcc2ac7d2f54dabc7a8f7e8452364b3c94912b6f9e",
+      "sha256_origem": "c86304f28f6a8f465114c5dcc2ac7d2f54dabc7a8f7e8452364b3c94912b6f9e",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1021-2026.md",
+      "bytes": 7601,
+      "sha256": "4720eeeef38a4611243d53cfd87de9ba627229bb9e224a68c0a965ee0e3ba328",
+      "sha256_origem": "4720eeeef38a4611243d53cfd87de9ba627229bb9e224a68c0a965ee0e3ba328",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1022-2026.md",
+      "bytes": 26010,
+      "sha256": "2cbc13edb3f1a685254e0819dc865d8c4b092613414561e8688b6d381c50983e",
+      "sha256_origem": "2cbc13edb3f1a685254e0819dc865d8c4b092613414561e8688b6d381c50983e",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1023-2026.md",
+      "bytes": 24246,
+      "sha256": "53987ba75baa5a0ec0564d82a7dfc03e9f79a6cf1cd96cab5467d13147544420",
+      "sha256_origem": "53987ba75baa5a0ec0564d82a7dfc03e9f79a6cf1cd96cab5467d13147544420",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1024-2026.md",
+      "bytes": 5256,
+      "sha256": "61774c7bd78b2b5688076f93350f3e21b365f5d0c5d6166be17414396a2b0a12",
+      "sha256_origem": "61774c7bd78b2b5688076f93350f3e21b365f5d0c5d6166be17414396a2b0a12",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1025-2026.md",
+      "bytes": 49279,
+      "sha256": "165443887762e812d9a20f707f4bcd93cac8747f3043fec807dc604e2450148a",
+      "sha256_origem": "165443887762e812d9a20f707f4bcd93cac8747f3043fec807dc604e2450148a",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1026-2026.md",
+      "bytes": 62224,
+      "sha256": "8212f60597e4f0d0e745d0a86c550a0cd590d7cca856a01a159382a915658879",
+      "sha256_origem": "8212f60597e4f0d0e745d0a86c550a0cd590d7cca856a01a159382a915658879",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1027-2026.md",
+      "bytes": 111451,
+      "sha256": "f309a5cd3706975020e5273f03b75f8249d8ef0c4b46ff09b57c4692516fb49b",
+      "sha256_origem": "f309a5cd3706975020e5273f03b75f8249d8ef0c4b46ff09b57c4692516fb49b",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1028-2026.md",
+      "bytes": 8857,
+      "sha256": "6696245e34d9b5983b8c5a9c8ab183a4a3959a6dcf44e53f053bac339e591a6b",
+      "sha256_origem": "6696245e34d9b5983b8c5a9c8ab183a4a3959a6dcf44e53f053bac339e591a6b",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1029-2026.md",
+      "bytes": 5151,
+      "sha256": "92171de6f43a596ac1647faecbde670c06a7142bbeadc694a4d2c2e55ce5f0b5",
+      "sha256_origem": "92171de6f43a596ac1647faecbde670c06a7142bbeadc694a4d2c2e55ce5f0b5",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1030-2026.md",
+      "bytes": 4178,
+      "sha256": "660c76c1b348bfea6de96c0f06450208b6d02ae839c0ff13889ca66bc3e3d620",
+      "sha256_origem": "660c76c1b348bfea6de96c0f06450208b6d02ae839c0ff13889ca66bc3e3d620",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/resolucoes/contran-1031-2026.md",
+      "bytes": 23717,
+      "sha256": "84f3eabcb880b8cb5bcf0613f7c790d66d7a0c834ea5e21aed8fd5d10afe24d9",
+      "sha256_origem": "84f3eabcb880b8cb5bcf0613f7c790d66d7a0c834ea5e21aed8fd5d10afe24d9",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/REVOGACOES-E-OUTRAS-SITUACOES.md",
+      "bytes": 305243,
+      "sha256": "5b2d8d440d3aca26ef6af4553799411fa737e04717471934041baa5cf1cb5a22",
+      "sha256_origem": "5b2d8d440d3aca26ef6af4553799411fa737e04717471934041baa5cf1cb5a22",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/contran-vigentes/validacao.json",
+      "bytes": 591,
+      "sha256": "862cf836efe939a34a45dc40e0bece7f640e96293ea548370ef1e88d332a9365",
+      "sha256_origem": "862cf836efe939a34a45dc40e0bece7f640e96293ea548370ef1e88d332a9365",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/fechamento-seguranca/Confirmacoes-seguranca.xlsx",
+      "bytes": 44910,
+      "sha256": "ea4979c84d9d19f561f84cb6eb4bd26ded6687c7289e482287e398138a995abd",
+      "sha256_origem": "ea4979c84d9d19f561f84cb6eb4bd26ded6687c7289e482287e398138a995abd",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/fluxo-arvore-seguranca/01-fluxo-homologacao.png",
+      "bytes": 197335,
+      "sha256": "3ad6c9e26aae424caea4be386765137b2241aacfd705b1adb95296ef50df11ef",
+      "sha256_origem": "3ad6c9e26aae424caea4be386765137b2241aacfd705b1adb95296ef50df11ef",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/fluxo-arvore-seguranca/01-fluxo-homologacao.svg",
+      "bytes": 12745,
+      "sha256": "a7321babe18feb90fdae54b4ec62444c7c355dc68194f063c5f6d9c9327939f6",
+      "sha256_origem": "a7321babe18feb90fdae54b4ec62444c7c355dc68194f063c5f6d9c9327939f6",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/fluxo-arvore-seguranca/02-arvore-seguranca.png",
+      "bytes": 346476,
+      "sha256": "2d771c68d8e1683dbfb4a8823bcf4357dd16d2a55a920803f3c0cf6a50ff88b2",
+      "sha256_origem": "2d771c68d8e1683dbfb4a8823bcf4357dd16d2a55a920803f3c0cf6a50ff88b2",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/fluxo-arvore-seguranca/02-arvore-seguranca.svg",
+      "bytes": 17868,
+      "sha256": "73cb8edcb31fa21ddb0c8de131674257597e7e8c6044a6b787586c6076f56cea",
+      "sha256_origem": "73cb8edcb31fa21ddb0c8de131674257597e7e8c6044a6b787586c6076f56cea",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/fluxo-arvore-seguranca/03-arvore-ensaios.png",
+      "bytes": 606863,
+      "sha256": "3baa750cfcf84c94801dc40011f371331b49f5ffc425fbac01efc90da13c6288",
+      "sha256_origem": "3baa750cfcf84c94801dc40011f371331b49f5ffc425fbac01efc90da13c6288",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/fluxo-arvore-seguranca/03-arvore-ensaios.svg",
+      "bytes": 36125,
+      "sha256": "4634c41737929bfe810665268da39044c851b3a73d35a1f6ed32f536e2c09c46",
+      "sha256_origem": "4634c41737929bfe810665268da39044c851b3a73d35a1f6ed32f536e2c09c46",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/fluxo-arvore-seguranca/04-arvore-requisitos-complementares.png",
+      "bytes": 371624,
+      "sha256": "11ffc801131ed4eb98cc6c34ec07754258b67909d162d81a817e281a84059c77",
+      "sha256_origem": "11ffc801131ed4eb98cc6c34ec07754258b67909d162d81a817e281a84059c77",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/fluxo-arvore-seguranca/04-arvore-requisitos-complementares.svg",
+      "bytes": 20160,
+      "sha256": "37b64c7d27c08a695429b02a169391142f013a8676c0710c17ef35351c60c11d",
+      "sha256_origem": "37b64c7d27c08a695429b02a169391142f013a8676c0710c17ef35351c60c11d",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/fluxo-arvore-seguranca/LEIA-ME.md",
+      "bytes": 1203,
+      "sha256": "0c056e62bc99da2337dc54dd298c42d71071adaaa0368c2d325ecc204dae31d9",
+      "sha256_origem": "0c056e62bc99da2337dc54dd298c42d71071adaaa0368c2d325ecc204dae31d9",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/fluxo-arvore-seguranca/REVISAO-MAIS-RECENTE.md",
+      "bytes": 545,
+      "sha256": "54ee41001bce20de4fea4a8eb53d0f36b36f518e885eea55e26b173c02899926",
+      "sha256_origem": "54ee41001bce20de4fea4a8eb53d0f36b36f518e885eea55e26b173c02899926",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/levantamento-seguranca/atualizacao-ancoragens.json",
+      "bytes": 1901,
+      "sha256": "74b53d9f482c3ddf169fdaae24828f91e87ca2a0ce41bfcc5a438f04f653f2af",
+      "sha256_origem": "74b53d9f482c3ddf169fdaae24828f91e87ca2a0ce41bfcc5a438f04f653f2af",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/levantamento-seguranca/auditoria-fechamento.json",
+      "bytes": 50473,
+      "sha256": "eaffb54a099b170db6a6c18be1e235013117306e1115eb783864d1b450f3ec11",
+      "sha256_origem": "eaffb54a099b170db6a6c18be1e235013117306e1115eb783864d1b450f3ec11",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/levantamento-seguranca/indice-contran-observado.json",
+      "bytes": 1082428,
+      "sha256": "24cbea76d7f062bbe77a54bc9196c928dac902978d265f66f169e18d434271fb",
+      "sha256_origem": "24cbea76d7f062bbe77a54bc9196c928dac902978d265f66f169e18d434271fb",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/levantamento-seguranca/inventario-seguranca.json",
+      "bytes": 119277,
+      "sha256": "39e3b99c48e779baf389ef0f482f4d58f2af3f8cfb7a0ddc0435e3ae4de6a51b",
+      "sha256_origem": "39e3b99c48e779baf389ef0f482f4d58f2af3f8cfb7a0ddc0435e3ae4de6a51b",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/levantamento-seguranca/LEIA-ME.txt",
+      "bytes": 923,
+      "sha256": "8baa1f60054fe92e821d0d016dbe68053f3d50106082246d69b4c56568ab44ce",
+      "sha256_origem": "8baa1f60054fe92e821d0d016dbe68053f3d50106082246d69b4c56568ab44ce",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/levantamento-seguranca/manifesto-fontes.json",
+      "bytes": 84287,
+      "sha256": "ecebf0cfc618a67987a88c8c473445a738e99a051ceca63fd2f8363d9b39c4af",
+      "sha256_origem": "ecebf0cfc618a67987a88c8c473445a738e99a051ceca63fd2f8363d9b39c4af",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/levantamento-seguranca/PARECER-FECHAMENTO-SEGURANCA.md",
+      "bytes": 11534,
+      "sha256": "f5a66d9ee0ac3a0455b89d5c33b6efcf8e875bbd2b42fe8c2fdc7176f37bfd9e",
+      "sha256_origem": "f5a66d9ee0ac3a0455b89d5c33b6efcf8e875bbd2b42fe8c2fdc7176f37bfd9e",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/levantamento-seguranca/previa-relatorio.png",
+      "bytes": 61950,
+      "sha256": "a5a38570e865d1834d22a11c586cfb9c2dafe071f79a95755e4ba7bd80c854c9",
+      "sha256_origem": "a5a38570e865d1834d22a11c586cfb9c2dafe071f79a95755e4ba7bd80c854c9",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/levantamento-seguranca/relatorio.html",
+      "bytes": 153514,
+      "sha256": "66389b9029bf03b32f2fafecd37df7b37b86e38cdc6a0ff0b539df3798072089",
+      "sha256_origem": "66389b9029bf03b32f2fafecd37df7b37b86e38cdc6a0ff0b539df3798072089",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/levantamento-seguranca/REVISAO-MAIS-RECENTE.md",
+      "bytes": 575,
+      "sha256": "cd56fc7554cbd07017cb067b4df7e2786a3fcdf5ed67f9c57a875b9b0f90d999",
+      "sha256_origem": "cd56fc7554cbd07017cb067b4df7e2786a3fcdf5ed67f9c57a875b9b0f90d999",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/levantamento-seguranca/siscat-ensaios-observados.json",
+      "bytes": 22696,
+      "sha256": "09d2fbbe348087ee177b559851c04ae1e87d0624e9ce1737e15db1b32931e061",
+      "sha256_origem": "09d2fbbe348087ee177b559851c04ae1e87d0624e9ce1737e15db1b32931e061",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/levantamento-seguranca/validacao-levantamento.json",
+      "bytes": 719,
+      "sha256": "80126b5e85ec7883383031ef927aa9cfc0982de3dc782d1362b63f2713f959d5",
+      "sha256_origem": "80126b5e85ec7883383031ef927aa9cfc0982de3dc782d1362b63f2713f959d5",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/prompts-novo-modelo.txt",
+      "bytes": 13087,
+      "sha256": "78fb869ca7ac854b1509cdb910e906e96b45afc1a7d907113a17e409e883d0de",
+      "sha256_origem": "78fb869ca7ac854b1509cdb910e906e96b45afc1a7d907113a17e409e883d0de",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/base-ia/conclusoes-revisadas.jsonl",
+      "bytes": 121983,
+      "sha256": "e4c58aaf0a067db61fa4f437f5c40e3aebe6d938a9b101a8f15e12da970fff34",
+      "sha256_origem": "e4c58aaf0a067db61fa4f437f5c40e3aebe6d938a9b101a8f15e12da970fff34",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/base-ia/LEIA-ME.md",
+      "bytes": 1437,
+      "sha256": "1507f805b47f3b2a8372db5e2508c701d91ee66da5f02cfa6fc320c06974b78a",
+      "sha256_origem": "1507f805b47f3b2a8372db5e2508c701d91ee66da5f02cfa6fc320c06974b78a",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/confirmacoes-revisadas.json",
+      "bytes": 30382,
+      "sha256": "5df1fec7a1f7b3a6a5a588677d20ec4e654c014082db73ff245dc92b0ebc996f",
+      "sha256_origem": "235d92c4bc3cd5711ea8ea509faa5542dcd850ed72671d83d205990661d2f43d",
+      "ajustes": [
+        "caminho absoluto do workspace substituído por caminho relativo"
+      ]
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/CONFIRMACOES-REVISADAS.md",
+      "bytes": 20267,
+      "sha256": "e92bb3d393608436e7c3c14e8336a910b8c0b3d6aa005b7375b02a5f0191de3a",
+      "sha256_origem": "e92bb3d393608436e7c3c14e8336a910b8c0b3d6aa005b7375b02a5f0191de3a",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/DISPONIBILIDADE-DOCUMENTOS.md",
+      "bytes": 17854,
+      "sha256": "ccc0e09b16deda03920725e4180d873aa74ea0ace99b3aa5f4ef21d8d8507f76",
+      "sha256_origem": "ccc0e09b16deda03920725e4180d873aa74ea0ace99b3aa5f4ef21d8d8507f76",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/escopo-confirmado.json",
+      "bytes": 1256,
+      "sha256": "e03e8c29de4cb39d248f8c1ba441b18ff66ff055fd66b3e6e76992be308cba81",
+      "sha256_origem": "e03e8c29de4cb39d248f8c1ba441b18ff66ff055fd66b3e6e76992be308cba81",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-1005-2024.pdf",
+      "bytes": 68122,
+      "sha256": "f6ca91db8cab012af92eceaff37a88070a754c51892ed063f2d9fa73c1bf7b35",
+      "sha256_origem": "f6ca91db8cab012af92eceaff37a88070a754c51892ed063f2d9fa73c1bf7b35",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-1010-2024.pdf",
+      "bytes": 115641,
+      "sha256": "12eb4684a6886b63584ccb3609ff890b3bc8a07a67646afb59d1786f67683fb6",
+      "sha256_origem": "12eb4684a6886b63584ccb3609ff890b3bc8a07a67646afb59d1786f67683fb6",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-1015-2024.pdf",
+      "bytes": 87746,
+      "sha256": "bd7b0f6ce3d20cf067a3ceacbdafe8a66e4d6032b9348bcb728722cf9eec788a",
+      "sha256_origem": "bd7b0f6ce3d20cf067a3ceacbdafe8a66e4d6032b9348bcb728722cf9eec788a",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-1021-2026.pdf",
+      "bytes": 85379,
+      "sha256": "066b2d37c42826a88da8605c347ceb1647a8f182110dc759d43e02b1af5fe9de",
+      "sha256_origem": "066b2d37c42826a88da8605c347ceb1647a8f182110dc759d43e02b1af5fe9de",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-1022-2026.pdf",
+      "bytes": 431730,
+      "sha256": "2547703494199728cee582c9f5717d83599c8ed610494f5c3942cea23779a7d2",
+      "sha256_origem": "2547703494199728cee582c9f5717d83599c8ed610494f5c3942cea23779a7d2",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-1023-2026.pdf",
+      "bytes": 3391725,
+      "sha256": "24f8d7ad7cd934041db4b1f1d7a2c9c97880f1a525378cf150285831c6c3f89d",
+      "sha256_origem": "24f8d7ad7cd934041db4b1f1d7a2c9c97880f1a525378cf150285831c6c3f89d",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-1024-2026.pdf",
+      "bytes": 70984,
+      "sha256": "b79ac6eb4b82407b4cf7b881c3736e81b0e2480ef975eca7fbb4b9b7010337b7",
+      "sha256_origem": "b79ac6eb4b82407b4cf7b881c3736e81b0e2480ef975eca7fbb4b9b7010337b7",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-1027-2026.pdf",
+      "bytes": 488280,
+      "sha256": "ff396591cb2c185ba6e918241799cf84e2b78269094a7a5228222282b27efc75",
+      "sha256_origem": "ff396591cb2c185ba6e918241799cf84e2b78269094a7a5228222282b27efc75",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-1030-2026.pdf",
+      "bytes": 64764,
+      "sha256": "859f258a9fb32876ae829523a7fa6695928cffbfb7797a947c3a22faebe342f9",
+      "sha256_origem": "859f258a9fb32876ae829523a7fa6695928cffbfb7797a947c3a22faebe342f9",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-215-2006-doc.doc",
+      "bytes": 150528,
+      "sha256": "76e5dac7020eb1711ccd45c5ea0484e0cc29523bcb83b953eac7abf735c1bbf3",
+      "sha256_origem": "76e5dac7020eb1711ccd45c5ea0484e0cc29523bcb83b953eac7abf735c1bbf3",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-215-2006-html.html",
+      "bytes": 307516,
+      "sha256": "315bdc2bb9a13b9c120cc0e04c3eaf52487df9c210915d1a3bac9d0f954c88a8",
+      "sha256_origem": "315bdc2bb9a13b9c120cc0e04c3eaf52487df9c210915d1a3bac9d0f954c88a8",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-224-2006.pdf",
+      "bytes": 328298,
+      "sha256": "f309dcfcb60ad5519af9ce2f79d5e8fe01bb8020cd4773072d71858d3e7680f4",
+      "sha256_origem": "f309dcfcb60ad5519af9ce2f79d5e8fe01bb8020cd4773072d71858d3e7680f4",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-242-2007.pdf",
+      "bytes": 29671,
+      "sha256": "ef9cb8f5e59c03fb30b3bb05fdb3e01ac3d5bf2e48885bc40e5bbfbe34042c5e",
+      "sha256_origem": "ef9cb8f5e59c03fb30b3bb05fdb3e01ac3d5bf2e48885bc40e5bbfbe34042c5e",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-26-1998-doc.doc",
+      "bytes": 4770,
+      "sha256": "5f3438121f0f2d327afdb30a7b45bd96f049354ddd2ae545d36991e2e0d2f6ce",
+      "sha256_origem": "5f3438121f0f2d327afdb30a7b45bd96f049354ddd2ae545d36991e2e0d2f6ce",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-280-2008.pdf",
+      "bytes": 31753,
+      "sha256": "b7645bd9454fbbc5565f7556918e7ffd323ad9e459d674db25db3016658461d6",
+      "sha256_origem": "b7645bd9454fbbc5565f7556918e7ffd323ad9e459d674db25db3016658461d6",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-36-1998-doc.doc",
+      "bytes": 4532,
+      "sha256": "dc3a5b3c3b86a2498e8727e9fd25ebe28403daedffabc6ea15c0e4310abf5216",
+      "sha256_origem": "dc3a5b3c3b86a2498e8727e9fd25ebe28403daedffabc6ea15c0e4310abf5216",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-37-1998-doc.doc",
+      "bytes": 5366,
+      "sha256": "8dc90b62d39ff96e8abde34071da5de690587cf162daf398950b2254d5cb6724",
+      "sha256_origem": "8dc90b62d39ff96e8abde34071da5de690587cf162daf398950b2254d5cb6724",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-498-2014.pdf",
+      "bytes": 79657,
+      "sha256": "6aac277d2ea2b001cb64a2cc237fd1c40d9655ccb67ef17d96875eb68b3e32d2",
+      "sha256_origem": "6aac277d2ea2b001cb64a2cc237fd1c40d9655ccb67ef17d96875eb68b3e32d2",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-528-2015.pdf",
+      "bytes": 9519,
+      "sha256": "9f32fe77bcd40e33607f1cb7d0d61286688eaa8e14b4fa10000905449b94ca19",
+      "sha256_origem": "9f32fe77bcd40e33607f1cb7d0d61286688eaa8e14b4fa10000905449b94ca19",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-537-2015.pdf",
+      "bytes": 83721,
+      "sha256": "54c53cd11115da948094b5b4ea510038920982c0126a9f604f523f92add6773b",
+      "sha256_origem": "54c53cd11115da948094b5b4ea510038920982c0126a9f604f523f92add6773b",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-559-2015.pdf",
+      "bytes": 84448,
+      "sha256": "ec7fb7d5f9a34ec7e547973edbc4314e4f2bd2633e428275b02e4a0f1061b162",
+      "sha256_origem": "ec7fb7d5f9a34ec7e547973edbc4314e4f2bd2633e428275b02e4a0f1061b162",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-711-2017.pdf",
+      "bytes": 529767,
+      "sha256": "d9a631a0fbe349511c64104eee39f7fb07e92f948f5da6fba3739a8c630c16b2",
+      "sha256_origem": "d9a631a0fbe349511c64104eee39f7fb07e92f948f5da6fba3739a8c630c16b2",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-717-2017.pdf",
+      "bytes": 526919,
+      "sha256": "4f051699a7b4b78c84bd2afd9af6491c69c7efccc163b1d69ab1f3258fb0eb4d",
+      "sha256_origem": "4f051699a7b4b78c84bd2afd9af6491c69c7efccc163b1d69ab1f3258fb0eb4d",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-749-2018.pdf",
+      "bytes": 1822379,
+      "sha256": "630d21b7ce3df8bedbae8ad93da15ba8c97fe3c2941b08b472f809422a82ba30",
+      "sha256_origem": "630d21b7ce3df8bedbae8ad93da15ba8c97fe3c2941b08b472f809422a82ba30",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-750-2018.pdf",
+      "bytes": 814424,
+      "sha256": "99fd0c52b5acdc13be4655b4bdc1691ee198aee6b5f2cabbcea7e9d14a28bfff",
+      "sha256_origem": "99fd0c52b5acdc13be4655b4bdc1691ee198aee6b5f2cabbcea7e9d14a28bfff",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-752-2018.pdf",
+      "bytes": 1174283,
+      "sha256": "af20e63b39c7d738b40147df8d794481a2f2619f287f63eba88d6b057e54c704",
+      "sha256_origem": "af20e63b39c7d738b40147df8d794481a2f2619f287f63eba88d6b057e54c704",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-758-2018.pdf",
+      "bytes": 620154,
+      "sha256": "1ceec18731baf4f236603303961215ec24d26d70a15c425d809f2114298cf8cd",
+      "sha256_origem": "1ceec18731baf4f236603303961215ec24d26d70a15c425d809f2114298cf8cd",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-759-2018.pdf",
+      "bytes": 385080,
+      "sha256": "42cf5666ae5efb82e326cb67738aa7153043e78909d75a45b6e5f720a7c2014d",
+      "sha256_origem": "42cf5666ae5efb82e326cb67738aa7153043e78909d75a45b6e5f720a7c2014d",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-764-2018.pdf",
+      "bytes": 185305,
+      "sha256": "44ea6019ef401970b7c8e5246ef257187221d798dd262ab7558a1af76108d3db",
+      "sha256_origem": "44ea6019ef401970b7c8e5246ef257187221d798dd262ab7558a1af76108d3db",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-819-2021.pdf",
+      "bytes": 754594,
+      "sha256": "394b1830f69a2f15b71e227ea15ff13689ae40af159c5df4c02d88d795ca00da",
+      "sha256_origem": "394b1830f69a2f15b71e227ea15ff13689ae40af159c5df4c02d88d795ca00da",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-827-1997-doc.doc",
+      "bytes": 142336,
+      "sha256": "5a9272e3acd8a0ec5bc844dea8aad5c33dc3bb7f63222f3238b79a30b6830d43",
+      "sha256_origem": "5a9272e3acd8a0ec5bc844dea8aad5c33dc3bb7f63222f3238b79a30b6830d43",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-882-2021.pdf",
+      "bytes": 1761997,
+      "sha256": "393930b1b943a95a2110bd64176f627c50c8b6b253ccbd7366e9b78fce8d9f65",
+      "sha256_origem": "393930b1b943a95a2110bd64176f627c50c8b6b253ccbd7366e9b78fce8d9f65",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-885-2021.pdf",
+      "bytes": 1739713,
+      "sha256": "e9c234f0dcf23074148483469b115775aceeb5be0acd07731bd28b8ed44b54dc",
+      "sha256_origem": "e9c234f0dcf23074148483469b115775aceeb5be0acd07731bd28b8ed44b54dc",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-888-2021-complemento-0.pdf",
+      "bytes": 87281,
+      "sha256": "cf871d20fe54b66e722796455dcbf9cf909c83d9b0b9591c835860345f431964",
+      "sha256_origem": "cf871d20fe54b66e722796455dcbf9cf909c83d9b0b9591c835860345f431964",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-888-2021.pdf",
+      "bytes": 934276,
+      "sha256": "a6dad3602f6ac0b26412df6d3929485e7f28b3a61f79e3579ae2f0b3315f8639",
+      "sha256_origem": "a6dad3602f6ac0b26412df6d3929485e7f28b3a61f79e3579ae2f0b3315f8639",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-899-2022.pdf",
+      "bytes": 76225,
+      "sha256": "66509ec2a44003b039f67897f661c2fe7cd8109a3f133bb22def10642372a35d",
+      "sha256_origem": "66509ec2a44003b039f67897f661c2fe7cd8109a3f133bb22def10642372a35d",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-908-2022.pdf",
+      "bytes": 82911,
+      "sha256": "122d901b3302015515e37e2947fd5124fcefc195a1aefe23699ea5da70917fe7",
+      "sha256_origem": "122d901b3302015515e37e2947fd5124fcefc195a1aefe23699ea5da70917fe7",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-910-2022-complemento-0.pdf",
+      "bytes": 20432818,
+      "sha256": "140dbefe1c07023afa1507777dff17f3ec55247c21090b293f453838fb579945",
+      "sha256_origem": "140dbefe1c07023afa1507777dff17f3ec55247c21090b293f453838fb579945",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-910-2022-complemento-5.pdf",
+      "bytes": 35469,
+      "sha256": "13c96854d12abb336c5b9a5fbf822ff604963903e024720078a75f5f30f2a3d2",
+      "sha256_origem": "13c96854d12abb336c5b9a5fbf822ff604963903e024720078a75f5f30f2a3d2",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-910-2022.pdf",
+      "bytes": 79416,
+      "sha256": "734d98a11036edb2d6b9a0b3e9b8f749d5afa7b632ade8818fa7b603cc2888af",
+      "sha256_origem": "734d98a11036edb2d6b9a0b3e9b8f749d5afa7b632ade8818fa7b603cc2888af",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-911-2022.pdf",
+      "bytes": 95258,
+      "sha256": "13696655c112d14b222a2d61527183640aefb0b7e4facb2d7ce64911ad3f47f2",
+      "sha256_origem": "13696655c112d14b222a2d61527183640aefb0b7e4facb2d7ce64911ad3f47f2",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-913-2022-complemento-0.pdf",
+      "bytes": 348429,
+      "sha256": "f770b1d0082501e4ada816630756cd6552d19f1b6164017273523e097ab9322d",
+      "sha256_origem": "f770b1d0082501e4ada816630756cd6552d19f1b6164017273523e097ab9322d",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-913-2022-complemento-9.pdf",
+      "bytes": 34855,
+      "sha256": "e576a4f6579ec947a40ac8ff2dbbf58012cd997682fb51cdb348c46a4fffd370",
+      "sha256_origem": "e576a4f6579ec947a40ac8ff2dbbf58012cd997682fb51cdb348c46a4fffd370",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-913-2022.pdf",
+      "bytes": 88876,
+      "sha256": "3542071abf17e71c2e858712bd2e53b0348c59d129aa70ae4f79198e07622637",
+      "sha256_origem": "3542071abf17e71c2e858712bd2e53b0348c59d129aa70ae4f79198e07622637",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-915-2022.pdf",
+      "bytes": 86215,
+      "sha256": "07b53ce129b94e6a5fc9b3cba7039af2c7f6cef5097ab89f74b7e9c85425ebc6",
+      "sha256_origem": "07b53ce129b94e6a5fc9b3cba7039af2c7f6cef5097ab89f74b7e9c85425ebc6",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-916-2022-complemento-2.pdf",
+      "bytes": 796885,
+      "sha256": "add06bb009ce61c6f404daeef687b2ad09a14b45c4a7b308572cf185bb4ab0d2",
+      "sha256_origem": "add06bb009ce61c6f404daeef687b2ad09a14b45c4a7b308572cf185bb4ab0d2",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-916-2022.pdf",
+      "bytes": 100382,
+      "sha256": "a52f98b3134d0e92f6f104ca329199b914e1a74f5abc941a03dc36e6efa49d21",
+      "sha256_origem": "a52f98b3134d0e92f6f104ca329199b914e1a74f5abc941a03dc36e6efa49d21",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-919-2022.pdf",
+      "bytes": 78730,
+      "sha256": "7804d14417f6cbf42e38cc0a01ae538ed9479aaa5c991778f51d717f74c3f120",
+      "sha256_origem": "7804d14417f6cbf42e38cc0a01ae538ed9479aaa5c991778f51d717f74c3f120",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-921-2022.pdf",
+      "bytes": 73901,
+      "sha256": "c2d4543478c7cd706a4a82e20e9ffe1f055c263b8341425500244d60bfc3098e",
+      "sha256_origem": "c2d4543478c7cd706a4a82e20e9ffe1f055c263b8341425500244d60bfc3098e",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-922-2022.pdf",
+      "bytes": 126697,
+      "sha256": "2a6b8a4818faa0ab91f88fa22305ff784257dee0bc5c3d50fd50edf165b22909",
+      "sha256_origem": "2a6b8a4818faa0ab91f88fa22305ff784257dee0bc5c3d50fd50edf165b22909",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-924-2022.pdf",
+      "bytes": 74075,
+      "sha256": "248f0989704594e0cd54aa5192678fe5a19b7ad6d314e91b3ba6a97fb8c235c4",
+      "sha256_origem": "248f0989704594e0cd54aa5192678fe5a19b7ad6d314e91b3ba6a97fb8c235c4",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-936-2022-complemento-2.pdf",
+      "bytes": 70315,
+      "sha256": "d72efcf747ee3f3bec18968f0024b4bd7d18191f3dae78b5d0d5400fe7c114a6",
+      "sha256_origem": "d72efcf747ee3f3bec18968f0024b4bd7d18191f3dae78b5d0d5400fe7c114a6",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-936-2022.pdf",
+      "bytes": 94328,
+      "sha256": "376ed27631ac85bdeadf8bd75030286e0f7eed7c414739bdc4bad2bfe6b2a664",
+      "sha256_origem": "376ed27631ac85bdeadf8bd75030286e0f7eed7c414739bdc4bad2bfe6b2a664",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-937-2022.pdf",
+      "bytes": 74215,
+      "sha256": "2a4bfdbadcfc7408dfca9c43cd977effa8c5d32992b5ea252542ee999f78068d",
+      "sha256_origem": "2a4bfdbadcfc7408dfca9c43cd977effa8c5d32992b5ea252542ee999f78068d",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-938-2022.pdf",
+      "bytes": 141557,
+      "sha256": "d33fe3ce62400a855cb9604a452b8d50ff223f338157de3d9695d59978ed0915",
+      "sha256_origem": "d33fe3ce62400a855cb9604a452b8d50ff223f338157de3d9695d59978ed0915",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-939-2022.pdf",
+      "bytes": 87720,
+      "sha256": "a1e7da37e6b9e6daa45e862b3fbbd19eb1513ad3213b9be8e0305b6c0a144d57",
+      "sha256_origem": "a1e7da37e6b9e6daa45e862b3fbbd19eb1513ad3213b9be8e0305b6c0a144d57",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-944-2022.pdf",
+      "bytes": 71620,
+      "sha256": "eb16406adc5734b417b1524ddb8c9f338c4824e069b315a1cb7b943782694d27",
+      "sha256_origem": "eb16406adc5734b417b1524ddb8c9f338c4824e069b315a1cb7b943782694d27",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-948-2022.pdf",
+      "bytes": 73403,
+      "sha256": "4913ca4062bac5feecd4fe75ccb7f6eaff849c44ca3286eca77ce33379e4b1b6",
+      "sha256_origem": "4913ca4062bac5feecd4fe75ccb7f6eaff849c44ca3286eca77ce33379e4b1b6",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-949-2022-complemento-0.pdf",
+      "bytes": 2226142,
+      "sha256": "b056bf1dd3168abcdae9319ccb37a5956508da991fa19d960c4061a0d4c721b4",
+      "sha256_origem": "b056bf1dd3168abcdae9319ccb37a5956508da991fa19d960c4061a0d4c721b4",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-949-2022-complemento-4.pdf",
+      "bytes": 60630,
+      "sha256": "8215fd7728296ab0e5e9a7d181f3f0c19499596a9921a7fcd3ee7c72239fc172",
+      "sha256_origem": "8215fd7728296ab0e5e9a7d181f3f0c19499596a9921a7fcd3ee7c72239fc172",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-949-2022.pdf",
+      "bytes": 76517,
+      "sha256": "9b1505055be305a5358bded0622340a69a1c3ee11d762a9a6dffaa20f91a09cf",
+      "sha256_origem": "9b1505055be305a5358bded0622340a69a1c3ee11d762a9a6dffaa20f91a09cf",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-951-2022-complemento-1.pdf",
+      "bytes": 264063,
+      "sha256": "0b09a8e6b4554d7046b9a9a01c79189e1b1f98344b66dea8ac2cb5c9adc0a905",
+      "sha256_origem": "0b09a8e6b4554d7046b9a9a01c79189e1b1f98344b66dea8ac2cb5c9adc0a905",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-951-2022.pdf",
+      "bytes": 72712,
+      "sha256": "a41b468b4fadc5428cf6a8eb73994c24e057f5293277781bea06845388504369",
+      "sha256_origem": "a41b468b4fadc5428cf6a8eb73994c24e057f5293277781bea06845388504369",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-952-2022.pdf",
+      "bytes": 1056745,
+      "sha256": "47fa0150b323a2edd1a5d4758c637f8813fda7a02ccf6ea7b329025ff99b5403",
+      "sha256_origem": "47fa0150b323a2edd1a5d4758c637f8813fda7a02ccf6ea7b329025ff99b5403",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-953-2022.pdf",
+      "bytes": 75210,
+      "sha256": "758f8bc4a506dfd26f8ad17924babba003b252aa81a6699b0c12c29a5bc29e01",
+      "sha256_origem": "758f8bc4a506dfd26f8ad17924babba003b252aa81a6699b0c12c29a5bc29e01",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-954-2022-complemento-0.pdf",
+      "bytes": 62523,
+      "sha256": "4004554b20f6cf0cc3700b484e4e96947bd6256fcb51d0a27f4999db4327cb1d",
+      "sha256_origem": "4004554b20f6cf0cc3700b484e4e96947bd6256fcb51d0a27f4999db4327cb1d",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-954-2022.pdf",
+      "bytes": 86148,
+      "sha256": "56fa725fd66a8943186dcbe62f6e5f8e6fb9145e481117b281b4048288c19897",
+      "sha256_origem": "56fa725fd66a8943186dcbe62f6e5f8e6fb9145e481117b281b4048288c19897",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-955-2022-complemento-0.pdf",
+      "bytes": 511500,
+      "sha256": "2536cc96b75322901a3dd1d1da56efacc22a0db24abe2d243e5bb8551421a329",
+      "sha256_origem": "2536cc96b75322901a3dd1d1da56efacc22a0db24abe2d243e5bb8551421a329",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-955-2022.pdf",
+      "bytes": 90188,
+      "sha256": "09d9fc332a39b19014e59a3e305df6685520f1eabe442a78d305cc8739695335",
+      "sha256_origem": "09d9fc332a39b19014e59a3e305df6685520f1eabe442a78d305cc8739695335",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-958-2022.pdf",
+      "bytes": 107627,
+      "sha256": "821add1770727840c9c6730377ca91460733a0151f03824dea4c8614228e0cae",
+      "sha256_origem": "821add1770727840c9c6730377ca91460733a0151f03824dea4c8614228e0cae",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-959-2022.pdf",
+      "bytes": 95590,
+      "sha256": "54bffc991227481786dfd33567af33f74db38abd649577dcabaa22d331ddfbfa",
+      "sha256_origem": "54bffc991227481786dfd33567af33f74db38abd649577dcabaa22d331ddfbfa",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-960-2022-complemento-0.pdf",
+      "bytes": 160949,
+      "sha256": "fe175072835e66695822b596c202f052ccc1bcedbd002e8125ed330a481f43e4",
+      "sha256_origem": "fe175072835e66695822b596c202f052ccc1bcedbd002e8125ed330a481f43e4",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-960-2022.pdf",
+      "bytes": 93657,
+      "sha256": "f2523e474d2c0b959375284261338a86a334e415c8355ea1426db17a612774c2",
+      "sha256_origem": "f2523e474d2c0b959375284261338a86a334e415c8355ea1426db17a612774c2",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-963-2022-complemento-0.pdf",
+      "bytes": 244874,
+      "sha256": "76387f5db73f68e22763e830254976f8d9f2a3572f5ca05fc6d4c4c40549953f",
+      "sha256_origem": "76387f5db73f68e22763e830254976f8d9f2a3572f5ca05fc6d4c4c40549953f",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-963-2022.pdf",
+      "bytes": 70251,
+      "sha256": "edc0bf70666d3b98a94e927e4a1c700ad85fe38f3c8696aeeb61a58f6726acca",
+      "sha256_origem": "edc0bf70666d3b98a94e927e4a1c700ad85fe38f3c8696aeeb61a58f6726acca",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-964-2022.pdf",
+      "bytes": 74301,
+      "sha256": "57413c13be140bb7a3bd42b6a6a4449a90ead53282d4f7bde3fde0f21d9d0989",
+      "sha256_origem": "57413c13be140bb7a3bd42b6a6a4449a90ead53282d4f7bde3fde0f21d9d0989",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-966-2022-complemento-0.pdf",
+      "bytes": 815628,
+      "sha256": "3c126c15779713d9fe1a5ab71bc7e4304183d2b3bfefafa55f2ef82313595300",
+      "sha256_origem": "3c126c15779713d9fe1a5ab71bc7e4304183d2b3bfefafa55f2ef82313595300",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-966-2022.pdf",
+      "bytes": 74876,
+      "sha256": "cc4ec391bc8d869733a37c39e4a61fdefa1a4ba9bb7e53ec39703fd61266bed9",
+      "sha256_origem": "cc4ec391bc8d869733a37c39e4a61fdefa1a4ba9bb7e53ec39703fd61266bed9",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-968-2022-complemento-0.pdf",
+      "bytes": 74236,
+      "sha256": "a4cb5658c8a2ae95fba4a1ba37ab0990cef0ed9bfe6969ee466bedf87d296f7c",
+      "sha256_origem": "a4cb5658c8a2ae95fba4a1ba37ab0990cef0ed9bfe6969ee466bedf87d296f7c",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-968-2022.pdf",
+      "bytes": 248605,
+      "sha256": "9202086a67b4d85f9b239a6b0d2a6db10d9207ebbe42b3c6fc9b1031ecb63d0f",
+      "sha256_origem": "9202086a67b4d85f9b239a6b0d2a6db10d9207ebbe42b3c6fc9b1031ecb63d0f",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-969-2022-complemento-0.pdf",
+      "bytes": 1868543,
+      "sha256": "dcb7f33082f1665869e5a99bebf2e784ce6c72390f430a64604e5665a1f5893b",
+      "sha256_origem": "dcb7f33082f1665869e5a99bebf2e784ce6c72390f430a64604e5665a1f5893b",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-969-2022.pdf",
+      "bytes": 154632,
+      "sha256": "c0e48ed8cef1cf155df26cfde04a91c9670dd2b773d986b7efcaee387d48d8a8",
+      "sha256_origem": "c0e48ed8cef1cf155df26cfde04a91c9670dd2b773d986b7efcaee387d48d8a8",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-970-2022-complemento-0.pdf",
+      "bytes": 9879165,
+      "sha256": "2f09eb43aad2045d34eb922f016245393434a808f95a87543fb1b5d7d52c8435",
+      "sha256_origem": "2f09eb43aad2045d34eb922f016245393434a808f95a87543fb1b5d7d52c8435",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-970-2022-complemento-1.pdf",
+      "bytes": 1296659,
+      "sha256": "351f9cbc98e35bec5c5177b78dd552f23f260df98dd0f1f73655dcfb31aabdae",
+      "sha256_origem": "351f9cbc98e35bec5c5177b78dd552f23f260df98dd0f1f73655dcfb31aabdae",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-970-2022.pdf",
+      "bytes": 103897,
+      "sha256": "311838ffba73e35468132ed0b4c4c50098420c7fbc58a3cdf36472670e861fb4",
+      "sha256_origem": "311838ffba73e35468132ed0b4c4c50098420c7fbc58a3cdf36472670e861fb4",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-981-2022.pdf",
+      "bytes": 54852,
+      "sha256": "1f18cc908e2e3d44a79998a3ee87aac637d996fecba5a59235e20a5303ea8f58",
+      "sha256_origem": "1f18cc908e2e3d44a79998a3ee87aac637d996fecba5a59235e20a5303ea8f58",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-987-2022.pdf",
+      "bytes": 56179,
+      "sha256": "60b580906be5409fcb028401b1562a9dba177f9cbf05e74b376a3052ff993fa0",
+      "sha256_origem": "60b580906be5409fcb028401b1562a9dba177f9cbf05e74b376a3052ff993fa0",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-988-2022.pdf",
+      "bytes": 55124,
+      "sha256": "952301d5caa7b06d4870f51d171cb350c6de8b07e4c252fc948bb15c6fe36e3f",
+      "sha256_origem": "952301d5caa7b06d4870f51d171cb350c6de8b07e4c252fc948bb15c6fe36e3f",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-989-2022.pdf",
+      "bytes": 258365,
+      "sha256": "55a4e87fe08690f6e072143a978697661a48251ba2bcaaf1239a1683a70e4ab5",
+      "sha256_origem": "55a4e87fe08690f6e072143a978697661a48251ba2bcaaf1239a1683a70e4ab5",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-993-2023-complemento-1.pdf",
+      "bytes": 2452963,
+      "sha256": "8fb9cb386e38840fd10a7791ac6fd307ce9a6bc433dba9cc6901a0eb47fad571",
+      "sha256_origem": "8fb9cb386e38840fd10a7791ac6fd307ce9a6bc433dba9cc6901a0eb47fad571",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-993-2023.pdf",
+      "bytes": 63081,
+      "sha256": "9e135fddd4fa3b6f897ec7836b9fdf991a5803770fc3b504bebfcecebb4d465f",
+      "sha256_origem": "9e135fddd4fa3b6f897ec7836b9fdf991a5803770fc3b504bebfcecebb4d465f",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-994-2023.pdf",
+      "bytes": 58870,
+      "sha256": "239ecdb10b99bc9d3740d72213b18e0b1c8ec3757a6961e1adf72a8c919af105",
+      "sha256_origem": "239ecdb10b99bc9d3740d72213b18e0b1c8ec3757a6961e1adf72a8c919af105",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-997-2023.pdf",
+      "bytes": 217273,
+      "sha256": "1dea17df18181cdd3f5b5e3e89d810424cd4dcfae453d5a3cd5ecbf64307af58",
+      "sha256_origem": "1dea17df18181cdd3f5b5e3e89d810424cd4dcfae453d5a3cd5ecbf64307af58",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/contran-indice-novembro.html",
+      "bytes": 4953016,
+      "sha256": "9be356db73af99361daec7cfbc532b0f4ce907bd7c3b1f28e7ad3b8a70818c4e",
+      "sha256_origem": "9be356db73af99361daec7cfbc532b0f4ce907bd7c3b1f28e7ad3b8a70818c4e",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/decreto-12435-2025-dou-p1.pdf",
+      "bytes": 454953,
+      "sha256": "32982667b663b15597d300cfb75ec451563004989e87cd5fd94c7105d52ecb31",
+      "sha256_origem": "32982667b663b15597d300cfb75ec451563004989e87cd5fd94c7105d52ecb31",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/decreto-12435-2025-dou-p2.pdf",
+      "bytes": 269575,
+      "sha256": "efc569db65b0e0a88109137546fdafc3a3690e95109b99a5ed1c999306b2fefc",
+      "sha256_origem": "efc569db65b0e0a88109137546fdafc3a3690e95109b99a5ed1c999306b2fefc",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/decreto-12435-2025-dou-p3.pdf",
+      "bytes": 216745,
+      "sha256": "301dab14c7fdc91549b0a59f53ee77a79c97bffb992b859d0f1200bcbde5b92f",
+      "sha256_origem": "301dab14c7fdc91549b0a59f53ee77a79c97bffb992b859d0f1200bcbde5b92f",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/decreto-12435-2025-dou-p4.pdf",
+      "bytes": 216100,
+      "sha256": "a2c66daeda9600a060f8ccb18cf81080c04bf3955a42230c9b38b6b5917e0357",
+      "sha256_origem": "a2c66daeda9600a060f8ccb18cf81080c04bf3955a42230c9b38b6b5917e0357",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/decreto-12435-2025-dou-p5.pdf",
+      "bytes": 216515,
+      "sha256": "f28a1a26bf024d35c46c7fd5bad7d694ca28a0219495d705be455032e0e62f5f",
+      "sha256_origem": "f28a1a26bf024d35c46c7fd5bad7d694ca28a0219495d705be455032e0e62f5f",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/decreto-12435-2025-dou-p6.pdf",
+      "bytes": 222524,
+      "sha256": "8030323cf29f3d0fa4bd5f4477280358eee7c89de94999f094683454105d93e8",
+      "sha256_origem": "8030323cf29f3d0fa4bd5f4477280358eee7c89de94999f094683454105d93e8",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/deliberacao-250-2021.pdf",
+      "bytes": 693430,
+      "sha256": "ebf08bd2afef5ed4911e633ff47901630999acff52f63e44c841a4e3e1b43c98",
+      "sha256_origem": "ebf08bd2afef5ed4911e633ff47901630999acff52f63e44c841a4e3e1b43c98",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/deliberacao-264-2022.pdf",
+      "bytes": 78299,
+      "sha256": "44d9936d4d571c468a91ac72e89e5427dec9072017622a25e98e7b671b8223cd",
+      "sha256_origem": "44d9936d4d571c468a91ac72e89e5427dec9072017622a25e98e7b671b8223cd",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/deliberacao-270-2023.pdf",
+      "bytes": 122969,
+      "sha256": "498fa65fa5321a33bd235373209daf5637dd7a7d08328673d7dd2e7e2efd28ba",
+      "sha256_origem": "498fa65fa5321a33bd235373209daf5637dd7a7d08328673d7dd2e7e2efd28ba",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/dnc-23-1994-reproducao-camara.pdf",
+      "bytes": 536868,
+      "sha256": "2f211c30abaa1540f0194ac1165a21f93884fb2b0554c5e9e93c8f7dff795a60",
+      "sha256_origem": "2f211c30abaa1540f0194ac1165a21f93884fb2b0554c5e9e93c8f7dff795a60",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/inmetro-106-2025-dou-p16.pdf",
+      "bytes": 199437,
+      "sha256": "a01080876428ba358c30705d7235e7d589c2fa03eecc9415d72f3bc265bfccad",
+      "sha256_origem": "a01080876428ba358c30705d7235e7d589c2fa03eecc9415d72f3bc265bfccad",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/inmetro-108-2022-http.pdf",
+      "bytes": 1217670,
+      "sha256": "2557fa7ac233f1bd097d46c36607e4b5a144ca39ff48ec43e24d5a6dcef252d3",
+      "sha256_origem": "2557fa7ac233f1bd097d46c36607e4b5a144ca39ff48ec43e24d5a6dcef252d3",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/inmetro-111-2022-http.pdf",
+      "bytes": 2210609,
+      "sha256": "7fcb32543b6ceb9149943c30e6bcb85d9c97c30023cc43b9162063280e18cf3d",
+      "sha256_origem": "7fcb32543b6ceb9149943c30e6bcb85d9c97c30023cc43b9162063280e18cf3d",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/inmetro-130-2022-http.pdf",
+      "bytes": 943953,
+      "sha256": "8f5625ab404c6db0541482c019dd5de4b2fa9d6d7259abbe607629664eff5249",
+      "sha256_origem": "8f5625ab404c6db0541482c019dd5de4b2fa9d6d7259abbe607629664eff5249",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/inmetro-133-2022-http.pdf",
+      "bytes": 1365023,
+      "sha256": "103876859456325510bf8d285455ed5a04cf923086c34000201d41956f9a6562",
+      "sha256_origem": "103876859456325510bf8d285455ed5a04cf923086c34000201d41956f9a6562",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/inmetro-147-2022-http.pdf",
+      "bytes": 699289,
+      "sha256": "022661c00730376b1806e45a9a7f06e4897cf6f7f85c2331c8effb36b49e8079",
+      "sha256_origem": "022661c00730376b1806e45a9a7f06e4897cf6f7f85c2331c8effb36b49e8079",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/inmetro-200-2021.pdf",
+      "bytes": 611141,
+      "sha256": "c864d093c624449982894ebe90fce7b4741f57777382c7aff0c0292cc8d8ca45",
+      "sha256_origem": "c864d093c624449982894ebe90fce7b4741f57777382c7aff0c0292cc8d8ca45",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/inmetro-258-2020-http.pdf",
+      "bytes": 387794,
+      "sha256": "9d518f4106153ebb601529f6388d52ef04d8fc6a6f170015352f9a69b95ccc71",
+      "sha256_origem": "9d518f4106153ebb601529f6388d52ef04d8fc6a6f170015352f9a69b95ccc71",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/inmetro-278-2021.pdf",
+      "bytes": 379127,
+      "sha256": "5bf49778d355c9412f4a0de429c3fecee945d3adbfdf1248081fc2ab2c6ee076",
+      "sha256_origem": "5bf49778d355c9412f4a0de429c3fecee945d3adbfdf1248081fc2ab2c6ee076",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/inmetro-282-2020.pdf",
+      "bytes": 472115,
+      "sha256": "2a70b98e9c129646ce9f53cbdb8876e150c19219bcb7b09235ba4eb29b6f0294",
+      "sha256_origem": "2a70b98e9c129646ce9f53cbdb8876e150c19219bcb7b09235ba4eb29b6f0294",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/inmetro-309-2021-http.pdf",
+      "bytes": 534898,
+      "sha256": "826386bb26f1809a0437aeca30fe59fb46e8cc00c3ae59d0c5a75b0d85458806",
+      "sha256_origem": "826386bb26f1809a0437aeca30fe59fb46e8cc00c3ae59d0c5a75b0d85458806",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/inmetro-314-2025-dou-p74.pdf",
+      "bytes": 11524017,
+      "sha256": "e3ca2e4159417f3dc09d2dc41423d55fb99ebdfb440d8f5774f470b4c5d7eea8",
+      "sha256_origem": "e3ca2e4159417f3dc09d2dc41423d55fb99ebdfb440d8f5774f470b4c5d7eea8",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/inmetro-314-2025-dou-p75.pdf",
+      "bytes": 195065,
+      "sha256": "00506abdac98c9322f35603846195da9e844a3166a4ff7d295022283f5a6ca6b",
+      "sha256_origem": "00506abdac98c9322f35603846195da9e844a3166a4ff7d295022283f5a6ca6b",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/inmetro-314-2025-dou.pdf",
+      "bytes": 7284525,
+      "sha256": "c1b9ba8a53a4a99a8fd8056d50b27c8e958f9cf068d8836352caffa1fedf9b1a",
+      "sha256_origem": "c1b9ba8a53a4a99a8fd8056d50b27c8e958f9cf068d8836352caffa1fedf9b1a",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/inmetro-379-2021-http.pdf",
+      "bytes": 1883236,
+      "sha256": "8b2ecf69dab6b0b5c5d4f6aff3baf5f05b240bb8209951942823a20550d722fa",
+      "sha256_origem": "8b2ecf69dab6b0b5c5d4f6aff3baf5f05b240bb8209951942823a20550d722fa",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/inmetro-384-2023-dou-p149.pdf",
+      "bytes": 735257,
+      "sha256": "93ba541edc5c724e99d75c923d04810b6f9e4871879372b9c0289cf01cb74785",
+      "sha256_origem": "93ba541edc5c724e99d75c923d04810b6f9e4871879372b9c0289cf01cb74785",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/inmetro-384-2023-dou-p150.pdf",
+      "bytes": 736104,
+      "sha256": "2d3c737915e64e8a3ae1a2c9a8f603aebaa8bfcdd7c9e6c6935fb352152d70a2",
+      "sha256_origem": "2d3c737915e64e8a3ae1a2c9a8f603aebaa8bfcdd7c9e6c6935fb352152d70a2",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/inmetro-400-2020-http.pdf",
+      "bytes": 562745,
+      "sha256": "401fc59dbe8be8741b5beebdd94ae4897767c787556fd500de3c0e73b455f26d",
+      "sha256_origem": "401fc59dbe8be8741b5beebdd94ae4897767c787556fd500de3c0e73b455f26d",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/inmetro-409-2026-dou-p110.pdf",
+      "bytes": 14038541,
+      "sha256": "58d1d8538db6dfac591408a25b8a22dcf3e0d5211929946a8e6c4df986866406",
+      "sha256_origem": "58d1d8538db6dfac591408a25b8a22dcf3e0d5211929946a8e6c4df986866406",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/inmetro-409-2026-dou-p111.pdf",
+      "bytes": 9823211,
+      "sha256": "28e6e89af3fddcb358e4b987369ac1b46f67da48b99f403dd5829a2a21f3884d",
+      "sha256_origem": "28e6e89af3fddcb358e4b987369ac1b46f67da48b99f403dd5829a2a21f3884d",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/inmetro-436-2021-http.pdf",
+      "bytes": 2613751,
+      "sha256": "f48c036e08ccd9ddb6b94af669b3bb18c81f8081bc5cdd278f032e4ab351db2c",
+      "sha256_origem": "f48c036e08ccd9ddb6b94af669b3bb18c81f8081bc5cdd278f032e4ab351db2c",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/inmetro-634-2023-dou-p72.pdf",
+      "bytes": 732426,
+      "sha256": "770588820d5f42864eda2dbc93f07900e894fd149a6bfc30f0b50ad4a9f13d47",
+      "sha256_origem": "770588820d5f42864eda2dbc93f07900e894fd149a6bfc30f0b50ad4a9f13d47",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/inmetro-634-2023-dou-p73.pdf",
+      "bytes": 735225,
+      "sha256": "1060b43e10799b9cb51d84e154faa22379dd6654fec2b9e77b86e30e4fb13484",
+      "sha256_origem": "1060b43e10799b9cb51d84e154faa22379dd6654fec2b9e77b86e30e4fb13484",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/inmetro-845-2025-dou-p41.pdf",
+      "bytes": 820648,
+      "sha256": "a092fe765ad8bc90d8a99763c2163cb1c6f4b8af1bca79b8cfb04b488114bdc8",
+      "sha256_origem": "a092fe765ad8bc90d8a99763c2163cb1c6f4b8af1bca79b8cfb04b488114bdc8",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/inmetro-845-2025-retif.pdf",
+      "bytes": 199994,
+      "sha256": "70177a8ee3285d0208bcc8ce8374b2cb32ea405673df4d13c9e54fe32180e137",
+      "sha256_origem": "70177a8ee3285d0208bcc8ce8374b2cb32ea405673df4d13c9e54fe32180e137",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/mdic-215-2025-dou-p26.pdf",
+      "bytes": 192624,
+      "sha256": "b4e5335017fa38b093762aae6dd913d6c68d64f782ef2dbdacfc70666acfeeb7",
+      "sha256_origem": "b4e5335017fa38b093762aae6dd913d6c68d64f782ef2dbdacfc70666acfeeb7",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/mdic-215-2025-dou-p27.pdf",
+      "bytes": 187111,
+      "sha256": "88c7a0fda825c930a27966eeb10962ad15160578a4946417286b3f20a4d4aa6a",
+      "sha256_origem": "88c7a0fda825c930a27966eeb10962ad15160578a4946417286b3f20a4d4aa6a",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/mdic-215-2025-dou-p28.pdf",
+      "bytes": 195210,
+      "sha256": "ec90da8fc96695f30619dc2d8827e85470bf4fdd4f1608f30891e01ccfdca2ef",
+      "sha256_origem": "ec90da8fc96695f30619dc2d8827e85470bf4fdd4f1608f30891e01ccfdca2ef",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/mdic-mover-indice.html",
+      "bytes": 185313,
+      "sha256": "b544e41bbfaa7b3bee7d2081970109cae049a052d180741cc877ef34710798bd",
+      "sha256_origem": "b544e41bbfaa7b3bee7d2081970109cae049a052d180741cc877ef34710798bd",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/portaria-senatran-1554-2022.pdf",
+      "bytes": 105954,
+      "sha256": "5b25af3fe52771a0deb6cc171a6b87bfca8efffd80f306ef7074a8702fb164a4",
+      "sha256_origem": "5b25af3fe52771a0deb6cc171a6b87bfca8efffd80f306ef7074a8702fb164a4",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/portaria-senatran-990-2022-republicacao.pdf",
+      "bytes": 1195687,
+      "sha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+      "sha256_origem": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/senatran-consultas.html",
+      "bytes": 839126,
+      "sha256": "bd6fa02b69089bcdb232f166033209b7f49cee315d2793e67f4c354b2af88043",
+      "sha256_origem": "bd6fa02b69089bcdb232f166033209b7f49cee315d2793e67f4c354b2af88043",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/fontes/senatran-portarias-2026.html",
+      "bytes": 1227287,
+      "sha256": "ed64d3a0e8dfd4c5cf66853e96847f052c069cf0bb81d97e8f686ae0368ae584",
+      "sha256_origem": "ed64d3a0e8dfd4c5cf66853e96847f052c069cf0bb81d97e8f686ae0368ae584",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/gnv-requisitos.json",
+      "bytes": 15218,
+      "sha256": "968cbb11f0f0672cc9fb8aaa9a57dea86635ee25a92ca4f0b75805b2e1c91d4c",
+      "sha256_origem": "968cbb11f0f0672cc9fb8aaa9a57dea86635ee25a92ca4f0b75805b2e1c91d4c",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/GNV-REQUISITOS.md",
+      "bytes": 8276,
+      "sha256": "16a626667cd5d4efa3185db94a679b85c3f65d766e51730a284d743b02b19718",
+      "sha256_origem": "16a626667cd5d4efa3185db94a679b85c3f65d766e51730a284d743b02b19718",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/inventario-seguranca-v2.json",
+      "bytes": 237673,
+      "sha256": "bae7f2e5ef76382f700bf8a22943a7e70b2a2bc97fdeedb3a390028a892cc464",
+      "sha256_origem": "bae7f2e5ef76382f700bf8a22943a7e70b2a2bc97fdeedb3a390028a892cc464",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-1005-2024.md",
+      "bytes": 3178,
+      "sha256": "01d7afa4d367edc51bd80bbf91860e6b88f054b383684bbd5a3ed5f451dea5ea",
+      "sha256_origem": "01d7afa4d367edc51bd80bbf91860e6b88f054b383684bbd5a3ed5f451dea5ea",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-1010-2024.md",
+      "bytes": 2485,
+      "sha256": "ab5b75f00c0b64dc13d70fb75c44a8e7869ded4304fc730dbb2ad1ac415fe7f2",
+      "sha256_origem": "ab5b75f00c0b64dc13d70fb75c44a8e7869ded4304fc730dbb2ad1ac415fe7f2",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-1015-2024.md",
+      "bytes": 4103,
+      "sha256": "18858a0bad04fb7f6848745dd9761a129045f4faf20b97c94a205ed1309ba679",
+      "sha256_origem": "18858a0bad04fb7f6848745dd9761a129045f4faf20b97c94a205ed1309ba679",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-1021-2026.md",
+      "bytes": 6035,
+      "sha256": "cc5ca15b8d27c07e2a03d80df87921db33c4b660a2cc9891f6d1ad6f1940a65a",
+      "sha256_origem": "cc5ca15b8d27c07e2a03d80df87921db33c4b660a2cc9891f6d1ad6f1940a65a",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-1022-2026.md",
+      "bytes": 24305,
+      "sha256": "5cedb0f32c007d49d22376770d8d42f61b79084200e1fb18d79d71c52f396850",
+      "sha256_origem": "5cedb0f32c007d49d22376770d8d42f61b79084200e1fb18d79d71c52f396850",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-1023-2026.md",
+      "bytes": 22873,
+      "sha256": "7945af756ddb2b2875bc331f82d9d40d0edbdaa13f24f23621a990a1ddcac792",
+      "sha256_origem": "7945af756ddb2b2875bc331f82d9d40d0edbdaa13f24f23621a990a1ddcac792",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-1024-2026.md",
+      "bytes": 3655,
+      "sha256": "8f9e3ce9f3b9a19f52c4eede1ca05593756d7da96bd8d455d441bf00383d9e56",
+      "sha256_origem": "8f9e3ce9f3b9a19f52c4eede1ca05593756d7da96bd8d455d441bf00383d9e56",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-1027-2026.md",
+      "bytes": 109639,
+      "sha256": "4aa34b3b23902a2d47af3c32c41a24db831789a57213d286b83e97e73efa2e97",
+      "sha256_origem": "4aa34b3b23902a2d47af3c32c41a24db831789a57213d286b83e97e73efa2e97",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-1030-2026.md",
+      "bytes": 2806,
+      "sha256": "bc6f7dbc675269889389b4ed1ea9ca11deb53b976fd26774ed29e73c59dd8c12",
+      "sha256_origem": "bc6f7dbc675269889389b4ed1ea9ca11deb53b976fd26774ed29e73c59dd8c12",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-215-2006-doc.md",
+      "bytes": 8275,
+      "sha256": "d62295577c26106b2b2526c10db38f7a759502607ec8d41978be1ebd15a6d628",
+      "sha256_origem": "d62295577c26106b2b2526c10db38f7a759502607ec8d41978be1ebd15a6d628",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-215-2006-html.md",
+      "bytes": 2657,
+      "sha256": "b9f1a290d036511c152f163fb754067dabddad98d300d13eb91e5202e815a260",
+      "sha256_origem": "b9f1a290d036511c152f163fb754067dabddad98d300d13eb91e5202e815a260",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-224-2006.md",
+      "bytes": 30692,
+      "sha256": "932d7dc2a93b920b7a470b720d0701679017c7dc32b188dd478ccbb297da0833",
+      "sha256_origem": "932d7dc2a93b920b7a470b720d0701679017c7dc32b188dd478ccbb297da0833",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-242-2007.md",
+      "bytes": 4189,
+      "sha256": "c28d6f6619b25e69c30863431936b34faa2fcfb0cd58434bb5d98fd991165ac7",
+      "sha256_origem": "c28d6f6619b25e69c30863431936b34faa2fcfb0cd58434bb5d98fd991165ac7",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-26-1998-doc.md",
+      "bytes": 2817,
+      "sha256": "c3ae1914af589a79b1cf016694d16299328fbe11bab041d5fcb2769e8ef61bf5",
+      "sha256_origem": "c3ae1914af589a79b1cf016694d16299328fbe11bab041d5fcb2769e8ef61bf5",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-280-2008.md",
+      "bytes": 3651,
+      "sha256": "68746c6c46fd8d9c751fd334bd90c8ec7d96ae8d7984d4d8f628960d20ae7949",
+      "sha256_origem": "68746c6c46fd8d9c751fd334bd90c8ec7d96ae8d7984d4d8f628960d20ae7949",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-36-1998-doc.md",
+      "bytes": 2256,
+      "sha256": "0a6c7ad937d4c06c7f5fdcad98cd9bf97005adcd97f845926a3e6f1eef5bdd07",
+      "sha256_origem": "0a6c7ad937d4c06c7f5fdcad98cd9bf97005adcd97f845926a3e6f1eef5bdd07",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-37-1998-doc.md",
+      "bytes": 2947,
+      "sha256": "8e36105e4ae335728a78307411e616610ee0b69ed9b0a34d80799d6f25d6bf82",
+      "sha256_origem": "8e36105e4ae335728a78307411e616610ee0b69ed9b0a34d80799d6f25d6bf82",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-498-2014.md",
+      "bytes": 18524,
+      "sha256": "22c62940607bfa48caa00a0f940fa21593e0fad2155071e7e961624788022b04",
+      "sha256_origem": "22c62940607bfa48caa00a0f940fa21593e0fad2155071e7e961624788022b04",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-528-2015.md",
+      "bytes": 3080,
+      "sha256": "0739c4951267ab952ac05f9cbd078b35e9f16279348984bc360ebf0584786355",
+      "sha256_origem": "0739c4951267ab952ac05f9cbd078b35e9f16279348984bc360ebf0584786355",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-537-2015.md",
+      "bytes": 4552,
+      "sha256": "82ad22c2c4941c0fbb5ee3c1cd217917a41bcde660f8f84ebf9eb5aee9231c38",
+      "sha256_origem": "82ad22c2c4941c0fbb5ee3c1cd217917a41bcde660f8f84ebf9eb5aee9231c38",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-559-2015.md",
+      "bytes": 2428,
+      "sha256": "e1b0516126e61b439a12e5486b08f3d8b31a8c3b79e18a194f40d1b27f7ede9d",
+      "sha256_origem": "e1b0516126e61b439a12e5486b08f3d8b31a8c3b79e18a194f40d1b27f7ede9d",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-711-2017.md",
+      "bytes": 26594,
+      "sha256": "84803105fde416b323cba41364232784639938c26aebd83335b8c10bd6b04768",
+      "sha256_origem": "84803105fde416b323cba41364232784639938c26aebd83335b8c10bd6b04768",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-717-2017.md",
+      "bytes": 6299,
+      "sha256": "1b3d5c08f6ddd5a1af3c90e251af604d723a3cbfcd33d3b4be26a6104a20539a",
+      "sha256_origem": "1b3d5c08f6ddd5a1af3c90e251af604d723a3cbfcd33d3b4be26a6104a20539a",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-749-2018.md",
+      "bytes": 175067,
+      "sha256": "85895de1dc34fb5b6a6da4e7530dd8af09625e438e56f5cde44caeb88c0f6642",
+      "sha256_origem": "85895de1dc34fb5b6a6da4e7530dd8af09625e438e56f5cde44caeb88c0f6642",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-750-2018.md",
+      "bytes": 126679,
+      "sha256": "60cd07b40d804746ae2ce18be8e6eb3bf9cf876a64638d19562cbc698d2a7de5",
+      "sha256_origem": "60cd07b40d804746ae2ce18be8e6eb3bf9cf876a64638d19562cbc698d2a7de5",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-752-2018.md",
+      "bytes": 88112,
+      "sha256": "b16a397a43c2958c7403cb15493e09ea59b4e885e313d07513e9df1f4ed69aa0",
+      "sha256_origem": "b16a397a43c2958c7403cb15493e09ea59b4e885e313d07513e9df1f4ed69aa0",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-758-2018.md",
+      "bytes": 23407,
+      "sha256": "62aeea86b3ac058ca49d62c58b56992bbdce18bc008503ce37325b0e0ebff07a",
+      "sha256_origem": "62aeea86b3ac058ca49d62c58b56992bbdce18bc008503ce37325b0e0ebff07a",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-759-2018.md",
+      "bytes": 25953,
+      "sha256": "6fabc5f3888bfefeca854584a378f2a35bdfd0d5f22cd08269c08e1274414d21",
+      "sha256_origem": "6fabc5f3888bfefeca854584a378f2a35bdfd0d5f22cd08269c08e1274414d21",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-764-2018.md",
+      "bytes": 16591,
+      "sha256": "b0624abe8508910b815f4ac06fdae78b1f8e16047ecd65c77b82d4e860fc4938",
+      "sha256_origem": "b0624abe8508910b815f4ac06fdae78b1f8e16047ecd65c77b82d4e860fc4938",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-819-2021.md",
+      "bytes": 8839,
+      "sha256": "9c02b954cb07975f06b4c51c290575692b0280645a8e6f536897083e5edcf5d1",
+      "sha256_origem": "9c02b954cb07975f06b4c51c290575692b0280645a8e6f536897083e5edcf5d1",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-827-1997-doc.md",
+      "bytes": 26377,
+      "sha256": "c5dbc4908c72f5e2bbdfaf600e459e9282a0c1269e29d23cff4caede281c5318",
+      "sha256_origem": "c5dbc4908c72f5e2bbdfaf600e459e9282a0c1269e29d23cff4caede281c5318",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-882-2021.md",
+      "bytes": 77910,
+      "sha256": "0c31359a9336264e4ed953ea7b351a90347647078323b0fed3b4b2810706af38",
+      "sha256_origem": "0c31359a9336264e4ed953ea7b351a90347647078323b0fed3b4b2810706af38",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-885-2021.md",
+      "bytes": 54817,
+      "sha256": "632f57a70c8f559b5ef4d84d5216bc5d12a2b25ab2506c6bb24c6729e67de407",
+      "sha256_origem": "632f57a70c8f559b5ef4d84d5216bc5d12a2b25ab2506c6bb24c6729e67de407",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-888-2021-complemento-0.md",
+      "bytes": 3033,
+      "sha256": "9249fdf6a1db16492d816e749e3b5fb6a9e4dad1f18fc78ad107aff203370df3",
+      "sha256_origem": "9249fdf6a1db16492d816e749e3b5fb6a9e4dad1f18fc78ad107aff203370df3",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-888-2021.md",
+      "bytes": 41679,
+      "sha256": "84fa1da3f8782a72371d0ddc90bfbcfb78ce9dd7f2f8a9d5e8b403f361592790",
+      "sha256_origem": "84fa1da3f8782a72371d0ddc90bfbcfb78ce9dd7f2f8a9d5e8b403f361592790",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-899-2022.md",
+      "bytes": 7071,
+      "sha256": "4c0f3c1deeb22172c42b59a49ed89fc653fbc2fc3f6d763719a5cf9e791ef21d",
+      "sha256_origem": "4c0f3c1deeb22172c42b59a49ed89fc653fbc2fc3f6d763719a5cf9e791ef21d",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-908-2022.md",
+      "bytes": 10792,
+      "sha256": "281b162e84ab670d3fcf2c293dbf5bd7d34c70a62446058c3ed0235264955d8b",
+      "sha256_origem": "281b162e84ab670d3fcf2c293dbf5bd7d34c70a62446058c3ed0235264955d8b",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-910-2022-complemento-0.md",
+      "bytes": 1271,
+      "sha256": "c4bbd019824a7494c0210e69871dfdb72d90c3aabe35c662e32c6ff494cd9905",
+      "sha256_origem": "c4bbd019824a7494c0210e69871dfdb72d90c3aabe35c662e32c6ff494cd9905",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-910-2022-complemento-5.md",
+      "bytes": 2041,
+      "sha256": "31dcdc9ab4ae8e73e21c8803ac7621e27bfabb81768328a513813c9f526cb202",
+      "sha256_origem": "31dcdc9ab4ae8e73e21c8803ac7621e27bfabb81768328a513813c9f526cb202",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-910-2022.md",
+      "bytes": 8519,
+      "sha256": "956fc53c25c36b16f38efdaf0a948bfb16423e5859a6076295932502e823cd20",
+      "sha256_origem": "956fc53c25c36b16f38efdaf0a948bfb16423e5859a6076295932502e823cd20",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-911-2022.md",
+      "bytes": 16755,
+      "sha256": "dffa5e32f30398d8309dbe4eb983e3eafe855d49f521ab5f28cb6643a6ae06a9",
+      "sha256_origem": "dffa5e32f30398d8309dbe4eb983e3eafe855d49f521ab5f28cb6643a6ae06a9",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-913-2022-complemento-0.md",
+      "bytes": 46804,
+      "sha256": "648c4abfcbfacade3c6499ee83b27706b941ef3163da1bc6954f3b217f31df75",
+      "sha256_origem": "648c4abfcbfacade3c6499ee83b27706b941ef3163da1bc6954f3b217f31df75",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-913-2022-complemento-9.md",
+      "bytes": 1320,
+      "sha256": "eb55a70ef897223a276ab8e2ff4dd383442e0327a4f508ef02823e80672cd511",
+      "sha256_origem": "eb55a70ef897223a276ab8e2ff4dd383442e0327a4f508ef02823e80672cd511",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-913-2022.md",
+      "bytes": 13060,
+      "sha256": "0e36cd6fa9097abf09a102d8ea89324a2d056ffbc0f2e17826d723617213671c",
+      "sha256_origem": "0e36cd6fa9097abf09a102d8ea89324a2d056ffbc0f2e17826d723617213671c",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-915-2022.md",
+      "bytes": 12589,
+      "sha256": "2810e5aa7e99520e8d148101c3f29a16fe7d213c390aaf9143d1bd1c387f0f48",
+      "sha256_origem": "2810e5aa7e99520e8d148101c3f29a16fe7d213c390aaf9143d1bd1c387f0f48",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-916-2022-complemento-2.md",
+      "bytes": 58818,
+      "sha256": "62b0260b1b0e9075c0554b45ea4e84cd681ec58a9c70687e0a63b618efcd3879",
+      "sha256_origem": "62b0260b1b0e9075c0554b45ea4e84cd681ec58a9c70687e0a63b618efcd3879",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-916-2022.md",
+      "bytes": 18467,
+      "sha256": "9cc6b7e864fccd3dbe777315574ee58e83fa930b08c602d48ba3b1ca25ca3600",
+      "sha256_origem": "9cc6b7e864fccd3dbe777315574ee58e83fa930b08c602d48ba3b1ca25ca3600",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-919-2022.md",
+      "bytes": 8398,
+      "sha256": "888198fd42f6e91be54cf66e8b3f8372e1517d0ab03c50aa4987f9f141cb9a57",
+      "sha256_origem": "888198fd42f6e91be54cf66e8b3f8372e1517d0ab03c50aa4987f9f141cb9a57",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-921-2022.md",
+      "bytes": 5940,
+      "sha256": "bcf615954e1e23866e2b13d88622d663332126b6ac79e6c410a5d92bf73df10e",
+      "sha256_origem": "bcf615954e1e23866e2b13d88622d663332126b6ac79e6c410a5d92bf73df10e",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-922-2022.md",
+      "bytes": 34014,
+      "sha256": "cdb9e425a3f2cb24854aec568eb43c4e578ceacfa2aecff7670f057b78ada2e7",
+      "sha256_origem": "cdb9e425a3f2cb24854aec568eb43c4e578ceacfa2aecff7670f057b78ada2e7",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-924-2022.md",
+      "bytes": 5731,
+      "sha256": "fece465a2ecb87b9f5cb51538aa61475785b547996a570bdadc56bcddef10561",
+      "sha256_origem": "fece465a2ecb87b9f5cb51538aa61475785b547996a570bdadc56bcddef10561",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-936-2022-complemento-2.md",
+      "bytes": 1743,
+      "sha256": "0c2195da3b46ecdeb3a3247f7dfdc1fd8c4594f532a4112ffa7aea1f40e99c14",
+      "sha256_origem": "0c2195da3b46ecdeb3a3247f7dfdc1fd8c4594f532a4112ffa7aea1f40e99c14",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-936-2022.md",
+      "bytes": 16220,
+      "sha256": "9ae59b99728e1e35d90dba38135bc3cf9aea3db9dd0012a9ca5e18ed096df0e6",
+      "sha256_origem": "9ae59b99728e1e35d90dba38135bc3cf9aea3db9dd0012a9ca5e18ed096df0e6",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-937-2022.md",
+      "bytes": 5851,
+      "sha256": "c56fc4ca6385936908cf95646facd4bf856475fb2b3481d08b487165b0f79e83",
+      "sha256_origem": "c56fc4ca6385936908cf95646facd4bf856475fb2b3481d08b487165b0f79e83",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-938-2022.md",
+      "bytes": 40991,
+      "sha256": "008bc303c90a2d4c83fcd5bdbc124403048e5ced2ae9153274629d81c197bf23",
+      "sha256_origem": "008bc303c90a2d4c83fcd5bdbc124403048e5ced2ae9153274629d81c197bf23",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-939-2022.md",
+      "bytes": 12462,
+      "sha256": "91853fc3a5f45d8a31053bf3978723921935df4d27fff511c032d8f2fcb3e8d0",
+      "sha256_origem": "91853fc3a5f45d8a31053bf3978723921935df4d27fff511c032d8f2fcb3e8d0",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-944-2022.md",
+      "bytes": 4260,
+      "sha256": "fb0f33c370d27971f723472ded54f23d444cda4242b743c18960ebfb9e7ddf2b",
+      "sha256_origem": "fb0f33c370d27971f723472ded54f23d444cda4242b743c18960ebfb9e7ddf2b",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-948-2022.md",
+      "bytes": 4938,
+      "sha256": "921d13ac984b7b93daebd5b2a745b3938781c0f064f07cd4093e6fa1871924f0",
+      "sha256_origem": "921d13ac984b7b93daebd5b2a745b3938781c0f064f07cd4093e6fa1871924f0",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-949-2022-complemento-0.md",
+      "bytes": 232273,
+      "sha256": "fa84b7e8d10f57c1caac9b7734f0801d2b7531c9832e5450c8e00d20670f014c",
+      "sha256_origem": "fa84b7e8d10f57c1caac9b7734f0801d2b7531c9832e5450c8e00d20670f014c",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-949-2022-complemento-4.md",
+      "bytes": 1778,
+      "sha256": "d0fd8304bf9ff4f67abdd95b67ade9793ffceca4ab95dba59032bf61c4fe9510",
+      "sha256_origem": "d0fd8304bf9ff4f67abdd95b67ade9793ffceca4ab95dba59032bf61c4fe9510",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-949-2022.md",
+      "bytes": 7328,
+      "sha256": "b6030eaa309e2ff72e3435d425d1710f2d1f32bc5d04ecc286c50df73b0977e7",
+      "sha256_origem": "b6030eaa309e2ff72e3435d425d1710f2d1f32bc5d04ecc286c50df73b0977e7",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-951-2022-complemento-1.md",
+      "bytes": 6529,
+      "sha256": "63ba9ed7bdf4f7a6fd29f6c39fe3f2e34929c714f4e17eccab319431182024fc",
+      "sha256_origem": "63ba9ed7bdf4f7a6fd29f6c39fe3f2e34929c714f4e17eccab319431182024fc",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-951-2022.md",
+      "bytes": 4768,
+      "sha256": "8bcef40c7f48a50c70f1cb4fd93817373e07420f5a47892a5500bd84d1893c38",
+      "sha256_origem": "8bcef40c7f48a50c70f1cb4fd93817373e07420f5a47892a5500bd84d1893c38",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-952-2022.md",
+      "bytes": 19421,
+      "sha256": "ab1591b819e4ed1eaef1cf2338c78f0fd128722948c8b48f434b36fbf72b444a",
+      "sha256_origem": "ab1591b819e4ed1eaef1cf2338c78f0fd128722948c8b48f434b36fbf72b444a",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-953-2022.md",
+      "bytes": 6451,
+      "sha256": "7f5986fc67486b98f6577adc7447e8f28bba7fb32e823c200790dedd6f835f9a",
+      "sha256_origem": "7f5986fc67486b98f6577adc7447e8f28bba7fb32e823c200790dedd6f835f9a",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-954-2022-complemento-0.md",
+      "bytes": 804,
+      "sha256": "75855cafe2d0f151e5c25101318843f036fb8378e73fc63ac374c6334c551410",
+      "sha256_origem": "75855cafe2d0f151e5c25101318843f036fb8378e73fc63ac374c6334c551410",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-954-2022.md",
+      "bytes": 12110,
+      "sha256": "a967938d2d9ff99860451e731dd87b60bc9da4191a67c334883ae5a30572a203",
+      "sha256_origem": "a967938d2d9ff99860451e731dd87b60bc9da4191a67c334883ae5a30572a203",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-955-2022-complemento-0.md",
+      "bytes": 2045,
+      "sha256": "0ebc871bace6e6349da3ef85c7248e5221e027d71b3e0ce7fc0869d2865d2fa2",
+      "sha256_origem": "0ebc871bace6e6349da3ef85c7248e5221e027d71b3e0ce7fc0869d2865d2fa2",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-955-2022.md",
+      "bytes": 13589,
+      "sha256": "9621b1bb50847dd6bcb9b2f23a32f60455fbbd4f499813242b8fde5639eedc91",
+      "sha256_origem": "9621b1bb50847dd6bcb9b2f23a32f60455fbbd4f499813242b8fde5639eedc91",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-958-2022.md",
+      "bytes": 20962,
+      "sha256": "5b5b207c6f1555051bb348854b6a7a69b27bdcbda1bba060188b22bff6d2ba93",
+      "sha256_origem": "5b5b207c6f1555051bb348854b6a7a69b27bdcbda1bba060188b22bff6d2ba93",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-959-2022.md",
+      "bytes": 16825,
+      "sha256": "cf52d4456ef2b016682686041c41481530a70df0278fe67b60cd039c9c175314",
+      "sha256_origem": "cf52d4456ef2b016682686041c41481530a70df0278fe67b60cd039c9c175314",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-960-2022-complemento-0.md",
+      "bytes": 1841,
+      "sha256": "13c2f10c670c940aa4355100a94e4c5925c5ac3e5d54714cf0e3f3e692af5f86",
+      "sha256_origem": "13c2f10c670c940aa4355100a94e4c5925c5ac3e5d54714cf0e3f3e692af5f86",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-960-2022.md",
+      "bytes": 15933,
+      "sha256": "90bb42a133df8cba153f1c2533b294a11efa114555d0454a21d4571ea9c36f16",
+      "sha256_origem": "90bb42a133df8cba153f1c2533b294a11efa114555d0454a21d4571ea9c36f16",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-963-2022-complemento-0.md",
+      "bytes": 6730,
+      "sha256": "3ca54d76c6410b5d3c7e82ccd8c4ad5a3a6eb5b5aa96e6aa2aa731736c2dd7d3",
+      "sha256_origem": "3ca54d76c6410b5d3c7e82ccd8c4ad5a3a6eb5b5aa96e6aa2aa731736c2dd7d3",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-963-2022.md",
+      "bytes": 3452,
+      "sha256": "824d9df95653d55e1455cddc5d1ccf69382665ee62fb6687c62387b191fe4a7c",
+      "sha256_origem": "824d9df95653d55e1455cddc5d1ccf69382665ee62fb6687c62387b191fe4a7c",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-964-2022.md",
+      "bytes": 5673,
+      "sha256": "e6089c442960e1111992a4f227bc343e1e16e358da3dd3f1baff9705f2443b9b",
+      "sha256_origem": "e6089c442960e1111992a4f227bc343e1e16e358da3dd3f1baff9705f2443b9b",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-966-2022-complemento-0.md",
+      "bytes": 96958,
+      "sha256": "e56ecd5d1c060aef633769d4e1e7b3540ce1f9304076c556b44405590a96b3fa",
+      "sha256_origem": "e56ecd5d1c060aef633769d4e1e7b3540ce1f9304076c556b44405590a96b3fa",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-966-2022.md",
+      "bytes": 6336,
+      "sha256": "a7dde40f0ff075d89a616e9846f2ce55b5140a96756d697f18cc895d93139bf9",
+      "sha256_origem": "a7dde40f0ff075d89a616e9846f2ce55b5140a96756d697f18cc895d93139bf9",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-968-2022-complemento-0.md",
+      "bytes": 6918,
+      "sha256": "f9b8e678581a622f13549f0164d3fe6611be11f799de3507766037745af04d44",
+      "sha256_origem": "f9b8e678581a622f13549f0164d3fe6611be11f799de3507766037745af04d44",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-968-2022.md",
+      "bytes": 55956,
+      "sha256": "947b8aa5af1e0e85e700ebe6fe8a68990dfd09e8ca81c42f85e6c9434ede2e58",
+      "sha256_origem": "947b8aa5af1e0e85e700ebe6fe8a68990dfd09e8ca81c42f85e6c9434ede2e58",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-969-2022-complemento-0.md",
+      "bytes": 29369,
+      "sha256": "1707559ce3ff2fdde8f42401a6ea0dca8591e6d8fd7923f160e62b8e4440bf24",
+      "sha256_origem": "1707559ce3ff2fdde8f42401a6ea0dca8591e6d8fd7923f160e62b8e4440bf24",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-969-2022.md",
+      "bytes": 48678,
+      "sha256": "122ddb2e3ffb099707ca5a33e629ed5d7a2a5b130d9cd8f9f878e5f2132f9512",
+      "sha256_origem": "122ddb2e3ffb099707ca5a33e629ed5d7a2a5b130d9cd8f9f878e5f2132f9512",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-970-2022-complemento-0.md",
+      "bytes": 469794,
+      "sha256": "02588d5a420d0c0c03c701eb2eccf7c09063e2292e4dfecc75300c34397299d7",
+      "sha256_origem": "02588d5a420d0c0c03c701eb2eccf7c09063e2292e4dfecc75300c34397299d7",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-970-2022-complemento-1.md",
+      "bytes": 136193,
+      "sha256": "92d1bd26f8c345a2dabae929edcb5b6d1efe160503c8e27b3e658c898ddc9995",
+      "sha256_origem": "92d1bd26f8c345a2dabae929edcb5b6d1efe160503c8e27b3e658c898ddc9995",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-970-2022.md",
+      "bytes": 23086,
+      "sha256": "633a9d35842ec15a921c28a1df2d3e173b760f0762182eee9033253259311ed3",
+      "sha256_origem": "633a9d35842ec15a921c28a1df2d3e173b760f0762182eee9033253259311ed3",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-981-2022.md",
+      "bytes": 2701,
+      "sha256": "5ac691642c0c2e864915d2cd57dce7b7484065e727485bebdaff8376a74b03b3",
+      "sha256_origem": "5ac691642c0c2e864915d2cd57dce7b7484065e727485bebdaff8376a74b03b3",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-987-2022.md",
+      "bytes": 3121,
+      "sha256": "fb7caea99edad78649707b02f0b4268636ea52445499878b4d788b3616607fd6",
+      "sha256_origem": "fb7caea99edad78649707b02f0b4268636ea52445499878b4d788b3616607fd6",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-988-2022.md",
+      "bytes": 2800,
+      "sha256": "4c89cee4780960253d75181612d1219a19c81839e8434a25e53ef42fda145ddb",
+      "sha256_origem": "4c89cee4780960253d75181612d1219a19c81839e8434a25e53ef42fda145ddb",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-989-2022.md",
+      "bytes": 3489,
+      "sha256": "46c8faa06470a4e41da06e1659378d72e59a6a66a8f8c463bf2ef4af75179de4",
+      "sha256_origem": "46c8faa06470a4e41da06e1659378d72e59a6a66a8f8c463bf2ef4af75179de4",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-993-2023-complemento-1.md",
+      "bytes": 129894,
+      "sha256": "2771fd7a68065c55876f4b57af808f53fa8cd2a714ea8cd7fdfb38ef7bc479a4",
+      "sha256_origem": "2771fd7a68065c55876f4b57af808f53fa8cd2a714ea8cd7fdfb38ef7bc479a4",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-993-2023.md",
+      "bytes": 4586,
+      "sha256": "5fc7831306e88c71d5b36b3cdc8fa815580b0601fc40cf2a8bf8a5f814141c27",
+      "sha256_origem": "5fc7831306e88c71d5b36b3cdc8fa815580b0601fc40cf2a8bf8a5f814141c27",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-994-2023.md",
+      "bytes": 3221,
+      "sha256": "7a175466a32a228ff3b98775bef56916deb9ed73d470868fc642e600b9f53e55",
+      "sha256_origem": "7a175466a32a228ff3b98775bef56916deb9ed73d470868fc642e600b9f53e55",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-997-2023.md",
+      "bytes": 4965,
+      "sha256": "863d0a2375ffccec95a2d773f9f164cfa088c0eafede8ca8773058d2e4dc01d8",
+      "sha256_origem": "863d0a2375ffccec95a2d773f9f164cfa088c0eafede8ca8773058d2e4dc01d8",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/contran-indice-novembro.md",
+      "bytes": 321053,
+      "sha256": "32b7ceaf0bea87784c6f3ee9f6ff56525dee7330a7ce9b035114cf200ca06214",
+      "sha256_origem": "32b7ceaf0bea87784c6f3ee9f6ff56525dee7330a7ce9b035114cf200ca06214",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/decreto-12435-2025-dou-p1.md",
+      "bytes": 15279,
+      "sha256": "873571595ab154f234ddb3f0b846ea764dad5238c532cd6e2bd1caa9e8dc74fc",
+      "sha256_origem": "873571595ab154f234ddb3f0b846ea764dad5238c532cd6e2bd1caa9e8dc74fc",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/decreto-12435-2025-dou-p2.md",
+      "bytes": 13307,
+      "sha256": "4f327c95420d16c28a7ff598cd8024724963cd1dc0091c79301a84fff8add54f",
+      "sha256_origem": "4f327c95420d16c28a7ff598cd8024724963cd1dc0091c79301a84fff8add54f",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/decreto-12435-2025-dou-p3.md",
+      "bytes": 16669,
+      "sha256": "58f623a1b2e518eb49995025011799f0d9bea13009b378d99993f43e5395e27f",
+      "sha256_origem": "58f623a1b2e518eb49995025011799f0d9bea13009b378d99993f43e5395e27f",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/decreto-12435-2025-dou-p4.md",
+      "bytes": 16138,
+      "sha256": "f8477243aa549a489733161b6d4c3f3d5925a04ca185c51594d6e316c952215c",
+      "sha256_origem": "f8477243aa549a489733161b6d4c3f3d5925a04ca185c51594d6e316c952215c",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/decreto-12435-2025-dou-p5.md",
+      "bytes": 17536,
+      "sha256": "c0a789a7f94bdf27f6e26eb56a519a00b030c096e9ecd875869fe2dea529205c",
+      "sha256_origem": "c0a789a7f94bdf27f6e26eb56a519a00b030c096e9ecd875869fe2dea529205c",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/decreto-12435-2025-dou-p6.md",
+      "bytes": 16079,
+      "sha256": "1bef5fdbe135859ca9a5367bd3471fc60974dacd09db478116885312139af648",
+      "sha256_origem": "1bef5fdbe135859ca9a5367bd3471fc60974dacd09db478116885312139af648",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/deliberacao-250-2021.md",
+      "bytes": 1131,
+      "sha256": "ae5d6416edfd054810eb3817e722d8c851f2eb93f2327830c114535e45f149e0",
+      "sha256_origem": "ae5d6416edfd054810eb3817e722d8c851f2eb93f2327830c114535e45f149e0",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/deliberacao-264-2022.md",
+      "bytes": 3524,
+      "sha256": "0b7e88e4ad71f69af1746ea0aabb5c4ef74b59b24698903b819f75b42f2776b0",
+      "sha256_origem": "0b7e88e4ad71f69af1746ea0aabb5c4ef74b59b24698903b819f75b42f2776b0",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/deliberacao-270-2023.md",
+      "bytes": 2939,
+      "sha256": "796d75be0279e6d5472c5250d1a90704a78bec2398a8496a99a4d81509c41f87",
+      "sha256_origem": "796d75be0279e6d5472c5250d1a90704a78bec2398a8496a99a4d81509c41f87",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/dnc-23-1994-reproducao-camara.md",
+      "bytes": 37180,
+      "sha256": "0645d8ca8c86ff5b83b5968c7130a4b2c7c248aba6eb1714ff10cd37602cddc0",
+      "sha256_origem": "0645d8ca8c86ff5b83b5968c7130a4b2c7c248aba6eb1714ff10cd37602cddc0",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/inmetro-106-2025-dou-p16.md",
+      "bytes": 10803,
+      "sha256": "571e84a664fb06b35665861a24472a88c55073bb7df6453d8252b1745eb57c64",
+      "sha256_origem": "571e84a664fb06b35665861a24472a88c55073bb7df6453d8252b1745eb57c64",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/inmetro-108-2022-http.md",
+      "bytes": 94971,
+      "sha256": "92f38858fb28190a2292a1b3166843dce0020bfa6833a29bad524f86adc7101f",
+      "sha256_origem": "92f38858fb28190a2292a1b3166843dce0020bfa6833a29bad524f86adc7101f",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/inmetro-111-2022-http.md",
+      "bytes": 162410,
+      "sha256": "3723717dbe92ec57c222134f52024463db1716af16b6fe4c8f8a14e157f94c0d",
+      "sha256_origem": "3723717dbe92ec57c222134f52024463db1716af16b6fe4c8f8a14e157f94c0d",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/inmetro-130-2022-http.md",
+      "bytes": 170362,
+      "sha256": "1ba1e8bd7323fbc428fe5eccfa7a5b03d7d4ca160c130dee50b2d1fee9c349b2",
+      "sha256_origem": "1ba1e8bd7323fbc428fe5eccfa7a5b03d7d4ca160c130dee50b2d1fee9c349b2",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/inmetro-133-2022-http.md",
+      "bytes": 135703,
+      "sha256": "12d9693a95b68e9773e08a4fbcba570deec95b15a35b2e30c74afad70056e22f",
+      "sha256_origem": "12d9693a95b68e9773e08a4fbcba570deec95b15a35b2e30c74afad70056e22f",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/inmetro-147-2022-http.md",
+      "bytes": 161193,
+      "sha256": "5efc1f084d009bb486d83b8fafcd2e7fb3edd9ff7af0159a93a24c7b654c2b49",
+      "sha256_origem": "5efc1f084d009bb486d83b8fafcd2e7fb3edd9ff7af0159a93a24c7b654c2b49",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/inmetro-200-2021.md",
+      "bytes": 136224,
+      "sha256": "b9b220ebf0e48b33523ea1f49b8c6cd13eb9f8a9a4006706ab3ca17a5cf976f7",
+      "sha256_origem": "b9b220ebf0e48b33523ea1f49b8c6cd13eb9f8a9a4006706ab3ca17a5cf976f7",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/inmetro-258-2020-http.md",
+      "bytes": 62411,
+      "sha256": "f06a00a730468349a40b44c5dc72c8925a005f8462138956fb89e07f80f4fd21",
+      "sha256_origem": "f06a00a730468349a40b44c5dc72c8925a005f8462138956fb89e07f80f4fd21",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/inmetro-278-2021.md",
+      "bytes": 30197,
+      "sha256": "4e25b897681c550e7ad8271e3fccbbf0b4812897d8ada4039d5103487feeeb78",
+      "sha256_origem": "4e25b897681c550e7ad8271e3fccbbf0b4812897d8ada4039d5103487feeeb78",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/inmetro-282-2020.md",
+      "bytes": 42569,
+      "sha256": "acc283976bb2d76e4919663ac823e5433eba9d41fb55e1349e8068409b22ca4e",
+      "sha256_origem": "acc283976bb2d76e4919663ac823e5433eba9d41fb55e1349e8068409b22ca4e",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/inmetro-309-2021-http.md",
+      "bytes": 37840,
+      "sha256": "1538b411c49e692fb67e128d584a3fd2b6ed3842621346970421013eaf61a7a2",
+      "sha256_origem": "1538b411c49e692fb67e128d584a3fd2b6ed3842621346970421013eaf61a7a2",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/inmetro-314-2025-dou-p74.md",
+      "bytes": 8268,
+      "sha256": "5282024c710eeeaf12e53cbee6ea19e38b8b2215c201d2bc970d074604b3c981",
+      "sha256_origem": "5282024c710eeeaf12e53cbee6ea19e38b8b2215c201d2bc970d074604b3c981",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/inmetro-314-2025-dou-p75.md",
+      "bytes": 16224,
+      "sha256": "63a285e9934e270cc5cdd84bf61c313226cb8456bd9278f271bd0dc66c1df91d",
+      "sha256_origem": "63a285e9934e270cc5cdd84bf61c313226cb8456bd9278f271bd0dc66c1df91d",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/inmetro-314-2025-dou.md",
+      "bytes": 8382,
+      "sha256": "0d74db64fe8efa48a00403d2c73e215ebde4b34d343965e9285aae5b72fed83e",
+      "sha256_origem": "0d74db64fe8efa48a00403d2c73e215ebde4b34d343965e9285aae5b72fed83e",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/inmetro-379-2021-http.md",
+      "bytes": 139093,
+      "sha256": "7e23bdaab3daf69a485090f56b8f5b3b339e1c9be05775f560b617b7b7712ad4",
+      "sha256_origem": "7e23bdaab3daf69a485090f56b8f5b3b339e1c9be05775f560b617b7b7712ad4",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/inmetro-384-2023-dou-p149.md",
+      "bytes": 12984,
+      "sha256": "b834a4ecc4959ada15b8c6a324db669fe951e5600c9660d3d5423903fcd0d3d2",
+      "sha256_origem": "b834a4ecc4959ada15b8c6a324db669fe951e5600c9660d3d5423903fcd0d3d2",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/inmetro-384-2023-dou-p150.md",
+      "bytes": 12844,
+      "sha256": "76fb8342769277782955a03acb6fa50219c2bd14dbfe0c79bb2f248411b4d1eb",
+      "sha256_origem": "76fb8342769277782955a03acb6fa50219c2bd14dbfe0c79bb2f248411b4d1eb",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/inmetro-400-2020-http.md",
+      "bytes": 38643,
+      "sha256": "37e3c886e96b40cfe2f60da9b15ae71ee5856b808a2ef6323c6444a60d1be2b9",
+      "sha256_origem": "37e3c886e96b40cfe2f60da9b15ae71ee5856b808a2ef6323c6444a60d1be2b9",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/inmetro-409-2026-dou-p110.md",
+      "bytes": 5543,
+      "sha256": "820d54230e51f84b4144d94362192edaf40fad7c06b73122975b64250fe3d7d5",
+      "sha256_origem": "820d54230e51f84b4144d94362192edaf40fad7c06b73122975b64250fe3d7d5",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/inmetro-409-2026-dou-p111.md",
+      "bytes": 9843,
+      "sha256": "d6e5a78e757117755da59af28c8277e1820332fbe87aba0fefa46e5625e0fc78",
+      "sha256_origem": "d6e5a78e757117755da59af28c8277e1820332fbe87aba0fefa46e5625e0fc78",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/inmetro-436-2021-http.md",
+      "bytes": 249182,
+      "sha256": "dc567c6d7f912e4567a9e7eecc9546424742d974c1e84e7244d1ec915d47c482",
+      "sha256_origem": "dc567c6d7f912e4567a9e7eecc9546424742d974c1e84e7244d1ec915d47c482",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/inmetro-634-2023-dou-p72.md",
+      "bytes": 11750,
+      "sha256": "945ec1d2dc6e9a8381e78e2fba8160a9d7e7b894e4c2bd3a1a007e91c0dd79db",
+      "sha256_origem": "945ec1d2dc6e9a8381e78e2fba8160a9d7e7b894e4c2bd3a1a007e91c0dd79db",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/inmetro-634-2023-dou-p73.md",
+      "bytes": 12804,
+      "sha256": "6a01ff5252f04f90b772b947c0e4d25d415cd361117a1b65f3e15f0942cc50f2",
+      "sha256_origem": "6a01ff5252f04f90b772b947c0e4d25d415cd361117a1b65f3e15f0942cc50f2",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/inmetro-845-2025-dou-p41.md",
+      "bytes": 14564,
+      "sha256": "cb59badd617c66e0ac2b34d927d5ebb0ccc6ea34fb51f1b457ff194bf8896bb7",
+      "sha256_origem": "cb59badd617c66e0ac2b34d927d5ebb0ccc6ea34fb51f1b457ff194bf8896bb7",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/inmetro-845-2025-retif.md",
+      "bytes": 12535,
+      "sha256": "7c871230e91275e1aaf8e395e92b568581a1914de8f03dbf43ad16534ca1f71c",
+      "sha256_origem": "7c871230e91275e1aaf8e395e92b568581a1914de8f03dbf43ad16534ca1f71c",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/mdic-215-2025-dou-p26.md",
+      "bytes": 13795,
+      "sha256": "e85acc34231bde711479ac2468d9c44a710f1b3b37035dfd0ded280b5a260a73",
+      "sha256_origem": "e85acc34231bde711479ac2468d9c44a710f1b3b37035dfd0ded280b5a260a73",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/mdic-215-2025-dou-p27.md",
+      "bytes": 12639,
+      "sha256": "949beeaf11dfcbd6d84f7abb554779c988e003109da975a285f6c344f6b4baf5",
+      "sha256_origem": "949beeaf11dfcbd6d84f7abb554779c988e003109da975a285f6c344f6b4baf5",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/mdic-215-2025-dou-p28.md",
+      "bytes": 14930,
+      "sha256": "c0e097908170265c40eb74b28c93e364c1c0ddad498f6f5c293434e56f5ecbd6",
+      "sha256_origem": "c0e097908170265c40eb74b28c93e364c1c0ddad498f6f5c293434e56f5ecbd6",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/mdic-mover-indice.md",
+      "bytes": 59333,
+      "sha256": "26dd6444e048fdcb7647c2ad07bf8b240d48928b3c79136b65ac190546e57f22",
+      "sha256_origem": "26dd6444e048fdcb7647c2ad07bf8b240d48928b3c79136b65ac190546e57f22",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/portaria-senatran-1554-2022.md",
+      "bytes": 14246,
+      "sha256": "8ae94d1f7876d6befeb50ffe6187eff2dd46ce3877686f23b6f58069cac4070b",
+      "sha256_origem": "8ae94d1f7876d6befeb50ffe6187eff2dd46ce3877686f23b6f58069cac4070b",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/portaria-senatran-990-2022-republicacao.md",
+      "bytes": 65397,
+      "sha256": "7f5addef0d5b60152d075b28c6e6cccbd4abd2ddf7370aa043e3b250cb3eefb3",
+      "sha256_origem": "7f5addef0d5b60152d075b28c6e6cccbd4abd2ddf7370aa043e3b250cb3eefb3",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/senatran-consultas.md",
+      "bytes": 47479,
+      "sha256": "8608d24d8746445f49d6bed697c7083df492b73b8cc2103486b4f4e248c49300",
+      "sha256_origem": "8608d24d8746445f49d6bed697c7083df492b73b8cc2103486b4f4e248c49300",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/legislacoes/senatran-portarias-2026.md",
+      "bytes": 104170,
+      "sha256": "f54c8ea768e4e1e74207615f9ce0b33e0328c74564f3543b148524594eaa2ba4",
+      "sha256_origem": "f54c8ea768e4e1e74207615f9ce0b33e0328c74564f3543b148524594eaa2ba4",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/manifesto-fontes.json",
+      "bytes": 197320,
+      "sha256": "060661cff6c8b8b2a014d1be3107955e29b531fae4cab33ca48c866aa6cf4927",
+      "sha256_origem": "060661cff6c8b8b2a014d1be3107955e29b531fae4cab33ca48c866aa6cf4927",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/mover-requisitos.json",
+      "bytes": 32811,
+      "sha256": "531251d25f5e07f92583dba299a7070f2e28b287b155673b0c986243e628b75d",
+      "sha256_origem": "531251d25f5e07f92583dba299a7070f2e28b287b155673b0c986243e628b75d",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/MOVER-REQUISITOS.md",
+      "bytes": 6526,
+      "sha256": "a8c655c7e8a98eb5f8d730d1d5aa7c87b679df9936e86791b01c61b1e65839a9",
+      "sha256_origem": "a8c655c7e8a98eb5f8d730d1d5aa7c87b679df9936e86791b01c61b1e65839a9",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/pendencias-residuais.json",
+      "bytes": 3935,
+      "sha256": "caf776408870ac923f7abc3129b8e1f60625d201521a6a0dda35e828b3575244",
+      "sha256_origem": "caf776408870ac923f7abc3129b8e1f60625d201521a6a0dda35e828b3575244",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/PENDENCIAS-RESIDUAIS.md",
+      "bytes": 4842,
+      "sha256": "59d8588d256f435e66f52983f39c61cf45419832b2cfeb78d558cc06040536b3",
+      "sha256_origem": "59d8588d256f435e66f52983f39c61cf45419832b2cfeb78d558cc06040536b3",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/Respostas-pendencias-residuais.xlsx",
+      "bytes": 11780,
+      "sha256": "a7bcccfb02e2c63873c1e1574725a7f7c1ae881eca368de1e2f6aa088b276ad9",
+      "sha256_origem": "a7bcccfb02e2c63873c1e1574725a7f7c1ae881eca368de1e2f6aa088b276ad9",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/RESULTADO-DA-REVISAO.md",
+      "bytes": 7327,
+      "sha256": "a45f60507dc047cefb83cf75e030dc054f2518dcb847012aeb61a524cbbec259",
+      "sha256_origem": "a45f60507dc047cefb83cf75e030dc054f2518dcb847012aeb61a524cbbec259",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/tentativas-de-acesso.json",
+      "bytes": 23603,
+      "sha256": "f76318dbb8ba5462095a7bf0dcee9eb41c2d21f037504af4bfc8aa1503ac0478",
+      "sha256_origem": "f76318dbb8ba5462095a7bf0dcee9eb41c2d21f037504af4bfc8aa1503ac0478",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02/validacao.json",
+      "bytes": 1062,
+      "sha256": "78ed4ae1a5a3bbe8057661c7d8d1ba7b9b6871bdf722522c555f600b47531813",
+      "sha256_origem": "78ed4ae1a5a3bbe8057661c7d8d1ba7b9b6871bdf722522c555f600b47531813",
+      "ajustes": []
+    },
+    {
+      "path": "outputs/siscat-capturas.json",
+      "bytes": 5818,
+      "sha256": "30ac4d43e6d178294ec009bc38425635e9f79bbcfcbdccbe72fb26b765ebe99e",
+      "sha256_origem": "30ac4d43e6d178294ec009bc38425635e9f79bbcfcbdccbe72fb26b765ebe99e",
+      "ajustes": []
+    },
+    {
+      "path": "work/auditar_fechamento_seguranca.py",
+      "bytes": 15162,
+      "sha256": "05fc5ec5f927ad0d61233d558e6d93ab23bc8fa965cc09d018699852193d3d31",
+      "sha256_origem": "05fc5ec5f927ad0d61233d558e6d93ab23bc8fa965cc09d018699852193d3d31",
+      "ajustes": []
+    },
+    {
+      "path": "work/auditar_revogacoes_catalogo.py",
+      "bytes": 1367,
+      "sha256": "3b40e034b621a595c175748cf8ad2f50cca9627daf52a9db456b8d15a1c701c8",
+      "sha256_origem": "3b40e034b621a595c175748cf8ad2f50cca9627daf52a9db456b8d15a1c701c8",
+      "ajustes": []
+    },
+    {
+      "path": "work/baixar_fontes_seguranca.py",
+      "bytes": 5483,
+      "sha256": "5cee630da334ea6b85546588cdb16c9af21de2f2d1c391e86a0e6c6a561f0e0e",
+      "sha256_origem": "5cee630da334ea6b85546588cdb16c9af21de2f2d1c391e86a0e6c6a561f0e0e",
+      "ajustes": []
+    },
+    {
+      "path": "work/base-contran-referencia.json",
+      "bytes": 1454127,
+      "sha256": "2566e6fd410ddbde80558e65c1e079f3717a679dfeef06c918c00ed739d8d89e",
+      "sha256_origem": "2566e6fd410ddbde80558e65c1e079f3717a679dfeef06c918c00ed739d8d89e",
+      "ajustes": []
+    },
+    {
+      "path": "work/catalogar_contran.py",
+      "bytes": 30125,
+      "sha256": "69a4a63042340ae409becee79ea3cd2f2ab931fa516e038f578eea811ad87a3e",
+      "sha256_origem": "69a4a63042340ae409becee79ea3cd2f2ab931fa516e038f578eea811ad87a3e",
+      "ajustes": []
+    },
+    {
+      "path": "work/consolidar_revisao_novembro.py",
+      "bytes": 64983,
+      "sha256": "5e5eb4f65ffa1cfea729a6c05578d8cd60593917215e94cb7b33a4d0c4929317",
+      "sha256_origem": "5e5eb4f65ffa1cfea729a6c05578d8cd60593917215e94cb7b33a4d0c4929317",
+      "ajustes": []
+    },
+    {
+      "path": "work/consolidar_seguranca.py",
+      "bytes": 71297,
+      "sha256": "05d49d5ed914061c929a7087365223c178acac47479605104725908627541d9b",
+      "sha256_origem": "05d49d5ed914061c929a7087365223c178acac47479605104725908627541d9b",
+      "ajustes": []
+    },
+    {
+      "path": "work/criar_confirmacoes_seguranca.mjs",
+      "bytes": 33158,
+      "sha256": "c58327a9323f4b25df832620c206101fe39c06aa06d9e91676f1e3d65b199688",
+      "sha256_origem": "c58327a9323f4b25df832620c206101fe39c06aa06d9e91676f1e3d65b199688",
+      "ajustes": []
+    },
+    {
+      "path": "work/criar_residuais_seguranca.mjs",
+      "bytes": 15944,
+      "sha256": "09ab84203e39d8008fa5146be65f633d0e9f79a4065d1493b5780dfcc94fe619",
+      "sha256_origem": "09ab84203e39d8008fa5146be65f633d0e9f79a4065d1493b5780dfcc94fe619",
+      "ajustes": []
+    },
+    {
+      "path": "work/desenhar_fluxo_arvore.py",
+      "bytes": 20115,
+      "sha256": "8d5ee32280d3e1526b1efba83dd56757dc23280011efc7faec91cda3090dfba1",
+      "sha256_origem": "8d5ee32280d3e1526b1efba83dd56757dc23280011efc7faec91cda3090dfba1",
+      "ajustes": []
+    },
+    {
+      "path": "work/extrair_docs_oficiais.py",
+      "bytes": 3055,
+      "sha256": "00212151d730705d752b1f8496f791e6496601704932d634dbbc35d89af1ed4c",
+      "sha256_origem": "00212151d730705d752b1f8496f791e6496601704932d634dbbc35d89af1ed4c",
+      "ajustes": []
+    },
+    {
+      "path": "work/indexar_fontes.py",
+      "bytes": 2458,
+      "sha256": "6ab32fe3a68199fd148b2e38eb268c59b1efef0227307e045ab99fc5f87b94b7",
+      "sha256_origem": "6ab32fe3a68199fd148b2e38eb268c59b1efef0227307e045ab99fc5f87b94b7",
+      "ajustes": []
+    },
+    {
+      "path": "work/indice-contran-completo.json",
+      "bytes": 1082428,
+      "sha256": "24cbea76d7f062bbe77a54bc9196c928dac902978d265f66f169e18d434271fb",
+      "sha256_origem": "24cbea76d7f062bbe77a54bc9196c928dac902978d265f66f169e18d434271fb",
+      "ajustes": []
+    },
+    {
+      "path": "work/lote-fontes-novembro-10.json",
+      "bytes": 620,
+      "sha256": "cc4e4f5688e67b1a86fb025f3d4aa4a4af1ee197814bd54a582996f09075b34d",
+      "sha256_origem": "cc4e4f5688e67b1a86fb025f3d4aa4a4af1ee197814bd54a582996f09075b34d",
+      "ajustes": []
+    },
+    {
+      "path": "work/lote-fontes-novembro-11.json",
+      "bytes": 310,
+      "sha256": "ec644c132ffd7c79aa01ef0a9ae19d49ba6ede51d28f484ebd7f668aa26dd6c8",
+      "sha256_origem": "ec644c132ffd7c79aa01ef0a9ae19d49ba6ede51d28f484ebd7f668aa26dd6c8",
+      "ajustes": []
+    },
+    {
+      "path": "work/lote-fontes-novembro-2.json",
+      "bytes": 3759,
+      "sha256": "248eda7f29752b4ad6e06906f875832103f5c5bb0eba616a49bdb87a2977ec8e",
+      "sha256_origem": "248eda7f29752b4ad6e06906f875832103f5c5bb0eba616a49bdb87a2977ec8e",
+      "ajustes": []
+    },
+    {
+      "path": "work/lote-fontes-novembro-3.json",
+      "bytes": 626,
+      "sha256": "282b4e4e6624b79ffa2eac6a35b3638f3824ba410216e23652f2c5e63ec062ff",
+      "sha256_origem": "282b4e4e6624b79ffa2eac6a35b3638f3824ba410216e23652f2c5e63ec062ff",
+      "ajustes": []
+    },
+    {
+      "path": "work/lote-fontes-novembro-4.json",
+      "bytes": 1142,
+      "sha256": "143cd8bb2ae32f6bf2874f09d6c6347f55471551dc51e26bb79b86e7bbebd5ed",
+      "sha256_origem": "143cd8bb2ae32f6bf2874f09d6c6347f55471551dc51e26bb79b86e7bbebd5ed",
+      "ajustes": []
+    },
+    {
+      "path": "work/lote-fontes-novembro-5.json",
+      "bytes": 869,
+      "sha256": "8f42ccdfa4436029c4017bf2b42c05cfdd73408cfd17573883fa136a350bd8cf",
+      "sha256_origem": "8f42ccdfa4436029c4017bf2b42c05cfdd73408cfd17573883fa136a350bd8cf",
+      "ajustes": []
+    },
+    {
+      "path": "work/lote-fontes-novembro-6.json",
+      "bytes": 565,
+      "sha256": "aaeb66e7c101cec98de9917bdfe202d188cc8ffc85cba4b7a37a1dbf72909506",
+      "sha256_origem": "aaeb66e7c101cec98de9917bdfe202d188cc8ffc85cba4b7a37a1dbf72909506",
+      "ajustes": []
+    },
+    {
+      "path": "work/lote-fontes-novembro-7.json",
+      "bytes": 332,
+      "sha256": "945e72781db5bd3c8577721b4ed3d2cebdb99a156175c1a1e2baef96e27b7cad",
+      "sha256_origem": "945e72781db5bd3c8577721b4ed3d2cebdb99a156175c1a1e2baef96e27b7cad",
+      "ajustes": []
+    },
+    {
+      "path": "work/lote-fontes-novembro-8.json",
+      "bytes": 261,
+      "sha256": "a07cb30c516438feb59f386f736f323691d6730b7ad8cff802a6f8ff2d16d95a",
+      "sha256_origem": "a07cb30c516438feb59f386f736f323691d6730b7ad8cff802a6f8ff2d16d95a",
+      "ajustes": []
+    },
+    {
+      "path": "work/lote-fontes-novembro-9.json",
+      "bytes": 304,
+      "sha256": "7b674d70c983e0aea4543c43a61c0d6253929c6c73edddb4b7291d2523e576a1",
+      "sha256_origem": "7b674d70c983e0aea4543c43a61c0d6253929c6c73edddb4b7291d2523e576a1",
+      "ajustes": []
+    },
+    {
+      "path": "work/pesquisar_fontes_novembro.py",
+      "bytes": 5079,
+      "sha256": "b5c977f1e2061349ab463339ed8c92eb979e90409186dd58233a15b67c6824fe",
+      "sha256_origem": "b5c977f1e2061349ab463339ed8c92eb979e90409186dd58233a15b67c6824fe",
+      "ajustes": []
+    },
+    {
+      "path": "work/preparar_salvamento_github.py",
+      "bytes": 9947,
+      "sha256": "e0e82e601e298a9fbedd0f4a6550f4476dfc48380da7bdd48d9b67cb2c0abf37",
+      "sha256_origem": "e0e82e601e298a9fbedd0f4a6550f4476dfc48380da7bdd48d9b67cb2c0abf37",
+      "ajustes": []
+    },
+    {
+      "path": "work/respostas-excel-2026-11-02.json",
+      "bytes": 6450,
+      "sha256": "9b60227542a6d007a9544b09e8f4d0893768c209259c55ef93ddde1b11f01668",
+      "sha256_origem": "16cd6c260033b0aad109877938b13c60bc0552f6638c83e1f964b0791c69a9a6",
+      "ajustes": [
+        "caminho absoluto do workspace substituído por caminho relativo"
+      ]
+    },
+    {
+      "path": "work/revisar_indices_portarias.py",
+      "bytes": 2118,
+      "sha256": "69d475d43c1058b8098e706cf1554ddb5534965c7ebde290b9580c379b3159bc",
+      "sha256_origem": "69d475d43c1058b8098e706cf1554ddb5534965c7ebde290b9580c379b3159bc",
+      "ajustes": []
+    },
+    {
+      "path": "work/siscat-ensaios-observados.json",
+      "bytes": 22696,
+      "sha256": "09d2fbbe348087ee177b559851c04ae1e87d0624e9ce1737e15db1b32931e061",
+      "sha256_origem": "09d2fbbe348087ee177b559851c04ae1e87d0624e9ce1737e15db1b32931e061",
+      "ajustes": []
+    },
+    {
+      "path": "work/verificar_levantamento.py",
+      "bytes": 2725,
+      "sha256": "9d3c371654b5b8399c0ef792334c036388bf1bf8264e168358161a0ad284ab47",
+      "sha256_origem": "9d3c371654b5b8399c0ef792334c036388bf1bf8264e168358161a0ad284ab47",
+      "ajustes": []
+    }
+  ],
+  "arquivos_zip_nao_duplicados": [
+    {
+      "path": "outputs/contran-vigentes-markdown.zip",
+      "reason": "arquivo ZIP redundante com diretórios preservados ou código já existente no histórico Git"
+    },
+    {
+      "path": "outputs/fluxo-arvore-seguranca.zip",
+      "reason": "arquivo ZIP redundante com diretórios preservados ou código já existente no histórico Git"
+    },
+    {
+      "path": "outputs/legislacao-automotiva-atual-63bac21.zip",
+      "reason": "arquivo ZIP redundante com diretórios preservados ou código já existente no histórico Git"
+    },
+    {
+      "path": "outputs/levantamento-seguranca-siscat.zip",
+      "reason": "arquivo ZIP redundante com diretórios preservados ou código já existente no histórico Git"
+    },
+    {
+      "path": "outputs/novo-modelo-homologacao.zip",
+      "reason": "arquivo ZIP redundante com diretórios preservados ou código já existente no histórico Git"
+    },
+    {
+      "path": "outputs/revisao-seguranca-2026-11-02.zip",
+      "reason": "arquivo ZIP redundante com diretórios preservados ou código já existente no histórico Git"
+    }
+  ]
+}

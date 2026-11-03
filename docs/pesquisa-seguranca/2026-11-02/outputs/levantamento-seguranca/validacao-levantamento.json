@@ -1,0 +1,15 @@
+{
+  "data": "2026-10-31",
+  "resultado": "integridade_estrutural_verificada",
+  "checks": [
+    "10 guias presentes",
+    "36 rótulos na mesma ordem e sem perda em relação à captura original",
+    "27 ajudas não vazias preservadas na origem",
+    "IDs únicos e todas as partes semânticas referenciadas existentes",
+    "Todas as fontes das ligações presentes no manifesto",
+    "12 linhas do suplemento nível 1",
+    "Ausência de CPF formatado, e-mail e identificador do processo no inventário derivado",
+    "ZIP íntegro e hashes dos arquivos oficiais conferidos"
+  ],
+  "limite": "Verificações de integridade não atestam completude jurídica nem substituem as pendências da revisão."
+}

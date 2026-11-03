@@ -1,0 +1,131 @@
+# contran 215 2006 doc
+
+- ID: `contran-215-2006-doc`
+- Consulta/aquisição: 2026-10-31
+- [Fonte oficial](https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao_215.doc/@@download/file)
+- [Arquivo preservado](../fontes/contran-215-2006-doc.doc) — DOC
+- SHA-256 do arquivo: `76e5dac7020eb1711ccd45c5ea0484e0cc29523bcb83b953eac7abf735c1bbf3`
+- Disponibilidade: arquivo obtido. Isso não certifica vigência, aplicação ou revisão integral.
+- Revisão: dispositivos_citados_revisados_no_recorte
+- Extração: texto HTML/DOC; documento original preservado; sem paginação PDF
+- Uso em IA: **transcrição documental bruta; não tratar todos os parágrafos como regra atual.**
+
+## Texto extraído
+
+RESOLUÇÃO Nº	215,  DE 14	DE DEZEMBRO DE 2006 
+
+
+Regulamenta a fabricação, instalação e uso de dispositivo denominado “quebra-mato” em veículos automotores com peso bruto total de até 3.500 kg.
+
+
+O CONSELHO NACIONAL DE TRÂNSITO – CONTRAN, no uso da competência que lhe confere o inciso I do  art. 12, da Lei n.º 9.503, de 23 de setembro de 1997, que institui o Código de Transito Brasileiro,  e conforme Decreto n.º 4.711, de 29 de maio de 2003, que dispõe sobre a coordenação do Sistema Nacional de Trânsito; e
+Considerando que o  art. 97, do Código de Trânsito Brasileiro atribui ao CONTRAN a responsabilidade pela aprovação das exigências que permitam o registro, licenciamento e circulação nas vias publicas;
+Considerando que a instalação do dispositivo denominado “quebra-mato”  pode afetar as condições de projeto do veículo,  em especial no que se refere à distribuição de peso, estabilidade, aerodinâmica e rigidez estrutural e a eficácia do equipamento suplementar de retenção ( Air Bag ) frontal; e,
+ Considerando que a utilização do “quebra-mato” pode representar riscos adicionais de acidentes, especialmente quando há o envolvimento de pedestres; resolve:
+	Art. 1º Os dispositivos “quebra-mato” instalados em veículos automotores com peso bruto total de até 3.500 kg, devem atender aos requisitos desta Resolução.
+
+	Art. 2º Os fabricantes e importadores de veículos automotores equipados originalmente  com dispositivo “quebra-mato” devem informar, no manual do proprietário,  os seguintes requisitos
+
+	I – pontos de ancoragem;
+	II – peso máximo para o conjunto “quebra-mato” e componentes utilizados em sua instalação;
+	III – dimensões máximas do “quebra-mato” – largura e altura.
+
+	Parágrafo único.  Na ausência de definição dos requisitos para instalação do  dispositivo “quebra-mato”, por parte dos fabricantes e importadores, cabe ao  fabricante do dispositivo o atendimento aos incisos deste artigo.
+
+	Art. 3º A utilização do “quebra-mato” em veículos automotores está condicionada a existência de uma plaqueta indelével no dispositivo, indicando suas características gerais, contendo no mínimo as seguintes informações:
+
+	I – identificação do fabricante do “quebra-mato” – razão social e CNPJ;
+	II – modelo do veículo ao qual se destina;
+	III – peso para o conjunto “quebra-mato”; 
+	IV – dimensões do “quebra-mato”– largura e altura;
+	V – referência a esta resolução;
+	VI – identificação do registro da empresa no INMETRO.
+
+	Parágrafo único.  Ficam  dispensados  do atendimento deste artigo,  os veículos originalmente equipados com dispositivo “quebra-mato”, bem como aqueles em circulação equipados com dispositivo que atenda os requisitos desta Resolução. 
+
+	Art. 4º Após 365 dias da data de publicação desta Resolução, fica proibida a circulação, nas vias públicas, de veículos automotores equipados com “quebra-mato” que não cumpram com os requisitos desta Resolução.
+
+	Parágrafo único. Ficam dispensados do cumprimento desta Resolução:
+
+	a) os veículos originalmente equipados com o dispositivo “quebra-mato” que obtiveram o código de Marca / Modelo / Versão até a data de publicação desta Resolução;
+	b) os veículos utilizados na prestação e manutenção de serviços de utilidade pública;
+c) veículos militares;
+d) veículos de órgãos de segurança pública.
+
+	Art. 5º Os veículos automotores somente poderão ser equipados com o dispositivo do tipo “quebra-mato” produzidos por empresas devidamente registradas no Instituto Nacional de Metrologia, Normalização e Qualidade Industrial - INMETRO, que estabelecerá, em 180 dias, contados a partir da data de publicação desta Resolução, os requisitos para a concessão do registro mediante regulamentos complementares 
+
+	Art. 6º O não cumprimento do disposto nesta Resolução sujeitará o infrator à aplicação da penalidade e medida administrativa previstas no artigo 230, inciso XII, do Código de Trânsito Brasileiro.
+
+	Art. 7º Esta Resolução entra em vigor na data de sua publicação. 
+
+
+
+
+Alfredo Peres da Silva
+Presidente
+
+
+
+José Antonio Silvério
+Ministério da Ciência e Tecnologia  – Suplente
+
+
+
+Rodrigo Lamego de Teixeira Soares
+Ministério da Educação – Titular
+
+
+
+Fernando Marques de Freitas
+Ministério da Defesa – Suplente
+
+
+
+Carlos Alberto Ferreira dos Santos
+Ministério do Meio Ambiente – Suplente
+
+
+
+Edson Dias Gonçalves
+Ministérios dos Transportes – Titular
+
+
+
+Anexo 
+
+Procedimentos de Construção e Montagem
+
+
+Os dispositivos “quebra-mato” devem ser construídos de tal forma que todas as superfícies rígidas que possam ser tocadas por uma esfera de 100 mm de diâmetro (figura 1) tenham um raio de curvatura mínimo de 5 mm. 
+
+
+
+
+
+
+Figura 1
+
+
+A massa total do dispositivo “quebra-mato”, incluindo todas as braçadeiras e fixações, não deve exceder 1,2% da massa do veículo para o qual foi concebido, até um limite máximo de 18 kg.
+
+A altura do dispositivo “quebra-mato” quando montado em um veículo, não deve situar-se, em nenhum ponto, a mais de 50 mm acima da borda da tampa do compartimento do motor, medidos num plano longitudinal vertical ao veículo. Nos casos em que a grade frontal estiver integrada à tampa do compartimento do motor, a referência passa a ser a linha superior da grade.
+
+
+
+ 
+
+
+Figura 2
+
+
+
+4) O dispositivo “quebra-mato” não deve aumentar a largura do veículo em que for montado. Se a largura total do “quebra-mato” exceder a 75% da largura do veículo, as extremidades do dispositivo devem ser viradas para dentro, na direção da superfície exterior, de modo a minimizar os riscos de se enganchar. Considera-se que este requisito foi cumprido se o dispositivo estiver encaixado ou integrado na carroçaria ou se a extremidade do dispositivo não puder ser tocada por uma esfera de 100 mm de diâmetro e o intervalo entre a extremidade e a carroçaria circundante não exceder 20 mm.
+
+5) Sem prejuízo ao disposto no item 4, o intervalo entre os componentes do “quebra-mato” e a superfície exterior subjacente não deve exceder 80mm. Devem ser ignoradas as descontinuidades locais no contorno da carroçaria, tais como grades, entradas de ar, etc.
+
+6) A distância longitudinal entre a parte mais avançada do pára-choque e a parte mais avançada do “quebra-mato” não deve exceder 100 mm, admitindo-se uma tolerância de 20%.
+
+7) O “quebra-mato” não deve reduzir de modo significativo a eficácia do pára-choque. Considera-se que este requisito foi cumprido, se não existirem mais de dois componentes verticais e dois componentes horizontais do “quebra-mato” que se sobreponham ao pára-choque. 
+
+	8) O “quebra-mato” não deve estar inclinado para frente relativamente à linha vertical. As partes superiores do “quebra-mato” não devem ultrapassar mais de 50 mm para cima ou para trás (na direção do pára-brisa), a linha de referência da borda dianteira da tampa do compartimento do motor do veículo. Nos casos em que a grade frontal estiver integrada à tampa do compartimento do motor, a referência passa a ser a linha superior da grade. Cada ponto de medição é feito num plano vertical longitudinal que atravessa o veículo neste ponto.
+linha de referência

@@ -1,0 +1,611 @@
+[
+  {
+    "id": "contran-215-2006-html",
+    "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucao-contran-no-215-de-14-de-dezembro-de-2006",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "contran-indice-novembro",
+    "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "correios-selo",
+    "url": "https://www.correios.com.br/inmetro-na-palma-da-mao/inmetro-na-palma-da-mao",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "decreto-12435-2025-dou-p1",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=16%2F04%2F2025&jornal=515&pagina=1",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "decreto-12435-2025-dou-p2",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=16%2F04%2F2025&jornal=515&pagina=2",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "decreto-12435-2025-dou-p3",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=16%2F04%2F2025&jornal=515&pagina=3",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "decreto-12435-2025-dou-p4",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=16%2F04%2F2025&jornal=515&pagina=4",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "decreto-12435-2025-dou-p5",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=16%2F04%2F2025&jornal=515&pagina=5",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "decreto-12435-2025-dou-p6",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=16%2F04%2F2025&jornal=515&pagina=6",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "decreto-12435-2025-texto",
+    "url": "https://legis.senado.gov.br/norma/40549389/publicacao/40549630",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "dnc-23-1994-reproducao-camara",
+    "url": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=1430985&filename=Avulso+-PDC+294%2F2015",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "dou-2026-07-03-sumario",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&jornal=515&data=03%2F07%2F2026&pagina=1",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "dou-sumario-2023-12-29",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&jornal=515&pagina=1&data=29%2F12%2F2023",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "dou-sumario-2025-04-07",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&jornal=515&pagina=1&data=07%2F04%2F2025",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "faq-inmetro-registro",
+    "url": "https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/registro-de-objetos/qual-a-legislacao-relacionada-ao-registro-1",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-106-2025-dou-p13",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&jornal=515&data=07%2F04%2F2025&pagina=13",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-106-2025-dou-p14",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&jornal=515&data=07%2F04%2F2025&pagina=14",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-106-2025-dou-p15",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&jornal=515&data=07%2F04%2F2025&pagina=15",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-106-2025-dou-p16",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&jornal=515&data=07%2F04%2F2025&pagina=16",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "inmetro-106-2025-html",
+    "url": "https://www.in.gov.br/web/dou/-/portaria-n-106-de-17-de-fevereiro-de-2025-622220758",
+    "estado": "failed",
+    "erro": "HTTP Error 403: Forbidden",
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-108-2022-http",
+    "url": "http://sistema-sil.inmetro.gov.br/rtac/RTAC002949.pdf",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "inmetro-108-2022-indice",
+    "url": "https://www.inmetro.gov.br/legislacao/detalhe.asp?seq_ato=2949&seq_classe=1",
+    "estado": "failed",
+    "erro": "<urlopen error [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente>",
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-111-2022-http",
+    "url": "http://sistema-sil.inmetro.gov.br/rtac/RTAC002953.pdf",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "inmetro-111-2022",
+    "url": "https://sistema-sil.inmetro.gov.br/rtac/RTAC002953.pdf",
+    "estado": "failed",
+    "erro": "<urlopen error [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu\r\ncorretamente após um período de tempo ou a conexão estabelecida falhou\r\nporque o host conectado não respondeu>",
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-130-2022-http",
+    "url": "http://sistema-sil.inmetro.gov.br/rtac/RTAC002954.pdf",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "inmetro-130-2022",
+    "url": "https://sistema-sil.inmetro.gov.br/rtac/RTAC002954.pdf",
+    "estado": "failed",
+    "erro": "<urlopen error [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu\r\ncorretamente após um período de tempo ou a conexão estabelecida falhou\r\nporque o host conectado não respondeu>",
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-133-2022-http",
+    "url": "http://sistema-sil.inmetro.gov.br/rtac/RTAC002959.pdf",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "inmetro-147-2022-http",
+    "url": "http://sistema-sil.inmetro.gov.br/rtac/RTAC002963.pdf",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "inmetro-147-2022",
+    "url": "https://sistema-sil.inmetro.gov.br/rtac/RTAC002963.pdf",
+    "estado": "failed",
+    "erro": "<urlopen error [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu\r\ncorretamente após um período de tempo ou a conexão estabelecida falhou\r\nporque o host conectado não respondeu>",
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-200-2021",
+    "url": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/produtos-e-servicos-regulados/documentos/rtac002753.pdf",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "inmetro-258-2020-http",
+    "url": "http://sistema-sil.inmetro.gov.br/rtac/RTAC002663.pdf",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "inmetro-278-2021",
+    "url": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/produtos-e-servicos-regulados/documentos/rtac002790.pdf",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "inmetro-282-2020",
+    "url": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/produtos-e-servicos-regulados/documentos/portaria-no-282-de-26-de-agosto-de-2020.pdf",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "inmetro-309-2021-dou-p52",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=15%2F07%2F2021&jornal=515&pagina=52",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-309-2021-dou-p53",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=15%2F07%2F2021&jornal=515&pagina=53",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-309-2021-dou-p54",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=15%2F07%2F2021&jornal=515&pagina=54",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-309-2021-http",
+    "url": "http://sistema-sil.inmetro.gov.br/rtac/RTAC002802.pdf",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "inmetro-309-2021-indice",
+    "url": "https://www.inmetro.gov.br/legislacao/detalhe.asp?seq_ato=2802&seq_classe=1",
+    "estado": "failed",
+    "erro": "<urlopen error [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente>",
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-314-2025-dou-p74",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&jornal=515&data=30%2F05%2F2025&pagina=74",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "inmetro-314-2025-dou-p75",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&jornal=515&data=30%2F05%2F2025&pagina=75",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "inmetro-314-2025-dou",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=30%2F05%2F2025&jornal=515&pagina=73",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "inmetro-379-2021-dou-p17",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=20%2F09%2F2021&jornal=515&pagina=17",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-379-2021-dou-p18",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=20%2F09%2F2021&jornal=515&pagina=18",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-379-2021-dou-p19",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=20%2F09%2F2021&jornal=515&pagina=19",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-379-2021-dou-p20",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=20%2F09%2F2021&jornal=515&pagina=20",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-379-2021-dou-p21",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=20%2F09%2F2021&jornal=515&pagina=21",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-379-2021-dou-p22",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=20%2F09%2F2021&jornal=515&pagina=22",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-379-2021-dou-p23",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=20%2F09%2F2021&jornal=515&pagina=23",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-379-2021-dou-p24",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=20%2F09%2F2021&jornal=515&pagina=24",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-379-2021-dou-p25",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=20%2F09%2F2021&jornal=515&pagina=25",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-379-2021-dou-p26",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=20%2F09%2F2021&jornal=515&pagina=26",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-379-2021-dou-p27",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=20%2F09%2F2021&jornal=515&pagina=27",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-379-2021-dou-p28",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=20%2F09%2F2021&jornal=515&pagina=28",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-379-2021-dou-p29",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=20%2F09%2F2021&jornal=515&pagina=29",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-379-2021-http",
+    "url": "http://sistema-sil.inmetro.gov.br/rtac/RTAC002835.pdf",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "inmetro-379-2021",
+    "url": "https://www.inmetro.gov.br/legislacao/rtac/pdf/RTAC002835.pdf",
+    "estado": "failed",
+    "erro": "<urlopen error [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente>",
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-384-2023-dou-p149",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&jornal=515&data=21%2F09%2F2023&pagina=149",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "inmetro-384-2023-dou-p150",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&jornal=515&data=21%2F09%2F2023&pagina=150",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "inmetro-400-2020-dou-p59",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=18%2F02%2F2021&jornal=515&pagina=59",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-400-2020-dou-p60",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=18%2F02%2F2021&jornal=515&pagina=60",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-400-2020-dou-p61",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=18%2F02%2F2021&jornal=515&pagina=61",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-400-2020-dou-p62",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=18%2F02%2F2021&jornal=515&pagina=62",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-400-2020-http",
+    "url": "http://sistema-sil.inmetro.gov.br/rtac/RTAC002685.pdf",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "inmetro-400-2020",
+    "url": "https://sistema-sil.inmetro.gov.br/rtac/RTAC002685.pdf",
+    "estado": "failed",
+    "erro": "<urlopen error [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu\r\ncorretamente após um período de tempo ou a conexão estabelecida falhou\r\nporque o host conectado não respondeu>",
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-409-2026-dou-p109",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&jornal=515&data=03%2F07%2F2026&pagina=109",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-409-2026-dou-p110",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&jornal=515&data=03%2F07%2F2026&pagina=110",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "inmetro-409-2026-dou-p111",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&jornal=515&data=03%2F07%2F2026&pagina=111",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "inmetro-436-2021-http",
+    "url": "http://sistema-sil.inmetro.gov.br/rtac/RTAC002855.pdf",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "inmetro-436-2021",
+    "url": "https://sistema-sil.inmetro.gov.br/rtac/RTAC002855.pdf",
+    "estado": "failed",
+    "erro": "<urlopen error [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu\r\ncorretamente após um período de tempo ou a conexão estabelecida falhou\r\nporque o host conectado não respondeu>",
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-634-2023-dou-p72",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&jornal=515&data=29%2F12%2F2023&pagina=72",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "inmetro-634-2023-dou-p73",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&jornal=515&data=29%2F12%2F2023&pagina=73",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "inmetro-845-2025-dou-p41",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=16%2F12%2F2025&jornal=515&pagina=41",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "inmetro-845-2025-retif-sumario",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=06%2F02%2F2026&jornal=515&pagina=1",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-845-2025-retif",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&jornal=515&data=06%2F02%2F2026&pagina=37",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "inmetro-retificacoes-2026-02-06-p35",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&jornal=515&data=06%2F02%2F2026&pagina=35",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "inmetro-retificacoes-2026-02-06-p36",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&jornal=515&data=06%2F02%2F2026&pagina=36",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "mdic-215-2025-dou-p26",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=22%2F08%2F2025&jornal=515&pagina=26",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "mdic-215-2025-dou-p27",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=22%2F08%2F2025&jornal=515&pagina=27",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "mdic-215-2025-dou-p28",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=22%2F08%2F2025&jornal=515&pagina=28",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "mdic-215-2025-dou-p29",
+    "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=22%2F08%2F2025&jornal=515&pagina=29",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "mdic-215-2025-integral",
+    "url": "https://bibliotecadigital.gestao.gov.br/bitstream/123456789/534038/1/PORTARIA%20GM_MDIC%20N%C2%BA%20215%2C%20DE%2019%20DE%20AGOSTO%20DE%202025%20-%20PORTARIA%20GM_MDIC%20N%C2%BA%20215%2C%20DE%2019%20DE%20AGOSTO%20DE%202025%20-%20DOU%20-%20Imprensa%20Nacional.pdf",
+    "estado": "failed",
+    "erro": "HTTP Error 403: Forbidden",
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "mdic-mover-indice",
+    "url": "https://www.gov.br/mdic/pt-br/assuntos/sdic/setor-automotivo/programa-mover-1/legislacao-programa-mover",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "portal-inmetro-108",
+    "url": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-1082022",
+    "estado": "failed",
+    "erro": "HTTP Error 403: Forbidden",
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "portal-inmetro-200",
+    "url": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-2002021",
+    "estado": "failed",
+    "erro": "HTTP Error 403: Forbidden",
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "portal-inmetro-278",
+    "url": "https://portaliq.mdic.gov.br/busca-aplicada/central-de-consultas/portaria-inmetro-no-2782021",
+    "estado": "failed",
+    "erro": "HTTP Error 403: Forbidden",
+    "selecionado_no_pacote": false
+  },
+  {
+    "id": "senatran-consultas",
+    "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/senatran/participacao-social-consultas-publicas",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  },
+  {
+    "id": "senatran-portarias-2026",
+    "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/senatran/portarias-2026",
+    "estado": "downloaded",
+    "erro": null,
+    "selecionado_no_pacote": true
+  }
+]
