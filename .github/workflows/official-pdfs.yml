@@ -32,7 +32,7 @@ jobs:
             requirements-dev.txt
             scripts/requirements-contran.txt
       - run: npm ci
-      - run: python -m pip install -r requirements-dev.txt pypdf==5.4.0
+      - run: python -m pip install -r requirements-dev.txt
       - run: python -m playwright install --with-deps chromium
       - name: Copy official documents
         env:
