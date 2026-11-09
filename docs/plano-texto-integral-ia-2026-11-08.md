@@ -78,10 +78,16 @@ publicação de um ato. Os 55 atos CONTRAN excluídos continuam fora.
 - [ ] Bateria de 20–30 perguntas difíceis com respostas esperadas, para medir antes e
       depois de cada mudança.
 
-### 4. Veículo → artigo da lei
-- [ ] Mapa peça → dispositivo a partir dos requisitos revisados (não do título da lei).
-- [ ] Painel da peça com "Abrir no artigo", que leva à página da lei com o artigo
-      destacado.
+### 4. Veículo 3D → artigo da lei
+A consulta por peça usa o **modelo 3D** como caminho principal. A prancha 2D continua
+disponível como referência, sem receber novas funções.
+- [ ] Mapa peça 3D → dispositivo a partir dos requisitos revisados (não do título da lei).
+- [ ] Clique (ou seleção pela lista) destaca a peça no 3D e abre um cartão ao lado dela com
+      os dispositivos de lei: lei, artigo, o que trata e "Abrir no artigo".
+- [ ] "Abrir no artigo" leva à página da lei com o artigo destacado; "ver no carro", na
+      página da lei, volta ao 3D com a peça selecionada (`#vehicle?part=…`).
+- [ ] Funciona também na vista explodida e pela lista de componentes (teclado e leitor de
+      tela), sem depender do clique no 3D.
 - [ ] Preservar as coordenadas do modelo e da prancha 2D e a alternativa textual.
 - [ ] Distinguir vínculo temático de requisito aplicável.
 
