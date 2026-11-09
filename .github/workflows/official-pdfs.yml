@@ -62,7 +62,7 @@ jobs:
           git add pdfs data/ai dist
           git commit -m "Atualiza cópias dos PDFs oficiais"
           git push origin "$branch"
-          summary="$(python -c "import json; m=json.load(open('pdfs/manifest.json')); print(f\"{len(m['items'])} cópias; {len(m['failures'])} falhas nesta execução.\")")"
+          summary="$(python -c "import json; m=json.load(open('pdfs/manifest.json')); print(f\"{len(m['items'])} cópias; {len(m['failures'])} falhas; {sum(map(len, m.get('annexes', {}).values()))} anexos; {len(m.get('annexFailures', {}))} anexos com falha. Faltantes em pdfs/faltantes.csv.\")")"
           gh pr create --base "${{ github.ref_name }}" --head "$branch" \
             --title "Atualiza cópias dos PDFs oficiais" \
             --body "$summary Cópias de consulta: não alteram situação jurídica, revisão ou aplicabilidade. Revise o manifesto em pdfs/manifest.json antes de aceitar." \
