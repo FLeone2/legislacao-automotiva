@@ -1,5 +1,8 @@
 # Plano de trabalho — leis completas, IA, veículo e fluxo (08/11/2026)
 
+> Substituído por [escopo-plataforma-2026-11-10.md](escopo-plataforma-2026-11-10.md). Os textos
+> completos ficam em `texts/`, não em `knowledge/texts/`.
+
 Objetivo: toda lei do acervo abre no site com o texto completo e os anexos, num formato
 limpo, e existe em Markdown para a IA. A IA responde perguntas complexas citando artigos. O
 veículo leva da peça ao artigo da lei. O fluxo de homologação mostra as etapas corretas, com

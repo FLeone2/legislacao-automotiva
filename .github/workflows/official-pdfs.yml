@@ -34,6 +34,8 @@ jobs:
       - run: npm ci
       - run: python -m pip install -r requirements-dev.txt
       - run: python -m playwright install --with-deps chromium
+      # Poppler extracts the text of the official PDFs (pdftotext).
+      - run: sudo apt-get update && sudo apt-get install -y poppler-utils
       - name: Copy official documents
         env:
           ONLY: ${{ inputs.only }}
@@ -45,6 +47,7 @@ jobs:
           fi
       - name: Rebuild assistant index and published artifact
         run: |
+          python scripts/build_law_texts.py
           python scripts/build_ai_index.py
           npm run build
       - name: Open a pull request for review
@@ -59,7 +62,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git checkout -b "$branch"
-          git add pdfs data/ai dist
+          git add pdfs texts data/ai dist
           git commit -m "Atualiza cópias dos PDFs oficiais"
           git push origin "$branch"
           summary="$(python -c "import json; m=json.load(open('pdfs/manifest.json')); print(f\"{len(m['items'])} cópias; {len(m['failures'])} falhas; {sum(map(len, m.get('annexes', {}).values()))} anexos; {len(m.get('annexFailures', {}))} anexos com falha. Faltantes em pdfs/faltantes.csv.\")")"
