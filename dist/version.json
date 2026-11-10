@@ -1,6 +1,6 @@
 {
   "assets": {
-    "app.js": "51e3faea63860a8b",
+    "app.js": "71c8d1f94810c1cb",
     "assets/guide/guide.css": "77eb229e70c7949e",
     "assets/guide/guide.js": "a2c26c362414b57b",
     "flow-data.js": "b7bb692fbb6d4511",
@@ -21,7 +21,7 @@
     "src/guide/traceability.js": "93493bd2dce94cf2",
     "src/regulations/catalog.js": "89795c8359b917f6",
     "src/regulations/status.js": "99904cd4c2cc8166",
-    "src/regulations/store.js": "2ee0f0576d280739",
+    "src/regulations/store.js": "bc3ab0f4f4e1f301",
     "src/regulations/technical-standards.js": "99bf9d7d99103fc4",
     "src/styles/guide-apple.css": "4952bb02ce80873b",
     "src/styles/guide.css": "a7e89336f958b547",
@@ -33,9 +33,9 @@
     "src/styles/simple.css": "30d47b713b7e56bb",
     "src/styles/theme-tokens.css": "324e23552f497674",
     "src/styles/tree-navigation.css": "5359462e4ee3180d",
-    "src/views/assistant.js": "3fd7949d77eeccc3",
+    "src/views/assistant.js": "d152fee85a5f739e",
     "src/views/aurora.js": "ecb7d4381804afe1",
-    "src/views/document.js": "e506dfbbdb1007cd",
+    "src/views/document.js": "43ed5f9e8f10df3f",
     "src/views/history.js": "b12b076190ee8e53",
     "src/views/home.js": "9dcdc847cb9b0e40",
     "src/views/knowledge.js": "487dadbce0541943",
@@ -48,5 +48,5 @@
     "vehicle-data.js": "09123227fe4f6446",
     "vehicle-navigation.js": "9354942ec160aa76"
   },
-  "revision": "c4ed3bcb900f40820b2ee0889d50da4e1e4f3c3b7a4a8b3f2db329635d8e73a3"
+  "revision": "efde103c4b2a90aa6ca71dd76cb8e380bcebb2cb6156fe75a32a311f77d9ce70"
 }

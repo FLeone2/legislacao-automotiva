@@ -34,7 +34,10 @@ a specific revoking act. Never modify them merely to make a test pass.
 
 Active JSON/CSV, `data/site/**` and `data/requirements/catalog.json` are generated.
 `knowledge/**`, `data/process/knowledge-index.json`, `regulatory-coverage.json`
-and `regulatory-revision.json` are also generated. Edit their cited editorial
+and `regulatory-revision.json` are also generated. `texts/**` (full text of each act,
+`scripts/build_law_texts.py`) and `pdfs/text/**` are generated from the official copies
+in `pdfs/`, which only `scripts/fetch_official_pdfs.py` and
+`scripts/import_document_copies.py` write. A copy never changes a legal state. Edit their cited editorial
 inputs, then run `npm run build:data`; never rewrite a generated law card to
 change a legal state. For AI consultation use
 `.agents/skills/consulta-regulatoria/SKILL.md`. Monitoring observations and

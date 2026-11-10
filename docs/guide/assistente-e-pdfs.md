@@ -7,7 +7,7 @@ Protótipo (MVP) de 30/10/2026. Esta página explica o que foi ligado, como ativ
 A aba **Perguntar** (`/#ia`) responde perguntas usando somente o acervo publicado:
 
 1. O navegador procura, por palavras, nos 434 trechos do acervo (`data/ai/passages.json`): resumos das fichas, trechos de atos, orientações oficiais e fontes revisadas.
-2. Quando um ato tem cópia do PDF oficial, o navegador também procura dentro do texto desse PDF e separa a melhor página.
+2. Quando um ato tem cópia do PDF oficial, o navegador também procura dentro do texto desse PDF e dos anexos publicados em arquivo separado, e separa o melhor trecho de cada arquivo.
 3. Os trechos escolhidos (no máximo 8) vão para `functions/api/ask.js`, uma Pages Function do Cloudflare. Ela chama o **Workers AI**, que roda dentro do Cloudflare: não existe chave de API no navegador.
 4. A resposta cita os trechos com números `[n]`. Cada trecho mostra a etapa (ambiental, trânsito, sua responsabilidade ou fornecedor), o tipo de evidência e os links para o PDF e a fonte oficial.
 
@@ -43,6 +43,21 @@ A chave fica só no servidor do Cloudflare; o navegador nunca a recebe. No plano
 - Quando a fonte oficial é uma página HTML, um navegador a imprime em PDF. O manifesto marca a origem como `html_printed`.
 - Normas técnicas (ABNT/NBR/ISO) nunca são copiadas: não são atos oficiais de domínio público.
 - A cópia é para leitura. Ela não altera situação jurídica, profundidade de revisão nem aplicabilidade registradas.
+- No gov.br, um endereço terminado em `.pdf` abre uma página do portal sobre o arquivo. O robô busca o arquivo em `/@@display-file/file`.
+- Páginas que não são o ato são recusadas, não guardadas: página de informações do arquivo, aviso de manutenção, verificação anti-robô, acesso negado, perguntas frequentes e páginas de índice (inclusive o Portal IQ do Inmetro).
+- Anexos publicados em arquivo separado ficam em `annexes` no manifesto, por ato. `items` continua tendo uma entrada por ato.
+- `pdfs/faltantes.csv` lista o que não foi obtido, com o endereço oficial e o motivo, para coleta manual.
+- O texto é extraído com o Poppler (`pdftotext`); o pypdf é a alternativa quando ele não está instalado. Páginas digitalizadas ficam sem texto até passarem por OCR.
+
+Comandos sem acesso à rede:
+
+- `python scripts/fetch_official_pdfs.py --revalidate`: reaplica as regras de recusa às cópias guardadas.
+- `python scripts/fetch_official_pdfs.py --reextract`: extrai de novo o texto dos PDFs guardados.
+- `python scripts/import_document_copies.py --package PASTA --label "origem"`: importa PDFs oficiais de um pacote de pesquisa que registre endereço, data e SHA-256 de cada arquivo. Só entra arquivo cujo hash confere, e uma cópia do robô nunca é substituída.
+
+## Texto completo das leis
+
+`scripts/build_law_texts.py` gera `texts/<ato>.md` para cada ato publicado, a partir da cópia em `pdfs/` ou, na falta dela, do texto oficial já arquivado em `data/*/sources`. Cada arquivo tem âncora por artigo, parágrafo e anexo (`art-2`, `art-2-p1`, `anexo-iii`) e registra endereço, data e SHA-256 da origem. Um ato sem cópia diz isso e aponta a fonte oficial. `texts/index.json` resume quais atos têm texto completo. Os arquivos são gerados por `npm run build:data` e conferidos por `npm run check:knowledge`; não devem ser editados à mão.
 
 O ambiente de desenvolvimento não acessa os sites do governo. Por isso a cópia roda no GitHub Actions, no fluxo **Official PDF copies**. Ele roda todo dia 3 de cada mês e também pode ser iniciado à mão. Ao terminar, abre um PR com os PDFs novos para revisão.
 

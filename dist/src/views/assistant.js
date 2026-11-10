@@ -141,48 +141,65 @@ const Assistant = (() => {
     return { chosen, related, terms: all };
   }
 
+  async function pdfPages(path) {
+    if (typeof path !== 'string' || !/^pdfs\/text\/[\w.-]+\.json$/.test(path)) return [];
+    if (!pdfTexts.has(path)) {
+      try {
+        const response = await fetch(path);
+        pdfTexts.set(path, response.ok ? (await response.json()).pages || [] : []);
+      } catch {
+        pdfTexts.set(path, []);
+      }
+    }
+    return pdfTexts.get(path);
+  }
+
+  // Best window of each official file: the act and each separately published annex.
+  // The strongest windows come first, whatever the act.
   async function pdfWindows(actIds, terms) {
     const results = [];
     for (const actId of actIds) {
       const act = index.acts.get(actId);
-      if (!act?.pdfText || !/^pdfs\/text\/[\w.-]+\.json$/.test(act.pdfText)) continue;
-      let pages = pdfTexts.get(actId);
-      if (!pages) {
-        try {
-          const response = await fetch(act.pdfText);
-          if (!response.ok) continue;
-          pages = (await response.json()).pages || [];
-          pdfTexts.set(actId, pages);
-        } catch {
-          continue;
-        }
-      }
-      let best = null;
-      pages.forEach((page, pageIndex) => {
-        for (let start = 0; start < page.length; start += 900) {
-          const text = page.slice(start, start + 1800);
-          const words = tokens(text);
-          const tf = new Map();
-          for (const word of words) tf.set(word, (tf.get(word) || 0) + 1);
-          const score = bm25(tf, words.length, terms, 260);
-          if (!best || score > best.score) best = { score, text, page: pageIndex + 1 };
-        }
-      });
-      if (best?.score > 0)
-        results.push({
-          id: `${actId}:pdf:${best.page}`,
-          actId,
-          agency: act.agency,
-          device: `PDF, página ${best.page}`,
-          kind: 'official_pdf_text',
-          kindLabel: 'Texto do PDF oficial',
-          stage: act.stage,
-          text: best.text.replace(/\s+/g, ' ').trim(),
-          title: act.title,
-          url: act.url,
+      if (!act) continue;
+      const annexes = act.annexes || [];
+      const documents = [
+        { text: act.pdfText, label: 'PDF' },
+        ...annexes.map((annex, i) => ({
+          text: annex.text,
+          label: (annexes.length > 1 ? `Anexos, arquivo ${i + 1}` : 'Anexos') + ' (PDF)',
+        })),
+      ];
+      for (const document of documents) {
+        let best = null;
+        (await pdfPages(document.text)).forEach((page, pageIndex) => {
+          for (let start = 0; start < page.length; start += 900) {
+            const text = page.slice(start, start + 1800);
+            const words = tokens(text);
+            const tf = new Map();
+            for (const word of words) tf.set(word, (tf.get(word) || 0) + 1);
+            const score = bm25(tf, words.length, terms, 260);
+            if (!best || score > best.score) best = { score, text, page: pageIndex + 1 };
+          }
         });
+        if (best?.score > 0)
+          results.push({
+            score: best.score,
+            passage: {
+              id: `${actId}:pdf:${document.label}:${best.page}`,
+              actId,
+              agency: act.agency,
+              device: `${document.label}, página ${best.page}`,
+              kind: 'official_pdf_text',
+              kindLabel: 'Texto do PDF oficial',
+              stage: act.stage,
+              text: best.text.replace(/\s+/g, ' ').trim(),
+              title: act.title,
+              url: act.url,
+            },
+          });
+      }
     }
-    return results;
+    return results.sort((x, y) => y.score - x.score).map((item) => item.passage);
   }
 
   async function loadIndex() {

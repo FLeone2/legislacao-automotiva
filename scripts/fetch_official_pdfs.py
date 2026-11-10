@@ -216,9 +216,9 @@ def pdf_text(data):
 
 def reextract(items, annexes):
     """Extract the text of the stored PDF files again, without network access."""
-    entries = [(act_id, item) for act_id, item in items.items()]
-    entries += [(act_id, entry) for act_id, rows in annexes.items() for entry in rows]
-    for act_id, entry in entries:
+    entries = list(items.values())
+    entries += [entry for rows in annexes.values() for entry in rows]
+    for entry in entries:
         path = ROOT / entry["file"]
         if entry.get("origin") == "html_printed" or not path.exists():
             continue

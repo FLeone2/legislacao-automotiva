@@ -6,7 +6,6 @@ import gzip
 import json
 import re
 from collections import Counter
-from pathlib import Path
 
 from map_contran import (
     ROOT,

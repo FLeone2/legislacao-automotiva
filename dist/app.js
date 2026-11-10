@@ -47,48 +47,12 @@ function renderRelated() {
       )
       .join('') || '<p class="scope-note">Nenhum documento associado a este componente.</p>';
 }
-function flowStrip() {
-  return `<section class="flow-strip"><div class="section-heading"><h2>Fluxo de homologação</h2><span class="pill">Mapa de consulta</span></div><div class="steps">${[
-    [
-      'Perfil do veículo',
-      'Categoria, motorização, configuração e uso pretendido.',
-      'PERFIL',
-      'enquadramento',
-    ],
-    [
-      'Requisitos e ensaios',
-      'Consulte segurança, emissões e conformidade de componentes.',
-      'IBAMA · INMETRO',
-      'componentes',
-    ],
-    [
-      'Homologação',
-      'Procedimentos e documentos do processo de homologação.',
-      'SENATRAN',
-      'homologacao-cat',
-    ],
-    [
-      'Eficiência e incentivos',
-      'Enquadramento nos requisitos e instrumentos do programa.',
-      'MOVER / MDIC',
-      'mover',
-    ],
-  ]
-    .map(
-      (s, i) =>
-        `<button class="step" data-flow="${s[3]}"><b><span class="number">${i + 1}</span>${s[0]}</b><p>${s[1]}</p><span class="tag ${i === 3 ? 'purple' : ''}">${s[2]}</span></button>`,
-    )
-    .join('')}</div></section>`;
-}
 function groupFor(id) {
   return catalog.metadata.hierarchy.find((g) => g.id === id.split('/')[0]);
 }
 function systemLabel(id) {
   const g = groupFor(id);
   return g?.children.find((c) => c.id === id)?.label || g?.label || id;
-}
-function systemCount(id) {
-  return catalogRecords(catalog).filter((r) => componentMatches(r, id)).length;
 }
 
 function renderUpdates() {
