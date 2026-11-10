@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "pdfs"
 MANIFEST = OUTPUT / "manifest.json"
 MAX_BYTES = 24 * 1024 * 1024  # Cloudflare Pages serves files up to 25 MiB.
-MAX_TEXT_CHARS_PER_PAGE = 12_000
+MAX_TEXT_CHARS_PER_PAGE = 60_000  # a dense DOU page has ~20 thousand characters
 USER_AGENT = (
     "legislacao-automotiva/1.0 (+https://github.com/FLeone2/legislacao-automotiva; "
     "copia de consulta de atos oficiais)"
@@ -178,6 +178,28 @@ def contran_annex_links(act_ids):
 
 
 def pdf_text(data):
+    """Text per page. Poppler (pdftotext) is preferred: it keeps ligatures such as
+    "ti"/"fi" that pypdf drops in several official PDFs. pypdf is the fallback."""
+    import shutil
+    import subprocess
+    import tempfile
+
+    if shutil.which("pdftotext"):
+        with tempfile.NamedTemporaryFile(suffix=".pdf") as handle:
+            handle.write(data)
+            handle.flush()
+            result = subprocess.run(
+                ["pdftotext", "-enc", "UTF-8", handle.name, "-"],
+                capture_output=True,
+                timeout=300,
+            )
+        if result.returncode == 0:
+            pages = result.stdout.decode("utf-8", "replace").split("\f")
+            if pages and not pages[-1].strip():
+                pages.pop()
+            if any(page.strip() for page in pages):
+                return [normalise(page)[:MAX_TEXT_CHARS_PER_PAGE] for page in pages]
+
     from io import BytesIO
     from pypdf import PdfReader
 
@@ -192,7 +214,32 @@ def pdf_text(data):
     return pages
 
 
+def reextract(items, annexes):
+    """Extract the text of the stored PDF files again, without network access."""
+    entries = [(act_id, item) for act_id, item in items.items()]
+    entries += [(act_id, entry) for act_id, rows in annexes.items() for entry in rows]
+    for act_id, entry in entries:
+        path = ROOT / entry["file"]
+        if entry.get("origin") == "html_printed" or not path.exists():
+            continue
+        pages = pdf_text(path.read_bytes())
+        text_path = ROOT / entry["text"]
+        stored = json.loads(text_path.read_text())
+        stored["pages"] = pages
+        write_if_changed(
+            text_path,
+            json.dumps(stored, ensure_ascii=False, separators=(",", ":")).encode(),
+        )
+        entry["pages"] = len(pages)
+        entry["textChars"] = sum(len(page) for page in pages)
+        if "textSha256" in entry:
+            entry["textSha256"] = hashlib.sha256(
+                json.dumps(pages, ensure_ascii=False).encode()
+            ).hexdigest()
+
+
 def normalise(text):
+    text = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]", "", text)
     text = text.replace(" ", " ")
     text = re.sub(r"[ \t]+", " ", text)
     text = re.sub(r"\n{3,}", "\n\n", text)
@@ -323,6 +370,11 @@ def main():
         "--no-browser", action="store_true", help="Não imprimir páginas HTML"
     )
     parser.add_argument(
+        "--reextract",
+        action="store_true",
+        help="Só extrair de novo o texto dos PDFs guardados, sem acessar a rede",
+    )
+    parser.add_argument(
         "--revalidate",
         action="store_true",
         help="Só reaplicar as regras às cópias guardadas, sem acessar a rede",
@@ -334,10 +386,13 @@ def main():
     failures = {}
     annexes = dict(previous.get("annexes", {}))
     annex_failures = {}
-    if args.revalidate:
+    if args.revalidate or args.reextract:
         failures = dict(previous.get("failures", {}))
         annex_failures = dict(previous.get("annexFailures", {}))
-        revalidate(items, failures)
+        if args.revalidate:
+            revalidate(items, failures)
+        if args.reextract:
+            reextract(items, annexes)
         save(items, failures, annexes, annex_failures, records())
         return 0
     today = date.today().isoformat()

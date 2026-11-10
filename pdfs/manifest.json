@@ -12,7 +12,7 @@
         "sha256": "ad5333ac4033a0cc448dd5abb883b902154d33a2dbded9b49579d6cf8fcd201f",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10042023_Anexo_v2.pdf",
         "text": "pdfs/text/contran-1004-2023--anexo-1.json",
-        "textChars": 198028
+        "textChars": 201372
       }
     ],
     "contran-798-2020": [
@@ -26,7 +26,7 @@
         "sha256": "3edc161ab90b9d3bfa49f891be32f05a95397a5e3966560b65e9695ec29cef3a",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7982020-anexoii.pdf",
         "text": "pdfs/text/contran-798-2020--anexo-1.json",
-        "textChars": 6141
+        "textChars": 6148
       }
     ],
     "contran-888-2021": [
@@ -40,7 +40,7 @@
         "sha256": "cf871d20fe54b66e722796455dcbf9cf909c83d9b0b9591c835860345f431964",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/AnexoIV_Resolucao8882021.pdf",
         "text": "pdfs/text/contran-888-2021--anexo-1.json",
-        "textChars": 2110
+        "textChars": 2138
       }
     ],
     "contran-910-2022": [
@@ -67,7 +67,7 @@
         "sha256": "13c96854d12abb336c5b9a5fbf822ff604963903e024720078a75f5f30f2a3d2",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9102022R.pdf",
         "text": "pdfs/text/contran-910-2022--complemento-5.json",
-        "textChars": 1153,
+        "textChars": 1156,
         "via": "Pacote de pesquisa de segurança de 02/11/2026 (PR #18)"
       }
     ],
@@ -82,7 +82,7 @@
         "sha256": "44dd978e9e64081a7af00f559e6299c6aba862d1b026f2255eb32ecefeaa131f",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9112022ANEXO.pdf",
         "text": "pdfs/text/contran-911-2022--anexo-1.json",
-        "textChars": 4675
+        "textChars": 4565
       }
     ],
     "contran-913-2022": [
@@ -96,7 +96,7 @@
         "sha256": "f770b1d0082501e4ada816630756cd6552d19f1b6164017273523e097ab9322d",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9132022ANEXO.pdf",
         "text": "pdfs/text/contran-913-2022--anexo-1.json",
-        "textChars": 43328
+        "textChars": 42470
       },
       {
         "bytes": 34855,
@@ -109,7 +109,7 @@
         "sha256": "e576a4f6579ec947a40ac8ff2dbbf58012cd997682fb51cdb348c46a4fffd370",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9132022R.pdf",
         "text": "pdfs/text/contran-913-2022--complemento-9.json",
-        "textChars": 485,
+        "textChars": 488,
         "via": "Pacote de pesquisa de segurança de 02/11/2026 (PR #18)"
       }
     ],
@@ -124,7 +124,7 @@
         "sha256": "add06bb009ce61c6f404daeef687b2ad09a14b45c4a7b308572cf185bb4ab0d2",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9162022ANEXO.pdf",
         "text": "pdfs/text/contran-916-2022--anexo-1.json",
-        "textChars": 54277
+        "textChars": 53044
       }
     ],
     "contran-917-2022": [
@@ -138,7 +138,7 @@
         "sha256": "23569b13eb88215efe3a28351db7e1e9a6b12da443031a5c8403eab31dceee44",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9172022ANEXO.pdf",
         "text": "pdfs/text/contran-917-2022--anexo-1.json",
-        "textChars": 730
+        "textChars": 695
       }
     ],
     "contran-924-2022": [
@@ -152,7 +152,7 @@
         "sha256": "09825c381aca7b249ea5dc1a3af2372f361086124a2980c4d4e70e47d9954174",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9242022ANEXO.pdf",
         "text": "pdfs/text/contran-924-2022--anexo-1.json",
-        "textChars": 127148
+        "textChars": 124272
       }
     ],
     "contran-927-2022": [
@@ -166,7 +166,7 @@
         "sha256": "cc6656e8e3b8910bb1de66c1ed2e1f6aa406b28f4369a36b5a7b0fd2f4e150bb",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9272022ANEXO.pdf",
         "text": "pdfs/text/contran-927-2022--anexo-1.json",
-        "textChars": 45273
+        "textChars": 44791
       }
     ],
     "contran-935-2022": [
@@ -180,7 +180,7 @@
         "sha256": "ca7dd4abd80bfd909e7ccdd7be1328613f63090d3de4935621e7349dbcda6fa6",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9352022ANEXO.pdf",
         "text": "pdfs/text/contran-935-2022--anexo-1.json",
-        "textChars": 11194
+        "textChars": 11050
       }
     ],
     "contran-936-2022": [
@@ -195,7 +195,7 @@
         "sha256": "d72efcf747ee3f3bec18968f0024b4bd7d18191f3dae78b5d0d5400fe7c114a6",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao9362022R.pdf",
         "text": "pdfs/text/contran-936-2022--complemento-2.json",
-        "textChars": 876,
+        "textChars": 884,
         "via": "Pacote de pesquisa de segurança de 02/11/2026 (PR #18)"
       }
     ],
@@ -210,7 +210,7 @@
         "sha256": "9969484120244fac50af91d1da2e6448841444b0b47c798cc1720a10c5fcd6a9",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9392022ANEXO.pdf",
         "text": "pdfs/text/contran-939-2022--anexo-1.json",
-        "textChars": 83381
+        "textChars": 81516
       }
     ],
     "contran-940-2022": [
@@ -224,7 +224,7 @@
         "sha256": "e2fcc5e2ef0023f1f6af7587be145fa6d7ab98a303580f48d856ff3a193c39bb",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9402022ANEXO.pdf",
         "text": "pdfs/text/contran-940-2022--anexo-1.json",
-        "textChars": 5552
+        "textChars": 5437
       }
     ],
     "contran-942-2022": [
@@ -238,7 +238,7 @@
         "sha256": "459e05bcbe01faeb8ca12fa06b6631d777ff7252c96d79011aa227702eab8693",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9422022ANEXO.pdf",
         "text": "pdfs/text/contran-942-2022--anexo-1.json",
-        "textChars": 5066
+        "textChars": 4901
       }
     ],
     "contran-943-2022": [
@@ -252,7 +252,7 @@
         "sha256": "a77eacd91fa9a4c9e8b2100b43eb5d0bc6c175f9d00e32fd5341088fd182af0e",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9432022ANEXO.pdf",
         "text": "pdfs/text/contran-943-2022--anexo-1.json",
-        "textChars": 10316
+        "textChars": 10098
       }
     ],
     "contran-944-2022": [
@@ -266,7 +266,7 @@
         "sha256": "53274078e6d7bb888e658134367b0944e4664842e27f49b9e428f98e5e696c7f",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9442022ANEXO.pdf",
         "text": "pdfs/text/contran-944-2022--anexo-1.json",
-        "textChars": 3813
+        "textChars": 3759
       }
     ],
     "contran-945-2022": [
@@ -280,7 +280,7 @@
         "sha256": "d44a8bd63ce9a3c4b0d7372efda789498cdce710d020d15b680d9506d014c692",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9452022ANEXO.pdf",
         "text": "pdfs/text/contran-945-2022--anexo-1.json",
-        "textChars": 7839
+        "textChars": 7683
       }
     ],
     "contran-948-2022": [
@@ -294,7 +294,7 @@
         "sha256": "1b70adb8ff1480958cb590cf670c0317155cdfdfa0a5a408013dd8f62f4bbb10",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9482022ANEXO.pdf",
         "text": "pdfs/text/contran-948-2022--anexo-1.json",
-        "textChars": 13229
+        "textChars": 13021
       }
     ],
     "contran-949-2022": [
@@ -308,7 +308,7 @@
         "sha256": "b056bf1dd3168abcdae9319ccb37a5956508da991fa19d960c4061a0d4c721b4",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9492022ANEXO.pdf",
         "text": "pdfs/text/contran-949-2022--anexo-1.json",
-        "textChars": 217508
+        "textChars": 214891
       },
       {
         "bytes": 60630,
@@ -321,7 +321,7 @@
         "sha256": "8215fd7728296ab0e5e9a7d181f3f0c19499596a9921a7fcd3ee7c72239fc172",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9492022R.pdf",
         "text": "pdfs/text/contran-949-2022--complemento-4.json",
-        "textChars": 909,
+        "textChars": 917,
         "via": "Pacote de pesquisa de segurança de 02/11/2026 (PR #18)"
       }
     ],
@@ -336,7 +336,7 @@
         "sha256": "0b09a8e6b4554d7046b9a9a01c79189e1b1f98344b66dea8ac2cb5c9adc0a905",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9512022ANEXO.pdf",
         "text": "pdfs/text/contran-951-2022--anexo-1.json",
-        "textChars": 5353
+        "textChars": 5266
       }
     ],
     "contran-952-2022": [
@@ -350,7 +350,7 @@
         "sha256": "55b741df4f53ef6cc6065cfa353ed12d4e7f868fb213d01b11522f217e0b41bc",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9522022ANEXO.pdf",
         "text": "pdfs/text/contran-952-2022--anexo-1.json",
-        "textChars": 17766
+        "textChars": 17529
       }
     ],
     "contran-953-2022": [
@@ -364,7 +364,7 @@
         "sha256": "599cf12d05a87318ace19fd65e94e14691cfffd8b132a7067bf3fd7a51510d09",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9532022ANEXO.pdf",
         "text": "pdfs/text/contran-953-2022--anexo-1.json",
-        "textChars": 10832
+        "textChars": 10700
       }
     ],
     "contran-954-2022": [
@@ -392,7 +392,7 @@
         "sha256": "2536cc96b75322901a3dd1d1da56efacc22a0db24abe2d243e5bb8551421a329",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9552022ANEXO.pdf",
         "text": "pdfs/text/contran-955-2022--anexo-1.json",
-        "textChars": 1094
+        "textChars": 1054
       }
     ],
     "contran-956-2022": [
@@ -406,7 +406,7 @@
         "sha256": "a5c2a1d0d7e0d2aafeca735c77ce8ec90f1ce4407b287529b3e5b91987b59f0d",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9562022ANEXO.pdf",
         "text": "pdfs/text/contran-956-2022--anexo-1.json",
-        "textChars": 4869
+        "textChars": 4793
       }
     ],
     "contran-957-2022": [
@@ -420,7 +420,7 @@
         "sha256": "c7de93301ab81f4a40107a793bca20ec1245bf0c45058fd9f9f953deb0cfe8b6",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9572022ANEXOS.pdf",
         "text": "pdfs/text/contran-957-2022--anexo-1.json",
-        "textChars": 17097
+        "textChars": 16488
       }
     ],
     "contran-958-2022": [
@@ -434,7 +434,7 @@
         "sha256": "63f1e3369553b74d24038dff2b24e5a42a0cd68098debe2fcbe3693c96af761f",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9582022ANEXOS.pdf",
         "text": "pdfs/text/contran-958-2022--anexo-1.json",
-        "textChars": 28398
+        "textChars": 27928
       }
     ],
     "contran-959-2022": [
@@ -448,7 +448,7 @@
         "sha256": "b6c76c2119df34357fd2c9c5b2426fae4b295146f1fec7f81b67a1ec7a3a39d5",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9592022ANEXOS.pdf",
         "text": "pdfs/text/contran-959-2022--anexo-1.json",
-        "textChars": 127647
+        "textChars": 125321
       }
     ],
     "contran-960-2022": [
@@ -462,7 +462,7 @@
         "sha256": "fe175072835e66695822b596c202f052ccc1bcedbd002e8125ed330a481f43e4",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9602022ANEXOS.pdf",
         "text": "pdfs/text/contran-960-2022--anexo-1.json",
-        "textChars": 794
+        "textChars": 746
       }
     ],
     "contran-961-2022": [
@@ -476,7 +476,7 @@
         "sha256": "cccf7b3c78de774b8d6ef1c6800691ffba34086b87c49def026f0a72d0f113f6",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9612022ANEXOS.pdf",
         "text": "pdfs/text/contran-961-2022--anexo-1.json",
-        "textChars": 6217
+        "textChars": 6026
       }
     ],
     "contran-963-2022": [
@@ -490,7 +490,7 @@
         "sha256": "76387f5db73f68e22763e830254976f8d9f2a3572f5ca05fc6d4c4c40549953f",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9632022ANEXOS.pdf",
         "text": "pdfs/text/contran-963-2022--anexo-1.json",
-        "textChars": 5478
+        "textChars": 5371
       }
     ],
     "contran-965-2022": [
@@ -504,7 +504,7 @@
         "sha256": "875dab6fbff38b9f16e850f5a84d3b770fc749ad5449831ce78d50e8afe78784",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao9652022anexos.pdf",
         "text": "pdfs/text/contran-965-2022--anexo-1.json",
-        "textChars": 10744
+        "textChars": 10278
       }
     ],
     "contran-966-2022": [
@@ -518,7 +518,7 @@
         "sha256": "3c126c15779713d9fe1a5ab71bc7e4304183d2b3bfefafa55f2ef82313595300",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9662022ANEXOS.pdf",
         "text": "pdfs/text/contran-966-2022--anexo-1.json",
-        "textChars": 89864
+        "textChars": 87501
       }
     ],
     "contran-967-2022": [
@@ -532,7 +532,7 @@
         "sha256": "6fec318da043e9aa66973083b5d38aa354cfc8d38e71abd5c44e1113a7e06c67",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9672022ANEXOS.pdf",
         "text": "pdfs/text/contran-967-2022--anexo-1.json",
-        "textChars": 1646
+        "textChars": 1588
       }
     ],
     "contran-968-2022": [
@@ -546,7 +546,7 @@
         "sha256": "a4cb5658c8a2ae95fba4a1ba37ab0990cef0ed9bfe6969ee466bedf87d296f7c",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao9682022anexos.pdf",
         "text": "pdfs/text/contran-968-2022--anexo-1.json",
-        "textChars": 5679
+        "textChars": 5710
       }
     ],
     "contran-969-2022": [
@@ -560,7 +560,7 @@
         "sha256": "dcb7f33082f1665869e5a99bebf2e784ce6c72390f430a64604e5665a1f5893b",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao9692022anexos.pdf",
         "text": "pdfs/text/contran-969-2022--anexo-1.json",
-        "textChars": 26552
+        "textChars": 26948
       }
     ],
     "contran-970-2022": [
@@ -574,7 +574,7 @@
         "sha256": "2f09eb43aad2045d34eb922f016245393434a808f95a87543fb1b5d7d52c8435",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao9702022anexos_i-xvi.pdf",
         "text": "pdfs/text/contran-970-2022--anexo-1.json",
-        "textChars": 439208
+        "textChars": 445778
       },
       {
         "bytes": 1296659,
@@ -586,7 +586,7 @@
         "sha256": "351f9cbc98e35bec5c5177b78dd552f23f260df98dd0f1f73655dcfb31aabdae",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao9702022anexos_xvii-xxi.pdf",
         "text": "pdfs/text/contran-970-2022--anexo-2.json",
-        "textChars": 127311
+        "textChars": 129049
       }
     ],
     "contran-993-2023": [
@@ -600,7 +600,7 @@
         "sha256": "8fb9cb386e38840fd10a7791ac6fd307ce9a6bc433dba9cc6901a0eb47fad571",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9932023Anexo.pdf",
         "text": "pdfs/text/contran-993-2023--anexo-1.json",
-        "textChars": 112056
+        "textChars": 100042
       }
     ],
     "contran-996-2023": [
@@ -614,7 +614,7 @@
         "sha256": "dd5ee9f71beb958a5661718e0f3e274ea8379c589f62dbb361132e966aa0b324",
         "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9962023Anexo.pdf",
         "text": "pdfs/text/contran-996-2023--anexo-1.json",
-        "textChars": 6946
+        "textChars": 6764
       }
     ]
   },
@@ -717,8 +717,8 @@
       "sha256": "8166b042a05234fa7f968aa281addc2be33c9dee6525b755852523c523dc0a7d",
       "sourceUrl": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=767",
       "text": "pdfs/text/conama-490-2018.json",
-      "textChars": 29525,
-      "textSha256": "16f6f20562ec66747f2f59d45e2d7431cd40396e7077923d8becee55a0a04db5",
+      "textChars": 28929,
+      "textSha256": "021823c6d49fa790f9f6cf764bb2a5baad3ba8bbb519ab94e22d686e53e307ae",
       "title": "Resolução CONAMA nº 490/2018"
     },
     "conama-492-2018": {
@@ -732,8 +732,8 @@
       "sha256": "6145893406a02142fc3f7d78ec4cd188e6669e35dcfe903f8ebb05107ff088e2",
       "sourceUrl": "https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=765",
       "text": "pdfs/text/conama-492-2018.json",
-      "textChars": 37453,
-      "textSha256": "b3e80327cb5c4698be6e656bf7b680a63635a3e0d0f51e73cc1174936881cd59",
+      "textChars": 36756,
+      "textSha256": "9f02c6b498bd6ad377becc24b8dfdc4fc1e88d8f261c7ad04f386c7d07f0feb6",
       "title": "Resolução CONAMA nº 492/2018"
     },
     "contran-1002-2023": {
@@ -747,8 +747,8 @@
       "sha256": "f678a7469c32e4ed5d8143717e85c77026477bcdbad04fa61902c06d139a1207",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10022023.pdf",
       "text": "pdfs/text/contran-1002-2023.json",
-      "textChars": 1872,
-      "textSha256": "deefb4d1f77ee0ce4ebac0dfdaa8c8611f4fc11ca09e473e9837b8dabffd22ca",
+      "textChars": 1885,
+      "textSha256": "ea9de8bc8f83f6c14644eda9dc6034449c69d9257e288da4076c87843773f37f",
       "title": "Resolução CONTRAN 1002/2023"
     },
     "contran-1003-2023": {
@@ -762,8 +762,8 @@
       "sha256": "8e1c0e18924680565fff17585acda791d88607d46193227175be18d37950640d",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10032023.pdf",
       "text": "pdfs/text/contran-1003-2023.json",
-      "textChars": 1535,
-      "textSha256": "d831a70eea3ffa11da4c140c75a412d8da1dd7a4d23c38cb49c611d03d40e0d7",
+      "textChars": 1548,
+      "textSha256": "b446d1e4caff9d3652ecb5408506abcedae2d9efb1fcfa07e5d7baf3ca8d865c",
       "title": "Resolução CONTRAN 1003/2023"
     },
     "contran-1004-2023": {
@@ -777,8 +777,8 @@
       "sha256": "3939f616980d22d996b54159e4bd3696f688231d97e63df132b3bfda7ca8f7ff",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10042023.pdf",
       "text": "pdfs/text/contran-1004-2023.json",
-      "textChars": 6831,
-      "textSha256": "8caf1c4e823a27aa8ad64711bd399c151f7a6ccb9c287ecd4631bc21a0b46d35",
+      "textChars": 6850,
+      "textSha256": "1c482fc6234538a5fe3a3b7272369e6bed721572f81c78a08df3b12995e1486c",
       "title": "Resolução CONTRAN 1004/2023"
     },
     "contran-1005-2024": {
@@ -792,8 +792,8 @@
       "sha256": "f6ca91db8cab012af92eceaff37a88070a754c51892ed063f2d9fa73c1bf7b35",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10052024.pdf",
       "text": "pdfs/text/contran-1005-2024.json",
-      "textChars": 2287,
-      "textSha256": "625991a1be5d95e650927584bc4e68ed71c1cca1732ee2ae9f19facec0b4f168",
+      "textChars": 2300,
+      "textSha256": "98f189972337499d0d61dcd84dfe9e6fff5977141f3cc8e05bbad30e2247a73c",
       "title": "Resolução CONTRAN 1005/2024"
     },
     "contran-1006-2024": {
@@ -807,8 +807,8 @@
       "sha256": "cf1f0062b96826ddd5d8dc01896c48f707acaa66ed1f12ad60f5750b591e61ca",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10062024.pdf",
       "text": "pdfs/text/contran-1006-2024.json",
-      "textChars": 2492,
-      "textSha256": "b0e7b7016d04281ecc57064bce868a3ff71a209b9c0f619e8ed77f2b3c91c37d",
+      "textChars": 2507,
+      "textSha256": "718c6dc6a49d14e3a9e1e8c20c1a51e4aaf46357e369fb58e8a5433771cff9c6",
       "title": "Resolução CONTRAN 1006/2024"
     },
     "contran-1007-2024": {
@@ -822,8 +822,8 @@
       "sha256": "57f980f5f150c46574db974e252b79d37fa1e5b31703e7fdce19f96c2da78d95",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10072024.pdf",
       "text": "pdfs/text/contran-1007-2024.json",
-      "textChars": 2401,
-      "textSha256": "87f9bc9406eff10bbf904764534c4dc0ce88720a35aea27dc378714a0477925a",
+      "textChars": 2413,
+      "textSha256": "cf71d89bd5458394f4029d61bba6af76066291096086bbf206aa9b5c09cdf63b",
       "title": "Resolução CONTRAN 1007/2024"
     },
     "contran-1009-2024": {
@@ -837,8 +837,8 @@
       "sha256": "2c19112a82bf6357dc8710dd5c00401b721a70022e7dd8386a264814e261a9a1",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10092024.pdf",
       "text": "pdfs/text/contran-1009-2024.json",
-      "textChars": 8201,
-      "textSha256": "c14d4e022f3fb777c752c6b75b7de5448f8c3c7e88e3626f529bb63b6810dad9",
+      "textChars": 8219,
+      "textSha256": "5167f3114bf230ffb1458f47207d8f72260b1ec70231420c6b9d05c6b5932095",
       "title": "Resolução CONTRAN 1009/2024"
     },
     "contran-1010-2024": {
@@ -852,8 +852,8 @@
       "sha256": "12eb4684a6886b63584ccb3609ff890b3bc8a07a67646afb59d1786f67683fb6",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10102024.pdf",
       "text": "pdfs/text/contran-1010-2024.json",
-      "textChars": 1592,
-      "textSha256": "6e68d1ec6c9085841a6e09bbb192b020501cd01710e1cfc2b3cfd76ae5fb5950",
+      "textChars": 1606,
+      "textSha256": "edbed62237794fa8e3dd78ab29f78920ff2a5f260a6459573ec51991021f6754",
       "title": "Resolução CONTRAN 1010/2024"
     },
     "contran-1012-2024": {
@@ -867,8 +867,8 @@
       "sha256": "d6ff6c688bdc5126ca8644f3dfe80181c36f8b310ae53808c1102abc1e71715b",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10122024.pdf",
       "text": "pdfs/text/contran-1012-2024.json",
-      "textChars": 7012,
-      "textSha256": "50b5901926aebaedaef2905c7e3f77d642c9fdf1a4f0061a3f7c9d8b508ef0f5",
+      "textChars": 7054,
+      "textSha256": "4c1643c6d6ed518773e67aa39df330a3e58baf98b85a8ba9fbeab9648e11254c",
       "title": "Resolução CONTRAN 1012/2024"
     },
     "contran-1013-2024": {
@@ -882,8 +882,8 @@
       "sha256": "520d69ed12c645de1793e84651906059544d08a264181de8380ff0bacd246ca8",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10132024.pdf",
       "text": "pdfs/text/contran-1013-2024.json",
-      "textChars": 17789,
-      "textSha256": "60e75e8e35c52ddba866f8b673564d708fb50a6b75ecaed0b28984861b92e93e",
+      "textChars": 17872,
+      "textSha256": "8fa3f593ad3a0a9e4d245c99af90a053cf3255e6f155f47cabc908ad4873b02b",
       "title": "Resolução CONTRAN 1013/2024"
     },
     "contran-1015-2024": {
@@ -897,8 +897,8 @@
       "sha256": "bd7b0f6ce3d20cf067a3ceacbdafe8a66e4d6032b9348bcb728722cf9eec788a",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10152024.pdf",
       "text": "pdfs/text/contran-1015-2024.json",
-      "textChars": 3140,
-      "textSha256": "1e1eb6bce4d6e78d663bb7fec58979bbaaa6fd21ed48a9ad4d084c859a65dccb",
+      "textChars": 3159,
+      "textSha256": "e17e24d5ba22fbf43f3d1d08ef07683b1a3fcd891ba1455434a09fbd186e1e55",
       "title": "Resolução CONTRAN 1015/2024"
     },
     "contran-1016-2024": {
@@ -912,8 +912,8 @@
       "sha256": "5a4f814731bc8a5ef82fd070094550d3bb9e7cedfa0d996462b63ffd664005a2",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10162024.pdf",
       "text": "pdfs/text/contran-1016-2024.json",
-      "textChars": 14172,
-      "textSha256": "8020b2de02632e3c7cb0e7408cfa9371ace99b65f8375c6846126027eecf1a74",
+      "textChars": 14228,
+      "textSha256": "9f3cdeb8221a6a65734c3ba6c3bd348b45d439fff2eb63da6a8d4c756fbb6f04",
       "title": "Resolução CONTRAN 1016/2024"
     },
     "contran-1017-2024": {
@@ -927,8 +927,8 @@
       "sha256": "e5b45f660c1ef3f396d9ef91dbed06ffe735dcf0a45934844973e1b7d53d2ab5",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10172024.pdf",
       "text": "pdfs/text/contran-1017-2024.json",
-      "textChars": 24239,
-      "textSha256": "6df84610eaddae99fa9e5a0201b606fe0fadc5c9975cf1878c4b07e1f9e73737",
+      "textChars": 24354,
+      "textSha256": "9aeb08d14d4ad6cb18af22379ed3c8ce3586820477dfa512772b16b452d9f73d",
       "title": "Resolução CONTRAN 1017/2024"
     },
     "contran-1018-2025": {
@@ -942,8 +942,8 @@
       "sha256": "bb12c6512203b0bffdd4bd083e98bfcec135a8cdae23bbf85572aff8b674824b",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10182025.pdf",
       "text": "pdfs/text/contran-1018-2025.json",
-      "textChars": 15902,
-      "textSha256": "4b7972382c0b23b4de183f67e3f64691abc00b4ff9fdc4904b53de838b728c84",
+      "textChars": 15995,
+      "textSha256": "070563bab7baf8200d5e762db2e1e7ef001f64c9c903794610a70383100e66cb",
       "title": "Resolução CONTRAN 1018/2025"
     },
     "contran-1019-2025": {
@@ -957,8 +957,8 @@
       "sha256": "1ba39e773e92eb205e0b0b2ef73d0d09830d006a77f2feade0b5e4560c2e4c3c",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10192025.pdf",
       "text": "pdfs/text/contran-1019-2025.json",
-      "textChars": 22348,
-      "textSha256": "eb53b51f78b72971a7b3769dc2eaaa0ae7fa34848080902c33cc395293c4e961",
+      "textChars": 22410,
+      "textSha256": "e7aaed83aaf11263038c5c8b68bc9da23bc957bc9de06f38c1cc6f6a8570a09c",
       "title": "Resolução CONTRAN 1019/2025"
     },
     "contran-1020-2025": {
@@ -972,8 +972,8 @@
       "sha256": "b2bf0e60ba7e04b15adbc0199ad44cda4c089fec37bfbcf24f8874e61d7c65c0",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10202025.pdf",
       "text": "pdfs/text/contran-1020-2025.json",
-      "textChars": 112610,
-      "textSha256": "c2b1cf7af0d7ce92d19d3641e882524882e2056bba8d39a8c110a1e02bd8383d",
+      "textChars": 112920,
+      "textSha256": "2c880468a7fd73e73b2edf7b98931c1242583d3c9252d3df55b47499419ed4fa",
       "title": "Resolução CONTRAN 1020/2025"
     },
     "contran-1021-2026": {
@@ -987,8 +987,8 @@
       "sha256": "066b2d37c42826a88da8605c347ceb1647a8f182110dc759d43e02b1af5fe9de",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10212026.pdf",
       "text": "pdfs/text/contran-1021-2026.json",
-      "textChars": 4854,
-      "textSha256": "a3a54c1240ffe5f262e0a91767a2d7cada3d703040efe07478ca251ec0f53a43",
+      "textChars": 4883,
+      "textSha256": "a629862ded80fad20e3186c5251b20d034973b10b5b18d472d606dcd18762a22",
       "title": "Resolução CONTRAN 1021/2026"
     },
     "contran-1022-2026": {
@@ -1002,8 +1002,8 @@
       "sha256": "2547703494199728cee582c9f5717d83599c8ed610494f5c3942cea23779a7d2",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao10222026c.pdf",
       "text": "pdfs/text/contran-1022-2026.json",
-      "textChars": 21951,
-      "textSha256": "3b650486edc7cdd08464ea3bf0deb385ecbe30c47eada898a36935867a5d03ce",
+      "textChars": 22061,
+      "textSha256": "969127f588f814327b6c8a78c0e4c053d5f3446c2543941145ed7b972d1d8e8a",
       "title": "Resolução CONTRAN 1022/2026"
     },
     "contran-1023-2026": {
@@ -1017,8 +1017,8 @@
       "sha256": "24f8d7ad7cd934041db4b1f1d7a2c9c97880f1a525378cf150285831c6c3f89d",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao10232026c.pdf",
       "text": "pdfs/text/contran-1023-2026.json",
-      "textChars": 20595,
-      "textSha256": "903f5ce1b81c58835387769a7d5874a4d96b23c4cc54acb4dfdd67b2ef224cc3",
+      "textChars": 20642,
+      "textSha256": "a4074ca9bb3112362cd1b29d1f0bf3732d91e8421c671b27e79a8e0bde4d6977",
       "title": "Resolução CONTRAN 1023/2026"
     },
     "contran-1024-2026": {
@@ -1032,8 +1032,8 @@
       "sha256": "b79ac6eb4b82407b4cf7b881c3736e81b0e2480ef975eca7fbb4b9b7010337b7",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao10242026c.pdf",
       "text": "pdfs/text/contran-1024-2026.json",
-      "textChars": 2702,
-      "textSha256": "87254022367d6f0e7154adcae2ce6f5492003306d512265d2cb4956da6979550",
+      "textChars": 2714,
+      "textSha256": "9b99226802becd570e6212a52db38fbd932165425b6f241dab560564da910b5f",
       "title": "Resolução CONTRAN 1024/2026"
     },
     "contran-1025-2026": {
@@ -1047,8 +1047,8 @@
       "sha256": "fa6ffc0346400e0ac5760bc663e0d6efc5e466dfc5819701f772db1754c09f9c",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao10252026c.pdf",
       "text": "pdfs/text/contran-1025-2026.json",
-      "textChars": 43785,
-      "textSha256": "f9f6860ac4dbd201c96126f35a1eeefa1fdd2dc21379dba3d7c45d7b2936c5b3",
+      "textChars": 43906,
+      "textSha256": "5af554e2d9b12e128a571425496e3f31f407412283a97e2fccc78a7aa3c6f276",
       "title": "Resolução CONTRAN 1025/2026"
     },
     "contran-1026-2026": {
@@ -1062,8 +1062,8 @@
       "sha256": "ecf1e0b3a0ac10fda53170ff8db2acfc25aca4e613d2fbfe9af2089865f274ea",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao10262026n.pdf",
       "text": "pdfs/text/contran-1026-2026.json",
-      "textChars": 55157,
-      "textSha256": "764f662046b3f089f0b9dbbe14fa1ff4a752968eeeabea88a7d3d12fc9f8acc1",
+      "textChars": 55332,
+      "textSha256": "bc09d914aedd10467c973512bac803e27d4f29702cdbbc932afc3818af394cd9",
       "title": "Resolução CONTRAN 1026/2026"
     },
     "contran-1027-2026": {
@@ -1077,8 +1077,8 @@
       "sha256": "ff396591cb2c185ba6e918241799cf84e2b78269094a7a5228222282b27efc75",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao10272026.pdf",
       "text": "pdfs/text/contran-1027-2026.json",
-      "textChars": 101302,
-      "textSha256": "89287932b47651bc8f5f96c0d28ba9adbb73adeefff04a36e3fd9cfda3495d6c",
+      "textChars": 101559,
+      "textSha256": "d21479c4406739811a114d8e89fdccb70c31d7480c21931f90f3bf59466e384c",
       "title": "Resolução CONTRAN 1027/2026"
     },
     "contran-1028-2026": {
@@ -1092,8 +1092,8 @@
       "sha256": "cd3ca7475c7a2bfbbe7307e3838fadddf3068df48335a7dc93c16d72b252f10f",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao10282026.pdf",
       "text": "pdfs/text/contran-1028-2026.json",
-      "textChars": 6422,
-      "textSha256": "95fe295579a9898085c16fd0a58c214a33314fb0732ae3dabd4cfdadb3f77e3f",
+      "textChars": 6452,
+      "textSha256": "4fea768cd14f6c49b000cfe3ac4be3b996a7546a4673e1e8b013e890c6f42778",
       "title": "Resolução CONTRAN 1028/2026"
     },
     "contran-1030-2026": {
@@ -1107,8 +1107,8 @@
       "sha256": "859f258a9fb32876ae829523a7fa6695928cffbfb7797a947c3a22faebe342f9",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao10302026.pdf",
       "text": "pdfs/text/contran-1030-2026.json",
-      "textChars": 1935,
-      "textSha256": "5364496c814d2a544b6d15baf35d6056e3cd5b7632fb27c5e7e3a5c984d25921",
+      "textChars": 1948,
+      "textSha256": "97f3146a28c0b0d01b07f21e1e6086debe6178cff55d4a94e7e52b1f182b64cc",
       "title": "Resolução CONTRAN 1030/2026"
     },
     "contran-1031-2026": {
@@ -1122,8 +1122,8 @@
       "sha256": "9f6d8d8c6e7b7996fce21326a229c9b262d45178907fff7bd9dd159ca5ba9b5a",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao10312026.pdf",
       "text": "pdfs/text/contran-1031-2026.json",
-      "textChars": 19274,
-      "textSha256": "d7b166c82e39a1bfaf7913565174be18e40aa174fb152ff510cc5a7de4e17870",
+      "textChars": 19747,
+      "textSha256": "af5950f71c3e0dd4570d73e18422211e34e2660de7a5d277305eab9d2aa29a9a",
       "title": "Resolução CONTRAN 1031/2026"
     },
     "contran-202-2006": {
@@ -1137,8 +1137,8 @@
       "sha256": "82255fc182dfb49f21b3753adfa1f3eefce226d64af1221c3cf6d585df40f8e2",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao_202.pdf",
       "text": "pdfs/text/contran-202-2006.json",
-      "textChars": 5528,
-      "textSha256": "523c2790762912ad28701e3d4dab31cfb539139cff3cf26b4eec75012e19805d",
+      "textChars": 5190,
+      "textSha256": "88402d7661555618d4240b59205f0158821c12b4bcdf98a78ebc6d31c5c4a0e7",
       "title": "Resolução CONTRAN 202/2006"
     },
     "contran-209-2006": {
@@ -1152,8 +1152,8 @@
       "sha256": "8ee21e8b1720173df013bb6fd371c0c25d508c4f20db408af7196c0e17e6e025",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao209_06.pdf",
       "text": "pdfs/text/contran-209-2006.json",
-      "textChars": 2283,
-      "textSha256": "37ff896819f4c572ff9a199ae0111d1d62fef4470d2db28eb3d03453a4e8f979",
+      "textChars": 2265,
+      "textSha256": "ba735583a95e8967a42da9aacb3c02223c6d744bea329e9cc40e1f2c3f2dc57e",
       "title": "Resolução CONTRAN 209/2006"
     },
     "contran-224-2006": {
@@ -1167,8 +1167,8 @@
       "sha256": "f309dcfcb60ad5519af9ce2f79d5e8fe01bb8020cd4773072d71858d3e7680f4",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao_224.pdf",
       "text": "pdfs/text/contran-224-2006.json",
-      "textChars": 27589,
-      "textSha256": "003b10fce717e7e79fb34d61e444c0117fc75ac06943780e1cded941a6640502",
+      "textChars": 26897,
+      "textSha256": "b8741686c6619e8500c3a558f61dcf0b27597bdc13b747d91670cf9aa99808b2",
       "title": "Resolução CONTRAN 224/2006"
     },
     "contran-238-2007": {
@@ -1182,8 +1182,8 @@
       "sha256": "81668d9ac8eba3d02891363a06d51cd342661e1a7f322f4f9e0e6f529a261875",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao_contran_238.pdf",
       "text": "pdfs/text/contran-238-2007.json",
-      "textChars": 1792,
-      "textSha256": "2e2404a57d782d72c8278a8ea9b110d742d28bc207a37ed1d8baa69154df93c7",
+      "textChars": 1723,
+      "textSha256": "fce569a8d866fe301e20a6728f06a6f31770b686c53c6ae52094bf5ecbb2242a",
       "title": "Resolução CONTRAN 238/2007"
     },
     "contran-242-2007": {
@@ -1197,8 +1197,8 @@
       "sha256": "ef9cb8f5e59c03fb30b3bb05fdb3e01ac3d5bf2e48885bc40e5bbfbe34042c5e",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao_contran_242.pdf",
       "text": "pdfs/text/contran-242-2007.json",
-      "textChars": 3134,
-      "textSha256": "787887b75e47fffa3245c4be7a888bbf76ebea8a95466b88b01a7e55a42f4b1c",
+      "textChars": 3003,
+      "textSha256": "be08e78f6612308681d368a5780273e0354c79c5a697237592d639f9b88dbbbe",
       "title": "Resolução CONTRAN 242/2007"
     },
     "contran-280-2008": {
@@ -1212,8 +1212,8 @@
       "sha256": "b7645bd9454fbbc5565f7556918e7ffd323ad9e459d674db25db3016658461d6",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao_contran_280.pdf",
       "text": "pdfs/text/contran-280-2008.json",
-      "textChars": 2633,
-      "textSha256": "82d0fadf7f22b5203f7420a008d999ac8eb23c502a3b3bde9ceaa3bbf73f18a2",
+      "textChars": 2568,
+      "textSha256": "0f6314d6bf0bb16749b5aefcd7c272584cb680d2961464294a6c4e06fa7b7196",
       "title": "Resolução CONTRAN 280/2008"
     },
     "contran-289-2008": {
@@ -1227,8 +1227,8 @@
       "sha256": "4af2f9e4159747bdf110bc91e8112c3e9ff681af93c0c2d486633ad7bd9694b9",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao_contran_289.pdf",
       "text": "pdfs/text/contran-289-2008.json",
-      "textChars": 3522,
-      "textSha256": "84e0cc2b5df1ea5c679bbfdbd64a1eeadd4f4fbbc1d1b9e2f84394e544f60e94",
+      "textChars": 3374,
+      "textSha256": "18f979de03f1da5e356ff051bb34a20596d4dd1af9b862ef8d4126ee8333d98c",
       "title": "Resolução CONTRAN 289/2008"
     },
     "contran-298-2008": {
@@ -1242,8 +1242,8 @@
       "sha256": "64f2e92c7cca0aa593affdf3aca10d89a1cc144c3db3918f55732af419f6098d",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao_contran_298.pdf",
       "text": "pdfs/text/contran-298-2008.json",
-      "textChars": 2419,
-      "textSha256": "f02930e91dff8bcf0ba7ab3af446b8b755e2849fbb6ec9ec46c1415783e8ae4a",
+      "textChars": 2315,
+      "textSha256": "a3e32eb1527b91a4a14b21e0a90018ec3b37a3f295f46b8dba6f7647278b4136",
       "title": "Resolução CONTRAN 298/2008"
     },
     "contran-300-2008": {
@@ -1257,8 +1257,8 @@
       "sha256": "3a65b038d63bd9f8d66e19140d9db3812b0c87814e974e21ffdde3b33d0e67a9",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao_contran_300.pdf",
       "text": "pdfs/text/contran-300-2008.json",
-      "textChars": 10104,
-      "textSha256": "a6c70c52188cf89448ae7660172b22198905182fabd3294117977ff0cd4075af",
+      "textChars": 9756,
+      "textSha256": "5c40968e8a466e1566f6c2b1bb8c00abf35954ca43ebbeeb565cc132650ecda7",
       "title": "Resolução CONTRAN 300/2008"
     },
     "contran-314-2009": {
@@ -1272,8 +1272,8 @@
       "sha256": "3bb79968d63a7b199873488051ba91837c2d1bb6eaabbf202afe73271ec01a1a",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao_contran_314_09.pdf",
       "text": "pdfs/text/contran-314-2009.json",
-      "textChars": 10212,
-      "textSha256": "b26359b7efa9523f52e55d77e1de9b6459e947b8f33d5f872f93039d2a26c40a",
+      "textChars": 9921,
+      "textSha256": "e8bb0d213c974126dacff2fd1ae6b280a7cef592b48c977e8663ca09e3efb6ff",
       "title": "Resolução CONTRAN 314/2009"
     },
     "contran-324-2009": {
@@ -1287,8 +1287,8 @@
       "sha256": "e6ca28160aebc5b94925b7515048bf5c03d1fcfab0be9047c4f405fbb00f379c",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao_contran_324_09.pdf",
       "text": "pdfs/text/contran-324-2009.json",
-      "textChars": 3236,
-      "textSha256": "61bd5c3a4c1ddbecc10d29dad2a73db0b7e88443c5968ee49ad585f812e6c06f",
+      "textChars": 3086,
+      "textSha256": "36851752157bdce0a20104319456f9675893da45fb89567b50a6757b25f68ce6",
       "title": "Resolução CONTRAN 324/2009"
     },
     "contran-332-2009": {
@@ -1302,8 +1302,8 @@
       "sha256": "5e7031d7163bbdc70111cfc0e210a53517e37354c50acc997fbf923a36bd16d2",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao_contran_332_09.pdf",
       "text": "pdfs/text/contran-332-2009.json",
-      "textChars": 2446,
-      "textSha256": "f7ba9bc04943ceeb05f85eb2a68faceb3f35d246d4f73e7829985e644303bc0b",
+      "textChars": 2326,
+      "textSha256": "789f8f657c60a4fc4c99ff158e858bc197b756457c8af4919b7e2bb30e2ffa2e",
       "title": "Resolução CONTRAN 332/2009"
     },
     "contran-339-2010": {
@@ -1317,8 +1317,8 @@
       "sha256": "c94d26e2def47ed9229c2ae1df98923f9b8952d5e4a5c26a64fab8e25013917f",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao_contran_339_10.pdf",
       "text": "pdfs/text/contran-339-2010.json",
-      "textChars": 3623,
-      "textSha256": "f623af954b5ac511375f0eed7aba0ed627ef4ba7c8c4fa428894a9ba7f97e65e",
+      "textChars": 3470,
+      "textSha256": "ecc276dfda93370e7a4dbd7661641aa0bb23d2f1f36530532348823e9b27a523",
       "title": "Resolução CONTRAN 339/2010"
     },
     "contran-346-2010": {
@@ -1332,8 +1332,8 @@
       "sha256": "6fe829d07e70f87b45aaaf9908220e3359cc872ea3efb01f1b48e321b795642d",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao_contran_346_10.pdf",
       "text": "pdfs/text/contran-346-2010.json",
-      "textChars": 2757,
-      "textSha256": "74eb7c5e48103f3094068c7c699b0af4e73b8ae3416c978f28fd473acf384e1a",
+      "textChars": 2644,
+      "textSha256": "276d6f8c020c8ccee64ec3f955629d17f6ff26dc53a5cdef98ae46ca380e3fed",
       "title": "Resolução CONTRAN 346/2010"
     },
     "contran-351-2010": {
@@ -1347,8 +1347,8 @@
       "sha256": "8471ec8ced2add2da639a739df02c42850f4fc364465b5b883934fec556c4685",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao_contran_351_10.pdf",
       "text": "pdfs/text/contran-351-2010.json",
-      "textChars": 5144,
-      "textSha256": "f6018aa9b5f052ac064bc2c67f000d839a0b4ee40cc25944f00a8cbd8fd2222d",
+      "textChars": 4980,
+      "textSha256": "6de7acbfa6c5e9ef5522e316fe092e7f30e943154162e9c7a704f318ff13ca69",
       "title": "Resolução CONTRAN 351/2010"
     },
     "contran-357-2010": {
@@ -1362,8 +1362,8 @@
       "sha256": "e07a80c0884edc13dbdbf60a201300b6d9c9dea95b73d9e23fe80fe1097dea92",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao_contran_357_10.pdf",
       "text": "pdfs/text/contran-357-2010.json",
-      "textChars": 7514,
-      "textSha256": "054c6d6270154ef1bb518d12709787ce93dbbd2b52436100b56dfe4adc9a0207",
+      "textChars": 7243,
+      "textSha256": "fac44c240b7772a740e88b549eda3f0b009160080098b6e6589a241ed215db42",
       "title": "Resolução CONTRAN 357/2010"
     },
     "contran-382-2011": {
@@ -1377,8 +1377,8 @@
       "sha256": "9534d4c636289cf4d0f25d3d0c734cf70d6c3524a2df7343e69156b256a293b7",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao3822011alterada.pdf",
       "text": "pdfs/text/contran-382-2011.json",
-      "textChars": 9691,
-      "textSha256": "17edbc20480d477e03b93ec816eb5a376b9dffb1f79bca4c5a25bc4beb001c94",
+      "textChars": 9474,
+      "textSha256": "4a5f461402c8f8186a1d52d6397936ebf2df01ce2ae661631d7dead28d84714c",
       "title": "Resolução CONTRAN 382/2011"
     },
     "contran-400-2012": {
@@ -1392,8 +1392,8 @@
       "sha256": "b8e250b1cc960eb03a73b41cec795111b97374f352dcd9b582552bae17c1649a",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao_contran_400_12.pdf",
       "text": "pdfs/text/contran-400-2012.json",
-      "textChars": 2562,
-      "textSha256": "4c6cbbf9c62705ed404d89ab44eca37aaa674375a59f1fac057850eb7e10047f",
+      "textChars": 2425,
+      "textSha256": "0179f85d2af150722f70bd786b325d0ecd837f1c2e2927bf4d90485d40c41a81",
       "title": "Resolução CONTRAN 400/2012"
     },
     "contran-456-2013": {
@@ -1407,8 +1407,8 @@
       "sha256": "6af5db3d9ec54e3c7f5518a7bd0cd0708316f0e3712993cd6f92d957947e0646",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao4562013.pdf",
       "text": "pdfs/text/contran-456-2013.json",
-      "textChars": 3650,
-      "textSha256": "fe44ff7313d2aff1eadb4ef82d52d72cf7acd99fbdb22e4e1a920b9744ab80aa",
+      "textChars": 3387,
+      "textSha256": "86999ff8427f3da4b25a0f8cff1b013092a21c05690028edd8ae35a420d6a7a7",
       "title": "Resolução CONTRAN 456/2013"
     },
     "contran-477-2014": {
@@ -1422,8 +1422,8 @@
       "sha256": "635408f155039435a4445699dfc32da4e6ea07034c62f803c3a9c15d42728058",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao4772014.pdf",
       "text": "pdfs/text/contran-477-2014.json",
-      "textChars": 1362,
-      "textSha256": "ef72a2bcb3cf4712c19ead77c9d1eed9ff7c83ba1b29cde63d9e4739f8830717",
+      "textChars": 1285,
+      "textSha256": "49d6d4efada562d0d38ae49c5177e69a5d6e5266293b999f67a4001fae7adf1d",
       "title": "Resolução CONTRAN 477/2014"
     },
     "contran-478-2014": {
@@ -1437,8 +1437,8 @@
       "sha256": "c7a6581327b4376896500989203ad29a5fd99eb5b7f7da65f1edfbbd753f0981",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao4782014.pdf",
       "text": "pdfs/text/contran-478-2014.json",
-      "textChars": 1343,
-      "textSha256": "edee03c8e8b880d69e8e1c4d9c1adf63aa9e95c36ea4f07d2891a6462beb2555",
+      "textChars": 1267,
+      "textSha256": "e4da8614d0169fe94d347bb695a4b9ffeec185386f99bc03e236dcfbae3b348d",
       "title": "Resolução CONTRAN 478/2014"
     },
     "contran-481-2014": {
@@ -1452,8 +1452,8 @@
       "sha256": "186e80e4e2552cd406ea928ef32a04697e9bcc7fbdd3b24f6dc0b677221dddfa",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao4812014.pdf",
       "text": "pdfs/text/contran-481-2014.json",
-      "textChars": 1578,
-      "textSha256": "b2ddb938c7f32303e9793f9df31a4e3f58d4a3e57cda0c17e3d96bb2a6eb212e",
+      "textChars": 1502,
+      "textSha256": "dd661f655496e5289262ab5df511a341e2c8c33824e9ad302ab31d1bc51339a2",
       "title": "Resolução CONTRAN 481/2014"
     },
     "contran-482-2014": {
@@ -1467,8 +1467,8 @@
       "sha256": "f6fa542ed053e3d25d86967d1207b49cd1202b964a32290063d15f16abb4cb90",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao4822014.pdf",
       "text": "pdfs/text/contran-482-2014.json",
-      "textChars": 2094,
-      "textSha256": "cf91f7455468b1a7f1b95184d8bbc31a4e7643f2431d75f33e89343836530df5",
+      "textChars": 1988,
+      "textSha256": "be5d7da6361aab7d862ccf948e7a9c0411562168625ff3f5bef8d2adf67971fc",
       "title": "Resolução CONTRAN 482/2014"
     },
     "contran-498-2014": {
@@ -1482,8 +1482,8 @@
       "sha256": "6aac277d2ea2b001cb64a2cc237fd1c40d9655ccb67ef17d96875eb68b3e32d2",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao4982014.pdf",
       "text": "pdfs/text/contran-498-2014.json",
-      "textChars": 16494,
-      "textSha256": "9513dbb9b21216e01069fc467dfd32eac1de9ecab18d5bf58ef79587c8328fac",
+      "textChars": 15930,
+      "textSha256": "986b97b4f788795ba9770b64b10b30b4a3991df0d67d2a46eb9ddad3df5612c1",
       "title": "Resolução CONTRAN 498/2014"
     },
     "contran-501-2014": {
@@ -1497,8 +1497,8 @@
       "sha256": "da72480f447fb4736652d6ad9ef6c7d881abd8225a07588be6d466c33741e4b3",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao5012014.pdf",
       "text": "pdfs/text/contran-501-2014.json",
-      "textChars": 1581,
-      "textSha256": "14dcd5dc8ad37f9c3a40f7bac99d3bd940866eec064b7f0a68b78e07e6ddfc8c",
+      "textChars": 1509,
+      "textSha256": "2824867e22442ab93b9234458dba0cb2632db3c56731c7b7eda0336b82c5b1e7",
       "title": "Resolução CONTRAN 501/2014"
     },
     "contran-506-2014": {
@@ -1512,8 +1512,8 @@
       "sha256": "dacfc8c669993dac05eff4f187569980cd3f1ddf063ea588520e2f754f2c6386",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao5062014.pdf",
       "text": "pdfs/text/contran-506-2014.json",
-      "textChars": 7806,
-      "textSha256": "96d65327bd8bb6618ac94018f3ba31f4db3847688d49f8553027dd0ecb86f29d",
+      "textChars": 7534,
+      "textSha256": "5abd8359f80275f2aed4ea85f8334c64a2c8e610b1a633be58aa640b145dddec",
       "title": "Resolução CONTRAN 506/2014"
     },
     "contran-507-2014": {
@@ -1527,8 +1527,8 @@
       "sha256": "b8630bfb1e4e6002b2349c763025b25da130d1130acab500397bcb44f7a79f37",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao5072014.pdf",
       "text": "pdfs/text/contran-507-2014.json",
-      "textChars": 2329,
-      "textSha256": "36c9400d2cfed5d5cb6f477b38d02165544444a03e929e1648aef59ca8884103",
+      "textChars": 2204,
+      "textSha256": "e5ea89180965595af0d599798114b751d56f929d023dedfc25d6b67cdd173a93",
       "title": "Resolução CONTRAN 507/2014"
     },
     "contran-508-2014": {
@@ -1542,8 +1542,8 @@
       "sha256": "377e7bb9fe79537f0aba5dd62382b79093f6cdc6f5116f5cc5064d875dd63199",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao5082014.pdf",
       "text": "pdfs/text/contran-508-2014.json",
-      "textChars": 7358,
-      "textSha256": "b41c9663162bc4c38a38a0bedc006688fa1252a0c7810f8f1963b767a0c07fd6",
+      "textChars": 7184,
+      "textSha256": "28c430c6092b4740ce3e8907b7fe2f8c3d48e31c7170a001d7f4f665324762d5",
       "title": "Resolução CONTRAN 508/2014"
     },
     "contran-514-2014": {
@@ -1557,8 +1557,8 @@
       "sha256": "571a32441fe2227ec1252e9fa76187fe93c9bb1292664cadb46c4277ad774f73",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao5142014.pdf",
       "text": "pdfs/text/contran-514-2014.json",
-      "textChars": 9308,
-      "textSha256": "fe40a4a32202257450e7b5ed6bb4751d3a8dd252f0ad39bea541cd806b8c7f16",
+      "textChars": 8994,
+      "textSha256": "0ea019ceceef5672fcafd653e3345a9ac322905c314584918a0b73a42979c3dd",
       "title": "Resolução CONTRAN 514/2014"
     },
     "contran-525-2015": {
@@ -1572,8 +1572,8 @@
       "sha256": "41a601b619001682dbe44127d28056ca8708f04b3c6f34bde96d1048fbb7fadc",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao5252015c.pdf",
       "text": "pdfs/text/contran-525-2015.json",
-      "textChars": 14943,
-      "textSha256": "1b2127b34d2c8ffe4110d7a7693ece0f26eb94d29d0255c7f17f75db6317eeb0",
+      "textChars": 14592,
+      "textSha256": "3eaf6eb9702f50f6e4afb496022bb7c9a361f359d7c63f90d821d0315fa5e08b",
       "title": "Resolução CONTRAN 525/2015"
     },
     "contran-528-2015": {
@@ -1587,8 +1587,8 @@
       "sha256": "9f32fe77bcd40e33607f1cb7d0d61286688eaa8e14b4fa10000905449b94ca19",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao5282015.pdf",
       "text": "pdfs/text/contran-528-2015.json",
-      "textChars": 2114,
-      "textSha256": "94348db3a19c948e85ec043901a216b22cf8a853b8076879994a0f3b0037647b",
+      "textChars": 2027,
+      "textSha256": "bc1d224889a3133cef7f622a7e7f1b21f74615c543c42e9f6343e1ef0cb645f5",
       "title": "Resolução CONTRAN 528/2015"
     },
     "contran-537-2015": {
@@ -1602,8 +1602,8 @@
       "sha256": "54c53cd11115da948094b5b4ea510038920982c0126a9f604f523f92add6773b",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao5372015.pdf",
       "text": "pdfs/text/contran-537-2015.json",
-      "textChars": 3493,
-      "textSha256": "1a87abd5aac46f90e99f648fcd1b51ed72317365df6e3be8846a86f08dacdce9",
+      "textChars": 3364,
+      "textSha256": "3556a0745f9038be391e39db72adde6985bd4e6cc30d9289de94786ed805e918",
       "title": "Resolução CONTRAN 537/2015"
     },
     "contran-545-2015": {
@@ -1617,8 +1617,8 @@
       "sha256": "b71475b5d3696c3e0755712f2d46cf22ef93e3aa61df92ae0dec1f1aa889c780",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao5452015.pdf",
       "text": "pdfs/text/contran-545-2015.json",
-      "textChars": 1360,
-      "textSha256": "ef85b431c4b5662561aeebe6c96d4ce129fa03cd7f2f08db4be18d3552aa62a6",
+      "textChars": 1290,
+      "textSha256": "90187a15bc34a3108763823eea91771c633e0183534b634ee52471ab1f9131be",
       "title": "Resolução CONTRAN 545/2015"
     },
     "contran-547-2015": {
@@ -1632,8 +1632,8 @@
       "sha256": "61e20bf2601702338f4e2c9f8c26c47c864658743cd32fdf0eda5d9cd791b58c",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao5472015.pdf",
       "text": "pdfs/text/contran-547-2015.json",
-      "textChars": 9090,
-      "textSha256": "a2ff81b535e2866d1dcca4d85947419f792db64dc702e23fa0af731263ef868e",
+      "textChars": 8807,
+      "textSha256": "e33de9e6e5a14bf02d8eb41e4d5395bd0295315a6a87e3d1d8dee57d330c346f",
       "title": "Resolução CONTRAN 547/2015"
     },
     "contran-559-2015": {
@@ -1647,8 +1647,8 @@
       "sha256": "ec7fb7d5f9a34ec7e547973edbc4314e4f2bd2633e428275b02e4a0f1061b162",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao5592015.pdf",
       "text": "pdfs/text/contran-559-2015.json",
-      "textChars": 1520,
-      "textSha256": "1956d78a83a713cb61245bc6b2ff82bf4988275a949dd43dcfb409d11a557932",
+      "textChars": 1445,
+      "textSha256": "0db87502c435584209d87d0784c317aec97421c6d870ec24e638ece8f06e17e2",
       "title": "Resolução CONTRAN 559/2015"
     },
     "contran-570-2015": {
@@ -1662,8 +1662,8 @@
       "sha256": "dc20c24fb4289bf5796303877c8a802018245285ee2cae19accc82bf852717e4",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao5702015.pdf",
       "text": "pdfs/text/contran-570-2015.json",
-      "textChars": 3334,
-      "textSha256": "c992f09785877281be5106c5c28abba6cdaabffc8d4fcd36405e78263e6f5a51",
+      "textChars": 3215,
+      "textSha256": "e49e528717e9b1ebbec766b5bafec4f3d173fff203a047018dcebe0f236b7b67",
       "title": "Resolução CONTRAN 570/2015"
     },
     "contran-576-2016": {
@@ -1677,8 +1677,8 @@
       "sha256": "8173c6121642e1906fb5c57370fceaac5a98cbd71679bffd990341cb44d1fe5a",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao5762016.pdf",
       "text": "pdfs/text/contran-576-2016.json",
-      "textChars": 7365,
-      "textSha256": "756d93e0a43c3bd716bc02f55e000c12099b3548a696342ccc06ba77ef61e257",
+      "textChars": 7105,
+      "textSha256": "178ffa727c52d85693b3cc3460db4beca31687232219d8f046e1de9a304020b4",
       "title": "Resolução CONTRAN 576/2016"
     },
     "contran-585-2016": {
@@ -1692,8 +1692,8 @@
       "sha256": "460098da34db89f5daadc0d021d6cfb6a32d7d188a55a7a7b93e3d9b0f2489d7",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao58520162.pdf",
       "text": "pdfs/text/contran-585-2016.json",
-      "textChars": 16717,
-      "textSha256": "2a86214eaf89ff845de928e6458f08fe66ebf771380398ba6b7f706fb6f0d269",
+      "textChars": 16068,
+      "textSha256": "f47715c32405e5c76dcfb46ae19626cdab3193afb8741c9cb07ff78cc5addf99",
       "title": "Resolução CONTRAN 585/2016"
     },
     "contran-602-2016": {
@@ -1707,8 +1707,8 @@
       "sha256": "3b4c85038f914760e1d2bbadd6d1e145a222ce377d4867dc2122aa1563e4b71d",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao6022016.pdf",
       "text": "pdfs/text/contran-602-2016.json",
-      "textChars": 4077,
-      "textSha256": "5f10b3146a5b959bc413d9a1f221936631be77f43b9013973dc0be62192fbc2b",
+      "textChars": 3956,
+      "textSha256": "c5ea3d582d53c2c502a796e4346a521a54c6d8e8861df99938a36b77fb4f035e",
       "title": "Resolução CONTRAN 602/2016"
     },
     "contran-611-2016": {
@@ -1722,8 +1722,8 @@
       "sha256": "1cc73b8c07c5e66746c5656c99613e838a7f01487104066ab0c75c7e97f3f72a",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao61120162.pdf",
       "text": "pdfs/text/contran-611-2016.json",
-      "textChars": 39837,
-      "textSha256": "01c32108e550df9165503042797d3d0451383173a8821247876b61e5d4dee335",
+      "textChars": 38702,
+      "textSha256": "9060d6bf9834d39bfc9bb7e6111e1e69bec5ef729cfe68b6f2ecda0bb95a7529",
       "title": "Resolução CONTRAN 611/2016"
     },
     "contran-612-2016": {
@@ -1737,8 +1737,8 @@
       "sha256": "a24833d25dc2ffe10c0c0d174c26eb7ba1d80bdb1b0c2d4123400d1a017169d4",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao6122016.pdf",
       "text": "pdfs/text/contran-612-2016.json",
-      "textChars": 2994,
-      "textSha256": "096a69989a0815af36844b012d3a134da62acb8be80a68d26cf548c50a675ec7",
+      "textChars": 2890,
+      "textSha256": "9ef29c57e2b64024e046e0028c9df77c97fd01bc0309729aa3e79908265ac76e",
       "title": "Resolução CONTRAN 612/2016"
     },
     "contran-613-2016": {
@@ -1752,8 +1752,8 @@
       "sha256": "e99b3de939cce259684225755b75290b8715e225054c3935935f9d206e304280",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao6132016.pdf",
       "text": "pdfs/text/contran-613-2016.json",
-      "textChars": 1558,
-      "textSha256": "5cd9533620706801ddad0d31e81968c5f6d6909582e90384bf5bed4cf84262ae",
+      "textChars": 1498,
+      "textSha256": "b0e2a0665724d16d5a9ca9497ef132f47c9b2e94749a1e584da35135c9c1e782",
       "title": "Resolução CONTRAN 613/2016"
     },
     "contran-626-2016": {
@@ -1767,8 +1767,8 @@
       "sha256": "7759a7472b95f5a6af9e5ace0503d750e62aa079ea06b4a6b396324f9668f6ff",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao_no_626_de_19_de_outubro_de_2016.pdf",
       "text": "pdfs/text/contran-626-2016.json",
-      "textChars": 2814,
-      "textSha256": "6411bb50da541458addbc146515f8d9e90b9c2b9e0d9c66a6085dbb5e070f3f1",
+      "textChars": 2702,
+      "textSha256": "46db6cd808d8501bcb9a52aca9d35ad177d5538a9e2b5050d6b3b95643832c20",
       "title": "Resolução CONTRAN 626/2016"
     },
     "contran-672-2017": {
@@ -1782,8 +1782,8 @@
       "sha256": "05dd314965af1719c65db77e94251fafec97a9979e09e4edc252e6c9c0c762c4",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao6722017.pdf",
       "text": "pdfs/text/contran-672-2017.json",
-      "textChars": 2732,
-      "textSha256": "5479c1437f5d170f2c9b34e4ff53ecca30d4969a2740ae0642bec83b5f07e532",
+      "textChars": 2630,
+      "textSha256": "b1ad3ee923605f7dacecea2a960bce8ce6709bb302eabb99b59d35a31bb5a2ec",
       "title": "Resolução CONTRAN 672/2017"
     },
     "contran-694-2017": {
@@ -1797,8 +1797,8 @@
       "sha256": "51695f125c80d2bfb69db3838660de1efd9c6a13c3cc776ef3a4142f626e0b84",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao6942017.pdf",
       "text": "pdfs/text/contran-694-2017.json",
-      "textChars": 2246,
-      "textSha256": "0736871b849c276f8a869f6c49624755b9c87377d445490fe539dc524e53f0c4",
+      "textChars": 2150,
+      "textSha256": "71dcfcfaaa519b18a90896afa2203d70b4d99a86ca59a97d66dca6911cf3dad5",
       "title": "Resolução CONTRAN 694/2017"
     },
     "contran-696-2017": {
@@ -1812,8 +1812,8 @@
       "sha256": "385bdc52f0730ab9fbd2c354100c0b8ce7121cd8cb6d1f509e5de1976d1d8e67",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao6962017.pdf",
       "text": "pdfs/text/contran-696-2017.json",
-      "textChars": 2391,
-      "textSha256": "5a74d9c3b10c627213eecac33f8e3fb55d0265e7e5399b68e4aa4131c8349317",
+      "textChars": 2287,
+      "textSha256": "767d863830353170b66e9176608f183bc56bf3acb7fcbe3c1f716c78935f374c",
       "title": "Resolução CONTRAN 696/2017"
     },
     "contran-699-2017": {
@@ -1827,8 +1827,8 @@
       "sha256": "59dab3383f6d61ca034ffa10d5069c54d7a9ca6c826c9d721f84c75a9d1bd679",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao6992017.pdf",
       "text": "pdfs/text/contran-699-2017.json",
-      "textChars": 10654,
-      "textSha256": "16e1ec5c298e39994ebc9b0cbc3099acb82a68252e8585fc02247732af4d07be",
+      "textChars": 10416,
+      "textSha256": "f82d5fb4b021e6b0e4b12c18578e624acc5285fd3af106cbdbae312d3385044d",
       "title": "Resolução CONTRAN 699/2017"
     },
     "contran-710-2017": {
@@ -1842,8 +1842,8 @@
       "sha256": "9ec2d1c8139f3058a299fc3f5c04f5490adfdd41a5c3a31d9270246583c1d825",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7102017.pdf",
       "text": "pdfs/text/contran-710-2017.json",
-      "textChars": 5485,
-      "textSha256": "af99959c36328b729d99efea0382a0efe8cfc0de60d39ee7703b6147bb0cd9a7",
+      "textChars": 5331,
+      "textSha256": "e589299bf630f597fdaf4d97b22eedd64c406f39c8c726b1ca0782cc86908147",
       "title": "Resolução CONTRAN 710/2017"
     },
     "contran-711-2017": {
@@ -1857,8 +1857,8 @@
       "sha256": "d9a631a0fbe349511c64104eee39f7fb07e92f948f5da6fba3739a8c630c16b2",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7112017.pdf",
       "text": "pdfs/text/contran-711-2017.json",
-      "textChars": 24106,
-      "textSha256": "29d14c219c6e20b448abc1c1414f873e7b8dceb62d73117c20e4f20d4b9f1779",
+      "textChars": 23652,
+      "textSha256": "998a97841d0fca42722def1815673df52f7cb2c479aa6194fae85b13c4ca19bd",
       "title": "Resolução CONTRAN 711/2017"
     },
     "contran-717-2017": {
@@ -1872,8 +1872,8 @@
       "sha256": "4f051699a7b4b78c84bd2afd9af6491c69c7efccc163b1d69ab1f3258fb0eb4d",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7172017.pdf",
       "text": "pdfs/text/contran-717-2017.json",
-      "textChars": 4702,
-      "textSha256": "89bc690b4d198a2014b7219a690932b6c53bb688a6f709bed5ce6e6ff4795d81",
+      "textChars": 4599,
+      "textSha256": "29b5c95b8886aa7fb39870168dcf5e432de12a3b36ed919ec76a3986d43095f6",
       "title": "Resolução CONTRAN 717/2017"
     },
     "contran-723-2018": {
@@ -1887,8 +1887,8 @@
       "sha256": "fb9300d5873358c5946afee5641013b9c45d8ea78bf9f603e3c9f2ddb41f0db1",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7232018.pdf",
       "text": "pdfs/text/contran-723-2018.json",
-      "textChars": 25486,
-      "textSha256": "de687a2c613f05b285e341f9f7e9ed347b67226dcbb7dfb553fe89ebd5fba7a0",
+      "textChars": 25014,
+      "textSha256": "336ec6b687600deb9b9b2f90d965b966b6e40daf18c9f1a796c4fa5d2280267d",
       "title": "Resolução CONTRAN 723/2018"
     },
     "contran-735-2018": {
@@ -1902,8 +1902,8 @@
       "sha256": "f7e66ddabecd38e24fd1fd1d4319f28a0ae5f47181ef8afd13a77017cc736989",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7352018.pdf",
       "text": "pdfs/text/contran-735-2018.json",
-      "textChars": 19658,
-      "textSha256": "48f96441a0729e6fdc9bb78a76a24b9e13b601f140cf62df9f847f7ed239192c",
+      "textChars": 19260,
+      "textSha256": "a13a1ffcb05ed44d6a7c67d935430a0d76a75412d68559226349eaa381dc3617",
       "title": "Resolução CONTRAN 735/2018"
     },
     "contran-738-2018": {
@@ -1917,8 +1917,8 @@
       "sha256": "3bdb25146fa47a16146db3b8d619dcc9185778de7f7bc03d130c80d465d57f34",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7382018.pdf",
       "text": "pdfs/text/contran-738-2018.json",
-      "textChars": 8156,
-      "textSha256": "961ea2e7973c0b5899b2c7bc311cb56f0ff5626a95b458974426306d59e7eaf7",
+      "textChars": 7982,
+      "textSha256": "5abf4a0edb763ff05b8e09912b1617d25e493b5a600639fc35ef59230bba3d23",
       "title": "Resolução CONTRAN 738/2018"
     },
     "contran-743-2018": {
@@ -1932,8 +1932,8 @@
       "sha256": "57fbe4e0c713b88bc134d8eaea3a6a9a9065e8a3b591c993624616be23040414",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7432018.pdf",
       "text": "pdfs/text/contran-743-2018.json",
-      "textChars": 8748,
-      "textSha256": "51d154ac25bb8ec01d907a22891ec53b4309218b46d39f7ccb82bffa0dfbd3bd",
+      "textChars": 8539,
+      "textSha256": "e2be734fdefb6ed85e293f60b875510bc22e1b4804d8bc5c6db7a6a17370197c",
       "title": "Resolução CONTRAN 743/2018"
     },
     "contran-749-2018": {
@@ -1947,8 +1947,8 @@
       "sha256": "630d21b7ce3df8bedbae8ad93da15ba8c97fe3c2941b08b472f809422a82ba30",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7492018.pdf",
       "text": "pdfs/text/contran-749-2018.json",
-      "textChars": 162734,
-      "textSha256": "dc33d6ddc956777ff06696fd8328012a1e451c6c7f9fd6ef2c256a86f022bbf1",
+      "textChars": 158877,
+      "textSha256": "bad10a4c5269e77cc22d2c1a1f673a1f1b9e7204d2a10a5327bf88399c833f9e",
       "title": "Resolução CONTRAN 749/2018"
     },
     "contran-750-2018": {
@@ -1962,8 +1962,8 @@
       "sha256": "99fd0c52b5acdc13be4655b4bdc1691ee198aee6b5f2cabbcea7e9d14a28bfff",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7502018.pdf",
       "text": "pdfs/text/contran-750-2018.json",
-      "textChars": 117624,
-      "textSha256": "6fdc5097748d040cd4f56cc10d2f016af8d8241d7562a95cc60e9bb7c68df8c2",
+      "textChars": 114173,
+      "textSha256": "2b0b4748295f29e0a7abafb5b111889629cea3cde5c9642358eefe45c5cede8d",
       "title": "Resolução CONTRAN 750/2018"
     },
     "contran-752-2018": {
@@ -1977,8 +1977,8 @@
       "sha256": "af20e63b39c7d738b40147df8d794481a2f2619f287f63eba88d6b057e54c704",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7522018.pdf",
       "text": "pdfs/text/contran-752-2018.json",
-      "textChars": 81629,
-      "textSha256": "5c2f964441db2ea83630e8aa7116c5089f69058d49e0f8e39faf75816590e9cf",
+      "textChars": 80244,
+      "textSha256": "80a8951c9ae1b2881d185ed00d949fc793e153df35477d96e4b250fb35176ddf",
       "title": "Resolução CONTRAN 752/2018"
     },
     "contran-755-2018": {
@@ -1992,8 +1992,8 @@
       "sha256": "244d2f21e8e35f1d12cdb8b59f43e1ec2a13985038b67d551b9de76aece33005",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7552018.pdf",
       "text": "pdfs/text/contran-755-2018.json",
-      "textChars": 18909,
-      "textSha256": "ccf70c78065bd3bd56638de6e44f525e14246454eb863f16cf844b9fec5ef3af",
+      "textChars": 18524,
+      "textSha256": "163fd2a44f074f6798ed675055a01a0a1dd1f86c0462e64ce7c12431aadcbb7b",
       "title": "Resolução CONTRAN 755/2018"
     },
     "contran-758-2018": {
@@ -2007,8 +2007,8 @@
       "sha256": "1ceec18731baf4f236603303961215ec24d26d70a15c425d809f2114298cf8cd",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7582018.pdf",
       "text": "pdfs/text/contran-758-2018.json",
-      "textChars": 21006,
-      "textSha256": "48ee0ef2ddf2ca55fbe83a267eae005c9c18e4ecfec222d556903879e66b2aac",
+      "textChars": 20777,
+      "textSha256": "d472edd2aa8e079df73d1186a9bf69f4e07b0cbe6127b885273853c6fac9ba23",
       "title": "Resolução CONTRAN 758/2018"
     },
     "contran-759-2018": {
@@ -2022,8 +2022,8 @@
       "sha256": "42cf5666ae5efb82e326cb67738aa7153043e78909d75a45b6e5f720a7c2014d",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7592018.pdf",
       "text": "pdfs/text/contran-759-2018.json",
-      "textChars": 23537,
-      "textSha256": "4dadd4a043669c002938766a26ee0190d892bbd223ce595a540d2cf19bae2d83",
+      "textChars": 22943,
+      "textSha256": "1b2b7aa2cf1881dbd7908ef412f710d0f12c34821ec05407c804a3dd8e4f3832",
       "title": "Resolução CONTRAN 759/2018"
     },
     "contran-764-2018": {
@@ -2037,8 +2037,8 @@
       "sha256": "44ea6019ef401970b7c8e5246ef257187221d798dd262ab7558a1af76108d3db",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7642018.pdf",
       "text": "pdfs/text/contran-764-2018.json",
-      "textChars": 14651,
-      "textSha256": "8b363f9459e5f4a003d9b29a9b615d3d62ff6b89ee85ab33d97e04186dcb8901",
+      "textChars": 14219,
+      "textSha256": "d5fe31e77d099ced3ee02191a1ab80b7ad98223b7812e1952b0551e4736a6143",
       "title": "Resolução CONTRAN 764/2018"
     },
     "contran-765-2018": {
@@ -2052,8 +2052,8 @@
       "sha256": "1a3badae62feac3c7fd9a8d7b6dfbb5dd70de07c6444e46312394348f02ffdbe",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7652018.pdf",
       "text": "pdfs/text/contran-765-2018.json",
-      "textChars": 33785,
-      "textSha256": "54496e16518da94cf589f419ef4959521bf36dd87abfa9122e4d8c523bfce409",
+      "textChars": 32987,
+      "textSha256": "c030b68438a69bebc43d474ea9feea7200fad46f9af2905e7a18821683466bfe",
       "title": "Resolução CONTRAN 765/2018"
     },
     "contran-772-2019": {
@@ -2067,8 +2067,8 @@
       "sha256": "1925b17d22cc92e0a7d4e18df974f9dd6830c650578654264b542e389921e337",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7722019.pdf",
       "text": "pdfs/text/contran-772-2019.json",
-      "textChars": 2353,
-      "textSha256": "692f545aef13e54887dbab5d8447126ea22c9e3257f092a426c9b6bc023970e9",
+      "textChars": 2266,
+      "textSha256": "abeee12413064953bd5ed8fe256e6e548a52695a320e9ad4d29c217bd63d22ff",
       "title": "Resolução CONTRAN 772/2019"
     },
     "contran-774-2019": {
@@ -2082,8 +2082,8 @@
       "sha256": "a46833b5e6a10dfbed4d191f649ad280e75f7a18596963dd8dbab404b2c6eb83",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7742019.pdf",
       "text": "pdfs/text/contran-774-2019.json",
-      "textChars": 1499,
-      "textSha256": "30c0a9a5b7e0863a3abfb31421323d66a945413a27f5f783f1d804061c4f17d8",
+      "textChars": 1426,
+      "textSha256": "1472d51dd56b5fcdbabca5bbd20ed76630c49b26a1f871dbdc22dd6e1d5fe65e",
       "title": "Resolução CONTRAN 774/2019"
     },
     "contran-791-2020": {
@@ -2097,8 +2097,8 @@
       "sha256": "302179e78ed5314675fc587ef7ae93d34223a1828cc8f6149d3b00d7c40a1acc",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao791-2020.pdf",
       "text": "pdfs/text/contran-791-2020.json",
-      "textChars": 6127,
-      "textSha256": "7b94afa5a0a2e64be188358a8180825821375cba2301bb9d74bcfbc3ff227a4a",
+      "textChars": 5990,
+      "textSha256": "1c0982f008679dc37062d55b398895356ade258d3463f10afcd0959d5a4458a9",
       "title": "Resolução CONTRAN 791/2020"
     },
     "contran-794-2020": {
@@ -2112,8 +2112,8 @@
       "sha256": "f9e245cae2613a556d1d95d9c4877f9736164d842e3febb41c3ff182c27a5e7e",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao794-2020.pdf",
       "text": "pdfs/text/contran-794-2020.json",
-      "textChars": 5232,
-      "textSha256": "51cbe7f1f375b23b583b159463555cab618764b11c61d03f7d6ed5f7ccd9d8fa",
+      "textChars": 5113,
+      "textSha256": "36b2490893a2bc3382208ad9da3f525dfac78645803ffffb72673acf01365e1b",
       "title": "Resolução CONTRAN 794/2020"
     },
     "contran-798-2020": {
@@ -2127,8 +2127,8 @@
       "sha256": "b4f72b9f3efaa01b7211bb8f8a9817445a9aa4fd98242f52696be90653973e87",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao7982020.pdf",
       "text": "pdfs/text/contran-798-2020.json",
-      "textChars": 28452,
-      "textSha256": "06f26f0511524dde2fa16c7b0c7f558c0fea7df06d2c451f216a127d4f03ff40",
+      "textChars": 28408,
+      "textSha256": "46e078f0e4e17e6135854187450c4bb8581df9fda30fbbade9d20e66a4828b1f",
       "title": "Resolução CONTRAN 798/2020"
     },
     "contran-804-2020": {
@@ -2142,8 +2142,8 @@
       "sha256": "87c3263840dfafb2a4c8309c1c130c7a49d1a67ddcf6f9b62a44900b628ebbaf",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao8042020.pdf",
       "text": "pdfs/text/contran-804-2020.json",
-      "textChars": 3352,
-      "textSha256": "bab4e73ffdc21a53ce48e0c6cd7b06efda122b3d32630e029059c3af531fec61",
+      "textChars": 3263,
+      "textSha256": "bb41e951ae33b016e0fec2c793eb5ec8571ce75c7a07ee701537685bf42a3b92",
       "title": "Resolução CONTRAN 804/2020"
     },
     "contran-805-2020": {
@@ -2157,8 +2157,8 @@
       "sha256": "ede2520787e61f7eb55dfc71386496d87107d90caad5af85cab89f8341ed131c",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao8052020.pdf",
       "text": "pdfs/text/contran-805-2020.json",
-      "textChars": 10377,
-      "textSha256": "2faaca9e5bab495845bf3fc765ae663d0c0f4599bab8703b59d31a9b1bb46661",
+      "textChars": 10120,
+      "textSha256": "5bfb119488b260d68cfc7fd2a2f4b856d196df96cb66b302947408eb9abae36b",
       "title": "Resolução CONTRAN 805/2020"
     },
     "contran-807-2020": {
@@ -2172,8 +2172,8 @@
       "sha256": "263bfbb8c049af2197fb0cae27ce2b1a5bc143d890b5370b76172a3721c2e436",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8072020.pdf",
       "text": "pdfs/text/contran-807-2020.json",
-      "textChars": 28379,
-      "textSha256": "baa23ffa9dc0eb3e4533e80fe0bd1490c4206f460018e181af04f99c73e11325",
+      "textChars": 28418,
+      "textSha256": "58de2092831cb2b2a10aad63874ac42779d0fea3a45c5a0e28a08e2137ca52ac",
       "title": "Resolução CONTRAN 807/2020"
     },
     "contran-808-2020": {
@@ -2187,8 +2187,8 @@
       "sha256": "7cca7f67d869a25f5be4ec5e6bdae388deb2ff07704c31928e85636a011ef2b9",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8082020.pdf",
       "text": "pdfs/text/contran-808-2020.json",
-      "textChars": 12475,
-      "textSha256": "a7b32887426c307395c81bd82f2ab0f5943d11e5de4b2eaebb0d904ddf386610",
+      "textChars": 12499,
+      "textSha256": "2383a8d7df0aafa41ea516519d0e4071c81ea416575684512b0487c5531627c2",
       "title": "Resolução CONTRAN 808/2020"
     },
     "contran-810-2020": {
@@ -2202,8 +2202,8 @@
       "sha256": "779483b44d035fa82cb978d56a4f78b597d3fac319c2631883a3a81ddeb463c9",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8102020.pdf",
       "text": "pdfs/text/contran-810-2020.json",
-      "textChars": 51878,
-      "textSha256": "c81e23de3bbd06417cb37b5170e492e3f9edfa7553c70722ee1d8fd774146bab",
+      "textChars": 52379,
+      "textSha256": "c8d0f9caf84a51338b411ef4a83d1226b4877cdf314b3fccbe4f36ee424b1f29",
       "title": "Resolução CONTRAN 810/2020"
     },
     "contran-811-2020": {
@@ -2217,8 +2217,8 @@
       "sha256": "864f9ef742c2f509bd3667d36341a552f15fdb586203ef2e724f231e5396980c",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8112020.pdf",
       "text": "pdfs/text/contran-811-2020.json",
-      "textChars": 14452,
-      "textSha256": "f7989b40189ee5ccf324987c5e6770df59ab96ae8aace444f5c33b18a529f9a9",
+      "textChars": 14479,
+      "textSha256": "d43a5e3d000862b285f86f27d5afc1dcc99e1ba45dda2164ee1ff30e42d7ba46",
       "title": "Resolução CONTRAN 811/2020"
     },
     "contran-812-2020": {
@@ -2232,8 +2232,8 @@
       "sha256": "d4dbae4c035904e4eb62284ab60f01e232e9df9b4bfe82b715c9b6d025be1568",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8122020.pdf",
       "text": "pdfs/text/contran-812-2020.json",
-      "textChars": 7190,
-      "textSha256": "e971f10789ef57a37c9376c105af7463b34ed2d91835cbcf692f0b5e99765f19",
+      "textChars": 7210,
+      "textSha256": "7239f7a6b9148a2c5cea4e2fb35e4f67aa49f0baa541d69dc0fb5bfbaf9ff46b",
       "title": "Resolução CONTRAN 812/2020"
     },
     "contran-813-2020": {
@@ -2247,8 +2247,8 @@
       "sha256": "abd840fe042e4132621f9461785209dc22ab452b5c04f6b62076f03478ff766c",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8132020.pdf",
       "text": "pdfs/text/contran-813-2020.json",
-      "textChars": 7259,
-      "textSha256": "06affb3e24e8f90472a4104dc0ecdc1357f67b6979643494b4115429faa2e53e",
+      "textChars": 7280,
+      "textSha256": "583e9f5a7ff1e3d5138a981601cfeb4124664f685d9ef4ecf38dbd998481955a",
       "title": "Resolução CONTRAN 813/2020"
     },
     "contran-819-2021": {
@@ -2262,8 +2262,8 @@
       "sha256": "394b1830f69a2f15b71e227ea15ff13689ae40af159c5df4c02d88d795ca00da",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8192021.pdf",
       "text": "pdfs/text/contran-819-2021.json",
-      "textChars": 7403,
-      "textSha256": "f6d4efab68f4a1bc2a6ede814c69e0478575751a3d702ab0a2b3125e7e0856ee",
+      "textChars": 7271,
+      "textSha256": "2e3de2303213625e025d292113d15e7dc6b87bab9904c682bd9c5876cc6ea490",
       "title": "Resolução CONTRAN 819/2021"
     },
     "contran-820-2021": {
@@ -2277,8 +2277,8 @@
       "sha256": "46794132e289877abd6255e6240ec7ad3f31b4d6309f6787d802e5a89faf54a9",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8202021.pdf",
       "text": "pdfs/text/contran-820-2021.json",
-      "textChars": 19530,
-      "textSha256": "183d7151768bf844bf6057c783d814c36c92c80935d4b6c1013426089700865d",
+      "textChars": 19099,
+      "textSha256": "6bd6e39dc71d9bf2c1c26160a47e22206728a4a20fd44da09a116a1e561a0d83",
       "title": "Resolução CONTRAN 820/2021"
     },
     "contran-844-2021": {
@@ -2292,8 +2292,8 @@
       "sha256": "277f6f35d96902bae54ce48f8c41c627788527b6fd5dc9398316fb7d05ac7484",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8442021R.pdf",
       "text": "pdfs/text/contran-844-2021.json",
-      "textChars": 21791,
-      "textSha256": "16845701bfcd022871e95b6cb93e75c73e47a7fce68fa97775ea0e005eb09ada",
+      "textChars": 21801,
+      "textSha256": "269620309ca02e2455d72ae6b6209d4772887dab4614ae6801bf92f5cca6719e",
       "title": "Resolução CONTRAN 844/2021"
     },
     "contran-851-2021": {
@@ -2307,8 +2307,8 @@
       "sha256": "d53865620359c349deb8f7d387bb68790916496016d55eed8dd4cc04f564e186",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8512021.pdf",
       "text": "pdfs/text/contran-851-2021.json",
-      "textChars": 3066,
-      "textSha256": "cc3e4641e6527998b7a40d4d61a4ef3d750a579930bb2953a63d3a93156e386d",
+      "textChars": 2971,
+      "textSha256": "0fe7adbf229b96727c0cbc07f0b46696aa003670167569a50e0b6fbb80833529",
       "title": "Resolução CONTRAN 851/2021"
     },
     "contran-856-2021": {
@@ -2322,8 +2322,8 @@
       "sha256": "82993b40bf9a84540ad658830dc4b7d86885429f4f21544ec82f5f0cbf58a374",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8562021.pdf",
       "text": "pdfs/text/contran-856-2021.json",
-      "textChars": 5167,
-      "textSha256": "61e033f81d9909a1a5d548a820bd9b67d32d70787ff16b886641ac3a9aa2dc79",
+      "textChars": 5189,
+      "textSha256": "da44e8c918ec504a94f29d3c8c682beb40646715c1bf7f5fa68d6e620897b5f9",
       "title": "Resolução CONTRAN 856/2021"
     },
     "contran-859-2021": {
@@ -2337,8 +2337,8 @@
       "sha256": "4bfa7395728ea5857d652bfd3765f3ee8466cbcce5d8785fb49f407d7a3a831f",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8592021.pdf",
       "text": "pdfs/text/contran-859-2021.json",
-      "textChars": 6949,
-      "textSha256": "67cee0279111f165196720e59dd930f569bf7bdbb0c1a0ee39857a421efb577a",
+      "textChars": 6975,
+      "textSha256": "fe90e81d8883de08764df756737139e520041e03700eedcaa6704b9cf13f7f74",
       "title": "Resolução CONTRAN 859/2021"
     },
     "contran-872-2021": {
@@ -2352,8 +2352,8 @@
       "sha256": "df512395f7468e0f3f841d505b1140928ec83211a2a8139e2ec81759ac7cbfe8",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao8722021.pdf",
       "text": "pdfs/text/contran-872-2021.json",
-      "textChars": 23269,
-      "textSha256": "b1cf4e2b64a28713564b09a774d4ed9e0fe08fafbf44325ffd9f72f01bbb3da6",
+      "textChars": 23360,
+      "textSha256": "94c132e4c418f3a87956bfa8b4b0d7775e1829fb7d4b5feaf1143ebf8d0e10e6",
       "title": "Resolução CONTRAN 872/2021"
     },
     "contran-875-2021": {
@@ -2367,8 +2367,8 @@
       "sha256": "01239e5cb5d6f2cfce85d26f1ed53cfa63a17053302bb9e6eab7b4124f8bd317",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8752021.pdf",
       "text": "pdfs/text/contran-875-2021.json",
-      "textChars": 16396,
-      "textSha256": "a9c2d2017b60c36f87e06b134f3566b6dbcc8078e7212a68d641c07299b94fc9",
+      "textChars": 16080,
+      "textSha256": "f0e0abf8864f30276df477c137828c8da30261f2ffc16149d679ac716d88d113",
       "title": "Resolução CONTRAN 875/2021"
     },
     "contran-881-2021": {
@@ -2382,8 +2382,8 @@
       "sha256": "79c1d133c15e394e3f69cc8a91d09680e84ee1eab2c4e1d603ff958c10d659e5",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8812021.pdf",
       "text": "pdfs/text/contran-881-2021.json",
-      "textChars": 2364,
-      "textSha256": "c43ead12150e79a8a3a980bd3357de6ac747df265590a3350036a1ada7546c84",
+      "textChars": 2377,
+      "textSha256": "93ea970ba0497141488a762c25ff9519fcfd8bd35ef69d96eb818b9781d5209c",
       "title": "Resolução CONTRAN 881/2021"
     },
     "contran-882-2021": {
@@ -2397,8 +2397,8 @@
       "sha256": "393930b1b943a95a2110bd64176f627c50c8b6b253ccbd7366e9b78fce8d9f65",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8822021.pdf",
       "text": "pdfs/text/contran-882-2021.json",
-      "textChars": 72731,
-      "textSha256": "770c249350fd5b51b7cacb56e34a52f0bcc1128e76be17edb12ed1d400b8a8b2",
+      "textChars": 73081,
+      "textSha256": "b9156a87568eb2c3aa71681e4f4f8ec1bdfbf9fbcda9a8196f11492244903f1f",
       "title": "Resolução CONTRAN 882/2021"
     },
     "contran-884-2021": {
@@ -2412,8 +2412,8 @@
       "sha256": "ca08d888faf775c0cfa3c525480a606e7a9d7421e7f3845116cca1e683846a00",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8842021.pdf",
       "text": "pdfs/text/contran-884-2021.json",
-      "textChars": 10298,
-      "textSha256": "67de0eb070dc6a80a0917cfa50d985aa50ddfa8c6d7fdf61aa03cd5e099b40cd",
+      "textChars": 10335,
+      "textSha256": "be9fd71faee900a2a52dd72743b80221a389ad378a5c0afbc42a716424f167a8",
       "title": "Resolução CONTRAN 884/2021"
     },
     "contran-885-2021": {
@@ -2427,8 +2427,8 @@
       "sha256": "e9c234f0dcf23074148483469b115775aceeb5be0acd07731bd28b8ed44b54dc",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8852021.pdf",
       "text": "pdfs/text/contran-885-2021.json",
-      "textChars": 51223,
-      "textSha256": "c16b8a0d8c5af851b35e74545299a26e08e6e742479aae61a421adee7c5862e5",
+      "textChars": 51379,
+      "textSha256": "a446b2e07880ed56215d10b9fcb5ff5160747ca3dd00292aa07dff411db55601",
       "title": "Resolução CONTRAN 885/2021"
     },
     "contran-886-2021": {
@@ -2442,8 +2442,8 @@
       "sha256": "a9e8db5eee4df523ec86d625eeecfa165809cc1411a625334dcd61279526a585",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8862021F.pdf",
       "text": "pdfs/text/contran-886-2021.json",
-      "textChars": 7643,
-      "textSha256": "ce9e247981115dfa84b801f7820abd3e568a6ce53e10699bdd74f9055eea78d3",
+      "textChars": 7505,
+      "textSha256": "205aa746254ca678a086f2e1ad224489bd594af38831ca1adc3e39c682c9f02d",
       "title": "Resolução CONTRAN 886/2021"
     },
     "contran-888-2021": {
@@ -2457,8 +2457,8 @@
       "sha256": "a6dad3602f6ac0b26412df6d3929485e7f28b3a61f79e3579ae2f0b3315f8639",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8882021.pdf",
       "text": "pdfs/text/contran-888-2021.json",
-      "textChars": 38977,
-      "textSha256": "d78295c69bc66e310313161a76fb1b7197d2809f6a3607932e9ca39980dce19f",
+      "textChars": 39117,
+      "textSha256": "e68143d755cf079e53e85cdefa256a64044fa3570696d048845353e5815d3a22",
       "title": "Resolução CONTRAN 888/2021"
     },
     "contran-897-2022": {
@@ -2472,8 +2472,8 @@
       "sha256": "97d60322db4fb294ad545f3c55d5b8aea0534b6670bb2678039de5f8f222b90a",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8972022.pdf",
       "text": "pdfs/text/contran-897-2022.json",
-      "textChars": 11080,
-      "textSha256": "a27879d38364748c15699050ae634d44156410ed92d3c4af64a0fa766eebb750",
+      "textChars": 11147,
+      "textSha256": "58e5796424d6a2b817cb8c29365d5bd5dd14cdc84ffcb4d1156718302ac6cce8",
       "title": "Resolução CONTRAN 897/2022"
     },
     "contran-899-2022": {
@@ -2487,8 +2487,8 @@
       "sha256": "66509ec2a44003b039f67897f661c2fe7cd8109a3f133bb22def10642372a35d",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8992022.pdf",
       "text": "pdfs/text/contran-899-2022.json",
-      "textChars": 5945,
-      "textSha256": "77f86c1238e3a7f447958725057c056766e8141b036e5050cc123496cb2d245e",
+      "textChars": 5972,
+      "textSha256": "82bd3786b54a7e73ef664b1549dffd8c96185ca986a519d75f225d4629f96699",
       "title": "Resolução CONTRAN 899/2022"
     },
     "contran-900-2022": {
@@ -2502,8 +2502,8 @@
       "sha256": "02b0123c63b796449e117788fc173ba0fec961a786f70092e7a9d67cb197fa8c",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9002022.pdf",
       "text": "pdfs/text/contran-900-2022.json",
-      "textChars": 7309,
-      "textSha256": "c5b151f571911c3995675a08a6a8db329a429b34065b3fabea87f2cd0aa8a357",
+      "textChars": 7342,
+      "textSha256": "394d7dbf4ecc91be82bb8a34930ff39442c27f1bd287b72b0bf1154bde94cbeb",
       "title": "Resolução CONTRAN 900/2022"
     },
     "contran-901-2022": {
@@ -2517,8 +2517,8 @@
       "sha256": "c3c85e9f2f42ef2f90a118cda57b5fb1191bfb0df34f8b6745897106c412dbf7",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9012022.pdf",
       "text": "pdfs/text/contran-901-2022.json",
-      "textChars": 16094,
-      "textSha256": "8f4f54c894ca689bd675d59e8bd4ffc4c3557acb7de0a9c6d4167aa972ef4641",
+      "textChars": 16140,
+      "textSha256": "f6df30241eb2839db4b0206d2b4742ab1a94e2d4028a61667185f6be27529afd",
       "title": "Resolução CONTRAN 901/2022"
     },
     "contran-902-2022": {
@@ -2532,8 +2532,8 @@
       "sha256": "8e43d43ec92fcd921162071ee5367dd94293a300719d0d02aea48ef43a2d269a",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9022022.pdf",
       "text": "pdfs/text/contran-902-2022.json",
-      "textChars": 13045,
-      "textSha256": "5f9c4c73771fe597ff896c1684c48a02ea87d081970e135093bb3f2f2774215f",
+      "textChars": 13113,
+      "textSha256": "6ccb0f54a2f0ba07e028a59c71f8dadce2db111f1374886809b158d23bf2f9e1",
       "title": "Resolução CONTRAN 902/2022"
     },
     "contran-906-2022": {
@@ -2547,8 +2547,8 @@
       "sha256": "7222e7bb604978665024c6e563c787cac266c6ba49a943ae76364e4914dbe729",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9062022.pdf",
       "text": "pdfs/text/contran-906-2022.json",
-      "textChars": 3005,
-      "textSha256": "c7f88d3631ca362663a25d6d193203214d9bd351d1bfff8bb769b99dab74faa4",
+      "textChars": 3022,
+      "textSha256": "818ae2666e0bfcb05c9bec6fd8a6c72db88fa4e5795821a0127b4a3e63e25aad",
       "title": "Resolução CONTRAN 906/2022"
     },
     "contran-907-2022": {
@@ -2562,8 +2562,8 @@
       "sha256": "095667294c74eeb4918c2904dceb02a99307bdea4cec3900048560950926ced4",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9072022.pdf",
       "text": "pdfs/text/contran-907-2022.json",
-      "textChars": 3832,
-      "textSha256": "6c52a4be791e372cdaa9a39526fb7e537fa0f89fd004b2c2873185087bf4a9e7",
+      "textChars": 3852,
+      "textSha256": "262bca39d2be5f0ad3ea205dd11f0e7015c7ca298342fcd6753f63c772bd5f42",
       "title": "Resolução CONTRAN 907/2022"
     },
     "contran-908-2022": {
@@ -2577,8 +2577,8 @@
       "sha256": "122d901b3302015515e37e2947fd5124fcefc195a1aefe23699ea5da70917fe7",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9082022.pdf",
       "text": "pdfs/text/contran-908-2022.json",
-      "textChars": 9571,
-      "textSha256": "c70d2dfaa38a376750ff9ead68f9301aa202074cf8dc4e75bbbea7f36ac458e7",
+      "textChars": 9599,
+      "textSha256": "929f4b3f491744c78f318ea444470ba97e6865557c97ae14c7b853dc328da117",
       "title": "Resolução CONTRAN 908/2022"
     },
     "contran-909-2022": {
@@ -2592,8 +2592,8 @@
       "sha256": "5b5ea48c845d0edfad08e826eccbfdd42a5987c32b0a17a215c241dfb95f22bc",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9092022.pdf",
       "text": "pdfs/text/contran-909-2022.json",
-      "textChars": 2421,
-      "textSha256": "1bb9ef8e73bde89ab3fa91f3277e31f6155486ea74817bd4d73bde5eed4d1488",
+      "textChars": 2442,
+      "textSha256": "2099e08b89ad8fa3f9ef2077a5a981f2484db536a4d0add188c9a287f9d54109",
       "title": "Resolução CONTRAN 909/2022"
     },
     "contran-910-2022": {
@@ -2607,8 +2607,8 @@
       "sha256": "734d98a11036edb2d6b9a0b3e9b8f749d5afa7b632ade8818fa7b603cc2888af",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9102022.pdf",
       "text": "pdfs/text/contran-910-2022.json",
-      "textChars": 7330,
-      "textSha256": "0887a56c52f02d878b3a4115935d217da53009dc8ac13b157da90d96aedab129",
+      "textChars": 7356,
+      "textSha256": "1035d6b1e3835510b7fb01b742502ec6db1b8abe94f23b446b8a17e774d6b321",
       "title": "Resolução CONTRAN 910/2022"
     },
     "contran-911-2022": {
@@ -2622,8 +2622,8 @@
       "sha256": "13696655c112d14b222a2d61527183640aefb0b7e4facb2d7ce64911ad3f47f2",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9112022.pdf",
       "text": "pdfs/text/contran-911-2022.json",
-      "textChars": 15047,
-      "textSha256": "0a1ec645d14714ed4ab9c748e0cbf65b7c89416fd0b625eb03c2fcf903b26f6d",
+      "textChars": 15111,
+      "textSha256": "77df967e1cea9d23cedfbed7ac5603e4947889364d36ab673d49f7d14551993b",
       "title": "Resolução CONTRAN 911/2022"
     },
     "contran-913-2022": {
@@ -2637,8 +2637,8 @@
       "sha256": "3542071abf17e71c2e858712bd2e53b0348c59d129aa70ae4f79198e07622637",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9132022.pdf",
       "text": "pdfs/text/contran-913-2022.json",
-      "textChars": 11630,
-      "textSha256": "386c4329b9ef0393cb95d6d89ba74cd25d5e5de05414b0e6f60e4d5b2011d304",
+      "textChars": 11669,
+      "textSha256": "fdadf1fbb2ea47262155c1ab3e3644e906bb310385ccf66961f4d4a8ca105181",
       "title": "Resolução CONTRAN 913/2022"
     },
     "contran-914-2022": {
@@ -2652,8 +2652,8 @@
       "sha256": "2648cca996390f5c0f31114fc163ecd9fac79321be6a399bf565193bc25a4933",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9142022.pdf",
       "text": "pdfs/text/contran-914-2022.json",
-      "textChars": 4501,
-      "textSha256": "646b837a8eb0262a9cf1a8dffff4587b4df1d53aceb907e9832136c4a6cea204",
+      "textChars": 4529,
+      "textSha256": "17cf1aea80b65c6763063389fe357703cf954d31e8e6a748f5800c4c1d3402d4",
       "title": "Resolução CONTRAN 914/2022"
     },
     "contran-915-2022": {
@@ -2667,8 +2667,8 @@
       "sha256": "07b53ce129b94e6a5fc9b3cba7039af2c7f6cef5097ab89f74b7e9c85425ebc6",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9152022.pdf",
       "text": "pdfs/text/contran-915-2022.json",
-      "textChars": 11169,
-      "textSha256": "a118ed7ae71beedb0ceadaf19d2114ec538e31023e4a6b544c68c4d07d671c82",
+      "textChars": 11249,
+      "textSha256": "363b58b52353c7c16f794b23799b3d95fe29e9290f81bb0c4b13631a51bee40c",
       "title": "Resolução CONTRAN 915/2022"
     },
     "contran-916-2022": {
@@ -2682,8 +2682,8 @@
       "sha256": "a52f98b3134d0e92f6f104ca329199b914e1a74f5abc941a03dc36e6efa49d21",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9162022.pdf",
       "text": "pdfs/text/contran-916-2022.json",
-      "textChars": 16531,
-      "textSha256": "b7dcc4eba91e288c8c28c8d4de35d845c71bd1dc146e8174ab5268c9cb153035",
+      "textChars": 16621,
+      "textSha256": "3688b9cf276003e7c5370d4f0f1497b7c3badff8ed9c982f2ffd868c48c389e4",
       "title": "Resolução CONTRAN 916/2022"
     },
     "contran-917-2022": {
@@ -2697,8 +2697,8 @@
       "sha256": "ce93606a20221dab64008df1b4b9776d79bd9e66deefc7d25a4efc011552f258",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9172022.pdf",
       "text": "pdfs/text/contran-917-2022.json",
-      "textChars": 9676,
-      "textSha256": "eb81c37ba95bd0e9ad44799ab6881f9399311145d26583b6605a36dbffc258dc",
+      "textChars": 9728,
+      "textSha256": "9098099f71cef5493aa31f51a13618de5bc04fabbd3b7007c79231b8ddbd47fb",
       "title": "Resolução CONTRAN 917/2022"
     },
     "contran-918-2022": {
@@ -2712,8 +2712,8 @@
       "sha256": "5153b6823048ef78d7f19e181252a4b6701dffa7bed3e8b64b6ae1cbc34eae41",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9182022.pdf",
       "text": "pdfs/text/contran-918-2022.json",
-      "textChars": 38733,
-      "textSha256": "4f42da3664bcabcba278be8c68c529f118fd89e8fb2f103b9511adff310cf3b0",
+      "textChars": 38893,
+      "textSha256": "f69161095d36f4597d00360039def58b091274c29856799c6352238467eb5735",
       "title": "Resolução CONTRAN 918/2022"
     },
     "contran-919-2022": {
@@ -2727,8 +2727,8 @@
       "sha256": "7804d14417f6cbf42e38cc0a01ae538ed9479aaa5c991778f51d717f74c3f120",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9192022.pdf",
       "text": "pdfs/text/contran-919-2022.json",
-      "textChars": 7153,
-      "textSha256": "5ce8061ec6c3aa5f1af3a083a1f2eeaae99894cf9ce48c480eb0a5d1e475bd0c",
+      "textChars": 7203,
+      "textSha256": "6cc6e2ae853df7f44db471ba4eaf5f3134de21d44acb998e4e0aa48d6b441712",
       "title": "Resolução CONTRAN 919/2022"
     },
     "contran-920-2022": {
@@ -2742,8 +2742,8 @@
       "sha256": "15be466f6f31ce9c8d1780f83d2458855878446080a6f3f3efb29826418020d6",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9202022.pdf",
       "text": "pdfs/text/contran-920-2022.json",
-      "textChars": 5239,
-      "textSha256": "e837efba3b771f9178dba7c060f9ffc12847b4f5e1cbe19ca55b901e5df12696",
+      "textChars": 5287,
+      "textSha256": "b18a7acb316f610d0eed4a1b43b14f7bbf9f33ee99be405a726e9582486ac6b4",
       "title": "Resolução CONTRAN 920/2022"
     },
     "contran-921-2022": {
@@ -2757,8 +2757,8 @@
       "sha256": "c2d4543478c7cd706a4a82e20e9ffe1f055c263b8341425500244d60bfc3098e",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9212022.pdf",
       "text": "pdfs/text/contran-921-2022.json",
-      "textChars": 4857,
-      "textSha256": "cd153f95a459297128e15b738d22257e266f7640c6516ed831f4661d58d2e90d",
+      "textChars": 4883,
+      "textSha256": "990efcf773c142672bea0c5f297e5106a98f0ec8f57724bcc75bf166da8eda6f",
       "title": "Resolução CONTRAN 921/2022"
     },
     "contran-922-2022": {
@@ -2772,8 +2772,8 @@
       "sha256": "2a6b8a4818faa0ab91f88fa22305ff784257dee0bc5c3d50fd50edf165b22909",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9222022.pdf",
       "text": "pdfs/text/contran-922-2022.json",
-      "textChars": 30899,
-      "textSha256": "2d4488784aea7f69ee06f6408eb1df3f455e3d1535f0eff9491fc54970befc5a",
+      "textChars": 31319,
+      "textSha256": "379946c88dbd7af87fa6ee7c16aa9f4c3c96a001239f5b2a578eadc94728ae46",
       "title": "Resolução CONTRAN 922/2022"
     },
     "contran-923-2022": {
@@ -2787,8 +2787,8 @@
       "sha256": "c2a5db6c9b6ba190346489a9f223c4f0be9d100bc8cef817a1120033e86b3ad4",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9232022.pdf",
       "text": "pdfs/text/contran-923-2022.json",
-      "textChars": 117176,
-      "textSha256": "1e503894a8b8a9bb503793cd7e415d3f57459117031038eba40b2060a71a96fa",
+      "textChars": 117767,
+      "textSha256": "938ce421a0feb5add3cdeafdf0288abaeaefdeaa7c886b420fb12d9ab5d6a595",
       "title": "Resolução CONTRAN 923/2022"
     },
     "contran-924-2022": {
@@ -2802,8 +2802,8 @@
       "sha256": "248f0989704594e0cd54aa5192678fe5a19b7ad6d314e91b3ba6a97fb8c235c4",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9242022.pdf",
       "text": "pdfs/text/contran-924-2022.json",
-      "textChars": 4629,
-      "textSha256": "b6b52e2fecce78eca9143fdd5c1f0ea3e56ba909f71654b2ac83dc7431ceda86",
+      "textChars": 4655,
+      "textSha256": "9c95041da2d605810fd9fb8bae05646ed57626fa26fd0d6f196c35f5f691b8f3",
       "title": "Resolução CONTRAN 924/2022"
     },
     "contran-926-2022": {
@@ -2817,8 +2817,8 @@
       "sha256": "77efd4adc15dc23f142e338a77da24742d9b5effa09bfbef7a268bbf26cffab7",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9262022.pdf",
       "text": "pdfs/text/contran-926-2022.json",
-      "textChars": 9989,
-      "textSha256": "6447e52551d85bd623048c3aad0b79aeaf20664b42f569f89d4cf90cf58068a5",
+      "textChars": 10040,
+      "textSha256": "dac038963c1b44e3871ff4eca734bf236d5e662d4a56f88a5a4a8141f36cd26b",
       "title": "Resolução CONTRAN 926/2022"
     },
     "contran-927-2022": {
@@ -2832,8 +2832,8 @@
       "sha256": "d758833ebd14b6364d4bdfd84f73c72a20cfa30845cbb52629e4184e9dcf7b59",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9272022.pdf",
       "text": "pdfs/text/contran-927-2022.json",
-      "textChars": 21672,
-      "textSha256": "1fb98eadc1f23107037fd69e1619d942362bb0c85d764d2c5bf17bac79fe9f4d",
+      "textChars": 21739,
+      "textSha256": "e11a7adfab3354b7aeb50d624c8f92a9b3f597daf84a1e3d974fffdff120bdc0",
       "title": "Resolução CONTRAN 927/2022"
     },
     "contran-931-2022": {
@@ -2847,8 +2847,8 @@
       "sha256": "d3318afc884001ffd232d88e7fcb4385187a5061ca72d06893619eda13b93d80",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9312022.pdf",
       "text": "pdfs/text/contran-931-2022.json",
-      "textChars": 8687,
-      "textSha256": "a945c599455636fde259fe01c2372245888b2e60332919dae57b3744c5ba5a73",
+      "textChars": 8738,
+      "textSha256": "92608dec4bdf7fb991e5256a313a81b0550e34c32a1e872f39ae7cd85f4adbcf",
       "title": "Resolução CONTRAN 931/2022"
     },
     "contran-932-2022": {
@@ -2862,8 +2862,8 @@
       "sha256": "599e61f21ee948aab0e3bf8f774bcda832b9f218c15c609722a8727d389caf40",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9322022.pdf",
       "text": "pdfs/text/contran-932-2022.json",
-      "textChars": 10912,
-      "textSha256": "50da127e3a7cafacc3a162ff471b79fb409b8c1142603b094fa383d02983a0d4",
+      "textChars": 10951,
+      "textSha256": "c276d7d5ae07817bbfab0566090850780095a472a21a15917caf2a23147a6471",
       "title": "Resolução CONTRAN 932/2022"
     },
     "contran-935-2022": {
@@ -2877,8 +2877,8 @@
       "sha256": "7d22c013b55ce10887ff127111cec2fc3af6d0c63121b8a94f7ebaa790e4fad6",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9352022.pdf",
       "text": "pdfs/text/contran-935-2022.json",
-      "textChars": 19592,
-      "textSha256": "a9eb04e3af31517b47de9a8b9b8564c827052e494800b0b48bb143eca927842d",
+      "textChars": 19674,
+      "textSha256": "fda0f4032c02556f0e75de9580f4527941da4482eef18a7a2cfdd77cef8b3192",
       "title": "Resolução CONTRAN 935/2022"
     },
     "contran-936-2022": {
@@ -2892,8 +2892,8 @@
       "sha256": "376ed27631ac85bdeadf8bd75030286e0f7eed7c414739bdc4bad2bfe6b2a664",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9362022.pdf",
       "text": "pdfs/text/contran-936-2022.json",
-      "textChars": 14588,
-      "textSha256": "7211feacf09c7f02c27f8faf1b220a4e0d8672e71425c06865cc6e014346d36c",
+      "textChars": 14655,
+      "textSha256": "d2f8ac081ff7ca98879f11dc4d397abd4f6ae065c911f9079fa1a6a8f8ad287a",
       "title": "Resolução CONTRAN 936/2022"
     },
     "contran-937-2022": {
@@ -2907,8 +2907,8 @@
       "sha256": "2a4bfdbadcfc7408dfca9c43cd977effa8c5d32992b5ea252542ee999f78068d",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9372022.pdf",
       "text": "pdfs/text/contran-937-2022.json",
-      "textChars": 4806,
-      "textSha256": "598ee4d055a4e7311d7e0d642c43cf7bf1ff109de9b83ed9ab287d6215655fed",
+      "textChars": 4833,
+      "textSha256": "5fd8b39e47c3fb65b6075eef7eaccadab9394bf6ced6b6dddcfd9398ace82899",
       "title": "Resolução CONTRAN 937/2022"
     },
     "contran-938-2022": {
@@ -2922,8 +2922,8 @@
       "sha256": "d33fe3ce62400a855cb9604a452b8d50ff223f338157de3d9695d59978ed0915",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9382022.pdf",
       "text": "pdfs/text/contran-938-2022.json",
-      "textChars": 37828,
-      "textSha256": "3608fc8ab9b5a8904486fdb9b5eb5f3cd908e7d30d7e6ca3be4a66340a0261ae",
+      "textChars": 37985,
+      "textSha256": "69c8347e28184137600b73b2aaaa72b67208f0cca4fa4c347e9ec95b96b67ac1",
       "title": "Resolução CONTRAN 938/2022"
     },
     "contran-939-2022": {
@@ -2937,8 +2937,8 @@
       "sha256": "a1e7da37e6b9e6daa45e862b3fbbd19eb1513ad3213b9be8e0305b6c0a144d57",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9392022.pdf",
       "text": "pdfs/text/contran-939-2022.json",
-      "textChars": 11005,
-      "textSha256": "b66900cf38141cdfcd6c662dd64e2b63ee56cb3c47ad9ac184fc9bee315881fa",
+      "textChars": 11046,
+      "textSha256": "104c0c20dbc143743c23ed9a949f9e2995dc3e9462808eb7da7392af959e9321",
       "title": "Resolução CONTRAN 939/2022"
     },
     "contran-940-2022": {
@@ -2952,8 +2952,8 @@
       "sha256": "d9ce096ccc33966f87ac336bbae87d014bf0609c158815e34f6d3cdc37a6cc6c",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9402022.pdf",
       "text": "pdfs/text/contran-940-2022.json",
-      "textChars": 7155,
-      "textSha256": "ed1655caeb24519cee4dc870ff23a3d2b6acb2ab902b244c3bfa643136713b68",
+      "textChars": 7192,
+      "textSha256": "423f98bbcf67da29a73cc52bbdd0dc0f49bbbc9b6edd7df34c886e0c457f8491",
       "title": "Resolução CONTRAN 940/2022"
     },
     "contran-941-2022": {
@@ -2967,8 +2967,8 @@
       "sha256": "3215840c6ec3d2f3a9a7af22d0c539270e0686c71418b92c172d9cb773d8880f",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9412022.pdf",
       "text": "pdfs/text/contran-941-2022.json",
-      "textChars": 27648,
-      "textSha256": "5dc4fe49054ce3e1f5f0fa520dd7b81d88f6b1e1552115587406727018560ef9",
+      "textChars": 27788,
+      "textSha256": "ea48a99177f0c5554d44218388d44836a7199ca7b987d9d6c9d7d1eab1b1f0c3",
       "title": "Resolução CONTRAN 941/2022"
     },
     "contran-942-2022": {
@@ -2982,8 +2982,8 @@
       "sha256": "20df5cf12ec80e8aff9077ea837799cd819e7360ef36a838608b7465b8974c8e",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9422022.pdf",
       "text": "pdfs/text/contran-942-2022.json",
-      "textChars": 25065,
-      "textSha256": "5c603632e794d4e7c8dc7ec4f8aab631dd7f7c7fac78cac482a52a0682135c3a",
+      "textChars": 25170,
+      "textSha256": "da91971e8b4d36fdea30eaafc9ff296523acc1090e2b3dfd94a65a7d5ba8914b",
       "title": "Resolução CONTRAN 942/2022"
     },
     "contran-943-2022": {
@@ -2997,8 +2997,8 @@
       "sha256": "5bd331bb20e2cf1a4103a557dd7d4a8956ed3f7996876f5e4b8a177aba40c084",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9432022.pdf",
       "text": "pdfs/text/contran-943-2022.json",
-      "textChars": 12482,
-      "textSha256": "1da3032aec76724e79619f4c8617a74703ac94b572a7b1fcc7b97351eb3f3341",
+      "textChars": 12530,
+      "textSha256": "7a917c9e06fd1f270b0ded930f826ddfcabb17bc8cf9f31963a8b0e9d81cd8fe",
       "title": "Resolução CONTRAN 943/2022"
     },
     "contran-944-2022": {
@@ -3012,8 +3012,8 @@
       "sha256": "eb16406adc5734b417b1524ddb8c9f338c4824e069b315a1cb7b943782694d27",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9442022.pdf",
       "text": "pdfs/text/contran-944-2022.json",
-      "textChars": 3239,
-      "textSha256": "8ce71e42d4323385d61355a547ff31830706c83fe2204a2ef00a11e64eb28fcc",
+      "textChars": 3270,
+      "textSha256": "75da9e1aba4c2350201a45c1c476f00063844001c8c0454f2c2fb94c4692ab0c",
       "title": "Resolução CONTRAN 944/2022"
     },
     "contran-945-2022": {
@@ -3027,8 +3027,8 @@
       "sha256": "7c1f561b92dd67b37bfb3d94783a22ec82fc991d90823a11c19159c64d9909c9",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9452022.pdf",
       "text": "pdfs/text/contran-945-2022.json",
-      "textChars": 10003,
-      "textSha256": "7f2de162b2cdb29c9984d53c353f42bffed2133a5e1814798b85b677dc62ff4b",
+      "textChars": 10068,
+      "textSha256": "c4aa356f1e9e927a66ed03d4dda287f6837c8110948df752b6f9819ebee4aad5",
       "title": "Resolução CONTRAN 945/2022"
     },
     "contran-946-2022": {
@@ -3042,8 +3042,8 @@
       "sha256": "1b91a007fceff406f34ecfd16c3d2835b5c384484d8e9a3aed9db265440f9343",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9462022.pdf",
       "text": "pdfs/text/contran-946-2022.json",
-      "textChars": 4581,
-      "textSha256": "c6a48563d32a6d5c8f20bf4a026490eae28b541c6f8547a947fd694a2e92c46d",
+      "textChars": 4607,
+      "textSha256": "10059ef6da729918e70d640e8cf245517b155f9aea01d3af10cea3a2249ff4db",
       "title": "Resolução CONTRAN 946/2022"
     },
     "contran-948-2022": {
@@ -3057,8 +3057,8 @@
       "sha256": "4913ca4062bac5feecd4fe75ccb7f6eaff849c44ca3286eca77ce33379e4b1b6",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9482022.pdf",
       "text": "pdfs/text/contran-948-2022.json",
-      "textChars": 3909,
-      "textSha256": "d2a6446c84c7a05edf77d3f48e7373899de86d76e279aaf483729a1a6b0126bf",
+      "textChars": 3941,
+      "textSha256": "dc56ae7e41ba6fcd84d7bdd6e19c248d246e7e4d22b13534d6e0289381393a06",
       "title": "Resolução CONTRAN 948/2022"
     },
     "contran-949-2022": {
@@ -3072,8 +3072,8 @@
       "sha256": "9b1505055be305a5358bded0622340a69a1c3ee11d762a9a6dffaa20f91a09cf",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9492022.pdf",
       "text": "pdfs/text/contran-949-2022.json",
-      "textChars": 6229,
-      "textSha256": "ef7784ef22294e25793495d6d61b04e5587a7ab88fad7f2c6fbc2b9a7ad8eff5",
+      "textChars": 6250,
+      "textSha256": "798f76d8e08599bf6c0f6b93aac2b45b0a27901e078dd1e5fdbd4483b524f239",
       "title": "Resolução CONTRAN 949/2022"
     },
     "contran-950-2022": {
@@ -3087,8 +3087,8 @@
       "sha256": "6dbccd76cd408cb9635af75709e4173949963d2b463644eda5b18104bc57d76e",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9502022.pdf",
       "text": "pdfs/text/contran-950-2022.json",
-      "textChars": 2831,
-      "textSha256": "330c16e0a18ce4944a4702ccdcf096782d63751c5237a93b1048802c4a167aed",
+      "textChars": 2847,
+      "textSha256": "488f267cc2ada4b79b741b8ab814c5636051fde9e81cda28c1269011c16fbf1a",
       "title": "Resolução CONTRAN 950/2022"
     },
     "contran-951-2022": {
@@ -3102,8 +3102,8 @@
       "sha256": "a41b468b4fadc5428cf6a8eb73994c24e057f5293277781bea06845388504369",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9512022.pdf",
       "text": "pdfs/text/contran-951-2022.json",
-      "textChars": 3710,
-      "textSha256": "f9e8ff79bf88262c87fc335cebc7e8fd3e3fcd7ca3669c3e9d483ed5b020eecc",
+      "textChars": 3731,
+      "textSha256": "cc4a967498e871ecfaee8e2718cdfc1e2d2720b8f8ee69e20341957a88339719",
       "title": "Resolução CONTRAN 951/2022"
     },
     "contran-952-2022": {
@@ -3117,8 +3117,8 @@
       "sha256": "47fa0150b323a2edd1a5d4758c637f8813fda7a02ccf6ea7b329025ff99b5403",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9522022.pdf",
       "text": "pdfs/text/contran-952-2022.json",
-      "textChars": 17473,
-      "textSha256": "bd17a1779ce30bb216d9d157be4e7cea10dd7875f2cc8580beb7670216386fdd",
+      "textChars": 17567,
+      "textSha256": "148edafed1660d328a20e4cffb1d4be4ef48abf9d62089d37a71b364a788806f",
       "title": "Resolução CONTRAN 952/2022"
     },
     "contran-953-2022": {
@@ -3132,8 +3132,8 @@
       "sha256": "758f8bc4a506dfd26f8ad17924babba003b252aa81a6699b0c12c29a5bc29e01",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9532022.pdf",
       "text": "pdfs/text/contran-953-2022.json",
-      "textChars": 5346,
-      "textSha256": "a298b2478a0f1cb36009de466c083f8a9dcc887e1f5e80e8c6083d91098570b6",
+      "textChars": 5371,
+      "textSha256": "d722bdb4600990bcee99875e885f3979608dc112d7e75b8a1e83a6da93c85646",
       "title": "Resolução CONTRAN 953/2022"
     },
     "contran-954-2022": {
@@ -3147,8 +3147,8 @@
       "sha256": "56fa725fd66a8943186dcbe62f6e5f8e6fb9145e481117b281b4048288c19897",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9542022.pdf",
       "text": "pdfs/text/contran-954-2022.json",
-      "textChars": 10731,
-      "textSha256": "d0fed5013428c6bc9cc539ab5bce2ce7034478828ad4e72cafc8d2dbe4babaae",
+      "textChars": 10778,
+      "textSha256": "3b444da251b1551be10a2ab4a298666ef3b5b82abc60c00201dec557ff1adc73",
       "title": "Resolução CONTRAN 954/2022"
     },
     "contran-955-2022": {
@@ -3162,8 +3162,8 @@
       "sha256": "09d9fc332a39b19014e59a3e305df6685520f1eabe442a78d305cc8739695335",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9552022.pdf",
       "text": "pdfs/text/contran-955-2022.json",
-      "textChars": 12072,
-      "textSha256": "e88c17c202c41d2c99a154b35976a900f15eaf4821df95a633968ee134261031",
+      "textChars": 12123,
+      "textSha256": "1a166ab3f3fcc6a1d8c8c2e975d0795ed7b9ce2d3d9de03bbb9943002d363193",
       "title": "Resolução CONTRAN 955/2022"
     },
     "contran-956-2022": {
@@ -3177,8 +3177,8 @@
       "sha256": "583274c4c9dc9477902d6934abdc4eec24622bc11ef028e53039f6dc33368d05",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9562022.pdf",
       "text": "pdfs/text/contran-956-2022.json",
-      "textChars": 2869,
-      "textSha256": "3d77655e0a1a539ba44a557143565b1ccc815feceaca5f00f65ce222b4ba12f3",
+      "textChars": 2890,
+      "textSha256": "faf6a77a9444de5e219c2a80cdeac31620b3cdca41dc90112c0daa64bcba2b2d",
       "title": "Resolução CONTRAN 956/2022"
     },
     "contran-957-2022": {
@@ -3192,8 +3192,8 @@
       "sha256": "f3f3f2bd2f25e0824203bfc655da86a632d63ce35cbf11b859822e46e31c58f6",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9572022n2.pdf",
       "text": "pdfs/text/contran-957-2022.json",
-      "textChars": 18386,
-      "textSha256": "8d7e23b5623b8ae6ed9c73df1c08b636045100ec715b25dad76a38fa26541ca8",
+      "textChars": 18046,
+      "textSha256": "87631207bd689f01bcac8d52102e8b5cbf54fc4929b7ff87d189a996c17d7cc6",
       "title": "Resolução CONTRAN 957/2022"
     },
     "contran-958-2022": {
@@ -3207,8 +3207,8 @@
       "sha256": "821add1770727840c9c6730377ca91460733a0151f03824dea4c8614228e0cae",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9582022.pdf",
       "text": "pdfs/text/contran-958-2022.json",
-      "textChars": 18902,
-      "textSha256": "ecd9be3652529ed5af980005a12bc0e2c99e145c285939810e9ebbbdf80efac2",
+      "textChars": 19119,
+      "textSha256": "6b811acae64c02ea61acec9c16838d52ac07f323756435d1b11525ebb2734fc1",
       "title": "Resolução CONTRAN 958/2022"
     },
     "contran-959-2022": {
@@ -3222,8 +3222,8 @@
       "sha256": "54bffc991227481786dfd33567af33f74db38abd649577dcabaa22d331ddfbfa",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9592022.pdf",
       "text": "pdfs/text/contran-959-2022.json",
-      "textChars": 15125,
-      "textSha256": "5eaa283ff043f047653bc8179dc728188838f00daa1a3448f70efee012de1fec",
+      "textChars": 15176,
+      "textSha256": "8cbf53eab26b0445e03f830e2bca17049b3f52fe88f81131d9028537a150711f",
       "title": "Resolução CONTRAN 959/2022"
     },
     "contran-960-2022": {
@@ -3237,8 +3237,8 @@
       "sha256": "f2523e474d2c0b959375284261338a86a334e415c8355ea1426db17a612774c2",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9602022.pdf",
       "text": "pdfs/text/contran-960-2022.json",
-      "textChars": 14225,
-      "textSha256": "d1b7fe7171217d8aaf72e9c6c973958cb69038c4987982cafa77d90c725751af",
+      "textChars": 14289,
+      "textSha256": "7cbb9a9cb28b3904e4dd448a25b52778600273ae4efabbe10b39635bd8b81fba",
       "title": "Resolução CONTRAN 960/2022"
     },
     "contran-961-2022": {
@@ -3252,8 +3252,8 @@
       "sha256": "6e59a8f05fcfab991dfba863f2b94478daddb80bc76940f88c4401a5550cf449",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9612022.pdf",
       "text": "pdfs/text/contran-961-2022.json",
-      "textChars": 9970,
-      "textSha256": "9eb88e7dc67f26d1ce294448eb89185c9c95aa96eade2791b36892979a28fd7b",
+      "textChars": 10027,
+      "textSha256": "5dc510171a859170d72169fc62e2a05545b4ef46fa33c031ddb5824ac70f16ea",
       "title": "Resolução CONTRAN 961/2022"
     },
     "contran-963-2022": {
@@ -3267,8 +3267,8 @@
       "sha256": "edc0bf70666d3b98a94e927e4a1c700ad85fe38f3c8696aeeb61a58f6726acca",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9632022.pdf",
       "text": "pdfs/text/contran-963-2022.json",
-      "textChars": 2519,
-      "textSha256": "cbb29755548bbb67d0967958a9108a9f71e79c5bb86bceceff81eb9ebd729a3c",
+      "textChars": 2535,
+      "textSha256": "d94bc75f18155e5be7efa542b9f4572f84123f461ac6cd9340912fc0dea4b38e",
       "title": "Resolução CONTRAN 963/2022"
     },
     "contran-964-2022": {
@@ -3282,8 +3282,8 @@
       "sha256": "57413c13be140bb7a3bd42b6a6a4449a90ead53282d4f7bde3fde0f21d9d0989",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9642022.pdf",
       "text": "pdfs/text/contran-964-2022.json",
-      "textChars": 4655,
-      "textSha256": "fbd8c81558e1770a71b83584b1460b5f493295b319f7e130604a1444c930ab31",
+      "textChars": 4680,
+      "textSha256": "f60d8cf308ac840c37bc37c66264a4699af74bee0facd5fa5501303e1fdc7098",
       "title": "Resolução CONTRAN 964/2022"
     },
     "contran-965-2022": {
@@ -3297,8 +3297,8 @@
       "sha256": "316bb6e2310873698f88323510940bd9f1bfc232ee17e87764223e13b9014569",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9652022.pdf",
       "text": "pdfs/text/contran-965-2022.json",
-      "textChars": 13719,
-      "textSha256": "91b470ac9abe6a63dc71cb6dfba8c7388b6c0ab13f1f791e56c294dd27886455",
+      "textChars": 13783,
+      "textSha256": "5991c1b316931fe8f94202e0ad9f98431f0227d0530ed1e88bb91a651eba266f",
       "title": "Resolução CONTRAN 965/2022"
     },
     "contran-966-2022": {
@@ -3312,8 +3312,8 @@
       "sha256": "cc4ec391bc8d869733a37c39e4a61fdefa1a4ba9bb7e53ec39703fd61266bed9",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9662022.pdf",
       "text": "pdfs/text/contran-966-2022.json",
-      "textChars": 5244,
-      "textSha256": "c9afa835b7d416cd37f7a582658ed35ad761c1e7bf31a8924ace8981b1d38e75",
+      "textChars": 5266,
+      "textSha256": "3ad52c3f8176e84a822b79814b566ee393c28a8de7a416b0106a3fdbb6ac23ca",
       "title": "Resolução CONTRAN 966/2022"
     },
     "contran-967-2022": {
@@ -3327,8 +3327,8 @@
       "sha256": "50012b6bdb9d15a551d631893b74a7fcacba26d928b0bf0a7be1dfc358807bd5",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9672022.pdf",
       "text": "pdfs/text/contran-967-2022.json",
-      "textChars": 8531,
-      "textSha256": "0d71596222eee1f0444bae754e6b62b2eb4dd177e2dc368e71c4ba8402e7094e",
+      "textChars": 8571,
+      "textSha256": "54a83372e38e62ed7764c2da9a28ffa8944d8b07f5dac4da12044ea70f189737",
       "title": "Resolução CONTRAN 967/2022"
     },
     "contran-968-2022": {
@@ -3342,8 +3342,8 @@
       "sha256": "9202086a67b4d85f9b239a6b0d2a6db10d9207ebbe42b3c6fc9b1031ecb63d0f",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao9682022.pdf",
       "text": "pdfs/text/contran-968-2022.json",
-      "textChars": 51534,
-      "textSha256": "a06cd8684707049b20319ac66e8937294152aefa858d7d352be2d7245c2cc75b",
+      "textChars": 51782,
+      "textSha256": "55be85321b51294d2548fea7f7df3f794d1601bd556bf6689c5a6764e2491784",
       "title": "Resolução CONTRAN 968/2022"
     },
     "contran-969-2022": {
@@ -3357,8 +3357,8 @@
       "sha256": "c0e48ed8cef1cf155df26cfde04a91c9670dd2b773d986b7efcaee387d48d8a8",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao9692022.pdf",
       "text": "pdfs/text/contran-969-2022.json",
-      "textChars": 45099,
-      "textSha256": "1128fd8fb9ea34ecab8254c456bf9330d2d33a82cd3aff311da8b860b7711c8b",
+      "textChars": 45253,
+      "textSha256": "7c8df105230b410806d10b2700ede094a5553372e5c3cbea92facbbf2eb3440e",
       "title": "Resolução CONTRAN 969/2022"
     },
     "contran-970-2022": {
@@ -3372,8 +3372,8 @@
       "sha256": "311838ffba73e35468132ed0b4c4c50098420c7fbc58a3cdf36472670e861fb4",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao9702022.pdf",
       "text": "pdfs/text/contran-970-2022.json",
-      "textChars": 21051,
-      "textSha256": "c5dbfcf50fe42c8001e50b7a02407db545adbf228f1ce9b22ed4a089b35141d1",
+      "textChars": 21110,
+      "textSha256": "629d55393609db025d25bc9b8dc8d466ecbcad14727e6f4f180ed899ec047313",
       "title": "Resolução CONTRAN 970/2022"
     },
     "contran-973-2022": {
@@ -3387,8 +3387,8 @@
       "sha256": "f4715ed8295b23030fb73c00a8c66675ab1321f28cdcd1c926260799e824eaaf",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9732022.pdf",
       "text": "pdfs/text/contran-973-2022.json",
-      "textChars": 6391,
-      "textSha256": "7dca6383202b2aaf4b583508acdcaa6d7ee23c2333372c93e282cbcddcaba7ad",
+      "textChars": 6423,
+      "textSha256": "b84ab030a7831dc2929565a3b1436a888fbafb571eb1be3c79510afb0f762915",
       "title": "Resolução CONTRAN 973/2022"
     },
     "contran-974-2022": {
@@ -3402,8 +3402,8 @@
       "sha256": "52314a5f0fc67d365c7afbd2dc06d38f11d0adc3953995c1383235c844018a5c",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9742022.pdf",
       "text": "pdfs/text/contran-974-2022.json",
-      "textChars": 2428,
-      "textSha256": "e34e1de67604cd57733035ce033d4f8123555b806751e34e7d7a274a314b4eb9",
+      "textChars": 2446,
+      "textSha256": "188a1461fc4a213cc36903424b183dd75ef63e45d0d7dbc03de3a0e675c30829",
       "title": "Resolução CONTRAN 974/2022"
     },
     "contran-975-2022": {
@@ -3417,8 +3417,8 @@
       "sha256": "4b2b95a90325bdbbe42be07276ae16552e76a61344d822c4c8a41469253db61f",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9752022.pdf",
       "text": "pdfs/text/contran-975-2022.json",
-      "textChars": 4382,
-      "textSha256": "faea030fd9b0a473178a1528f39e429fa6676967e25123fd66616902e150d3f7",
+      "textChars": 4404,
+      "textSha256": "aed2feb442685005ec0511f7a50d303f5b797168c46c1fbb008d215d68b34afb",
       "title": "Resolução CONTRAN 975/2022"
     },
     "contran-976-2022": {
@@ -3432,8 +3432,8 @@
       "sha256": "6429055b83dd5eb5aa42fb0644bffc27db4467252085f785cf582e09b96c7d27",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9762022n2.pdf",
       "text": "pdfs/text/contran-976-2022.json",
-      "textChars": 2104,
-      "textSha256": "26927ce65ccb3f5fcc1782a10c059d8833dc8d201fa24b120bc23f10bbc914fd",
+      "textChars": 2059,
+      "textSha256": "e8309a17753b908ae224d587e3f0fbd834c6690a2b83cd0fcb375f662ec0fa9d",
       "title": "Resolução CONTRAN 976/2022"
     },
     "contran-977-2022": {
@@ -3447,8 +3447,8 @@
       "sha256": "ae80d5eb5663cf8187b8e05620365a6779389c7cebfad3e0406ba663bcf9f045",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9772022.pdf",
       "text": "pdfs/text/contran-977-2022.json",
-      "textChars": 3560,
-      "textSha256": "5d4710ee6424f4b0558bf60da37916845bde09ddaeca9abfe9dda238a0725a25",
+      "textChars": 3586,
+      "textSha256": "857ac5710aa8e0df3a6d4e6f26a3f54f9d941715ebed549fbe1d5c883433e396",
       "title": "Resolução CONTRAN 977/2022"
     },
     "contran-981-2022": {
@@ -3462,8 +3462,8 @@
       "sha256": "1f18cc908e2e3d44a79998a3ee87aac637d996fecba5a59235e20a5303ea8f58",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9812022.pdf",
       "text": "pdfs/text/contran-981-2022.json",
-      "textChars": 1801,
-      "textSha256": "3f640b5132f52011c03ad2ae14b8c3f5611508e6fad376f660496e81ba57d93a",
+      "textChars": 1817,
+      "textSha256": "9326f1ba94088394490ec7f9136560fd6a9fcae80b0265bae35116e7b8f83c45",
       "title": "Resolução CONTRAN 981/2022"
     },
     "contran-985-2022": {
@@ -3477,8 +3477,8 @@
       "sha256": "4b763952f62acd73f811ffe4084127b37502516ade23d90dca94e594af50c851",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9852022.pdf",
       "text": "pdfs/text/contran-985-2022.json",
-      "textChars": 1435,
-      "textSha256": "8d54e20029e9c675b9351e0ee74b9c8c6018e1b82df7d09eb26441f7efb819a5",
+      "textChars": 1448,
+      "textSha256": "65bc9e69672a7ddfba90268020215daea4bdd71c2b2f8f71fbf0b6e4828ac72c",
       "title": "Resolução CONTRAN 985/2022"
     },
     "contran-986-2022": {
@@ -3492,8 +3492,8 @@
       "sha256": "14c0219a48e40d9f4da31516d90f7c2b674722dada537f72a2fb77a792ab9f07",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9862022.pdf",
       "text": "pdfs/text/contran-986-2022.json",
-      "textChars": 3492,
-      "textSha256": "8fb45014ff7f2179aa46d023bd8eef37dcfcebef2cf5c7ea5b987828b9e6c209",
+      "textChars": 3510,
+      "textSha256": "c753727904fcd5961a45ce776bce1eee2192d62b72b26404a216ca31aa475e41",
       "title": "Resolução CONTRAN 986/2022"
     },
     "contran-987-2022": {
@@ -3507,8 +3507,8 @@
       "sha256": "60b580906be5409fcb028401b1562a9dba177f9cbf05e74b376a3052ff993fa0",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9872022.pdf",
       "text": "pdfs/text/contran-987-2022.json",
-      "textChars": 2216,
-      "textSha256": "bc3cdf103724a2322301e5bcafb2533f2f71ae0905d956093cb16865f0ad6dbf",
+      "textChars": 2229,
+      "textSha256": "337f9d89dd873cba9fda1e0261670a6a13a5ef45dcd12f889f943dee5bfb80f5",
       "title": "Resolução CONTRAN 987/2022"
     },
     "contran-988-2022": {
@@ -3522,8 +3522,8 @@
       "sha256": "952301d5caa7b06d4870f51d171cb350c6de8b07e4c252fc948bb15c6fe36e3f",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9882022.pdf",
       "text": "pdfs/text/contran-988-2022.json",
-      "textChars": 1921,
-      "textSha256": "db0b6594106d86cb301dbaf322461c973e821ac10af4dbebe74ce5775f4b4d3c",
+      "textChars": 1937,
+      "textSha256": "6f81c06b105f4aebfaf855b01fd4e6d0d34bc966a4952b8ed9df569626ba4725",
       "title": "Resolução CONTRAN 988/2022"
     },
     "contran-989-2022": {
@@ -3537,8 +3537,8 @@
       "sha256": "55a4e87fe08690f6e072143a978697661a48251ba2bcaaf1239a1683a70e4ab5",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9892022.pdf",
       "text": "pdfs/text/contran-989-2022.json",
-      "textChars": 2571,
-      "textSha256": "05b8a71aec949e622ffc5ba13f05fea812cd053116e7306121037a1c06346411",
+      "textChars": 2587,
+      "textSha256": "69027cc734bd7a811db25aededf97e7d333ce22d6fdc879c79d1c2a3c2a0ff7e",
       "title": "Resolução CONTRAN 989/2022"
     },
     "contran-990-2023": {
@@ -3552,8 +3552,8 @@
       "sha256": "94cf746bcd6a20cf2702629c8174540d0a7874a2a86086d05604d50fbe2d5ec2",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9902023.pdf",
       "text": "pdfs/text/contran-990-2023.json",
-      "textChars": 3425,
-      "textSha256": "1bd6332b1a415113256e8e21aaa9df7a83ad45eeb031d5ba8fc5ffc327a865fa",
+      "textChars": 3441,
+      "textSha256": "0bcd942a16f7d99eefada26742d371e7533dc906cbe8b25fa8a7adca4b3daae6",
       "title": "Resolução CONTRAN 990/2023"
     },
     "contran-991-2023": {
@@ -3567,8 +3567,8 @@
       "sha256": "d4c401bd5602309a0b90dbdbc3f3062a299ab4a375ec9961fc2f46373d87dcb8",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9912023.pdf",
       "text": "pdfs/text/contran-991-2023.json",
-      "textChars": 2894,
-      "textSha256": "d9313ac77a705e80e1a6d9dc3beec3082dcb39c721a777ab401869e992c1dcc9",
+      "textChars": 2907,
+      "textSha256": "88446538ed3015c6503b2be1e0a749e6b2131c4ac79a0eeb24f7d3c7044aa093",
       "title": "Resolução CONTRAN 991/2023"
     },
     "contran-993-2023": {
@@ -3582,8 +3582,8 @@
       "sha256": "9e135fddd4fa3b6f897ec7836b9fdf991a5803770fc3b504bebfcecebb4d465f",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9932023.pdf",
       "text": "pdfs/text/contran-993-2023.json",
-      "textChars": 3573,
-      "textSha256": "0de67d52fa2ec24ae48bb333ce7ec92f893dd1d56395228f7470360f57f41e81",
+      "textChars": 3593,
+      "textSha256": "092c9c58b1939e1bb7151d183787d02e629859c96a545cb73ec9f697470bb169",
       "title": "Resolução CONTRAN 993/2023"
     },
     "contran-994-2023": {
@@ -3597,8 +3597,8 @@
       "sha256": "239ecdb10b99bc9d3740d72213b18e0b1c8ec3757a6961e1adf72a8c919af105",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9942023.pdf",
       "text": "pdfs/text/contran-994-2023.json",
-      "textChars": 2310,
-      "textSha256": "2f034e15dce6f84c3630651676a5b17aaff959bf444167cdf2e6da86fbfe9109",
+      "textChars": 2324,
+      "textSha256": "fb8d2555e1a43c542c5806fc816115fcce5d47098b6ec4ff3aca68db76e081ad",
       "title": "Resolução CONTRAN 994/2023"
     },
     "contran-996-2023": {
@@ -3612,8 +3612,8 @@
       "sha256": "85d42b1b8697086ceab8a24ec018d97d0de4ace82bf94def86a9b8d267a39d9f",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9962023.pdf",
       "text": "pdfs/text/contran-996-2023.json",
-      "textChars": 14808,
-      "textSha256": "7656ffc173c1e31d26858d8816995627ceebf2db57e46f9f4b8b033f6227cfc1",
+      "textChars": 14856,
+      "textSha256": "1e06651cac93ecb1a3d2e1831c7d616aee87e19f4ba28169c8c18489ddc74477",
       "title": "Resolução CONTRAN 996/2023"
     },
     "contran-997-2023": {
@@ -3627,8 +3627,8 @@
       "sha256": "1dea17df18181cdd3f5b5e3e89d810424cd4dcfae453d5a3cd5ecbf64307af58",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9972023.pdf",
       "text": "pdfs/text/contran-997-2023.json",
-      "textChars": 3991,
-      "textSha256": "812346fa3ead73732403a2102e105e6e250f7ada92c7e72f336504ed81e17b65",
+      "textChars": 4019,
+      "textSha256": "b6933b01c135c9eafaf62e375c4789ccee0951a9ea0b24cbd0cd6d2c17681dd1",
       "title": "Resolução CONTRAN 997/2023"
     },
     "contran-998-2023": {
@@ -3642,8 +3642,8 @@
       "sha256": "5080daf230f28436c50efa1fd3c410a94bd4c890265b563fefa14fff6db8b43d",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9982023n.pdf",
       "text": "pdfs/text/contran-998-2023.json",
-      "textChars": 2361,
-      "textSha256": "5d5c67fb3d1b93c7a28960ed6e45cc2450a33327c47434762e6ef97cd60acc5f",
+      "textChars": 2332,
+      "textSha256": "5e2450c042abb18ea932d8da50a415e27660f666458777cd1cf9550ab65c145c",
       "title": "Resolução CONTRAN 998/2023"
     },
     "inmetro-111-2022": {
@@ -3657,7 +3657,7 @@
       "sha256": "7fcb32543b6ceb9149943c30e6bcb85d9c97c30023cc43b9162063280e18cf3d",
       "sourceUrl": "http://sistema-sil.inmetro.gov.br/rtac/RTAC002953.pdf",
       "text": "pdfs/text/inmetro-111-2022.json",
-      "textChars": 148031,
+      "textChars": 143114,
       "title": "Portaria Inmetro 111/2022 — Componentes do sistema GNV",
       "via": "Pacote de pesquisa de segurança de 02/11/2026 (PR #18)"
     },
@@ -3672,7 +3672,7 @@
       "sha256": "c864d093c624449982894ebe90fce7b4741f57777382c7aff0c0292cc8d8ca45",
       "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/produtos-e-servicos-regulados/documentos/rtac002753.pdf",
       "text": "pdfs/text/inmetro-200-2021.json",
-      "textChars": 127158,
+      "textChars": 124978,
       "title": "Portaria Inmetro 200/2021 — Requisitos Gerais de Certificação de Produtos (RGCP)",
       "via": "Pacote de pesquisa de segurança de 02/11/2026 (PR #18)"
     },
@@ -3687,7 +3687,7 @@
       "sha256": "9d518f4106153ebb601529f6388d52ef04d8fc6a6f170015352f9a69b95ccc71",
       "sourceUrl": "http://sistema-sil.inmetro.gov.br/rtac/RTAC002663.pdf",
       "text": "pdfs/text/inmetro-258-2020.json",
-      "textChars": 57373,
+      "textChars": 56350,
       "title": "Portaria Inmetro 258/2020 — Registro de objetos",
       "via": "Pacote de pesquisa de segurança de 02/11/2026 (PR #18)"
     },
@@ -3702,7 +3702,7 @@
       "sha256": "5bf49778d355c9412f4a0de429c3fecee945d3adbfdf1248081fc2ab2c6ee076",
       "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/produtos-e-servicos-regulados/documentos/rtac002790.pdf",
       "text": "pdfs/text/inmetro-278-2021.json",
-      "textChars": 27518,
+      "textChars": 26817,
       "title": "Portaria Inmetro 278/2021 — Requisitos Gerais de Declaração do Fornecedor de Serviços",
       "via": "Pacote de pesquisa de segurança de 02/11/2026 (PR #18)"
     },
@@ -3717,7 +3717,7 @@
       "sha256": "826386bb26f1809a0437aeca30fe59fb46e8cc00c3ae59d0c5a75b0d85458806",
       "sourceUrl": "http://sistema-sil.inmetro.gov.br/rtac/RTAC002802.pdf",
       "text": "pdfs/text/inmetro-309-2021.json",
-      "textChars": 34063,
+      "textChars": 33545,
       "title": "Portaria Inmetro 309/2021 — Dispositivo de acoplamento mecânico — engate",
       "via": "Pacote de pesquisa de segurança de 02/11/2026 (PR #18)"
     },
@@ -3733,7 +3733,7 @@
       "sha256": "2457630c06feb1e69c60a553b832935e571bfce66d4618fe87f387caf2beb218",
       "sourceUrl": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&jornal=515&data=30%2F05%2F2025&pagina=74",
       "text": "pdfs/text/inmetro-314-2025.json",
-      "textChars": 18896,
+      "textChars": 21429,
       "title": "Portaria Inmetro 314/2025 — INMPAM — selos com segurança física e digital",
       "via": "Pacote de pesquisa de segurança de 02/11/2026 (PR #18)"
     },
@@ -3748,7 +3748,7 @@
       "sha256": "8b2ecf69dab6b0b5c5d4f6aff3baf5f05b240bb8209951942823a20550d722fa",
       "sourceUrl": "http://sistema-sil.inmetro.gov.br/rtac/RTAC002835.pdf",
       "text": "pdfs/text/inmetro-379-2021.json",
-      "textChars": 128457,
+      "textChars": 125356,
       "title": "Portaria Inmetro 379/2021 — Pneus novos",
       "via": "Pacote de pesquisa de segurança de 02/11/2026 (PR #18)"
     },
@@ -3763,7 +3763,7 @@
       "sha256": "f48c036e08ccd9ddb6b94af669b3bb18c81f8081bc5cdd278f032e4ab351db2c",
       "sourceUrl": "http://sistema-sil.inmetro.gov.br/rtac/RTAC002855.pdf",
       "text": "pdfs/text/inmetro-436-2021.json",
-      "textChars": 230478,
+      "textChars": 227105,
       "title": "Portaria Inmetro 436/2021 — Cilindros para armazenamento de GNV",
       "via": "Pacote de pesquisa de segurança de 02/11/2026 (PR #18)"
     },
@@ -3779,7 +3779,7 @@
       "sha256": "7c65bddefae9baab63a841fbc330642ae644556cf0cf6aa6186b50f5a95ba8bd",
       "sourceUrl": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=16%2F04%2F2025&jornal=515&pagina=1",
       "text": "pdfs/text/mover-002.json",
-      "textChars": 71703,
+      "textChars": 84550,
       "title": "Decreto 12.435-2025 - Requisitos do MOVER",
       "via": "Pacote de pesquisa de segurança de 02/11/2026 (PR #18)"
     },
@@ -3795,7 +3795,7 @@
       "sha256": "819a574bb8366737f3531d7d7e444df1b5d1aea56641660a7192f7efed28910c",
       "sourceUrl": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=22%2F08%2F2025&jornal=515&pagina=26",
       "text": "pdfs/text/mover-006.json",
-      "textChars": 35139,
+      "textChars": 36633,
       "title": "Portaria GM-MDIC 215-2025 - Segurança",
       "via": "Pacote de pesquisa de segurança de 02/11/2026 (PR #18)"
     },
@@ -3810,8 +3810,8 @@
       "sha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf/@@display-file/file",
       "text": "pdfs/text/senatran-095.json",
-      "textChars": 59261,
-      "textSha256": "e1839ae669f42c2a4b449c79ea0893e2cee03fb98e88b9e4132476e83092278d",
+      "textChars": 60561,
+      "textSha256": "3947dab50f92083a63aa70a0f34b3068588e8ea3834f677cfa9c3454d3e37777",
       "title": "Portaria Senatran 990-2022 - Homologação CAT"
     },
     "senatran-096": {
@@ -3825,7 +3825,7 @@
       "sha256": "5b25af3fe52771a0deb6cc171a6b87bfca8efffd80f306ef7074a8702fb164a4",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria15442022.pdf",
       "text": "pdfs/text/senatran-096.json",
-      "textChars": 12616,
+      "textChars": 12649,
       "title": "Portaria Senatran 1554-2022 - Rotulagem de segurança",
       "via": "Pacote de pesquisa de segurança de 02/11/2026 (PR #18)"
     },
@@ -3840,8 +3840,8 @@
       "sha256": "44d9936d4d571c468a91ac72e89e5427dec9072017622a25e98e7b671b8223cd",
       "sourceUrl": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/deliberacoes/Deliberacao2642022.pdf/@@display-file/file",
       "text": "pdfs/text/senatran-097.json",
-      "textChars": 2633,
-      "textSha256": "6bcfbc5221bc6bb6273ad986194860b7c18b6a441e099f7b183026ccbc339225",
+      "textChars": 2639,
+      "textSha256": "e52837097546aad43c158c0c3f88402576b1ab9e7a50b0aa6e28b22e07d682d7",
       "title": "Deliberação Contran 264-2022 - Cronograma ESC"
     }
   },
