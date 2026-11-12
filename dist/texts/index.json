@@ -82,8 +82,8 @@
   },
   {
    "annexFiles": 0,
-   "annexSections": 0,
-   "chars": 44221,
+   "annexSections": 1,
+   "chars": 44252,
    "fullTextAvailable": true,
    "id": "anatel-ato3151-2020",
    "origin": "archived_official_text"
@@ -395,7 +395,7 @@
   {
    "annexFiles": 0,
    "annexSections": 3,
-   "chars": 21083,
+   "chars": 20933,
    "fullTextAvailable": true,
    "id": "contran-1031-2026",
    "origin": "pdf"
@@ -571,7 +571,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 10049,
+   "chars": 10050,
    "fullTextAvailable": true,
    "id": "contran-314-2009",
    "origin": "pdf"
@@ -650,8 +650,8 @@
   },
   {
    "annexFiles": 0,
-   "annexSections": 0,
-   "chars": 2625,
+   "annexSections": 1,
+   "chars": 2656,
    "fullTextAvailable": true,
    "id": "contran-400-2012",
    "origin": "pdf"
@@ -1091,7 +1091,7 @@
   {
    "annexFiles": 0,
    "annexSections": 5,
-   "chars": 52169,
+   "chars": 51734,
    "fullTextAvailable": true,
    "id": "contran-810-2020",
    "origin": "pdf"
@@ -1323,7 +1323,7 @@
   {
    "annexFiles": 2,
    "annexSections": 2,
-   "chars": 55925,
+   "chars": 55879,
    "fullTextAvailable": true,
    "id": "contran-913-2022",
    "origin": "pdf"
@@ -1394,8 +1394,8 @@
   },
   {
    "annexFiles": 0,
-   "annexSections": 0,
-   "chars": 32335,
+   "annexSections": 1,
+   "chars": 32365,
    "fullTextAvailable": true,
    "id": "contran-922-2022",
    "origin": "pdf"
@@ -1427,7 +1427,7 @@
   {
    "annexFiles": 1,
    "annexSections": 22,
-   "chars": 68689,
+   "chars": 68168,
    "fullTextAvailable": true,
    "id": "contran-927-2022",
    "origin": "pdf"
@@ -1483,7 +1483,7 @@
   {
    "annexFiles": 1,
    "annexSections": 10,
-   "chars": 93420,
+   "chars": 93282,
    "fullTextAvailable": true,
    "id": "contran-939-2022",
    "origin": "pdf"
@@ -1618,8 +1618,8 @@
   },
   {
    "annexFiles": 1,
-   "annexSections": 3,
-   "chars": 36637,
+   "annexSections": 4,
+   "chars": 36360,
    "fullTextAvailable": true,
    "id": "contran-957-2022",
    "origin": "pdf"
@@ -1635,7 +1635,7 @@
   {
    "annexFiles": 1,
    "annexSections": 21,
-   "chars": 141816,
+   "chars": 141731,
    "fullTextAvailable": true,
    "id": "contran-959-2022",
    "origin": "pdf"
@@ -1715,7 +1715,7 @@
   {
    "annexFiles": 2,
    "annexSections": 22,
-   "chars": 601060,
+   "chars": 600916,
    "fullTextAvailable": true,
    "id": "contran-970-2022",
    "origin": "pdf"
@@ -1827,7 +1827,7 @@
   {
    "annexFiles": 1,
    "annexSections": 3,
-   "chars": 100749,
+   "chars": 100687,
    "fullTextAvailable": true,
    "id": "contran-993-2023",
    "origin": "pdf"
@@ -2043,7 +2043,7 @@
   {
    "annexFiles": 0,
    "annexSections": 2,
-   "chars": 125906,
+   "chars": 125538,
    "fullTextAvailable": true,
    "id": "ibama-in-6-2025",
    "origin": "archived_official_text"
@@ -2058,8 +2058,8 @@
   },
   {
    "annexFiles": 0,
-   "annexSections": 11,
-   "chars": 144198,
+   "annexSections": 13,
+   "chars": 141173,
    "fullTextAvailable": true,
    "id": "inmetro-111-2022",
    "origin": "research_package"
@@ -2090,8 +2090,8 @@
   },
   {
    "annexFiles": 0,
-   "annexSections": 3,
-   "chars": 125850,
+   "annexSections": 5,
+   "chars": 124380,
    "fullTextAvailable": true,
    "id": "inmetro-200-2021",
    "origin": "research_package"
@@ -2114,24 +2114,24 @@
   },
   {
    "annexFiles": 0,
-   "annexSections": 1,
-   "chars": 57658,
+   "annexSections": 2,
+   "chars": 57539,
    "fullTextAvailable": true,
    "id": "inmetro-258-2020",
    "origin": "research_package"
   },
   {
    "annexFiles": 0,
-   "annexSections": 1,
-   "chars": 27208,
+   "annexSections": 2,
+   "chars": 26933,
    "fullTextAvailable": true,
    "id": "inmetro-278-2021",
    "origin": "research_package"
   },
   {
    "annexFiles": 0,
-   "annexSections": 5,
-   "chars": 34456,
+   "annexSections": 6,
+   "chars": 33948,
    "fullTextAvailable": true,
    "id": "inmetro-309-2021",
    "origin": "research_package"
@@ -2139,7 +2139,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 21366,
+   "chars": 21322,
    "fullTextAvailable": true,
    "id": "inmetro-314-2025",
    "origin": "research_package"
@@ -2162,8 +2162,8 @@
   },
   {
    "annexFiles": 0,
-   "annexSections": 10,
-   "chars": 125925,
+   "annexSections": 11,
+   "chars": 123452,
    "fullTextAvailable": true,
    "id": "inmetro-379-2021",
    "origin": "research_package"
@@ -2178,8 +2178,8 @@
   },
   {
    "annexFiles": 0,
-   "annexSections": 6,
-   "chars": 228324,
+   "annexSections": 9,
+   "chars": 224341,
    "fullTextAvailable": true,
    "id": "inmetro-436-2021",
    "origin": "research_package"
@@ -2211,7 +2211,7 @@
   {
    "annexFiles": 0,
    "annexSections": 4,
-   "chars": 84726,
+   "chars": 84660,
    "fullTextAvailable": true,
    "id": "mover-002",
    "origin": "research_package"
@@ -2243,7 +2243,7 @@
   {
    "annexFiles": 0,
    "annexSections": 3,
-   "chars": 36806,
+   "chars": 36762,
    "fullTextAvailable": true,
    "id": "mover-006",
    "origin": "research_package"

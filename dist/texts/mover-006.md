@@ -9,7 +9,7 @@ kind: "law_text"
 notice: "Cópia de consulta do texto oficial. Não substitui a publicação oficial e não altera a situação jurídica, a revisão, a aplicabilidade ou a publicação registradas para o ato."
 officialUrl: "https://www.in.gov.br/web/dou/-/portaria-gm/mdic-n-215-de-19-de-agosto-de-2025-650479226"
 source: {"file": "pdfs/mover/mover-006.pdf", "origin": "research_package", "retrievedAt": "2026-11-02", "sha256": "819a574bb8366737f3531d7d7e444df1b5d1aea56641660a7192f7efed28910c", "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=22%2F08%2F2025&jornal=515&pagina=26", "via": "Pacote de pesquisa de segurança de 02/11/2026 (PR #18)"}
-textSha256: "3738ed0d144ce0b51dcda4bf47c78e7c94fb668d74989090698e2eb789c040be"
+textSha256: "1cdad3b25681016efe7ec13112e47bde185c8bb6a006638473880541c00da1b2"
 title: "Portaria GM-MDIC 215-2025 - Segurança"
 ---
 
@@ -312,8 +312,6 @@ O SECRETÁRIO DE DESENVOLVIMENTO INDUSTRIAL, INOVAÇÃO, COMÉRCIO E SERVIÇOS, 
 
 <a id="art-1-3"></a>**art. 1º** do Decreto nº 12.435, de 2025. A verificação do atendimento aos requisitos de que trata o art. 1º do Decreto nº 12.435, de 2025, será feita diretamente pelo Ministério do Desenvolvimento, Indústria, Comércio e Serviços, ou por intermédio de auditorias realizadas por entidades credenciadas pela União, contratadas pelo fabricante ou pelo importador de veículos com ato de registro de compromissos. O cancelamento do ato de registro de compromissos, que poderá ser solicitado a qualquer tempo pela empresa, não isenta o fabricante ou o importador de veículos do cumprimento aos requisitos de que trata o art. 1º, os quais serão calculados com base nos doze meses anteriores à data de solicitação de cancelamento ou nos últimos doze meses de atividades do importador ou do fabricante.
 
-UALLACE MOREIRA LIMA
-
 Secretário
 
 ANEXO PROPOSTA Nº 009/25 - ALTERAÇÃO DO PROCESSO PRODUTIVO BÁSICO PARA "PREPARAÇÕES UTILIZADAS EM ALIMENTOS, COSMÉTICOS E BEBIDAS (EXCETO À BASE DE SUBSTÂNCIAS ODORÍFERAS)" ESTABELECIDO PELA PORTARIA INTERMINISTERIAL SEPEC/ME/SEXEC/MCTIC Nº 29, DE 16 DE JUNHO DE 2020.
@@ -331,7 +329,5 @@ ANEXO PROPOSTA Nº 009/25 - ALTERAÇÃO DO PROCESSO PRODUTIVO BÁSICO PARA "PREP
 .(...) .33. Mistura Proteica para Produção de Alimentos e/ou Suplementos. .34. Mistura à base de Creatina para Produção de Suplementos.
 
 .NCM .(...) .2106.10.00 .2925.29.90
-
-UALLACE MOREIRA LIMA
 
 que institui a Infraestrutura de Chaves Públicas Brasileira - ICP-Brasil.

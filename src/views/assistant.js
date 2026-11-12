@@ -57,7 +57,6 @@ const Assistant = (() => {
   let index = null;
   let indexLoad = null;
   let status = null;
-  const pdfTexts = new Map();
 
   function tokens(value) {
     const words = norm(value)
@@ -141,63 +140,69 @@ const Assistant = (() => {
     return { chosen, related, terms: all };
   }
 
-  async function pdfPages(path) {
-    if (typeof path !== 'string' || !/^pdfs\/text\/[\w.-]+\.json$/.test(path)) return [];
-    if (!pdfTexts.has(path)) {
-      try {
-        const response = await fetch(path);
-        pdfTexts.set(path, response.ok ? (await response.json()).pages || [] : []);
-      } catch {
-        pdfTexts.set(path, []);
-      }
+  // Split the full text of an act into devices: one chunk per article (with its
+  // paragraphs and items) and per annex section, cut when it grows too long.
+  function deviceChunks(blocks) {
+    const chunks = [];
+    let chunk = null;
+    const start = (anchor, label) => {
+      chunk = { anchor, label, text: '' };
+      chunks.push(chunk);
+    };
+    for (const block of blocks) {
+      if (block.kind === 'rule' || !block.text) continue;
+      const text = block.text.replace(/\*\*/g, '');
+      if (block.kind === 'annex')
+        start(block.id, text.length > 90 ? text.slice(0, 88) + '…' : text);
+      else if (/^art-\d+(-[a-z])?$/.test(block.id || ''))
+        start(block.id, (block.text.match(/^\*\*(.+?)\*\*/) || [])[1] || 'Artigo');
+      else if (!chunk) start(null, 'Preâmbulo');
+      else if (chunk.text.length > 1500) start(chunk.anchor, chunk.label);
+      chunk.text += (chunk.text ? ' ' : '') + text;
     }
-    return pdfTexts.get(path);
+    return chunks;
   }
 
-  // Best window of each official file: the act and each separately published annex.
-  // The strongest windows come first, whatever the act.
-  async function pdfWindows(actIds, terms) {
+  // Best devices of the full text of each act (texts/<id>.md), annexes included.
+  // The strongest come first, whatever the act; at most two per act.
+  async function textWindows(actIds, terms) {
     const results = [];
     for (const actId of actIds) {
       const act = index.acts.get(actId);
-      if (!act) continue;
-      const annexes = act.annexes || [];
-      const documents = [
-        { text: act.pdfText, label: 'PDF' },
-        ...annexes.map((annex, i) => ({
-          text: annex.text,
-          label: (annexes.length > 1 ? `Anexos, arquivo ${i + 1}` : 'Anexos') + ' (PDF)',
-        })),
-      ];
-      for (const document of documents) {
-        let best = null;
-        (await pdfPages(document.text)).forEach((page, pageIndex) => {
-          for (let start = 0; start < page.length; start += 900) {
-            const text = page.slice(start, start + 1800);
-            const words = tokens(text);
-            const tf = new Map();
-            for (const word of words) tf.set(word, (tf.get(word) || 0) + 1);
-            const score = bm25(tf, words.length, terms, 260);
-            if (!best || score > best.score) best = { score, text, page: pageIndex + 1 };
-          }
-        });
-        if (best?.score > 0)
-          results.push({
-            score: best.score,
-            passage: {
-              id: `${actId}:pdf:${document.label}:${best.page}`,
-              actId,
-              agency: act.agency,
-              device: `${document.label}, página ${best.page}`,
-              kind: 'official_pdf_text',
-              kindLabel: 'Texto do PDF oficial',
-              stage: act.stage,
-              text: best.text.replace(/\s+/g, ' ').trim(),
-              title: act.title,
-              url: act.url,
-            },
-          });
+      if (!act || !LawReader.has(actId)) continue;
+      let blocks;
+      try {
+        blocks = (await LawReader.load(actId)).blocks;
+      } catch {
+        continue;
       }
+      const scored = deviceChunks(blocks)
+        .map((chunk) => {
+          const words = tokens(chunk.label + ' ' + chunk.text);
+          const tf = new Map();
+          for (const word of words) tf.set(word, (tf.get(word) || 0) + 1);
+          return { chunk, score: bm25(tf, words.length, terms, 220) };
+        })
+        .filter((item) => item.score > 0)
+        .sort((x, y) => y.score - x.score)
+        .slice(0, 2);
+      for (const { chunk, score } of scored)
+        results.push({
+          score,
+          passage: {
+            id: `${actId}:texto:${chunk.anchor || 'inicio'}:${results.length}`,
+            actId,
+            agency: act.agency,
+            anchor: chunk.anchor,
+            device: chunk.label,
+            kind: 'official_full_text',
+            kindLabel: 'Texto do ato',
+            stage: act.stage,
+            text: chunk.text.replace(/\s+/g, ' ').trim().slice(0, 2000),
+            title: act.title,
+            url: act.url,
+          },
+        });
     }
     return results.sort((x, y) => y.score - x.score).map((item) => item.passage);
   }
@@ -243,13 +248,19 @@ const Assistant = (() => {
   let activeTab = null;
   let showAll = false;
 
-  function lawLinks(actId, url) {
+  function lawLinks(actId, url, passage = null) {
     const act = actId ? index.acts.get(actId) : null;
+    let text = '';
+    if (actId && LawReader.has(actId)) {
+      const article = String(passage?.device || '').match(/Arts?\.?\s*(\d+)/i);
+      const anchor = passage?.anchor || (article ? `art-${article[1]}` : null);
+      text = `<a class="ask-pill" href="${esc(LawReader.route(actId, anchor))}" data-ask-law="${esc(actId)}">${anchor ? 'Abrir no artigo' : 'Texto completo'}</a>`;
+    }
     const pdf =
       act?.pdf && /^pdfs\/[\w./-]+\.pdf$/.test(act.pdf)
         ? `<a class="ask-pill" href="${esc(act.pdf)}" target="_blank" rel="noopener">PDF</a>`
         : '';
-    return `${pdf}${safeLink(url || act?.url, 'Fonte oficial', 'ask-pill')}`;
+    return `${text}${pdf}${safeLink(url || act?.url, 'Fonte oficial', 'ask-pill')}`;
   }
   function renderAnswer(entry) {
     return esc(entry.answer)
@@ -286,7 +297,7 @@ const Assistant = (() => {
     return `<details class="ask-used"${entry.answer ? '' : ' open'}><summary>${entry.answer ? 'Trechos usados na resposta' : 'Trechos encontrados'} (${entry.passages.length})</summary><ol>${entry.passages
       .map(
         (p, i) =>
-          `<li id="ask-src-${i + 1}"><span class="ask-n">${i + 1}</span><div><strong>${esc(p.title)}</strong><small>${esc(STAGES[p.stage] || '')} · ${esc(p.kindLabel)}${p.device ? ` · ${esc(p.device)}` : ''}</small><p>${esc(p.text.length > 320 ? p.text.slice(0, 320) + '…' : p.text)}</p><div class="ask-links">${lawLinks(p.actId, p.url)}</div></div></li>`,
+          `<li id="ask-src-${i + 1}"><span class="ask-n">${i + 1}</span><div><strong>${esc(p.title)}</strong><small>${esc(STAGES[p.stage] || '')} · ${esc(p.kindLabel)}${p.device ? ` · ${esc(p.device)}` : ''}</small><p>${esc(p.text.length > 320 ? p.text.slice(0, 320) + '…' : p.text)}</p><div class="ask-links">${lawLinks(p.actId, p.url, p)}</div></div></li>`,
       )
       .join('')}</ol></details>`;
   }
@@ -373,8 +384,9 @@ const Assistant = (() => {
       await loadIndex();
       const { chosen, related, terms } = search(question);
       const topActs = [...new Set(chosen.map((item) => item.doc.passage.actId).filter(Boolean))];
-      const pdf = await pdfWindows(topActs.slice(0, 3), terms);
-      entry.passages = [...chosen.map((item) => item.doc.passage), ...pdf.slice(0, 2)];
+      await LawReader.loadIndex();
+      const devices = await textWindows(topActs.slice(0, 4), terms);
+      entry.passages = [...chosen.map((item) => item.doc.passage), ...devices.slice(0, 4)];
       entry.related = related;
       const ai = await checkStatus();
       const canWeb = ai.web && ai.providers.find((p) => p.id === ai.provider)?.web;

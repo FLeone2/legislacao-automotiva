@@ -126,6 +126,11 @@ const GuideTraceability = (() => {
       officialUrl: record.officialUrl || null,
       requirementIds,
       provisions: mappedRequirements.map((requirement) => provision(requirement, record)),
+      // Requirements extracted from the act but not linked to this part by the
+      // reviewed map. They locate articles; they are not obligations of the part.
+      actProvisions: (record.requirements || [])
+        .filter((requirement) => !requirementIds.includes(requirement.id))
+        .map((requirement) => provision(requirement, record)),
       missingRequirementIds,
       legalStatus: clone(record.legalStatus),
       reviewStatus: clone(record.reviewStatus),

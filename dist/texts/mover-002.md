@@ -9,7 +9,7 @@ kind: "law_text"
 notice: "Cópia de consulta do texto oficial. Não substitui a publicação oficial e não altera a situação jurídica, a revisão, a aplicabilidade ou a publicação registradas para o ato."
 officialUrl: "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/decreto/d12435.htm"
 source: {"file": "pdfs/mover/mover-002.pdf", "origin": "research_package", "retrievedAt": "2026-11-02", "sha256": "7c65bddefae9baab63a841fbc330642ae644556cf0cf6aa6186b50f5a95ba8bd", "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=16%2F04%2F2025&jornal=515&pagina=1", "via": "Pacote de pesquisa de segurança de 02/11/2026 (PR #18)"}
-textSha256: "c56b59dd499b60d7220ca0d37e97157ec2c7e1d81059e1ba85317dd3c67b60a9"
+textSha256: "4e55df6decc8b0257fda43a27d468d83e9983c396c809eb27e9e9a8b3826b57c"
 title: "Decreto 12.435-2025 - Requisitos do MOVER"
 ---
 
@@ -791,8 +791,6 @@ II - participar de reuniões durante a fase de estruturação do projeto, bem co
 
 15. Regras complementares poderão ser editadas por meio de ato do Ministro de Estado do Desenvolvimento, Indústria, Comércio e Serviços.
 
-RUI COSTA DOS SANTOS
-
 Presidente do Conselho
 
 **RESOLUÇÃO CPPI Nº 326, DE 25 DE MARÇO DE 2025**
@@ -835,9 +833,7 @@ I - os incisos I e III, art. 1º, da Resolução nº 163, de 2 de dezembro de 20
 
 II - o inciso I, art. 1º, da Resolução nº 129, de 10 de junho de 2020.
 
-<a id="art-3-3"></a>**Art. 3º** Esta Resolução entra em vigor na data de sua publicação. RUI COSTA DOS SANTOS
-
-Presidente do Conselho
+<a id="art-3-3"></a>**Art. 3º** Esta Resolução entra em vigor na data de sua publicação. Presidente do Conselho
 
 **RESOLUÇÃO CPPI Nº 327, DE 25 DE MARÇO DE 2025**
 
@@ -871,8 +867,6 @@ IX - Floresta Nacional de Anauá, localizada no Estado de Roraima.
 
 <a id="art-55"></a>**art. 55** , inciso I, da Lei nº 11.284 de 2 de março de 2006.
 
-<a id="art-3-4"></a>**Art. 3º** Esta Resolução entra em vigor na data de sua publicação. RUI COSTA DOS SANTOS
-
-Presidente do Conselho
+<a id="art-3-4"></a>**Art. 3º** Esta Resolução entra em vigor na data de sua publicação. Presidente do Conselho
 
 que institui a Infraestrutura de Chaves Públicas Brasileira - ICP-Brasil.

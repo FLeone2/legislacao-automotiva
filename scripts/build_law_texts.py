@@ -86,7 +86,21 @@ def clean_lines(text):
         if line and any(pattern.match(line) for pattern in NOISE):
             continue
         lines.append(line)
-    return lines
+    # A capitalised line printed on every page ("ANEXO DA PORTARIA INMETRO Nº 200/
+    # 2021") is a running header: keep its first occurrence only.
+    counts = {}
+    for line in lines:
+        if len(line) >= 20 and re.sub(r"[ºª°]", "", line).isupper():
+            counts[line] = counts.get(line, 0) + 1
+    seen = set()
+    kept = []
+    for line in lines:
+        if counts.get(line, 0) >= 3:
+            if line in seen:
+                continue
+            seen.add(line)
+        kept.append(line)
+    return kept
 
 
 ROMAN_VALUES = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100}
@@ -126,8 +140,14 @@ def is_annex_heading(line):
     if not match:
         return None
     rest = match[2].strip()
-    # "ANEXO desta Resolução" or a sentence is a reference, not a heading.
-    if rest and (rest[:1].islower() or re.match(r"^(d[aeo]s?|à|ao)\b", rest, re.I)):
+    # "ANEXO desta Resolução" or a sentence is a reference, not a heading. A short
+    # line all in capitals ("ANEXO DA PORTARIA INMETRO Nº 200/2021") is a heading.
+    titled = is_caps(line) and len(line) < 140
+    if (
+        rest
+        and not titled
+        and (rest[:1].islower() or re.match(r"^(d[aeo]s?|à|ao)\b", rest, re.I))
+    ):
         return None
     if rest.endswith(("..", "…")):
         return None

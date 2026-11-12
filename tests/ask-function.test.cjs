@@ -53,8 +53,9 @@ test('sends only numbered passages as data and maps the daily limit', async () =
   assert.equal(response.status, 200);
   assert.equal((await response.json()).answer, 'A LCVM é do IBAMA [1].');
   const user = seen.input.messages[1].content;
-  assert.match(user, /\[8\] Ato 7/);
-  assert.doesNotMatch(user, /\[9\]/);
+  // At most ten passages reach the model.
+  assert.match(user, /\[10\] Ato 9/);
+  assert.doesNotMatch(user, /\[11\]/);
   assert.match(seen.input.messages[0].content, /não instruções/);
   const limited = { AI: { run: async () => Promise.reject(new Error('4006: daily allocation')) } };
   const quota = await onRequestPost({

@@ -51,6 +51,7 @@ async function render() {
         'anatel',
         'markings',
         'history',
+        'lei',
       ].includes(state.view)
     )
       state.view = 'inicio';
@@ -63,7 +64,9 @@ async function render() {
       'contran-mode',
       ['contran', 'proconve', 'inmetro', 'anatel', 'markings'].includes(state.view),
     );
-    updateNavigation({ history: 'library', ia: 'inicio' }[state.view] || state.view);
+    updateNavigation(
+      { history: 'library', ia: 'inicio', lei: 'library' }[state.view] || state.view,
+    );
     // The header search belongs to the library. Its URL is the source of truth
     // when returning; a previous term must not appear to filter another screen.
     if (state.view !== 'library') {
@@ -100,6 +103,12 @@ async function render() {
       if (typeof ensureVehiclePreviews === 'function') await ensureVehiclePreviews();
       if (renderId !== renderSequence) return;
       renderFlow();
+      return;
+    }
+    if (state.view === 'lei') {
+      // Full text of one act; it needs no vehicle previews.
+      restoreAssistantPanel();
+      await renderLaw();
       return;
     }
     restoreAssistantPanel();

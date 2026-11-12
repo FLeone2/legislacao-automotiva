@@ -36,14 +36,24 @@ jobs:
         env:
           ACKNOWLEDGE_CANDIDATES: ${{ inputs.acknowledge_candidates }}
           REVIEW_REFERENCE: ${{ inputs.review_reference }}
-        run: >-
-          python scripts/check_regulatory_updates.py
-          --state "${{ runner.temp }}/regulatory-monitor/state.json"
-          --report "${{ runner.temp }}/regulatory-monitor/report.json"
-          --summary "${{ runner.temp }}/regulatory-monitor/summary.md"
-          --snapshot-dir "${{ runner.temp }}/regulatory-monitor/snapshots"
-          --include-catalog --workers 4 --time-budget 900 --snapshot-budget-mib 20
-          --acknowledge-from-env
+        # Exit 3: a source changed and needs review (the run fails, as an alert).
+        # Exit 2: some source did not answer, which is routine for portals that
+        # refuse automated access (the run warns and stays green).
+        run: |
+          set +e
+          python scripts/check_regulatory_updates.py \
+            --state "${{ runner.temp }}/regulatory-monitor/state.json" \
+            --report "${{ runner.temp }}/regulatory-monitor/report.json" \
+            --summary "${{ runner.temp }}/regulatory-monitor/summary.md" \
+            --snapshot-dir "${{ runner.temp }}/regulatory-monitor/snapshots" \
+            --include-catalog --workers 4 --time-budget 900 --snapshot-budget-mib 20 \
+            --acknowledge-from-env
+          code=$?
+          if [ "$code" -eq 2 ]; then
+            echo "::warning::Algumas fontes oficiais não responderam. Veja o resumo da observação."
+            exit 0
+          fi
+          exit "$code"
       - name: Keep valid baselines and pending review queue
         if: always()
         uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4

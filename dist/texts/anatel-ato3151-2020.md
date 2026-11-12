@@ -2,14 +2,14 @@
 actCard: "knowledge/acts/anatel-ato3151-2020.md"
 agency: "anatel"
 annexFiles: []
-annexSections: []
+annexSections: ["Anexo"]
 fullTextAvailable: true
 id: "anatel-ato3151-2020"
 kind: "law_text"
 notice: "Cópia de consulta do texto oficial. Não substitui a publicação oficial e não altera a situação jurídica, a revisão, a aplicabilidade ou a publicação registradas para o ato."
 officialUrl: "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1429-ato-3151"
 source: {"origin": "archived_official_text", "sha256": "294f12f126f6699096d0c5fa517464eaf29b3f5d2c486bc453a3b46c45300322", "url": "https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2020/1429-ato-3151"}
-textSha256: "2b00f160f5c5c5f54a7cf11232dc1ae3ebd076533f97f8d7bf44c4732e243110"
+textSha256: "a6a8d1844ba5febebcd636aae0bdc300f86b04d2cdfd71c0525dd801956bc65a"
 title: "Ato ANATEL 3151/2020"
 ---
 
@@ -19,7 +19,10 @@ Ato nº 3151, de 12 de junho de 2020 Publicado: Sexta, 12 Junho 2020 12:03 | Úl
 
 <a id="art-1"></a>**Art. 1°** Aprovar a atualização dos requisitos técnicos para avaliação da conformidade de Estação Terminal de Acesso na forma do Anexo a este Ato.
 
-<a id="art-2"></a>**Art. 2°** Este Ato entra em vigor na data de sua publicação no Boletim de Serviço Eletrônico da Anatel. VINICIUS OLIVEIRA CARAM GUIMARÃES Superintendente de Outorga e Recursos à Prestação ANEXO AO ATO Nº 3151, DE 12 DE JUNHO DE 2020 REQUISITOS TÉCNICOS PARA AVALIAÇÃO DA CONFORMIDADE DE ESTAÇÃO TERMINAL DE ACESSO
+<a id="art-2"></a>**Art. 2°** Este Ato entra em vigor na data de sua publicação no Boletim de Serviço Eletrônico da Anatel. VINICIUS OLIVEIRA CARAM GUIMARÃES Superintendente de Outorga e Recursos à Prestação
+
+<a id="anexo-unico"></a>
+## Anexo — AO ATO Nº 3151, DE 12 DE JUNHO DE 2020 REQUISITOS TÉCNICOS PARA AVALIAÇÃO DA CONFORMIDADE DE ESTAÇÃO TERMINAL DE ACESSO
 
 1. OBJETIVO
 
