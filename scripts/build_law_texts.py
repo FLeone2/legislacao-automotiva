@@ -32,6 +32,8 @@ NOTICE = (
 NOISE = [
     re.compile(r"^\d{2}/\d{2}/\d{4},?\s+\d{2}:\d{2}\s.*(?:Imprensa Nacional|DOU)\s*$"),
     re.compile(r"^https?://\S+(?:\s+\d+/\d+)?$"),
+    re.compile(r"^\d{2}/\d{2}/\d{4},?\s+\d{2}:\d{2}$"),
+    re.compile(r"^.{0,200}\s-\sDOU\s-\sImprensa Nacional$"),
     re.compile(r"^Este conteúdo não substitui o publicado na versão certificada\.?$"),
     re.compile(r"^Fl\.\s*\d+\s+da\s+Portaria.*$", re.I),
     re.compile(r"^\d{1,4}(?:/\d{1,4})?$"),

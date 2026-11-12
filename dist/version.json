@@ -26,7 +26,7 @@
     "src/styles/guide-apple.css": "4952bb02ce80873b",
     "src/styles/guide.css": "a7e89336f958b547",
     "src/styles/knowledge.css": "e7225d618102ac06",
-    "src/styles/law.css": "d2f4085956b2c79f",
+    "src/styles/law.css": "9708d6a64765aa61",
     "src/styles/navigation.css": "babc641c85ec56c9",
     "src/styles/obsidian.css": "64b451186470b284",
     "src/styles/portal-apple.css": "cf0fd7ef680a3b40",
@@ -34,7 +34,7 @@
     "src/styles/simple.css": "30d47b713b7e56bb",
     "src/styles/theme-tokens.css": "324e23552f497674",
     "src/styles/tree-navigation.css": "5359462e4ee3180d",
-    "src/views/assistant.js": "78f0e3ee1aac2404",
+    "src/views/assistant.js": "20bd127212cf8619",
     "src/views/aurora.js": "ecb7d4381804afe1",
     "src/views/document.js": "6c4df5ff9f80bd07",
     "src/views/history.js": "b12b076190ee8e53",
@@ -50,5 +50,5 @@
     "vehicle-data.js": "09123227fe4f6446",
     "vehicle-navigation.js": "9354942ec160aa76"
   },
-  "revision": "a7218434676df7ee28cb0163f00a9969642651126682ae1d8a19ecb5c5a07a67"
+  "revision": "aafb2e7981e2a0d778a5d2e096dccd34a67329a72784e3c64e6a1c8915c8024b"
 }

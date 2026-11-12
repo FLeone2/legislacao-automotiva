@@ -205,6 +205,8 @@
 }
 .law-text a {
   color: var(--p-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 .law-text a.law-device {
   color: inherit;
@@ -266,6 +268,8 @@
 }
 .law-context a {
   color: var(--p-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 @media (max-width: 1100px) {

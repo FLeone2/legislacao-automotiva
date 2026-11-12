@@ -386,7 +386,14 @@ const Assistant = (() => {
       const topActs = [...new Set(chosen.map((item) => item.doc.passage.actId).filter(Boolean))];
       await LawReader.loadIndex();
       const devices = await textWindows(topActs.slice(0, 4), terms);
-      entry.passages = [...chosen.map((item) => item.doc.passage), ...devices.slice(0, 4)];
+      // The text of the act comes first. Index entries far below the best match
+      // are dropped: they are usually another subject sharing a common word.
+      const best = chosen[0]?.score || 0;
+      const strong = chosen.filter((item) => item.score >= best * 0.45);
+      entry.passages = [...devices.slice(0, 4), ...strong.map((item) => item.doc.passage)].slice(
+        0,
+        10,
+      );
       entry.related = related;
       const ai = await checkStatus();
       const canWeb = ai.web && ai.providers.find((p) => p.id === ai.provider)?.web;

@@ -275,7 +275,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 3070,
+   "chars": 2758,
    "fullTextAvailable": true,
    "id": "contran-1015-2024",
    "origin": "pdf"
@@ -283,7 +283,7 @@
   {
    "annexFiles": 0,
    "annexSections": 1,
-   "chars": 14430,
+   "chars": 13806,
    "fullTextAvailable": true,
    "id": "contran-1016-2024",
    "origin": "pdf"
@@ -291,7 +291,7 @@
   {
    "annexFiles": 0,
    "annexSections": 2,
-   "chars": 25005,
+   "chars": 23757,
    "fullTextAvailable": true,
    "id": "contran-1017-2024",
    "origin": "pdf"
@@ -299,7 +299,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 16661,
+   "chars": 15891,
    "fullTextAvailable": true,
    "id": "contran-1018-2025",
    "origin": "pdf"
@@ -307,7 +307,7 @@
   {
    "annexFiles": 0,
    "annexSections": 1,
-   "chars": 23814,
+   "chars": 22614,
    "fullTextAvailable": true,
    "id": "contran-1019-2025",
    "origin": "pdf"
@@ -315,7 +315,7 @@
   {
    "annexFiles": 0,
    "annexSections": 2,
-   "chars": 119380,
+   "chars": 114544,
    "fullTextAvailable": true,
    "id": "contran-1020-2025",
    "origin": "pdf"
@@ -1075,7 +1075,7 @@
   {
    "annexFiles": 0,
    "annexSections": 1,
-   "chars": 29049,
+   "chars": 27985,
    "fullTextAvailable": true,
    "id": "contran-807-2020",
    "origin": "pdf"
@@ -1083,7 +1083,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 13054,
+   "chars": 12522,
    "fullTextAvailable": true,
    "id": "contran-808-2020",
    "origin": "pdf"
@@ -1091,7 +1091,7 @@
   {
    "annexFiles": 0,
    "annexSections": 5,
-   "chars": 51734,
+   "chars": 49074,
    "fullTextAvailable": true,
    "id": "contran-810-2020",
    "origin": "pdf"
@@ -1099,7 +1099,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 15178,
+   "chars": 14513,
    "fullTextAvailable": true,
    "id": "contran-811-2020",
    "origin": "pdf"
@@ -1107,7 +1107,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 7399,
+   "chars": 7000,
    "fullTextAvailable": true,
    "id": "contran-812-2020",
    "origin": "pdf"
@@ -1115,7 +1115,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 7374,
+   "chars": 6975,
    "fullTextAvailable": true,
    "id": "contran-813-2020",
    "origin": "pdf"
@@ -1155,7 +1155,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 5316,
+   "chars": 5062,
    "fullTextAvailable": true,
    "id": "contran-856-2021",
    "origin": "pdf"
@@ -1163,7 +1163,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 7216,
+   "chars": 6962,
    "fullTextAvailable": true,
    "id": "contran-859-2021",
    "origin": "pdf"
@@ -1171,7 +1171,7 @@
   {
    "annexFiles": 0,
    "annexSections": 2,
-   "chars": 23557,
+   "chars": 22500,
    "fullTextAvailable": true,
    "id": "contran-872-2021",
    "origin": "pdf"
@@ -1187,7 +1187,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 2331,
+   "chars": 2180,
    "fullTextAvailable": true,
    "id": "contran-881-2021",
    "origin": "pdf"
@@ -1195,7 +1195,7 @@
   {
    "annexFiles": 0,
    "annexSections": 6,
-   "chars": 74661,
+   "chars": 70585,
    "fullTextAvailable": true,
    "id": "contran-882-2021",
    "origin": "pdf"
@@ -1203,7 +1203,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 10750,
+   "chars": 10146,
    "fullTextAvailable": true,
    "id": "contran-884-2021",
    "origin": "pdf"
@@ -1211,7 +1211,7 @@
   {
    "annexFiles": 0,
    "annexSections": 5,
-   "chars": 49933,
+   "chars": 46594,
    "fullTextAvailable": true,
    "id": "contran-885-2021",
    "origin": "pdf"
@@ -1227,7 +1227,7 @@
   {
    "annexFiles": 1,
    "annexSections": 5,
-   "chars": 40395,
+   "chars": 37669,
    "fullTextAvailable": true,
    "id": "contran-888-2021",
    "origin": "pdf"
@@ -1235,7 +1235,7 @@
   {
    "annexFiles": 0,
    "annexSections": 1,
-   "chars": 10960,
+   "chars": 10245,
    "fullTextAvailable": true,
    "id": "contran-897-2022",
    "origin": "pdf"
@@ -1243,7 +1243,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 5910,
+   "chars": 5481,
    "fullTextAvailable": true,
    "id": "contran-899-2022",
    "origin": "pdf"
@@ -1251,7 +1251,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 7635,
+   "chars": 7206,
    "fullTextAvailable": true,
    "id": "contran-900-2022",
    "origin": "pdf"
@@ -1259,7 +1259,7 @@
   {
    "annexFiles": 0,
    "annexSections": 1,
-   "chars": 16074,
+   "chars": 15359,
    "fullTextAvailable": true,
    "id": "contran-901-2022",
    "origin": "pdf"
@@ -1267,7 +1267,7 @@
   {
    "annexFiles": 0,
    "annexSections": 1,
-   "chars": 13524,
+   "chars": 12809,
    "fullTextAvailable": true,
    "id": "contran-902-2022",
    "origin": "pdf"
@@ -1275,7 +1275,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 2887,
+   "chars": 2597,
    "fullTextAvailable": true,
    "id": "contran-906-2022",
    "origin": "pdf"
@@ -1283,7 +1283,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 3816,
+   "chars": 3526,
    "fullTextAvailable": true,
    "id": "contran-907-2022",
    "origin": "pdf"
@@ -1291,7 +1291,7 @@
   {
    "annexFiles": 0,
    "annexSections": 1,
-   "chars": 9513,
+   "chars": 9078,
    "fullTextAvailable": true,
    "id": "contran-908-2022",
    "origin": "pdf"
@@ -1299,7 +1299,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 2473,
+   "chars": 2328,
    "fullTextAvailable": true,
    "id": "contran-909-2022",
    "origin": "pdf"
@@ -1307,7 +1307,7 @@
   {
    "annexFiles": 2,
    "annexSections": 0,
-   "chars": 9003,
+   "chars": 8568,
    "fullTextAvailable": true,
    "id": "contran-910-2022",
    "origin": "pdf"
@@ -1315,7 +1315,7 @@
   {
    "annexFiles": 1,
    "annexSections": 2,
-   "chars": 20528,
+   "chars": 19803,
    "fullTextAvailable": true,
    "id": "contran-911-2022",
    "origin": "pdf"
@@ -1323,7 +1323,7 @@
   {
    "annexFiles": 2,
    "annexSections": 2,
-   "chars": 55879,
+   "chars": 55300,
    "fullTextAvailable": true,
    "id": "contran-913-2022",
    "origin": "pdf"
@@ -1331,7 +1331,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 4565,
+   "chars": 4275,
    "fullTextAvailable": true,
    "id": "contran-914-2022",
    "origin": "pdf"
@@ -1339,7 +1339,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 11266,
+   "chars": 10686,
    "fullTextAvailable": true,
    "id": "contran-915-2022",
    "origin": "pdf"
@@ -1347,7 +1347,7 @@
   {
    "annexFiles": 1,
    "annexSections": 7,
-   "chars": 70585,
+   "chars": 69715,
    "fullTextAvailable": true,
    "id": "contran-916-2022",
    "origin": "pdf"
@@ -1355,7 +1355,7 @@
   {
    "annexFiles": 1,
    "annexSections": 5,
-   "chars": 10957,
+   "chars": 10522,
    "fullTextAvailable": true,
    "id": "contran-917-2022",
    "origin": "pdf"
@@ -1363,7 +1363,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 40978,
+   "chars": 39383,
    "fullTextAvailable": true,
    "id": "contran-918-2022",
    "origin": "pdf"
@@ -1371,7 +1371,7 @@
   {
    "annexFiles": 0,
    "annexSections": 1,
-   "chars": 7385,
+   "chars": 6950,
    "fullTextAvailable": true,
    "id": "contran-919-2022",
    "origin": "pdf"
@@ -1379,7 +1379,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 5458,
+   "chars": 5168,
    "fullTextAvailable": true,
    "id": "contran-920-2022",
    "origin": "pdf"
@@ -1387,7 +1387,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 5069,
+   "chars": 4779,
    "fullTextAvailable": true,
    "id": "contran-921-2022",
    "origin": "pdf"
@@ -1395,7 +1395,7 @@
   {
    "annexFiles": 0,
    "annexSections": 1,
-   "chars": 32365,
+   "chars": 31060,
    "fullTextAvailable": true,
    "id": "contran-922-2022",
    "origin": "pdf"
@@ -1403,7 +1403,7 @@
   {
    "annexFiles": 0,
    "annexSections": 6,
-   "chars": 117290,
+   "chars": 112795,
    "fullTextAvailable": true,
    "id": "contran-923-2022",
    "origin": "pdf"
@@ -1411,7 +1411,7 @@
   {
    "annexFiles": 1,
    "annexSections": 6,
-   "chars": 130229,
+   "chars": 129939,
    "fullTextAvailable": true,
    "id": "contran-924-2022",
    "origin": "pdf"
@@ -1419,7 +1419,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 10548,
+   "chars": 9968,
    "fullTextAvailable": true,
    "id": "contran-926-2022",
    "origin": "pdf"
@@ -1427,7 +1427,7 @@
   {
    "annexFiles": 1,
    "annexSections": 22,
-   "chars": 68168,
+   "chars": 67153,
    "fullTextAvailable": true,
    "id": "contran-927-2022",
    "origin": "pdf"
@@ -1435,7 +1435,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 9205,
+   "chars": 8770,
    "fullTextAvailable": true,
    "id": "contran-931-2022",
    "origin": "pdf"
@@ -1443,7 +1443,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 11351,
+   "chars": 10771,
    "fullTextAvailable": true,
    "id": "contran-932-2022",
    "origin": "pdf"
@@ -1451,7 +1451,7 @@
   {
    "annexFiles": 1,
    "annexSections": 13,
-   "chars": 31795,
+   "chars": 30925,
    "fullTextAvailable": true,
    "id": "contran-935-2022",
    "origin": "pdf"
@@ -1459,7 +1459,7 @@
   {
    "annexFiles": 1,
    "annexSections": 1,
-   "chars": 15561,
+   "chars": 14765,
    "fullTextAvailable": true,
    "id": "contran-936-2022",
    "origin": "pdf"
@@ -1467,7 +1467,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 4927,
+   "chars": 4637,
    "fullTextAvailable": true,
    "id": "contran-937-2022",
    "origin": "pdf"
@@ -1475,7 +1475,7 @@
   {
    "annexFiles": 0,
    "annexSections": 2,
-   "chars": 37525,
+   "chars": 35640,
    "fullTextAvailable": true,
    "id": "contran-938-2022",
    "origin": "pdf"
@@ -1483,7 +1483,7 @@
   {
    "annexFiles": 1,
    "annexSections": 10,
-   "chars": 93282,
+   "chars": 92702,
    "fullTextAvailable": true,
    "id": "contran-939-2022",
    "origin": "pdf"
@@ -1491,7 +1491,7 @@
   {
    "annexFiles": 1,
    "annexSections": 1,
-   "chars": 13095,
+   "chars": 12660,
    "fullTextAvailable": true,
    "id": "contran-940-2022",
    "origin": "pdf"
@@ -1499,7 +1499,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 28181,
+   "chars": 27021,
    "fullTextAvailable": true,
    "id": "contran-941-2022",
    "origin": "pdf"
@@ -1507,7 +1507,7 @@
   {
    "annexFiles": 1,
    "annexSections": 5,
-   "chars": 31303,
+   "chars": 30288,
    "fullTextAvailable": true,
    "id": "contran-942-2022",
    "origin": "pdf"
@@ -1515,7 +1515,7 @@
   {
    "annexFiles": 1,
    "annexSections": 4,
-   "chars": 23499,
+   "chars": 22919,
    "fullTextAvailable": true,
    "id": "contran-943-2022",
    "origin": "pdf"
@@ -1523,7 +1523,7 @@
   {
    "annexFiles": 1,
    "annexSections": 0,
-   "chars": 7287,
+   "chars": 6997,
    "fullTextAvailable": true,
    "id": "contran-944-2022",
    "origin": "pdf"
@@ -1531,7 +1531,7 @@
   {
    "annexFiles": 1,
    "annexSections": 1,
-   "chars": 18229,
+   "chars": 17504,
    "fullTextAvailable": true,
    "id": "contran-945-2022",
    "origin": "pdf"
@@ -1539,7 +1539,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 4737,
+   "chars": 4447,
    "fullTextAvailable": true,
    "id": "contran-946-2022",
    "origin": "pdf"
@@ -1547,7 +1547,7 @@
   {
    "annexFiles": 1,
    "annexSections": 3,
-   "chars": 17453,
+   "chars": 17163,
    "fullTextAvailable": true,
    "id": "contran-948-2022",
    "origin": "pdf"
@@ -1555,7 +1555,7 @@
   {
    "annexFiles": 2,
    "annexSections": 6,
-   "chars": 223781,
+   "chars": 223420,
    "fullTextAvailable": true,
    "id": "contran-949-2022",
    "origin": "pdf"
@@ -1563,7 +1563,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 2905,
+   "chars": 2760,
    "fullTextAvailable": true,
    "id": "contran-950-2022",
    "origin": "pdf"
@@ -1571,7 +1571,7 @@
   {
    "annexFiles": 1,
    "annexSections": 2,
-   "chars": 9386,
+   "chars": 9096,
    "fullTextAvailable": true,
    "id": "contran-951-2022",
    "origin": "pdf"
@@ -1579,7 +1579,7 @@
   {
    "annexFiles": 1,
    "annexSections": 2,
-   "chars": 35292,
+   "chars": 33842,
    "fullTextAvailable": true,
    "id": "contran-952-2022",
    "origin": "pdf"
@@ -1587,7 +1587,7 @@
   {
    "annexFiles": 1,
    "annexSections": 1,
-   "chars": 16472,
+   "chars": 16182,
    "fullTextAvailable": true,
    "id": "contran-953-2022",
    "origin": "pdf"
@@ -1595,7 +1595,7 @@
   {
    "annexFiles": 1,
    "annexSections": 1,
-   "chars": 11191,
+   "chars": 10611,
    "fullTextAvailable": true,
    "id": "contran-954-2022",
    "origin": "pdf"
@@ -1603,7 +1603,7 @@
   {
    "annexFiles": 1,
    "annexSections": 1,
-   "chars": 13895,
+   "chars": 13315,
    "fullTextAvailable": true,
    "id": "contran-955-2022",
    "origin": "pdf"
@@ -1611,7 +1611,7 @@
   {
    "annexFiles": 1,
    "annexSections": 1,
-   "chars": 8028,
+   "chars": 7885,
    "fullTextAvailable": true,
    "id": "contran-956-2022",
    "origin": "pdf"
@@ -1627,7 +1627,7 @@
   {
    "annexFiles": 1,
    "annexSections": 5,
-   "chars": 47878,
+   "chars": 47020,
    "fullTextAvailable": true,
    "id": "contran-958-2022",
    "origin": "pdf"
@@ -1635,7 +1635,7 @@
   {
    "annexFiles": 1,
    "annexSections": 21,
-   "chars": 141731,
+   "chars": 141016,
    "fullTextAvailable": true,
    "id": "contran-959-2022",
    "origin": "pdf"
@@ -1643,7 +1643,7 @@
   {
    "annexFiles": 1,
    "annexSections": 2,
-   "chars": 15841,
+   "chars": 15126,
    "fullTextAvailable": true,
    "id": "contran-960-2022",
    "origin": "pdf"
@@ -1651,7 +1651,7 @@
   {
    "annexFiles": 1,
    "annexSections": 2,
-   "chars": 16344,
+   "chars": 15915,
    "fullTextAvailable": true,
    "id": "contran-961-2022",
    "origin": "pdf"
@@ -1659,7 +1659,7 @@
   {
    "annexFiles": 1,
    "annexSections": 1,
-   "chars": 8329,
+   "chars": 8186,
    "fullTextAvailable": true,
    "id": "contran-963-2022",
    "origin": "pdf"
@@ -1667,7 +1667,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 4635,
+   "chars": 4349,
    "fullTextAvailable": true,
    "id": "contran-964-2022",
    "origin": "pdf"
@@ -1675,7 +1675,7 @@
   {
    "annexFiles": 1,
    "annexSections": 3,
-   "chars": 24942,
+   "chars": 24227,
    "fullTextAvailable": true,
    "id": "contran-965-2022",
    "origin": "pdf"
@@ -1683,7 +1683,7 @@
   {
    "annexFiles": 1,
    "annexSections": 4,
-   "chars": 93748,
+   "chars": 93462,
    "fullTextAvailable": true,
    "id": "contran-966-2022",
    "origin": "pdf"
@@ -1691,7 +1691,7 @@
   {
    "annexFiles": 1,
    "annexSections": 2,
-   "chars": 10731,
+   "chars": 10302,
    "fullTextAvailable": true,
    "id": "contran-967-2022",
    "origin": "pdf"
@@ -1699,7 +1699,7 @@
   {
    "annexFiles": 1,
    "annexSections": 6,
-   "chars": 60363,
+   "chars": 58044,
    "fullTextAvailable": true,
    "id": "contran-968-2022",
    "origin": "pdf"
@@ -1707,7 +1707,7 @@
   {
    "annexFiles": 1,
    "annexSections": 3,
-   "chars": 74281,
+   "chars": 72396,
    "fullTextAvailable": true,
    "id": "contran-969-2022",
    "origin": "pdf"
@@ -1715,7 +1715,7 @@
   {
    "annexFiles": 2,
    "annexSections": 22,
-   "chars": 600916,
+   "chars": 600046,
    "fullTextAvailable": true,
    "id": "contran-970-2022",
    "origin": "pdf"
@@ -1723,7 +1723,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 6472,
+   "chars": 6037,
    "fullTextAvailable": true,
    "id": "contran-973-2022",
    "origin": "pdf"
@@ -1731,7 +1731,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 2449,
+   "chars": 2304,
    "fullTextAvailable": true,
    "id": "contran-974-2022",
    "origin": "pdf"
@@ -1739,7 +1739,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 4590,
+   "chars": 4300,
    "fullTextAvailable": true,
    "id": "contran-975-2022",
    "origin": "pdf"
@@ -1755,7 +1755,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 3519,
+   "chars": 3229,
    "fullTextAvailable": true,
    "id": "contran-977-2022",
    "origin": "pdf"
@@ -1851,7 +1851,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 3886,
+   "chars": 3582,
    "fullTextAvailable": true,
    "id": "contran-997-2023",
    "origin": "pdf"
@@ -1859,7 +1859,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 2501,
+   "chars": 2349,
    "fullTextAvailable": true,
    "id": "contran-998-2023",
    "origin": "pdf"
@@ -2307,7 +2307,7 @@
   {
    "annexFiles": 0,
    "annexSections": 14,
-   "chars": 59618,
+   "chars": 55921,
    "fullTextAvailable": true,
    "id": "senatran-095",
    "origin": "pdf"
@@ -2323,7 +2323,7 @@
   {
    "annexFiles": 0,
    "annexSections": 0,
-   "chars": 2616,
+   "chars": 2463,
    "fullTextAvailable": true,
    "id": "senatran-097",
    "origin": "pdf"

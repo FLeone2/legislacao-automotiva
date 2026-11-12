@@ -9,15 +9,11 @@ kind: "law_text"
 notice: "Cópia de consulta do texto oficial. Não substitui a publicação oficial e não altera a situação jurídica, a revisão, a aplicabilidade ou a publicação registradas para o ato."
 officialUrl: "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf/@@display-file/file"
 source: {"file": "pdfs/senatran/senatran-095.pdf", "origin": "pdf", "retrievedAt": "2026-11-09", "sha256": "b43f07baf172a06413eefbb43752d999b0b65e76f825396273433f311b5aa69a", "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2022/Portaria9902022R.pdf/@@display-file/file"}
-textSha256: "9e95e8059eedbe3ea1cb44b9c4ce7d0eb20eda7297bcbbcdc9b53bdacaccd532"
+textSha256: "ad78ecd093431c55184ea1198dee527041c731098a6422fde6a44dc182cf5669"
 title: "Portaria Senatran 990-2022 - Homologação CAT"
 ---
 
 # Portaria Senatran 990-2022 - Homologação CAT
-
-19/08/2022 06:36
-
-Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - DOU - Imprensa Nacional
 
 *DIÁRIO OFICIAL DA UNIÃO*
 
@@ -55,10 +51,6 @@ II - veículos automotores de duas ou três rodas: cinquenta unidades da mesma m
 
 <a id="art-2-p5"></a>**§ 5º** A limitação quantitativa de que trata o § 4º não se aplica às importações de guindastes autopropelidos de que trata o § 3º do art. 101, do Código de Trânsito Brasileiro (CTB).
 
-19/08/2022 06:36
-
-Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - DOU - Imprensa Nacional
-
 <a id="art-2-p6"></a>**§ 6º** Para efeitos desta Portaria considera-se existente o vínculo entre o importador no Brasil e o fabricante e/ou o seu respectivo distribuidor de veículos no exterior, quando o importador estiver formalmente autorizado a realizar no território brasileiro as atividades de importação, comercialização, prestação de serviços de assistência técnica, organização de rede de distribuição, bem como a utilização das marcas do fabricante em relação aos veículos objeto da importação, mediante documento válido no Brasil.
 
 <a id="art-2-p7"></a>**§ 7º** Para os fabricantes, importadores, encarroçadores e transformadores de veículos que não possuem sistema de gestão de qualidade certificado por organismo acreditado pelo Instituto Nacional de Metrologia, Qualidade e Tecnologia (INMETRO) ou por organismo acreditado por órgão acreditador signatário de acordo de reconhecimento mútuo estabelecido com o INMETRO, para a concessão do código específico de marca/modelo/versão será exigida também a apresentação do Comprovante de Capacitação Técnica (CCT), que deverá ser emitido, exclusivamente, por ITL acreditada pelo INMETRO e licenciada pela SENATRAN.
@@ -88,10 +80,6 @@ Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGO
 <a id="art-6-p3"></a>**§ 3º** Os interessados indicados no caput deverão pré-cadastrar os veículos de que trata este artigo no módulo do RENAVAM com a restrição à sua comercialização, restrição que deverá constar obrigatoriamente no campo de observação do Certificado de Registro e Licenciamento de Veículo em meio digital (CRLV-e), quando do seu registro e licenciamento em nome do requerente.
 
 <a id="art-7"></a>**Art. 7º** Para concessão de código de marca/modelo/versão para veículos sem pré-cadastro ou registro, arrematados em leilão público, devem ser observadas as disposições do Anexo XIV.
-
-19/08/2022 06:36
-
-Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - DOU - Imprensa Nacional
 
 Paragrafo único. Não será concedido código de marca/modelo/versão ao veículo leiloado como sucata, em peças ou desmontado.
 
@@ -134,10 +122,6 @@ veículos
 <a id="art-13"></a>**Art. 13.** Os relatórios de ensaios devem incluir todas as informações necessárias para a interpretação dos resultados, de acordo com o método utilizado.
 
 <a id="art-14"></a>**Art. 14.** Todos os relatórios de ensaios a serem apresentados à SENATRAN devem conter, no mínimo:
-
-19/08/2022 06:36
-
-Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - DOU - Imprensa Nacional
 
 I - título;
 
@@ -197,10 +181,6 @@ XVII - nome, função e assinatura do técnico responsável pela emissão do rel
 
 <a id="art-20"></a>**Art. 20.** Quando o relatório de ensaio contiver resultados de ensaios realizados por subcontratados, esses resultados devem estar claramente identificados.
 
-19/08/2022 06:36
-
-Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - DOU - Imprensa Nacional
-
 <a id="art-21"></a>**Art. 21.** Os relatórios de ensaios de segurança veicular podem ser encaminhados à SENATRAN em formato eletrônico.
 
 <a id="art-22"></a>**Art. 22.** Os laboratórios de ensaios devem possuir sistema de gestão que assegure o controle e a rastreabilidade das amostras, dos resultados e dos relatórios de ensaio de segurança.
@@ -248,10 +228,6 @@ VII - ângulo de ataque: o ângulo máximo entre o plano de apoio e os planos ta
 VIII - ângulo de saída: o ângulo máximo entre o plano de apoio e os planos tangentes aos pneus das rodas traseiras, em carga estática, de tal modo que nenhum ponto do veículo atrás do último eixo esteja situado abaixo dos referidos planos tangentes e que nenhuma parte rígida esteja situada abaixo desses planos (figura 4 do Anexo XV); e
 
 IX - ângulo de rampa: o ângulo agudo mínimo entre dois planos, perpendiculares ao plano longitudinal médio do veículo, tangentes, respectivamente, aos pneus das rodas dianteiras e aos pneus das rodas traseiras, em carga estática, e cuja intersecção toca a parte rígida inferior do veículo, não
-
-19/08/2022 06:36
-
-Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - DOU - Imprensa Nacional
 
 consideradas as rodas. Este ângulo define o obstáculo mais alto que o veículo pode ultrapassar (figura 5 do Anexo XV).
 
@@ -301,10 +277,6 @@ REQUERIMENTO PARA CÓDIGO RENAVAM e CAT Ilmo. Senhor Secretário Nacional de Tr�
 1. Anexo II - Cadastro da Identificação da Empresa.
 
 2. Anexo III - Identificação Veicular.
-
-19/08/2022 06:36
-
-Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - DOU - Imprensa Nacional
 
 3. Anexo IV - Dados Técnicos.
 
@@ -359,10 +331,6 @@ Nota: no caso de veículo derivado de outro, com código/marca/modelo já expedi
 2.2. Modelo:
 
 2.3. Versão:
-
-19/08/2022 06:36
-
-Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - DOU - Imprensa Nacional
 
 2.3.1. para veículos nacionais, os primeiros dígitos deverão ser preenchidos com a marca e em seguida com a barra, ou seja: "MARCA/".
 
@@ -422,10 +390,6 @@ Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGO
 
 3.2.1. quanto ao tipo:
 
-19/08/2022 06:36
-
-Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - DOU - Imprensa Nacional
-
 4. Quatro fotografias coloridas do veículo na dimensão aproximada de 10 x 15 cm, sendo: uma da lateral direita; uma da lateral esquerda; uma da dianteira e outra da traseira do veículo. Alternativamente podem ser apresentadas duas fotografias coloridas do veículo na dimensão aproximada de 10x15 cm, sendo: uma ¾ vista frontal e outra ¾ vista traseira desde que possibilite a visualização das duas laterais.
 
 4.1. Serão aceitas cópias digitalizadas em cores na dimensão aproximada de 10 x 15 cm.
@@ -476,10 +440,6 @@ VIS
 1.5.2. Largura
 
 1.5.3. Altura do veículo com massa em ordem de marcha
-
-19/08/2022 06:36
-
-Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - DOU - Imprensa Nacional
 
 1.6. Massa do veículo em ordem de marcha (kg ou t);
 
@@ -548,10 +508,6 @@ Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGO
 8.1. Descrição do sistema de freios
 
 9. Pneus e rodas
-
-19/08/2022 06:36
-
-Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - DOU - Imprensa Nacional
 
 9.1. Pneus/quantidade:
 
@@ -625,13 +581,7 @@ Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGO
 3.1. Anexar comprovante de depósito no FUNSET/SENATRAN ou cópia autenticada do mesmo.
 
 <a id="anexo-vi"></a>
-## Anexo VI
-
-19/08/2022 06:36
-
-Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - DOU - Imprensa Nacional
-
-CERTIFICADO DE SEGURANÇA (CS)
+## Anexo VI — CERTIFICADO DE SEGURANÇA (CS)
 
 O(s) ........................................................................................................................................., representante(s) legal(ais) da empresa ........................................................., fabricante/montadora/importadora/encarroçadora/transformadora do veículo da marca ..............................., localizada no endereço ....................................................................................., declara(m) que a marca/modelo/versão do veículo ................................................., atende integralmente aos requisitos de identificação e de segurança veicular estabelecidos na legislação vigente no país, conforme atestado pelo projeto de engenharia, pelo memorial descritivo e pelos resultados dos ensaios realizados no veículo, devidamente arquivados sob nossa responsabilidade e identificados nas tabelas do Anexo XI. Ciente da nossa inteira e exclusiva responsabilidade de manter a conformidade da produção, do modelo e da versão do veículo, objeto do respectivo processo de homologação junto a Secretaria Nacional de Transito (SENATRAN), firma-se o presente Certificado de Segurança (CS), solidariamente com o Sr.(a) ..................................................................., responsável técnico CREA nº .............../UF, que neste ato responde pela emissão deste instrumento. Local, _____de ________, de ____ (nome e assinatura do(s) representante(s) legal(ais) da empresa). (nome e assinatura do responsável técnico pela emissão deste certificado)
 
@@ -650,10 +600,6 @@ MARCA/MODELO/VERSÃO ORIGINAL: (quando aplicávell) CÓDIGO MARCA/MODELO/VERSÃO
 LOTAÇÃO: (quando aplicável) CAPACIDADE DE CARGA:
 
 PBT: (quando aplicável) CMT: (quando aplicávell) QUANTIDADE DE EIXOS:
-
-19/08/2022 06:36
-
-Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - DOU - Imprensa Nacional
 
 FABRICANTE:
 
@@ -684,10 +630,6 @@ ANEXO IX REQUERIMENTO (CÓDIGO RENAVAM e DISPENSA DE CAT) Ilmo. Senhor Secretár
 4. Comprovante de depósito do FUNSET/SENATRAN (ou cópia autenticada).
 
 5. Indicação dos locais das gravações dos números de identificação do veículo em desenhos ou em fotografias (VIN/VIS/Motor/e outros):
-
-19/08/2022 06:36
-
-Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - DOU - Imprensa Nacional
 
 N. Termos Pede Deferimento Local, _____de ________, de ____ (nome e assinatura do(s) representante(s) legal(ais) da empresa)
 
@@ -786,10 +728,6 @@ X
 X
 
 X
-
-19/08/2022 06:36
-
-Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - DOU - Imprensa Nacional
 
 Trava do capuz
 
@@ -975,10 +913,6 @@ X
 
 X
 
-19/08/2022 06:36
-
-Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - DOU - Imprensa Nacional
-
 Resoluções Fechaduras e CONTRAN Dobradiças portas nº X Laterais 463/1973,
 
 X
@@ -1115,10 +1049,6 @@ X
 
 X
 
-19/08/2022 06:36
-
-Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - DOU - Imprensa Nacional
-
 Proteção ao ocupante (critério biomecânico)
 
 Resolução CONTRAN nº
@@ -1245,9 +1175,7 @@ Dispositivo Legal
 
 Caminhão Caminhão Caminhão Chassi Microinacabado acabado trator plataforma ônibus Ônibus
 
-Obs. 19/08/2022 06:36
-
-Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - DOU - Imprensa Nacional
+Obs.
 
 Flamabilidade de Materiais Resolução de CONTRAN nº revestimento interno
 
@@ -1409,10 +1337,6 @@ X
 
 X
 
-19/08/2022 06:36
-
-Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - DOU - Imprensa Nacional
-
 Dispositivos de Iluminação
 
 Resoluções CONTRAN nºs 227/2007 X
@@ -1567,10 +1491,6 @@ X
 
 X
 
-19/08/2022 06:36
-
-Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - DOU - Imprensa Nacional
-
 Cintos de segurança
 
 Resoluções CONTRAN nºs 951/2022, X
@@ -1692,10 +1612,6 @@ X
 Resolução CONTRAN nº 948/2022
 
 Obs .
-
-19/08/2022 06:36
-
-Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - DOU - Imprensa Nacional
 
 3.2. Declaração da conformidade A declaração deve estar de acordo com a norma ABNT NBR ISO/IEC 17050-1, Avaliação de conformidade - Declaração de conformidade de fornecedor Parte 1: Requisitos gerais e em conformidade à norma ABNT NBR ISO/IEC 17050-2, Avaliação de conformidade - Declaração de conformidade de fornecedor Parte 2: Documentação de suporte.
 
@@ -1857,10 +1773,6 @@ X
 
 4.3. Relatórios com controle Nível 2 - Ensaios relacionados à segurança ativa do veículo
 
-19/08/2022 06:36
-
-Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - DOU - Imprensa Nacional
-
 Item Dispositivo Motocicleta Veicular Legal
 
 Motoneta
@@ -1926,10 +1838,6 @@ h) ângulo de saída mínimo de 20°;
 i) ângulo de rampa mínimo de 20°;
 
 j) Comprimento;
-
-19/08/2022 06:36
-
-Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - DOU - Imprensa Nacional
 
 k) Largura;
 
@@ -2000,10 +1908,6 @@ Venho, por meio deste instrumento, solicitar a Vossa Senhoria concessão do cód
 
 3.18. Fabricante;
 
-19/08/2022 06:36
-
-Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - DOU - Imprensa Nacional
-
 3.19. País de Fabricação;
 
 3.20. Ano Modelo;
@@ -2035,24 +1939,12 @@ figura 1 altura livre do solo sob um eixo
 
 figura 2
 
-19/08/2022 06:36
-
-Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - DOU - Imprensa Nacional
-
 altura livre do solo entre os eixos
 
 figura 3 ângulo de ataque
 
 figura 4 ângulo de saída
 
-19/08/2022 06:36
-
-Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - DOU - Imprensa Nacional
-
 figura 5 ângulo de rampa
-
-19/08/2022 06:36
-
-Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - Portaria Nº 990, DE 1º DE AGOSTO DE 2022 (*) - DOU - Imprensa Nacional
 
 Republicada por ter saído com incorreções no DOU Nº 144-B, segunda-feira, 1º de agosto de 2022, Seção 1, Edição Extra.

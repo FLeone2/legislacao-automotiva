@@ -9,15 +9,11 @@ kind: "law_text"
 notice: "Cópia de consulta do texto oficial. Não substitui a publicação oficial e não altera a situação jurídica, a revisão, a aplicabilidade ou a publicação registradas para o ato."
 officialUrl: "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/deliberacoes/Deliberacao2642022.pdf/@@display-file/file"
 source: {"file": "pdfs/senatran/senatran-097.pdf", "origin": "pdf", "retrievedAt": "2026-11-09", "sha256": "44d9936d4d571c468a91ac72e89e5427dec9072017622a25e98e7b671b8223cd", "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/deliberacoes/Deliberacao2642022.pdf/@@display-file/file"}
-textSha256: "2b4fdcca4f157e40b69ca7fe08f72a159763f1dec9ac8ccca116f0a7a3afac3d"
+textSha256: "5623fdcbb7ddcc45af47046e397dc381e036f83ffbe28dc0a6f462a73430b7e7"
 title: "Deliberação Contran 264-2022 - Cronograma ESC"
 ---
 
 # Deliberação Contran 264-2022 - Cronograma ESC
-
-31/10/2022 07:07
-
-DELIBERAÇÃO CONTRAN Nº 264, DE 25 DE OUTUBRO DE 2022 - DELIBERAÇÃO CONTRAN Nº 264, DE 25 DE OUTUBRO DE 2022 - DOU - Imprensa Nacional
 
 *DIÁRIO OFICIAL DA UNIÃO*
 
