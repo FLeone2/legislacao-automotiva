@@ -1,0 +1,328 @@
+/* Law reader (#lei). Translucent panels over the dark ground; the text column
+   stays opaque enough for long reading. Tokens come from portal-apple.css. */
+
+.law-page {
+  --law-glass: color-mix(in srgb, var(--p-panel) 66%, transparent);
+  --law-edge: color-mix(in srgb, var(--ink) 13%, transparent);
+  --law-shine: color-mix(in srgb, var(--ink) 7%, transparent);
+  position: relative;
+  padding-bottom: 72px;
+}
+.law-page::before {
+  content: '';
+  position: absolute;
+  inset: -40px 0 auto;
+  height: 420px;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      60% 80% at 18% 0%,
+      color-mix(in srgb, var(--p-action) 22%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      50% 70% at 85% 10%,
+      color-mix(in srgb, var(--accent) 12%, transparent),
+      transparent 70%
+    );
+  z-index: 0;
+}
+.law-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+.law-header {
+  padding: 28px 0 22px;
+}
+.law-crumbs {
+  font-size: 13px;
+  color: var(--p-muted);
+  margin-bottom: 6px;
+}
+.law-crumbs a {
+  color: var(--p-muted);
+}
+.law-header .portal-title {
+  margin: 0;
+}
+.law-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+.law-provenance {
+  margin: 14px 0 0;
+  font-size: 13px;
+  color: var(--p-muted);
+  max-width: 90ch;
+}
+.law-loading {
+  padding: 48px 0;
+  color: var(--p-muted);
+}
+
+.law-layout {
+  display: grid;
+  grid-template-columns: minmax(180px, 230px) minmax(0, 1fr) minmax(240px, 320px);
+  gap: 28px;
+  align-items: start;
+}
+
+.law-contents,
+.law-context > section,
+.law-context > .document-consultation-links {
+  background: var(--law-glass);
+  border: 1px solid var(--law-edge);
+  border-radius: 18px;
+  box-shadow: inset 0 1px 0 var(--law-shine);
+  -webkit-backdrop-filter: blur(22px) saturate(1.5);
+  backdrop-filter: blur(22px) saturate(1.5);
+}
+.law-contents {
+  position: sticky;
+  top: 16px;
+  max-height: calc(100vh - 32px);
+  overflow: auto;
+  padding: 14px;
+  font-size: 14px;
+}
+.law-contents h2,
+.law-context h2,
+.law-context h3 {
+  margin: 14px 0 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--p-muted);
+}
+.law-contents ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.law-contents a {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 10px;
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1.35;
+}
+.law-contents a:hover {
+  background: var(--p-selected);
+}
+.law-contents a[aria-current] {
+  background: var(--p-selected);
+  color: var(--p-link);
+  font-weight: 600;
+}
+.law-search label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--p-muted);
+  margin-bottom: 6px;
+}
+.law-search input {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 44px;
+  padding: 0 12px;
+  border-radius: 12px;
+  border: 1px solid var(--p-field);
+  background: var(--p-inset);
+  color: var(--ink);
+  font: inherit;
+}
+.law-search [data-law-search-status] {
+  display: block;
+  min-height: 18px;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--p-muted);
+}
+
+.law-text {
+  min-width: 0;
+  max-width: 76ch;
+  padding: 34px 40px;
+  background: color-mix(in srgb, var(--p-panel) 88%, transparent);
+  border: 1px solid var(--law-edge);
+  border-radius: 22px;
+  box-shadow: inset 0 1px 0 var(--law-shine);
+  font-family: ui-serif, 'New York', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+.law-text p {
+  margin: 0 0 14px;
+}
+.law-text .law-paragraph {
+  padding-left: 22px;
+}
+.law-text .law-inciso,
+.law-text .law-item {
+  padding-left: 44px;
+}
+.law-text .law-alinea {
+  padding-left: 66px;
+}
+.law-text h2.law-annex {
+  margin: 40px 0 16px;
+  padding-top: 26px;
+  border-top: 1px solid var(--p-line);
+  font-family: var(--p-font);
+  font-size: 20px;
+  line-height: 1.3;
+}
+.law-text h2.law-annex a {
+  color: inherit;
+  text-decoration: none;
+}
+.law-text h3 {
+  margin: 28px 0 12px;
+  font-family: var(--p-font);
+  font-size: 16px;
+}
+.law-text hr {
+  border: 0;
+  border-top: 1px solid var(--p-line);
+  margin: 32px 0;
+}
+.law-text em {
+  color: var(--p-muted);
+  font-size: 15px;
+}
+.law-text code {
+  font-size: 0.85em;
+}
+.law-text a {
+  color: var(--p-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.law-text a.law-device {
+  color: inherit;
+  text-decoration: none;
+}
+.law-text a.law-device:hover strong {
+  text-decoration: underline;
+}
+.law-text :focus-visible,
+.law-contents :focus-visible {
+  outline: 2px solid var(--p-focus);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+/* A device reached by link is marked by its highlight, not by a focus ring. */
+#main .law-text [tabindex='-1']:focus,
+#main .law-text [tabindex='-1']:focus-visible {
+  outline: none;
+}
+.law-text .law-target {
+  margin-inline: -14px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--p-selected);
+  box-shadow: inset 3px 0 0 var(--p-link);
+  scroll-margin-top: 20px;
+}
+.law-text .law-hit {
+  background: color-mix(in srgb, var(--warning) 18%, transparent);
+  border-radius: 6px;
+}
+
+.law-context {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 14px;
+  min-width: 0;
+}
+.law-context > section,
+.law-context > .document-consultation-links {
+  padding: 4px 16px 16px;
+  margin: 0;
+}
+.law-files,
+.law-requirements {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.law-files li,
+.law-requirements li {
+  padding: 9px 0;
+  border-top: 1px solid var(--p-line);
+}
+.law-files li:first-child,
+.law-requirements li:first-child {
+  border-top: 0;
+}
+.law-context a {
+  color: var(--p-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media (max-width: 1100px) {
+  .law-layout {
+    grid-template-columns: minmax(170px, 210px) minmax(0, 1fr);
+  }
+  .law-context {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 760px) {
+  .law-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+  .law-contents {
+    position: static;
+    max-height: 260px;
+  }
+  .law-text {
+    padding: 22px 18px;
+    font-size: 17px;
+    border-radius: 16px;
+  }
+  .law-text .law-inciso,
+  .law-text .law-item {
+    padding-left: 22px;
+  }
+  .law-text .law-alinea {
+    padding-left: 34px;
+  }
+  .law-header {
+    padding-top: 16px;
+  }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .law-contents,
+  .law-context > section,
+  .law-context > .document-consultation-links,
+  .law-text {
+    background: var(--p-panel);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .law-page::before {
+    display: none;
+  }
+}
+@media (prefers-contrast: more) {
+  .law-contents,
+  .law-context > section,
+  .law-text {
+    background: var(--p-panel);
+    border-color: var(--ink);
+  }
+}

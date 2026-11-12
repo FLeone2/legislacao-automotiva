@@ -54,6 +54,8 @@ async def main(base):
             ("library", ".document"),
             ("inmetro?record=inmetro-145-2022", ".contran-record"),
             ("markings", "#markings-vin"),
+            ("lei?id=contran-949-2022&trecho=art-2", ".law-target"),
+            ("lei?id=mover-001", ".law-text"),
         ]
         for theme, route, ready in [
             (theme, route, ready)

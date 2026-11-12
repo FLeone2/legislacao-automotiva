@@ -149,15 +149,20 @@ async def exercise(base):
         assert {"peca_34_roda_dianteira", "peca_36_roda_traseira"} <= origins
         ids = await trace.locator(".g-trace-provisions code").all_text_contents()
         assert ids and all(value in REQUIREMENTS for value in ids)
-        sources = await trace.locator(".g-trace-record a").evaluate_all(
-            "nodes => nodes.map(node => node.href)"
-        )
+        sources = await trace.locator(
+            '.g-trace-record a[target="_blank"]'
+        ).evaluate_all("nodes => nodes.map(node => node.href)")
         assert sources
         assert all(
             urlparse(url).scheme == "https"
             and urlparse(url).hostname.endswith(".gov.br")
             for url in sources
         )
+        # Links that stay in the portal only open the full text of the act.
+        internal = await trace.locator(
+            '.g-trace-record a:not([target="_blank"])'
+        ).evaluate_all("nodes => nodes.map(node => node.getAttribute('href'))")
+        assert all(href.startswith("#lei?id=") for href in internal), internal
         assert "Íntegra pendente" in await trace.inner_text()
         assert "não certifica a conformidade do projeto" in await trace.inner_text()
         assert "Nenhuma obrigação é confirmada" in await trace.inner_text()
