@@ -722,6 +722,158 @@ const safetyTreeSpec = {
       ],
     },
     {
+      id: 'identificacao',
+      label: 'Etiquetas e VIN',
+      source: {
+        id: 'contran-968-2022',
+        device: 'arts. 4º a 11',
+        anchor: 'art-4',
+      },
+      text: 'VIN, gravações, etiquetas, placa e identificação eletrônica. Cada marcação tem fonte e âmbito próprios. ENCE de eficiência energética fica em Aprovações ambientais.',
+      items: [
+        {
+          id: 'ID-VIN',
+          label: 'VIN — número de identificação veicular',
+          condition:
+            'Gravação no chassi ou monobloco e segunda gravação conforme o ato. Descrição das seções do VIN no Anexo III da Portaria 990/2022 (ABNT NBR 6066).',
+          refs: [
+            {
+              id: 'contran-968-2022',
+              device: 'arts. 4º a 6º',
+              anchor: 'art-4',
+            },
+            {
+              id: 'senatran-095',
+              device: 'Anexo III, itens 5 e 6',
+              anchor: 'anexo-iii',
+            },
+          ],
+          vehicle: ['identificacao'],
+        },
+        {
+          id: 'ID-VIS',
+          label: 'VIS nos vidros',
+          condition: 'Marcação do VIS nos vidros do veículo.',
+          refs: [
+            {
+              id: 'contran-968-2022',
+              device: 'art. 9º',
+              anchor: 'art-9',
+            },
+          ],
+          vehicle: ['identificacao'],
+        },
+        {
+          id: 'ID-ETA',
+          label: 'Etiquetas autoadesivas (ETA)',
+          condition: 'ETA previstas no art. 4º, IX; requisitos do art. 8º.',
+          refs: [
+            {
+              id: 'contran-968-2022',
+              device: 'art. 8º',
+              anchor: 'art-8',
+            },
+          ],
+          vehicle: ['identificacao'],
+        },
+        {
+          id: 'ID-MOTOR',
+          label: 'Número do motor e demais agregados',
+          condition: 'Motor, câmbio, eixos, cabine e carroceria.',
+          refs: [
+            {
+              id: 'contran-968-2022',
+              device: 'arts. 7º e 11',
+              anchor: 'art-7',
+            },
+          ],
+          vehicle: ['identificacao'],
+        },
+        {
+          id: 'ID-WMI',
+          label: 'WMI — identificador mundial do fabricante',
+          condition:
+            'Comprovante do WMI no cadastro do CAT; não se aplica a transformados e encarroçados.',
+          refs: [
+            {
+              id: 'senatran-095',
+              device: 'Anexo III, item 1',
+              anchor: 'anexo-iii',
+            },
+          ],
+          vehicle: ['identificacao'],
+        },
+        {
+          id: 'ID-PIV',
+          label: 'Placa de identificação veicular (PIV)',
+          condition: 'Local da placa e sistema PIV.',
+          refs: [
+            {
+              id: 'contran-969-2022',
+              device: 'art. 1º',
+              anchor: 'art-1',
+            },
+          ],
+          vehicle: ['identificacao'],
+        },
+        {
+          id: 'SEG-021',
+          label: 'Dispositivo auxiliar de identificação',
+          condition:
+            'Tratar a identificação auxiliar como dispositivo distinto da placa de registro. Uso facultativo nos termos do art. 2º; não impor como equipamento geral de fábrica ao M1.',
+          refs: [
+            {
+              id: 'contran-944-2022',
+              device: 'arts. 2º e 3º; anexo',
+              anchor: 'art-2',
+            },
+          ],
+          vehicle: ['identificacao'],
+        },
+        {
+          id: 'ID-ENSV',
+          label: 'Etiqueta Nacional de Segurança Veicular (ENSV)',
+          condition:
+            'Requisitos gerais e inovadores declarados como série, opcional, não disponível ou não aplicável. Os anexos da portaria não foram coletados.',
+          refs: [
+            {
+              id: 'senatran-096',
+              device: 'arts. 10, 11, 13 a 15',
+              anchor: 'art-10',
+            },
+          ],
+          vehicle: ['identificacao'],
+        },
+        {
+          id: 'ID-SELOS',
+          label: 'Selos Inmetro com segurança física e digital',
+          condition: 'Selos de componentes regulamentados; não certificam o veículo inteiro.',
+          refs: [
+            {
+              id: 'inmetro-314-2025',
+              device: 'art. 1º',
+              anchor: null,
+            },
+          ],
+          vehicle: ['identificacao'],
+        },
+        {
+          id: 'SEG-035',
+          label: 'SINIAV e identificação eletrônica',
+          condition:
+            'Manter o ramo de identificação eletrônica e seus atos de implementação separado do VIN e da PIV. A 537 revoga expressamente 412/2012 e 433/2013; arts. 4º e 5º remetem a cronograma e especificações do órgão executivo. Não presumir implantação universal efetiva nem obrigação de relatório CAT a partir do índice.',
+          refs: [
+            {
+              id: 'contran-537-2015',
+              device: 'arts. 1º a 6º',
+              anchor: 'art-1',
+            },
+          ],
+          vehicle: ['identificacao'],
+        },
+      ],
+    },
+    {
       id: 'opcionais',
       label: 'Opcionais e tecnologias inovadoras',
       source: {
@@ -910,18 +1062,409 @@ const safetyTreeSpec = {
       ],
     },
     {
-      id: 'mover',
-      label: 'MOVER — requisitos de segurança (Grupos A a D)',
-      source: {
-        id: 'mover-006',
-        device: 'Anexo II',
-        anchor: 'anexo-ii',
-      },
-      text: 'Índice de atendimento da empresa (InTec), ponderado por emplacamentos. Não é exigência de cada equipamento em todo veículo.',
+      id: 'outros',
+      label: 'Outros requisitos de segurança',
+      source: null,
+      text: 'Requisitos de segurança que não são linhas dos Níveis 1 a 3 nem marcações: equipamentos, acessórios, combustível, transporte e processo, e os requisitos do programa MOVER.',
       subgroups: [
         {
+          id: 'complementares',
+          label: 'Equipamentos, acessórios e uso',
+          items: [
+            {
+              id: 'SEG-005',
+              label: 'Airbags frontais',
+              condition:
+                'Instalar o sistema suplementar frontal para condutor e passageiro dianteiro no escopo do ato. M1/N1 fabricados desde 01/01/2014, observadas dispensas expressas de configuração/produção.',
+              refs: [
+                {
+                  id: 'contran-964-2022',
+                  device: 'arts. 2º a 4º',
+                  anchor: 'art-2',
+                },
+              ],
+              vehicle: ['bancos', 'carroceria'],
+            },
+            {
+              id: 'SEG-010',
+              label: 'Para-choques dianteiro e traseiro do automóvel',
+              condition:
+                'Garantir os equipamentos previstos para a classe. Não transportar requisitos específicos de anti-intrusão de caminhões para o automóvel.',
+              refs: [
+                {
+                  id: 'contran-993-2023',
+                  device: 'Anexo I, tabela 1',
+                  anchor: 'anexo-i',
+                },
+              ],
+              vehicle: ['carroceria'],
+            },
+            {
+              id: 'SEG-011',
+              label: 'Para-sol do condutor',
+              condition:
+                'Prever a pala interna de proteção contra o sol para o condutor. Conforme tipo de veículo da tabela aplicável.',
+              refs: [
+                {
+                  id: 'contran-993-2023',
+                  device: 'Anexo I, tabela 1',
+                  anchor: 'anexo-i',
+                },
+              ],
+              vehicle: ['vidros'],
+            },
+            {
+              id: 'SEG-012',
+              label: 'Velocímetro',
+              condition:
+                'Prever o instrumento obrigatório de indicação de velocidade. Conforme tipo e tabela aplicável.',
+              refs: [
+                {
+                  id: 'contran-993-2023',
+                  device: 'Anexo I, tabela 1',
+                  anchor: 'anexo-i',
+                },
+              ],
+            },
+            {
+              id: 'SEG-023',
+              label: 'Posição do volante',
+              condition:
+                'O registro/licenciamento de veículo com volante do sistema de direção à direita é proibido, salvo exceção do ato. Automóvel novo brasileiro não se enquadra na exceção de coleção com mais de 30 anos.',
+              refs: [
+                {
+                  id: 'contran-528-2015',
+                  device: 'art. 1º',
+                  anchor: 'art-1',
+                },
+              ],
+            },
+            {
+              id: 'SEG-014',
+              label: 'Ferramentas e alternativa ao estepe',
+              condition:
+                'Compatibilizar solução de mobilidade, estepe, macaco e ferramentas. As dispensas dependem da solução efetivamente instalada e de suas instruções; não bastam as marcações do processo exemplo.',
+              refs: [
+                {
+                  id: 'contran-993-2023',
+                  device: 'Anexo I, tabela 1 e notas 31 a 36 e 46 da 993; 913 e anexo',
+                  anchor: 'anexo-i',
+                },
+                {
+                  id: 'contran-913-2022',
+                  device: null,
+                  anchor: null,
+                },
+              ],
+              vehicle: ['pneus-rodas'],
+            },
+            {
+              id: 'SEG-018',
+              label: 'Rodas especiais',
+              condition:
+                'Rodas usadas para substituir as originais/opcionais devem atender aos requisitos específicos. Roda especial conforme definição do art. 3º; não é categoria automática das rodas originais de fábrica.',
+              refs: [
+                {
+                  id: 'contran-963-2022',
+                  device: 'arts. 2º a 5º e anexo',
+                  anchor: 'art-2',
+                },
+              ],
+              vehicle: ['pneus-rodas'],
+            },
+            {
+              id: 'SEG-003',
+              label: 'Engate para reboque instalado como acessório',
+              condition:
+                'Compatibilizar capacidade do veículo, pontos de fixação, engate e rastreabilidade. PBT até 3.500 kg, capacidade de tracionar declarada e engate não original de fábrica, conforme art. 1º. A instalação original exige enquadramento próprio, sem extensão automática da regra do acessório.',
+              refs: [
+                {
+                  id: 'contran-937-2022',
+                  device: 'arts. 1º a 5º e 8º',
+                  anchor: 'art-1',
+                },
+                {
+                  id: 'inmetro-309-2021',
+                  device: null,
+                  anchor: null,
+                },
+                {
+                  id: 'contran-919-2022',
+                  device: null,
+                  anchor: null,
+                },
+                {
+                  id: 'contran-915-2022',
+                  device: null,
+                  anchor: null,
+                },
+              ],
+              outsideCollection: ['inmetro-400-2020'],
+              vehicle: ['carroceria', 'freios'],
+            },
+            {
+              id: 'SEG-004',
+              label: 'Bagageiro e suporte para bicicletas',
+              condition:
+                'Respeitar limites e instalação do fabricante, visibilidade, amarração, luzes e placa. Quando se transporta carga/bicicleta externamente. Instalação proibida se o fabricante não recomendar ou proibir.',
+              refs: [
+                {
+                  id: 'contran-955-2022',
+                  device: 'arts. 2º a 10 da 955; regras da segunda PIV na 969',
+                  anchor: 'art-2',
+                },
+                {
+                  id: 'contran-969-2022',
+                  device: null,
+                  anchor: null,
+                },
+                {
+                  id: 'inmetro-309-2021',
+                  device: null,
+                  anchor: null,
+                },
+                {
+                  id: 'contran-919-2022',
+                  device: null,
+                  anchor: null,
+                },
+              ],
+              outsideCollection: ['inmetro-400-2020'],
+              vehicle: ['carroceria', 'iluminacao', 'identificacao'],
+            },
+            {
+              id: 'SEG-017',
+              label: 'Extintor e local de instalação',
+              condition:
+                'Em automóvel, a instalação é facultativa; fabricante/importador deve disponibilizar local adequado para o suporte. Se instalado, cumprir especificação e conformidade. Uso coletivo pode alterar o enquadramento do veículo.',
+              refs: [
+                {
+                  id: 'contran-919-2022',
+                  device: 'art. 2º, §§ 1º a 3º; art. 3º e anexo',
+                  anchor: 'art-2',
+                },
+                {
+                  id: 'inmetro-309-2021',
+                  device: null,
+                  anchor: null,
+                },
+                {
+                  id: 'inmetro-314-2025',
+                  device: null,
+                  anchor: null,
+                },
+              ],
+              outsideCollection: ['inmetro-400-2020', 'inmetro-108-2022', 'inmetro-409-2026'],
+              vehicle: ['carroceria'],
+            },
+            {
+              id: 'SEG-022',
+              label: 'Massas, dimensões e capacidades',
+              condition:
+                'Compatibilizar limites técnicos, legais, eixos e capacidades declaradas. Usar o menor limite aplicável. As alterações posteriores não concedem automaticamente aumento de massa a todo veículo elétrico.',
+              refs: [
+                {
+                  id: 'contran-882-2021',
+                  device: 'arts. 2º a 8º da 882 e dispositivos alteradores',
+                  anchor: 'art-2',
+                },
+                {
+                  id: 'contran-899-2022',
+                  device: null,
+                  anchor: null,
+                },
+                {
+                  id: 'contran-994-2023',
+                  device: null,
+                  anchor: null,
+                },
+                {
+                  id: 'contran-1005-2024',
+                  device: null,
+                  anchor: null,
+                },
+                {
+                  id: 'contran-1015-2024',
+                  device: null,
+                  anchor: null,
+                },
+                {
+                  id: 'contran-915-2022',
+                  device: null,
+                  anchor: null,
+                },
+              ],
+              outsideCollection: ['deliberacao-250-2021', 'deliberacao-270-2023'],
+              vehicle: ['pneus-rodas', 'carroceria'],
+            },
+            {
+              id: 'SEG-024',
+              label: 'Sistema GNV original de fábrica',
+              condition:
+                'O sistema e os componentes têm conformidade e inspeções periódicas próprias. Somente configuração com GNV. Distinguir instalação original de conversão posterior.',
+              refs: [
+                {
+                  id: 'contran-280-2008',
+                  device: 'arts. 1º a 3º',
+                  anchor: 'art-1',
+                },
+                {
+                  id: 'contran-749-2018',
+                  device: null,
+                  anchor: null,
+                },
+                {
+                  id: 'inmetro-111-2022',
+                  device: null,
+                  anchor: null,
+                },
+                {
+                  id: 'inmetro-436-2021',
+                  device: null,
+                  anchor: null,
+                },
+              ],
+              outsideCollection: [
+                'inmetro-130-2022',
+                'dnc-23-1994',
+                'inmetro-147-2022',
+                'inmetro-384-2023',
+                'inmetro-634-2023',
+                'inmetro-106-2025',
+                'inmetro-133-2022',
+                'inmetro-409-2026',
+              ],
+              vehicle: ['tanque', 'bateria'],
+            },
+            {
+              id: 'SEG-025',
+              label: 'Múltiplos tanques e tanque suplementar',
+              condition:
+                'Separar tanques instalados antes do registro de reservatório suplementar após o registro. A instalação de tanque suplementar do art. 3º é restrita aos tipos ali previstos; não é uma autorização geral para automóvel.',
+              refs: [
+                {
+                  id: 'contran-921-2022',
+                  device: 'arts. 2º a 6º',
+                  anchor: 'art-2',
+                },
+                {
+                  id: 'contran-749-2018',
+                  device: null,
+                  anchor: null,
+                },
+                {
+                  id: 'contran-280-2008',
+                  device: null,
+                  anchor: null,
+                },
+              ],
+              outsideCollection: ['inmetro-130-2022', 'dnc-23-1994'],
+              vehicle: ['tanque', 'carroceria'],
+            },
+            {
+              id: 'SEG-026',
+              label: 'Escapamento e controle de ruído do motor',
+              condition:
+                'Prever o dispositivo de controle de ruído para veículo com motor a combustão. Não se aplica por existência de motor de combustão ao elétrico puro; limites ambientais e sua prova serão tratados no ramo ambiental.',
+              refs: [
+                {
+                  id: 'contran-993-2023',
+                  device: 'Anexo I, tabela 1 da 993; dispositivos pertinentes da 958',
+                  anchor: 'anexo-i',
+                },
+                {
+                  id: 'contran-958-2022',
+                  device: null,
+                  anchor: null,
+                },
+                {
+                  id: 'contran-749-2018',
+                  device: null,
+                  anchor: null,
+                },
+                {
+                  id: 'contran-280-2008',
+                  device: null,
+                  anchor: null,
+                },
+              ],
+              outsideCollection: ['inmetro-130-2022', 'dnc-23-1994'],
+              vehicle: ['escapamento', 'bateria'],
+            },
+            {
+              id: 'SEG-030',
+              label: 'Transporte de carga no compartimento de passageiros',
+              condition:
+                'A carga deve ficar em compartimento próprio e separado dos passageiros no escopo do ato. Quando o veículo de passageiros transporta carga, observadas regras do ato.',
+              refs: [
+                {
+                  id: 'contran-26-1998',
+                  device: 'arts. 1º a 4º',
+                  anchor: 'art-1',
+                },
+              ],
+              vehicle: ['carroceria', 'bancos'],
+            },
+            {
+              id: 'SEG-031',
+              label: 'Transporte de crianças no uso do veículo',
+              condition:
+                'Escolher a retenção infantil adequada ao ocupante e ao veículo. Uso: idade/altura e exceções do ato. Não confundir o dispositivo infantil com a ancoragem que integra o veículo.',
+              refs: [
+                {
+                  id: 'contran-819-2021',
+                  device: 'arts. 1º a 4º e anexo',
+                  anchor: 'art-1',
+                },
+              ],
+              vehicle: ['bancos'],
+            },
+            {
+              id: 'SEG-032',
+              label: 'Manual básico de segurança no trânsito',
+              condition:
+                'Disponibilizar o conteúdo obrigatório do manual de segurança no trânsito. Obrigações de fabricantes/importadores e meios de disponibilização conforme o ato.',
+              refs: [
+                {
+                  id: 'contran-711-2017',
+                  device: 'arts. 1º a 3º e anexo',
+                  anchor: 'art-1',
+                },
+              ],
+            },
+            {
+              id: 'SEG-033',
+              label: 'Homologação, MMV e modificações',
+              condition:
+                'Distinguir obtenção do MMV/CAT do processo de modificação posterior de um veículo. A mudança de 2026 sobre motor elétrico auxiliar é de caminhão/caminhão-trator; não deve ser aplicada ao automóvel por proximidade temática.',
+              refs: [
+                {
+                  id: 'contran-916-2022',
+                  device: 'arts. 1º a 5º da 916 e anexos; atos modificadores',
+                  anchor: 'art-1',
+                },
+                {
+                  id: 'contran-958-2022',
+                  device: null,
+                  anchor: null,
+                },
+                {
+                  id: 'contran-1021-2026',
+                  device: null,
+                  anchor: null,
+                },
+                {
+                  id: 'contran-1010-2024',
+                  device: null,
+                  anchor: null,
+                },
+              ],
+            },
+          ],
+        },
+        {
           id: 'mover-a',
-          label: 'Grupo A — requisitos gerais',
+          label: 'MOVER — Grupo A, requisitos gerais',
           items: [
             {
               id: 'MOVER-A1',
@@ -1102,7 +1645,7 @@ const safetyTreeSpec = {
         },
         {
           id: 'mover-b',
-          label: 'Grupo B — requisitos gerais',
+          label: 'MOVER — Grupo B, requisitos gerais',
           items: [
             {
               id: 'MOVER-B1',
@@ -1290,7 +1833,7 @@ const safetyTreeSpec = {
         },
         {
           id: 'mover-c',
-          label: 'Grupo C — substitutos dos itens do Grupo B',
+          label: 'MOVER — Grupo C, substitutos do Grupo B',
           items: [
             {
               id: 'MOVER-C1',
@@ -1463,7 +2006,7 @@ const safetyTreeSpec = {
         },
         {
           id: 'mover-d',
-          label: 'Grupo D — a definir por grupo de trabalho',
+          label: 'MOVER — Grupo D, a definir',
           items: [
             {
               id: 'MOVER-D1',
@@ -1563,130 +2106,6 @@ const safetyTreeSpec = {
               ],
             },
           ],
-        },
-      ],
-    },
-    {
-      id: 'identificacao',
-      label: 'Identificação: VIN, placa e etiquetas',
-      source: {
-        id: 'contran-968-2022',
-        device: 'arts. 4º a 11',
-        anchor: 'art-4',
-      },
-      text: 'Cada marcação tem fonte e âmbito próprios. ENCE de eficiência energética fica em Aprovações ambientais.',
-      items: [
-        {
-          id: 'ID-VIN',
-          label: 'VIN — número de identificação veicular',
-          condition:
-            'Gravação no chassi ou monobloco e segunda gravação conforme o ato. Descrição das seções do VIN no Anexo III da Portaria 990/2022 (ABNT NBR 6066).',
-          refs: [
-            {
-              id: 'contran-968-2022',
-              device: 'arts. 4º a 6º',
-              anchor: 'art-4',
-            },
-            {
-              id: 'senatran-095',
-              device: 'Anexo III, itens 5 e 6',
-              anchor: 'anexo-iii',
-            },
-          ],
-          vehicle: ['identificacao'],
-        },
-        {
-          id: 'ID-VIS',
-          label: 'VIS nos vidros',
-          condition: 'Marcação do VIS nos vidros do veículo.',
-          refs: [
-            {
-              id: 'contran-968-2022',
-              device: 'art. 9º',
-              anchor: 'art-9',
-            },
-          ],
-          vehicle: ['identificacao'],
-        },
-        {
-          id: 'ID-ETA',
-          label: 'Etiquetas autoadesivas (ETA)',
-          condition: 'ETA previstas no art. 4º, IX; requisitos do art. 8º.',
-          refs: [
-            {
-              id: 'contran-968-2022',
-              device: 'art. 8º',
-              anchor: 'art-8',
-            },
-          ],
-          vehicle: ['identificacao'],
-        },
-        {
-          id: 'ID-MOTOR',
-          label: 'Número do motor e demais agregados',
-          condition: 'Motor, câmbio, eixos, cabine e carroceria.',
-          refs: [
-            {
-              id: 'contran-968-2022',
-              device: 'arts. 7º e 11',
-              anchor: 'art-7',
-            },
-          ],
-          vehicle: ['identificacao'],
-        },
-        {
-          id: 'ID-WMI',
-          label: 'WMI — identificador mundial do fabricante',
-          condition:
-            'Comprovante do WMI no cadastro do CAT; não se aplica a transformados e encarroçados.',
-          refs: [
-            {
-              id: 'senatran-095',
-              device: 'Anexo III, item 1',
-              anchor: 'anexo-iii',
-            },
-          ],
-          vehicle: ['identificacao'],
-        },
-        {
-          id: 'ID-PIV',
-          label: 'Placa de identificação veicular (PIV)',
-          condition: 'Local da placa e sistema PIV.',
-          refs: [
-            {
-              id: 'contran-969-2022',
-              device: 'art. 1º',
-              anchor: 'art-1',
-            },
-          ],
-          vehicle: ['identificacao'],
-        },
-        {
-          id: 'ID-ENSV',
-          label: 'Etiqueta Nacional de Segurança Veicular (ENSV)',
-          condition:
-            'Requisitos gerais e inovadores declarados como série, opcional, não disponível ou não aplicável. Os anexos da portaria não foram coletados.',
-          refs: [
-            {
-              id: 'senatran-096',
-              device: 'arts. 10, 11, 13 a 15',
-              anchor: 'art-10',
-            },
-          ],
-          vehicle: ['identificacao'],
-        },
-        {
-          id: 'ID-SELOS',
-          label: 'Selos Inmetro com segurança física e digital',
-          condition: 'Selos de componentes regulamentados; não certificam o veículo inteiro.',
-          refs: [
-            {
-              id: 'inmetro-314-2025',
-              device: 'art. 1º',
-              anchor: null,
-            },
-          ],
-          vehicle: ['identificacao'],
         },
       ],
     },

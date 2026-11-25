@@ -6,7 +6,8 @@ artigo (`#lei?id=…&trecho=…`). Os mesmos grupos aparecem como ramos no grafo
 
 ## Atividades da etapa
 
-Os seis grupos são as atividades da etapa B (`flow-data.js`). As cinco atividades antigas
+Os seis grupos são as atividades da etapa B (`flow-data.js`), nesta ordem: Nível 1, Nível 2,
+Nível 3, Etiquetas e VIN, Opcionais e Outros requisitos de segurança. As cinco atividades antigas
 (Frenagem e estabilidade, Ocupantes e estrutura, Iluminação e visibilidade, Equipamentos
 obrigatórios, Segurança de propulsão elétrica) repetiam itens dos Níveis 1 a 3 e saíram. Os
 links antigos continuam abrindo o lugar novo do assunto:
@@ -18,6 +19,7 @@ links antigos continuam abrindo o lugar novo do assunto:
 | `visibilidade` | Nível 2 › Instalação dos dispositivos de iluminação |
 | `equipamentos` | Nível 1 › Equipamentos obrigatórios |
 | `eletrica` | Nível 3 › Requisitos específicos para propulsão híbrida e elétrica |
+| `mover` | Outros requisitos de segurança |
 
 Cada item leva às peças do veículo 3D que o levantamento ligou a ele ("No veículo: …"),
 no lugar do botão "Ver no veículo" das atividades antigas.
@@ -32,11 +34,13 @@ oficiais mais próximos:
 | Nível 1 — Declaração de conformidade | Portaria SENATRAN 990/2022, Anexo XI, itens 1.1–1.2 | 12 |
 | Nível 2 — Ensaios de segurança ativa | Anexo XI, itens 1.3–1.4 | 14 |
 | Nível 3 — Ensaios de segurança passiva | Anexo XI, itens 1.5–1.6 | 16 |
+| Etiquetas e VIN | Res. CONTRAN 968/2022 (VIN, VIS, ETA, agregados), 969/2022 (PIV), 944/2022 (dispositivo auxiliar), 537/2015 (SINIAV), Portaria 990/2022 Anexo III (WMI), 1.554/2022 (ENSV), Portaria Inmetro 314/2025 (selos) | 10 |
 | Opcionais e tecnologias inovadoras | Tela SISCAT; Portaria SENATRAN 1.554/2022, arts. 10 e 13 (série/opcional na ENSV) | 9 |
-| MOVER — Grupos A, B, C e D | Decreto 12.435/2025, Anexo IV; Portaria GM/MDIC 215/2025, Anexo II | 28 |
-| Identificação: VIN, placa e etiquetas | Res. CONTRAN 968/2022 (VIN, VIS, ETA, agregados), 969/2022 (PIV), Portaria 990/2022 Anexo III (WMI), 1.554/2022 (ENSV), Portaria Inmetro 314/2025 (selos) | 8 |
+| Outros requisitos de segurança | Requisitos complementares do inventário (airbags, para-choques, extintor, engate, GNV, massas e dimensões, transporte de crianças, manual e outros) e MOVER Grupos A a D (Decreto 12.435/2025, Anexo IV; Portaria GM/MDIC 215/2025, Anexo II) | 18 + 28 |
 
-Total: 87 itens, 40 atos citados, 3 itens sem ato vinculado.
+Total: 107 itens, 3 itens sem ato vinculado. Quando o inventário cita um ato que ainda não
+está no acervo (por exemplo portarias Inmetro de GNV e extintor, Deliberações CONTRAN 250 e
+270), o item mostra o nome dele sem link.
 
 ## Origem dos vínculos
 

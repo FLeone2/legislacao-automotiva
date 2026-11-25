@@ -9,9 +9,9 @@ const SafetyTreeView = (() => {
     'nivel-1': 'N1',
     'nivel-2': 'N2',
     'nivel-3': 'N3',
+    identificacao: 'VIN',
     opcionais: 'OP',
-    mover: 'MV',
-    identificacao: 'ID',
+    outros: '+',
   };
 
   function spec() {
@@ -65,6 +65,21 @@ const SafetyTreeView = (() => {
       : `<span class="st-law-name">${name}</span>${device}${missing}`;
   }
 
+  // Acts the review cites that the collection does not hold yet (no link).
+  function outsideNote(item) {
+    if (!item.outsideCollection?.length) return '';
+    const names = item.outsideCollection.map((id) => {
+      const m = id.match(/^([a-z]+)-(\d+)-(\d{4})$/);
+      const kind = {
+        inmetro: 'Portaria Inmetro',
+        deliberacao: 'Deliberação CONTRAN',
+        dnc: 'Portaria DNC',
+      };
+      return m ? `${kind[m[1]] || m[1].toUpperCase()} ${m[2]}/${m[3]}` : id;
+    });
+    return `<p class="st-outside">Também citadas, ainda fora do acervo: ${esc(names.join(', '))}.</p>`;
+  }
+
   // Parts of the 3D vehicle that the review linked to the item.
   function vehicleLinks(item) {
     if (!item.vehicle?.length || typeof vehicleComponents === 'undefined') return '';
@@ -89,6 +104,7 @@ const SafetyTreeView = (() => {
         ? `<p class="st-cond"><strong>Métodos citados:</strong> ${esc(item.methods)}</p>`
         : '',
       item.siscatHelp ? `<p class="st-help">Ajuda do SISCAT cita: ${esc(item.siscatHelp)}</p>` : '',
+      outsideNote(item),
       vehicleLinks(item),
     ].join('');
     const search = [
@@ -112,7 +128,7 @@ const SafetyTreeView = (() => {
     const body = nested
       ? `<ol class="st-subgroups">${group.subgroups.map((s) => sectionMarkup(s, true)).join('')}</ol>`
       : sectionMarkup(group, false);
-    return `<li class="st-group" data-st-group="${esc(group.id)}"><details open><summary><span class="st-badge" aria-hidden="true">${esc(BADGES[group.id] || '·')}</span><span class="st-title">${esc(group.label)}</span><span class="st-meta">${items(group).length} itens</span></summary><div class="st-group-body"><p class="st-group-text">${esc(group.text)} <span class="st-source">Fonte: ${lawLink(group.source)}</span></p>${body}</div></details></li>`;
+    return `<li class="st-group" data-st-group="${esc(group.id)}"><details open><summary><span class="st-badge" aria-hidden="true">${esc(BADGES[group.id] || '·')}</span><span class="st-title">${esc(group.label)}</span><span class="st-meta">${items(group).length} itens</span></summary><div class="st-group-body"><p class="st-group-text">${esc(group.text)} ${group.source ? `<span class="st-source">Fonte: ${lawLink(group.source)}</span>` : ''}</p>${body}</div></details></li>`;
   }
 
   function markup(stage) {

@@ -11,7 +11,10 @@ function safetyFlowActivities(spec = flowSafetySpec) {
   return spec.groups.map((group) => {
     const items = (group.subgroups || [group]).flatMap((section) => section.items);
     const ids = [
-      ...new Set([group.source.id, ...items.flatMap((item) => item.refs.map((ref) => ref.id))]),
+      ...new Set([
+        ...(group.source ? [group.source.id] : []),
+        ...items.flatMap((item) => item.refs.map((ref) => ref.id)),
+      ]),
     ];
     return {
       id: group.id,
@@ -455,6 +458,7 @@ const homologationFlowSpec = {
         visibilidade: 'nivel-2:ENS-2-03',
         equipamentos: 'nivel-1:N1-09',
         eletrica: 'nivel-3:ENS-3-13',
+        mover: 'outros',
       },
     },
     {

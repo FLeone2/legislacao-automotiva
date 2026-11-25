@@ -36,13 +36,14 @@ test('safety tree covers the CAT levels, optional technologies, MOVER and identi
     'nivel-1': 12,
     'nivel-2': 14,
     'nivel-3': 16,
+    identificacao: 10,
     opcionais: 9,
-    mover: 28,
-    identificacao: 8,
+    outros: 46,
   });
-  const mover = safetyTreeSpec.groups.find((g) => g.id === 'mover');
+  const others = safetyTreeSpec.groups.find((g) => g.id === 'outros');
+  assert.equal(others.subgroups[0].items.length, 18);
   assert.deepEqual(
-    mover.subgroups.map((s) => s.items.map((i) => i.code).join(',')),
+    others.subgroups.slice(1).map((s) => s.items.map((i) => i.code).join(',')),
     [
       'A1,A2,A3,A4,A5,A6,A7',
       'B1,B2,B3,B4,B5,B6,B7,B8',
@@ -51,7 +52,7 @@ test('safety tree covers the CAT levels, optional technologies, MOVER and identi
     ],
   );
   const labels = items.map((i) => i.label).join(' | ');
-  for (const expected of ['VIN', 'ETA', 'ENSV', 'Placa', 'WMI'])
+  for (const expected of ['VIN', 'ETA', 'ENSV', 'Placa', 'WMI', 'SINIAV', 'Airbags', 'Extintor'])
     assert.match(labels, new RegExp(expected));
   assert.ok(homologationFlowSpec.stages.some((s) => s.id === 'seguranca'));
 });
@@ -68,7 +69,7 @@ test('item IDs are unique and every item has an act or an explicit gap', () => {
 test('every cited act is in the text index and every linked article exists', () => {
   const refs = [
     ...items.flatMap((i) => i.refs.map((r) => [i.id, r])),
-    ...safetyTreeSpec.groups.map((g) => [g.id, g.source]),
+    ...safetyTreeSpec.groups.filter((g) => g.source).map((g) => [g.id, g.source]),
   ];
   const withoutText = [];
   for (const [owner, ref] of refs) {

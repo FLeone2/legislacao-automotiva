@@ -63,7 +63,7 @@ test('consultative subjects are reachable with explicit L8/P8 and method limitat
   );
   assert.deepEqual(
     spec.stages.find((s) => s.id === 'seguranca').activities.map((a) => a.id),
-    ['nivel-1', 'nivel-2', 'nivel-3', 'opcionais', 'mover', 'identificacao'],
+    ['nivel-1', 'nivel-2', 'nivel-3', 'identificacao', 'opcionais', 'outros'],
   );
   assert(activity('seguranca', 'nivel-1').refs.includes('contran-993-2023'));
   assert(activity('seguranca', 'identificacao').refs.includes('contran-968-2022'));
