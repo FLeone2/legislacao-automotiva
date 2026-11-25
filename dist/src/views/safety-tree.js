@@ -65,6 +65,19 @@ const SafetyTreeView = (() => {
       : `<span class="st-law-name">${name}</span>${device}${missing}`;
   }
 
+  // Parts of the 3D vehicle that the review linked to the item.
+  function vehicleLinks(item) {
+    if (!item.vehicle?.length || typeof vehicleComponents === 'undefined') return '';
+    const links = item.vehicle
+      .map((id) => vehicleComponents.find((component) => component.id === id))
+      .filter(Boolean)
+      .map(
+        (component) =>
+          `<a href="#vehicle?component=${encodeURIComponent(component.id)}">${esc(component.label)}</a>`,
+      );
+    return links.length ? `<p class="st-vehicle">No veículo: ${links.join(' · ')}</p>` : '';
+  }
+
   function itemMarkup(item) {
     const code = item.code || '';
     const laws = item.refs.length
@@ -76,6 +89,7 @@ const SafetyTreeView = (() => {
         ? `<p class="st-cond"><strong>Métodos citados:</strong> ${esc(item.methods)}</p>`
         : '',
       item.siscatHelp ? `<p class="st-help">Ajuda do SISCAT cita: ${esc(item.siscatHelp)}</p>` : '',
+      vehicleLinks(item),
     ].join('');
     const search = [
       item.label,
@@ -110,11 +124,12 @@ const SafetyTreeView = (() => {
     return `<section id="safetyTree" class="safety-tree" aria-labelledby="safetyTreeTitle" tabindex="-1"><header class="safety-tree-head"><div><span class="portal-eyebrow">Etapa B · Árvore completa</span><h2 id="safetyTreeTitle">Requisitos de segurança veicular</h2><p>${esc(data.scope)}</p></div><div class="safety-tree-tools"><label><span class="portal-field-label">Filtrar a árvore</span><input id="safetyTreeFilter" type="search" placeholder="Item, lei ou artigo" autocomplete="off"></label><div class="safety-tree-buttons"><button class="btn" type="button" data-safety-open="all">Expandir tudo</button><button class="btn" type="button" data-safety-open="none">Recolher tudo</button></div></div></header><p class="safety-tree-counts"><span><strong>${data.groups.length}</strong> grupos</span><span><strong>${all.length}</strong> itens</span><span><strong>${laws.size}</strong> atos citados</span><span><strong>${gaps}</strong> sem ato vinculado</span><span id="safetyTreeStatus" role="status"></span></p><ol class="safety-tree-root">${data.groups.map(groupMarkup).join('')}</ol><p class="scope-note">${esc(data.provenance)} Revisão do levantamento: ${esc(new Date(data.reviewedAt + 'T12:00:00').toLocaleDateString('pt-BR'))}.</p></section>`;
   }
 
-  // Groups → items → acts, as extra branches of the stage graph.
+  // Groups → items → acts: the branches of the stage graph. Each group is also
+  // the stage activity of the same ID in flow-data.js.
   function graphNodes(stage) {
     const data = spec();
     if (!data || stage.id !== 'seguranca') return [];
-    const base = `flow:${stage.id}:st`;
+    const base = `flow:${stage.id}`;
     const itemNode = (item, parent) => {
       const id = `${parent}:${item.id}`;
       const children = item.refs.map((ref) => {
@@ -155,7 +170,7 @@ const SafetyTreeView = (() => {
       const id = `${base}:${group.id}`;
       const children = group.subgroups
         ? group.subgroups.map((section) => {
-            const sid = `${base}:${section.id}`;
+            const sid = `${id}:${section.id}`;
             const kids = section.items.map((item) => itemNode(item, sid));
             return {
               id: sid,
@@ -172,12 +187,13 @@ const SafetyTreeView = (() => {
       return {
         id,
         label: group.label,
-        subtitle: `${items(group).length} itens · árvore completa`,
+        subtitle: `${items(group).length} itens`,
         icon: '◇',
         kind: 'Grupo de requisitos',
         text: group.text,
         recordIds: [...new Set(children.flatMap((c) => c.recordIds))],
         children,
+        flowActivity: stage.activities.find((activity) => activity.safetyGroup === group.id),
       };
     });
   }

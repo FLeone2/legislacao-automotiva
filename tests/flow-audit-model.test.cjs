@@ -61,7 +61,16 @@ test('consultative subjects are reachable with explicit L8/P8 and method limitat
       link.url.startsWith('https://www.gov.br/'),
     ),
   );
-  assert(activity('seguranca', 'equipamentos').refs.includes('contran-993-2023'));
+  assert.deepEqual(
+    spec.stages.find((s) => s.id === 'seguranca').activities.map((a) => a.id),
+    ['nivel-1', 'nivel-2', 'nivel-3', 'opcionais', 'mover', 'identificacao'],
+  );
+  assert(activity('seguranca', 'nivel-1').refs.includes('contran-993-2023'));
+  assert(activity('seguranca', 'identificacao').refs.includes('contran-968-2022'));
+  assert.equal(
+    spec.stages.find((s) => s.id === 'seguranca').legacyActivities.equipamentos,
+    'nivel-1:N1-09',
+  );
   assert.equal(spec.stages.length, 12);
 });
 

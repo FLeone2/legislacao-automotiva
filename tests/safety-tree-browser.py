@@ -47,11 +47,15 @@ async def main(base):
         await tree.locator("#safetyTreeFilter").fill("")
         await expect(tree.locator(".st-item:visible")).to_have_count(87)
 
-        # The graph gets the same groups as branches.
-        toggle = page.locator('[data-tree-toggle="flow:seguranca:st:nivel-2"]')
+        # The graph branches are the same groups; the old activities are gone.
+        for old in ["freios", "ocupantes", "visibilidade", "equipamentos", "eletrica"]:
+            await expect(
+                page.locator(f'[data-tree-node="flow:seguranca:{old}"]')
+            ).to_have_count(0)
+        toggle = page.locator('[data-tree-toggle="flow:seguranca:nivel-2"]')
         await toggle.click()
         await expect(
-            page.locator('[data-tree-node="flow:seguranca:st:nivel-2:ENS-2-01"]').first
+            page.locator('[data-tree-node="flow:seguranca:nivel-2:ENS-2-01"]').first
         ).to_be_visible()
 
         # The jump button reaches the tree; a law link opens the article.

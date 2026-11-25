@@ -4,6 +4,24 @@ Na etapa **B · Segurança veicular** (`#flow?stage=seguranca`), a tela agora mo
 árvore inteira, já aberta: grupo → item → lei e artigo. Cada lei abre o texto completo no
 artigo (`#lei?id=…&trecho=…`). Os mesmos grupos aparecem como ramos no grafo da etapa.
 
+## Atividades da etapa
+
+Os seis grupos são as atividades da etapa B (`flow-data.js`). As cinco atividades antigas
+(Frenagem e estabilidade, Ocupantes e estrutura, Iluminação e visibilidade, Equipamentos
+obrigatórios, Segurança de propulsão elétrica) repetiam itens dos Níveis 1 a 3 e saíram. Os
+links antigos continuam abrindo o lugar novo do assunto:
+
+| Link antigo (`node=flow:seguranca:…`) | Abre em |
+| --- | --- |
+| `freios` | Nível 2 › Sistemas de freio |
+| `ocupantes` | Nível 3 |
+| `visibilidade` | Nível 2 › Instalação dos dispositivos de iluminação |
+| `equipamentos` | Nível 1 › Equipamentos obrigatórios |
+| `eletrica` | Nível 3 › Requisitos específicos para propulsão híbrida e elétrica |
+
+Cada item leva às peças do veículo 3D que o levantamento ligou a ele ("No veículo: …"),
+no lugar do botão "Ver no veículo" das atividades antigas.
+
 ## Como os grupos foram montados
 
 Nenhum ato usa os nomes "grupo 1", "grupo 2" e "opcionais". A árvore segue os nomes

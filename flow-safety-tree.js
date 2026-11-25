@@ -106,6 +106,7 @@ const safetyTreeSpec = {
               anchor: 'art-1',
             },
           ],
+          vehicle: ['identificacao'],
         },
         {
           id: 'N1-07',
@@ -139,7 +140,8 @@ const safetyTreeSpec = {
         {
           id: 'N1-09',
           label: 'Equipamentos obrigatórios',
-          condition: null,
+          condition:
+            'Consultar as tabelas, notas, datas e exceções do ato por categoria. A presença de uma peça no veículo não resolve o enquadramento do veículo inteiro.',
           refs: [
             {
               id: 'contran-993-2023',
@@ -159,6 +161,7 @@ const safetyTreeSpec = {
               anchor: 'art-4',
             },
           ],
+          vehicle: ['identificacao'],
         },
         {
           id: 'N1-11',
@@ -184,6 +187,7 @@ const safetyTreeSpec = {
               anchor: 'art-4',
             },
           ],
+          vehicle: ['identificacao'],
         },
       ],
     },
@@ -209,6 +213,7 @@ const safetyTreeSpec = {
               anchor: 'art-4',
             },
           ],
+          vehicle: ['freios', 'pneus-rodas'],
           siscatHelp: 'CONTRAN no.777/93',
         },
         {
@@ -222,6 +227,7 @@ const safetyTreeSpec = {
               anchor: 'art-1',
             },
           ],
+          vehicle: ['vidros'],
           siscatHelp: 'CONTRAN no.224/07',
         },
         {
@@ -246,6 +252,7 @@ const safetyTreeSpec = {
               anchor: 'anexo-ii',
             },
           ],
+          vehicle: ['iluminacao', 'identificacao'],
           siscatHelp: 'CONTRAN no.227/07; 294/08',
         },
         {
@@ -260,6 +267,7 @@ const safetyTreeSpec = {
               anchor: 'art-1',
             },
           ],
+          vehicle: ['retrovisores', 'vidros'],
           siscatHelp: 'CONTRAN no.636/84; 226/07',
         },
         {
@@ -279,6 +287,7 @@ const safetyTreeSpec = {
               anchor: 'art-2',
             },
           ],
+          vehicle: ['vidros'],
           siscatHelp: 'CONTRAN no.254/07',
         },
         {
@@ -292,6 +301,7 @@ const safetyTreeSpec = {
               anchor: 'art-1',
             },
           ],
+          vehicle: ['carroceria'],
           siscatHelp: 'CONTRAN no.463/73; CONTRAN 885/2021 (anexo 11)',
         },
         {
@@ -306,6 +316,7 @@ const safetyTreeSpec = {
               anchor: 'art-4',
             },
           ],
+          vehicle: ['freios'],
           siscatHelp: 'CONTRAN no.461/72; 636/84',
         },
         {
@@ -319,6 +330,7 @@ const safetyTreeSpec = {
               anchor: 'art-2',
             },
           ],
+          vehicle: ['vidros', 'carroceria'],
           siscatHelp: 'CONTRAN no.649/85;762/92',
         },
         {
@@ -343,6 +355,7 @@ const safetyTreeSpec = {
               anchor: 'anexo-ii',
             },
           ],
+          vehicle: ['freios'],
           siscatHelp: 'CONTRAN no. 641/16',
         },
         {
@@ -357,6 +370,7 @@ const safetyTreeSpec = {
               anchor: 'art-2',
             },
           ],
+          vehicle: ['pneus-rodas'],
           siscatHelp: 'CONTRAN no. 540/15',
         },
         {
@@ -376,6 +390,7 @@ const safetyTreeSpec = {
               anchor: 'anexo-ii',
             },
           ],
+          vehicle: ['carroceria'],
           siscatHelp: 'CONTRAN no. 759/18. Obrigatório a partir de jan/2025.',
         },
         {
@@ -395,6 +410,7 @@ const safetyTreeSpec = {
               anchor: 'anexo-ii',
             },
           ],
+          vehicle: ['bancos'],
           siscatHelp: 'CONTRAN no. 760/18.',
         },
         {
@@ -409,6 +425,7 @@ const safetyTreeSpec = {
               anchor: 'art-1',
             },
           ],
+          vehicle: ['pneus-rodas'],
           siscatHelp: 'CONTRAN no. 717/17.',
         },
         {
@@ -423,6 +440,7 @@ const safetyTreeSpec = {
               anchor: 'art-1',
             },
           ],
+          vehicle: ['pneus-rodas'],
           siscatHelp: 'CONTRAN no. 888/21.',
         },
       ],
@@ -449,6 +467,7 @@ const safetyTreeSpec = {
               anchor: 'art-6',
             },
           ],
+          vehicle: ['carroceria', 'bancos'],
           siscatHelp: 'CONTRAN no.463/73',
         },
         {
@@ -463,6 +482,7 @@ const safetyTreeSpec = {
               anchor: 'art-6',
             },
           ],
+          vehicle: ['carroceria'],
           siscatHelp: 'CONTRAN no.463/73',
         },
         {
@@ -482,6 +502,7 @@ const safetyTreeSpec = {
               anchor: 'art-1',
             },
           ],
+          vehicle: ['tanque', 'carroceria', 'bateria'],
           siscatHelp: 'CONTRAN no. 486/74; 221/07',
         },
         {
@@ -496,6 +517,7 @@ const safetyTreeSpec = {
               anchor: 'art-4',
             },
           ],
+          vehicle: ['carroceria', 'bancos'],
           siscatHelp: 'CONTRAN no. 221/07',
         },
         {
@@ -515,6 +537,7 @@ const safetyTreeSpec = {
               anchor: 'art-2',
             },
           ],
+          vehicle: ['bancos', 'carroceria'],
           siscatHelp: 'CONTRAN no. 463/73; 220/07, 316/09',
         },
         {
@@ -534,6 +557,7 @@ const safetyTreeSpec = {
               anchor: 'art-2',
             },
           ],
+          vehicle: ['bancos', 'carroceria'],
           siscatHelp: 'CONTRAN no. 48/98, 316/09',
         },
         {
@@ -553,6 +577,7 @@ const safetyTreeSpec = {
               anchor: 'art-2',
             },
           ],
+          vehicle: ['bancos'],
           siscatHelp: 'CONTRAN no. 48/98',
         },
         {
@@ -572,6 +597,7 @@ const safetyTreeSpec = {
               anchor: 'art-2',
             },
           ],
+          vehicle: ['bancos'],
           siscatHelp: 'CONTRAN no. 44/98; 220/07',
         },
         {
@@ -591,6 +617,7 @@ const safetyTreeSpec = {
               anchor: 'anexo-ii',
             },
           ],
+          vehicle: ['carroceria', 'bancos'],
           siscatHelp: 'CONTRAN no. 721/18',
         },
         {
@@ -610,6 +637,7 @@ const safetyTreeSpec = {
               anchor: 'art-2',
             },
           ],
+          vehicle: ['bancos', 'carroceria'],
           siscatHelp: 'CONTRAN no. 518/15',
         },
         {
@@ -629,6 +657,7 @@ const safetyTreeSpec = {
               anchor: 'anexo-ii',
             },
           ],
+          vehicle: ['carroceria', 'vidros'],
           siscatHelp: 'CONTRAN no. 752/18. Obrigatório a partir de jan/2025.',
         },
         {
@@ -648,6 +677,7 @@ const safetyTreeSpec = {
               anchor: 'anexo-ii',
             },
           ],
+          vehicle: ['carroceria', 'bancos'],
           siscatHelp: 'CONTRAN no. 751/18. Obrigatório a partir de jan/2026.',
         },
         {
@@ -662,6 +692,7 @@ const safetyTreeSpec = {
               anchor: 'art-1',
             },
           ],
+          vehicle: ['bateria', 'carroceria', 'tanque'],
           siscatHelp: 'CONTRAN no. 750/18. Obrigatório a partir de jan/2022.',
         },
         {
@@ -717,6 +748,7 @@ const safetyTreeSpec = {
               anchor: 'anexo-ii',
             },
           ],
+          vehicle: ['freios'],
         },
         {
           id: 'ENS-3-15',
@@ -735,6 +767,7 @@ const safetyTreeSpec = {
               anchor: 'anexo-ii',
             },
           ],
+          vehicle: ['freios'],
         },
         {
           id: 'ENS-3-16',
@@ -753,6 +786,7 @@ const safetyTreeSpec = {
               anchor: 'anexo-ii',
             },
           ],
+          vehicle: ['freios'],
         },
         {
           id: 'ENS-3-17',
@@ -776,6 +810,7 @@ const safetyTreeSpec = {
               anchor: 'anexo-ii',
             },
           ],
+          vehicle: ['carroceria', 'bancos'],
         },
         {
           id: 'ENS-3-18',
@@ -794,6 +829,7 @@ const safetyTreeSpec = {
               anchor: 'anexo-ii',
             },
           ],
+          vehicle: ['freios'],
         },
         {
           id: 'ENS-3-19',
@@ -812,6 +848,7 @@ const safetyTreeSpec = {
               anchor: 'anexo-ii',
             },
           ],
+          vehicle: ['freios'],
         },
         {
           id: 'ENS-3-20',
@@ -830,6 +867,7 @@ const safetyTreeSpec = {
               anchor: 'anexo-ii',
             },
           ],
+          vehicle: ['freios'],
         },
         {
           id: 'ENS-3-21',
@@ -848,6 +886,7 @@ const safetyTreeSpec = {
               anchor: 'anexo-ii',
             },
           ],
+          vehicle: ['freios'],
         },
         {
           id: 'ENS-3-22',
@@ -866,6 +905,7 @@ const safetyTreeSpec = {
               anchor: 'anexo-ii',
             },
           ],
+          vehicle: ['freios'],
         },
       ],
     },
@@ -906,6 +946,7 @@ const safetyTreeSpec = {
                   anchor: 'art-1',
                 },
               ],
+              vehicle: ['carroceria'],
             },
             {
               id: 'MOVER-A2',
@@ -930,6 +971,7 @@ const safetyTreeSpec = {
                   anchor: 'art-1',
                 },
               ],
+              vehicle: ['freios'],
             },
             {
               id: 'MOVER-A3',
@@ -954,6 +996,7 @@ const safetyTreeSpec = {
                   anchor: 'art-1',
                 },
               ],
+              vehicle: ['iluminacao'],
             },
             {
               id: 'MOVER-A4',
@@ -978,6 +1021,7 @@ const safetyTreeSpec = {
                   anchor: 'art-1',
                 },
               ],
+              vehicle: ['iluminacao'],
             },
             {
               id: 'MOVER-A5',
@@ -1002,6 +1046,7 @@ const safetyTreeSpec = {
                   anchor: 'art-1',
                 },
               ],
+              vehicle: ['bancos'],
             },
             {
               id: 'MOVER-A6',
@@ -1026,6 +1071,7 @@ const safetyTreeSpec = {
                   anchor: 'art-1',
                 },
               ],
+              vehicle: ['iluminacao', 'freios'],
             },
             {
               id: 'MOVER-A7',
@@ -1050,6 +1096,7 @@ const safetyTreeSpec = {
                   anchor: 'art-1',
                 },
               ],
+              vehicle: ['carroceria'],
             },
           ],
         },
@@ -1080,6 +1127,7 @@ const safetyTreeSpec = {
                   anchor: 'art-1',
                 },
               ],
+              vehicle: ['carroceria'],
             },
             {
               id: 'MOVER-B2',
@@ -1104,6 +1152,7 @@ const safetyTreeSpec = {
                   anchor: 'art-1',
                 },
               ],
+              vehicle: ['carroceria'],
             },
             {
               id: 'MOVER-B3',
@@ -1124,6 +1173,7 @@ const safetyTreeSpec = {
                   anchor: 'anexo-ii',
                 },
               ],
+              vehicle: ['freios', 'carroceria'],
             },
             {
               id: 'MOVER-B4',
@@ -1144,6 +1194,7 @@ const safetyTreeSpec = {
                   anchor: 'anexo-ii',
                 },
               ],
+              vehicle: ['freios', 'carroceria'],
             },
             {
               id: 'MOVER-B5',
@@ -1163,6 +1214,7 @@ const safetyTreeSpec = {
                   anchor: 'anexo-ii',
                 },
               ],
+              vehicle: ['vidros'],
             },
             {
               id: 'MOVER-B6',
@@ -1187,6 +1239,7 @@ const safetyTreeSpec = {
                   anchor: 'art-1',
                 },
               ],
+              vehicle: ['carroceria'],
             },
             {
               id: 'MOVER-B7',
@@ -1206,6 +1259,7 @@ const safetyTreeSpec = {
                   anchor: 'anexo-ii',
                 },
               ],
+              vehicle: ['pneus-rodas'],
             },
             {
               id: 'MOVER-B8',
@@ -1230,6 +1284,7 @@ const safetyTreeSpec = {
                   anchor: 'art-1',
                 },
               ],
+              vehicle: ['bancos'],
             },
           ],
         },
@@ -1255,6 +1310,7 @@ const safetyTreeSpec = {
                   anchor: 'anexo-ii',
                 },
               ],
+              vehicle: ['freios', 'carroceria'],
             },
             {
               id: 'MOVER-C2',
@@ -1275,6 +1331,7 @@ const safetyTreeSpec = {
                   anchor: 'anexo-ii',
                 },
               ],
+              vehicle: ['freios', 'carroceria'],
             },
             {
               id: 'MOVER-C3',
@@ -1294,6 +1351,7 @@ const safetyTreeSpec = {
                   anchor: 'anexo-ii',
                 },
               ],
+              vehicle: ['vidros'],
             },
             {
               id: 'MOVER-C4',
@@ -1314,6 +1372,7 @@ const safetyTreeSpec = {
                   anchor: 'anexo-ii',
                 },
               ],
+              vehicle: ['bancos'],
             },
             {
               id: 'MOVER-C5',
@@ -1333,6 +1392,7 @@ const safetyTreeSpec = {
                   anchor: 'anexo-ii',
                 },
               ],
+              vehicle: ['bancos'],
             },
             {
               id: 'MOVER-C6',
@@ -1352,6 +1412,7 @@ const safetyTreeSpec = {
                   anchor: 'anexo-ii',
                 },
               ],
+              vehicle: ['retrovisores', 'carroceria'],
             },
             {
               id: 'MOVER-C7',
@@ -1376,6 +1437,7 @@ const safetyTreeSpec = {
                   anchor: 'art-1',
                 },
               ],
+              vehicle: ['bancos'],
             },
             {
               id: 'MOVER-C8',
@@ -1395,6 +1457,7 @@ const safetyTreeSpec = {
                   anchor: 'anexo-ii',
                 },
               ],
+              vehicle: ['carroceria', 'freios'],
             },
           ],
         },
@@ -1439,6 +1502,7 @@ const safetyTreeSpec = {
                   anchor: 'anexo-ii',
                 },
               ],
+              vehicle: ['bateria'],
             },
             {
               id: 'MOVER-D3',
@@ -1458,6 +1522,7 @@ const safetyTreeSpec = {
                   anchor: 'anexo-ii',
                 },
               ],
+              vehicle: ['bateria'],
             },
             {
               id: 'MOVER-D4',
@@ -1528,6 +1593,7 @@ const safetyTreeSpec = {
               anchor: 'anexo-iii',
             },
           ],
+          vehicle: ['identificacao'],
         },
         {
           id: 'ID-VIS',
@@ -1540,6 +1606,7 @@ const safetyTreeSpec = {
               anchor: 'art-9',
             },
           ],
+          vehicle: ['identificacao'],
         },
         {
           id: 'ID-ETA',
@@ -1552,6 +1619,7 @@ const safetyTreeSpec = {
               anchor: 'art-8',
             },
           ],
+          vehicle: ['identificacao'],
         },
         {
           id: 'ID-MOTOR',
@@ -1564,6 +1632,7 @@ const safetyTreeSpec = {
               anchor: 'art-7',
             },
           ],
+          vehicle: ['identificacao'],
         },
         {
           id: 'ID-WMI',
@@ -1577,6 +1646,7 @@ const safetyTreeSpec = {
               anchor: 'anexo-iii',
             },
           ],
+          vehicle: ['identificacao'],
         },
         {
           id: 'ID-PIV',
@@ -1589,6 +1659,7 @@ const safetyTreeSpec = {
               anchor: 'art-1',
             },
           ],
+          vehicle: ['identificacao'],
         },
         {
           id: 'ID-ENSV',
@@ -1602,6 +1673,7 @@ const safetyTreeSpec = {
               anchor: 'art-10',
             },
           ],
+          vehicle: ['identificacao'],
         },
         {
           id: 'ID-SELOS',
@@ -1614,6 +1686,7 @@ const safetyTreeSpec = {
               anchor: null,
             },
           ],
+          vehicle: ['identificacao'],
         },
       ],
     },

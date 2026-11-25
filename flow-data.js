@@ -1,6 +1,29 @@
 'use strict';
 // Editorial activity map. References are joined only to the available catalogue;
 // graph edges express a reading/work relationship, not universal legal precedence.
+const flowSafetySpec =
+  typeof safetyTreeSpec !== 'undefined'
+    ? safetyTreeSpec
+    : typeof require === 'function'
+      ? require('./flow-safety-tree.js').safetyTreeSpec
+      : { groups: [] };
+function safetyFlowActivities(spec = flowSafetySpec) {
+  return spec.groups.map((group) => {
+    const items = (group.subgroups || [group]).flatMap((section) => section.items);
+    const ids = [
+      ...new Set([group.source.id, ...items.flatMap((item) => item.refs.map((ref) => ref.id))]),
+    ];
+    return {
+      id: group.id,
+      label: group.label,
+      text: group.text,
+      // Agency acts join by regulatory ID; SENATRAN and MOVER records by record ID.
+      refs: ids.filter((id) => !/^(senatran|mover)-/.test(id)),
+      recordIds: ids.filter((id) => /^(senatran|mover)-/.test(id)),
+      safetyGroup: group.id,
+    };
+  });
+}
 const homologationFlowSpec = {
   version: 1,
   powertrains: [
@@ -408,7 +431,7 @@ const homologationFlowSpec = {
       id: 'seguranca',
       number: 'B',
       label: 'Segurança veicular',
-      short: 'Ensaios e evidências por sistema, em paralelo',
+      short: 'Níveis 1 a 3 do CAT, opcionais, MOVER e identificação',
       icon: '◇',
       tone: 'safety',
       x: 540,
@@ -417,48 +440,22 @@ const homologationFlowSpec = {
       h: 140,
       purpose:
         'Reunir os requisitos e comprovações dos sistemas de segurança de acordo com a categoria e as datas.',
-      outputs: ['Relatórios de segurança', 'Matriz de atendimento por sistema'],
-      activities: [
-        {
-          id: 'freios',
-          label: 'Frenagem e estabilidade',
-          text: 'Verificar frenagem, ABS/CBS, estabilidade e respectivos campos de aplicação.',
-          refs: ['contran-915-2022', 'contran-954-2022'],
-          vehicleComponent: 'freios',
-        },
-        {
-          id: 'ocupantes',
-          label: 'Ocupantes e estrutura',
-          text: 'Separar cintos/ancoragens, airbags e requisitos de impacto. Os requisitos variam por categoria e configuração.',
-          refs: ['contran-951-2022', 'contran-964-2022', 'contran-949-2022', 'contran-910-2022'],
-          vehicleComponent: 'bancos',
-        },
-        {
-          id: 'visibilidade',
-          label: 'Iluminação e visibilidade',
-          text: 'Conferir iluminação, vidros, limpadores e visão indireta.',
-          refs: ['contran-970-2022', 'contran-960-2022', 'contran-224-2006', 'contran-966-2022'],
-          vehicleComponent: 'iluminacao',
-        },
-        {
-          id: 'equipamentos',
-          label: 'Equipamentos obrigatórios por categoria',
-          text: 'Consultar a Resolução 993/2023 e suas tabelas, notas, datas e exceções. Esta é uma consulta transversal: a existência de uma peça no desenho não resolve o enquadramento do veículo inteiro.',
-          refs: ['contran-993-2023'],
-          route: '#contran?record=contran-993-2023',
-          gaps: [
-            'Conferir categoria e condições de cada equipamento no ato; não foi gerado checklist conclusivo de todo veículo.',
-          ],
-        },
-        {
-          id: 'eletrica',
-          label: 'Segurança de propulsão elétrica',
-          text: 'Consultar os requisitos específicos da propulsão elétrica/híbrida e a configuração abrangida.',
-          refs: ['contran-749-2018'],
-          powertrains: ['hibrido', 'eletrico'],
-          vehicleComponent: 'bateria',
-        },
+      outputs: [
+        'Declarações de conformidade (Nível 1)',
+        'Relatórios de ensaio (Níveis 2 e 3)',
+        'ENSV e índice MOVER',
+        'VIN, placa e etiquetas',
       ],
+      // The groups of the expanded tree (flow-safety-tree.js) are the activities.
+      activities: safetyFlowActivities(),
+      // Earlier activity IDs keep their links: each opens where its subject now lives.
+      legacyActivities: {
+        freios: 'nivel-2:ENS-2-01',
+        ocupantes: 'nivel-3',
+        visibilidade: 'nivel-2:ENS-2-03',
+        equipamentos: 'nivel-1:N1-09',
+        eletrica: 'nivel-3:ENS-3-13',
+      },
     },
     {
       id: 'componentes',

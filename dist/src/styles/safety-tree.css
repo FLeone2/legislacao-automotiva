@@ -318,6 +318,20 @@
 .st-help {
   font-style: italic;
 }
+.st-vehicle {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--p-muted);
+}
+.st-vehicle a {
+  color: var(--p-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.st-vehicle a:focus-visible {
+  outline: 2px solid var(--p-focus);
+  outline-offset: 2px;
+}
 .st-gap {
   display: inline-flex;
   gap: 8px;

@@ -2,10 +2,10 @@
   "assets": {
     "app.js": "71c8d1f94810c1cb",
     "assets/guide/guide.css": "77eb229e70c7949e",
-    "assets/guide/guide.js": "af72d376e107348f",
-    "flow-data.js": "b7bb692fbb6d4511",
-    "flow-safety-tree.js": "cdead83e052a6c04",
-    "homologation-flow.js": "b8ffca9fb139183f",
+    "assets/guide/guide.js": "d96422a30e5d3ca7",
+    "flow-data.js": "7b455c01d9922119",
+    "flow-safety-tree.js": "28a4252b2dc99a31",
+    "homologation-flow.js": "9bc2aebbc7ba94a1",
     "src/core/dom.js": "113e73619a8186a5",
     "src/core/icons.js": "eda7ff03c2fe9ab5",
     "src/core/model-previews.js": "a3108df792c2962e",
@@ -32,7 +32,7 @@
     "src/styles/obsidian.css": "64b451186470b284",
     "src/styles/portal-apple.css": "cf0fd7ef680a3b40",
     "src/styles/regulatory-context.css": "7809503fdf796251",
-    "src/styles/safety-tree.css": "37807a6068da3ea4",
+    "src/styles/safety-tree.css": "a415543759f67390",
     "src/styles/simple.css": "30d47b713b7e56bb",
     "src/styles/theme-tokens.css": "324e23552f497674",
     "src/styles/tree-navigation.css": "5359462e4ee3180d",
@@ -47,11 +47,11 @@
     "src/views/markings.js": "d9271ce4d40e4c1b",
     "src/views/obsidian-search.js": "e60630a9fbee86cb",
     "src/views/regulations.js": "874c68a538a6671e",
-    "src/views/safety-tree.js": "94299511101e4f9c",
+    "src/views/safety-tree.js": "96bca931ea495cb2",
     "styles.css": "c791fe18ff9cc9bb",
     "tree.js": "3e47940f91a42000",
     "vehicle-data.js": "09123227fe4f6446",
     "vehicle-navigation.js": "9354942ec160aa76"
   },
-  "revision": "63c696b9f8e28a3ecb06b2304b7c931c90e1b751f9c3175ccbf30d2ee27a39f1"
+  "revision": "1c8842e86fd165055c0bdad82d49ff85a0d1d707fea3ef7ffd246852f568fda1"
 }

@@ -31,6 +31,14 @@ function flowRoute(stage, node, powertrain = flowUI.powertrain) {
   if (powertrain !== 'todos') q.set('powertrain', powertrain);
   return '#flow' + (q.size ? '?' + q : '');
 }
+// Node IDs of activities that were merged keep opening the subject's new place.
+function flowLegacyNode(stage, node) {
+  const prefix = `flow:${stage.id}:`;
+  if (!node?.startsWith(prefix)) return node;
+  const [activity, ...rest] = node.slice(prefix.length).split(':');
+  const target = stage.legacyActivities?.[activity];
+  return target && !rest.length ? prefix + target : node;
+}
 function flowActivityRecords(activity) {
   const primary = HomologationFlow.references(activity, catalogRecords(catalog), flowUI.powertrain),
     ids = new Set(primary.map((r) => r.regulatoryId).filter(Boolean));
@@ -55,81 +63,86 @@ function flowActivityRecords(activity) {
   ];
 }
 function flowStageTree(stage) {
-  const children = HomologationFlow.activities(stage, flowUI.powertrain).map((activity) => {
-    const id = `flow:${stage.id}:${activity.id}`,
-      records = flowActivityRecords(activity);
-    const requested = (activity.refs || []).filter((ref) =>
-      HomologationFlow.matchesPowertrain(activity.referencePowertrains?.[ref], flowUI.powertrain),
-    );
-    const missing = [
-      ...requested.filter((ref) => !catalogRecord(catalog, ref)),
-      ...(activity.recordIds || []).filter((ref) => !catalogRecord(catalog, ref)),
-    ];
-    const leaves = records.map((record) => ({
-      id: `${id}:law:${record.regulatoryId || record.id}`,
-      label: record.title,
-      subtitle:
-        (record.issuer || record.agency) +
-        (record.phases?.length ? ' · ' + record.phases.join(' / ') : ''),
-      icon: '▤',
-      kind: 'Referência da atividade',
-      recordIds: [record.id],
-      recordId: record.id,
-      children: requirementNodesForRecord(
-        activity.requirementRefs
-          ? {
-              ...record,
-              activityRequirementIds: activity.requirementRefs[catalogIdentity(record)] || [],
-            }
-          : record,
-        `${id}:law:${record.regulatoryId || record.id}`,
-      ),
-      requirementId: activity.requirementRefs?.[catalogIdentity(record)]?.[0] || null,
-      text: record.summary,
-    }));
-    [
-      ...(activity.gaps || []),
-      ...(missing.length
-        ? [
-            'Referências previstas para esta atividade não estão disponíveis no acervo carregado: ' +
-              missing.join(', ') +
-              '.',
-          ]
-        : []),
-    ].forEach((gap, i) =>
-      leaves.push({
-        id: `${id}:gap:${i}`,
-        label: 'Conferência pendente',
-        subtitle: gap,
-        icon: '!',
-        kind: 'Lacuna desta atividade',
-        recordIds: [],
-        text: gap,
-      }),
-    );
-    if (!leaves.length)
-      leaves.push({
-        id: `${id}:empty`,
-        label: 'Sem referência disponível',
-        subtitle: 'Nenhuma referência associada a esta atividade.',
-        icon: '!',
-        recordIds: [],
-        kind: 'Lacuna desta atividade',
-        text: 'Ainda não há referência associada a esta atividade no acervo carregado.',
+  const safety = typeof SafetyTreeView !== 'undefined' ? SafetyTreeView.graphNodes(stage) : [];
+  const children = safety.length
+    ? safety
+    : HomologationFlow.activities(stage, flowUI.powertrain).map((activity) => {
+        const id = `flow:${stage.id}:${activity.id}`,
+          records = flowActivityRecords(activity);
+        const requested = (activity.refs || []).filter((ref) =>
+          HomologationFlow.matchesPowertrain(
+            activity.referencePowertrains?.[ref],
+            flowUI.powertrain,
+          ),
+        );
+        const missing = [
+          ...requested.filter((ref) => !catalogRecord(catalog, ref)),
+          ...(activity.recordIds || []).filter((ref) => !catalogRecord(catalog, ref)),
+        ];
+        const leaves = records.map((record) => ({
+          id: `${id}:law:${record.regulatoryId || record.id}`,
+          label: record.title,
+          subtitle:
+            (record.issuer || record.agency) +
+            (record.phases?.length ? ' · ' + record.phases.join(' / ') : ''),
+          icon: '▤',
+          kind: 'Referência da atividade',
+          recordIds: [record.id],
+          recordId: record.id,
+          children: requirementNodesForRecord(
+            activity.requirementRefs
+              ? {
+                  ...record,
+                  activityRequirementIds: activity.requirementRefs[catalogIdentity(record)] || [],
+                }
+              : record,
+            `${id}:law:${record.regulatoryId || record.id}`,
+          ),
+          requirementId: activity.requirementRefs?.[catalogIdentity(record)]?.[0] || null,
+          text: record.summary,
+        }));
+        [
+          ...(activity.gaps || []),
+          ...(missing.length
+            ? [
+                'Referências previstas para esta atividade não estão disponíveis no acervo carregado: ' +
+                  missing.join(', ') +
+                  '.',
+              ]
+            : []),
+        ].forEach((gap, i) =>
+          leaves.push({
+            id: `${id}:gap:${i}`,
+            label: 'Conferência pendente',
+            subtitle: gap,
+            icon: '!',
+            kind: 'Lacuna desta atividade',
+            recordIds: [],
+            text: gap,
+          }),
+        );
+        if (!leaves.length)
+          leaves.push({
+            id: `${id}:empty`,
+            label: 'Sem referência disponível',
+            subtitle: 'Nenhuma referência associada a esta atividade.',
+            icon: '!',
+            recordIds: [],
+            kind: 'Lacuna desta atividade',
+            text: 'Ainda não há referência associada a esta atividade no acervo carregado.',
+          });
+        return {
+          id,
+          label: activity.label,
+          subtitle: `${records.length} referências${activity.gaps?.length ? ' · conferência parcial' : ''}`,
+          icon: '◇',
+          kind: 'Atividade da etapa',
+          text: activity.text + (activity.relation ? ' ' + activity.relation : ''),
+          recordIds: records.map((r) => r.id),
+          children: leaves,
+          flowActivity: activity,
+        };
       });
-    return {
-      id,
-      label: activity.label,
-      subtitle: `${records.length} referências${activity.gaps?.length ? ' · conferência parcial' : ''}`,
-      icon: '◇',
-      kind: 'Atividade da etapa',
-      text: activity.text + (activity.relation ? ' ' + activity.relation : ''),
-      recordIds: records.map((r) => r.id),
-      children: leaves,
-      flowActivity: activity,
-    };
-  });
-  if (typeof SafetyTreeView !== 'undefined') children.push(...SafetyTreeView.graphNodes(stage));
   if (!children.length)
     children.push({
       id: `flow:${stage.id}:empty`,
@@ -238,8 +251,10 @@ function renderFlow() {
     treeModels.flow = flowStageTree(stage);
     const model = treeModels.flow,
       ui = treeUI.flow,
-      requested = q.get('node');
+      requested = flowLegacyNode(stage, q.get('node'));
     const node = model.nodes[requested] ? requested : model.root.id;
+    if (requested !== q.get('node') && node === requested)
+      history.replaceState(null, '', flowRoute(stage.id, node, flowUI.powertrain));
     if (!sameTree || ui.selected !== node || !ui.path.every((id) => model.nodes[id])) {
       ui.tab = 'summary';
       ui.fit = true;

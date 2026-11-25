@@ -82,9 +82,11 @@ async def main(base):
         )
         map_before = await map_position(page)
         assert map_before["left"] > 0
-        await page.locator('.node-main[data-tree-node="flow:seguranca:freios"]').click()
+        await page.locator(
+            '.node-main[data-tree-node="flow:seguranca:nivel-2"]'
+        ).click()
         await wait_for_route(page)
-        assert "node=flow%3Aseguranca%3Afreios" in page.url
+        assert "node=flow%3Aseguranca%3Anivel-2" in page.url
         await expect(page.locator("#flowMapZoom")).to_have_text("100%")
         assert await map_position(page) == map_before
 
@@ -104,7 +106,7 @@ async def main(base):
         map_before = await map_position(page)
         assert map_before["left"] > 0 and map_before["top"] > 0
         await page.locator(
-            '.node-main[data-tree-node="flow:seguranca:eletrica"]'
+            '.node-main[data-tree-node="flow:seguranca:nivel-3"]'
         ).click()
         await wait_for_route(page)
         await expect(page.locator("#flowMapZoom")).to_have_text("100%")
