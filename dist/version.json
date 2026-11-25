@@ -40,7 +40,7 @@
     "src/views/history.js": "b12b076190ee8e53",
     "src/views/home.js": "9dcdc847cb9b0e40",
     "src/views/knowledge.js": "254410b912df2e53",
-    "src/views/law.js": "ca4e0a7fbaebab93",
+    "src/views/law.js": "9eb6a31dff90f059",
     "src/views/library.js": "4cafec7f708d28e3",
     "src/views/markings.js": "d9271ce4d40e4c1b",
     "src/views/obsidian-search.js": "e60630a9fbee86cb",
@@ -50,5 +50,5 @@
     "vehicle-data.js": "09123227fe4f6446",
     "vehicle-navigation.js": "9354942ec160aa76"
   },
-  "revision": "aafb2e7981e2a0d778a5d2e096dccd34a67329a72784e3c64e6a1c8915c8024b"
+  "revision": "29f58d3d447d98289d6b0bf0885e6de861f0e4666041312ea268939366a49f54"
 }

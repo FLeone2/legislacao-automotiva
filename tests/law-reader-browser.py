@@ -73,6 +73,17 @@ async def main(base):
         assert await page.locator(".law-files a[href^='http']").count() >= 1
         await page.goto(base + "#lei?id=nao-existe")
         await expect(page.locator("#main")).to_contain_text("Lei não encontrada")
+        # A host that answers unknown paths with its own page must not pass for a text.
+        await page.route(
+            "**/texts/falso.md",
+            lambda route: route.fulfill(
+                status=200,
+                content_type="text/html",
+                body="<!doctype html><title>Legislação Automotiva</title>",
+            ),
+        )
+        await page.goto(base + "#lei?id=falso")
+        await expect(page.locator("#main")).to_contain_text("Lei não encontrada")
 
         # The act card opens the full text by the canonical ID.
         await page.goto(base + "#library")

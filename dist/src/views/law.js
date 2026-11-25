@@ -79,7 +79,13 @@ const LawReader = (() => {
     if (!texts.has(id)) {
       const response = await fetch(`texts/${id}.md`);
       if (!response.ok) throw new Error('Texto não encontrado');
-      texts.set(id, parse(await response.text()));
+      const markdown = await response.text();
+      // A static host may answer an unknown path with the site's own page (HTTP
+      // 200). Every generated text starts with its front matter and names its ID.
+      const parsed = parse(markdown);
+      if (!markdown.startsWith('---\n') || parsed.meta.id !== id)
+        throw new Error('Texto não encontrado');
+      texts.set(id, parsed);
     }
     return texts.get(id);
   }
