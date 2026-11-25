@@ -4,7 +4,8 @@
     "assets/guide/guide.css": "77eb229e70c7949e",
     "assets/guide/guide.js": "af72d376e107348f",
     "flow-data.js": "b7bb692fbb6d4511",
-    "homologation-flow.js": "614b33594fcf95b6",
+    "flow-safety-tree.js": "cdead83e052a6c04",
+    "homologation-flow.js": "b8ffca9fb139183f",
     "src/core/dom.js": "113e73619a8186a5",
     "src/core/icons.js": "eda7ff03c2fe9ab5",
     "src/core/model-previews.js": "a3108df792c2962e",
@@ -31,6 +32,7 @@
     "src/styles/obsidian.css": "64b451186470b284",
     "src/styles/portal-apple.css": "cf0fd7ef680a3b40",
     "src/styles/regulatory-context.css": "7809503fdf796251",
+    "src/styles/safety-tree.css": "37807a6068da3ea4",
     "src/styles/simple.css": "30d47b713b7e56bb",
     "src/styles/theme-tokens.css": "324e23552f497674",
     "src/styles/tree-navigation.css": "5359462e4ee3180d",
@@ -40,15 +42,16 @@
     "src/views/history.js": "b12b076190ee8e53",
     "src/views/home.js": "9dcdc847cb9b0e40",
     "src/views/knowledge.js": "254410b912df2e53",
-    "src/views/law.js": "9eb6a31dff90f059",
+    "src/views/law.js": "bbfd3ab176a959dd",
     "src/views/library.js": "4cafec7f708d28e3",
     "src/views/markings.js": "d9271ce4d40e4c1b",
     "src/views/obsidian-search.js": "e60630a9fbee86cb",
     "src/views/regulations.js": "874c68a538a6671e",
+    "src/views/safety-tree.js": "94299511101e4f9c",
     "styles.css": "c791fe18ff9cc9bb",
     "tree.js": "3e47940f91a42000",
     "vehicle-data.js": "09123227fe4f6446",
     "vehicle-navigation.js": "9354942ec160aa76"
   },
-  "revision": "29f58d3d447d98289d6b0bf0885e6de861f0e4666041312ea268939366a49f54"
+  "revision": "63c696b9f8e28a3ecb06b2304b7c931c90e1b751f9c3175ccbf30d2ee27a39f1"
 }

@@ -51,6 +51,7 @@ async def main(base):
             ("anatel", ".contran-record"),
             ("updates", ".update-card"),
             ("flow?stage=coastdown", "#flowDetailPanel"),
+            ("flow?stage=seguranca", "#safetyTree .st-item"),
             ("library", ".document"),
             ("inmetro?record=inmetro-145-2022", ".contran-record"),
             ("markings", "#markings-vin"),

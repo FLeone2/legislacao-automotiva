@@ -10,6 +10,7 @@ const LawReader = (() => {
   const texts = new Map();
   let indexLoad = null;
   let index = new Map();
+  let indexReady = false;
   let current = null;
 
   function route(id, anchor) {
@@ -26,8 +27,15 @@ const LawReader = (() => {
         })
         .catch(() => {
           index = new Map();
+        })
+        .finally(() => {
+          indexReady = true;
         });
     return indexLoad;
+  }
+
+  function loadedIndex() {
+    return indexReady;
   }
 
   // True only when the generated index says the act has its full text.
@@ -367,7 +375,7 @@ ${toc || '<p class="scope-note">Este texto não tem artigos numerados identifica
     reach(anchor);
   }
 
-  return { route, loadIndex, has, load, render, anchorForClause };
+  return { route, loadIndex, loadedIndex, has, load, render, anchorForClause };
 })();
 LawReader.loadIndex();
 

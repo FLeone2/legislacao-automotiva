@@ -42,6 +42,7 @@ def build(destination=None):
         "vehicle-data.js",
         "vehicle-navigation.js",
         "flow-data.js",
+        "flow-safety-tree.js",
         "homologation-flow.js",
         "src",
         "assets",
