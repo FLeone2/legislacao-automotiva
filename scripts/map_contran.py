@@ -7,7 +7,6 @@ The saved index, text extracts, hashes and verbatim evidence make the snapshot a
 
 import argparse
 import concurrent.futures
-import csv
 import datetime as dt
 import gzip
 import hashlib

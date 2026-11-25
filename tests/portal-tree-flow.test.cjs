@@ -115,19 +115,19 @@ test('tree previews follow explicit IDs while references and textual presentatio
 
 test('activity preview retains its vehicle link and official consultation actions', () => {
   const { run, context, inserted, previews } = fixture();
-  context.activity = HomologationFlow.stage('seguranca').activities.find(
-    (row) => row.id === 'freios',
+  context.activity = HomologationFlow.stage('construcao').activities.find(
+    (row) => row.id === 'sistemas',
   );
-  run(`flowUI.stage='seguranca';treeModels.flow={nodes:{selected:{flowActivity:activity}}};
+  run(`flowUI.stage='construcao';treeModels.flow={nodes:{selected:{flowActivity:activity}}};
     treeUI.flow.selected='selected';treeUI.flow.tab='summary';renderFlowActivityContext()`);
-  assert.equal(previews[0].componentId, 'freios');
+  assert.equal(previews[0].componentId, 'bancos');
   assert.match(inserted[0], /flow-selection-preview/);
-  assert.match(inserted[0], /#vehicle\?component=freios/);
+  assert.match(inserted[0], /#vehicle\?component=bancos/);
   assert.match(inserted[0], /tab=checklist/);
-  assert.match(inserted[0], /stage=seguranca/);
+  assert.match(inserted[0], /stage=projeto/);
   run(`treeUI.flow.tab='documents';renderFlowActivityContext()`);
   assert.doesNotMatch(inserted[1], /flow-selection-preview/);
-  assert.match(inserted[1], /#vehicle\?component=freios/);
+  assert.match(inserted[1], /#vehicle\?component=bancos/);
   context.activity = HomologationFlow.stage('aprovacoes').activities.find(
     (row) => row.id === 'lcvm',
   );

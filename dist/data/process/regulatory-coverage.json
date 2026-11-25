@@ -1157,7 +1157,7 @@
     },
     {
       "path": "data/requirements/catalog.json",
-      "sha256": "102ee2d54aa3a054d481422232345f2c565a7e0e4e72d40b712207889746c358"
+      "sha256": "891d2465c1aee29f1737046db120b9b0eaa719339b6556d33d1f7ae5b92a2aaf"
     },
     {
       "path": "data/vehicle-legislation/reviewed-map.json",
@@ -1184,7 +1184,7 @@
       "sha256": "a5ccc91ba92b742d475d14b7ae822b08c21e7cd45778edeb032161ee8d76ce46"
     }
   ],
-  "revision": "6ffac1cc69b633b60030093251a1e613f6505fbab328c9f8024c23743b4f8de2",
+  "revision": "792b69ce8815e2fa7e77cb6af404dd5fdf06438afc0ad4b87a6ad394ce21f44a",
   "schemaVersion": 1,
   "scopeNote": "Auditoria dirigida de integridade, relações e lacunas do acervo. Não certifica exaustividade da legislação brasileira, cadeia integral de todos os atos ou aplicabilidade de um veículo. Fontes autenticadas e métodos privados ainda exigem conferência.",
   "subsystems": [

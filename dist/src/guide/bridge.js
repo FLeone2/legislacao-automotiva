@@ -29,6 +29,7 @@ const guideBridge = {
   },
   async loadTraceability(part, profile) {
     const records = guideBridge.records(part);
+    if (typeof LawReader !== 'undefined') await LawReader.loadIndex();
     await Promise.all(
       records
         .filter((record) => record._summary && record.regulatorySource)
@@ -40,6 +41,13 @@ const guideBridge = {
   },
   openRecord(id) {
     openNorm(id);
+  },
+  // Address of the full text of an act; on the article when the reference names one.
+  // Empty when the act has no full text, so the panel offers no dead link.
+  lawRoute(canonicalId, reference) {
+    if (typeof LawReader === 'undefined' || !LawReader.has(canonicalId)) return '';
+    const article = String(reference || '').match(/Arts?\.?\s*(\d+)/i);
+    return LawReader.route(canonicalId, article ? `art-${article[1]}` : null);
   },
   navigateVehicle(changes) {
     const query = new URLSearchParams(location.hash.split('?')[1] || '');

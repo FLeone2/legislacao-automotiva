@@ -64,9 +64,10 @@ def read_jsonl(path):
 def build():
     records = {r["id"]: r for r in read_jsonl(ROOT / "knowledge/records.jsonl")}
     manifest_path = ROOT / "pdfs/manifest.json"
-    copies = {}
+    copies, annexes = {}, {}
     if manifest_path.exists():
-        copies = json.loads(manifest_path.read_text())["items"]
+        manifest = json.loads(manifest_path.read_text())
+        copies, annexes = manifest["items"], manifest.get("annexes", {})
     passages = []
     for chunk in read_jsonl(ROOT / "knowledge/chunks.jsonl"):
         citation = chunk.get("citation") or {}
@@ -100,6 +101,12 @@ def build():
                 "pdfOrigin": copy.get("origin"),
                 "pdfRetrievedAt": copy.get("retrievedAt"),
                 "pdfText": copy.get("text"),
+                # Annexes published as separate files: searched with the act.
+                "annexes": [
+                    {"pdf": entry.get("file"), "text": entry.get("text")}
+                    for entry in annexes.get(act_id, [])
+                    if entry.get("text")
+                ],
                 "stage": stage(record.get("agency"), act_id),
                 "title": record.get("title"),
                 "url": record.get("officialUrl"),

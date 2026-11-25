@@ -96,9 +96,6 @@ async function loadRegulations(source) {
   if (!regulatoryData[source]) await initializeRegulatoryStore();
   return regulatoryData[source];
 }
-function loadContran() {
-  return loadRegulations('contran');
-}
 async function loadRegulationRecord(source, id) {
   const data = await loadRegulations(source);
   const position = data.records.findIndex((r) => r.id === id);

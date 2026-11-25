@@ -57,10 +57,48 @@ function TraceRecord({ record, bridge }) {
                   <strong>Âmbito:</strong> {p.scope}
                 </p>
               )}
+              {bridge.lawRoute?.(record.canonicalId, p.reference) && (
+                <a
+                  className="g-text-button"
+                  href={bridge.lawRoute(record.canonicalId, p.reference)}
+                  data-law-device={p.requirementId}
+                >
+                  Abrir no artigo →
+                </a>
+              )}
               <code>{p.requirementId}</code>
             </div>
           ))}
         </div>
+      )}
+      {record.actProvisions?.length > 0 && (
+        <details className="g-trace-limits g-trace-act-provisions">
+          <summary>
+            Outros artigos desta lei com requisito extraído ({record.actProvisions.length})
+          </summary>
+          <p className="g-note">
+            Não estão vinculados a esta peça. Servem para localizar o artigo; confira o âmbito no
+            texto.
+          </p>
+          <ul>
+            {record.actProvisions.map((p) => (
+              <li key={p.id}>
+                <strong>{p.reference || 'Dispositivo a conferir na fonte'}</strong> · {p.title}
+                {bridge.lawRoute?.(record.canonicalId, p.reference) && (
+                  <>
+                    {' '}
+                    <a
+                      href={bridge.lawRoute(record.canonicalId, p.reference)}
+                      data-law-act-device={p.requirementId}
+                    >
+                      Abrir no artigo →
+                    </a>
+                  </>
+                )}
+              </li>
+            ))}
+          </ul>
+        </details>
       )}
       {record.requirementIds?.length > 0 && !record.provisions?.length && (
         <p className="g-note">
@@ -99,6 +137,15 @@ function TraceRecord({ record, bridge }) {
           </p>
         ))}
       </details>
+      {bridge.lawRoute?.(record.canonicalId) && (
+        <a
+          className="g-text-button"
+          href={bridge.lawRoute(record.canonicalId)}
+          data-law-text={record.canonicalId}
+        >
+          Ler o texto completo →
+        </a>
+      )}
       {record.officialUrl && (
         <a
           className="g-text-button"

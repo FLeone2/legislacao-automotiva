@@ -91,6 +91,9 @@ test('canonical requirement IDs select only linked devices and preserve independ
   assert.ok(row.provisions.every((provision) => row.requirementIds.includes(provision.id)));
   assert.ok(!row.provisions.some((provision) => provision.id === 'inmetro-145-2022:req:01'));
   assert.ok(row.provisions.every((provision) => provision.reference && provision.sourceUrl));
+  // The act's other requirements stay apart: they are not requirements of the part.
+  assert.ok(row.actProvisions.some((provision) => provision.id === 'inmetro-145-2022:req:01'));
+  assert.ok(row.actProvisions.every((provision) => !row.requirementIds.includes(provision.id)));
   assert.ok(row.provisions.some((provision) => provision.evidenceSource?.documentSha256));
   assert.equal(
     JSON.stringify(detailed),

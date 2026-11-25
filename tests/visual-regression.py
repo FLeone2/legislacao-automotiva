@@ -6,7 +6,7 @@ import io
 import json
 import os
 from pathlib import Path
-from PIL import Image, ImageChops, ImageFilter, ImageStat
+from PIL import Image, ImageChops, ImageFilter
 from playwright.async_api import async_playwright
 from browser_support import launch_options, TestServer, reference_vehicle_url
 

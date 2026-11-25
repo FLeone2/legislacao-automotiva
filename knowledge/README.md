@@ -4,7 +4,7 @@ Diretório gerado por `python scripts/build_regulatory_knowledge.py`. Não edita
 
 Este snapshot contém 294 atos do índice consultivo publicado e 98 itens estruturados: 58 com trechos públicos e 40 com orientação oficial. Há também 40 fontes do guia e 2 candidato(s) editorial(is) em coleções separadas. Orientação não é requisito extraído de lei; candidatos não aumentam o número de atos publicados. Isso não é medida de cobertura de toda a legislação.
 
-`acts/` contém cartões Markdown com frontmatter YAML (valores JSON), IDs e revisões de conteúdo; `sources/` identifica fontes que não são automaticamente importadas como atos. `chunks.jsonl` contém unidades citáveis; `records.jsonl` preserva registros e requisitos; `relations.jsonl` preserva contexto; `manifest.json` registra entradas e hashes. A íntegra das leis não é exportada nem substituída por um resumo. Normas técnicas privadas não são transcritas.
+`acts/` contém cartões Markdown com frontmatter YAML (valores JSON), IDs e revisões de conteúdo; `sources/` identifica fontes que não são automaticamente importadas como atos. `chunks.jsonl` contém unidades citáveis; `records.jsonl` preserva registros e requisitos; `relations.jsonl` preserva contexto; `manifest.json` registra entradas e hashes. Os cartões não trazem a íntegra dos atos. O texto completo, quando há cópia oficial, fica em `../texts/` (gerado por `scripts/build_law_texts.py`, com origem e hash) e é cópia de consulta: não substitui a publicação oficial nem altera os estados registrados. Normas técnicas privadas não são transcritas.
 
 ## Contrato de consulta por IA
 

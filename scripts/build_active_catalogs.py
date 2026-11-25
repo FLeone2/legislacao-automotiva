@@ -9,7 +9,6 @@ import json
 import re
 import unicodedata
 from collections import Counter
-from pathlib import Path
 from map_contran import ROOT, normalized, write_json
 from regulatory_contract import apply_contract
 import build_contran_map

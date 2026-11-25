@@ -1719,11 +1719,11 @@
   font-size: 10px;
 }
 .g-visual-panel .g3d[data-exploded='true'] {
-  height: 660px !important;
-  min-height: 660px !important;
+  height: 800px !important;
+  min-height: 800px !important;
 }
 .g-explorer-grid:has(.g3d[data-exploded='true']) .g-parts-tree {
-  max-height: 650px;
+  max-height: 790px;
 }
 .g-model-boards {
   border-top: 1px solid var(--g-line);
@@ -1774,8 +1774,8 @@
 }
 @media (max-width: 900px) {
   .g-visual-panel .g3d[data-exploded='true'] {
-    height: 600px !important;
-    min-height: 600px !important;
+    height: 680px !important;
+    min-height: 680px !important;
   }
 }
 @media (max-width: 650px) {
@@ -1800,8 +1800,8 @@
     max-height: 350px;
   }
   .g-visual-panel .g3d[data-exploded='true'] {
-    height: 520px !important;
-    min-height: 520px !important;
+    height: 560px !important;
+    min-height: 560px !important;
   }
   .g-model-boards {
     padding: 12px 16px;

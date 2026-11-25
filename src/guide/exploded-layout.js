@@ -15,6 +15,10 @@ const EXPLOSION_LANES = Object.freeze([
   { id: 'identification', label: 'Iluminação e identificação' },
 ]);
 
+// Uniform spacing applied to every authored offset below, so the relative
+// arrangement of the lanes is kept while the parts move further apart.
+const EXPLOSION_SPREAD = 1.35;
+
 const EXPLOSION_VIEW = Object.freeze({
   // Look towards the front left, with enough elevation to read the lower lanes.
   direction: [-1, 0.85, 1.15],
@@ -22,7 +26,7 @@ const EXPLOSION_VIEW = Object.freeze({
   padding: 1.13,
   // Screen-space space reserved for caption, orientation controls and footer.
   inset: { top: 62, bottom: 58, left: 24, right: 24 },
-  suggestedHeight: { desktop: 620, mobile: 540 },
+  suggestedHeight: { desktop: 800, mobile: 560 },
 });
 
 function vector(value) {
@@ -51,7 +55,11 @@ function explodeTransform({
   const axleShift = axleSide < 0 ? -0.6 : axleSide > 0 ? 0.7 : 0;
   // The near wheels sit beyond the exposed axle, leaving both coilovers readable.
   const wheelSpread = side > 0 ? 3.1 : 1.5;
-  const result = (offset, lane, label) => ({ offset, lane, label });
+  const result = (offset, lane, label) => ({
+    offset: offset.map((value) => value * EXPLOSION_SPREAD),
+    lane,
+    label,
+  });
 
   switch (partId) {
     case 'body':
@@ -63,7 +71,7 @@ function explodeTransform({
     case 'doors':
       if (/tailgate|hatch|tampa.*traseir/i.test(name))
         return result([1.2, 0.65, -0.45], 'lateral', 'Tampa traseira');
-      return result([0.05, 0.25, side * 1.65], 'lateral', 'Portas');
+      return result([0.05, 0.5, side * 1.65], 'lateral', 'Portas');
 
     case 'glass':
       if (/RearWindow|rear.window|Tailgate|vidro.*traseir/i.test(name))
@@ -112,7 +120,7 @@ function explodeTransform({
     case 'motorElectric':
       return result([-2.35, 0.95, 2.2], 'hybrid', 'Motor elétrico e inversor — exemplo');
     case 'batteryHV':
-      return result([0.85, -0.9, 1.35], 'hybrid', 'Bateria de tração — exemplo');
+      return result([0.85, -1.5, 1.35], 'hybrid', 'Bateria de tração — exemplo');
     case 'battery12v':
       return result([-1.1, 0.55, 1.2], 'underbody', 'Bateria de baixa tensão');
     case 'tank':
@@ -142,4 +150,4 @@ function explodeTransform({
 }
 
 if (typeof module !== 'undefined')
-  module.exports = { EXPLOSION_LANES, EXPLOSION_VIEW, explodeTransform };
+  module.exports = { EXPLOSION_LANES, EXPLOSION_SPREAD, EXPLOSION_VIEW, explodeTransform };

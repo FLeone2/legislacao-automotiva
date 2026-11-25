@@ -31,6 +31,14 @@ function flowRoute(stage, node, powertrain = flowUI.powertrain) {
   if (powertrain !== 'todos') q.set('powertrain', powertrain);
   return '#flow' + (q.size ? '?' + q : '');
 }
+// Node IDs of activities that were merged keep opening the subject's new place.
+function flowLegacyNode(stage, node) {
+  const prefix = `flow:${stage.id}:`;
+  if (!node?.startsWith(prefix)) return node;
+  const [activity, ...rest] = node.slice(prefix.length).split(':');
+  const target = stage.legacyActivities?.[activity];
+  return target && !rest.length ? prefix + target : node;
+}
 function flowActivityRecords(activity) {
   const primary = HomologationFlow.references(activity, catalogRecords(catalog), flowUI.powertrain),
     ids = new Set(primary.map((r) => r.regulatoryId).filter(Boolean));
@@ -55,80 +63,86 @@ function flowActivityRecords(activity) {
   ];
 }
 function flowStageTree(stage) {
-  const children = HomologationFlow.activities(stage, flowUI.powertrain).map((activity) => {
-    const id = `flow:${stage.id}:${activity.id}`,
-      records = flowActivityRecords(activity);
-    const requested = (activity.refs || []).filter((ref) =>
-      HomologationFlow.matchesPowertrain(activity.referencePowertrains?.[ref], flowUI.powertrain),
-    );
-    const missing = [
-      ...requested.filter((ref) => !catalogRecord(catalog, ref)),
-      ...(activity.recordIds || []).filter((ref) => !catalogRecord(catalog, ref)),
-    ];
-    const leaves = records.map((record) => ({
-      id: `${id}:law:${record.regulatoryId || record.id}`,
-      label: record.title,
-      subtitle:
-        (record.issuer || record.agency) +
-        (record.phases?.length ? ' · ' + record.phases.join(' / ') : ''),
-      icon: '▤',
-      kind: 'Referência da atividade',
-      recordIds: [record.id],
-      recordId: record.id,
-      children: requirementNodesForRecord(
-        activity.requirementRefs
-          ? {
-              ...record,
-              activityRequirementIds: activity.requirementRefs[catalogIdentity(record)] || [],
-            }
-          : record,
-        `${id}:law:${record.regulatoryId || record.id}`,
-      ),
-      requirementId: activity.requirementRefs?.[catalogIdentity(record)]?.[0] || null,
-      text: record.summary,
-    }));
-    [
-      ...(activity.gaps || []),
-      ...(missing.length
-        ? [
-            'Referências previstas para esta atividade não estão disponíveis no acervo carregado: ' +
-              missing.join(', ') +
-              '.',
-          ]
-        : []),
-    ].forEach((gap, i) =>
-      leaves.push({
-        id: `${id}:gap:${i}`,
-        label: 'Conferência pendente',
-        subtitle: gap,
-        icon: '!',
-        kind: 'Lacuna desta atividade',
-        recordIds: [],
-        text: gap,
-      }),
-    );
-    if (!leaves.length)
-      leaves.push({
-        id: `${id}:empty`,
-        label: 'Sem referência disponível',
-        subtitle: 'Nenhuma referência associada a esta atividade.',
-        icon: '!',
-        recordIds: [],
-        kind: 'Lacuna desta atividade',
-        text: 'Ainda não há referência associada a esta atividade no acervo carregado.',
+  const safety = typeof SafetyTreeView !== 'undefined' ? SafetyTreeView.graphNodes(stage) : [];
+  const children = safety.length
+    ? safety
+    : HomologationFlow.activities(stage, flowUI.powertrain).map((activity) => {
+        const id = `flow:${stage.id}:${activity.id}`,
+          records = flowActivityRecords(activity);
+        const requested = (activity.refs || []).filter((ref) =>
+          HomologationFlow.matchesPowertrain(
+            activity.referencePowertrains?.[ref],
+            flowUI.powertrain,
+          ),
+        );
+        const missing = [
+          ...requested.filter((ref) => !catalogRecord(catalog, ref)),
+          ...(activity.recordIds || []).filter((ref) => !catalogRecord(catalog, ref)),
+        ];
+        const leaves = records.map((record) => ({
+          id: `${id}:law:${record.regulatoryId || record.id}`,
+          label: record.title,
+          subtitle:
+            (record.issuer || record.agency) +
+            (record.phases?.length ? ' · ' + record.phases.join(' / ') : ''),
+          icon: '▤',
+          kind: 'Referência da atividade',
+          recordIds: [record.id],
+          recordId: record.id,
+          children: requirementNodesForRecord(
+            activity.requirementRefs
+              ? {
+                  ...record,
+                  activityRequirementIds: activity.requirementRefs[catalogIdentity(record)] || [],
+                }
+              : record,
+            `${id}:law:${record.regulatoryId || record.id}`,
+          ),
+          requirementId: activity.requirementRefs?.[catalogIdentity(record)]?.[0] || null,
+          text: record.summary,
+        }));
+        [
+          ...(activity.gaps || []),
+          ...(missing.length
+            ? [
+                'Referências previstas para esta atividade não estão disponíveis no acervo carregado: ' +
+                  missing.join(', ') +
+                  '.',
+              ]
+            : []),
+        ].forEach((gap, i) =>
+          leaves.push({
+            id: `${id}:gap:${i}`,
+            label: 'Conferência pendente',
+            subtitle: gap,
+            icon: '!',
+            kind: 'Lacuna desta atividade',
+            recordIds: [],
+            text: gap,
+          }),
+        );
+        if (!leaves.length)
+          leaves.push({
+            id: `${id}:empty`,
+            label: 'Sem referência disponível',
+            subtitle: 'Nenhuma referência associada a esta atividade.',
+            icon: '!',
+            recordIds: [],
+            kind: 'Lacuna desta atividade',
+            text: 'Ainda não há referência associada a esta atividade no acervo carregado.',
+          });
+        return {
+          id,
+          label: activity.label,
+          subtitle: `${records.length} referências${activity.gaps?.length ? ' · conferência parcial' : ''}`,
+          icon: '◇',
+          kind: 'Atividade da etapa',
+          text: activity.text + (activity.relation ? ' ' + activity.relation : ''),
+          recordIds: records.map((r) => r.id),
+          children: leaves,
+          flowActivity: activity,
+        };
       });
-    return {
-      id,
-      label: activity.label,
-      subtitle: `${records.length} referências${activity.gaps?.length ? ' · conferência parcial' : ''}`,
-      icon: '◇',
-      kind: 'Atividade da etapa',
-      text: activity.text + (activity.relation ? ' ' + activity.relation : ''),
-      recordIds: records.map((r) => r.id),
-      children: leaves,
-      flowActivity: activity,
-    };
-  });
   if (!children.length)
     children.push({
       id: `flow:${stage.id}:empty`,
@@ -237,8 +251,10 @@ function renderFlow() {
     treeModels.flow = flowStageTree(stage);
     const model = treeModels.flow,
       ui = treeUI.flow,
-      requested = q.get('node');
+      requested = flowLegacyNode(stage, q.get('node'));
     const node = model.nodes[requested] ? requested : model.root.id;
+    if (requested !== q.get('node') && node === requested)
+      history.replaceState(null, '', flowRoute(stage.id, node, flowUI.powertrain));
     if (!sameTree || ui.selected !== node || !ui.path.every((id) => model.nodes[id])) {
       ui.tab = 'summary';
       ui.fit = true;
@@ -249,7 +265,7 @@ function renderFlow() {
   $('#main').innerHTML =
     `<header class="homologation-heading portal-page-heading"><div><span class="portal-eyebrow">Consulta por etapa</span><h1>Homologação.</h1><p>Do enquadramento à produção. Explore cada frente e suas referências.</p></div><div class="view-heading-actions"><button class="btn" data-flow-close>Mapa completo</button><button class="btn" data-flow-find>${auroraIcon('search')} Encontrar uma etapa</button></div></header>${flowGuideContext(stage)}<div class="homologation-profile"><label><span class="portal-field-label">Recorte de powertrain</span><select id="flowPowertrain">${homologationFlowSpec.powertrains.map((p) => `<option value="${p.id}" ${p.id === flowUI.powertrain ? 'selected' : ''}>${esc(p.label)}</option>`).join('')}</select></label><label><span class="portal-field-label">Ir para uma etapa</span><select id="flowStagePicker"><option value="">Ir para uma etapa</option>${homologationFlowSpec.stages.map((s) => `<option value="${s.id}" ${stage?.id === s.id ? 'selected' : ''}>${s.number} · ${esc(s.label)}</option>`).join('')}</select></label><p>Etapa → atividade → referência <span class="portal-context-meta">O recorte da consulta não altera o perfil do processo.</span></p></div>${q.has('stage') && !stage ? '<p class="notice" role="status">Etapa não encontrada. Escolha uma etapa no mapa.</p>' : ''}<section id="flowExplorer" tabindex="-1" class="homologation-map-shell ${stage ? 'inspecting' : ''}" aria-label="Fluxo visual de homologação">${flowMap()}${flowContextPanel(stage)}</section><p class="homologation-reading-note">As setas organizam a consulta; não determinam precedência legal universal. As frentes podem avançar em paralelo. COP é planejada desde o projeto e executada na produção.</p><section id="flowTreeExplorer" class="homologation-explorer" aria-label="Árvore da etapa selecionada" tabindex="-1">${
       stage
-        ? `<header class="homologation-explorer-heading"><div><span class="eyebrow portal-eyebrow">Etapa ${stage.number} · ${esc(stage.short)}</span><h2>${esc(stage.label)}</h2><p>${esc(stage.purpose)}</p></div><button class="btn" data-flow-overview>Voltar ao mapa ↑</button></header><div class="homologation-outputs"><strong>Assuntos e documentos da etapa</strong>${stage.outputs.map((o) => `<span>${esc(o)}</span>`).join('')}</div><div class="tree-breadcrumb" aria-label="Caminho da atividade">${nodeTrail(
+        ? `<header class="homologation-explorer-heading"><div><span class="eyebrow portal-eyebrow">Etapa ${stage.number} · ${esc(stage.short)}</span><h2>${esc(stage.label)}</h2><p>${esc(stage.purpose)}</p></div><div class="view-heading-actions">${stage.id === 'seguranca' && typeof SafetyTreeView !== 'undefined' ? '<button class="btn" data-safety-jump>Árvore completa ↓</button>' : ''}<button class="btn" data-flow-overview>Voltar ao mapa ↑</button></div></header><div class="homologation-outputs"><strong>Assuntos e documentos da etapa</strong>${stage.outputs.map((o) => `<span>${esc(o)}</span>`).join('')}</div><div class="tree-breadcrumb" aria-label="Caminho da atividade">${nodeTrail(
             treeUI.flow.selected,
             treeModels.flow,
           )
@@ -261,10 +277,11 @@ function renderFlow() {
               '<span>›</span>',
             )}</div><div class="homologation-explorer-layout"><div><section class="graph-shell" aria-label="Etapa, atividades e legislações">${graphMarkup(treeModels.flow, treeUI.flow)}</section><div class="tree-footer"><span>Expanda uma atividade pelo + ou pelo título para ver as normas e as lacunas.</span><button data-graph-action="reset">Recolher árvore</button></div></div><aside id="flowDetailPanel" class="homologation-detail" aria-label="Detalhes da atividade"></aside></div>`
         : '<p class="homologation-empty">Selecione uma etapa para explorar as atividades e suas referências.</p>'
-    }</section><p class="scope-note">Referências e lacunas do acervo disponível. A relação de documentos não é exaustiva; confirme o enquadramento e as exigências nas fontes oficiais.</p>`;
+    }</section>${stage && typeof SafetyTreeView !== 'undefined' ? SafetyTreeView.markup(stage) : ''}<p class="scope-note">Referências e lacunas do acervo disponível. A relação de documentos não é exaustiva; confirme o enquadramento e as exigências nas fontes oficiais.</p>`;
   $('#flowPowertrain').onchange = (e) => goFlow(stage?.id, null, e.target.value, false);
   $('#flowStagePicker').onchange = (e) => goFlow(e.target.value || null);
   setupFlowMap(mapState);
+  if (typeof SafetyTreeView !== 'undefined') SafetyTreeView.bind();
   if (stage) {
     renderTreeDetails();
     setupGraph();
@@ -353,6 +370,15 @@ document.addEventListener('click', (e) => {
   const stage = e.target.closest('[data-flow-stage]');
   if (stage) {
     goFlow(stage.dataset.flowStage);
+    return;
+  }
+  if (e.target.closest('[data-safety-jump]')) {
+    const tree = document.getElementById('safetyTree');
+    tree?.scrollIntoView({
+      block: 'start',
+      behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+    });
+    tree?.focus({ preventScroll: true });
     return;
   }
   if (e.target.closest('[data-flow-overview]')) {

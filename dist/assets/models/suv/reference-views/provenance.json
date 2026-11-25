@@ -12,7 +12,7 @@
     },
     {
       "path": "src/guide/exploded-layout.js",
-      "sha256": "a358a963bb0309c48b3bb60ea4de119d0fb5f7cd06c3b7d198788635fac22452"
+      "sha256": "92e63e24ce12ac92f9720fd59ad4bcf3b941d925c6cc7306396ebff6f6635b21"
     },
     {
       "path": "src/guide/VehicleScene.jsx",
@@ -53,8 +53,8 @@
       "id": "exploded",
       "path": "assets/models/suv/reference-views/exploded.webp",
       "width": 2394,
-      "height": 1320,
-      "sha256": "6be0bdf0c40a5db5a76797177137b5fcd9189bdf7d516b782cc81b977f071ceb"
+      "height": 1600,
+      "sha256": "ee7aad733f66294bd247242fb65a8ef1cec6ab5736946fa89df43692d836ba5c"
     }
   ]
 }

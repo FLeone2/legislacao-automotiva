@@ -6,7 +6,7 @@ import re
 from pathlib import Path
 from urllib.parse import parse_qs, urlsplit
 
-from playwright.async_api import async_playwright
+from playwright.async_api import async_playwright, expect
 from browser_support import TestServer, launch_options, select_theme
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -220,7 +220,8 @@ async def exercise(base):
                 "buffer": b'{"schemaVersion":999}',
             }
         )
-        assert "inválido" in await page.locator(".g-feedback").inner_text()
+        # The import is asynchronous: wait for its feedback instead of reading at once.
+        await expect(page.locator(".g-feedback")).to_contain_text("inválido")
         assert await page.locator("#g-project-select option").count() == 3
 
         # External profile links open the editor; saving consumes that request

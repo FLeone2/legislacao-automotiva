@@ -149,8 +149,9 @@ no GitHub para auditoria, sem a opção de consultá-lo como acervo ativo no sit
 - `data/proconve/active.json` e `active.csv`: conjunto publicado por fase.
 - `data/proconve/reviewed-map.json` e `sources/evidence.json.gz`: relações revisadas,
   fontes, textos, hashes e lacunas para reprodução offline.
-- `contran.js`: consulta compartilhada, política ativa em tempo de execução e
-  vínculos usados pelos fluxogramas. Imagens e áreas de seleção foram preservadas.
+- `src/regulations` e `src/views/regulations.js`: consulta compartilhada, política
+  ativa em tempo de execução e vínculos usados pelos fluxogramas. Imagens e áreas de
+  seleção foram preservadas.
 
 A publicação usa uma lista explícita de arquivos ativos e detalhes carregados
 sob demanda. Somente fichas históricas selecionadas e identificadas como tais
@@ -250,7 +251,7 @@ conteúdo não consultado ou inventar dimensões/limites de ensaio.
   correspondem aos textos preservados no inventário anterior.
 - `scripts/build_certification_maps.py`: gera as duas consultas a partir das
   fontes e relações revisadas, sem buscar novas normas ou inferir vigência.
-- `contran.js`: consulta compartilhada, requisitos, marcações e vínculos.
+- `src/regulations` e `src/views`: consulta compartilhada, requisitos, marcações e vínculos.
 - `tests/certification-maps.test.py` e `certification-browser.py`: proveniência,
   mecanismos, atuais/revogados, relações, datas, exclusões, etiquetas, fluxo
   multimídia → fonte, teclado, celular e carga parcial/repetição.

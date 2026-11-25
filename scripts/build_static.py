@@ -42,6 +42,7 @@ def build(destination=None):
         "vehicle-data.js",
         "vehicle-navigation.js",
         "flow-data.js",
+        "flow-safety-tree.js",
         "homologation-flow.js",
         "src",
         "assets",
@@ -54,6 +55,9 @@ def build(destination=None):
     # Official PDF copies are optional until the copy workflow has run.
     if (ROOT / "pdfs/manifest.json").exists():
         paths.append("pdfs")
+    # Full texts of the acts (scripts/build_law_texts.py), with their own index.
+    if (ROOT / "texts/index.json").exists():
+        paths.append("texts")
     for agency in ("contran", "proconve", "inmetro", "anatel"):
         paths += [f"data/{agency}/active.json", f"data/{agency}/active.csv"]
     for name in paths:

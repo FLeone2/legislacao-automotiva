@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "pdfs"
 MANIFEST = OUTPUT / "manifest.json"
 MAX_BYTES = 24 * 1024 * 1024  # Cloudflare Pages serves files up to 25 MiB.
-MAX_TEXT_CHARS_PER_PAGE = 12_000
+MAX_TEXT_CHARS_PER_PAGE = 60_000  # a dense DOU page has ~20 thousand characters
 USER_AGENT = (
     "legislacao-automotiva/1.0 (+https://github.com/FLeone2/legislacao-automotiva; "
     "copia de consulta de atos oficiais)"
@@ -69,7 +69,137 @@ def download(url, timeout=60):
     return data, content_type, final_url
 
 
+def candidate_urls(url):
+    """On gov.br a ".pdf" address opens the portal's page about the file; the
+    file itself is served under "@@display-file/file"."""
+    parsed = urlparse(url)
+    if (
+        (parsed.hostname or "").lower() == "www.gov.br"
+        and re.search(r"\.(?:pdf|docx?)$", parsed.path, re.I)
+        and "@@" not in parsed.path
+    ):
+        return [url.rstrip("/") + "/@@display-file/file", url]
+    return [url]
+
+
+# Pages that are not the act itself: the gov.br file-information page, system
+# maintenance notices, bot challenges and the Inmetro index (Portal IQ).
+NOT_THE_DOCUMENT = (
+    (
+        re.compile(r"\.(?:pdf|docx?|odt|rtf)\s+—\s+[\d.,]+\s*[KM]B", re.I),
+        "página de informações do arquivo",
+    ),
+    (re.compile(r"em manuten[çc][ãa]o", re.I), "sistema em manutenção"),
+    (
+        re.compile(r"captcha|just a moment|verify you are human", re.I),
+        "verificação anti-robô",
+    ),
+    (re.compile(r"acesso negado|access denied", re.I), "acesso negado"),
+)
+
+
+# Official pages that list or explain acts without being one of them.
+NOT_THE_DOCUMENT_URL = (
+    (re.compile(r"^portaliq\.mdic\.gov\.br/"), "Portal IQ é um índice"),
+    (re.compile(r"/perguntas-frequentes/"), "página de perguntas frequentes"),
+    (re.compile(r"/portarias-\d{4}/?$"), "página de índice de portarias"),
+    (re.compile(r"/resolucoes-do-cnpe/\d{4}/?$"), "página de índice de resoluções"),
+)
+
+
+def rejected_page(text, final_url):
+    parsed = urlparse(final_url)
+    where = f"{(parsed.hostname or '').lower()}{parsed.path}"
+    for pattern, reason in NOT_THE_DOCUMENT_URL:
+        if pattern.search(where):
+            return f"{reason}; o ato precisa de outra fonte"
+    head = text[:4000]
+    for pattern, reason in NOT_THE_DOCUMENT:
+        if pattern.search(head):
+            return reason
+    return None
+
+
+def fetch_document(url, browser):
+    """Return (data, pages, origin, final_url) for the first candidate that is
+    the document itself. Raises ValueError/URLError when none is."""
+    last_error = None
+    for candidate in candidate_urls(url):
+        try:
+            data, content_type, final_url = download(candidate)
+        except (HTTPError, URLError, TimeoutError, OSError) as error:
+            last_error = error
+            continue
+        if data[:5] == b"%PDF-":
+            return data, pdf_text(data), "pdf", final_url
+        if browser and "html" in content_type.lower():
+            data, pages = print_html(candidate, browser)
+            reason = rejected_page("\n".join(pages), final_url)
+            if reason:
+                last_error = ValueError(f"não é o documento ({reason})")
+                continue
+            return data, pages, "html_printed", final_url
+        last_error = ValueError(
+            f"conteúdo não é PDF ({content_type or 'tipo desconhecido'})"
+        )
+    raise last_error or ValueError("nenhum endereço candidato")
+
+
+ARCHIVE = re.compile(r"\.(zip|rar|7z)$", re.I)
+
+
+def contran_annex_links(act_ids):
+    """Annex files listed in the archived CONTRAN index, matched to published acts
+    by the resolution number and year in the file name."""
+    import gzip
+
+    index = ROOT / "data/contran/sources/index.html.gz"
+    if not index.exists():
+        return {}
+    html = gzip.decompress(index.read_bytes()).decode("utf-8", "replace")
+    links = {}
+    for url in sorted(set(re.findall(r'href="([^"]+)"', html))):
+        name = url.rsplit("/", 1)[-1]
+        if not re.search(r"anexo", name, re.I) or not official_host(url):
+            continue
+        match = re.search(
+            r"(?:resolucao|RESOLUCAO_CONTRAN_N_)_?(\d\.?\d{3}|\d{3,4}?)(20\d\d)",
+            name,
+            re.I,
+        )
+        if match:
+            act = f"contran-{match[1].replace('.', '')}-{match[2]}"
+        else:  # e.g. AnexoIV_Resolucao8882021.pdf
+            match = re.search(r"Resolucao(\d{3,4})(20\d\d)", name, re.I)
+            act = f"contran-{match[1]}-{match[2]}" if match else None
+        if act in act_ids:
+            links.setdefault(act, []).append(url)
+    return links
+
+
 def pdf_text(data):
+    """Text per page. Poppler (pdftotext) is preferred: it keeps ligatures such as
+    "ti"/"fi" that pypdf drops in several official PDFs. pypdf is the fallback."""
+    import shutil
+    import subprocess
+    import tempfile
+
+    if shutil.which("pdftotext"):
+        with tempfile.NamedTemporaryFile(suffix=".pdf") as handle:
+            handle.write(data)
+            handle.flush()
+            result = subprocess.run(
+                ["pdftotext", "-enc", "UTF-8", handle.name, "-"],
+                capture_output=True,
+                timeout=300,
+            )
+        if result.returncode == 0:
+            pages = result.stdout.decode("utf-8", "replace").split("\f")
+            if pages and not pages[-1].strip():
+                pages.pop()
+            if any(page.strip() for page in pages):
+                return [normalise(page)[:MAX_TEXT_CHARS_PER_PAGE] for page in pages]
+
     from io import BytesIO
     from pypdf import PdfReader
 
@@ -84,7 +214,32 @@ def pdf_text(data):
     return pages
 
 
+def reextract(items, annexes):
+    """Extract the text of the stored PDF files again, without network access."""
+    entries = list(items.values())
+    entries += [entry for rows in annexes.values() for entry in rows]
+    for entry in entries:
+        path = ROOT / entry["file"]
+        if entry.get("origin") == "html_printed" or not path.exists():
+            continue
+        pages = pdf_text(path.read_bytes())
+        text_path = ROOT / entry["text"]
+        stored = json.loads(text_path.read_text())
+        stored["pages"] = pages
+        write_if_changed(
+            text_path,
+            json.dumps(stored, ensure_ascii=False, separators=(",", ":")).encode(),
+        )
+        entry["pages"] = len(pages)
+        entry["textChars"] = sum(len(page) for page in pages)
+        if "textSha256" in entry:
+            entry["textSha256"] = hashlib.sha256(
+                json.dumps(pages, ensure_ascii=False).encode()
+            ).hexdigest()
+
+
 def normalise(text):
+    text = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]", "", text)
     text = text.replace(" ", " ")
     text = re.sub(r"[ \t]+", " ", text)
     text = re.sub(r"\n{3,}", "\n\n", text)
@@ -137,6 +292,75 @@ def write_if_changed(path, data):
     return True
 
 
+def revalidate(items, failures):
+    """Apply the current rules to stored printed pages, without network access.
+    A page that is not the act loses its copy and becomes a failure."""
+    for act_id, item in sorted(items.items()):
+        if item.get("origin") != "html_printed":
+            continue
+        text_path = ROOT / item["text"]
+        pages = json.loads(text_path.read_text())["pages"] if text_path.exists() else []
+        reason = rejected_page("\n".join(pages), item.get("finalUrl", ""))
+        if not reason:
+            continue
+        failures[act_id] = f"ValueError: não é o documento ({reason})"
+        for path in (ROOT / item["file"], text_path):
+            if path.exists():
+                path.unlink()
+        del items[act_id]
+        print(f"removida {act_id}: {reason}")
+
+
+def write_missing_list(selected, items, failures, annex_failures):
+    """pdfs/faltantes.csv: what the copy could not obtain, for manual collection."""
+    import csv
+    import io
+
+    titles = {record["id"]: record.get("title", "") for record in selected}
+    urls = {record["id"]: record.get("officialUrl", "") for record in selected}
+    rows = [
+        ("ato", act_id, act_id, titles.get(act_id, ""), urls.get(act_id, ""), reason)
+        for act_id, reason in failures.items()
+        if act_id not in items
+    ]
+    rows += [
+        (
+            "anexo",
+            key,
+            entry["actId"],
+            titles.get(entry["actId"], ""),
+            entry["url"],
+            entry["reason"],
+        )
+        for key, entry in annex_failures.items()
+    ]
+    buffer = io.StringIO()
+    writer = csv.writer(buffer, lineterminator="\n")
+    writer.writerow(["tipo", "chave", "ato", "titulo", "url_oficial", "motivo"])
+    writer.writerows(sorted(rows, key=lambda row: (row[2], row[0], row[1])))
+    write_if_changed(OUTPUT / "faltantes.csv", buffer.getvalue().encode())
+
+
+def save(items, failures, annexes, annex_failures, selected):
+    manifest = {
+        "schemaVersion": 1,
+        "purpose": (
+            "Cópias de consulta dos documentos oficiais. Não alteram situação "
+            "jurídica, profundidade de revisão ou aplicabilidade."
+        ),
+        "items": dict(sorted(items.items())),
+        "failures": dict(sorted(failures.items())),
+        "annexes": dict(sorted(annexes.items())),
+        "annexFailures": dict(sorted(annex_failures.items())),
+    }
+    write_missing_list(selected, items, failures, annex_failures)
+    MANIFEST.parent.mkdir(parents=True, exist_ok=True)
+    MANIFEST.write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+    )
+    print(f"Cópias: {len(items)} · falhas nesta execução: {len(failures)}")
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--only", nargs="*", help="IDs de atos a baixar")
@@ -145,11 +369,32 @@ def main():
     parser.add_argument(
         "--no-browser", action="store_true", help="Não imprimir páginas HTML"
     )
+    parser.add_argument(
+        "--reextract",
+        action="store_true",
+        help="Só extrair de novo o texto dos PDFs guardados, sem acessar a rede",
+    )
+    parser.add_argument(
+        "--revalidate",
+        action="store_true",
+        help="Só reaplicar as regras às cópias guardadas, sem acessar a rede",
+    )
     args = parser.parse_args()
 
     previous = json.loads(MANIFEST.read_text()) if MANIFEST.exists() else {}
     items = dict(previous.get("items", {}))
     failures = {}
+    annexes = dict(previous.get("annexes", {}))
+    annex_failures = {}
+    if args.revalidate or args.reextract:
+        failures = dict(previous.get("failures", {}))
+        annex_failures = dict(previous.get("annexFailures", {}))
+        if args.revalidate:
+            revalidate(items, failures)
+        if args.reextract:
+            reextract(items, annexes)
+        save(items, failures, annexes, annex_failures, records())
+        return 0
     today = date.today().isoformat()
     selected = records(set(args.only) if args.only else None)
     if args.limit:
@@ -175,16 +420,7 @@ def main():
                 failures[act_id] = "Norma técnica privada; não é copiada."
                 continue
             try:
-                data, content_type, final_url = download(url)
-                origin = "pdf"
-                if data[:5] == b"%PDF-":
-                    pages = pdf_text(data)
-                elif browser and "html" in content_type.lower():
-                    data, pages = print_html(url, browser)
-                    origin = "html_printed"
-                else:
-                    kind = content_type or "tipo desconhecido"
-                    raise ValueError(f"conteúdo não é PDF ({kind})")
+                data, pages, origin, final_url = fetch_document(url, browser)
             except (HTTPError, URLError, TimeoutError, ValueError, OSError) as error:
                 failures[act_id] = f"{type(error).__name__}: {error}"[:300]
                 print(f"FALHA {act_id}: {failures[act_id]}")
@@ -236,26 +472,74 @@ def main():
             }
             print(("novo   " if changed else "igual  ") + act_id)
             time.sleep(args.delay)
+        # Annexes published as separate files. Kept apart from "items", which the
+        # site and the assistant index read by act ID.
+        selected_ids = {record["id"] for record in selected}
+        for act_id, urls in sorted(contran_annex_links(selected_ids).items()):
+            entries = []
+            for number, url in enumerate(urls, start=1):
+                key = f"{act_id}--anexo-{number}"
+                if ARCHIVE.search(url):
+                    annex_failures[key] = {
+                        "actId": act_id,
+                        "url": url,
+                        "reason": "Arquivo compactado (ZIP/RAR); coleta manual.",
+                    }
+                    continue
+                try:
+                    data, pages, origin, final_url = fetch_document(url, browser)
+                except Exception as error:  # Each annex fails on its own.
+                    annex_failures[key] = {
+                        "actId": act_id,
+                        "url": url,
+                        "reason": f"{type(error).__name__}: {error}"[:300],
+                    }
+                    print(f"FALHA {key}: {annex_failures[key]['reason']}")
+                    time.sleep(args.delay)
+                    continue
+                pdf_path = OUTPUT / "contran" / f"{safe_name(key)}.pdf"
+                text_path = OUTPUT / "text" / f"{safe_name(key)}.json"
+                write_if_changed(pdf_path, data)
+                write_if_changed(
+                    text_path,
+                    json.dumps(
+                        {"actId": act_id, "annex": number, "pages": pages},
+                        ensure_ascii=False,
+                        separators=(",", ":"),
+                    ).encode(),
+                )
+                digest = hashlib.sha256(data).hexdigest()
+                old = next(
+                    (e for e in annexes.get(act_id, []) if e.get("sourceUrl") == url),
+                    {},
+                )
+                entries.append(
+                    {
+                        "bytes": len(data),
+                        "file": pdf_path.relative_to(ROOT).as_posix(),
+                        "finalUrl": final_url,
+                        "origin": origin,
+                        "pages": len(pages),
+                        "retrievedAt": today
+                        if old.get("sha256") != digest
+                        else old.get("retrievedAt", today),
+                        "sha256": digest,
+                        "sourceUrl": url,
+                        "text": text_path.relative_to(ROOT).as_posix(),
+                        "textChars": sum(len(p) for p in pages),
+                    }
+                )
+                print(f"anexo  {key}")
+                time.sleep(args.delay)
+            if entries:
+                annexes[act_id] = entries
     finally:
         if browser:
             browser.close()
         if playwright:
             playwright.stop()
 
-    manifest = {
-        "schemaVersion": 1,
-        "purpose": (
-            "Cópias de consulta dos documentos oficiais. Não alteram situação "
-            "jurídica, profundidade de revisão ou aplicabilidade."
-        ),
-        "items": dict(sorted(items.items())),
-        "failures": dict(sorted(failures.items())),
-    }
-    MANIFEST.parent.mkdir(parents=True, exist_ok=True)
-    MANIFEST.write_text(
-        json.dumps(manifest, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
-    )
-    print(f"Cópias: {len(items)} · falhas nesta execução: {len(failures)}")
+    save(items, failures, annexes, annex_failures, selected)
     return 0
 
 

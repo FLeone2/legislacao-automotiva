@@ -86,6 +86,8 @@ async def main(base):
             page, base, "#flow?stage=seguranca&node=flow:seguranca:equipamentos"
         )
         await expect(page.locator("#flowDetailPanel")).to_contain_text("993/2023")
+        # The merged activity link opens the item where the subject now lives.
+        assert "node=flow%3Aseguranca%3Anivel-1%3AN1-09" in page.url
         assert not await page.evaluate(
             "Object.keys(treeModels.flow.nodes).some(id=>id.includes('contran-220-2007'))"
         )
